@@ -116,6 +116,7 @@ GEM
     hoptoad_notifier (2.3.12)
       activesupport
       builder
+    hpricot (0.8.3)
     i18n (0.5.0)
     inherited_resources (1.1.2)
       has_scope (~> 0.5.0)
@@ -250,6 +251,7 @@ DEPENDENCIES
   friendly_id (~> 3.0)
   haml-rails (>= 0.2)
   hoptoad_notifier (>= 2.3.6)
+  hpricot (~> 0.8.3)
   inherited_resources (>= 1.1.2)
   inploy (>= 1.6.8)
   metric_fu (>= 1.5.1)

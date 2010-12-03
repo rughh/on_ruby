@@ -9,7 +9,19 @@
     = csrf_meta_tag
   %body
     #container
-      %header HEADER
+      %header
+        #login
+          -if current_user
+            Hi #{current_user.email},
+            =link_to 'Logout', destroy_user_session_path
+          -else
+            =link_to 'Login', new_user_session_path
+            or
+            =link_to 'Register', new_user_registration_path
+        %h1 Hamburg &hearts;n Ruby
+        -unless flash.empty?
+          %p.notice= notice
+          %p.alert= alert
       %sidebar SIDEBAR
       %section#content= yield
       %footer FOOTER
