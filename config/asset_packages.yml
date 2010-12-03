@@ -1,0 +1,11 @@
+---
+javascripts:
+- base:
+  - rails
+stylesheets:
+- ie:
+  - ie
+- screen:
+  - screen
+- print:
+  - print

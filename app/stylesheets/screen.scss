@@ -1,0 +1,83 @@
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset";
+
+// To configure blueprint, edit the partials/base.sass file.
+@import "partials/base";
+
+// Import all the default blueprint modules so that we can access their mixins.
+@import "blueprint";
+
+// Import the non-default scaffolding module.
+@import "blueprint/scaffolding";
+
+// To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
+// +blueprint
+
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+
+// Page layout can be done using mixins applied to your semantic classes and IDs:
+body {
+  @include blueprint-typography(true);
+  @include blueprint-utilities;
+  @include blueprint-debug;
+  @include blueprint-interaction;
+  @include blueprint-scaffolding;
+
+  #container {
+    @include container;
+  }
+
+  header, footer {
+    @include column($blueprint-grid-columns, true);
+  }
+
+  sidebar {
+    // One third of the grid columns, rounding down. With 24 cols, this is 8.
+    $sidebar-columns: floor($blueprint-grid-columns / 3);
+    @include column($sidebar-columns);
+  }
+
+  #content {
+    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
+    @include column($content-columns, true); 
+  }
+    
+  form {
+    @include blueprint-form;
+
+    fieldset {
+      border: 0;
+
+      label {
+        display: inline-block;
+        width: 120px;
+      }
+    }
+
+    input[type=submit] {
+      background: #222 url(../images/overlay.png) repeat-x;
+      display: inline-block;
+      padding: 5px 10px 6px;
+      color: #fff;
+      text-decoration: none;
+      @include border-radius(6px);
+      @include box-shadow;
+      border: 0px;
+      border-bottom: 1px solid rgba(0,0,0,0.25);
+      position: relative;
+      cursor: pointer
+    }
+
+    input[type=submit]:hover {
+      background-color: #111;
+      color: #fff;
+    }
+
+    ol {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+  }
+}

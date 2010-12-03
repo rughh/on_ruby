@@ -1,0 +1,15 @@
+<ifModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{THE_REQUEST} ^(GET|HEAD)
+  RewriteCond %{REQUEST_URI} ^(.*)$
+  RewriteCond %{DOCUMENT_ROOT}/cache/$1.html -f
+  RewriteRule ^(.*)$ /cache/$1.html
+</ifModule>
+
+<ifModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 year"
+</ifModule>
+
+FileETag None
