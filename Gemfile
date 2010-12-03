@@ -29,6 +29,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+gem "twitter", "~> 1.0.0"
+gem "dalli", "~> 1.0.0"
 gem "hpricot", "~> 0.8.3"
 gem "haml-rails", ">= 0.2"
 gem "inherited_resources", ">=1.1.2"
