@@ -1,4 +1,10 @@
 HamburgOnRuby::Application.routes.draw do
+  resources :participants
+
+  resources :locations
+
+  resources :events
+
   devise_for :admins
 
   devise_for :users

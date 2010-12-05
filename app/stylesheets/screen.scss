@@ -31,6 +31,14 @@ body {
   header, footer {
     @include column($blueprint-grid-columns, true);
   }
+  
+  #logo {
+    float: left;
+  }
+  
+  #login, #icons {
+    display: inline;
+  }
 
   sidebar {
     // One third of the grid columns, rounding down. With 24 cols, this is 8.
