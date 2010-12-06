@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :twitter, :format => { :with => /@.+/ }
-  validates :homepage, :format => { :with => /https?:\/\/.+/ }
+  validates :twitter, :format => { :with => /@.+/, :unless => "twitter.blank?" }
+  validates :homepage, :format => { :with => /https?:\/\/.+/, :unless => "homepage.blank?" }
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me

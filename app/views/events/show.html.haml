@@ -1,18 +1,19 @@
-#event
-  %h2=@event.name
-  %p.sub
-    = @event.date
-    gehostet durch
-    = @event.user.twitter
-    bei
-    = @event.location.name
+-if @event
+  #event
+    %h2=@event.name
+    %p.sub
+      = @event.date
+      gehostet durch
+      = @event.user.twitter
+      bei
+      = @event.location.name
 
-  %p=@event.description
+    %p=@event.description
   
-  #map_canvas{:style=>"width:500px; height:500px", 'data-map'=>@event.location.to_json}
+    #map_canvas{:style=>"width:500px; height:500px", 'data-map'=>@event.location.to_json}
   
-  TEILNEHMEN
+    TEILNEHMEN
   
-= link_to 'Edit', edit_event_path(@event)
-\|
-= link_to 'Back', events_path
+    = link_to 'Edit', edit_event_path(@event)
+    \|
+    = link_to 'Back', events_path

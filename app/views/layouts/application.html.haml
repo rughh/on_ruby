@@ -29,12 +29,13 @@
             MAIL
           
         #logo
-          =image_tag('logo.gif')
+          -link_to(root_path) do
+            =image_tag('logo.gif')
         %h1=hor
         #preview
           %ul
             -@preview_events.each do |event|
-              %li=event.name
+              %li=link_to("#{event.date} #{event.name}", event_path(event))
       %sidebar
         - @tweets.each do |tweet|
           %li=tweet.text
