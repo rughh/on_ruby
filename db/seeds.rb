@@ -20,3 +20,9 @@ locations = Location.create(
     }
   ]
 )
+
+# event = Event.create(:name => 'Weihnachtsfeier', :date => (Time.now + 2.days), :description=> 'blblblaaaa blaaaa bllaaaa   blabalablaaa ')
+# event.user = User.first
+# event.location = Location.first
+# event.save
+# Participant.create(:user_id => User.first.id, :event_id => Event.first.id)

@@ -1,9 +1,10 @@
 class CreateParticipants < ActiveRecord::Migration
   def self.up
     create_table :participants do |t|
-      t.integer :user_id
-      t.integer :event_id
+      t.references :user
+      t.references :event
       t.boolean :maybe
+      t.text :comment
 
       t.timestamps
     end
