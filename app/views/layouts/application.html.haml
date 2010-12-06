@@ -15,8 +15,8 @@
             -if current_user
               Hallo #{current_user.email}
               herzlich willkommen bei #{hor}:
-              =link_to 'Profil', destroy_user_session_path
-              =link_to 'Termine', destroy_user_session_path
+              =link_to 'Profil', edit_user_registration_path
+              =link_to 'Termine', events_path
               =link_to 'Abmelden', destroy_user_session_path
             -else
               Hallo und herzlich willkommen bei #{hor}:
@@ -52,4 +52,4 @@
           =image_tag('logo.gif')
           =image_tag('logo.gif')
           
-    =javascript_include_tag('http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js', 'rails.js')
+    =javascript_include_tag('http://maps.google.com/maps/api/js?sensor=true', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js', 'rails.js', 'base.js')
