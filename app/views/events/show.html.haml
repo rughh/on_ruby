@@ -14,16 +14,14 @@
     
     %h3
       Themen
-      .add
-        =link_to 'hinzufügen', new_topic_path
+      .add=link_to 'hinzufügen', new_topic_path
     %ul
       - @event.topics.each do |t|
         %li=t.name
     
     %h3
       Material
-      .add
-        =link_to 'hinzufügen', new_material_path
+      .add=link_to 'hinzufügen', new_material_path
     %ul
       - @event.materials.each do |m|
         %li=link_to(m.name, m.url)

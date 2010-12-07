@@ -1,8 +1,8 @@
 .add
   -if current_user && !current_user.participates?(@event)
-    - form_for Participant.new do |f|
+    - form_for Participant.new, :html =>{ :class => 'blueprint-form' } do |f|
       =f.hidden_field :user_id, :value => current_user.id
       =f.hidden_field :event_id, :value => @event.id
-      =f.submit 'Teilnehmen'
+      =f.submit 'teilnehmen'
   - else
-    =link_to('Teilnehmen', user_session_path)
+    =link_to('teilnehmen', user_session_path)

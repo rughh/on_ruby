@@ -13,8 +13,7 @@ function initialize() {
     position: new google.maps.LatLng(data.lat, data.long),
     map: map,
     title: data.name
-  });
-  
+  }); 
 }
 
 $(document).ready(function(){
