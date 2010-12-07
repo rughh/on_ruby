@@ -11,10 +11,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :twitter, :github, :homepage, :company
   
-  has_many :events
+  has_many :participants
   
   def participates?(event)
-    events.any?{|e| e.id == event.id}
+    participants.any?{|p| p.event_id == event.id}
   end
   
   def to_s

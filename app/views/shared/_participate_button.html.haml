@@ -1,5 +1,5 @@
 .add
-  -if current_user and not current_user.participates?(@event)
+  -if current_user && !current_user.participates?(@event)
     - form_for Participant.new do |f|
       =f.hidden_field :user_id, :value => current_user.id
       =f.hidden_field :event_id, :value => @event.id
