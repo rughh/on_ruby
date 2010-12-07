@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
   def participates?(event)
     participants.any?{|p| p.event_id == event.id}
   end
+  
+  def participation(event)
+    participants.all.find{|p| p.event_id == event.id}
+  end
 
   def self.create_from_hash!(hash)
     create do |user|

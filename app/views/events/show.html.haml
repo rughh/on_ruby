@@ -28,7 +28,8 @@
       Teilnehmer
     %ul
       - @event.participants.each do |p|
-        %li=p.user.nickname
+        %li
+          =p.user.nickname
 
     %h3 Anfahrt
     #map_canvas{:style=>"width:500px; height:500px", 'data-map'=>@event.location.to_json}
