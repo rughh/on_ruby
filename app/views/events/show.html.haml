@@ -2,13 +2,7 @@
   #event
     %h2
       =@event.name
-      -if current_user and not current_user.participates?(@event)
-        - form_for Participant.new do |f|
-          =f.hidden_field :user_id, :value => current_user.id
-          =f.hidden_field :event_id, :value => @event.id
-          =f.submit 'Teilnehmen'
-      - else
-        =link_to('Teilnehmen', user_session_path)
+      =render :partial => 'shared/participate_button'
     %p.sub
       = @event.date
       gehostet durch
@@ -18,23 +12,29 @@
       
     %p=@event.description
     
-    %h3 Themen
+    %h3
+      Themen
+      .add
+        =link_to 'hinzufügen', new_topic_path
     %ul
-      %li Was zu Rails
-      %li Off Topic
-      %li Bier und Onade
+      - @event.topics.each do |t|
+        %li=t.name
     
-    %h3 Material
+    %h3
+      Material
+      .add
+        =link_to 'hinzufügen', new_material_path
     %ul
-      %li Link zu Slideshare
-      %li PDF verlinkt
-      %li Verwandtes Event
+      - @event.materials.each do |m|
+        %li=link_to(m.name, m.url)
       
-    %h3 Teilnehmer
+    %h3
+      Teilnehmer
+      =render :partial => 'shared/participate_button'
     %ul
       - @event.participants.each do |p|
         %li=p.user
-    
+
     %h3 Anfahrt
     #map_canvas{:style=>"width:500px; height:500px", 'data-map'=>@event.location.to_json}
     

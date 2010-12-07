@@ -1,0 +1,2 @@
+module MaterialsHelper
+end

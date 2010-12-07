@@ -1,4 +1,8 @@
 HamburgOnRuby::Application.routes.draw do
+  resources :materials
+
+  resources :topics
+
   resources :participants
 
   resources :events

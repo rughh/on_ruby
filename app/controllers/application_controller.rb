@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
   before_filter :load_stuff
   
   def load_stuff
-    @tweets = cache(:tweets, :expire_in => 1.minute) do
+    @tweets = cache(:schnups, :expire_in => 1.minute) do
       logger.debug "fetching new tweets"
-      Twitter::Search.new.q("rails").fetch
+      Twitter::Search.new.q("rails OR ruby OR rughh").geocode(53.561858,9.962021,'100km').rpp(10).fetch
     end
     @preview_events = Event.preview_events
   end

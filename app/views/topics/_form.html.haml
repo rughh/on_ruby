@@ -1,0 +1,22 @@
+= form_for @topic do |f|
+  -if @topic.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@topic.errors.count, "error")} prohibited this topic from being saved:"
+      %ul
+        - @topic.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :user_id
+    = f.select(:user_id, User.all.collect {|u| [ u.to_s, u.id ] }, { :include_blank => true })
+  .field
+    = f.label :event_id
+    = f.select(:event_id, Event.all.collect {|e| [ e.to_s, e.id ] }, { :include_blank => true })
+  .actions
+    = f.submit 'Save'

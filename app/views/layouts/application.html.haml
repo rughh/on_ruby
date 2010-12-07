@@ -37,8 +37,14 @@
             -@preview_events.each do |event|
               %li=link_to("#{event.date} #{event.name}", event_path(event))
       %sidebar
+        %ul
         - @tweets.each do |tweet|
-          %li=tweet.text
+          %li
+            %h4
+              -link_to("http://twitter.com/#{tweet.from_user}") do
+                =image_tag(tweet.profile_image_url)
+            %p=tweet.created_at
+            %p=tweet.text
       %section
         #content
           #flash

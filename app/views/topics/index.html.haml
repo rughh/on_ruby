@@ -1,0 +1,25 @@
+%h1 Listing topics
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th User
+    %th Event
+    %th
+    %th
+    %th
+
+  - @topics.each do |topic|
+    %tr
+      %td= topic.name
+      %td= topic.description
+      %td= topic.user
+      %td= topic.event
+      %td= link_to 'Show', topic
+      %td= link_to 'Edit', edit_topic_path(topic)
+      %td= link_to 'Destroy', topic, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Topic', new_topic_path

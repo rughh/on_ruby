@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @topic.name
+%p
+  %b Description:
+  = @topic.description
+%p
+  %b User:
+  = @topic.user
+%p
+  %b Event:
+  = @topic.event
+
+= link_to 'Edit', edit_topic_path(@topic)
+\|
+= link_to 'Back', topics_path
