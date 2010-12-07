@@ -1,19 +1,44 @@
 -if @event
   #event
-    %h2=@event.name
+    %h2
+      =@event.name
+      -if current_user and not current_user.participates?(@event)
+        - form_for Participant.new do |f|
+          =f.hidden_field :user_id, :value => current_user.id
+          =f.hidden_field :event_id, :value => @event.id
+          =f.submit 'Teilnehmen'
+      - else
+        =link_to('Teilnehmen', user_session_path)
     %p.sub
       = @event.date
       gehostet durch
       = @event.user.twitter
       bei
       = @event.location.name
-
+      
     %p=@event.description
-  
+    
+    %h3 Themen
+    %ul
+      %li Was zu Rails
+      %li Off Topic
+      %li Bier und Onade
+    
+    %h3 Material
+    %ul
+      %li Link zu Slideshare
+      %li PDF verlinkt
+      %li Verwandtes Event
+      
+    %h3 Teilnehmer
+    %ul
+      - @event.participants.each do |p|
+        %li=p.user
+    
+    %h3 Anfahrt
     #map_canvas{:style=>"width:500px; height:500px", 'data-map'=>@event.location.to_json}
+    
   
-    TEILNEHMEN
-  
-    = link_to 'Edit', edit_event_path(@event)
-    \|
-    = link_to 'Back', events_path
+    / = link_to 'Edit', edit_event_path(@event)
+    / \|
+    / = link_to 'Back', events_path

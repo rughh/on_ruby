@@ -10,4 +10,14 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :twitter, :github, :homepage, :company
+  
+  has_many :events
+  
+  def participates?(event)
+    events.any?{|e| e.id == event.id}
+  end
+  
+  def to_s
+    twitter || email
+  end
 end
