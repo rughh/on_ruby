@@ -1,14 +1,7 @@
-class EventsController < ApplicationController
-  
-  def index
-    @events = Event.all
-  end
+class EventsController < InheritedResources::Base
   
   def show
     @event = params[:id] ? Event.find(params[:id]) : Event.current
   end
   
-  def new
-    @event = Event.new
-  end
 end
