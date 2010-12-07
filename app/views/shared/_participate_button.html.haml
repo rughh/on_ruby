@@ -5,4 +5,4 @@
       =f.hidden_field :event_id, :value => @event.id
       =f.submit 'teilnehmen'
   - else
-    =link_to('teilnehmen', user_session_path)
+    =link_to('teilnehmen', auth_path)

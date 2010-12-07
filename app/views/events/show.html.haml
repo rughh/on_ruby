@@ -6,7 +6,7 @@
     %p.sub
       = @event.date
       gehostet durch
-      = @event.user.twitter
+      = @event.user.nickname
       bei
       = @event.location.name
       
@@ -14,24 +14,21 @@
     
     %h3
       Themen
-      .add=link_to 'hinzufügen', new_topic_path
     %ul
       - @event.topics.each do |t|
         %li=t.name
     
     %h3
       Material
-      .add=link_to 'hinzufügen', new_material_path
     %ul
       - @event.materials.each do |m|
         %li=link_to(m.name, m.url)
       
     %h3
       Teilnehmer
-      =render :partial => 'shared/participate_button'
     %ul
       - @event.participants.each do |p|
-        %li=p.user
+        %li=p.user.nickname
 
     %h3 Anfahrt
     #map_canvas{:style=>"width:500px; height:500px", 'data-map'=>@event.location.to_json}

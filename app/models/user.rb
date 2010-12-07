@@ -1,23 +1,20 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable, :lockable and :timeoutable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-  validates :twitter, :format => { :with => /@.+/, :unless => "twitter.blank?" }
-  validates :homepage, :format => { :with => /https?:\/\/.+/, :unless => "homepage.blank?" }
-
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :twitter, :github, :homepage, :company
-  
+  has_many :authorizations
   has_many :participants
   
   def participates?(event)
     participants.any?{|p| p.event_id == event.id}
   end
-  
-  def to_s
-    twitter || email
+
+  def self.create_from_hash!(hash)
+    create do |user|
+      user.nickname = hash['user_info']['nickname']
+      user.name = hash['user_info']['name']
+      user.location = hash['user_info']['location']
+      user.image = hash['user_info']['image']
+      user.description = hash['user_info']['description']
+      user.url = hash['user_info']['urls']['Website']
+    end
   end
+  
 end

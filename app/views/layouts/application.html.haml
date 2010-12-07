@@ -14,16 +14,15 @@
         #welcome
           #login
             -if current_user
-              Hallo #{current_user.email}
+              =image_tag(current_user.image)
+              Hallo 
+              %strong=current_user.nickname
               herzlich willkommen bei #{hor}:
-              =link_to 'Profil', edit_user_registration_path
               =link_to 'Termine', events_path
-              =link_to 'Abmelden', destroy_user_session_path
+              =link_to 'Abmelden', destroy_session_path
             -else
               Hallo und herzlich willkommen bei #{hor}:
-              =link_to 'Anmelden', new_user_session_path
-              or
-              =link_to 'Registrieren', new_user_registration_path
+              =link_to 'Anmelden mit Twitter', auth_path
           #icons
             TWITTER
             RSS

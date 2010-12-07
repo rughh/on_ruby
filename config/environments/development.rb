@@ -24,9 +24,6 @@ HamburgOnRuby::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
   
-  # devise config
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  
   # use memcache
   config.cache_store = :dalli_store
 end

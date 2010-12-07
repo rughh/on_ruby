@@ -47,9 +47,6 @@ HamburgOnRuby::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
   
-  # devise config
-  config.action_mailer.default_url_options = { :host => 'hamburg-on-ruby.heroku.com' }
-  
   # use memcache
   config.cache_store = :dalli_store
 end

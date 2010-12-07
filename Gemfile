@@ -35,16 +35,10 @@ gem "hpricot", "~> 0.8.3"
 gem "haml-rails", ">= 0.2"
 gem "inherited_resources", ">=1.1.2"
 gem "will_paginate", ">=3.0.pre2"
-gem "devise", ">=1.1.2"
 gem "formtastic", ">=1.1.0"
 gem "friendly_id", "~>3.0"
 gem "compass", ">= 0.10.5"
-gem "hoptoad_notifier", ">=2.3.6"
-gem "inploy", ">=1.6.8"
-
-group(:production) do
-  gem "newrelic_rpm", ">=2.12.3", :group => :production
-end
+gem "omniauth"
 
 group(:development, :test) do
   gem "ruby-debug19", :require => "ruby-debug"
