@@ -46,11 +46,11 @@
             %p=tweet.created_at
             %p=tweet.text
       %section
+        #flash
+          -unless flash.empty?
+            %p.notice= notice
+            %p.alert= alert
         #content
-          #flash
-            -unless flash.empty?
-              %p.notice= notice
-              %p.alert= alert
           = yield
       %footer
         #sponsors

@@ -13,8 +13,11 @@
 // To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
 // +blueprint
 
+@import "compass/css3/box";
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
+@import "compass/css3/text-shadow";
+@import "blueprint/fancy-type";
 
 // Page layout can be done using mixins applied to your semantic classes and IDs:
 body {
@@ -23,6 +26,8 @@ body {
   @include blueprint-debug;
   @include blueprint-interaction;
   @include blueprint-scaffolding;
+  
+  background-image: url(/images/background.png);
 
   #container {
     @include container;
@@ -50,7 +55,46 @@ body {
     $content-columns: ceil(2 * $blueprint-grid-columns / 3);
     @include column($content-columns, true); 
   }
-    
+  
+  #logo {
+    margin-right: 25px;
+  }
+  
+  #pre h1 {
+    padding-top: 6px;
+    color: dark-gray;
+  }
+  .clear {
+    clear: both;
+  }
+  #pre {
+    color: dark-gray;
+    background: white;
+    @include box-shadow();
+    @include border-radius(4px, 4px);
+    @include text-shadow();
+    padding: 50px;
+    margin: 50px;
+    height: 80%;
+    width: 80%;
+  }
+  #users {
+    padding-top: 25px;
+  }
+  #users ul {
+    padding: 0px;
+    margin: 0px;
+  }
+  #users li {
+    padding: 5px;
+    list-style: none;
+    float: left;
+  }
+  #users img {
+    padding: 1px;
+    border: 1px solid gray;
+  }
+  
   form {
     @include blueprint-form;
 

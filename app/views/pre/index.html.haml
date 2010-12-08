@@ -1,0 +1,42 @@
+!!! 5
+%html
+  %head
+    %title
+    =stylesheet_link_tag('screen', :media => 'screen, projection')
+    = stylesheet_link_tag 'buttons.css', :media => 'screen, projection'
+    =stylesheet_link_tag('print', :media => 'print')
+    /[if lt IE 8]
+      =stylesheet_link_tag('ie', :media => 'screen, projection')
+    = csrf_meta_tag
+  %body
+    #container
+      %section
+        #pre
+          #logo
+            =link_to(root_path) do
+              =image_tag('logo.gif')
+          #welcome
+            %h1=hor
+            -if current_user
+              Hallo 
+              %strong=current_user.nickname
+              herzlich willkommen bei #{hor}:
+              =link_to 'Abmelden', destroy_session_path
+            -else
+              %p
+                Hallo und herzlich willkommen bei #{hor}:
+                =link_to 'Anmelden mit Twitter', auth_path
+          .clear
+          #flash
+            -unless flash.empty?
+              %p.notice= notice
+              %p.alert= alert
+          #users
+            %ul
+              - @users.each do |user|
+                %li
+                  =link_to "http://twitter.com/#{user.nickname}" do
+                    =image_tag user.image, :alt => user.nickname, :title => user.nickname
+          .clear
+          
+    =javascript_include_tag('http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js', 'rails.js', 'base.js')
