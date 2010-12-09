@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
   has_many :topics
   has_many :materials
   
+  accepts_nested_attributes_for :materials
+  
   def to_s
     "#{date} #{name}"
   end

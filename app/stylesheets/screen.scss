@@ -20,6 +20,11 @@
 @import "blueprint/fancy-type";
 
 // Page layout can be done using mixins applied to your semantic classes and IDs:
+
+body.bg {
+  background-image: url(/images/background.png);
+}
+
 body {
   @include blueprint-typography(true);
   @include blueprint-utilities;
@@ -27,8 +32,6 @@ body {
   @include blueprint-interaction;
   @include blueprint-scaffolding;
   
-  background-image: url(/images/background.png);
-
   #container {
     @include container;
   }
@@ -56,7 +59,7 @@ body {
     @include column($content-columns, true); 
   }
   
-  #logo {
+  #pre logo {
     margin-right: 25px;
   }
   
@@ -93,6 +96,8 @@ body {
   #users img {
     padding: 1px;
     border: 1px solid gray;
+    width: 48px;
+    height: 48px;
   }
   
   form {
