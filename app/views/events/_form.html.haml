@@ -1,4 +1,5 @@
 = semantic_form_for @event do |form|
   = form.inputs
-  = form.inputs :name => 'Material #%i', :for => :materials
+  = submit_tag 'Material hinzufügen', :name => 'add_material'
+  = form.inputs :name => 'Material', :for => :materials
   = form.buttons

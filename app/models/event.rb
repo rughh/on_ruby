@@ -1,4 +1,7 @@
 class Event < ActiveRecord::Base
+  
+  validates :location, :user, :name, :description, :date, :presence => true
+  
   belongs_to :location
   belongs_to :user
   
@@ -7,6 +10,7 @@ class Event < ActiveRecord::Base
   has_many :materials
   
   accepts_nested_attributes_for :materials
+  accepts_nested_attributes_for :topics
   
   def to_s
     "#{date} #{name}"

@@ -4,9 +4,20 @@ class EventsController < InheritedResources::Base
     @event = params[:id] ? Event.find(params[:id]) : Event.current
   end
   
-  def new
-    @event = Event.new
+  def create
+    if params['add_material']
+      add_material
+    else
+      super
+    end
+  end
+  
+  private
+  
+  def add_material
+    @event = Event.new params['event']
     @event.materials.build
+    render :new
   end
   
 end

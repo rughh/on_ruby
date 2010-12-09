@@ -1,13 +1,12 @@
 HamburgOnRuby::Application.routes.draw do
   resources :users
 
-  resources :materials
-
-  resources :topics
-
   resources :participants
 
-  resources :events
+  resources :events do
+    resources :materials
+    resources :topics
+  end
 
   resources :locations
   
