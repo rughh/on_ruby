@@ -3,8 +3,9 @@
   %head
     %title
     =stylesheet_link_tag('screen', :media => 'screen, projection')
-    = stylesheet_link_tag 'buttons.css', :media => 'screen, projection'
+    =stylesheet_link_tag 'buttons.css', :media => 'screen, projection'
     =stylesheet_link_tag('print', :media => 'print')
+    =auto_discovery_link_tag(:rss, rss_events_path, {:title => "RSS Feed"})
     /[if lt IE 8]
       =stylesheet_link_tag('ie', :media => 'screen, projection')
     = csrf_meta_tag
@@ -16,7 +17,7 @@
             =link_to 'http://twitter.com/onruby', :class => 'button' do
               =image_tag('balloon-twitter.png')
               @hamburg_onruby
-            =link_to rss_path(:type => :rss), :class => 'button' do
+            =link_to rss_events_path(:type => :rss), :class => 'button' do
               =image_tag('feed.png')
               RSS-Feed
             =link_to 'mailto:hamburg@onruby.de', :class => 'button' do

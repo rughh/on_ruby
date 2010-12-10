@@ -6,10 +6,10 @@ HamburgOnRuby::Application.routes.draw do
   end
 
   resources :events do
+    get 'rss', :on => :collection
     resources :materials
     resources :topics
   end
-  match 'events.rss', :to => 'events#index', :as => 'rss'
   
   resources :locations
   

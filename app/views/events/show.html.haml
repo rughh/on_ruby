@@ -3,33 +3,45 @@
     %h2
       =@event.name
       =render :partial => 'shared/participate_button'
-    %p.sub
-      = @event.date
-      gehostet durch
-      = @event.user.nickname
-      bei
-      = @event.location.name
+    %p
+      %em
+        =l @event.date
+        gehostet durch
+        =link_to @event.user.nickname, "http://twitter.com/#{@event.user.nickname}"
+        bei
+        =link_to @event.location.name, @event.location.url
       
     %p=@event.description
     
     %h3
-      Themen
+      Themen:
     %ul
       - @event.topics.each do |t|
         %li=t.name
     
+    %div
+      = link_to '#', :class => :button do
+        =image_tag('plus.png')
+        Thema hinzufügen
+    #add_topics.clear
+      = simple_form_for [@event, Topic.new] do |f|
+        = f.input :name
+        = f.input :description
+        = f.association :user
+        = f.button :submit
+    .clear
     %h3
-      Material
+      Material:
     %ul
       - @event.materials.each do |m|
         %li=link_to(m.name, m.url)
       
     %h3
-      Teilnehmer
+      Teilnehmer:
     .users
       %ul
         - @event.participants.each do |p|
           %li=image_tag(p.user.image)
     .clear
-    %h3 Anfahrt
+    %h3 Anfahrt:
     #map_canvas{'data-map'=>@event.location.to_json}

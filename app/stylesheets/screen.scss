@@ -74,6 +74,10 @@ body {
   .clear {
     clear: both;
   }
+  h2 span, h3 span {
+    font-size: 14px;
+    float: right;
+  }
   #container {
     color: dark-gray;
     background: white;

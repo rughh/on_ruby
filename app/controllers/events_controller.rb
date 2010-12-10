@@ -1,5 +1,11 @@
 class EventsController < InheritedResources::Base
   
+  def rss
+    @events = Event.order("id DESC").limit(10)
+    render :layout => false
+    response.headers["Content-Type"] = "application/xml; charset=utf-8"
+  end
+  
   def show
     @event = params[:id] ? Event.find(params[:id]) : Event.current
     flash[:alert] = 'Derzeit sind keine aktuellen Termine vorhanden' unless @event
