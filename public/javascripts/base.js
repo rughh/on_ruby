@@ -1,4 +1,4 @@
-function initialize() {
+function initialize_map() {
   var latlng = new google.maps.LatLng(53.561858,9.962021);
   var myOptions = {
     zoom: 14,
@@ -16,6 +16,15 @@ function initialize() {
   }); 
 }
 
+function show_hide() {
+  $(".show_hide a").click(function (){
+    var name = $(this).attr('name');
+    $("#add_" + name).toggle('slow');
+    return false;
+  });
+}
+
 $(document).ready(function(){
-  initialize();
+  initialize_map();
+  show_hide();
 });

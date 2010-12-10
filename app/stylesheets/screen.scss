@@ -74,9 +74,41 @@ body {
   .clear {
     clear: both;
   }
+  .right {
+    float: right;
+  }
   h2 span, h3 span {
     font-size: 14px;
     float: right;
+  }
+  h3 .button {
+    padding: 1px 10px 1px 7px;
+    margin: 0px;
+    margin-right: 5px;
+    font-size: 14px;
+  }
+  h4 .button {
+    padding: 1px 10px 1px 7px;
+    margin: 0px;
+    margin-right: 5px;
+    font-size: 12px;
+  }
+  label {
+    display: block;
+  }
+  .box {
+    border: 1px solid gray;
+    margin: 10px;
+    padding: 10px;
+    @include border-radius(4px, 4px);
+    @include box-shadow();
+  }
+  #add_topics {
+    display: none;
+  }
+  #add_topics textarea {
+    height: 100px;
+    width: 300px;
   }
   #container {
     color: dark-gray;
@@ -119,6 +151,8 @@ body {
   }
   
   #map_canvas {
+    padding: 1px;
+    border: 1px solid gray;
     width: 500px;
     height: 500px;
   }

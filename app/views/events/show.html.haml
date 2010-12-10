@@ -14,21 +14,30 @@
     %p=@event.description
     
     %h3
+      .show_hide
+        = link_to '#', :name => 'topics', :class => 'button' do
+          =image_tag('plus.png')
+          Thema hinzufügen
       Themen:
     %ul
       - @event.topics.each do |t|
-        %li=t.name
-    
-    %div
-      = link_to '#', :class => :button do
-        =image_tag('plus.png')
-        Thema hinzufügen
-    #add_topics.clear
-      = simple_form_for [@event, Topic.new] do |f|
-        = f.input :name
-        = f.input :description
-        = f.association :user
-        = f.button :submit
+        %li
+          %h4
+            =t.name
+            -if t.user
+              ="(#{t.user.nickname})"
+            = link_to [@event, t], :method => :delete, :class => 'button' do
+              =image_tag('minus.png')
+              %span Thema löschen
+          %p=t.description    
+    %div      
+      #add_topics.box
+        = simple_form_for [@event, Topic.new] do |f|
+          = f.input :name
+          = f.input :description
+          = f.association :user
+          = f.button :submit
+        .clear
     .clear
     %h3
       Material:
