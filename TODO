@@ -1,0 +1,3 @@
+- use https://github.com/plataformatec/simple_form
+- add topics and materials like in railscast mongoid
+- cancan for rights management

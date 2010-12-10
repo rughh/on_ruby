@@ -12,49 +12,59 @@
     #container
       %header
         #welcome
+          #icons
+            =link_to 'http://twitter.com/onruby', :class => 'button' do
+              =image_tag('balloon-twitter.png')
+              @hamburg_onruby
+            =link_to rss_path(:type => :rss), :class => 'button' do
+              =image_tag('feed.png')
+              RSS-Feed
+            =link_to 'mailto:hamburg@onruby.de', :class => 'button' do
+              =image_tag('mail.png')
+              E-Mail
           #login
             -if current_user
-              =image_tag(current_user.image)
-              Hallo 
-              %strong=current_user.nickname
-              herzlich willkommen bei #{hor}:
-              =link_to 'Termine', events_path
-              =link_to 'Abmelden', destroy_session_path
+              =link_to destroy_session_path, :class => 'button' do
+                =image_tag(current_user.image)
+                =current_user.nickname
+                abmelden
             -else
-              Hallo und herzlich willkommen bei #{hor}:
-              =link_to 'Anmelden mit Twitter', auth_path
-          #icons
-            TWITTER
-            RSS
-            MAIL
-          
+              =link_to auth_path, :class => 'button' do
+                =image_tag('user.png')
+                Anmelden via Twitter
         #logo
           -link_to(root_path) do
             =image_tag('logo.gif')
-        %h1=hor
+        %h1
+          Herzlich willkommen bei #{hor}!
         #preview
           %ul
             -@preview_events.each do |event|
               %li=link_to("#{event.date} #{event.name}", event_path(event))
       %sidebar
-        %ul
-        - @tweets.each do |tweet|
-          %li
-            %h4
-              -link_to("http://twitter.com/#{tweet.from_user}") do
-                =image_tag(tweet.profile_image_url)
-            %p=tweet.created_at
-            %p=tweet.text
+        #tweets
+          %ul
+            - @tweets.each do |tweet|
+              %li
+                =link_to "http://twitter.com/#{tweet.from_user}", :class => 'button' do
+                  =image_tag(tweet.profile_image_url)
+                  =tweet.text
+        .users
+          %ul
+            - @random_users.each do |user|
+              %li=image_tag(user.image)
+        .clear
       %section
-        #flash
-          -unless flash.empty?
-            %p.notice= notice
-            %p.alert= alert
         #content
+          #flash
+            -if notice
+              %div.notice=notice
+            -if alert
+              %div.error=alert
           = yield
       %footer
         #sponsors
-          %h2 Sponsoren:
+          %h2 Vielen Dank an die Sponsoren!
           =image_tag('logo.gif')
           =image_tag('logo.gif')
           =image_tag('logo.gif')

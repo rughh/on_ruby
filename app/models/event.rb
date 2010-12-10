@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
   end
   
   def self.preview_events
-    self.order('date DESC').limit(3)
+    self.order('date DESC').limit(2)
   end
   
   def self.current

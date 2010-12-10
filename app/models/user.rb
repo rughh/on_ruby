@@ -1,13 +1,17 @@
 class User < ActiveRecord::Base
   has_many :authorizations
   has_many :participants
-  
+
   def participates?(event)
     participants.any?{|p| p.event_id == event.id}
   end
   
   def participation(event)
     participants.all.find{|p| p.event_id == event.id}
+  end
+  
+  def self.random(num=3)
+    all.shuffle[0..num]
   end
 
   def self.create_from_hash!(hash)

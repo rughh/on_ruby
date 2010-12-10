@@ -18,12 +18,9 @@
 @import "compass/css3/box-shadow";
 @import "compass/css3/text-shadow";
 @import "blueprint/fancy-type";
+@import "compass/utilities/lists/bullets";
 
 // Page layout can be done using mixins applied to your semantic classes and IDs:
-
-body.bg {
-  background-image: url(/images/background.png);
-}
 
 body {
   @include blueprint-typography(true);
@@ -31,6 +28,8 @@ body {
   @include blueprint-debug;
   @include blueprint-interaction;
   @include blueprint-scaffolding;
+  
+  background-image: url(/images/background.png);
   
   #container {
     @include container;
@@ -40,12 +39,12 @@ body {
     @include column($blueprint-grid-columns, true);
   }
   
-  #logo {
-    float: left;
+  header {
+    padding-bottom: 25px;
   }
   
-  #login, #icons {
-    display: inline;
+  #logo {
+    float: left;
   }
 
   sidebar {
@@ -59,45 +58,65 @@ body {
     @include column($content-columns, true); 
   }
   
-  #pre logo {
+  #logo {
     margin-right: 25px;
   }
   
-  #pre h1 {
+  h1 {
     padding-top: 6px;
     color: dark-gray;
+  }
+  ul, li {
+    @include no-bullets();
+    padding: 0px;
+    margin: 0px;
   }
   .clear {
     clear: both;
   }
-  #pre {
+  #container {
     color: dark-gray;
     background: white;
     @include box-shadow();
     @include border-radius(4px, 4px);
     @include text-shadow();
-    padding: 50px;
-    margin: 50px;
-    height: 80%;
-    width: 80%;
+    padding: 25px;
+    margin-top: 25px;
   }
-  #users {
-    padding-top: 25px;
+  #icons {
+    float: right;
   }
-  #users ul {
-    padding: 0px;
-    margin: 0px;
+  #welcome {
+    margin-top: -5px;
+    margin-bottom: 25px;
+    display: block;
+    height: 50px;
   }
-  #users li {
-    padding: 5px;
-    list-style: none;
+  #preview {
+    margin-left: 110px;
+  }
+  #preview ul {
+    @include pretty-bullets("calendar-blue.png", 30px, 30px, 30px, 30px);
+  }
+  #preview li {
+    margin-left: 25px;
+    padding-top: 3px;
+    height: 30px;
+  }
+  .users li {
     float: left;
+    padding: 5px;
   }
-  #users img {
+  .users img {
     padding: 1px;
     border: 1px solid gray;
     width: 48px;
     height: 48px;
+  }
+  
+  #map_canvas {
+    width: 500px;
+    height: 500px;
   }
   
   form {

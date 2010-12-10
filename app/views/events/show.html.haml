@@ -26,15 +26,10 @@
       
     %h3
       Teilnehmer
-    %ul
-      - @event.participants.each do |p|
-        %li
-          =p.user.nickname
-
+    .users
+      %ul
+        - @event.participants.each do |p|
+          %li=image_tag(p.user.image)
+    .clear
     %h3 Anfahrt
-    #map_canvas{:style=>"width:500px; height:500px", 'data-map'=>@event.location.to_json}
-    
-  
-    / = link_to 'Edit', edit_event_path(@event)
-    / \|
-    / = link_to 'Back', events_path
+    #map_canvas{'data-map'=>@event.location.to_json}

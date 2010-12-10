@@ -1,11 +1,14 @@
 .add
   -if current_user
     - if current_user.participates?(@event)
-      = link_to('abmelden', current_user.participation(@event), :method => :delete, :class => :button)
+      = link_to current_user.participation(@event), :method => :delete, :class => :button do
+        =image_tag('minus.png')
+        abmelden
     -else
-      - form_for Participant.new, :html =>{ :class => 'blueprint-form' } do |f|
-        =f.hidden_field :user_id, :value => current_user.id
-        =f.hidden_field :event_id, :value => @event.id
-        =f.submit 'teilnehmen'
+      = link_to(add_user_participant_path(@event.id), {:class => :button}) do
+        =image_tag('plus.png')
+        teilnehmen
   - else
-    =link_to('teilnehmen', auth_path, :class => :button)
+    =link_to(auth_path, :class => :button) do
+      =image_tag('minus.png')
+      teilnehmen

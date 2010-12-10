@@ -2,6 +2,7 @@ class EventsController < InheritedResources::Base
   
   def show
     @event = params[:id] ? Event.find(params[:id]) : Event.current
+    flash[:alert] = 'Derzeit sind keine aktuellen Termine vorhanden' unless @event
   end
   
   def create

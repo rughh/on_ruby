@@ -16,4 +16,8 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to(root_path, :notice => 'Du bist erfolgreich ausgeloggt!')
   end
+  
+  def failure
+    redirect_to(root_path, :alert => 'Fehler beim Einloggen mit Twitter, bist du dort vielleicht nicht eingeloggt?')
+  end
 end
