@@ -5,9 +5,9 @@
       =render :partial => 'shared/participate_button'
     %p
       %em
-        =l @event.date
+        =link_to l(@event.date), event_path(@event, :format => :ics), :class => 'ical'
         gehostet durch
-        =link_to @event.user.nickname, "http://twitter.com/#{@event.user.nickname}"
+        =link_to @event.user.nickname, @event.user.twurl
         bei
         =link_to @event.location.name, @event.location.url
       
@@ -72,7 +72,9 @@
     .users
       %ul
         - @event.participants.each do |p|
-          %li=image_tag(p.user.image)
+          %li
+            =link_to p.user.twurl do
+              =image_tag(p.user.image)
     .clear
     %h3 Anfahrt:
     #map_canvas{'data-map'=>@event.location.to_json}

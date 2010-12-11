@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
     participants.all.find{|p| p.event_id == event.id}
   end
   
+  def twurl
+    "http://twitter.com/#{nickname}"
+  end
+  
   def self.random(num=15)
     all.shuffle[0..num]
   end

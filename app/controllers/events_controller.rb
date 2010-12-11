@@ -9,6 +9,15 @@ class EventsController < InheritedResources::Base
   def show
     @event = params[:id] ? Event.find(params[:id]) : Event.current
     flash[:alert] = 'Derzeit sind keine aktuellen Termine vorhanden' unless @event
+    respond_to do |format|
+      format.html
+      format.ics do
+        calendar = Icalendar::Calendar.new
+        calendar.add_event(@event.to_ics(event_url(@event)))
+        calendar.publish
+        render :text => calendar.to_ical
+      end
+    end
   end
   
   def create

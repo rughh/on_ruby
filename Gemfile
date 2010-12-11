@@ -12,6 +12,7 @@ gem "simple_form", "~>1.3.0"
 gem "friendly_id", "~>3.0"
 gem "compass", ">= 0.10.5"
 gem "omniauth", "~> 0.1.6"
+gem "icalendar", "~> 1.1.5"
 
 group(:development, :test) do
   gem 'sqlite3-ruby', :require => 'sqlite3'
@@ -34,4 +35,3 @@ group(:cucumber) do
   gem "spork", ">=0.8.4"
   gem "pickle", ">=0.4.2"
 end
-

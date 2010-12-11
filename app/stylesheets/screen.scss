@@ -110,7 +110,7 @@ body {
     height: 100px;
     width: 300px;
   }
-  .slide, .pdf, .video, .blog, .reference {
+  .slide, .pdf, .video, .blog, .reference, .ical {
     background: scroll left no-repeat;
     padding-left: 20px;
   }
@@ -128,6 +128,11 @@ body {
   }
   .reference {
     background-image: url(/images/reference.png);
+  }
+  .ical {
+    background-image: url(/images/calendar--plus.png);
+    padding-left: 20px;
+    padding-bottom: 2px;
   }
   
   #container {
