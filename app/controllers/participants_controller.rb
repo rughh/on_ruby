@@ -1,4 +1,6 @@
 class ParticipantsController < InheritedResources::Base
+  load_and_authorize_resource
+  
   def add_user
     event = Event.find(params[:id])
     participant = Participant.new

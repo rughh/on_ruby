@@ -43,6 +43,12 @@ body {
     padding-bottom: 25px;
   }
   
+  footer {
+    border-top: 1px solid gray;
+    margin-top: 25px;
+    padding-top: 5px;
+  }
+  
   #logo {
     float: left;
   }
@@ -110,7 +116,7 @@ body {
     height: 100px;
     width: 300px;
   }
-  .slide, .pdf, .video, .blog, .reference, .ical {
+  .slide, .pdf, .video, .blog, .reference, .ical, .mail, .user {
     background: scroll left no-repeat;
     padding-left: 20px;
   }
@@ -128,6 +134,12 @@ body {
   }
   .reference {
     background-image: url(/images/reference.png);
+  }
+  .user {
+    background-image: url(/images/user-small.png);
+  }
+  .mail {
+    background-image: url(/images/mail-send.png);
   }
   .ical {
     background-image: url(/images/calendar--plus.png);

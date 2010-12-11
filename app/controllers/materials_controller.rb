@@ -1,5 +1,7 @@
 # encoding: utf-8
 class MaterialsController < InheritedResources::Base
+  load_and_authorize_resource
+  
   belongs_to :event
   
   def create

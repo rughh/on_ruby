@@ -1,0 +1,21 @@
+%h2 Vorträge und Themenvorschläge
+%p
+  Möchtest du einen Vortrag auf der Rails Usergroup halten,
+  oder hast du zusätzliche Themenvorschläge?
+  Dann schick uns einfach eine 
+  =mail_to 'hamburg@onruby.de', 'E-Mail', :class => 'mail'
+  oder Spreche uns persönlich an:
+%ul
+  -@users.each do |key, value|
+    %li
+      =link_to key, value, :class => 'user'
+
+%h2 Spenden:
+%p
+  Kennst du eine Firma, die gerne für die Hamburger Ruby Community ein paar Euro spenden möchte?
+  Oder spendest du selber gerne etwas?
+  Als Sponsor wirst du auf der Seite prominent verlinkt
+  und der Dank der Community ist dir gewiss!
+  
+  FLATTR-BUTTON
+

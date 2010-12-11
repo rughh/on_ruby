@@ -18,6 +18,5 @@ HamburgOnRuby::Application.routes.draw do
   match '/auth/destroy_session', :to => 'sessions#destroy', :as => :destroy_session
   match '/auth/twitter', :as => :auth
   
-  root :to => "events#show"
-
+  root :to => "events#info"
 end

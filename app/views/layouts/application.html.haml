@@ -69,8 +69,9 @@
       %footer
         #sponsors
           %h2 Vielen Dank an die Sponsoren!
-          =image_tag('logo.gif')
-          =image_tag('logo.gif')
-          =image_tag('logo.gif')
-          
+          - 4.times do
+            =link_to 'mailto:hamburg@onruby.de', :class => 'button' do
+              =image_tag('logo.gif')
+              Hier könnte dein Logo stehen!
+
     =javascript_include_tag('http://maps.google.com/maps/api/js?sensor=true', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js', 'rails.js', 'base.js')

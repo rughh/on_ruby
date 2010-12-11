@@ -1,4 +1,6 @@
+# encoding: utf-8
 class EventsController < InheritedResources::Base
+  load_and_authorize_resource :except => :info
   
   def rss
     @events = Event.order("id DESC").limit(10)
@@ -7,8 +9,6 @@ class EventsController < InheritedResources::Base
   end
   
   def show
-    @event = params[:id] ? Event.find(params[:id]) : Event.current
-    flash[:alert] = 'Derzeit sind keine aktuellen Termine vorhanden' unless @event
     respond_to do |format|
       format.html
       format.ics do
@@ -26,6 +26,15 @@ class EventsController < InheritedResources::Base
     else
       super
     end
+  end
+  
+  def info
+    @users = {      
+      'Jan Krutisch' => 'https://www.xing.com/profile/Jan_Krutisch',
+      'Ralph von der Heyden' => 'https://www.xing.com/profile/Ralph_vonderHeyden',
+      'Peter Schröder' => 'https://www.xing.com/profile/peter_schroeder2',
+      'Daniel Harrington' =>'https://www.xing.com/profile/Daniel_Harrington'
+    }
   end
   
   private
