@@ -13,6 +13,7 @@ gem "friendly_id", "~>3.0"
 gem "compass", ">= 0.10.5"
 gem "omniauth", "~> 0.1.6"
 gem "icalendar", "~> 1.1.5"
+gem "cancan", "~> 1.4.1"
 
 group(:development, :test) do
   gem 'sqlite3-ruby', :require => 'sqlite3'

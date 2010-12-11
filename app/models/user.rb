@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
     "http://twitter.com/#{nickname}"
   end
   
+  def admin?
+    nickname == 'phoet'
+  end
+  
   def self.random(num=15)
     all.shuffle[0..num]
   end
