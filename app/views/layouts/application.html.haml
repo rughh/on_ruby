@@ -41,7 +41,10 @@
         #preview
           %ul
             -@preview_events.each do |event|
-              %li=link_to("#{event.date} #{event.name}", event_path(event))
+              %li
+                =link_to event_path(event) do
+                  =l(event.date)
+                  %strong=event.name
       %sidebar
         #tweets
           %ul

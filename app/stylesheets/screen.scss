@@ -103,13 +103,33 @@ body {
     @include border-radius(4px, 4px);
     @include box-shadow();
   }
-  #add_topics {
+  #add_topics, #add_materials {
     display: none;
   }
-  #add_topics textarea {
+  #add_topics textarea, #add_materials textarea {
     height: 100px;
     width: 300px;
   }
+  .slide, .pdf, .video, .blog, .reference {
+    background: scroll left no-repeat;
+    padding-left: 20px;
+  }
+  .slide {
+    background-image: url(/images/slide.png);
+  }
+  .pdf {
+    background-image: url(/images/pdf.png);
+  }
+  .video {
+    background-image: url(/images/video.png);
+  }
+  .blog {
+    background-image: url(/images/blog.png);
+  }
+  .reference {
+    background-image: url(/images/reference.png);
+  }
+  
   #container {
     color: dark-gray;
     background: white;

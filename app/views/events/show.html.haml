@@ -29,8 +29,8 @@
             = link_to [@event, t], :method => :delete, :class => 'button' do
               =image_tag('minus.png')
               %span Thema löschen
-          %p=t.description    
-    %div      
+          %p=t.description
+    %div
       #add_topics.box
         = simple_form_for [@event, Topic.new] do |f|
           = f.input :name
@@ -40,11 +40,33 @@
         .clear
     .clear
     %h3
+      .show_hide
+        = link_to '#', :name => 'materials', :class => 'button' do
+          =image_tag('plus.png')
+          Material hinzufügen
       Material:
     %ul
       - @event.materials.each do |m|
-        %li=link_to(m.name, m.url)
-      
+        %li
+          %h4
+            =link_to m.name, m.url, :class => m.material_type
+            -if m.user
+              ="(#{m.user.nickname})"
+            = link_to [@event, m], :method => :delete, :class => 'button' do
+              =image_tag('minus.png')
+              %span Material löschen
+          %p=m.description
+    %div
+      #add_materials.box
+        = simple_form_for [@event, Material.new] do |f|
+          = f.input :name
+          = f.input :url, :as => :url
+          = f.input :material_type, :collection => Material::TYPES
+          = f.input :description
+          = f.association :user
+          = f.button :submit
+        .clear
+    .clear
     %h3
       Teilnehmer:
     .users
