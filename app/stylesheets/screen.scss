@@ -83,6 +83,9 @@ body {
   .right {
     float: right;
   }
+  h2, h3, h4 {
+    margin-bottom: 0.25em;
+  }
   h2 span, h3 span {
     font-size: 14px;
     float: right;
@@ -151,10 +154,8 @@ body {
     color: dark-gray;
     background: white;
     @include box-shadow();
-    @include border-radius(4px, 4px);
     @include text-shadow();
     padding: 25px;
-    margin-top: 25px;
   }
   #icons {
     float: right;

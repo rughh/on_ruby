@@ -5,10 +5,11 @@
   Dann schick uns einfach eine 
   =mail_to 'hamburg@onruby.de', 'E-Mail', :class => 'mail'
   oder Spreche uns persönlich an:
-%ul
-  -@users.each do |key, value|
-    %li
-      =link_to key, value, :class => 'user'
+%p
+  %ul
+    -@users.each do |key, value|
+      %li
+        =link_to key, value, :class => 'user'
 
 %h2 Spenden:
 %p
@@ -16,6 +17,6 @@
   Oder spendest du selber gerne etwas?
   Als Sponsor wirst du auf der Seite prominent verlinkt
   und der Dank der Community ist dir gewiss!
-  
-  FLATTR-BUTTON
+%p
+  %a{:class=>"FlattrButton", :style=>"display:none;", :rev=>"flattr;button:compact;", :href=>"http://hamburg.onruby.de/"}
 
