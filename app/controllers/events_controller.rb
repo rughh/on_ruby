@@ -1,9 +1,9 @@
 # encoding: utf-8
 class EventsController < InheritedResources::Base
-  load_and_authorize_resource :except => :info
+  load_and_authorize_resource :except => [:info, :rss]
   
   def rss
-    @events = Event.order("id DESC").limit(10)
+    @events = Event.order("date DESC").limit(10)
     render :layout => false
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
@@ -12,19 +12,8 @@ class EventsController < InheritedResources::Base
     respond_to do |format|
       format.html
       format.ics do
-        calendar = Icalendar::Calendar.new
-        calendar.add_event(@event.to_ics(event_url(@event)))
-        calendar.publish
-        render :text => calendar.to_ical
+        render :text => @event.to_ical(event_url(@event))
       end
-    end
-  end
-  
-  def create
-    if params['add_material']
-      add_material
-    else
-      super
     end
   end
   
@@ -36,13 +25,4 @@ class EventsController < InheritedResources::Base
       'Daniel Harrington' =>'https://www.xing.com/profile/Daniel_Harrington'
     }
   end
-  
-  private
-  
-  def add_material
-    @event = Event.new params['event']
-    @event.materials.build
-    render :new
-  end
-  
 end

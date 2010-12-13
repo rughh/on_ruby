@@ -1,7 +1,7 @@
 %span
   -if current_user
     - if current_user.participates?(@event)
-      = link_to current_user.participation(@event), {:method => :delete, :class => :button, :title => 'abmelden'} do
+      = link_to @event, {:method => :delete, :class => :button, :title => 'abmelden'} do
         =image_tag('minus.png', :title => 'abmelden', :alt => 'abmelden')
     -else
       = link_to(add_user_participant_path(@event.id), {:class => :button, :title => 'teilnehmen'}) do

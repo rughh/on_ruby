@@ -25,6 +25,8 @@ class ApplicationController < ActionController::Base
       Twitter::Search.new.q("rails OR ruby OR rughh").geocode(53.561858,9.962021,'100km').rpp(5).fetch
     end
     @preview_events = Event.preview_events
-    @random_users = User.random
+    @random_users = cache(:random_users, :expires_in => 1.minute) do
+      User.random
+    end
   end
 end

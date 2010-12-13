@@ -2,7 +2,7 @@
 %p
   Möchtest du einen Vortrag auf der Rails Usergroup halten,
   oder hast du zusätzliche Themenvorschläge?
-  Dann schick uns einfach eine 
+  Dann schick uns einfach eine
   =mail_to 'hamburg@onruby.de', 'E-Mail', :class => 'mail'
   oder Spreche uns persönlich an:
 %p
@@ -10,7 +10,7 @@
     -@users.each do |key, value|
       %li
         =link_to key, value, :class => 'user'
-
+%p
 %h2 Spenden:
 %p
   Kennst du eine Firma, die gerne für die Hamburger Ruby Community ein paar Euro spenden möchte?
@@ -19,4 +19,17 @@
   und der Dank der Community ist dir gewiss!
 %p
   %a{:class=>"FlattrButton", :style=>"display:none;", :rev=>"flattr;button:compact;", :href=>"http://hamburg.onruby.de/"}
-
+%p
+%h2 Hilfe:
+%p
+  Bist du 
+  %strong Ruby on Rails Entwickler
+  und hast Lust diese Seite weiter zu entwickeln?
+  Den Code findest du auf
+  =link_to 'GitHub.', 'http://github.com/phoet/hamburg_on_ruby'
+%p
+  Vielleicht bist du aber auch
+  %strong Web Designer
+  und möchtest ein neues Layout oder grafische Verbesserungen beisteuern?
+  Lass es uns einfach wissen und schick uns eine
+  =mail_to 'hamburg@onruby.de', 'E-Mail.', :class => 'mail'

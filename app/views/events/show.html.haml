@@ -2,7 +2,7 @@
   #event
     %h2
       =@event.name
-      =render :partial => 'shared/participate_button'
+      =render :partial => 'participate_button'
     %p
       %em
         =link_to l(@event.date), event_path(@event, :format => :ics), :class => 'ical'

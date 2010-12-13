@@ -43,10 +43,14 @@ body {
     padding-bottom: 25px;
   }
   
-  footer {
+  #sponsors, #imprint {
     border-top: 1px solid gray;
     margin-top: 25px;
     padding-top: 5px;
+  }
+  #imprint {
+    text-align: center;
+    margin-top: 10px;
   }
   
   #logo {

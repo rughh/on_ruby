@@ -17,7 +17,7 @@
             =link_to({:action => 'info'}, {:class => 'button'}) do
               =image_tag('information-balloon.png')
               Info
-            =link_to 'http://twitter.com/onruby', :class => 'button' do
+            =link_to 'http://twitter.com/hamburgsync', :class => 'button' do
               =image_tag('balloon-twitter.png')
               Twitter
             =link_to rss_events_path(:type => :rss), :class => 'button' do
@@ -76,7 +76,18 @@
             =link_to 'mailto:hamburg@onruby.de', :class => 'button' do
               =image_tag('logo.gif')
               Hier könnte dein Logo stehen!
-
+        .clear
+        #imprint
+          Impressum: Peter Schröder | Schanzenstr. 85 in 20357 Hamburg | 01781391035
+          |
+          =mail_to 'phoetmail@googlemail.com'
+          |
+          =link_to '@phoet', 'http://twitter.com/phoet'
+          |
+          =link_to 'XING', 'https://www.xing.com/profile/peter_schroeder2'
+          
+    %a{:href=>"https://github.com/phoet/hamburg_on_ruby"}
+      %img{:style=>"position: absolute; top: 0; right: 0; border: 0;", :src=>"https://assets1.github.com/img/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_white_ffffff.png&path=", :alt=>"Fork me on GitHub"}
     =javascript_include_tag('http://maps.google.com/maps/api/js?sensor=true', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js', 'rails.js', 'base.js')
     :javascript
       (function() {
