@@ -20,12 +20,12 @@
             =link_to 'http://twitter.com/hamburgsync', :class => 'button' do
               =image_tag('balloon-twitter.png')
               Twitter
-            =link_to rss_events_path(:type => :rss), :class => 'button' do
-              =image_tag('feed.png')
-              RSS-Feed
             =link_to 'mailto:hamburg@onruby.de', :class => 'button' do
               =image_tag('mail.png')
               E-Mail
+            =link_to rss_events_path(:type => :rss), :class => 'button' do
+              =image_tag('feed.png')
+              RSS-Feed
           #login
             -if current_user
               =link_to destroy_session_path, :class => 'button' do
