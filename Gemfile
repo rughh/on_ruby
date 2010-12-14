@@ -16,11 +16,12 @@ gem "icalendar", "~> 1.1.5"
 gem "cancan", "~> 1.4.1"
 
 group(:development, :test) do
-  gem 'autotest'
-  gem 'autotest-growl'
+  gem 'autotest', '~> 4.4.6'
+  gem 'autotest-growl', '~> 0.2.9'
+  gem 'fuubar', '~> 0.0.3'
   gem 'sqlite3-ruby', :require => 'sqlite3'
   gem "ruby-debug19", :require => "ruby-debug"
-  gem "metric_fu", "~>1.5.1"
+  gem "metric_fu", "~>2.0.1"
   gem "rspec", "~> 2.2.0"
   gem "rspec-rails", "~> 2.2.0"
   gem "remarkable", "~>4.0.0.alpha4"
