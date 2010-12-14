@@ -21,7 +21,8 @@ group(:development, :test) do
   gem 'fuubar', '~> 0.0.3'
   gem 'sqlite3-ruby', :require => 'sqlite3'
   gem "ruby-debug19", :require => "ruby-debug"
-  gem "metric_fu", "~>2.0.1"
+  # is not compatible with fuubar, flip if you want to use it
+  # gem "metric_fu", "~>2.0.1"
   gem "rspec", "~> 2.2.0"
   gem "rspec-rails", "~> 2.2.0"
   gem "remarkable", "~>4.0.0.alpha4"
