@@ -1,0 +1,24 @@
+defaults: &defaults
+  mail: "hamburg@onruby.de"
+  organizers:
+    -
+      name: "Jan Krutisch"
+      link: "https://www.xing.com/profile/Jan_Krutisch"
+    -
+      name: "Ralph von der Heyden"
+      link: "https://www.xing.com/profile/Ralph_vonderHeyden"
+    -
+      name: "Peter Schröder"
+      link: "https://www.xing.com/profile/peter_schroeder2"
+    -
+      name: "Daniel Harrington"
+      link: "https://www.xing.com/profile/Daniel_Harrington"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

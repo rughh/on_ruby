@@ -3,33 +3,36 @@
   Möchtest du einen Vortrag auf der Rails Usergroup halten
   oder hast du zusätzliche Themenvorschläge?
   Dann schicke uns einfach eine
-  =mail_to 'hamburg@onruby.de', 'E-Mail', :class => 'mail'
+  = mail_to AppConfig.email, 'E-Mail', :class => 'mail'
   oder spreche uns persönlich an:
-%p
-  %ul
-    -@users.each do |key, value|
-      %li
-        =link_to key, value, :class => 'user'
-%p
+
+%ul
+  - AppConfig.organizers.each do |organizer|
+    %li
+      =link_to organizer.name, organizer.link, :class => 'user'
+
+%br
 %h2 Spenden:
 %p
   Kennst du eine Firma, die gerne für die Hamburger Ruby Community ein paar Euro spenden möchte
   Oder spendest du selber gerne etwas?
   Als Sponsor wirst du auf der Seite prominent verlinkt
   und der Dank der Community ist dir gewiss!
+
 %p
-  %a{:class=>"FlattrButton", :style=>"display:none;", :rev=>"flattr;button:compact;", :href=>"http://hamburg.onruby.de/"}
-%p
+  = link_to "", "http://hamburg.onruby.de/", :class => "FlattrButton", :style => "display:none;", :rev => "flattr;button:compact;"
+
 %h2 Hilfe:
 %p
   Bist du 
   %strong Ruby on Rails Entwickler
   und hast Lust diese Seite weiter zu entwickeln?
   Den Code findest du auf
-  =link_to 'GitHub.', 'http://github.com/phoet/hamburg_on_ruby'
+  = link_to 'GitHub.', 'http://github.com/phoet/hamburg_on_ruby'
+
 %p
   Vielleicht bist du aber auch
   %strong Web Designer
   und möchtest ein neues Layout oder grafische Verbesserungen beisteuern?
   Lass es uns einfach wissen und schick uns eine
-  =mail_to 'hamburg@onruby.de', 'E-Mail.', :class => 'mail'
+  = mail_to AppConfig.email, 'E-Mail.', :class => 'mail'

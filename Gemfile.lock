@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/indirect/rails3-generators.git
-  revision: fecefbf651909a2251d4790790229d262310d5ce
+  revision: fecefbf
   specs:
     rails3-generators (0.14.0)
 
@@ -36,6 +36,8 @@ GEM
       activesupport (= 3.0.3)
     activesupport (3.0.3)
     addressable (2.2.2)
+    ambience (0.3.1)
+      hashie (>= 0.2.0)
     archive-tar-minitar (0.5.2)
     arel (2.0.6)
     autotest (4.4.6)
@@ -213,6 +215,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ambience (~> 0.3.1)
   autotest (~> 4.4.6)
   autotest-growl (~> 0.2.9)
   cancan (~> 1.4.1)

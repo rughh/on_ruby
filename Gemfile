@@ -14,6 +14,7 @@ gem "compass", "~> 0.10.5"
 gem "omniauth", "~> 0.1.6"
 gem "icalendar", "~> 1.1.5"
 gem "cancan", "~> 1.4.1"
+gem "ambience", "~> 0.3.1"
 
 group(:development, :test) do
   gem 'autotest', '~> 4.4.6'
