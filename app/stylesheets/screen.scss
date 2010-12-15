@@ -16,7 +16,6 @@
 @import "compass/css3/box";
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
-@import "compass/css3/text-shadow";
 @import "blueprint/fancy-type";
 @import "compass/utilities/lists/bullets";
 
@@ -158,7 +157,6 @@ body {
     color: dark-gray;
     background: white;
     @include box-shadow();
-    @include text-shadow();
     padding: 25px;
   }
   #icons {
