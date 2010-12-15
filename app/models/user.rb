@@ -1,22 +1,22 @@
 class User < ActiveRecord::Base
-  
+
   validates :nickname, :name, :image, :presence => true
-  
+
   has_many :authorizations
   has_many :participants
 
   def participates?(event)
-    participants.any?{|p| p.event_id == event.id}
+    participants.any? { |participant| participant.event_id == event.id }
   end
-  
+
   def twurl
     "http://twitter.com/#{nickname}"
   end
-  
+
   def admin?
     nickname == 'phoet'
   end
-  
+
   def self.random(num=15)
     all.shuffle[0, num].reject{|u| u.nil? }
   end
@@ -31,5 +31,5 @@ class User < ActiveRecord::Base
       user.url          = hash['user_info']['urls']['Website']
     end
   end
-  
+
 end

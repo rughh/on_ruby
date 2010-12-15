@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
 
   accepts_nested_attributes_for :materials
   accepts_nested_attributes_for :topics
-  
+
   def end_date
     date + 2.hours
   end
@@ -34,12 +34,13 @@ class Event < ActiveRecord::Base
     calendar.publish
     calendar.to_ical
   end
-  
+
   def self.preview_events
     self.order('date DESC').limit(2)
   end
-  
+
   def self.current
     self.where(:date => Date.today.to_time..(Time.now + 1.week)).first
   end
+
 end
