@@ -1,2 +1,0 @@
-module ParticipantsHelper
-end
