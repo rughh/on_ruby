@@ -8,8 +8,7 @@
 
 %ul
   - AppConfig.organizers.each do |organizer|
-    %li
-      =link_to organizer.name, organizer.link, :class => 'user'
+    %li= link_to organizer.name, organizer.link, :class => 'user'
 
 %br
 %h2 Spenden:
