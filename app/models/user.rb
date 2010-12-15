@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    nickname == 'phoet'
+    nickname == AppConfig.admin
   end
 
   def self.random(num=15)
