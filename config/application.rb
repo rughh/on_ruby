@@ -8,13 +8,14 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module HamburgOnRuby
   class Application < Rails::Application
+
     config.generators do |g|
-    g.template_engine :haml
-    g.test_framework  :rspec, :fixture => true, :views => false
-    g.integration_tool :rspec, :fixture => true, :views => true
-    g.fixture_replacement :factory_girl, :dir => "spec/support/factories"
-    g.stylesheets false
-  end
+      g.template_engine :haml
+      g.test_framework  :rspec, :fixture => true, :views => false
+      g.integration_tool :rspec, :fixture => true, :views => true
+      g.fixture_replacement :factory_girl, :dir => "spec/support/factories"
+      g.stylesheets false
+    end
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -46,5 +47,6 @@ module HamburgOnRuby
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
   end
 end
