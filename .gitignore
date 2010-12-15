@@ -19,3 +19,4 @@ db/schema.rb
 specifications
 cache
 gems
+.rvmrc
