@@ -1,7 +1,7 @@
 !!! 5
 %html
   %head
-    %title=hor
+    %title= "Hamburg &hearts;n Ruby"
     =stylesheet_link_tag('screen', :media => 'screen, projection')
     =stylesheet_link_tag 'buttons.css', :media => 'screen, projection'
     =stylesheet_link_tag('print', :media => 'print')
@@ -40,7 +40,7 @@
           =link_to(root_path) do
             =image_tag('logo.gif')
         %h1
-          Herzlich willkommen bei #{hor}!
+          Herzlich willkommen bei Hamburg &hearts;n Ruby!
         #preview
           %ul
             -@preview_events.each do |event|
