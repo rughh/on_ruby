@@ -1,13 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
+
   before_filter :load_stuff
   helper_method :current_user, :signed_in?
-  
+
   private
-  
+
   def current_user
-    @current_user ||= User.find_by_id(session[:user_id])
+    @current_user ||= User.find_by_id session[:user_id]
   end
 
   def signed_in?
@@ -29,4 +29,5 @@ class ApplicationController < ActionController::Base
       User.random
     end
   end
+
 end
