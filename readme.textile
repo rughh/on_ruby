@@ -1,0 +1,15 @@
+
+h2. Setup
+
+rvm install 1.9.2
+brew install memcached
+
+h2. Todo
+
+* publishing via twitter
+* publishing to a calendar (xing?)
+
+
+h2. Nice to have
+
+* user profiles (github profiles)
