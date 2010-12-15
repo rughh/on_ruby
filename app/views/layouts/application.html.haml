@@ -43,7 +43,7 @@
           Herzlich willkommen bei Hamburg &hearts;n Ruby!
         #preview
           %ul
-            - @preview_events.each do |event|
+            - preview_events.each do |event|
               %li
                 = link_to event_path(event) do
                   = l event.date
@@ -51,14 +51,14 @@
       %sidebar
         #tweets
           %ul
-            - @tweets.each do |tweet|
+            - tweets.each do |tweet|
               %li
                 = link_to "http://twitter.com/#{tweet.from_user}", :class => 'button' do
                   = image_tag tweet.profile_image_url
                   = tweet.text
         .users
           %ul
-            - @random_users.each do |user|
+            - random_users.each do |user|
               %li= image_tag user.image
         .clear
       %section
