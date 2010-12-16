@@ -5,15 +5,14 @@ class MaterialsController < InheritedResources::Base
   belongs_to :event
 
   def create
-    @event = Event.find params[:event_id]
-    @topic = @event.materials.create! params[:material]
-    redirect_to @event, :notice => 'Neues Material erzeugt!'
+    create! do |success, failure|
+      success.html { redirect_to parent_url, :notice => 'Neues Material erzeugt!' }
+      failure.html { redirect_to parent_url, :alert => @material.errors.full_messages.join(', ') }
+    end
   end
 
   def destroy
-    @event = Event.find params[:event_id]
-    Material.find(params[:id]).destroy
-    redirect_to @event, :notice => 'Material wurde gelöscht!'
+    destroy!(:notice => 'Material wurde gelöscht!') { parent_url }
   end
 
 end
