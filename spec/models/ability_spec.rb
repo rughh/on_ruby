@@ -1,10 +1,11 @@
 require 'spec_helper'
 
+include SpecHelper
+
 describe Ability do
   
   before(:each) do
     @user = Factory(:user)
-    @admin = Factory(:user, :nickname => 'phoet')
   end
   
   it "should authorize user for read" do
@@ -13,6 +14,6 @@ describe Ability do
   end
 
   it "should authorize admin for all" do
-    Ability.new(@admin).can?(:manage, Event).should be(true)
+    Ability.new(admin_user).can?(:manage, Event).should be(true)
   end
 end
