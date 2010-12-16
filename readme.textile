@@ -1,3 +1,4 @@
+h1. Hamburg on Ruby
 
 h2. Setup
 
@@ -8,7 +9,6 @@ h2. Todo
 
 * publishing via twitter
 * publishing to a calendar (xing?)
-
 
 h2. Nice to have
 
