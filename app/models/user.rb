@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
   def admin?
     nickname == AppConfig.admin
   end
+  
+  def email # needed for RailsAdmin
+    nickname
+  end
 
   def self.random(num=15)
     all.shuffle[0, num].reject{|u| u.nil? }

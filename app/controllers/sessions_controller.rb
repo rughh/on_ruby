@@ -9,6 +9,10 @@ class SessionsController < ApplicationController
     redirect_to root_path, :notice => 'Du bist erfolgreich eingeloggt!'
   end
 
+  def destroy_user_session
+    redirect_to destroy_session_path
+  end
+
   def destroy
     session[:user_id] = nil
     redirect_to root_path, :notice => 'Du bist erfolgreich ausgeloggt!'
