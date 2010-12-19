@@ -1,111 +1,75 @@
-!!! 5
+!!!
 %html
   %head
-    %title Hamburg &hearts;n Ruby
-    = stylesheet_link_tag 'screen', :media => 'screen, projection'
-    = stylesheet_link_tag 'buttons.css', :media => 'screen, projection'
-    = stylesheet_link_tag 'print', :media => 'print'
-    = auto_discovery_link_tag :rss, rss_events_path, :title => "RSS Feed"
-    /[if lt IE 8]
-      = stylesheet_link_tag 'ie', :media => 'screen, projection'
+    %title Hamburg on Ruby
+    = stylesheet_link_tag "reset", "screen"
+    = javascript_include_tag "http://fast.fonts.com/jsapi/3fa79afb-ff00-4703-b36c-1e33df7636b0.js"
+    = auto_discovery_link_tag :rss, rss_events_path, :title => "Event-Feed"
     = csrf_meta_tag
+
   %body
-    #container
-      %header
-        #welcome
-          #icons
-            = link_to({:action => 'info'}, {:class => 'button'}) do
-              = image_tag 'information-balloon.png'
-              Info
-            = link_to 'http://twitter.com/hamburgsync', :class => 'button' do
-              = image_tag 'balloon-twitter.png'
-              Twitter
-            = link_to 'mailto:hamburg@onruby.de', :class => 'button' do
-              = image_tag 'mail.png'
-              E-Mail
-            = link_to rss_events_path(:type => :rss), :class => 'button' do
-              = image_tag 'feed.png'
-              RSS-Feed
-          #login
-            - if current_user
-              = link_to destroy_session_path, :class => 'button' do
-                = image_tag(current_user.image)
-                = current_user.nickname
-                abmelden
-            - else
-              = link_to auth_path, :class => 'button' do
-                = image_tag 'user.png'
-                Anmelden via Twitter
-        #logo
-          = link_to root_path do
-            = image_tag 'logo.gif'
-        %h1
-          Herzlich willkommen bei Hamburg &hearts;n Ruby!
-        #preview
+    %nav
+      .center
+        %ul.left
+
+          - if current_user
+            %li= link_to "#{current_user.nickname} abmelden", destroy_session_path
+          - else
+            %li= link_to "Anmelden via Twitter", auth_path
+
+          %li= link_to "Events", events_url
+          %li= link_to "Mitglieder", users_url
+
+        %ul.right
+          %li= link_to "Twitter", "http://twitter.com/hamburgsync"
+          %li= link_to "E-Mail", "mailto:#{AppConfig.email}"
+          %li= link_to "Event-Feed", rss_events_path(:type => :rss)
+
+        %br.clear
+
+    %header
+      .center
+        %h1= link_to "Hamburg on Ruby", root_url
+        %h2 Website der Hamburger Ruby-Community
+
+        %a.event{ :href => "#" }
+          %strong Letztes Event:
           %ul
-            - preview_events.each do |event|
-              %li
-                = link_to event_path(event) do
-                  = l event.date
-                  %strong= event.name
-      %sidebar
-        #tweets
+            %li &raquo;Das Weihnachtstreffen bei blau.de&laquo;
+            %li Mittwoch, 08. Dezember 2010, 19:00 Uhr
+
+        %a.event{ :href => "#" }
+          %strong Nächstes Event:
           %ul
-            - tweets.each do |tweet|
-              %li
-                = link_to "http://twitter.com/#{tweet.from_user}", :class => 'button' do
-                  = image_tag tweet.profile_image_url
-                  = tweet.text
-        .users
-          %ul
-            - random_users.each do |user|
-              %li= image_tag user.image
-        .clear
-      %section
-        #content
-          #flash
-            - if notice
-              %div.notice= notice
-            - if alert
-              %div.error= alert
-          = yield
-      %footer
-        #sponsors
-          %h2 Vielen Dank an die Sponsoren!
-          - 4.times do
-            = link_to 'mailto:hamburg@onruby.de', :class => 'button' do
-              = image_tag 'logo.gif'
-              Hier könnte dein Logo stehen!
-        .clear
-        #imprint
-          Impressum: Peter Schröder | Schanzenstr. 85 in 20357 Hamburg | 01781391035
-          |
-          = mail_to 'phoetmail@googlemail.com'
-          |
-          = link_to '@phoet', 'http://twitter.com/phoet'
-          |
-          = link_to 'XING', 'https://www.xing.com/profile/peter_schroeder2'
+            %li &raquo;Best of 2010 bei Xing&laquo;
+            %li Mittwoch, 05. Januar 2011, 19:00 Uhr
 
-    %a{ :href => "https://github.com/phoet/hamburg_on_ruby" }
-      %img{ :style => "position: absolute; top: 0; right: 0; border: 0;", :src => "https://assets1.github.com/img/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_white_ffffff.png&path=", :alt => "Fork me on GitHub" }
-    = javascript_include_tag 'http://maps.google.com/maps/api/js?sensor=true', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js', 'rails.js', 'base.js'
-    :javascript
-      (function() {
-          var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+        %br.clear
 
-          s.type = 'text/javascript';
-          s.async = true;
-          s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+    %section.main
+      .center
+        #flash
+          - if notice
+            .flash.notice= notice
+          - if alert
+            .flash.error= alert
 
-          t.parentNode.insertBefore(s, t);
-      })();
+        = yield
+        %br.clear
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-20148095-1']);
-      _gaq.push(['_trackPageview']);
+    %footer.infos
+      .center
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+    %footer.imprint
+      .center
+        %ul
+          %li Impressum:
+          %li Peter Schröder
+          %li Schanzenstr. 85
+          %li 20357 Hamburg
+          %li 0178-1391035
+          %li= link_to "E-Mail", "phoetmail@googlemail.com"
+          %li= link_to "Twitter", "http://twitter.com/phoet"
+          %li= link_to "XING", "https://www.xing.com/profile/peter_schroeder2"
+
+        %br.clear
