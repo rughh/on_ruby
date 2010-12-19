@@ -1,6 +1,6 @@
 defaults: &defaults
   admin: "phoet"
-  mail: "hamburg@onruby.de"
+  email: "hamburg@onruby.de"
   organizers:
     -
       name: "Jan Krutisch"

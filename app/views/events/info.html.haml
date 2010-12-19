@@ -1,37 +1,34 @@
-%h2 Vorträge und Themenvorschläge:
-%p
-  Möchtest du einen Vortrag auf der Rails Usergroup halten
-  oder hast du zusätzliche Themenvorschläge?
-  Dann schicke uns einfach eine
-  = mail_to AppConfig.email, 'E-Mail', :class => 'mail'
-  oder spreche uns persönlich an:
+.col.left
+  .featured
+    %h3 Vorträge
+    %p
+      Möchtest du einen Vortrag auf der Rails Usergroup halten oder hast du zusätzliche Themenvorschläge?
+      Dann schicke uns einfach eine
+      = mail_to AppConfig.email, "E-Mail"
+      oder spreche uns persönlich an:
 
-%ul
-  - AppConfig.organizers.each do |organizer|
-    %li= link_to organizer.name, organizer.link, :class => 'user'
+    %ul
+      - AppConfig.organizers.each do |organizer|
+        %li= link_to organizer.name, organizer.link
 
-%br
-%h2 Spenden:
-%p
-  Kennst du eine Firma, die gerne für die Hamburger Ruby Community ein paar Euro spenden möchte
-  Oder spendest du selber gerne etwas?
-  Als Sponsor wirst du auf der Seite prominent verlinkt
-  und der Dank der Community ist dir gewiss!
+  .featured
+    %h3 Fork uns
+    %p
+      Bist du Rails-Entwickler und hast Lust diese Seite weiter zu entwickeln? Den Code findest du auf
+      = link_to "GitHub.", "http://github.com/phoet/hamburg_on_ruby"
+      Vielleicht bist du aber auch Designer und möchtest am Layout arbeiten oder ein Logo beisteuern?
+      Lass es uns einfach wissen.
 
-%p
-  = link_to "", "http://hamburg.onruby.de/", :class => "FlattrButton", :style => "display:none;", :rev => "flattr;button:compact;"
+  .featured
+    %h3 Spenden
+    %p
+      Kennst du eine Firma, die gerne für die Hamburger Ruby Community ein paar Euro spenden möchte oder
+      spendest du selber gerne etwas? Als Sponsor wirst du auf der Seite prominent verlinkt und der Dank
+      der Community ist dir gewiss!
 
-%h2 Hilfe:
-%p
-  Bist du 
-  %strong Ruby on Rails Entwickler
-  und hast Lust diese Seite weiter zu entwickeln?
-  Den Code findest du auf
-  = link_to 'GitHub.', 'http://github.com/phoet/hamburg_on_ruby'
-
-%p
-  Vielleicht bist du aber auch
-  %strong Web Designer
-  und möchtest ein neues Layout oder grafische Verbesserungen beisteuern?
-  Lass es uns einfach wissen und schick uns eine
-  = mail_to AppConfig.email, 'E-Mail.', :class => 'mail'
+.col.right
+  %h3 Twitter on Ruby
+  %ul.tweets
+    - tweets.each do |tweet|
+      %li
+        = link_to tweet.text, "http://twitter.com/#{tweet.from_user}", :style => "background-image:url(#{tweet.profile_image_url})"
