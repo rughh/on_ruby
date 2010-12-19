@@ -81,4 +81,15 @@
               =image_tag(p.user.image)
     .clear
     %h3 Anfahrt:
-    #map_canvas{'data-map'=>@event.location.to_json}
+    - l = @event.location
+    %p
+      =link_to l.name, l.url
+      #{l.street} #{l.house_number} in #{l.zip} #{l.city}
+    #map_canvas{'data-map' => l.to_json}
+    #map_info_content
+      %h4= l.name
+      %p
+        #{l.street} #{l.house_number} in #{l.zip} #{l.city}
+      %p
+        =link_to l.url, l.url
+        

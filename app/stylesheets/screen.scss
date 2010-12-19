@@ -197,6 +197,10 @@ body {
     height: 500px;
   }
   
+  #map_info_content {
+    display: none;
+  }
+  
   form {
     @include blueprint-form;
 
