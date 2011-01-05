@@ -1,14 +1,13 @@
 HamburgOnRuby::Application.routes.draw do
-  resources :users
 
-  resources :participants do
-    get 'add_user', :on => :member
-  end
+  resources :users
 
   resources :events do
     get 'rss', :on => :collection
+    get 'add_user', :on => :member
     resources :materials
     resources :topics
+    resources :participants
   end
   
   resources :locations

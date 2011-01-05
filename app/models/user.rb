@@ -8,7 +8,11 @@ class User < ActiveRecord::Base
   def participates?(event)
     participants.any? { |participant| participant.event_id == event.id }
   end
-
+  
+  def participation(event)
+    participants.find(:first, :conditions => [ "event_id = ?", event.id])
+  end
+  
   def twurl
     "http://twitter.com/#{nickname}"
   end

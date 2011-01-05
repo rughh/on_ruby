@@ -17,6 +17,16 @@ class EventsController < InheritedResources::Base
     end
   end
 
+  def add_user
+    event = Event.find params[:id]
+    participant = Participant.new do |p|
+      p.user = current_user
+      p.event = event
+    end
+    raise particpant.errors unless participant.save
+    redirect_to event_path(event), :notice => 'Du bist am Event angemeldet.'
+  end
+
   def info
   end
 
