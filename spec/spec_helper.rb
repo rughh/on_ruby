@@ -25,3 +25,13 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 end
+
+module SpecHelper
+  def admin_user
+    @admin_user ||= Factory(:user, :nickname => 'phoet')
+  end
+  
+  def authorize_admin
+    session[:user_id] = admin_user.id
+  end
+end

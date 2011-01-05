@@ -1,3 +1,5 @@
+h1. Hamburg on Ruby
+
 h2. Setup
 
 rvm install 1.9.2

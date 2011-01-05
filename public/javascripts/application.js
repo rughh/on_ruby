@@ -9,11 +9,19 @@ function initialize_map() {
   var map = new google.maps.Map(element, myOptions);
   
   var data = $.parseJSON($(element).attr('data-map')).location;
-  new google.maps.Marker({
+  var marker = new google.maps.Marker({
     position: new google.maps.LatLng(data.lat, data.long),
     map: map,
     title: data.name
-  }); 
+  });
+
+  var infowindow = new google.maps.InfoWindow({
+      content: $('#map_info_content').html()
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map, marker);
+  });
 }
 
 function show_hide() {
