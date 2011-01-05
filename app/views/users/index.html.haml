@@ -1,0 +1,4 @@
+%ul.users
+  - @users.each do |user|
+    %li
+      = link_to "#{user.name} (#{user.nickname})", user.twurl, :style => "background-image:url(#{user.image})"

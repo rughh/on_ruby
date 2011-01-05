@@ -165,7 +165,7 @@ body {
       }
     }
 
-    .tweets {
+    .tweets, .users {
       list-style:none;
 
       li {
@@ -187,6 +187,13 @@ body {
         text-decoration:none;
         padding-left:70px;
       }
+    }
+    
+    .users {
+      color:#2a2a2a;
+      font:22px/50px georgia,times,serif;
+      text-shadow:#ccc 1px 1px 2px;
+      list-style: none;
     }
   }
 
