@@ -21,6 +21,11 @@ describe User do
     @admin.participates?(@event).should be(true)
   end
   
+  it "should find the participation" do
+    @admin.participants.create!(:event_id => @event.id, :user_id => @admin.id)
+    @admin.participation(@event).should_not be_nil
+  end
+  
   it "should select random users" do
     10.times {|i| Factory(:user, :nickname => "phoet#{i}")}
     users = User.random(5)

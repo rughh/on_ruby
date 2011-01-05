@@ -1,34 +1,26 @@
-.col.left
-  .featured
-    %h3 Vorträge
-    %p
-      Möchtest du einen Vortrag auf der Rails Usergroup halten oder hast du zusätzliche Themenvorschläge?
-      Dann schicke uns einfach eine
-      = mail_to AppConfig.email, "E-Mail"
-      oder spreche uns persönlich an:
+.featured
+  %h3 Vorträge
+  %p
+    Möchtest du einen Vortrag auf der Rails Usergroup halten oder hast du zusätzliche Themenvorschläge?
+    Dann schicke uns einfach eine
+    = mail_to AppConfig.email, "E-Mail"
+    oder spreche uns persönlich an:
 
-    %ul
-      - AppConfig.organizers.each do |organizer|
-        %li= link_to organizer.name, organizer.link
+  %ul
+    - AppConfig.organizers.each do |organizer|
+      %li= link_to organizer.name, organizer.link
 
-  .featured
-    %h3 Fork uns
-    %p
-      Bist du Rails-Entwickler und hast Lust diese Seite weiter zu entwickeln? Den Code findest du auf
-      = link_to "GitHub.", "http://github.com/phoet/hamburg_on_ruby"
-      Vielleicht bist du aber auch Designer und möchtest am Layout arbeiten oder ein Logo beisteuern?
-      Lass es uns einfach wissen.
+.featured
+  %h3 Fork uns
+  %p
+    Bist du Rails-Entwickler und hast Lust diese Seite weiter zu entwickeln? Den Code findest du auf
+    = link_to "GitHub.", "http://github.com/phoet/hamburg_on_ruby"
+    Vielleicht bist du aber auch Designer und möchtest am Layout arbeiten oder ein Logo beisteuern?
+    Lass es uns einfach wissen.
 
-  .featured
-    %h3 Spenden
-    %p
-      Kennst du eine Firma, die gerne für die Hamburger Ruby Community ein paar Euro spenden möchte oder
-      spendest du selber gerne etwas? Als Sponsor wirst du auf der Seite prominent verlinkt und der Dank
-      der Community ist dir gewiss!
-
-.col.right
-  %h3 Twitter on Ruby
-  %ul.tweets
-    - tweets.each do |tweet|
-      %li
-        = link_to tweet.text, "http://twitter.com/#{tweet.from_user}", :style => "background-image:url(#{tweet.profile_image_url})"
+.featured
+  %h3 Spenden
+  %p
+    Kennst du eine Firma, die gerne für die Hamburger Ruby Community ein paar Euro spenden möchte oder
+    spendest du selber gerne etwas? Als Sponsor wirst du auf der Seite prominent verlinkt und der Dank
+    der Community ist dir gewiss!

@@ -1,84 +1,53 @@
--if @event
-  #event
-    %h2
-      =@event.name
-      =render :partial => 'participate_button'
-    %p
-      %em
-        =link_to l(@event.date), event_path(@event, :format => :ics), :class => 'ical'
-        gehostet durch
-        =link_to @event.user.nickname, @event.user.twurl
-        bei
-        =link_to @event.location.name, @event.location.url
-      
-    %p=@event.description
-    
-    %h3
-      -if can? :create, Topic
-        .show_hide
-          = link_to '#', :name => 'topics', :class => 'button' do
-            =image_tag('plus.png')
-            Thema hinzufügen
-      Themen:
-    -if can? :create, Topic
-      %div
-        #add_topics.box
-          = simple_form_for [@event, Topic.new] do |f|
-            = f.input :name
-            = f.input :description
-            = f.association :user
-            = f.button :submit
-          .clear
-    %ul
-      - @event.topics.each do |t|
-        %li
-          %h4
-            =t.name
-            -if t.user
-              ="(#{t.user.nickname})"
-            -if can? :destroy, Topic
-              = link_to [@event, t], :method => :delete, :class => 'button' do
-                =image_tag('minus.png')
-                %span Thema löschen
-          %p=t.description
-    %h3
-      -if can? :create, Material
-        .show_hide
-          = link_to '#', :name => 'materials', :class => 'button' do
-            =image_tag('plus.png')
-            Material hinzufügen
-      Material:
-    -if can? :create, Material
-      %div
-        #add_materials.box
-          = simple_form_for [@event, Material.new] do |f|
-            = f.input :name
-            = f.input :url, :as => :url
-            = f.input :material_type, :collection => Material::TYPES
-            = f.input :description
-            = f.association :user
-            = f.button :submit
-          .clear
-    %ul
-      - @event.materials.each do |m|
-        %li
-          %h4
-            =link_to m.name, m.url, :class => m.material_type
-            -if m.user
-              ="(#{m.user.nickname})"
-            -if can? :destroy, Material
-              = link_to [@event, m], :method => :delete, :class => 'button' do
-                =image_tag('minus.png')
-                %span Material löschen
-          %p=m.description
-    %h3
-      Teilnehmer:
-    .users
-      %ul
-        - @event.participants.each do |p|
-          %li
-            =link_to p.user.twurl do
-              =image_tag(p.user.image)
-    .clear
-    %h3 Anfahrt:
-    #map_canvas{'data-map'=>@event.location.to_json}
+%h2
+  = @event.name
+%p
+  %em
+    = link_to l(@event.date), event_path(@event, :format => :ics), :class => 'ical'
+    gehostet durch
+    = link_to @event.user.nickname, @event.user.twurl
+    bei
+    = link_to @event.location.name, @event.location.url
+  
+%p= @event.description
+
+%p
+  %strong
+    -if current_user
+      - if current_user.participates?(@event)
+        = link_to '&raquo;Ich möchte mich abmelden&laquo;'.html_safe, event_participant_path(@event, current_user.participation(@event)), :method => 'delete'
+      -else
+        = link_to '&raquo;Ich möchte mich anmelden&laquo;'.html_safe, add_user_event_path(@event)
+    - else
+      = link_to '&raquo;Ich möchte mich anmelden&laquo;'.html_safe,  auth_path
+
+%h3 Themen:
+%p
+  %ul
+    - @event.topics.each do |t|
+      %li
+        %h4
+          = t.name
+          - if t.user
+            = "(#{t.user.nickname})"
+        %p= t.description
+%h3 Material:
+%p
+  %ul
+    - @event.materials.each do |m|
+      %li
+        %h4
+          = link_to m.name, m.url, :class => m.material_type
+          - if m.user
+            = "(#{m.user.nickname})"
+        %p= m.description
+
+%h3 Teilnehmer:
+.users
+  %ul
+    - @event.participants.each do |p|
+      %li
+        = link_to p.user.twurl do
+          = image_tag(p.user.image)
+
+%h3 Anfahrt:
+#map_canvas{'data-map'=>@event.location.to_json}
