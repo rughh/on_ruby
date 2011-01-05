@@ -1,6 +1,9 @@
 # encoding: utf-8
-class EventsController < InheritedResources::Base
-  load_and_authorize_resource :only => [:show]
+class EventsController < ApplicationController
+  
+  def index
+    @events = Event.paginate :page => params[:page], :per_page => 3
+  end
 
   def rss
     @events = Event.order("date DESC").limit(10)
@@ -9,6 +12,7 @@ class EventsController < InheritedResources::Base
   end
 
   def show
+    @event = Event.find params[:id]
     respond_to do |format|
       format.html
       format.ics do
@@ -29,5 +33,5 @@ class EventsController < InheritedResources::Base
 
   def info
   end
-
+  
 end

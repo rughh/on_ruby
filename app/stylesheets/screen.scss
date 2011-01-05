@@ -30,6 +30,10 @@ body {
     font:22px/50px georgia,times,serif;
     text-shadow:#ccc 1px 1px 2px;
   }
+  
+  .events li {
+    list-style: none;
+  }
 
   nav {
     background:#340f0c;
