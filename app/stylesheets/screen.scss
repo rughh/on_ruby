@@ -31,8 +31,13 @@ body {
     text-shadow:#ccc 1px 1px 2px;
   }
   
-  .events li {
+  .events li, .participants li {
     list-style: none;
+  }
+  
+  .participants img {
+    float: left;
+    padding-right: 20px;
   }
 
   nav {
@@ -272,4 +277,7 @@ body {
 #map_canvas {
   width: 600px;
   height: 450px;
+}
+#map_info_content {
+  display: none;
 }
