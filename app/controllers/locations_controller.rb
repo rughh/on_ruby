@@ -1,3 +1,2 @@
-class LocationsController < InheritedResources::Base
-  load_and_authorize_resource
+class LocationsController < ApplicationController
 end

@@ -23,9 +23,10 @@ class ApplicationController < ActionController::Base
   end
 
   def tweets
-    cache(:tweets, :expires_in => 1.minute) do
-      logger.debug "fetching new tweets"
-      Twitter::Search.new.q("rails OR ruby OR rughh").geocode(53.561858,9.962021,'100km').rpp(5).fetch
+    cache(:tweets, :expires_in => 5.minutes) do
+      search = random_users.map {|user| user.nickname }.join(' OR ')
+      logger.debug "fetching new tweets for #{search}"
+      Twitter::Search.new.from(search).fetch[0..10]
     end
   rescue
     []

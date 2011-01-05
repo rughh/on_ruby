@@ -1,0 +1,11 @@
+%h2 Ruby Events
+%ul.events
+  - @events.each do |event|
+    %li
+      %h3
+        = link_to event.name, event
+      %em
+        #{l(event.date)} bei #{event.location.name}
+
+.pagination
+  = will_paginate @events
