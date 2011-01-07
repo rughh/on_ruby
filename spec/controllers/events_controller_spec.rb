@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+include SpecHelper
+
 describe EventsController do
   let(:mock_data) { 'moooooooooockmockmock' }
 
@@ -46,6 +48,39 @@ describe EventsController do
 
     it "should render the :info template" do
       response.should render_template(:info)
+    end
+  end
+
+  describe "GET :publish" do
+    context "for unpublished event" do
+      it "should fail for unauthorized users" do
+        Event.stub(:find).with("37") { mock_event }
+        get :publish, :id => "37"
+        flash[:alert].should_not be_nil
+        response.should redirect_to(root_path)
+      end
+
+      it "should publish the event for admin" do
+        event = mock_event(:published? => false, :publish => nil)
+        Event.stub(:find).with("37") { event }
+        controller.stub(:current_user){ admin_user }
+
+        get :publish, :id => "37"
+
+        response.should redirect_to(events_path)
+      end
+    end
+
+    context "for published event" do
+      before do
+        Event.stub(:find).with("37") { mock_event(:published? => true) }
+      end
+
+      it "should raise an error" do
+        controller.stub(:current_user){ admin_user }
+        get :publish, :id => "37"
+        flash[:alert].should_not be_nil
+      end
     end
   end
 

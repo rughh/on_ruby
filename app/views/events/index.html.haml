@@ -6,6 +6,9 @@
         = link_to event.name, event
       %em
         #{l(event.date)} bei #{event.location.name}
+      - if can?(:manage, Event) and !event.published?
+        %p
+          = link_to 'Event publizieren (Twitter, Rails Usergroup, XING)', publish_event_path(event)
 
 .pagination
   = will_paginate @events

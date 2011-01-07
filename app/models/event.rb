@@ -34,6 +34,11 @@ class Event < ActiveRecord::Base
     calendar.publish
     calendar.to_ical
   end
+  
+  def publish!
+    puts "I AM GETTING PUBLISHED, BIATCH"
+    update_attributes!(:published => true)
+  end
 
   def self.preview_events
     self.order('date DESC').limit(2)

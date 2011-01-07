@@ -30,8 +30,18 @@ class EventsController < ApplicationController
     raise particpant.errors unless participant.save
     redirect_to event_path(event), :notice => 'Du bist am Event angemeldet.'
   end
-
-  def info
+  
+  def publish
+    event = Event.find params[:id]
+    authorize! :manage, @article
+    if event.published?
+      redirect_to events_path, :alert => 'Event wurde bereits publiziert.' 
+    else
+      event.publish!
+      redirect_to events_path, :notice => 'Event wurde erfolgreich publiziert.'
+    end
   end
+
+  def info; end
   
 end

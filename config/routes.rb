@@ -5,6 +5,7 @@ HamburgOnRuby::Application.routes.draw do
   resources :events do
     get 'rss', :on => :collection
     get 'add_user', :on => :member
+    get 'publish', :on => :member
     resources :materials
     resources :topics
     resources :participants
