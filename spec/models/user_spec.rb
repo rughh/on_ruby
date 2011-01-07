@@ -23,8 +23,8 @@ describe User do
   end
   
   it "should find the participation" do
-    @admin.participants.create!(:event_id => @event.id, :user_id => @admin.id)
-    @admin.participation(@event).should_not be_nil
+    admin_user.participants.create!(:event_id => @event.id, :user_id => admin_user.id)
+    admin_user.participation(@event).should_not be_nil
   end
   
   it "should select random users" do

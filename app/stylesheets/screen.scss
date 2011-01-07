@@ -1,4 +1,4 @@
-$header-color: #f7efe2;
+$header-color:#f7efe2;
 
 body {
   color:#555;
@@ -32,12 +32,12 @@ body {
   }
   
   .events li, .participants li {
-    list-style: none;
+    list-style:none;
   }
   
   .participants img {
-    float: left;
-    padding-right: 20px;
+    float:left;
+    padding:0px 20px 20px 0px;
   }
 
   nav {
@@ -202,7 +202,7 @@ body {
       color:#2a2a2a;
       font:22px/50px georgia,times,serif;
       text-shadow:#ccc 1px 1px 2px;
-      list-style: none;
+      list-style:none;
     }
   }
 
@@ -211,6 +211,7 @@ body {
     background:-webkit-gradient(linear, left top, left bottom, from(#2d2d2d), to(#565656)); /* Safari, Chrome */
     border-top:4px solid #4e4e4e;
     height:250px;
+    padding:15px;
   }
 
   footer.imprint {
@@ -275,9 +276,9 @@ body {
 }
 
 #map_canvas {
-  width: 600px;
-  height: 450px;
+  width:600px;
+  height:450px;
 }
 #map_info_content {
-  display: none;
+  display:none;
 }
