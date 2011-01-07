@@ -64,7 +64,10 @@
         %br.clear
 
     %footer.infos
-      .center
+      .center.participants
+        %ul
+          - random_users.each do |user|
+            %li= image_tag user.image
 
     %footer.imprint
       .center

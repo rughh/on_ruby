@@ -36,8 +36,6 @@ class ApplicationController < ActionController::Base
     cache(:random_users, :expires_in => 1.minute) do
       User.random
     end
-  rescue
-    []
   end
 
 end

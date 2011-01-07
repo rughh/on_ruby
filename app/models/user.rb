@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
     nickname
   end
 
-  def self.random(num=15)
+  def self.random(num=50)
     all.shuffle[0, num].reject{|u| u.nil? }
   end
 
