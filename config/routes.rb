@@ -1,5 +1,9 @@
 HamburgOnRuby::Application.routes.draw do
 
+  resources :wishes do
+    resources :votes
+  end
+
   resources :users
 
   resources :events do

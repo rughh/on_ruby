@@ -4,16 +4,9 @@ include SpecHelper
 
 describe EventsController do
   let(:mock_data) { 'moooooooooockmockmock' }
-
-  def mock_event(stubs={})
-    (@mock_event ||= mock_model(Event).as_null_object).tap do |event|
-      event.stub(stubs) unless stubs.empty?
-    end
-  end
-
+  
   before do
-    Event.stub(:preview_events) { [mock_event] }
-    @controller.stub(:cache) { [mock_data] }
+    @event = Factory(:event)
   end
 
   describe "GET :rss" do
@@ -30,12 +23,11 @@ describe EventsController do
 
   describe "GET :show" do
     before do
-      Event.stub(:find).with("37") { mock_event }
-      get :show, :id => "37"
+      get :show, :id => @event.id
     end
 
     it "should assign the requested @event" do
-      assigns(:event).should be(mock_event)
+      assigns(:event).should eql(@event)
     end
 
     it "should render the :show template" do
@@ -54,8 +46,7 @@ describe EventsController do
   describe "GET :publish" do
     context "for unauthorized users" do
       before do
-        Event.stub(:find).with("37") { mock_event }
-        get :publish, :id => "37"
+        get :publish, :id => @event.id
       end
       
       it "publishing should fail" do
@@ -66,9 +57,10 @@ describe EventsController do
     
     context "for unpublished event" do      
       before do
-        Event.stub(:find).with("37") { mock_event(:published? => false, :publish => nil) }
+        @unpublished_event = Factory(:event, :published => false)
+        @unpublished_event.stub(:publish => nil)
         controller.stub(:current_user){ admin_user }
-        get :publish, :id => "37"
+        get :publish, :id => @unpublished_event.id
       end
       
       it "should publish the event for admin" do
@@ -78,9 +70,9 @@ describe EventsController do
 
     context "for published event" do
       before do
-        Event.stub(:find).with("37") { mock_event(:published? => true) }
+        @published_event = Factory(:event, :published => true)
         controller.stub(:current_user){ admin_user }
-        get :publish, :id => "37"
+        get :publish, :id => @published_event.id
       end
 
       it "should raise an error" do
