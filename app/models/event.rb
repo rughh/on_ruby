@@ -36,7 +36,7 @@ class Event < ActiveRecord::Base
   end
   
   def publish!
-    puts "I AM GETTING PUBLISHED, BIATCH"
+    # TODO (ps) add publishing for XING, EVENT, NEWSGROUP ETC
     update_attributes!(:published => true)
   end
 

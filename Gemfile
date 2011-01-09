@@ -16,7 +16,6 @@ gem "cancan", "~> 1.4.1"
 gem "ambience", "~> 0.3.1"
 gem "rails_admin", :git => "git://github.com/sferik/rails_admin.git"
 
-
 group(:development, :test) do
   gem 'autotest', '~> 4.4.6'
   gem 'autotest-growl', '~> 0.2.9'
