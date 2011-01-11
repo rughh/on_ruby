@@ -15,7 +15,7 @@ gem "icalendar", "~> 1.1.5"
 gem "cancan", "~> 1.4.1"
 gem "ambience", "~> 0.3.1"
 gem "octopi", "~> 0.4.0"
-gem "rails_admin", :git => "git://github.com/sferik/rails_admin.git"
+gem "rails_admin", :git => "git://github.com/sferik/rails_admin.git", :ref => 'f30bc84bea7c19d909d517b148707955df612f5f'
 
 group(:development, :test) do
   gem 'autotest', '~> 4.4.6'
