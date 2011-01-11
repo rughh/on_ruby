@@ -7,7 +7,7 @@
     = link_to @event.user.nickname, @event.user.twurl
     bei
     = link_to @event.location.name, @event.location.url
-  
+
 %p= @event.description
 
 %p
@@ -20,41 +20,43 @@
     - else
       = link_to '&raquo;Ich möchte mich anmelden&laquo;'.html_safe,  auth_path
 
-%h3 Themen:
-%p
-  %ul
-    - @event.topics.each do |t|
-      %li
-        %h4
-          = t.name
-          - if t.user
-            = "(#{t.user.nickname})"
-        %p= t.description
-%h3 Material:
-%p
-  %ul
-    - @event.materials.each do |m|
-      %li
-        %h4
-          = link_to m.name, m.url, :class => m.material_type
-          - if m.user
-            = "(#{m.user.nickname})"
-        %p= m.description
-
-%h3 Teilnehmer:
-.participants
-  %ul
-    - @event.participants.each do |p|
-      %li
-        = link_to p.user.twurl do
-          = image_tag(p.user.image)
-  %br.clear
+-unless @event.topics.empty?
+  %h3 Themen:
+  %p
+    %ul
+      - @event.topics.each do |t|
+        %li
+          %h4
+            = t.name
+            - if t.user
+              = "(#{t.user.nickname})"
+          %p= t.description
+-unless @event.materials.empty?
+  %h3 Material:
+  %p
+    %ul
+      - @event.materials.each do |m|
+        %li
+          %h4
+            = link_to m.name, m.url, :class => m.material_type
+            - if m.user
+              = "(#{m.user.nickname})"
+          %p= m.description
+-unless @event.participants.empty?
+  %h3 Teilnehmer:
+  .participants
+    %ul
+      - @event.participants.each do |p|
+        %li
+          = link_to p.user.twurl do
+            = image_tag(p.user.image)
+    %br.clear
 
 %h3 Anfahrt:
 - l = @event.location
 #map_canvas{'data-map'=>l.to_json}
-#map_info_content
-  %h4= l.name
+  #map_info_content
+    %h4= l.name
   %p
     #{l.street} #{l.house_number}
     %br
