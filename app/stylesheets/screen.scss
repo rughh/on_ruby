@@ -33,6 +33,12 @@ h3 {
   text-shadow:#ccc 1px 1px 2px;
 }
 
+h4 {
+  color:#2a2a2a;
+  font:18px/42px georgia,times,serif;
+  text-shadow:#ccc 1px 1px 2px;
+}
+
 .events li, .participants li {
   list-style:none;
 }
@@ -231,10 +237,16 @@ section.main {
   }
 
   .users {
-    color:#2a2a2a;
-    font:22px/50px georgia,times,serif;
-    text-shadow:#ccc 1px 1px 2px;
+    a {
+      color:#2a2a2a;
+      font:22px/50px georgia,times,serif;
+      text-shadow:#ccc 1px 1px 2px;
+    }
     list-style:none;
+  }
+
+  .repos {
+    padding-left: 70px;
   }
 }
 
