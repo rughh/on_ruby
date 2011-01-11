@@ -6,11 +6,12 @@
 %p
   Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben,
   dann kannst du ihn hier eintragen, um Feedback von der Community zu bekommen.
-
-%p
+%p.toggle
+  = link_to '&raquo;Neuen Wunsch/Vorschlag eintragen&laquo;'.html_safe, '#', {:name => 'new_wish'}
+.toggle_new_wish.hide
   = simple_form_for @wish do |f|
     = f.input :name
-    = f.input :activity, :as => :radio, :collection => Wish::ACTIVITIES, :label_method => lambda{|key| {'WISH' => 'Ich wünsche mir', 'PROPOSAL' => 'Mein Thema ist'}[key]}, :prompt => 'Bitte wählen'
+    = f.input :activity, :as => :radio, :collection => Wish::ACTIVITIES, :label_method => lambda{|key| {'WISH' => 'Ich wünsche mir', 'PROPOSAL' => 'Mein Thema ist'}[key]}, :prompt => 'Bitte wählen', :label => false
     = f.input :description
     = f.button :submit
 
@@ -29,5 +30,5 @@
       = f.button :submit
 
 .pagination
-  = will_paginate @users
+  = will_paginate @wishes
 

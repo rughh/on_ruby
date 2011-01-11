@@ -165,6 +165,10 @@ section.main {
     padding-top:10px;
   }
 
+  div.radio {
+    padding-top:10px;
+  }
+
   .vote div, .vote form{
     display:inline;
   }
@@ -320,6 +324,10 @@ footer.imprint {
   &.calendar { background-image:url(/images/ico/calendar.png); background-position:772px 0; }
   &.donate { background-image:url(/images/ico/donate.png); background-position:785px 10px; }
   &.milestone { background-image:url(/images/ico/milestone.png); background-position:776px 15px; }
+}
+
+.hide {
+  display:none;
 }
 
 .clear {
