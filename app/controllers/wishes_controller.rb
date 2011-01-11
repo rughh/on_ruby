@@ -8,7 +8,9 @@ class WishesController < ApplicationController
   def create
     @wish = Wish.new params[:wish]
     @wish.user = current_user
-    if @wish.save
+    if current_user.nil?
+      redirect_to(wishes_path, :alert => 'Du musst angemeldet sein!')
+    elsif @wish.save
       redirect_to(wishes_path, :notice => 'Dein Eintrag wurde gespeichert.')
     else
       redirect_to(wishes_path, :alert => @wish.errors.full_messages.join(' '))
