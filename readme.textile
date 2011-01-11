@@ -7,9 +7,8 @@ brew install memcached
 
 h2. Todo
 
-* publishing via twitter
-* publishing to a calendar (xing?)
+* fix rails_admin on heroku (works locally)
+* publishing via twitter, calendar (xing?)
+* allow users to enter github username
+* add more omniauth logins (github)
 
-h2. Nice to have
-
-* user profiles (github profiles)
