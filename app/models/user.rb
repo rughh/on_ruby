@@ -31,8 +31,8 @@ class User < ActiveRecord::Base
       repos = Octopi::User.find(nickname).repositories
       repos.sort{|a, b| b.forks + b.watchers <=> a.forks + a.watchers}.slice(0, 3)
     end
-  rescue
-    logger.warn $!
+  rescue Octopi::NotFound
+    logger.info $!
     []
   end
 
