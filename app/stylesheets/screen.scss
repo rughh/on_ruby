@@ -229,6 +229,11 @@ section.main {
   .tweets, .users {
     list-style:none;
 
+    img {
+      width:48px;
+      height:48px;
+    }
+
     li {
       border-bottom:1px dashed #bbb;
       padding-bottom:25px;
