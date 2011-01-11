@@ -231,8 +231,16 @@ section.main {
     }
   }
 
+  .fiximages {
+    float:left;
+    margin-left:-60px;
+    width:48px;
+    height:48px;
+  }
+
   .tweets, .users {
     list-style:none;
+    background: 
 
     img {
       width:48px;

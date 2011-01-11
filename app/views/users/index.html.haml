@@ -2,7 +2,9 @@
 %ul
   - @users.each do |user|
     %li.users
-      = link_to "#{user.name} (#{user.nickname})", user.twurl, :style => "background-image:url(#{user.image})"
+      = link_to user.twurl do
+        = image_tag user.image, :class => 'fiximages'
+        #{user.name} (#{user.nickname})
     .repos
       %h4 Beliebteste GitHub Repositories:
       %ul
