@@ -22,35 +22,30 @@
 
 -unless @event.topics.empty?
   %h3 Themen:
-  %p
-    %ul
-      - @event.topics.each do |t|
-        %li
-          %h4
-            = t.name
-            - if t.user
-              = "(#{t.user.nickname})"
-          %p= t.description
+  %ul
+    - @event.topics.each do |t|
+      %li
+        = t.name
+        - if t.user
+          = "(#{t.user.nickname})"
+        %p= t.description
 -unless @event.materials.empty?
   %h3 Material:
-  %p
-    %ul
-      - @event.materials.each do |m|
-        %li
-          %h4
-            = link_to m.name, m.url, :class => m.material_type
-            - if m.user
-              = "(#{m.user.nickname})"
-          %p= m.description
+  %ul
+    - @event.materials.each do |m|
+      %li
+        = link_to m.name, m.url, :class => m.material_type
+        - if m.user
+          = "(#{m.user.nickname})"
+        %p= m.description
 -unless @event.participants.empty?
   %h3 Teilnehmer:
-  .participants
-    %ul
-      - @event.participants.each do |p|
-        %li
-          = link_to p.user.twurl do
-            = image_tag(p.user.image)
-    %br.clear
+  %ul.participants
+    - @event.participants.each do |p|
+      %li
+        = link_to p.user.twurl do
+          = image_tag(p.user.image)
+  %br.clear
 
 %h3 Anfahrt:
 - l = @event.location
