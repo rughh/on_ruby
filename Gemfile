@@ -14,6 +14,7 @@ gem "omniauth", "~> 0.1.6"
 gem "icalendar", "~> 1.1.5"
 gem "cancan", "~> 1.4.1"
 gem "ambience", "~> 0.3.1"
+gem "octopi", "~> 0.4.0"
 gem "rails_admin", :git => "git://github.com/sferik/rails_admin.git"
 
 group(:development, :test) do

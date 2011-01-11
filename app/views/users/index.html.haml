@@ -1,8 +1,14 @@
 %h2 Ruby Users
-%ul.users
+%ul
   - @users.each do |user|
-    %li
+    %li.users
       = link_to "#{user.name} (#{user.nickname})", user.twurl, :style => "background-image:url(#{user.image})"
+    .repos
+      %h4 Beliebteste GitHub Repositories:
+      %ul
+        - user.repos.each do |repo|
+          %li
+            = link_to repo.name, repo.url
 
 .pagination
   = will_paginate @users
