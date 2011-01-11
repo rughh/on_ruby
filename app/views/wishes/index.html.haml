@@ -2,11 +2,11 @@
   Usergroups leben von Vorträgen und dem Engagement der Teilnehmer.
   Wenn du ein Thema vermisst, oder nähre Informationen zu speziellen Bereichen suchst,
   dann kannst du hier gerne etwas in die Wunschliste eintragen.
-  
+
 %p
   Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben,
   dann kannst du ihn hier eintragen, um Feedback von der Community zu bekommen.
-  
+
 %p
   = simple_form_for @wish do |f|
     = f.input :name
@@ -16,15 +16,18 @@
 
 - @wishes.each do |wish|
   %h2= wish.name
-  %em
-    = "#{wish.user.nickname} #{{'WISH' => 'wünscht sich diesen Vortrag', 'PROPOSAL' => 'möchte dieses Thema vorstellen'}[wish.activity]}"
-    Das Thema wurde #{wish.votes.count} mal durchschnittlich mit #{wish.stars} von 5 Sternen bewertet
   %p= wish.description
-  %p
-    Ich möchte dieses Thema bewerten
+
+  %em
+    = link_to wish.user.nickname, wish.user.twurl
+    = {'WISH' => 'wünscht sich diesen Vortrag', 'PROPOSAL' => 'möchte dieses Thema vorstellen'}[wish.activity]
+  %p= "Das Thema wurde #{wish.votes.count} mal durchschnittlich mit #{wish.stars} von 5 Sternen bewertet"
+  .vote
+    Ich möchte dieses Thema mit
     = simple_form_for [wish, Vote.new] do |f|
-      = f.input :count, :collection => 1..5, :prompt => 'Bitte wählen'
+      = f.input :count, :collection => 1..5, :prompt => 'Sternen', :label => false
       = f.button :submit
 
 .pagination
   = will_paginate @users
+

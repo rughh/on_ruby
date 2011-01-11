@@ -1,7 +1,13 @@
 de:
+  helpers:
+    submit:
+      wish:
+        create: 'Wunsch eintragen'
+      vote:
+        create: 'bewerten'
   simple_form:
-    "yes": 'Yes'
-    "no": 'No'
+    "yes": 'Ja'
+    "no": 'Nein'
     required:
       text: 'required'
       mark: '*'
@@ -9,16 +15,16 @@ de:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Some errors were found, please take a look:"
-    # Labels and hints examples
-    # labels:
-    #   password: 'Password'
-    #   user:
-    #     new:
-    #       email: 'E-mail para efetuar o sign in.'
-    #     edit:
-    #       email: 'E-mail.'
-    # hints:
-    #   username: 'User name to sign in.'
-    #   password: 'No special characters, please.'
-
+      default_message: "Bitte die Eingabe überprüfen:"
+    labels:
+      password: 'Password'
+      wish:
+        index:
+          name: 'Name des Vorschlags'
+          activity: 'Vorschlagsart'
+          description: 'Genauere Beschreibung'
+      vote:
+        count: 'Sterne'
+    #hints:
+      #username: 'User name to sign in.'
+      #password: 'No special characters, please.'
