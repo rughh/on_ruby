@@ -58,6 +58,11 @@ h4 {
   padding:0px 20px 20px 0px;
 }
 
+.participants img {
+  height:48px;
+  width:48px;
+}
+
 nav {
   background:#340f0c;
   color:#333;
@@ -228,6 +233,11 @@ section.main {
 
   .tweets, .users {
     list-style:none;
+
+    img {
+      width:48px;
+      height:48px;
+    }
 
     li {
       border-bottom:1px dashed #bbb;

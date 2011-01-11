@@ -68,7 +68,7 @@
       .center.participants
         %h2 Hamburg on Ruby Mitglieder
         %ul
-          - (random_users * 20).each do |user|
+          - random_users.each do |user|
             %li
               = link_to user.twurl do
                 %p= image_tag user.image
