@@ -32,7 +32,7 @@
       .center
         %h1= link_to "Hamburg on Ruby", root_url
         %h2 Website der Hamburger Ruby-Community
-        
+
         - preview_events.each do |event|
           = link_to event, :class => 'event' do
             %strong
@@ -54,7 +54,7 @@
 
         .col.left
           = yield
-        
+
         .col.right
           %h3 Twitter on Ruby
           %ul.tweets
@@ -66,9 +66,12 @@
 
     %footer.infos
       .center.participants
+        %h2 Hamburg on Ruby Mitglieder
         %ul
-          - random_users.each do |user|
-            %li= image_tag user.image
+          - (random_users * 20).each do |user|
+            %li
+              = link_to user.twurl do
+                %p= image_tag user.image
 
     %footer.imprint
       .center
@@ -80,7 +83,7 @@
           %li= link_to "XING", "https://www.xing.com/profile/peter_schroeder2"
 
         %br.clear
-  
+
   =javascript_include_tag('http://maps.google.com/maps/api/js?sensor=true', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js', 'rails.js', 'application.js')
   :javascript
     (function() {
