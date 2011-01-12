@@ -1,5 +1,17 @@
 h1. Hamburg on Ruby
 
+Source for the "Site of Hamburg's Ruby Community":http://onruby.de.
+
+h2. Help
+
+If you want to dedicate some work for the Community you could:
+
+* fix bugs
+* extend functionality
+* improve Layout
+* provide a Logo
+* donate/get sponsorship
+
 h2. Setup
 
 rvm install 1.9.2
