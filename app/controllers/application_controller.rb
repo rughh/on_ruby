@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
 
     def tweets
       cache(:tweets, :expires_in => 5.minutes) do
-        search = random_users[0..5].map(&:nickname).join(' OR ')
+        search = random_users[0..3].map(&:nickname).join(' OR ')
         logger.debug "fetching new tweets for #{search}"
         Twitter::Search.new.from(search).fetch[0..10]
       end
