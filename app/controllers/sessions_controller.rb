@@ -1,5 +1,10 @@
 class SessionsController < ApplicationController
 
+  def stateful_login
+    session[:login_path] = request.referrer || root_url
+    redirect_to auth_twitter_path
+  end
+
   def create
     auth = request.env['rack.auth']
     unless @auth = Authorization.find_from_hash(auth)
