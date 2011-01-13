@@ -25,17 +25,6 @@ class User < ActiveRecord::Base
     nickname
   end
 
-  def repos
-    # TODO (ps) Where to put this?
-    Rails.cache.fetch(:"repos_#{nickname}", :expires_in => 1.day) do
-      repos = Octopi::User.find(nickname).repositories
-      repos.sort{|a, b| b.forks + b.watchers <=> a.forks + a.watchers}.slice(0, 3)
-    end
-  rescue Exception
-    logger.info $!
-    []
-  end
-
   def self.random(num=50)
     all.shuffle[0, num].reject{|u| u.nil? }
   end
