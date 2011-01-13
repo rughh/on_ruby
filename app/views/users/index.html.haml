@@ -5,14 +5,15 @@
       = link_to user.twurl do
         = image_tag user.image, :class => 'fiximages'
         #{user.name} (#{user.nickname})
-    - r = user.repos
-    - unless r.empty?
-      .repos
-        %h4 Beliebteste GitHub Repositories:
-        %ul
-          - user.repos.each do |repo|
-            %li
-              = link_to repo.name, repo.url
+    - cache("repos_#{user.nickname}", :expires_in => 1.day) do
+      - r = repos(user.nickname)
+      - unless r.empty?
+        .repos
+          %h4 Beliebteste GitHub Repositories:
+          %ul
+            - r.each do |repo|
+              %li
+                = link_to repo.name, repo.url
 
 .pagination
   = will_paginate @users
