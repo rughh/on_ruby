@@ -1,3 +1,5 @@
+require 'json'
+
 module ApplicationHelper
   def repos(nickname)
     logger.info "getting repos for #{nickname}"
