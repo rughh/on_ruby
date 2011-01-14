@@ -4,7 +4,7 @@ include SpecHelper
 
 describe EventsController do
   let(:mock_data) { 'moooooooooockmockmock' }
-  
+
   before do
     @event = Factory(:event)
   end
@@ -48,13 +48,13 @@ describe EventsController do
       before do
         get :publish, :id => @event.id
       end
-      
+
       it "publishing should fail" do
         flash[:alert].should_not be_nil
         response.should redirect_to(root_path)
       end
     end
-    
+
     context "for unpublished event" do      
       before do
         @unpublished_event = Factory(:event, :published => false)
@@ -62,7 +62,7 @@ describe EventsController do
         controller.stub(:current_user){ admin_user }
         get :publish, :id => @unpublished_event.id
       end
-      
+
       it "should publish the event for admin" do
         response.should redirect_to(events_path)
       end

@@ -1,6 +1,6 @@
 # encoding: utf-8
 class EventsController < ApplicationController
-  
+
   def index
     @events = Event.paginate :page => params[:page], :per_page => 3
   end
@@ -30,7 +30,7 @@ class EventsController < ApplicationController
     raise particpant.errors unless participant.save
     redirect_to event_path(event), :notice => 'Du bist am Event angemeldet.'
   end
-  
+
   def publish
     event = Event.find params[:id]
     authorize! :manage, @article
@@ -43,5 +43,5 @@ class EventsController < ApplicationController
   end
 
   def info; end
-  
+
 end
