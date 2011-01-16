@@ -28,7 +28,7 @@ function initialize_map() {
 }
 
 function show_hide() {
-  $(".toggle a").click(function (){
+  $(".toggle").click(function (){
     var name = $(this).attr('name');
     $(".toggle_" + name).toggle('slow');
     return false;

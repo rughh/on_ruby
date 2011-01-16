@@ -20,6 +20,5 @@ brew install memcached
 h2. Todo
 
 * publishing via twitter, calendar (xing?)
-* allow users to enter github username
 * add more omniauth logins (github)
 

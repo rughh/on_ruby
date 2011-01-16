@@ -1,7 +1,11 @@
+@import "compass/css3/border-radius";
+
 $header-color:#f7efe2;
+$nav-bg:#340f0c;
 $footer-color:#eee;
 $border-shaddow:#c5c5c5;
 $header-gradient-low:#d73633;
+$radius:5px;
 
 body {
   color:#555;
@@ -64,7 +68,7 @@ h4 {
 }
 
 nav {
-  background:#340f0c;
+  background:$nav-bg;
   color:#333;
   font:13px/18px georgia,times,serif;
   font-size:13px;
@@ -109,6 +113,26 @@ nav {
 
   li {
     float:left;
+  }
+
+  .toggle {
+    padding:1px;
+    margin:1px;
+  }
+
+  .toggle_user_details {
+    display:none;
+    background-color:$nav-bg;
+    position:absolute;
+    color:white;
+    padding:10px;
+    margin-top:5px;
+    @include border-bottom-left-radius($radius);
+    @include border-bottom-right-radius($radius);
+
+    label, input {
+      margin:5px;
+    }
   }
 }
 

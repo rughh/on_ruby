@@ -6,7 +6,7 @@
         = image_tag user.image, :class => 'fiximages'
         #{user.name} (#{user.nickname})
     - cache("repos_#{user.nickname}", :expires_in => 1.day) do
-      - r = repos(user.nickname)
+      - r = repos(user.github)
       - unless r.empty?
         .repos
           %h4 Beliebteste GitHub Repositories:
