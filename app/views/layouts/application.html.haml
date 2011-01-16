@@ -13,7 +13,13 @@
         %ul.left
 
           - if current_user
-            %li= link_to "#{current_user.nickname} abmelden", destroy_session_path
+            %li
+              = link_to "#{current_user.nickname} abmelden", destroy_session_path
+              = link_to '▼', '#', :name => 'user_details', :class => 'toggle'
+              .toggle_user_details
+                = simple_form_for current_user do |f|
+                  = f.input :github
+                  = f.submit
           - else
             %li= link_to "Anmelden via Twitter", auth_path
 

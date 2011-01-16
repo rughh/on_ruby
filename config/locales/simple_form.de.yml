@@ -5,6 +5,8 @@ de:
         create: 'Wunsch eintragen'
       vote:
         create: 'bewerten'
+      user:
+        update: 'Profil aktualisieren'
   simple_form:
     "yes": 'Ja'
     "no": 'Nein'

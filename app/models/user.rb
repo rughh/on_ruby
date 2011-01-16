@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :authorizations
   has_many :participants
 
+  attr_accessible :github
+
   def participates?(event)
     participants.any? { |participant| participant.event_id == event.id }
   end
@@ -23,6 +25,10 @@ class User < ActiveRecord::Base
 
   def email # needed for RailsAdmin
     nickname
+  end
+
+  def github
+    self['github'].blank? ? nickname : self['github']
   end
 
   def self.random(num=50)
