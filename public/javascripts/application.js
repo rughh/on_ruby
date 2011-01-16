@@ -3,7 +3,8 @@ function initialize_map() {
   if(!element) {
     return;
   }
-  var latlng = new google.maps.LatLng(53.561858,9.962021);
+  var data = $.parseJSON($(element).attr('data-map')).location;  
+  var latlng = new google.maps.LatLng(data.lat, data.long);
   var myOptions = {
     zoom: 14,
     center: latlng,
@@ -11,7 +12,6 @@ function initialize_map() {
   };
   var map = new google.maps.Map(element, myOptions);
   
-  var data = $.parseJSON($(element).attr('data-map')).location;
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(data.lat, data.long),
     map: map,
