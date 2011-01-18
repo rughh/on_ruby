@@ -11,18 +11,19 @@
       %h1= link_to "Hamburg on Ruby", root_url
       %h2 Heimathafen der Hamburger Ruby-Community
 
-    .cell
-      %ul#menu
-        %li
-          %span &nbsp;
-          %b= link_to "Events", events_url
-        %li
-          %span &nbsp;
-          %b= link_to "Mitglieder", users_url
-        %li
-          %span &nbsp;
-          %b= link_to "Wunschliste", wishes_url
+    .cellwrap
+      .cell
+        %ul#menu
+          %li
+            %span &nbsp;
+            %b= link_to "Events", events_url
+          %li
+            %span &nbsp;
+            %b= link_to "Mitglieder", users_url
+          %li
+            %span &nbsp;
+            %b= link_to "Wunschliste", wishes_url
 
-    .cell
-      #stage
-        = yield
+      .cell
+        #stage
+          = yield

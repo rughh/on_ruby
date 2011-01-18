@@ -58,6 +58,11 @@ a:hover, a:active {
   }
 }
 
+.cellwrap {
+  display:table;
+  width:100%;
+}
+
 .cell {
   display:table-cell;
   width:50%;
@@ -93,8 +98,8 @@ a:hover, a:active {
   margin-left:-200px;
 }
 
-section {
-  background:url(/images/nupsi_right_red.png) 55px right no-repeat;
+.section {
+  background:url("/images/nupsi_right_red.png") right 55px no-repeat;
 }
 
 h3 {
