@@ -2,113 +2,27 @@
 %html
   %head
     %title Hamburg on Ruby
-    = stylesheet_link_tag "reset", "screen"
-    = javascript_include_tag "http://fast.fonts.com/jsapi/3fa79afb-ff00-4703-b36c-1e33df7636b0.js"
+    = stylesheet_link_tag "screen"
     = auto_discovery_link_tag :rss, rss_events_path, :title => "Event-Feed"
     = csrf_meta_tag
 
   %body
-    %nav
-      .center
-        %ul.left
+    .header
+      %h1= link_to "Hamburg on Ruby", root_url
+      %h2 Heimathafen der Hamburger Ruby-Community
 
-          - if current_user
-            %li
-              = link_to "#{current_user.nickname} abmelden", destroy_session_path
-              = link_to '▼', '#', :name => 'user_details', :class => 'toggle'
-              .toggle_user_details
-                = simple_form_for current_user do |f|
-                  = f.input :github
-                  = f.submit
-          - else
-            %li= link_to "Anmelden via Twitter", auth_path
+    .cell
+      %ul#menu
+        %li
+          %span &nbsp;
+          %b= link_to "Events", events_url
+        %li
+          %span &nbsp;
+          %b= link_to "Mitglieder", users_url
+        %li
+          %span &nbsp;
+          %b= link_to "Wunschliste", wishes_url
 
-          %li= link_to "Events", events_url
-          %li= link_to "Mitglieder", users_url
-          %li= link_to "Wunschliste", wishes_url
-
-        %ul.right
-          %li= link_to "Twitter", "http://twitter.com/hamburgsync"
-          %li= link_to "E-Mail", "mailto:#{AppConfig.email}"
-          %li= link_to "Event-Feed", rss_events_path(:type => :rss)
-
-        %br.clear
-
-    %header
-      .center
-        %h1= link_to "Hamburg on Ruby", root_url
-        %h2 Website der Hamburger Ruby-Community
-
-        - preview_events.each do |event|
-          = link_to event, :class => 'event' do
-            %strong
-              = cycle('Nächstes', 'Letztes')
-              Event:
-            %ul
-              %li= "&raquo;#{event.name}&laquo;".html_safe
-              %li= l(event.date)
-
-        %br.clear
-
-    %section.main
-      .center
-        #flash
-          - if notice
-            .flash.notice= notice
-          - if alert
-            .flash.error= alert
-
-        .col.left
-          = yield
-
-        .col.right
-          %h3 Twitter on Ruby
-          %ul.tweets
-            - tweets.each do |tweet|
-              %li
-                = link_to tweet.text.html_safe, "http://twitter.com/#{tweet.from_user}", :style => "background-image:url(#{tweet.profile_image_url})"
-
-        %br.clear
-
-    %footer.infos
-      .center.participants
-        %h2 Hamburg on Ruby Mitglieder
-        %ul
-          - random_users.each do |user|
-            %li
-              = link_to user.twurl do
-                %p= image_tag user.image
-
-    %footer.imprint
-      .center
-        %ul
-          %li Impressum:
-          %li Peter Schröder, Schanzenstr. 85, 20357 Hamburg, 0178-1391035
-          %li= link_to "E-Mail", "phoetmail@googlemail.com"
-          %li= link_to "Twitter", "http://twitter.com/phoet"
-          %li= link_to "XING", "https://www.xing.com/profile/peter_schroeder2"
-
-        %br.clear
-
-  =javascript_include_tag('http://maps.google.com/maps/api/js?sensor=true', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js', 'rails.js', 'application.js')
-  :javascript
-    (function() {
-      var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-
-      s.type = 'text/javascript';
-      s.async = true;
-      s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-
-      t.parentNode.insertBefore(s, t);
-    })();
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-20148095-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
+    .cell
+      #stage
+        = yield
