@@ -14,15 +14,9 @@
     .cellwrap
       .cell
         %ul#menu
-          %li
-            %span &nbsp;
-            %b= link_to "Events", events_url
-          %li
-            %span &nbsp;
-            %b= link_to "Mitglieder", users_url
-          %li
-            %span &nbsp;
-            %b= link_to "Wunschliste", wishes_url
+          = awesome_link_to :events, events_url
+          = awesome_link_to :users, users_url
+          = awesome_link_to :wishes, wishes_url
 
       .cell
         #stage

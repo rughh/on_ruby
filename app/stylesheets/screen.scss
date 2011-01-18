@@ -73,6 +73,14 @@ a:hover, a:active {
     background:url(/images/nupsi_left_brown.png) left 9px no-repeat;
     width:100%;
 
+    &.active {
+      background:url(/images/nupsi_left_red.png) left 9px no-repeat;
+
+      a {
+        color:$red;
+      }
+    }
+
     span {
       display:table-cell;
       width:100%;
