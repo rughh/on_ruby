@@ -21,7 +21,7 @@ body {
 
 a:link, a:visited {
   color:$brown;
-  text-decoration:none;
+  text-decoration:underline;
 }
 
 a:hover, a:active {
@@ -87,44 +87,52 @@ a:hover, a:active {
       a {
         display:block;
         height:40px;
-        margin:0 275px 0 15px;
-        width:120px;
+
+        /* change the margin-right and with for long menu items */
+        margin:0 295px 0 15px;
+        width:100px;
+
+        &:link, &:hover {
+          text-decoration:none;
+        }
       }
     }
   }
 }
 
 #stage {
-  margin-left:-200px;
-}
+  margin-left:-220px;
 
-.section {
-  background:url("/images/nupsi_right_red.png") right 55px no-repeat;
-}
+  .section:first-child {
+    background-position:right 20px;
 
-h3 {
-  background:$beige;
-  color:$red;
-  display:inline-block;
-  font:normal 28px/36px hero,arial,verdana,sans-serif;
-  padding:35px 15px 25px 0;
-}
+    h3 {
+      padding-top:0;
+    }
+  }
 
-p, ul, ol {
-  margin-bottom:30px;
-}
+  p, ul, ol {
+    margin-bottom:30px;
+  }
 
-p {
-  width:600px;
-}
+  p {
+    width:600px;
+  }
 
-ul {
-}
+  ul {
+    list-style:disc outside;
+    margin-left:15px;
+  }
 
-/*
-#stage {
-  float:left;
-  margin-top:28px;
-  width:623px;
+  .section {
+    background:url("/images/nupsi_right_red.png") right 55px no-repeat;
+  }
+
+  h3 {
+    background:$beige;
+    color:$red;
+    display:inline-block;
+    font:normal 28px/36px hero,arial,verdana,sans-serif;
+    padding:35px 15px 25px 0;
+  }
 }
-*/
