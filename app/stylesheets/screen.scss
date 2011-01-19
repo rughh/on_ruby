@@ -28,6 +28,10 @@ a:hover, a:active {
   text-decoration:none;
 }
 
+strong {
+  font-weight:bold;
+}
+
 .header {
   border-top:2px solid $brown;
 }
@@ -124,7 +128,7 @@ a:hover, a:active {
   }
 
   p, ul, ol {
-    margin-bottom:30px;
+    margin-bottom:18px;
   }
 
   p {
@@ -146,6 +150,43 @@ a:hover, a:active {
     display:inline-block;
     font:normal 28px/36px hero,arial,verdana,sans-serif;
     padding:35px 15px 25px 0;
+  }
+
+  h4 {
+    color:$brown;
+    font:bold 15px/30px hero,arial,verdana,sans-serif;
+  }
+
+  .user {
+    margin-bottom:30px;
+
+    .avatar {
+      float:left;
+      margin-top:2px;
+    }
+
+    .info {
+      float:left;
+      margin-left:25px;
+
+      strong a {
+        text-decoration:none;
+      }
+
+      dt {
+        clear:left;
+        padding-right:5px;
+      }
+
+      dt, dd {
+        float:left;
+      }
+    }
+  }
+
+  .avatar {
+    border:1px solid $brown;
+    padding:3px;
   }
 }
 
@@ -189,4 +230,8 @@ a:hover, a:active {
       width:18px;
     }
   }
+}
+
+br.clear {
+  clear:both; height:0;
 }

@@ -1,21 +1,21 @@
 .section
   %h3 Ruby Users
-  %ul
-    - @users.each do |user|
-      %li.users
-        = link_to user.twurl do
-          = image_tag user.image, :class => 'fiximages'
-          #{user.name} (#{user.nickname})
 
-      - cache("repos_#{user.nickname}", :expires_in => 1.day) do
-        - r = repos(user.github)
-        - unless r.empty?
-          .repos
-            %h4 Beliebteste GitHub Repositories:
-            %ul
-              - r.each do |repo|
-                %li
-                  = link_to repo.name, repo.url
+  - @users.each do |user|
+    .user
+      = image_tag user.image, :class => "avatar"
+      .info
+        %strong= user.name
+        %dl
+          %dt Tweets:
+          %dd= link_to user.nickname
+
+          - cache("repos_#{user.nickname}", :expires_in => 1.second) do
+            - r = repos user.github
+            - unless r.empty?
+              %dt Beliebteste Github Repositories:
+              %dd= r.map { |repo| link_to repo.name, repo.url }.join(", ").html_safe
+      %br.clear
 
 - content_for :pagination do
   = will_paginate @users
