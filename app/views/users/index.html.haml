@@ -17,5 +17,5 @@
                 %li
                   = link_to repo.name, repo.url
 
-  .pagination
-    = will_paginate @users
+- content_for :pagination do
+  = will_paginate @users

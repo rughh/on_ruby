@@ -33,5 +33,5 @@
         = f.input :count, :collection => 1..5, :prompt => 'Sternen', :label => false
         = f.button :submit
 
-  .pagination
-    = will_paginate @wishes
+- content_for :pagination do
+  = will_paginate @wishes
