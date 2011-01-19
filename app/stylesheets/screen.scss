@@ -154,7 +154,16 @@ strong {
 
   h4 {
     color:$brown;
-    font:bold 15px/30px hero,arial,verdana,sans-serif;
+    font:bold 20px/50px hero,arial,verdana,sans-serif;
+  }
+
+  .participants {
+    list-style:none;
+
+    li {
+      float:left;
+      margin:0 15px 15px 0;
+    }
   }
 
   .user {
@@ -182,6 +191,15 @@ strong {
         float:left;
       }
     }
+  }
+
+  #map_canvas {
+    width:630px;
+    height:400px;
+  }
+
+  #map_info_content {
+    display:none;
   }
 
   .avatar {

@@ -11,16 +11,16 @@
 
   %p
     %strong
-      -if current_user
+      - if current_user
         - if current_user.participates?(@event)
           = link_to '&raquo;Ich möchte mich abmelden&laquo;'.html_safe, event_participant_path(@event, current_user.participation(@event)), :method => 'delete'
-        -else
+        - else
           = link_to '&raquo;Ich möchte mich anmelden&laquo;'.html_safe, add_user_event_path(@event)
       - else
         = link_to '&raquo;Ich möchte mich anmelden&laquo;'.html_safe,  auth_path
 
   - unless @event.topics.empty?
-    %h3 Themen:
+    %h4 Themen:
     %ul
       - @event.topics.each do |t|
         %li
@@ -30,7 +30,7 @@
           %p= t.description
 
   - unless @event.materials.empty?
-    %h3 Material:
+    %h4 Material:
     %ul
       - @event.materials.each do |m|
         %li
@@ -40,18 +40,19 @@
           %p= m.description
 
   - unless @event.participants.empty?
-    %h3 Teilnehmer:
+    %h4 Teilnehmer:
     %ul.participants
       - @event.participants.each do |p|
         %li
           = link_to p.user.twurl do
-            = image_tag(p.user.image)
+            = image_tag p.user.image, :alt => p.user.name, :class => "avatar"
+    %br.clear
 
-  %h3 Anfahrt:
+  %h4 Anfahrt:
   - l = @event.location
   #map_canvas{ 'data-map' => l.to_json }
     #map_info_content
-      %h4= l.name
+      %h5= l.name
     %p
       #{l.street} #{l.house_number}
       %br
