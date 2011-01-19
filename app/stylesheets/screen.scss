@@ -1,5 +1,8 @@
 @import "compass/reset";
+@import "compass/layout";
 @import "compass/css3/border-radius";
+
+@include sticky-footer(40px, ".layout", ".layout_footer", ".footer");
 
 $red:#f03a15;
 $beige:#f2f2e8;
@@ -8,10 +11,6 @@ $text:#444;
 
 @font-face { font-family:hero; src:url("/fonts/hero_light.otf") format("opentype"); }
 @font-face { font-family:hero; font-weight:bold; src:url("/fonts/hero.otf") format("opentype"); }
-
-html {
-  border-top:2px solid $brown;
-}
 
 body {
   background:$beige;
@@ -30,7 +29,12 @@ a:hover, a:active {
 }
 
 .header {
-  margin:50px auto 70px auto;
+  border-top:2px solid $brown;
+}
+
+.title {
+  margin:0 auto;
+  padding:50px 0 70px 0;
   width:800px;
 
   h1 {
@@ -142,5 +146,47 @@ a:hover, a:active {
     display:inline-block;
     font:normal 28px/36px hero,arial,verdana,sans-serif;
     padding:35px 15px 25px 0;
+  }
+}
+
+.footer {
+  margin:0 auto;
+  width:800px;
+
+  .pagination {
+    margin-left:180px;
+
+    a, em, span {
+      background:$brown;
+      color:$beige;
+      display:block;
+      float:left;
+      font-size:11px;
+      margin-right:2px;
+      width:20px;
+      text-align:center;
+      padding:10px 0;
+    }
+
+    a:link, a:visited {
+      text-decoration:none;
+    }
+
+    a:hover, a:active {
+      color:$red;
+    }
+
+    em {
+      background:$red;
+    }
+
+    .disabled {
+      background:none;
+      border:1px solid $brown;
+      border-bottom:0;
+      color:$brown;
+      padding-top:9px;
+      width:18px;
+    }
   }
 }

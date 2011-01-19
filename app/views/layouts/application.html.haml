@@ -7,17 +7,23 @@
     = csrf_meta_tag
 
   %body
-    .header
-      %h1= link_to "Hamburg on Ruby", root_url
-      %h2 Heimathafen der Hamburger Ruby-Community
+    .layout
+      .header
+        .title
+          %h1= link_to "Hamburg on Ruby", root_url
+          %h2 Heimathafen der Hamburger Ruby-Community
 
-    .cellwrap
-      .cell
-        %ul#menu
-          = awesome_link_to :events, events_url
-          = awesome_link_to :users, users_url
-          = awesome_link_to :wishes, wishes_url
+      .cellwrap
+        .cell
+          %ul#menu
+            = awesome_link_to :events, events_url
+            = awesome_link_to :users, users_url
+            = awesome_link_to :wishes, wishes_url
 
-      .cell
-        #stage
-          = yield
+        .cell
+          #stage
+            = yield
+      .layout_footer
+
+    .footer
+      = yield :pagination
