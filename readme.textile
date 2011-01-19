@@ -22,3 +22,31 @@ h2. Todo
 * publishing via twitter, calendar (xing?)
 * add more omniauth logins (github)
 
+h3. Add other Usergroups
+
+HH.js
+http://www.meetup.com/hamburg-js/
+@hhjs
+
+Cocoaheads
+http://groups.google.com/group/cocoaheads-hh/
+@hh_cocoaheads
+
+Scrumtisch
+https://www.xing.com/net/sug-hh/
+@hhscrum
+
+Kanban Usergroup
+http://limited-wip-society-hamburg.mixxt.de/
+@LimitedWIPSocHH
+
+Android Usergroup
+https://www.xing.com/net/androidusergroup
+
+Java Usergroup
+http://www.jughh.org/
+
+AWS Usergroup
+http://awsug.wordpress.com/
+@awsug
+
