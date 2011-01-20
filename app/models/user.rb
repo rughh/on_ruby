@@ -19,14 +19,11 @@ class User < ActiveRecord::Base
     "http://twitter.com/#{nickname}"
   end
 
-  def admin?
-    nickname == AppConfig.admin
-  end
-
   def email # needed for RailsAdmin
     nickname
   end
 
+  # fall back to nickname if no github name is configured
   def github
     self['github'].blank? ? nickname : self['github']
   end
