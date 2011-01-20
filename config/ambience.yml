@@ -1,5 +1,4 @@
 defaults: &defaults
-  admin: "phoet"
   email: "hamburg@onruby.de"
   organizers:
     -
