@@ -2,8 +2,16 @@ require "spec_helper"
 
 describe ApplicationHelper do
 
-  describe "#repo" do
-    it "should have specs"
+  describe "#repos" do
+    it "should catch all exceptions" do
+      Faraday.stub(:get).and_raise(RuntimeError)
+      lambda { helper.repos('nick') }.should_not raise_error
+    end
+
+    it "should return an empty array on error" do
+      Faraday.stub(:get).and_raise(RuntimeError)
+      helper.repos('nick').should eql([])
+    end
   end
 
   describe "#awesome_link_to" do
