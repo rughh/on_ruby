@@ -55,7 +55,7 @@ describe EventsController do
       end
     end
 
-    context "for unpublished event" do      
+    context "for unpublished event" do
       before do
         @unpublished_event = Factory(:event, :published => false)
         @unpublished_event.stub(:publish => nil)
