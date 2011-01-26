@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  
+
   belongs_to :location
   belongs_to :user
 
@@ -28,15 +28,17 @@ class Event < ActiveRecord::Base
     ical_event.last_modified = updated_at
     ical_event.uid = ical_event.url = path
     ical_event.add_comment("iCal Event by Hamburg on Ruby!")
-    
+
     calendar = Icalendar::Calendar.new
     calendar.add_event(ical_event)
     calendar.publish
     calendar.to_ical
   end
-  
-  def publish!
-    # TODO (ps) add publishing for XING, EVENT, NEWSGROUP ETC
+
+  def publish!(event_url)
+    # TODO (ps) add publishing for XING, NEWSGROUP
+    url = Bitly.new.shorten(event_url).short_url
+    Twitter.update("#{name} am #{date} - #{url}")
     update_attributes!(:published => true)
   end
 
@@ -49,3 +51,4 @@ class Event < ActiveRecord::Base
   end
 
 end
+
