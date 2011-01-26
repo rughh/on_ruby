@@ -37,7 +37,7 @@ class EventsController < ApplicationController
     if event.published?
       redirect_to events_path, :alert => 'Event wurde bereits publiziert.' 
     else
-      event.publish!
+      event.publish!(event_url(event))
       redirect_to events_path, :notice => 'Event wurde erfolgreich publiziert.'
     end
   end
