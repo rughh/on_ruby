@@ -50,3 +50,6 @@ AWS Usergroup
 http://awsug.wordpress.com/
 @awsug
 
+DJANGO Usergroup
+http://www.arnebrodowski.de/blog/django-usergroup-hamburg-jetzt-mit-festen-terminen.html
+
