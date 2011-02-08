@@ -135,12 +135,12 @@ strong {
     }
   }
 
-  p, ul, ol {
+  p, ul, ol, form {
+    margin-left:40px;
     margin-bottom:18px;
   }
 
   p {
-    margin-left:40px;
     width:600px;
   }
 
@@ -181,19 +181,23 @@ strong {
   }
 
   .user {
-    margin-bottom:30px;
+    margin-bottom:25px;
 
     .avatar {
       float:left;
-      margin-top:2px;
+      margin-top:4px;
     }
 
     .info {
       float:left;
       margin-left:25px;
 
-      strong a {
-        text-decoration:none;
+      strong {
+        display:block;
+        font-size:16px;
+        font-weight:normal;
+        line-height:36px;
+        margin-top:-7px;
       }
 
       dt {
@@ -217,8 +221,47 @@ strong {
   }
 
   .avatar {
-    border:1px solid $brown;
-    padding:3px;
+    position:relative;
+
+    img {
+      height:48px;
+      width:48px;
+    }
+
+    .rounded {
+      background:url(/images/rounded-avatars.png) 0 0 no-repeat;
+      position:absolute;
+      left:0;
+      top:0;
+      height:48px;
+      width:48px;
+    }
+  }
+
+  label {
+    display:block;
+    font-weight:bold;
+    margin-bottom:5px;
+  }
+
+  form {
+    margin-top:35px;
+  }
+
+  .input {
+    margin-bottom:15px;
+  }
+
+  input[type=text] {
+    width:300px;
+  }
+
+  input[type=checkbox], input[type=radio] {
+    margin-right:10px;
+  }
+
+  textarea {
+    width:450px;
   }
 }
 

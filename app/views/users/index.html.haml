@@ -3,14 +3,16 @@
 
   - @users.each do |user|
     .user
-      = image_tag user.image, :class => "avatar"
+      .avatar
+        = image_tag user.image, width: 48, height: 48
+        %span.rounded
       .info
         %strong= user.name
         %dl
           %dt Tweets:
           %dd= link_to user.nickname
 
-          - cache("repos_#{user.nickname}", :expires_in => 1.second) do
+          - cache("repos_#{user.nickname}", expires_in: 1.second) do
             - r = repos user.github
             - unless r.empty?
               %dt Beliebteste Github Repositories:
