@@ -9,3 +9,5 @@ HamburgOnRuby::Application.load_tasks
 MetricFu::Configuration.run do |config|  
   config.rcov[:rcov_opts] << "-Ispec"  
 end rescue nil
+
+task :default=>['db:migrate', 'spec']
