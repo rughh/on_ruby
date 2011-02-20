@@ -19,6 +19,7 @@ brew install memcached
 
 h2. Todo
 
+* re-add profile changing for users
 * publishing via twitter, calendar (xing?)
 * add more omniauth logins (github)
 
