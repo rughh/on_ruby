@@ -6,7 +6,6 @@ coverage
 solr
 public/cache
 public/system
-public/stylesheets
 public/javascripts/*_packaged.js
 doc/specs.html
 doc/features.html
