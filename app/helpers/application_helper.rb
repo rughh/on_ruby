@@ -1,17 +1,7 @@
 module ApplicationHelper
 
-  def repos(nickname)
-    logger.info "getting repos for #{nickname}"
-    resp = Faraday.get "http://github.com/api/v2/json/repos/show/#{nickname}"
-    repos = Hashie::Mash.new(MultiJson.decode(resp.body)).repositories || []
-    repos.sort { |a, b| b.watchers + b.forks <=> a.watchers + a.forks }[0..2]
-  rescue
-    logger.warn $!
-    []
-  end
-
   def awesome_link_to(name, url, options={})
-    content_tag :li, :class => css_class_for_link(name) do
+    content_tag :li, :class => css_class_for_link(name, url) do
       content_tag(:span) + content_tag(:b) { link_to t("menu.#{name}", options), url }
     end
   end
@@ -26,8 +16,8 @@ module ApplicationHelper
 
 private
 
-  def css_class_for_link(name)
-    controller.controller_name == name.to_s ? "active" : ""
+  def css_class_for_link(name, url)
+    controller.controller_name == name.to_s || url.include?(request.fullpath) ? "active" : ""
   end
 
 end
