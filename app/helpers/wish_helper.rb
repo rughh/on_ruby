@@ -1,7 +1,11 @@
 # encoding: utf-8
 
 module WishHelper
-
+  
+  def activity_type_label_method
+    lambda { |key| { Wish::ACTIVITY_WISH => 'Ich wünsche mir', Wish::ACTIVITY_PROPOSAL => 'Mein Thema ist'}[key] }
+  end
+  
   def wish_description(wish)
     output = 5.times.map do |n|
       value = n + 1

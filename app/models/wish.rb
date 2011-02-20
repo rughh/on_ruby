@@ -1,6 +1,9 @@
 class Wish < ActiveRecord::Base
   
-  ACTIVITIES = ['WISH', 'PROPOSAL']
+  ACTIVITY_WISH     = 'WISH'
+  ACTIVITY_PROPOSAL = 'PROPOSAL'
+  
+  ACTIVITIES = [ACTIVITY_WISH, ACTIVITY_PROPOSAL]
   
   belongs_to :user
   has_many :votes
