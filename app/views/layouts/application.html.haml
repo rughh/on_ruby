@@ -5,6 +5,7 @@
     = stylesheet_link_tag "screen"
     = auto_discovery_link_tag :rss, rss_events_path, :title => "Event-Feed"
     = csrf_meta_tag
+    = include_gritter_and_jquery
 
   %body
     .layout
@@ -16,36 +17,23 @@
       .cellwrap
         .cell
           %ul#menu
-            = awesome_link_to :events, events_url
-            = awesome_link_to :users, users_url
-            = awesome_link_to :wishes, wishes_url
+            = awesome_link_to :info,    info_url
+            = awesome_link_to :events,  events_url
+            = awesome_link_to :users,   users_url
+            = awesome_link_to :wishes,  wishes_url
+            = awesome_link_to :imprint, imprint_url
+            
+            .login
+              - if current_user
+                =awesome_link_to :logout, destroy_session_path, :name => current_user.nickname
+              - else
+                =awesome_link_to :login, auth_path
 
         .cell
           #stage
+            =flash_growl
             = yield
-      .layout_footer
+            .pagination
+              = yield :pagination
 
-    .footer
-      = yield :pagination
-
-    = javascript_include_tag('http://maps.google.com/maps/api/js?sensor=true', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js', 'rails.js', 'application.js')
-    :javascript
-      (function() {
-        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-
-        t.parentNode.insertBefore(s, t);
-      })();
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-20148095-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+    = render :partial => 'shared/script'

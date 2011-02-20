@@ -23,8 +23,12 @@ describe WishesController do
     end
 
     it "should create a wish for logged-in user" do
-      @controller.stub(:current_user => @user)
-      expect { post(:create, {:wish => Factory.attributes_for(:wish)}) }.to change(Wish, :count).by(1)
+      @controller.stubs(:current_user => @user)
+      expect do
+        expect do
+          post(:create, {:wish => Factory.attributes_for(:wish)}) 
+        end.to change(Vote, :count).by(1)
+      end.to change(Wish, :count).by(1)
       assigns(:wish).user.should eql(@user)
       flash[:notice].should_not be_nil
     end

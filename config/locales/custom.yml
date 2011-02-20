@@ -1,5 +1,9 @@
 de:
   menu:
+    info: "Info"
     events: "Events"
     users: "Mitglieder"
     wishes: "Wunschliste"
+    imprint: "Impressum"
+    logout: "%{name} abmelden"
+    login: "Anmelden"

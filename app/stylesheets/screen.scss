@@ -2,8 +2,6 @@
 @import "compass/layout";
 @import "compass/css3/border-radius";
 
-@include sticky-footer(40px, ".layout", ".layout_footer", ".footer");
-
 $red:#f03a15;
 $beige:#f2f2e8;
 $lightbrown:#7b6868;
@@ -85,12 +83,17 @@ strong {
 }
 
 #menu {
+  .login a {
+    padding-top:10px;
+    border-top: 1px dashed $red;
+  }
+  
   li {
-    background:url(/images/nupsi_left_brown.png) left 9px no-repeat;
+/*    background:url(/images/nupsi_left_brown.png) left 9px no-repeat;*/
     width:100%;
 
     &.active {
-      background:url(/images/nupsi_left_red.png) left 9px no-repeat;
+/*      background:url(/images/nupsi_left_red.png) left 9px no-repeat;*/
 
       a {
         color:$red;
@@ -103,10 +106,7 @@ strong {
     }
 
     b {
-      background:$topbg;
       display:table-cell;
-      font-weight:normal;
-      width:100%;
 
       a {
         display:block;
@@ -178,6 +178,43 @@ strong {
       float:left;
       margin:0 15px 15px 0;
     }
+  }
+  
+  .vote {
+    div, form {
+      display:inline;
+    }
+  }
+  
+  .star {
+    padding:8px 8px 2px 14px;
+    margin-right:2px;
+    text-decoration:none;
+    background:url(/images/star-empty.png) 3px 4px no-repeat;
+    font-size:9px;
+    
+    &:hover, &:active {
+      background:url(/images/star.png) 3px 4px no-repeat;
+      color:black;
+    }
+    
+    &.highlight {
+      background:url(/images/star.png) 3px 4px no-repeat;
+    }
+  }
+  
+  .imprint {
+    dl, dt {
+      padding: 5px;
+    }
+    dt {
+      font-weight:bold;
+    }
+  }
+  
+  .meta {
+    font-size:10px;
+    font-style:italic;
   }
 
   .user {
@@ -265,48 +302,58 @@ strong {
   }
 }
 
+
+.pagination {
+  margin-left:80px;
+
+  a, em, span {
+    background:$brown;
+    color:$beige;
+    display:block;
+    float:left;
+    font-size:10px;
+    margin-right:2px;
+    width:20px;
+    text-align:center;
+    border:1px solid $brown;
+  }
+
+  a:link, a:visited {
+    text-decoration:none;
+  }
+
+  a:hover, a:active {
+    color:$red;
+  }
+
+  em {
+    background:$red;
+  }
+
+  .disabled {
+    background:none;
+    color:$brown;
+  }
+}
+
+
 .footer {
   margin:0 auto;
   width:800px;
-
-  .pagination {
-    margin-left:180px;
-
-    a, em, span {
-      background:$brown;
-      color:$beige;
-      display:block;
-      float:left;
-      font-size:11px;
-      margin-right:2px;
-      width:20px;
-      text-align:center;
-      padding:10px 0;
-    }
-
-    a:link, a:visited {
-      text-decoration:none;
-    }
-
-    a:hover, a:active {
-      color:$red;
-    }
-
-    em {
-      background:$red;
-    }
-
-    .disabled {
-      background:none;
-      border:1px solid $brown;
-      border-bottom:0;
-      color:$brown;
-      padding-top:9px;
-      width:18px;
-    }
+  padding-top:50px;
+  li {
+    display:inline;
   }
+}
+
+.imprint {
+  margin:0 auto;
 }
 
 br.clear {
   clear:both; height:0;
+}
+
+.hide {
+  display:none;
 }

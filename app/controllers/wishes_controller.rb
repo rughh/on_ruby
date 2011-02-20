@@ -10,6 +10,11 @@ class WishesController < ApplicationController
   def create
     @wish = Wish.new params[:wish]
     @wish.user = current_user
+    @wish.votes << Vote.new do |v|
+      v.user = current_user
+      v.wish = @wish
+      v.count = 5
+    end
     if @wish.save
       redirect_to(wishes_path, :notice => 'Dein Eintrag wurde gespeichert.')
     else
