@@ -3,7 +3,7 @@
   %head
     %title Hamburg on Ruby
     = stylesheet_link_tag "screen"
-    = auto_discovery_link_tag :rss, rss_events_path, :title => "Event-Feed"
+    = auto_discovery_link_tag :rss, rss_events_path, title: "Event-Feed"
     = csrf_meta_tag
     = include_gritter_and_jquery
 
@@ -25,7 +25,7 @@
             
             .login
               - if current_user
-                =awesome_link_to :logout, destroy_session_path, :name => current_user.nickname
+                =awesome_link_to :logout, destroy_session_path, name: current_user.nickname
               - else
                 =awesome_link_to :login, auth_path
 
@@ -34,4 +34,4 @@
             =flash_growl
             = yield
             
-    = render :partial => 'shared/script'
+    = render partial: 'shared/script'

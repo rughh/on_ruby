@@ -4,7 +4,7 @@
   - @users.each do |user|
     .user
       .avatar
-        = image_tag user.image, :width => 48, :height => 48
+        = image_tag user.image, width: 48, height: 48
         %span.rounded
       .info
         %strong= user.name
@@ -12,11 +12,11 @@
           %dt Tweets:
           %dd= link_to user.nickname
 
-          - cache("repos_#{user.nickname}", :expires_in => 1.second) do
-            - r = repos user.github
-            - unless r.empty?
+          - cache("repos_#{user.nickname}", expires_in: 1.day) do
+            - user_repos = repos user.github
+            - unless user_repos.empty?
               %dt Beliebteste Github Repositories:
-              %dd= r.map { |repo| link_to repo.name, repo.url }.join(", ").html_safe
+              %dd= repo_links user_repos
       %br.clear
 
 .pagination
