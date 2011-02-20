@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "/events/info" do
+describe "/home/info" do
 
   it "should render successfully" do
     render

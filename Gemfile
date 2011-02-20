@@ -16,11 +16,13 @@ gem "icalendar", "~> 1.1.5"
 gem "cancan", "~> 1.4.1"
 gem "ambience", "~> 0.3.1"
 gem "rails_admin", :git => "git://github.com/sferik/rails_admin.git", :ref => "487d0ec845efe95b10d6"
+gem "gritter", "~> 0.6.0"
 
 group(:development, :test) do
   gem "autotest", "~> 4.4.6"
   gem "autotest-growl", "~> 0.2.9"
   gem "fuubar", "~> 0.0.3"
+  gem "mocha", "~> 0.9.12"
   gem "sqlite3-ruby", :require => "sqlite3"
   gem "ruby-debug19", :require => "ruby-debug"
   # is not compatible with fuubar, flip if you want to use it
