@@ -1,1 +1,1 @@
-script: "rake db:migrate spec"
+script: "rake travis_ci"
