@@ -23,11 +23,6 @@ class User < ActiveRecord::Base
     nickname
   end
 
-  # fall back to nickname if no github name is configured
-  def github
-    self['github'].blank? ? nickname : self['github']
-  end
-
   def self.random(num=50)
     all.shuffle[0, num].reject{|u| u.nil? }
   end
