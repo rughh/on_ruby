@@ -17,12 +17,13 @@
       .cellwrap
         .cell
           %ul#menu
-            =menu
-            =login
+            = menu
+            = login
+            = user_entries
 
         .cell
           #stage
-            =flash_growl
+            = flash_growl
             = yield
             
     = render :partial => 'shared/script'

@@ -19,6 +19,19 @@ module ApplicationHelper
     end.join.html_safe
   end
 
+  def user_entries
+    return unless current_user
+    [
+      Menu.new(:profile, :users, :edit)
+      ].map do |item|
+      content_tag :li, :class => css_class_for_menu_item(item) do
+        content_tag(:span) + content_tag(:b) do
+          link_to t("menu.#{item.name}"), :controller => item.controller, :action => item.action, :id => current_user.id
+        end
+      end
+    end.join.html_safe
+  end
+
   def login
     content_tag(:div, :class => 'login') do
       content_tag :li do
@@ -30,6 +43,14 @@ module ApplicationHelper
           end
         end
       end
+    end.html_safe
+  end
+
+  def shorten(text, length=80)
+    if text.length > length
+      text[0..length] + "..."
+    else
+      text
     end.html_safe
   end
 

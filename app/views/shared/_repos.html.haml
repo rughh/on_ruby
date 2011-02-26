@@ -1,0 +1,5 @@
+- cache("repos_#{user.nickname}", :expires_in => 1.second) do
+  - r = repos user.github
+  - unless r.empty?
+    %dt Beliebteste Github Repositories:
+    %dd= r.map { |repo| link_to repo.name, repo.url }.join(", ").html_safe

@@ -7,3 +7,4 @@ de:
     imprint: "Impressum"
     logout: "%{name} abmelden"
     login: "Anmelden"
+    profile: "Profil bearbeiten"

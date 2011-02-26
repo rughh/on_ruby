@@ -1,0 +1,7 @@
+.section
+  %h3 Profil bearbeiten
+  = render partial: 'shared/user', locals: {user: @user}
+  
+  = simple_form_for @user do |f|
+    = f.input :github
+    = f.button :submit

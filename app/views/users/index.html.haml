@@ -1,23 +1,16 @@
 .section
+
+  %h3 Twitter timeline:
+  .tweets
+    - tweets.each do |tweet|
+      = render partial: 'shared/tweet', locals: {tweet: tweet}
+
   %h3 Ruby Users
 
   - @users.each do |user|
-    .user
-      .avatar
-        = image_tag user.image, :width => 48, :height => 48
-        %span.rounded
-      .info
-        %strong= user.name
-        %dl
-          %dt Tweets:
-          %dd= link_to user.nickname
+    = render partial: 'shared/user', locals: {user: user}
+    = render partial: 'shared/repos', locals: {user: user}
 
-          - cache("repos_#{user.nickname}", :expires_in => 1.second) do
-            - r = repos user.github
-            - unless r.empty?
-              %dt Beliebteste Github Repositories:
-              %dd= r.map { |repo| link_to repo.name, repo.url }.join(", ").html_safe
-      %br.clear
 
 .pagination
   = will_paginate @users

@@ -1,0 +1,10 @@
+.user
+  .avatar
+    = image_tag tweet.profile_image_url, :width => 48, :height => 48
+    %span.rounded
+  .info
+    %strong= shorten(tweet.text)
+    %dl
+      %dt= link_to tweet.from_user, "http://twitter.com/#{tweet.from_user}"
+      %dd= link_to tweet.created_at, "http://twitter.com/#{tweet.from_user}/status/#{tweet.id}"
+  %br.clear

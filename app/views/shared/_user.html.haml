@@ -1,0 +1,10 @@
+.user
+  .avatar
+    = image_tag user.image, :width => 48, :height => 48
+    %span.rounded
+  .info
+    %strong= user.name
+    %dl
+      %dt Twitter:
+      %dd= link_to user.twurl
+  %br.clear
