@@ -3,7 +3,7 @@
   %head
     %title Hamburg on Ruby
     = stylesheet_link_tag "screen"
-    = auto_discovery_link_tag :rss, rss_events_path, :title => "Event-Feed"
+    = auto_discovery_link_tag :rss, rss_events_path, title: "Event-Feed"
     = csrf_meta_tag
     = include_gritter_and_jquery
 
@@ -20,10 +20,9 @@
             = menu
             = login
             = user_entries
-
         .cell
           #stage
             = flash_growl
             = yield
             
-    = render :partial => 'shared/script'
+    = render partial: 'shared/script'

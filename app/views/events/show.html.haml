@@ -1,7 +1,7 @@
 .section
   %h3= @event.name
   %p
-    %b= link_to l(@event.date), event_path(@event, :format => :ics), :class => 'ical'
+    %b= link_to l(@event.date), event_path(@event, format: :ics), class: 'ical'
     gehostet durch
     = link_to @event.user.nickname, @event.user.twurl
     bei
@@ -13,7 +13,7 @@
     %strong
       - if current_user
         - if current_user.participates?(@event)
-          = link_to '&raquo;Ich möchte mich abmelden&laquo;'.html_safe, event_participant_path(@event, current_user.participation(@event)), :method => 'delete'
+          = link_to '&raquo;Ich möchte mich abmelden&laquo;'.html_safe, event_participant_path(@event, current_user.participation(@event)), method: 'delete'
         - else
           = link_to '&raquo;Ich möchte mich anmelden&laquo;'.html_safe, add_user_event_path(@event)
       - else
@@ -34,7 +34,7 @@
     %ul
       - @event.materials.each do |m|
         %li
-          = link_to m.name, m.url, :class => m.material_type
+          = link_to m.name, m.url, class: m.material_type
           - if m.user
             = "(#{m.user.nickname})"
           %p= m.description
@@ -45,7 +45,7 @@
       - @event.participants.each do |p|
         %li
           = link_to p.user.twurl do
-            = image_tag p.user.image, :alt => p.user.name, :class => "avatar"
+            = image_tag p.user.image, alt: p.user.name, class: "avatar"
     %br.clear
 
   %h4 Anfahrt:
