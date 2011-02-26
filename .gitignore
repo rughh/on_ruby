@@ -3,7 +3,6 @@ log/*
 tmp/*
 db/*.sqlite3
 coverage
-solr
 public/cache
 public/system
 public/javascripts/*_packaged.js
@@ -14,8 +13,6 @@ tags
 *~
 rerun.txt
 .bundle
-db/schema.rb
 specifications
 cache
 gems
-.rvmrc

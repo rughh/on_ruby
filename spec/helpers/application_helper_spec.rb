@@ -1,24 +1,40 @@
 require "spec_helper"
 
 describe ApplicationHelper do
-
-  describe "#repos" do
-    it "should catch all exceptions" do
-      Faraday.stubs(:get).raises(RuntimeError)
-      lambda { helper.repos('nick') }.should_not raise_error
+  describe "#menu" do
+    it "should return the HTML for the menu" do
+      result = helper.menu
+      result.scan('<li class="">').size.should == 5
     end
-
-    it "should return an empty array on error" do
-      Faraday.stubs(:get).raises(RuntimeError)
-      helper.repos('nick').should eql([])
-    end
-  end
-
-  describe "#awesome_link_to" do
-    it "should return the HTML for an awesome link" do
-      result = helper.awesome_link_to :events, "http://example.com"
-      result.should == '<li class=""><span></span><b><a href="http://example.com">Events</a></b></li>'
+    
+    it "should have an active menu item" do
+      helper.stubs(:controller => OpenStruct.new(:controller_name => 'home', :action_name => 'info'))
+      result = helper.menu
+      result.scan('<li class="active">').size.should == 1
     end
   end
+  
+  describe "#login" do
+    before(:each) do
+      helper.stubs(:current_user => nil)
+    end
+    
+    it "should return the HTML for the login-part" do
+      result = helper.login
+      result.should =~ /<div class="login">/
+    end
 
+    it "should show logout link for current_user" do
+      result = helper.login
+      result.should match(auth_path)
+    end
+    
+    it "should show logout link for current_user" do
+      user = Factory(:user)
+      stubs(:current_user => user)
+      result = helper.login
+      result.should match(user.nickname)
+      result.should match(destroy_session_path)
+    end
+  end
 end
