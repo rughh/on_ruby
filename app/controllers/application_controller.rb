@@ -48,8 +48,8 @@ class ApplicationController < ActionController::Base
       random_users[0..2].map do |user|
         logger.debug "fetching new tweets for #{user.nickname}"
         Twitter::Search.new.from(user.nickname).fetch
-      end.flatten.shuffle[0..9]
-    end
+      end.flatten
+    end.shuffle[0..1]
   rescue
     []
   end
