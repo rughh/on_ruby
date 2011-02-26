@@ -17,17 +17,8 @@
       .cellwrap
         .cell
           %ul#menu
-            = awesome_link_to :info,    info_url
-            = awesome_link_to :events,  events_url
-            = awesome_link_to :users,   users_url
-            = awesome_link_to :wishes,  wishes_url
-            = awesome_link_to :imprint, imprint_url
-            
-            .login
-              - if current_user
-                =awesome_link_to :logout, destroy_session_path, :name => current_user.nickname
-              - else
-                =awesome_link_to :login, auth_path
+            =menu
+            =login
 
         .cell
           #stage
