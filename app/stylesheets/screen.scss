@@ -173,6 +173,7 @@ strong {
 
   .participants {
     list-style:none;
+    width:80%;
 
     li {
       float:left;
@@ -251,6 +252,8 @@ strong {
   #map_canvas {
     width:630px;
     height:400px;
+    margin-left:40px;
+    margin-bottom:18px;
   }
 
   #map_info_content {
