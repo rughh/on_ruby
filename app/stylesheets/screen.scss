@@ -181,6 +181,10 @@ strong {
     }
   }
   
+  .repos {
+    padding-bottom:25px;
+  }
+  
   .vote {
     div, form {
       display:inline;
@@ -218,7 +222,7 @@ strong {
     font-style:italic;
   }
 
-  .user {
+  .user, .event {
     margin-bottom:25px;
 
     .avatar {

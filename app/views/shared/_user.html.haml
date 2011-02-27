@@ -6,5 +6,5 @@
     %strong= user.name
     %dl
       %dt Twitter:
-      %dd= link_to user.twurl
+      %dd= link_to "@#{user.nickname}", user.twurl
   %br.clear
