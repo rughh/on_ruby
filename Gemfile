@@ -27,6 +27,7 @@ group(:development, :test) do
   gem "ruby-debug19", :require => "ruby-debug", :platforms => :mri_19
   # is not compatible with fuubar, flip if you want to use it
   # gem "metric_fu", "~> 2.0.1"
+  gem "ci_reporter", "~> 1.6.4"
   gem "rspec-rails", "~> 2.4.1"
   gem "remarkable_activemodel", "~> 4.0.0.alpha4"
   gem "remarkable_activerecord", "~> 4.0.0.alpha4"
