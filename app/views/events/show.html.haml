@@ -45,17 +45,19 @@
       - @event.participants.each do |p|
         %li
           = link_to p.user.twurl do
-            = image_tag p.user.image, alt: p.user.name, class: "avatar"
+            .avatar
+              = image_tag p.user.image, :width => 48, :height => 48
+              %span.rounded
     %br.clear
 
   %h4 Anfahrt:
   - l = @event.location
   #map_canvas{ 'data-map' => l.to_json }
-    #map_info_content
-      %h5= l.name
-    %p
-      #{l.street} #{l.house_number}
-      %br
-      #{l.zip} #{l.city}
-    %p
-      =link_to l.url, l.url
+  #map_info_content
+    %strong= l.name
+    %br
+    #{l.street} #{l.house_number}
+    %br
+    #{l.zip} #{l.city}
+    %br
+    =link_to l.url, l.url

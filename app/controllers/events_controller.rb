@@ -2,7 +2,8 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.paginate :page => params[:page], :per_page => 3
+    @upcoming_events = Event.where(:date => (Time.now)..(1.month.from_now)).order("date DESC")
+    @events = Event.order("date DESC").paginate :page => params[:page], :per_page => 10
   end
 
   def rss
