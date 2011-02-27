@@ -1,15 +1,15 @@
 .section
 
   %h3 Twitter timeline:
-  .tweets
+  %ul.tweets
     - tweets.each do |tweet|
       = render partial: 'shared/tweet', locals: {tweet: tweet}
 
   %h3 Ruby Users
-
-  - @users.each do |user|
-    = render partial: 'shared/user', locals: {user: user}
-    = render partial: 'shared/repos', locals: {user: user}
+  %ul
+    - @users.each do |user|
+      = render partial: 'shared/user', locals: {user: user}
+      = render partial: 'shared/repos', locals: {user: user}
 
 .pagination
   = will_paginate @users

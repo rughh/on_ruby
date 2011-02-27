@@ -6,5 +6,5 @@
     %strong= shorten(tweet.text)
     %dl
       %dt= link_to tweet.from_user, "http://twitter.com/#{tweet.from_user}"
-      %dd= link_to tweet.created_at, "http://twitter.com/#{tweet.from_user}/status/#{tweet.id}"
+      %dd= link_to l(tweet.created_at.to_time), "http://twitter.com/#{tweet.from_user}/status/#{tweet.id}"
   %br.clear
