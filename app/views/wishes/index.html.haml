@@ -9,21 +9,10 @@
     Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben,
     dann kannst du ihn hier eintragen, um Feedback von der Community zu bekommen.
 
-  %p
-    = link_to '&raquo;Eigenen Wunsch eintragen&laquo;'.html_safe, '#', name: 'new_wish', class: 'toggle'
-
-  .toggle_new_wish.hide
-    = simple_form_for @wish do |f|
-      = f.input :name
-      = f.input :activity, as: :radio, collection: Wish::ACTIVITIES, label_method: activity_type_label_method, prompt: 'Bitte wählen', label: false
-      = f.input :description
-      = f.button :submit
+  = render partial: 'add_wish', locals: {wish: @wish}
 
   - @wishes.each do |wish|
-    %h3= wish.name
-    %p.meta= wish_description wish
-      
-    %p= wish.description
+    = render partial: 'wish', locals: {wish: wish}
 
 .pagination
   = will_paginate @wishes

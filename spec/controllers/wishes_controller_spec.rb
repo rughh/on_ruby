@@ -16,6 +16,18 @@ describe WishesController do
       response.should render_template(:index)
     end
   end
+  
+  describe "GET :show" do
+    before do
+      @wish = Factory(:wish)
+      get :show, :id => @wish.id
+    end
+
+    it "should assign members" do
+      assigns(:wish).should eql(@wish)
+      response.should render_template(:show)
+    end
+  end
 
   describe "POST :create" do
     before do

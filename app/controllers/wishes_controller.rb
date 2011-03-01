@@ -3,8 +3,12 @@ class WishesController < ApplicationController
   before_filter :check_login, :only => :create
 
   def index
-    @wishes = Wish.paginate :page => params[:page], :per_page => 10
+    @wishes = Wish.order('CREATED_AT DESC').paginate :page => params[:page], :per_page => 10
     @wish = Wish.new
+  end
+  
+  def show
+    @wish = Wish.find params[:id]
   end
 
   def create
