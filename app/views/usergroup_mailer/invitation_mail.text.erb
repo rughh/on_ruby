@@ -1,0 +1,6 @@
+<%= @event.name %>
+
+<%= @event.description %>
+<% @event.topics.each do |topic| %>
+  <%= topic.name %>
+<% end %>
