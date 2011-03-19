@@ -1,17 +1,13 @@
 class SessionsController < ApplicationController
 
-  def stateful_login
-    session[:login_path] = request.referrer || root_url
-    redirect_to auth_twitter_path
-  end
-
   def create
-    auth = request.env['rack.auth']
+    auth = request.env['omniauth.auth']
     unless @auth = Authorization.find_from_hash(auth)
-      @auth = Authorization.create_from_hash(auth, current_user)
+      @auth = Authorization.create_from_hash auth, current_user
     end
+    @auth.user.update_from_auth! auth
     self.current_user = @auth.user
-    redirect_to root_path, :notice => 'Du bist erfolgreich eingeloggt!'
+    redirect_to request.env['omniauth.origin'] || root_path, :notice => 'Du bist erfolgreich eingeloggt!'
   end
 
   def destroy_user_session
@@ -25,6 +21,10 @@ class SessionsController < ApplicationController
 
   def failure
     redirect_to root_path, :alert => 'Fehler beim Einloggen mit Twitter, bist du dort vielleicht nicht eingeloggt?'
+  end
+  
+  def auth
+    redirect_to "/auth/#{params[:provider]}"
   end
 
 end

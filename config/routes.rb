@@ -21,8 +21,7 @@ HamburgOnRuby::Application.routes.draw do
   match '/auth/failure',              :to => 'sessions#failure'
   match '/auth/destroy_user_session', :to => 'sessions#destroy_user_session', :as => :destroy_user_session
   match '/auth/destroy_session',      :to => 'sessions#destroy',              :as => :destroy_session
-  match '/auth/stateful_login',       :to => 'sessions#stateful_login',       :as => :auth
-  match '/auth/twitter',              :as => :auth_twitter
+  match '/auth/login/:provider',      :to => 'sessions#auth',                 :as => :auth,                 :defaults => { :provider => 'twitter' }
 
   match '/home/info',     :to => 'home#info',     :as => :info
   match '/home/imprint',  :to => 'home#imprint',  :as => :imprint

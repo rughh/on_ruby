@@ -1,6 +1,6 @@
 source :rubygems
 
-gem "rails", "~> 3.0.3"
+gem "rails", "~> 3.0.5"
 
 gem "bitly", "~> 0.6.1"
 gem "twitter", "~> 1.1.1"
@@ -11,11 +11,11 @@ gem "will_paginate", "~> 3.0.pre2"
 gem "simple_form", "~> 1.3.0"
 gem "friendly_id", "~> 3.0"
 gem "compass", "~> 0.10.5"
-gem "omniauth", "~> 0.1.6"
+gem "omniauth", "~> 0.2.0"
 gem "icalendar", "~> 1.1.5"
 gem "cancan", "~> 1.4.1"
 gem "ambience", "~> 0.3.1"
-gem "rails_admin", :git => "git://github.com/sferik/rails_admin.git", :ref => "487d0ec845efe95b10d6"
+gem "rails_admin", :git => "git://github.com/sferik/rails_admin.git", :ref => "42bdbb878cefac96a3d6"
 gem "gritter", "~> 0.6.0"
 
 group(:development, :test) do

@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe Authorization do
-  
+
   before(:each) do
     @auth = {
       "provider"=>"twitter",
@@ -17,7 +17,7 @@ describe Authorization do
       }
     }
   end
-  
+
   it "should create an auth and a user from an auth-hash" do
     expect do
       Authorization.create_from_hash(@auth)
