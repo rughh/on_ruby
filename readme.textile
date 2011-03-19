@@ -19,9 +19,10 @@ brew install memcached
 
 h2. Todo
 
-* re-add profile changing for users
 * publishing via twitter, calendar (xing?)
 * add more omniauth logins (github)
+* add conferences that are not in hamburg (railswaycon euruko eurucamp frozenrails)
+* add companies from hamburg that do rails/ruby
 
 h3. Add other Usergroups
 
