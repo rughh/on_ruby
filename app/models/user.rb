@@ -7,6 +7,16 @@ class User < ActiveRecord::Base
 
   attr_accessible :github
 
+  def self.random(num=50)
+    all.shuffle[0, num].reject{|u| u.nil? }
+  end
+
+  def self.create_from_hash!(hash)
+    create do |user|
+      user.handle_attributes(hash)
+    end
+  end
+
   def participates?(event)
     participants.any? { |participant| participant.event_id == event.id }
   end
@@ -23,19 +33,18 @@ class User < ActiveRecord::Base
     nickname
   end
 
-  def self.random(num=50)
-    all.shuffle[0, num].reject{|u| u.nil? }
+  def update_from_auth!(hash)
+    handle_attributes(hash)
+    save!
   end
 
-  def self.create_from_hash!(hash)
-    create do |user|
-      user.nickname     = hash['user_info']['nickname']
-      user.name         = hash['user_info']['name']
-      user.location     = hash['user_info']['location']
-      user.image        = hash['user_info']['image']
-      user.description  = hash['user_info']['description']
-      user.url          = hash['user_info']['urls']['Website']
-    end
+  def handle_attributes(hash)
+    self.nickname     = hash['user_info']['nickname']
+    self.name         = hash['user_info']['name']
+    self.location     = hash['user_info']['location']
+    self.image        = hash['user_info']['image']
+    self.description  = hash['user_info']['description']
+    self.url          = hash['user_info']['urls']['Website']
   end
 
 end

@@ -23,7 +23,7 @@ module ApplicationHelper
     return unless current_user
     [
       Menu.new(:profile, :users, :edit)
-      ].map do |item|
+    ].map do |item|
       content_tag :li, :class => css_class_for_menu_item(item) do
         content_tag(:span) + content_tag(:b) do
           link_to t("menu.#{item.name}"), :controller => item.controller, :action => item.action, :id => current_user.id
