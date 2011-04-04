@@ -1,6 +1,7 @@
 defaults: &defaults
   email: "hamburg@onruby.de"
-  usergroup_email: "ps@nofail.de"
+  host: "hamburg.onruby.de"
+  usergroup_email: "phoet@gmx.de"
   usergroup_email_real: "rubyonrails-ug@headflash.com"
   organizers:
     -

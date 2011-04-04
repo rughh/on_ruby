@@ -11,7 +11,7 @@ describe UsergroupMailer do
       assert !ActionMailer::Base.deliveries.empty?
       
       email.to.should eql([AppConfig.usergroup_email])
-      email.subject.should eql(@event.name)
+      email.subject.should match(@event.name)
       email.encoded.should =~ /<h1>#{@event.name}<\/h1>/
     end
   end
