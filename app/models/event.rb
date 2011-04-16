@@ -16,23 +16,18 @@ class Event < ActiveRecord::Base
     date + 2.hours
   end
 
-  def to_ical(path)
-    ical_event = Icalendar::Event.new
-    ical_event.start = date.strftime("%Y%m%dT%H%M%S")
-    ical_event.end = end_date.strftime("%Y%m%dT%H%M%S")
-    ical_event.summary = name
-    ical_event.description = description
-    ical_event.location = location.name
-    ical_event.klass = "PUBLIC"
-    ical_event.created = created_at
-    ical_event.last_modified = updated_at
-    ical_event.uid = ical_event.url = path
-    ical_event.add_comment("iCal Event by Hamburg on Ruby!")
-
-    calendar = Icalendar::Calendar.new
-    calendar.add_event(ical_event)
-    calendar.publish
-    calendar.to_ical
+  def to_ical
+    Icalendar::Event.new.tap do |ical_event|
+      ical_event.start = date.strftime("%Y%m%dT%H%M%S")
+      ical_event.end = end_date.strftime("%Y%m%dT%H%M%S")
+      ical_event.summary = name
+      ical_event.description = description
+      ical_event.location = location.name
+      ical_event.klass = "PUBLIC"
+      ical_event.created = created_at
+      ical_event.last_modified = updated_at
+      ical_event.add_comment("iCal Event by Hamburg on Ruby!")
+    end
   end
 
   def publish!(event_url)

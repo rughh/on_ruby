@@ -4,6 +4,10 @@ class EventsController < ApplicationController
   def index
     @upcoming_events = Event.where(:date => (Time.now)..(1.month.from_now)).order("date DESC")
     @events = Event.order("date DESC").paginate :page => params[:page], :per_page => 10
+    respond_to do |format|
+      format.html
+      format.ics { render_ical_calendar(@events) }
+    end
   end
 
   def rss
@@ -16,9 +20,7 @@ class EventsController < ApplicationController
     @event = Event.find params[:id]
     respond_to do |format|
       format.html
-      format.ics do
-        render :text => @event.to_ical(event_url(@event))
-      end
+      format.ics { render_ical_calendar([@event]) }
     end
   end
 
@@ -36,10 +38,26 @@ class EventsController < ApplicationController
     event = Event.find params[:id]
     authorize! :manage, @article
     if event.published?
-      redirect_to events_path, :alert => 'Event wurde bereits publiziert.' 
+      redirect_to events_path, :alert => 'Event wurde bereits publiziert.'
     else
       event.publish!(event_url(event))
       redirect_to events_path, :notice => 'Event wurde erfolgreich publiziert.'
+    end
+  end
+
+  protected
+  def render_ical_calendar(events)
+    calendar = Icalendar::Calendar.new
+    events.each do |event|
+      calendar.add_event(ical_event(event))
+    end
+    calendar.publish
+    render :text => calendar.to_ical
+  end
+
+  def ical_event(event)
+    event.to_ical.tap do |ical_event|
+      ical_event.uid = ical_event.url = event_url(event)
     end
   end
 
