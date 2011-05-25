@@ -21,7 +21,6 @@ gem "icalendar", "~> 1.1.5"
 gem "cancan", "~> 1.4.1"
 gem "ambience", "~> 0.3.1"
 gem "rails_admin", :git => "git://github.com/sferik/rails_admin.git", :ref => "086cd9db0bc8579d0024"
-gem "gritter", "~> 0.6.0"
 
 group(:development, :test) do
   gem "heroku", "~> 2.0.4"
