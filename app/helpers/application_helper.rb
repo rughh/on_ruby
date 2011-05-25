@@ -56,9 +56,9 @@ module ApplicationHelper
 
   def flash_growl
     if notice
-      js add_gritter(flash[:notice], :image => :notice, :title => "Hey:", :time => 2000)
+      js "humane('#{flash[:notice]}');"
     elsif alert
-      js add_gritter(flash[:alert], :image => :warning, :title => "Ohoh:", :time => 3000)
+      js "humane(\"<p class='error'>#{flash[:alert]}</p>\");"
     end
   end
 
