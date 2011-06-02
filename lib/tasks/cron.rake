@@ -2,7 +2,7 @@ desc "This task is called by the Heroku cron add-on"
 task :cron => :environment do
   logger = Rails.logger
   logger.debug "executing cron at #{Time.now}"
-  requested = Twitter.friendships_outgoing
+  requested = Twitter.friendships_outgoing.ids
   logger.debug "already requested friendships to #{requested}"
   User.all.each do |user|
     logger.debug "checking friendship status of #{user.nickname}"
