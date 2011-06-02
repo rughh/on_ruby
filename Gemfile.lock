@@ -172,7 +172,7 @@ GEM
       activesupport (= 3.0.7)
       rake (>= 0.8.7)
       thor (~> 0.14.4)
-    rake (0.9.0)
+    rake (0.8.7)
     remarkable (4.0.0.alpha4)
       rspec (>= 2.0.0.alpha11)
     remarkable_activemodel (4.0.0.alpha4)
@@ -255,7 +255,7 @@ DEPENDENCIES
   rails (~> 3.0.7)
   rails3-generators!
   rails_admin!
-  rake (= 0.9.0)
+  rake (= 0.8.7)
   remarkable_activemodel (~> 4.0.0.alpha4)
   remarkable_activerecord (~> 4.0.0.alpha4)
   rspec-rails (~> 2.4.1)

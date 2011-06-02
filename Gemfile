@@ -2,9 +2,7 @@ source :rubygems
 
 gem "rails", "~> 3.0.7"
 
-# travis currently requires us to install the latest version of rake.
-# still trying to find the best solution. [dh, 2011-05-21]
-gem "rake", "0.9.0"
+gem "rake", "0.8.7"
 
 gem "bitly", "~> 0.6.1"
 gem "twitter", "~> 1.1.1"
