@@ -2,8 +2,6 @@ source :rubygems
 
 gem "rails", "~> 3.0.7"
 
-gem "rake", "0.8.7"
-
 gem "bitly", "~> 0.6.1"
 gem "twitter", "~> 1.1.1"
 gem "dalli", "~> 1.0.0"
