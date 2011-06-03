@@ -35,6 +35,10 @@ END:VCALENDAR\r
     ICAL
   end
   
+  it "should create a proper twitter-message" do
+    @event.twitter_message('URL').should eql('Weihnachtstreffen am 06. Dezember, 11:47 Uhr - URL')
+  end
+  
   it "should find a current event" do
     @event.date = Time.now
     @event.save!
