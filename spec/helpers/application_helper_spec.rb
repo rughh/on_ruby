@@ -33,7 +33,6 @@ describe ApplicationHelper do
       user = Factory(:user)
       stubs(:current_user => user)
       result = helper.login
-      result.should match(user.nickname)
       result.should match(destroy_session_path)
     end
   end
