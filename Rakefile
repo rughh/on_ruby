@@ -5,6 +5,18 @@
 require File.expand_path('../config/application', __FILE__)
 require "rake"
 
+# http://stackoverflow.com/questions/5287121/undefined-method-task-using-rake-0-9-0/5290331#5290331
+module ::HamburgOnRuby
+  class Application
+    include Rake::DSL
+  end
+end
+
+module ::RakeFileUtils
+  extend Rake::FileUtilsExt
+end
+# http://stackoverflow.com/questions/5287121/undefined-method-task-using-rake-0-9-0/5290331#5290331
+
 HamburgOnRuby::Application.load_tasks
 
 task :travis_ci=>['db:migrate', 'spec'] do
