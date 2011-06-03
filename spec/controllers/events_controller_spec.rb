@@ -33,7 +33,39 @@ describe EventsController do
       response.should render_template(:show)
     end
   end
-  
+
+  describe "GET :show, :format => :ics" do
+    before do
+      get :show, :id => @event.id, :format => :ics
+    end
+
+    it "should render the event as ics" do
+      response.body.gsub!(/DTSTAMP:\w+/, 'DTSTAMP:20110416T214501').should == <<-ICAL
+BEGIN:VCALENDAR\r
+CALSCALE:GREGORIAN\r
+METHOD:PUBLISH\r
+PRODID:iCalendar-Ruby\r
+VERSION:2.0\r
+BEGIN:VEVENT\r
+COMMENT:iCal Event by Hamburg on Ruby!\r
+CREATED:114730\r
+DESCRIPTION:MyText\r
+DTEND:20101206T134730\r
+DTSTAMP:20110416T214501\r
+DTSTART:20101206T114730\r
+CLASS:PUBLIC\r
+LAST-MODIFIED:114730\r
+LOCATION:Blau Mobilfunk GmbH\r
+SEQUENCE:0\r
+SUMMARY:Weihnachtstreffen\r
+UID:http://test.host/events/1\r
+URL:http://test.host/events/1\r
+END:VEVENT\r
+END:VCALENDAR\r
+      ICAL
+    end
+  end
+
   describe "GET :publish" do
     before do
       Event.any_instance.stubs(:publish! => nil)

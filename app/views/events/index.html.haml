@@ -5,7 +5,9 @@
       - @upcoming_events.each do |event|
         = render partial: 'event', locals: {event: event}
 
-  %h3 Alle Ruby Events
+  %h3
+    Alle Ruby Events
+    = link_to image_tag('ics.png'), events_path(:format => :ics)
   %ul
     - @events.each do |event|
       = render partial: 'event', locals: {event: event}
