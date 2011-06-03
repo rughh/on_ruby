@@ -5,6 +5,6 @@ de:
     users: "Mitglieder"
     wishes: "Wunschliste"
     imprint: "Impressum"
-    logout: "%{name} abmelden"
+    logout: "Abmelden"
     login: "Anmelden"
     profile: "Profil bearbeiten"

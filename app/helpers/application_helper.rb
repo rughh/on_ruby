@@ -37,7 +37,7 @@ module ApplicationHelper
       content_tag :li do
         content_tag(:span) + content_tag(:b) do
           if current_user
-            link_to t("menu.logout", :name => current_user.nickname), destroy_session_path
+            link_to t("menu.logout"), destroy_session_path
           else
             link_to t("menu.login"), auth_path
           end
@@ -56,9 +56,9 @@ module ApplicationHelper
 
   def flash_growl
     if notice
-      js "humane('#{flash[:notice]}');"
+      javascript_tag "humane('#{flash[:notice]}');"
     elsif alert
-      js "humane(\"<p class='error'>#{flash[:alert]}</p>\");"
+      javascript_tag "humane(\"<p class='error'>#{flash[:alert]}</p>\");"
     end
   end
 

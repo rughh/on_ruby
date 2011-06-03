@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     end
     @auth.user.update_from_auth! auth
     self.current_user = @auth.user
-    redirect_to request.env['omniauth.origin'] || root_path, :notice => 'Du bist erfolgreich eingeloggt!'
+    redirect_to request.env['omniauth.origin'] || root_path, :notice => "Hi #{current_user.name}, du bist erfolgreich eingeloggt!"
   end
 
   def destroy_user_session
