@@ -38,9 +38,13 @@ class Event < ActiveRecord::Base
   def publish!(event_url)
     # TODO (ps) add publishing for XING
     url = Bitly.new.shorten(event_url).short_url
-    Twitter.update("#{name} am #{date} - #{url}")
+    Twitter.update(twitter_message(url))
     UsergroupMailer.invitation_mail(self).deliver!
     update_attributes!(:published => true)
+  end
+  
+  def twitter_message(url)
+    "#{name} am #{I18n.l date, :locale => :de, :format => :short} - #{url}"
   end
 
   def self.preview_events
