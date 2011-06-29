@@ -1,15 +1,14 @@
 source :rubygems
 
-gem "rails", "~> 3.0.7"
+gem "rails", "~> 3.0.9"
 
-# the other rake shit is broken
-gem "rake", "0.8.7"
+gem "rake", "0.9.2"
 
 gem "bitly", "~> 0.6.1"
 gem "twitter", "~> 1.1.1"
 gem "dalli", "~> 1.0.0"
 gem "hpricot", "~> 0.8.3"
-gem "haml", "~> 3.0"
+gem "haml", "~> 3.1.2"
 gem "sass", "~> 3.1.1"
 gem "will_paginate", "~> 3.0.pre2"
 gem "simple_form", "~> 1.3.0"
@@ -20,6 +19,12 @@ gem "icalendar", "~> 1.1.5"
 gem "cancan", "~> 1.4.1"
 gem "ambience", "~> 0.3.1"
 gem "rails_admin", :git => "git://github.com/sferik/rails_admin.git", :ref => "086cd9db0bc8579d0024"
+gem "thin", "~> 1.2.11"
+gem "foreman", "~> 0.19.0"
+
+group :production do
+  gem "pg", "~> 0.11.0" # env ARCHFLAGS="-arch x86_64" gem install pg
+end
 
 group(:development, :test) do
   gem "heroku", "~> 2.0.4"

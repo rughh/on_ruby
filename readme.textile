@@ -17,9 +17,14 @@ h2. Setup
 rvm install 1.9.2
 brew install memcached
 
+h2. Running
+
+bundle --without=production # don't want to install postgresql stuff...
+foreman start
+
 h2. Todo
 
-* publishing via twitter, calendar (xing?)
+* publishing via xing
 * add more omniauth logins (github)
 * add conferences that are not in hamburg (railswaycon euruko eurucamp frozenrails)
 * add companies from hamburg that do rails/ruby
