@@ -18,7 +18,7 @@ gem "omniauth", "~> 0.2.0"
 gem "icalendar", "~> 1.1.5"
 gem "cancan", "~> 1.4.1"
 gem "ambience", "~> 0.3.1"
-gem "rails_admin", :git => "git://github.com/sferik/rails_admin.git", :ref => "086cd9db0bc8579d0024"
+gem "activeadmin", "~> 0.2.2"
 gem "thin", "~> 1.2.11"
 gem "foreman", "~> 0.19.0"
 
