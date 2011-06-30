@@ -7,6 +7,4 @@
     %dl
       %dt= link_to event.location.name, event.location.url
       %dd= l(event.date)
-    - if can?(:manage, Event) and !event.published?
-      %p= link_to 'Event publizieren (Twitter, Rails Usergroup, XING)', publish_event_path(event)
   %br.clear

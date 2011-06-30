@@ -13,11 +13,16 @@
     %strong
       - if current_user
         - if current_user.participates?(@event)
-          = link_to '&raquo;Ich möchte mich abmelden&laquo;'.html_safe, event_participant_path(@event, current_user.participation(@event)), method: 'delete'
+          = link_to 'Ich möchte mich abmelden', event_participant_path(@event, current_user.participation(@event)), method: 'delete'
         - else
-          = link_to '&raquo;Ich möchte mich anmelden&laquo;'.html_safe, add_user_event_path(@event)
+          = link_to 'Ich möchte mich anmelden'.html_safe, add_user_event_path(@event)
       - else
-        = link_to '&raquo;Ich möchte mich anmelden&laquo;'.html_safe,  auth_path
+        = link_to 'Ich möchte mich anmelden'.html_safe,  auth_path
+
+  - if can?(:manage, Event) and not @event.published?
+    %p
+      %strong
+        = link_to 'Event publizieren (Twitter, Rails Usergroup)', publish_event_path(@event)
 
   - unless @event.topics.empty?
     %h4 Themen:
