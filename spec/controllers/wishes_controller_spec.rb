@@ -32,6 +32,7 @@ describe WishesController do
   describe "POST :create" do
     before do
       @user = Factory(:user)
+      Wish.any_instance.stubs(:publish => true)
     end
 
     it "should create a wish for logged-in user" do

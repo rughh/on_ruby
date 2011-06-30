@@ -46,14 +46,6 @@ module ApplicationHelper
     end.html_safe
   end
 
-  def shorten(text, length=80)
-    if text.length > length
-      text[0..length] + "..."
-    else
-      text
-    end.html_safe
-  end
-
   def flash_growl
     if notice
       javascript_tag "humane('#{flash[:notice]}');"
@@ -62,10 +54,10 @@ module ApplicationHelper
     end
   end
 
-  private
+  private()
 
-    def css_class_for_menu_item(item)
-      item.controller == controller.controller_name.to_sym && item.action == controller.action_name.to_sym ? 'active' : ''
-    end
+  def css_class_for_menu_item(item)
+    item.controller == controller.controller_name.to_sym && item.action == controller.action_name.to_sym ? 'active' : ''
+  end
 
 end

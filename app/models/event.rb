@@ -26,18 +26,17 @@ class Event < ActiveRecord::Base
       e.klass = "PUBLIC"
       e.created = created_at
       e.last_modified = updated_at
-      e.uid = ical_event.url = path
+      e.uid = e.url = path
       e.add_comment("iCal Event by Hamburg on Ruby!")
     end
 
     Icalendar::Calendar.new.tap do |cal|
       cal.add_event(ical_event)
       cal.publish
-      cal.to_ical
-    end
+    end.to_ical
   end
 
-  def publish!(event_url)
+  def publish(event_url)
     url = Bitly.new.shorten(event_url).short_url
     Twitter.update(twitter_message(url))
     UsergroupMailer.invitation_mail(self).deliver!

@@ -36,7 +36,7 @@ describe EventsController do
   
   describe "GET :publish" do
     before do
-      Event.any_instance.stubs(:publish! => nil)
+      Event.any_instance.stubs(:publish => nil)
     end
 
     context "for unauthorized users" do

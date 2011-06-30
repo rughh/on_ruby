@@ -24,13 +24,11 @@ foreman start
 
 h2. Todo
 
-* publishing via xing
-* add more omniauth logins (github)
-* add conferences that are not in hamburg (railswaycon euruko eurucamp frozenrails)
-* add companies from hamburg that do rails/ruby
 * wunschliste verbessern mit post to twitter und einem ('done' stempel für die mitglieder, die es eingestellt haben + admins, verknüpft mit nem event)
 * xml sitemap
+* add companies from hamburg that do rails/ruby
 * rails 3.1
+* publishing via xing
 
 h3. Add other Usergroups
 
