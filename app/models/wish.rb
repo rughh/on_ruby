@@ -25,7 +25,7 @@ class Wish < ActiveRecord::Base
   end
 
   def twitter_message(url)
-    "@#{user.nickname} hat einen Wunsch eingestellt: '#{name.shorten(50)}' #{url}"
+    "Neuer Wunsch von @#{user.nickname}: '#{name.shorten(50)}' #{url}"
   end
 
 end

@@ -10,7 +10,8 @@ describe Wish do
   it "should generate a nice twitter message" do
     message = @wish.twitter_message('http://bitly.url')
     message.length.should be < 140
-    message.should match "hat einen Wunsch eingestellt: 'The xing mobile website: touch.xing.com' http://bitly.url"
+    message.should match "Neuer Wunsch von @uschi"
+    message.should match ": 'The xing mobile website: touch.xing.com' http://bitly.url"
   end
 
   context "with votes" do
