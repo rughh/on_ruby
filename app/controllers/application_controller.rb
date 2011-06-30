@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def check_login
     redirect_to(auth_path) unless signed_in?
   end
-
+  
   private
 
     def current_user
