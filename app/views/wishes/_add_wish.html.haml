@@ -1,5 +1,6 @@
 %p
-  = link_to '&raquo;Eigenen Wunsch eintragen&laquo;'.html_safe, '#', name: 'new_wish', class: 'toggle'
+  %strong
+    = link_to 'Eigenen Wunsch eintragen', '#', name: 'new_wish', class: 'toggle'
 
 .toggle_new_wish.hide
   = simple_form_for wish do |f|
