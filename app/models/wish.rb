@@ -6,7 +6,7 @@ class Wish < ActiveRecord::Base
   ACTIVITIES = [ACTIVITY_WISH, ACTIVITY_PROPOSAL]
 
   belongs_to :user
-  has_many :votes
+  has_many :votes, :dependent => :destroy
 
   validates :name, :description, :user, :activity, :presence => true
 
@@ -20,7 +20,7 @@ class Wish < ActiveRecord::Base
   end
 
   def publish(wish_url)
-    url = Bitly.new.shorten(event_url).short_url
+    url = Bitly.new.shorten(wish_url).short_url
     Twitter.update(twitter_message(url))
   end
 
