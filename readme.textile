@@ -28,7 +28,6 @@ h2. Todo
 * add more omniauth logins (github)
 * add conferences that are not in hamburg (railswaycon euruko eurucamp frozenrails)
 * add companies from hamburg that do rails/ruby
-* add date microformat http://microformats.org/wiki/hcalendar
 * wunschliste verbessern mit post to twitter und einem ('done' stempel für die mitglieder, die es eingestellt haben + admins, verknüpft mit nem event)
 * xml sitemap
 * rails 3.1

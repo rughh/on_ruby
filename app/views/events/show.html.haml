@@ -1,13 +1,14 @@
-.section
-  %h3= @event.name
+.section.vevent
+  %h3.summary= @event.name
   %p
-    %b= link_to l(@event.date), event_path(@event, format: :ics), class: 'ical'
+    %abbr.dtstart.url{title: @event.date}= link_to l(@event.date), event_path(@event, format: :ics), class: 'ical'
+    %abbr.dtend.hide{title: @event.date + 3.hours}= l(@event.date + 4.hours)
     gehostet durch
     = link_to @event.user.nickname, @event.user.twurl
     bei
     = link_to @event.location.name, @event.location.url
 
-  %p= @event.description
+  %p.description= @event.description
 
   %p
     %strong
@@ -58,7 +59,7 @@
   %h4 Anfahrt:
   - l = @event.location
   #map_canvas{ 'data-map' => l.to_json }
-  #map_info_content
+  #map_info_content.location
     %strong= l.name
     %br
     #{l.street} #{l.house_number}
