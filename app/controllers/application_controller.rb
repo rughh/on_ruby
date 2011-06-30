@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class ApplicationController < ActionController::Base
 
   protect_from_forgery
@@ -12,40 +13,46 @@ class ApplicationController < ActionController::Base
   def check_login
     redirect_to(auth_path) unless signed_in?
   end
+
+  private()
   
-  private
+  def authenticate_no_deveise_admin_user!
+    return true if current_user.admin?
+    
+    redirect_to(root_path, :notice => 'Hoppala, da dürfen nur Admins hin!') and return
+  end
 
-    def current_user
-      @current_user ||= User.find_by_id session[:user_id]
-    end
+  def current_user
+    @current_user ||= User.find_by_id session[:user_id]
+  end
 
-    def signed_in?
-      !!current_user
-    end
+  def signed_in?
+    !!current_user
+  end
 
-    def current_user=(user)
-      @current_user = user
-      session[:user_id] = user.id
-    end
+  def current_user=(user)
+    @current_user = user
+    session[:user_id] = user.id
+  end
 
-    def preview_events
-      @preview_events ||= Event.preview_events
-    end
+  def preview_events
+    @preview_events ||= Event.preview_events
+  end
 
-    def tweets
-      cache(:tweets, :expires_in => 5.minutes) do
-        random_users[0..2].map do |user|
-          logger.debug "fetching new tweets for #{user.nickname}"
-          Twitter::Search.new.from(user.nickname).fetch
-        end.flatten
-      end.shuffle[0..1]
-    rescue
-      []
-    end
+  def tweets
+    cache(:tweets, :expires_in => 5.minutes) do
+      random_users[0..2].map do |user|
+        logger.debug "fetching new tweets for #{user.nickname}"
+        Twitter::Search.new.from(user.nickname).fetch
+      end.flatten
+    end.shuffle[0..1]
+  rescue
+    []
+  end
 
-    def random_users
-      cache(:random_users, :expires_in => 1.minute) do
-        User.random
-      end
+  def random_users
+    cache(:random_users, :expires_in => 1.minute) do
+      User.random
     end
+  end
 end
