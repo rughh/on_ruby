@@ -89,11 +89,9 @@ strong {
   }
   
   li {
-/*    background:url(/images/nupsi_left_brown.png) left 9px no-repeat;*/
     width:100%;
 
     &.active {
-/*      background:url(/images/nupsi_left_red.png) left 9px no-repeat;*/
 
       a {
         color:$red;
@@ -150,11 +148,9 @@ strong {
   }
 
   .section {
-//    background:url("/images/nupsi_right_red.png") right 55px no-repeat;
   }
 
   h3 {
-//    background:$bg;
     color:$red;
     counter-increment:section;
     display:inline-block;
@@ -254,8 +250,8 @@ strong {
   }
 
   #map_canvas {
-    width:630px;
-    height:400px;
+    width:550px;
+    height:450px;
     margin-left:40px;
     margin-bottom:18px;
   }
