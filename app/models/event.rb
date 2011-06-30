@@ -17,43 +17,47 @@ class Event < ActiveRecord::Base
   end
 
   def to_ical(path)
-    ical_event = Icalendar::Event.new
-    ical_event.start = date.strftime("%Y%m%dT%H%M%S")
-    ical_event.end = end_date.strftime("%Y%m%dT%H%M%S")
-    ical_event.summary = name
-    ical_event.description = description
-    ical_event.location = location.name
-    ical_event.klass = "PUBLIC"
-    ical_event.created = created_at
-    ical_event.last_modified = updated_at
-    ical_event.uid = ical_event.url = path
-    ical_event.add_comment("iCal Event by Hamburg on Ruby!")
+    ical_event = Icalendar::Event.new.tap do |e|
+      e.start = date.strftime("%Y%m%dT%H%M%S")
+      e.end = end_date.strftime("%Y%m%dT%H%M%S")
+      e.summary = name
+      e.description = description
+      e.location = location.name
+      e.klass = "PUBLIC"
+      e.created = created_at
+      e.last_modified = updated_at
+      e.uid = ical_event.url = path
+      e.add_comment("iCal Event by Hamburg on Ruby!")
+    end
 
-    calendar = Icalendar::Calendar.new
-    calendar.add_event(ical_event)
-    calendar.publish
-    calendar.to_ical
+    Icalendar::Calendar.new.tap do |cal|
+      cal.add_event(ical_event)
+      cal.publish
+      cal.to_ical
+    end
   end
 
   def publish!(event_url)
-    # TODO (ps) add publishing for XING
     url = Bitly.new.shorten(event_url).short_url
     Twitter.update(twitter_message(url))
     UsergroupMailer.invitation_mail(self).deliver!
     update_attributes!(:published => true)
   end
-  
+
   def twitter_message(url)
     "#{name} am #{I18n.l date, :locale => :de, :format => :short} - #{url}"
   end
 
-  def self.preview_events
-    self.order('date DESC').limit(2)
-  end
+  class << self
 
-  def self.current
-    self.where(:date => Date.today.to_time..(Time.now + 1.week)).first
+    def preview_events
+      self.order('date DESC').limit(2)
+    end
+
+    def current
+      self.where(:date => Date.today.to_time..(Time.now + 1.week)).first
+    end
+
   end
 
 end
-

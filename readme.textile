@@ -31,6 +31,7 @@ h2. Todo
 * add date microformat http://microformats.org/wiki/hcalendar
 * wunschliste verbessern mit post to twitter und einem ('done' stempel für die mitglieder, die es eingestellt haben + admins, verknüpft mit nem event)
 * xml sitemap
+* rails 3.1
 
 h3. Add other Usergroups
 

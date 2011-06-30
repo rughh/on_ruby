@@ -16,10 +16,10 @@ class ApplicationController < ActionController::Base
 
   private()
   
-  def authenticate_no_deveise_admin_user!
-    return true if current_user.admin?
-    
-    redirect_to(root_path, :notice => 'Hoppala, da dürfen nur Admins hin!') and return
+  def authenticate_admin_user!
+    unless current_user.admin?
+      redirect_to(root_path, :notice => 'Hoppala, da dürfen nur Admins hin!') and return
+    end
   end
 
   def current_user
