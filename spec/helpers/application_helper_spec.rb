@@ -33,7 +33,7 @@ describe ApplicationHelper do
       user = Factory(:user)
       stubs(:current_user => user)
       result = helper.login
-      result.should match(destroy_session_path)
+      result.should match('/auth/destroy_session') # destroy_session_path stopped working!
     end
   end
 end
