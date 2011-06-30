@@ -20,6 +20,7 @@ class WishesController < ApplicationController
       v.count = 5
     end
     if @wish.save
+      @wish.publish(wishes_url)
       redirect_to(wishes_path, :notice => 'Dein Eintrag wurde gespeichert.')
     else
       redirect_to(wishes_path, :alert => @wish.errors.full_messages.join(' '))
