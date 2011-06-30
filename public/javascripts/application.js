@@ -4,10 +4,9 @@ function initialize_map() {
     return;
   }
   var data = $.parseJSON($(element).attr('data-map')).location;  
-  var latlng = new google.maps.LatLng(data.lat, data.long);
   var myOptions = {
     zoom: 14,
-    center: latlng,
+    center: new google.maps.LatLng(data.lat, data.long),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   var map = new google.maps.Map(element, myOptions);
@@ -21,10 +20,11 @@ function initialize_map() {
   var infowindow = new google.maps.InfoWindow({
       content: $('#map_info_content').html()
   });
+  infowindow.open(map, marker);
 
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map, marker);
-  });
+  // google.maps.event.addListener(marker, 'click', function() {
+  //   infowindow.open(map, marker);
+  // });
 }
 
 function show_hide() {
