@@ -14,7 +14,7 @@ module WishHelper
     end.join
     output << "#{wish.stars.to_s} von 5 Sternen (#{wish.votes.count} mal bewertet)"
     output << ' - '
-    output << link_to(wish.user.nickname, wish.user.twurl)
+    output << link_to_twitter(wish.user)
     output << ' - '
     output << { 'WISH' => 'wünscht sich diesen Vortrag', 'PROPOSAL' => 'möchte dieses Thema vorstellen' }[wish.activity]
     output.html_safe

@@ -5,4 +5,5 @@ Factory.define :user do |f|
   f.name 'Uschi Müller'
   f.sequence(:nickname){|n| "uschi #{n}"}
   f.image 'http://onruby.de/logo.png'
+  f.github 'giddiup'
 end
