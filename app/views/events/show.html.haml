@@ -1,55 +1,55 @@
 .section.vevent
-  %h3.summary= @event.name
+  %h3.summary= event.name
   %p
-    %abbr.dtstart.url{title: @event.date}= link_to l(@event.date), event_path(@event, format: :ics), class: 'ical'
-    %abbr.dtend.hide{title: @event.date + 3.hours}= l(@event.date + 4.hours)
+    %abbr.dtstart.url{title: event.date}= link_to l(event.date), event_path(event, format: :ics), class: 'ical'
+    %abbr.dtend.hide{title: event.date + 3.hours}= l(event.date + 4.hours)
     gehostet durch
-    = link_to_twitter @event.user
+    = link_to_twitter event.user
     bei
-    = link_to @event.location.name, @event.location.url
+    = link_to event.location.name, event.location.url
 
-  %p.description= @event.description
+  %p.description= event.description
 
-  - if @event.date > Time.now
+  - if event.date > Time.now
     %p
       %strong
         - if current_user
-          - if current_user.participates?(@event)
-            = link_to 'Ich möchte mich abmelden', event_participant_path(@event, current_user.participation(@event)), method: 'delete'
+          - if current_user.participates?(event)
+            = link_to 'Ich möchte mich abmelden', event_participant_path(event, current_user.participation(event)), method: 'delete'
           - else
-            = link_to 'Ich möchte mich anmelden'.html_safe, add_user_event_path(@event)
+            = link_to 'Ich möchte mich anmelden'.html_safe, add_user_event_path(event)
         - else
           = link_to 'Ich möchte mich anmelden'.html_safe,  auth_path
 
-  - if can?(:manage, Event) and not @event.published?
+  - if can?(:manage, Event) and not event.published?
     %p
       %strong
-        = link_to 'Event publizieren (Twitter, Rails Usergroup)', publish_event_path(@event)
+        = link_to 'Event publizieren (Twitter, Rails Usergroup)', publish_event_path(event)
 
-  - unless @event.topics.empty?
+  - unless event.topics.empty?
     %h4 Themen:
     %ul
-      - @event.topics.each do |t|
+      - event.topics.each do |t|
         %li
           = t.name
           - if t.user
             = "(#{t.user.nickname})"
           %p= t.description
 
-  - unless @event.materials.empty?
+  - unless event.materials.empty?
     %h4 Material:
     %ul
-      - @event.materials.each do |m|
+      - event.materials.each do |m|
         %li
           = link_to m.name, m.url, class: m.material_type
           - if m.user
             = "(#{m.user.nickname})"
           %p= m.description
 
-  - unless @event.participants.empty?
+  - unless event.participants.empty?
     %h4 Teilnehmer:
     %ul.participants
-      - @event.participants.each do |p|
+      - event.participants.each do |p|
         %li
           = link_to_twitter p.user do
             .avatar
@@ -58,7 +58,7 @@
     %br.clear
 
   %h4 Anfahrt:
-  - l = @event.location
+  - l = event.location
   #map_canvas{ 'data-map' => l.to_json }
   #map_info_content.location
     %strong= l.name

@@ -12,7 +12,7 @@ describe EventsController do
     before { get :rss }
 
     it "should assign the @events to display" do
-      assigns(:events).should be_an(ActiveRecord::Relation)
+      controller.events.should_not be_nil
     end
 
     it "should render the :rss template" do
@@ -22,11 +22,11 @@ describe EventsController do
 
   describe "GET :show" do
     before do
-      get :show, :id => @event.id
+      get :show, id: @event.id
     end
 
     it "should assign the requested @event" do
-      assigns(:event).should eql(@event)
+      controller.event.should eql(@event)
     end
 
     it "should render the :show template" do
@@ -36,12 +36,12 @@ describe EventsController do
   
   describe "GET :publish" do
     before do
-      Event.any_instance.stubs(:publish => nil)
+      Event.any_instance.stubs(publish: nil)
     end
 
     context "for unauthorized users" do
       before do
-        get :publish, :id => @event.id
+        get :publish, id: @event.id
       end
 
       it "publishing should fail" do
@@ -52,7 +52,7 @@ describe EventsController do
 
     context "for unpublished event" do
       before do
-        @unpublished_event = Factory(:event, :published => false)
+        @unpublished_event = Factory(:event, published: false)
         controller.stubs(:current_user => admin_user)
         get :publish, :id => @unpublished_event.id
       end
@@ -65,9 +65,9 @@ describe EventsController do
 
     context "for published event" do
       before do
-        @published_event = Factory(:event, :published => true)
-        controller.stubs(:current_user => admin_user)
-        get :publish, :id => @published_event.id
+        @published_event = Factory(:event, published: true)
+        controller.stubs(current_user: admin_user)
+        get :publish, id: @published_event.id
       end
 
       it "should raise an error" do

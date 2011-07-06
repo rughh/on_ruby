@@ -1,13 +1,13 @@
 .section
-  - if @upcoming_events.size > 0
+  - if upcoming_events.size > 0
     %h3 Kommende Ruby Events
     %ul
-      = render @upcoming_events
+      = render upcoming_events
 
   %h3 Alle Ruby Events
   %ul
-    = render @events
+    = render events
 
 
 .pagination
-  = will_paginate @events
+  = will_paginate events

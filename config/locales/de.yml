@@ -2,6 +2,24 @@
 # by Clemens Kofler (clemens@railway.at)
 
 de:
+
+  formtastic:
+    labels:
+      wish:
+        index:
+          name: 'Name des Vorschlags'
+          activity: 'Vorschlagsart'
+          description: 'Genauere Beschreibung'
+      vote:
+        count: 'Sterne'
+    actions:
+      wish:
+        create: 'Wunsch eintragen'
+      vote:
+        create: 'bewerten'
+      user:
+        update: 'Profil aktualisieren'
+  
   date:
     formats:
       default: "%d.%m.%Y"
