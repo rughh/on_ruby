@@ -20,7 +20,7 @@ module ApplicationHelper
   end
 
   def user_entries
-    return unless current_user
+    return unless signed_in?
     [
       Menu.new(:profile, :users, :edit)
     ].map do |item|
@@ -30,6 +30,17 @@ module ApplicationHelper
         end
       end
     end.join.html_safe
+  end
+
+  def admin
+    return unless current_user.try(:admin?)
+    content_tag(:div) do
+      content_tag :li do
+        content_tag(:span) + content_tag(:b) do
+          link_to t("menu.admin"), admin_dashboard_path
+        end
+      end
+    end.html_safe
   end
 
   def login

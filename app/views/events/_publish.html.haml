@@ -1,0 +1,4 @@
+- if can?(:manage, Event) and not event.published?
+  %p
+    %strong
+      = link_to 'Event publizieren (Twitter, Rails Usergroup)', publish_event_path(event)
