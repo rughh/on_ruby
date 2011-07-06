@@ -2,13 +2,11 @@
   - if @upcoming_events.size > 0
     %h3 Kommende Ruby Events
     %ul
-      - @upcoming_events.each do |event|
-        = render partial: 'event', locals: {event: event}
+      = render @upcoming_events
 
   %h3 Alle Ruby Events
   %ul
-    - @events.each do |event|
-      = render partial: 'event', locals: {event: event}
+    = render @events
 
 
 .pagination

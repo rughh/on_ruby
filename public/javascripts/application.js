@@ -35,7 +35,12 @@ function show_hide() {
   });
 }
 
+function initialize_tooltip() {
+  $(".tooltip_trigger").tooltip();
+}
+
 $(document).ready(function(){
   initialize_map();
   show_hide();
+  initialize_tooltip();
 });
