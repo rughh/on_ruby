@@ -13,45 +13,7 @@
   = render 'participate'
   = render 'publish'
 
-  - unless event.topics.empty?
-    %h4 Themen:
-    %ul
-      - event.topics.each do |t|
-        %li
-          = t.name
-          - if t.user
-            = "(#{t.user.nickname})"
-          %p= t.description
-
-  - unless event.materials.empty?
-    %h4 Material:
-    %ul
-      - event.materials.each do |m|
-        %li
-          = link_to m.name, m.url, class: m.material_type
-          - if m.user
-            = "(#{m.user.nickname})"
-          %p= m.description
-
-  - unless event.participants.empty?
-    %h4 Teilnehmer:
-    %ul.participants
-      - event.participants.each do |p|
-        %li
-          = link_to_twitter p.user do
-            .avatar
-              = image_tag p.user.image, :width => 48, :height => 48
-              %span.rounded
-    %br.clear
-
-  %h4 Anfahrt:
-  - l = event.location
-  #map_canvas{ 'data-map' => l.to_json }
-  #map_info_content.location
-    %strong= l.name
-    %br
-    #{l.street} #{l.house_number}
-    %br
-    #{l.zip} #{l.city}
-    %br
-    =link_to l.url, l.url
+  = render 'topics'
+  = render 'materials'
+  = render 'participants'
+  = render 'map'
