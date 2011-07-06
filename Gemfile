@@ -11,7 +11,6 @@ gem "hpricot", "~> 0.8.3"
 gem "haml", "~> 3.1.2"
 gem "sass", "~> 3.1.1"
 gem "will_paginate", "~> 3.0.pre2"
-gem "simple_form", "~> 1.3.0"
 gem "friendly_id", "~> 3.0"
 gem "compass", "~> 0.10.5"
 gem "omniauth", "~> 0.2.0"
@@ -21,6 +20,8 @@ gem "ambience", "~> 0.3.1"
 gem "activeadmin", "~> 0.2.2"
 gem "thin", "~> 1.2.11"
 gem "foreman", "~> 0.19.0"
+gem "decent_exposure", "~> 1.0.1"
+gem "formtastic", "~> 1.2.4"
 
 group :production do
   gem "pg", "~> 0.11.0" # env ARCHFLAGS="-arch x86_64" gem install pg

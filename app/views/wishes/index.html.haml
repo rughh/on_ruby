@@ -9,10 +9,9 @@
     Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben,
     dann kannst du ihn hier eintragen, um Feedback von der Community zu bekommen.
 
-  = render partial: 'add_wish', locals: {wish: @wish}
+  = render partial: 'add_wish'
 
-  - @wishes.each do |wish|
-    = render partial: 'wish', locals: {wish: wish}
+  = render wishes
 
 .pagination
-  = will_paginate @wishes
+  = will_paginate wishes

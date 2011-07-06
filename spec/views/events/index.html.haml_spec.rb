@@ -3,9 +3,7 @@ require "spec_helper"
 describe "/events/index" do
 
   it "should render successfully" do
-    view.expects(:will_paginate).returns(Factory(:event))
-    assign :events, 3.times.map { Factory(:event) }
-    assign :upcoming_events, [Factory(:event)]
+    view.stubs(will_paginate: Factory(:event), upcoming_events: [Factory(:event)], events: 3.times.map { Factory(:event) })
     render
   end
 

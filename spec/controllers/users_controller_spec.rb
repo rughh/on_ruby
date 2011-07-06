@@ -12,7 +12,7 @@ describe UsersController do
     it "should update the github attribute of a user" do
       @controller.stubs(:current_user => @user)
       put :update, @data
-      assigns(:user).github.should eql('testo')
+      controller.user.github.should eql('testo')
       response.should redirect_to(:back)
     end
 
@@ -20,7 +20,7 @@ describe UsersController do
       @controller.stubs(:current_user => @user)
       @data[:user][:nickname] = 'not_allowed_property'
       put :update, @data
-      assigns(:user).nickname.should eql(@user.nickname)
+      controller.user.nickname.should eql(@user.nickname)
     end
 
     it "should update nothing for wrong user" do

@@ -20,6 +20,7 @@ class Wish < ActiveRecord::Base
   end
 
   def publish(wish_url)
+    return true unless Rails.env.production?
     url = Bitly.new.shorten(wish_url).short_url
     Twitter.update(twitter_message(url))
   end

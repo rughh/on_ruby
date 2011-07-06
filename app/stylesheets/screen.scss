@@ -287,6 +287,15 @@ strong {
   form {
     margin-top:35px;
   }
+  
+  form li {
+    list-style:none;
+  }
+  
+  ol {
+    padding:5px;
+    margin:5px;
+  }
 
   .input {
     margin-bottom:15px;

@@ -1,8 +1,8 @@
 .section
   %h3 Profil bearbeiten
   %ul
-    = render partial: 'shared/user', locals: {user: @user}
+    = render user
   
-  = simple_form_for @user do |f|
+  = semantic_form_for user do |f|
     = f.input :github
-    = f.button :submit
+    = f.buttons

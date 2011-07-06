@@ -14,7 +14,7 @@ describe VotesController do
     it "should create a vote for logged-in user" do
       @controller.stubs(:current_user => @user)
       expect { post(:create, @data) }.to change(Vote, :count).by(1)
-      assigns(:vote).user.should eql(@user)
+      controller.vote.user.should eql(@user)
       flash[:notice].should_not be_nil
     end
 

@@ -11,8 +11,8 @@ describe WishesController do
     end
 
     it "should assign members" do
-      assigns(:wishes).should eql([@wish])
-      assigns(:wish).should be_new_record
+      controller.wishes.should eql([@wish])
+      controller.wish.should be_new_record
       response.should render_template(:index)
     end
   end
@@ -24,7 +24,7 @@ describe WishesController do
     end
 
     it "should assign members" do
-      assigns(:wish).should eql(@wish)
+      controller.wish.should eql(@wish)
       response.should render_template(:show)
     end
   end
@@ -42,7 +42,7 @@ describe WishesController do
           post(:create, {:wish => Factory.attributes_for(:wish)}) 
         end.to change(Vote, :count).by(1)
       end.to change(Wish, :count).by(1)
-      assigns(:wish).user.should eql(@user)
+      controller.wish.user.should eql(@user)
       flash[:notice].should_not be_nil
     end
 

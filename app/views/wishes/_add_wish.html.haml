@@ -3,8 +3,8 @@
     = link_to 'Eigenen Wunsch eintragen', '#', name: 'new_wish', class: 'toggle'
 
 .toggle_new_wish.hide
-  = simple_form_for wish do |f|
+  = semantic_form_for wish do |f|
     = f.input :name
     = f.input :activity, as: :radio, collection: Wish::ACTIVITIES, label_method: activity_type_label_method, prompt: 'Bitte wählen', label: false
     = f.input :description
-    = f.button :submit
+    = f.buttons
