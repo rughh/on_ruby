@@ -34,6 +34,7 @@ HamburgOnRuby::Application.configure do
     :user_name            => ENV['GMAIL_USER'],
     :password             => ENV['GMAIL_PASSWORD'],
     :authentication       => 'plain',
-    :enable_starttls_auto => true  }
+    :enable_starttls_auto => true  
+  }
 end
 
