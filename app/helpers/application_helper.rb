@@ -53,6 +53,10 @@ module ApplicationHelper
       javascript_tag "humane(\"<p class='error'>#{flash[:alert]}</p>\");"
     end
   end
+  
+  def link_to_github(user)
+    link_to "github.com/#{user.github}", "http://github.com/#{user.github}" if user.github
+  end
 
   private()
 

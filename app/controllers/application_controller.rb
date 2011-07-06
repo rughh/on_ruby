@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   private()
   
   def authenticate_admin_user!
-    unless current_user.admin?
+    unless current_user.try(:admin?)
       redirect_to(root_path, :notice => 'Hoppala, da dürfen nur Admins hin!') and return
     end
   end

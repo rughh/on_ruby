@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
   has_many :authorizations
   has_many :participants
 
-  attr_accessible :github
-
   def self.random(num=50)
     all.shuffle[0, num].reject{|u| u.nil? }
   end
@@ -27,10 +25,6 @@ class User < ActiveRecord::Base
 
   def twurl
     "http://twitter.com/#{nickname}"
-  end
-
-  def email # needed for RailsAdmin
-    nickname
   end
 
   def update_from_auth!(hash)

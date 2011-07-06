@@ -303,8 +303,18 @@ strong {
   textarea {
     width:450px;
   }
+  
+  .tooltip {
+    display:none;
+    background:url(/images/black_arrow_big.png);
+    height:163px;
+    padding:40px 30px 10px 30px;
+    width:310px;
+    h4, li, li a {
+      color:#fff;
+    }
+  }
 }
-
 
 .pagination {
   margin-left:80px;
