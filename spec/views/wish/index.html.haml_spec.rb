@@ -3,9 +3,7 @@ require "spec_helper"
 describe "/wishes/index" do
 
   it "should render successfully" do
-    view.expects(:will_paginate).returns(Factory(:wish))
-    assign :wishes, 3.times.map { Factory(:wish) }
-    assign :wish, Factory(:wish)
+    view.stubs(will_paginate: Factory(:wish), wishes: 3.times.map { Factory(:wish) }, wish: Factory(:wish), signed_in?: true)
     render
   end
 

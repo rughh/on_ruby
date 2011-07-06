@@ -16,6 +16,7 @@ describe WishHelper do
     end
     
     it "should render a list of stars" do
+      helper.stubs(signed_in?: true)
       output = helper.wish_description @wish
       output.scan('<a href').should have(6).things
     end
