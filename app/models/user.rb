@@ -5,15 +5,7 @@ class User < ActiveRecord::Base
   has_many :authorizations
   has_many :participants
 
-  def self.random(num=50)
-    all.shuffle[0, num].reject{|u| u.nil? }
-  end
-
-  def self.create_from_hash!(hash)
-    create do |user|
-      user.handle_attributes(hash)
-    end
-  end
+  attr_accessible :github
 
   def participates?(event)
     participants.any? { |participant| participant.event_id == event.id }
@@ -21,10 +13,6 @@ class User < ActiveRecord::Base
 
   def participation(event)
     participants.find(:first, :conditions => [ "event_id = ?", event.id])
-  end
-
-  def twurl
-    "http://twitter.com/#{nickname}"
   end
 
   def update_from_auth!(hash)
@@ -39,6 +27,18 @@ class User < ActiveRecord::Base
     self.image        = hash['user_info']['image']
     self.description  = hash['user_info']['description']
     self.url          = hash['user_info']['urls']['Website']
+  end
+
+  class << self
+    def random(num=50)
+      all.shuffle[0, num].reject{|u| u.nil? }
+    end
+
+    def create_from_hash!(hash)
+      create do |user|
+        user.handle_attributes(hash)
+      end
+    end
   end
 
 end

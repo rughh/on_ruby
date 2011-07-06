@@ -12,10 +12,6 @@ describe User do
     admin_user.admin?.should be(true)
   end
 
-  it "should generate a twitter url" do
-    Factory(:user, :nickname => 'phoet').twurl.should == 'http://twitter.com/phoet'
-  end
-
   it "should participate?" do
     admin_user.participates?(@event).should be(false)
     admin_user.participants.create!(:event_id => @event.id, :user_id => admin_user.id)

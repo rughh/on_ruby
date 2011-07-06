@@ -5,7 +5,7 @@
   .info
     %strong
       = user.name
-      = ('(' + link_to("@#{user.nickname}", user.twurl) + ')').html_safe
+      = ('(' + link_to_twitter(user) + ')').html_safe
 
     - if user.github
       %dl.tooltip_trigger
