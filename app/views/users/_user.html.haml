@@ -5,7 +5,7 @@
   .info
     %strong
       = user.name
-      = ('(' + link_to_twitter(user) + ')').html_safe
+      = link_to_twitter(user, clung: true)
 
     - if user.github
       %dl.tooltip_trigger
