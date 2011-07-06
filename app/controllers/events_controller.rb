@@ -1,29 +1,27 @@
 # encoding: utf-8
 class EventsController < ApplicationController
+  
+  expose(:upcoming_events) { Event.where(:date => (Time.now)..(1.month.from_now)).order("date DESC") }
+  expose(:events) { Event.order("date DESC").paginate(:page => params[:page], :per_page => 10) }
+  expose(:event)
 
-  def index
-    @upcoming_events = Event.where(:date => (Time.now)..(1.month.from_now)).order("date DESC")
-    @events = Event.order("date DESC").paginate :page => params[:page], :per_page => 10
-  end
+  def index; end
 
   def rss
-    @events = Event.order("date DESC").limit(10)
     render :layout => false
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
 
   def show
-    @event = Event.find params[:id]
     respond_to do |format|
       format.html
       format.ics do
-        render :text => @event.to_ical(event_url(@event))
+        render :text => event.to_ical(event_url(event))
       end
     end
   end
 
   def add_user
-    event = Event.find params[:id]
     participant = Participant.new do |p|
       p.user = current_user
       p.event = event
@@ -33,8 +31,7 @@ class EventsController < ApplicationController
   end
 
   def publish
-    event = Event.find params[:id]
-    authorize! :manage, @article
+    authorize! :manage, event
     if event.published?
       redirect_to events_path, :alert => 'Event wurde bereits publiziert.' 
     else

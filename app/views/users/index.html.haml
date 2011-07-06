@@ -6,8 +6,7 @@
 
   %h3 Ruby Users
   %ul
-    - @users.each do |user|
-      = render partial: 'shared/user', locals: {user: user}
+    = render users
 
 .pagination
-  = will_paginate @users
+  = will_paginate users
