@@ -1,0 +1,10 @@
+- if event.date > Time.now
+  %p
+    %strong
+      - if current_user
+        - if current_user.participates?(event)
+          = link_to 'Ich möchte mich abmelden', event_participant_path(event, current_user.participation(event)), method: 'delete'
+        - else
+          = link_to 'Ich möchte mich anmelden'.html_safe, add_user_event_path(event)
+      - else
+        = link_to 'Ich möchte mich anmelden'.html_safe,  auth_path

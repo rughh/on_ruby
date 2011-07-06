@@ -1,6 +1,6 @@
 %p
   %strong
-    = link_to 'Eigenen Wunsch eintragen', '#', name: 'new_wish', class: 'toggle'
+    = link_to 'Eigenen Wunsch eintragen', '#', {name: 'new_wish'}.merge(signed_in? ? {class: 'toggle'} : {:confirm => 'Bitte anmelden!'})
 
 .toggle_new_wish.hide
   = semantic_form_for wish do |f|

@@ -10,21 +10,8 @@
 
   %p.description= event.description
 
-  - if event.date > Time.now
-    %p
-      %strong
-        - if current_user
-          - if current_user.participates?(event)
-            = link_to 'Ich möchte mich abmelden', event_participant_path(event, current_user.participation(event)), method: 'delete'
-          - else
-            = link_to 'Ich möchte mich anmelden'.html_safe, add_user_event_path(event)
-        - else
-          = link_to 'Ich möchte mich anmelden'.html_safe,  auth_path
-
-  - if can?(:manage, Event) and not event.published?
-    %p
-      %strong
-        = link_to 'Event publizieren (Twitter, Rails Usergroup)', publish_event_path(event)
+  = render 'participate'
+  = render 'publish'
 
   - unless event.topics.empty?
     %h4 Themen:
