@@ -3,8 +3,8 @@
     = image_tag tweet.profile_image_url, :width => 48, :height => 48
     %span.rounded
   .info
-    %strong= tweet.text.shorten
+    %strong= raw(auto_link(tweet.text.truncate(80)))
     %dl
       %dt= link_to tweet.from_user, "http://twitter.com/#{tweet.from_user}"
-      %dd= link_to l(tweet.created_at.to_time), "http://twitter.com/#{tweet.from_user}/status/#{tweet.id}"
+      %dd= link_to "#{time_ago_in_words(tweet.created_at.to_time)} alt", "http://twitter.com/#{tweet.from_user}/status/#{tweet.id}"
   %br.clear
