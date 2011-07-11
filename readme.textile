@@ -1,4 +1,4 @@
-h1. Hamburg on Ruby "!http://travis-ci.org/phoet/hamburg_on_ruby.png!":http://travis-ci.org/phoet/hamburg_on_ruby
+h1. Hamburg on Ruby "!http://travis-ci.org/phoet/hamburg_on_ruby.png!":https://secure.travis-ci.org/phoet/hamburg_on_ruby.png
 
 Source for the "Site of Hamburg's Ruby Community":http://onruby.de.
 
