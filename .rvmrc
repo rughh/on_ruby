@@ -1,1 +1,2 @@
 rvm use 1.9.2@hamburg_on_ruby --create
+rvm wrapper 1.9.2@hamburg_on_ruby
