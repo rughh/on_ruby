@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110630120849) do
+ActiveRecord::Schema.define(:version => 20110717093158) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(:version => 20110630120849) do
     t.string   "provider"
     t.string   "uid"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -113,6 +120,14 @@ ActiveRecord::Schema.define(:version => 20110630120849) do
     t.datetime "updated_at"
   end
 
+  create_table "usergroups", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "twitter"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "nickname"
     t.string   "name"
@@ -124,6 +139,8 @@ ActiveRecord::Schema.define(:version => 20110630120849) do
     t.datetime "updated_at"
     t.string   "github"
     t.boolean  "admin"
+    t.boolean  "freelancer"
+    t.boolean  "available"
   end
 
   add_index "users", ["nickname"], :name => "index_users_on_nickname", :unique => true
