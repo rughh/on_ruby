@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :authorizations
   has_many :participants
 
-  attr_accessible :github
+  attr_accessible :github, :name, :freelancer, :available
 
   def participates?(event)
     participants.any? { |participant| participant.event_id == event.id }
