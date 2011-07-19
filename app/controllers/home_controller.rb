@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
-  def imprint; end
-  def info; end
+  expose(:current_event) { Event.current }
+  expose(:events) { Event.last(5) }
+  expose(:users) { User.all }
 end
