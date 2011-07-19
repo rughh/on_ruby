@@ -1,9 +1,5 @@
 HamburgOnRuby::Application.routes.draw do
 
-  resources :companies
-
-  resources :usergroups
-
   devise_for :users, ActiveAdmin::Devise.config
 
   ActiveAdmin.routes(self)
@@ -23,8 +19,6 @@ HamburgOnRuby::Application.routes.draw do
     resources :participants
   end
 
-  resources :locations
-
   match '/auth/:provider/callback',   :to => 'sessions#create'
   match '/auth/failure',              :to => 'sessions#failure'
   match '/auth/destroy_user_session', :to => 'sessions#destroy_user_session', :as => :destroy_user_session
@@ -35,5 +29,5 @@ HamburgOnRuby::Application.routes.draw do
   match '/home/info',     :to => 'home#info',     :as => :info
   match '/home/imprint',  :to => 'home#imprint',  :as => :imprint
 
-  root :to => "home#info"
+  root :to => "home#index"
 end

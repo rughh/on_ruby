@@ -1,0 +1,42 @@
+%section.events
+  %a{id: 'events'}
+  %h2 Events:
+  -if current_event
+    %p
+      = link_to 'Das nächste Event', current_event
+      findet am
+      %strong= l(current_event.date)
+      bei 
+      = link_to current_event.location.name, current_event.location.url
+      statt!
+  %ul
+    - events.each do |event|
+      %li= raw("#{l(event.date, format: :date)}: #{link_to event.name, event}")
+  / = link_to 'Alle Events', '#' TODO hier noch per AJAX alle Events laden
+    
+%hr
+%section.people
+  %a{id: 'people'}
+  %h2 Leute
+  %ul.imagelist.clearfix
+    - (users * 10).each do |user|
+      %li= image_tag user.image
+%hr
+%section.locations
+  %a{id: 'locations'}
+  %h2 Orte
+  #map_canvas{ 'data-map' => Location.first.to_json }
+  / TODO hier noch alle locations rein und javascript anpassen, dass es auch mit mehreren locations klarkommt
+%hr
+%section.wishes
+  %a{id: 'wishes'}
+  %h2 wishes
+%hr
+%section.companies
+  %a{id: 'companies'}
+  %h2 companies
+%hr
+%section.usergroups
+  %a{id: 'usergroups'}
+  %h2 usergroups
+%hr
