@@ -1,0 +1,13 @@
+%ul.imagelist.clearfix
+  - (users * 10).each do |user|
+    %li.tooltip
+      - uid = rand(200) + user.id + rand(200)
+      = image_tag user.image, class: 'toggle', name: uid
+      %div{class: "toggle_#{uid}"}
+        %h3= user.name
+        %dl
+          %dt Twitter:
+          %dd= link_to_twitter user
+          - if user.github
+            %dt Github:
+            %dd= link_to_github user

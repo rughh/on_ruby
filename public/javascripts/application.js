@@ -45,12 +45,25 @@ function show_hide() {
   });
 }
 
-function initialize_tooltip() {
-  $(".tooltip_trigger").tooltip();
-}
-
 $(document).ready(function(){
   initialize_map();
   show_hide();
-  initialize_tooltip();
+  
+  var history_counter = 0;
+  var scrollPage = function(hash, event) {
+    $target = $(hash);
+    if ($target.length) {
+      event.preventDefault();
+      var top = ($target.offset().top - 80);
+      $('html, body').animate({scrollTop:top}, 1200, 'easeInOutCubic');
+      if (window.history && window.history.pushState) {
+        var new_url = /\#/.test(location.href) ? location.href.replace(/\#.+/, hash) : (location.href + hash), stateObj = { count : history_counter };
+        window.history.pushState(stateObj, 'page-' + history_counter, new_url);
+      }
+    }
+  };
+  
+  $('a[href*="#"]').click(function(event) {
+    scrollPage(this.hash, event);
+  });
 });
