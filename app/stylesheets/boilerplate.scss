@@ -180,7 +180,7 @@ html {
 }
 
 header {
-  padding: 4em 1em 1em 1em;
+  padding: 8em 1em 1em 1em;
   display: block;
   margin: 0 auto;
   width: 60em;
@@ -200,10 +200,11 @@ nav {
   top: 0;
   width: 100%;
   z-index: 10;
-  font:bold 1.2em hero,arial,verdana,sans-serif;
+  font:bold 1.4em hero,arial,verdana,sans-serif;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
   padding: 0.5em;
+  padding-top: 0.7em;
   
   ul {
     border: 0 none;
@@ -250,17 +251,28 @@ nav {
       float:left;
       margin:0 15px 15px 0;
       img {
-        border: 1px solid grey;
+        border: 1px solid white;
         @include border-radius(0.5em, 0.5em);
       }
     }
   }
   
-  #map_canvas {
+  .map_canvas {
     margin: 0 auto;
     height:45em;
     border: 1px solid white;
     @include border-radius(0.5em, 0.5em);
+  }
+  
+  .tooltip {
+    display:none;
+    background:url(/images/black_arrow_big.png);
+    height:163px;
+    padding:40px 30px 10px 30px;
+    width:310px;
+    h4, li, li a {
+      color:#fff;
+    }
   }
 }
 

@@ -20,23 +20,51 @@
   %h2 Leute
   %ul.imagelist.clearfix
     - (users * 10).each do |user|
-      %li= image_tag user.image
+      %li
+        = image_tag user.image, :class => 'tooltip_trigger'
+        .tooltip
+          %h3= user.name
+          %dl
+            %dt Twitter:
+            %dd= link_to_twitter user
+            - if user.github
+              %dt Github:
+              %dd= link_to_github user
+
 %hr
 %section.locations
   %a{id: 'locations'}
   %h2 Orte
-  #map_canvas{ 'data-map' => Location.first.to_json }
-  / TODO hier noch alle locations rein und javascript anpassen, dass es auch mit mehreren locations klarkommt
+  .map_canvas{'data-map' => locations.to_json, 'data-init' => {zoom: 14, lat: locations.first.lat, long: locations.first.long}.to_json}
 %hr
 %section.wishes
   %a{id: 'wishes'}
-  %h2 wishes
+  %h2 Vorträge
+  %p
+    Möchtest du einen Vortrag auf der Rails Usergroup halten oder hast du zusätzliche Themenvorschläge?
+    Dann schicke uns einfach eine
+    = mail_to AppConfig.email, "E-Mail"
+    oder spreche uns persönlich an:
+  %ul
+    - AppConfig.organizers.each do |organizer|
+      %li= link_to organizer.name, organizer.link
+  %p
+    Usergroups leben von Vorträgen und dem Engagement der Teilnehmer.
+    Wenn du ein Thema vermisst, oder nähre Informationen zu speziellen Bereichen suchst,
+    dann kannst du hier gerne etwas in die Wunschliste eintragen.
+  %p
+    Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben,
+    dann kannst du ihn hier eintragen, um Feedback von der Community zu bekommen.
+  %ul
+    = render whishes
+    
 %hr
-%section.companies
-  %a{id: 'companies'}
-  %h2 companies
-%hr
-%section.usergroups
-  %a{id: 'usergroups'}
-  %h2 usergroups
-%hr
+/ %section.companies
+/   %a{id: 'companies'}
+/   %h2 Firmen
+/   .map_canvas{'data-map' => locations.to_json, 'data-init' => {zoom: 14, lat: locations.first.lat, long: locations.first.long}.to_json}
+/ %hr
+/ %section.usergroups
+/   %a{id: 'usergroups'}
+/   %h2 Gruppen
+/ %hr

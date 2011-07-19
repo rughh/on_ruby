@@ -2,10 +2,10 @@
 %html
   %head
     %title Hamburg on Ruby
-    = stylesheet_link_tag 'boilerplate', 'bold-dark'
+    = stylesheet_link_tag 'boilerplate'
     = auto_discovery_link_tag :rss, rss_events_path, title: "Event-Feed"
     = csrf_meta_tag
-    = javascript_include_tag('https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js', 'http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js', 'http://maps.google.com/maps/api/js?sensor=true', 'humane.js', 'rails.js', 'application.js')
+    = javascript_include_tag('https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js', 'http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js', 'http://maps.google.com/maps/api/js?sensor=true', 'rails.js', 'application.js')
 
   %body
     .container
@@ -21,7 +21,7 @@
           %li=link_to 'Orte', '#locations'
           %li=link_to 'Wünsche', '#wishes'
           %li=link_to 'Firmen', '#companies'
-          %li=link_to 'Gruppen', '#usergroups'
+          / %li=link_to 'Gruppen', '#usergroups'
       .main{role: "main"}
         = yield
       %footer
