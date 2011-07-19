@@ -1,3 +1,4 @@
+@import "compass";
 @import "compass/css3/border-radius";
 
 @font-face { font-family:hero; src:url("/fonts/hero_light.otf") format("opentype"); }
@@ -191,6 +192,14 @@ header {
   h2 {
     font:bold 1.5em hero,arial,verdana,sans-serif;
   }
+  
+  #login {
+    background:url(/images/bg/whitey.png) left top repeat;
+    border: 1px solid white;
+    @include border-radius(0.5em, 0.5em);
+    padding: 1em;
+    float: right;
+  }
 }
 
 nav {
@@ -243,6 +252,25 @@ nav {
   
   hr {
     border:none;
+    padding:1em;
+  }
+  
+  
+  .star {
+    padding:8px 8px 2px 14px;
+    margin-right:2px;
+    text-decoration:none;
+    background:url(/images/star-empty.png) 3px 4px no-repeat;
+    font-size:9px;
+    
+    &:hover, &:active {
+      background:url(/images/star.png) 3px 4px no-repeat;
+      color:black;
+    }
+    
+    &.highlight {
+      background:url(/images/star.png) 3px 4px no-repeat;
+    }
   }
   
   ul.imagelist {
@@ -265,7 +293,13 @@ nav {
   }
   
   .tooltip {
+    position: relative;
+  }
+  .tooltip div {
     display:none;
+    position:absolute;
+    top:-205px;
+    righ:-160px;
     background:url(/images/black_arrow_big.png);
     height:163px;
     padding:40px 30px 10px 30px;
@@ -280,10 +314,21 @@ footer {
   background:url(/images/bg/whitey.png) left top repeat;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
-  height: 60em;
   padding: 0.5em;
-  h2 {
-    font:bold 1.4em hero,arial,verdana,sans-serif;
+  section {
+    padding: 1em;
+    margin-bottom: 2em;
+    display: block;
+    margin: 0 auto;
+    width: 60em;
+    h2 {
+      font:bold 1.4em hero,arial,verdana,sans-serif;
+    }
+    
+    #contact, #links {
+      float:left;
+      margin: 0em 1em 1em 0em;
+    }
   }
 }
 

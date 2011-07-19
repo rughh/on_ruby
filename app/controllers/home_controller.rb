@@ -4,4 +4,5 @@ class HomeController < ApplicationController
   expose(:users) { User.all }
   expose(:whishes) { Wish.all }
   expose(:locations) { Location.all }
+  expose(:organizers) { User.where(:nickname => ['halfbyte', 'ralph', 'phoet', 'rubiii']) }
 end

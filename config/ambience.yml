@@ -4,19 +4,6 @@ defaults: &defaults
   twitter: "<%= Rails.env.development? ? "youmouth" : "hamburgsync" %>"
   usergroup_email: "phoet@gmx.de"
   usergroup_email_real: "rubyonrails-ug@headflash.com"
-  organizers:
-    -
-      name: "Jan Krutisch"
-      link: "https://www.xing.com/profile/Jan_Krutisch"
-    -
-      name: "Ralph von der Heyden"
-      link: "https://www.xing.com/profile/Ralph_vonderHeyden"
-    -
-      name: "Peter Schröder"
-      link: "https://www.xing.com/profile/peter_schroeder2"
-    -
-      name: "Daniel Harrington"
-      link: "https://www.xing.com/profile/Daniel_Harrington"
 
 development:
   <<: *defaults

@@ -2,7 +2,7 @@
   %strong
     = link_to 'Eigenen Wunsch eintragen', '#', {name: 'new_wish'}.merge(signed_in? ? {class: 'toggle'} : {:confirm => 'Bitte anmelden!'})
 
-.toggle_new_wish.hide
+.toggle_new_wish.hidden
   = semantic_form_for wish do |f|
     = f.input :name
     = f.input :activity, as: :radio, collection: Wish::ACTIVITIES, label_method: activity_type_label_method, prompt: 'Bitte wählen', label: false
