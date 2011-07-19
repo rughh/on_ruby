@@ -35,9 +35,8 @@ group(:development, :test) do
   gem "mocha", "~> 0.9.12"
   gem "sqlite3-ruby", :require => "sqlite3"
   gem "ruby-debug19", :require => "ruby-debug", :platforms => :mri_19
-  gem "rspec-rails", "~> 2.4.1"
+  gem "rspec-rails", "~> 2.6.1"
   gem "remarkable_activemodel", "~> 4.0.0.alpha4"
   gem "remarkable_activerecord", "~> 4.0.0.alpha4"
   gem "factory_girl", "~> 1.3.3"
-  gem "rails3-generators", :git => "git://github.com/indirect/rails3-generators.git"
 end
