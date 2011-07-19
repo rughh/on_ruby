@@ -4,5 +4,12 @@
     = render user
   
   = semantic_form_for user do |f|
+    = f.input :name
+    %br
     = f.input :github
+    %br
+    = f.input :freelancer
+    %br
+    = f.input :available
+    %br
     = f.buttons

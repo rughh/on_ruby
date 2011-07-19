@@ -1,5 +1,9 @@
 HamburgOnRuby::Application.routes.draw do
 
+  resources :companies
+
+  resources :usergroups
+
   devise_for :users, ActiveAdmin::Devise.config
 
   ActiveAdmin.routes(self)
