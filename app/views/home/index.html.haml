@@ -18,18 +18,7 @@
 %section.people
   %a{id: 'people'}
   %h2 Leute
-  %ul.imagelist.clearfix
-    - (users * 10).each do |user|
-      %li
-        = image_tag user.image, :class => 'tooltip_trigger'
-        .tooltip
-          %h3= user.name
-          %dl
-            %dt Twitter:
-            %dd= link_to_twitter user
-            - if user.github
-              %dt Github:
-              %dd= link_to_github user
+  = render 'shared/users', users: users
 
 %hr
 %section.locations
@@ -39,15 +28,14 @@
 %hr
 %section.wishes
   %a{id: 'wishes'}
-  %h2 Vorträge
+  %h2 Themen
   %p
     Möchtest du einen Vortrag auf der Rails Usergroup halten oder hast du zusätzliche Themenvorschläge?
     Dann schicke uns einfach eine
     = mail_to AppConfig.email, "E-Mail"
     oder spreche uns persönlich an:
   %ul
-    - AppConfig.organizers.each do |organizer|
-      %li= link_to organizer.name, organizer.link
+    = render 'shared/users', users: organizers
   %p
     Usergroups leben von Vorträgen und dem Engagement der Teilnehmer.
     Wenn du ein Thema vermisst, oder nähre Informationen zu speziellen Bereichen suchst,
@@ -55,6 +43,7 @@
   %p
     Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben,
     dann kannst du ihn hier eintragen, um Feedback von der Community zu bekommen.
+    = render 'wishes/add_wish', wish: Wish.new
   %ul
     = render whishes
     

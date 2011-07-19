@@ -44,17 +44,11 @@ module ApplicationHelper
   end
 
   def login
-    content_tag(:div, :class => 'login') do
-      content_tag :li do
-        content_tag(:span) + content_tag(:b) do
-          if current_user
-            link_to t("menu.logout"), destroy_session_path
-          else
-            link_to t("menu.login"), auth_path
-          end
-        end
-      end
-    end.html_safe
+    if current_user
+      link_to 'Profil', edit_user_path(current_user)
+    else
+      link_to 'Login', auth_path
+    end
   end
 
   def flash_growl
