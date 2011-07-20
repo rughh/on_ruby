@@ -1,9 +1,0 @@
-- unless event.topics.empty?
-  %h3 Themen:
-  %ul
-    - event.topics.each do |t|
-      %li
-        = t.name
-        - if t.user
-          = link_to_twitter(t.user, clung: true)
-        %p= t.description
