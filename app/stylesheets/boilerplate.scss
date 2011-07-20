@@ -166,8 +166,8 @@ body, select, input, textarea {
 /* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
 h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
-a, a:active, a:visited { color: #607890; }
-a:hover { color: #036; }
+a, a:active, a:visited { color: #555; }
+a:hover { color: #666; }
 
 
 /**
@@ -177,6 +177,10 @@ a:hover { color: #036; }
  */
 
 html {
+  background:url(/images/bg/whitey.png) left top repeat;
+}
+
+.container {
   background:url(/images/bg/black-Linen.png) left top repeat;
 }
 
@@ -232,7 +236,6 @@ nav {
   width: 100%;
   z-index: 10;
   font:bold 1.4em hero,arial,verdana,sans-serif;
-  border-top: 1px solid white;
   border-bottom: 1px solid white;
   padding: 0.5em;
   padding-top: 0.7em;
@@ -261,7 +264,9 @@ nav {
 
 .main {
   padding:2em;
+  padding-bottom:6em;
   margin:2em;
+  margin-bottom:0;
 
   em {
     font-style:italic;
@@ -298,6 +303,11 @@ nav {
     
     h2 {
       font:bold 1.4em hero,arial,verdana,sans-serif;
+      margin-bottom:1em;
+    }
+    
+    h3 {
+      font:bold 1.2em hero,arial,verdana,sans-serif;
       margin-bottom:1em;
     }
     
@@ -354,20 +364,24 @@ nav {
     position:relative;
     
     .big-tooltip {
-      right:40em;
+      right:37em;
     }
-  }
-  .tooltip div {
-    display:none;
-    position:absolute;
-    top:-210px;
-    right:-160px;
-    background:url(/images/black_arrow_big.png);
-    height:163px;
-    padding:40px 30px 10px 30px;
-    width:310px;
-    h3, li, p, dt, dd {
-      color:white;
+    
+    div {
+      display:none;
+      position:absolute;
+      top:-210px;
+      right:-160px;
+      background:url(/images/black_arrow_big.png);
+      height:163px;
+      padding:40px 30px 10px 30px;
+      width:310px;
+      h3, li, p, dt, dd {
+        color:white;
+      }
+      a, a:hover, a:active, a:visited {
+        color:#999;
+      }
     }
   }
 
@@ -418,7 +432,7 @@ nav {
   
   dt {
     clear:left;
-    padding-right:5px;
+    padding-right:1em;
   }
 
   dt, dd {
@@ -428,21 +442,19 @@ nav {
   dt {
     font-weight:bold;
   }
-
 }
 
 footer {
-  background:url(/images/bg/whitey.png) left top repeat;
+  padding:0;
+  margin:0;
   border-top:1px solid white;
-  border-bottom:1px solid white;
-  height:30em;
 
   section {
-    padding: 1em;
-    margin-bottom: 2em;
-    display: block;
-    margin: 0 auto;
-    width: 60em;
+    padding:1em;
+    margin-bottom:2em;
+    display:block;
+    margin:0 auto;
+    width:60em;
     h2 {
       font:bold 1.4em hero,arial,verdana,sans-serif;
       padding-bottom:1em;

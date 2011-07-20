@@ -24,25 +24,25 @@
           %li= link_to 'Themen', '/#wishes'
           %li= link_to 'Firmen', '/#companies'
           / %li=link_to 'Gruppen', '#usergroups'
-      .main{role: "main"}
+      .main
         = flash_growl
         = yield
-      %footer
-        %section.clearfix
-          #imprint
-            %h2 Impressum:
-            %ul
-              %li= mail_to 'phoetmail@googlemail.com', 'Peter Schröder'
-              %li Schanzenstr. 85</br>20357 Hamburg
-          #contact
-            %h2 Kontakt:
-            %ul
-              %li= link_to 'Twitter', 'http://twitter.com/hamburgsync'
-              %li= mail_to AppConfig.email, 'E-Mail'
-          #links
-            %h2 Links:
-            %ul
-              %li= link_to 'Github', 'http://github.com/phoet/hamburg_on_ruby'
-              %li= link_to 'Mailingliste', 'http://mailman.headflash.com/listinfo/rubyonrails-ug'
+    %footer
+      %section.clearfix
+        #imprint
+          %h2 Impressum
+          %ul
+            %li= mail_to 'phoetmail@googlemail.com', 'Peter Schröder'
+            %li Schanzenstr. 85</br>20357 Hamburg
+        #contact
+          %h2 Kontakt
+          %ul
+            %li= link_to 'Twitter', 'http://twitter.com/hamburgsync'
+            %li= mail_to AppConfig.email, 'E-Mail'
+        #links
+          %h2 Links
+          %ul
+            %li= link_to 'Github', 'http://github.com/phoet/hamburg_on_ruby'
+            %li= link_to 'Mailingliste', 'http://mailman.headflash.com/listinfo/rubyonrails-ug'
 
         

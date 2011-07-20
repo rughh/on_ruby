@@ -1,9 +1,0 @@
-- unless event.materials.empty?
-  %h3 Material:
-  %ul
-    - event.materials.each do |m|
-      %li
-        = link_to m.name, m.url, class: m.material_type
-        - if m.user
-          = link_to_twitter(m.user, clung: true)
-        %p= m.description
