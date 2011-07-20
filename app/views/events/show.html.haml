@@ -1,8 +1,8 @@
-.section.vevent
-  %h3.summary= event.name
+%section.vevent
+  %h2.summary= event.name
   %p
     %abbr.dtstart.url{title: event.date}= link_to l(event.date), event_path(event, format: :ics), class: 'ical'
-    %abbr.dtend.hide{title: event.date + 3.hours}= l(event.date + 4.hours)
+    %abbr.dtend.hidden{title: event.date + 3.hours}= l(event.date + 4.hours)
     gehostet durch
     = link_to_twitter event.user
     bei

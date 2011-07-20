@@ -42,13 +42,10 @@ module ApplicationHelper
       end
     end.html_safe
   end
-
-  def login
-    if current_user
-      link_to 'Profil', edit_user_path(current_user)
-    else
-      link_to 'Login', auth_path
-    end
+  
+  def map(locations, init={:zoom => 14, :lat => 53.56544, :long => 9.95947})
+    locations = Array(locations)
+    content_tag(:div, '', :class => 'map_canvas', 'data-map' => locations.to_json, 'data-init' => init.to_json)
   end
 
   def flash_growl
