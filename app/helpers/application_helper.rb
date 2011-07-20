@@ -63,7 +63,7 @@ module ApplicationHelper
     link_to "github.com/#{user.github}", "http://github.com/#{user.github}" if user.github
   end
 
-  def link_to_twitter(user, params={clung: false}, &block)
+  def link_to_twitter(user, params={:clung => false}, &block)
     url = "http://twitter.com/#{user.nickname}"
     if block_given?
       link_to url, &block
@@ -72,7 +72,7 @@ module ApplicationHelper
       params[:clung] ? ('(' + link + ')').html_safe : link
     end
   end
-
+  
   private()
 
   def css_class_for_menu_item(item)

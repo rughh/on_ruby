@@ -5,13 +5,14 @@
     %p
       = link_to 'Das nächste Event', current_event
       findet am
-      %strong= l(current_event.date)
+      %em= l(current_event.date)
       bei 
       = link_to current_event.location.name, current_event.location.url
       statt!
+  %h3 Vergangene Events:
   %ul
     - events.each do |event|
-      %li= raw("#{l(event.date, format: :date)}: #{link_to event.name, event}")
+      %li= raw("#{content_tag(:em, l(event.date, format: :date))} - #{link_to event.name, event}")
   / = link_to 'Alle Events', '#' TODO hier noch per AJAX alle Events laden
     
 %hr
@@ -39,13 +40,11 @@
   %p
     Usergroups leben von Vorträgen und dem Engagement der Teilnehmer.
     Wenn du ein Thema vermisst, oder nähre Informationen zu speziellen Bereichen suchst,
-    dann kannst du hier gerne etwas in die Wunschliste eintragen.
-  %p
+    dann <strong>kannst du hier gerne etwas in die Wunschliste eintragen</strong>.
     Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben,
-    dann kannst du ihn hier eintragen, um Feedback von der Community zu bekommen.
-    = render 'wishes/add_wish', wish: Wish.new
-  %ul
-    = render whishes
+    dann <strong>kannst du ihn hier eintragen</strong>, um Feedback von der Community zu bekommen.
+  = render 'wishes/add_wish'
+  = render 'shared/wishes', wishes: wishes
     
 %hr
 / %section.companies

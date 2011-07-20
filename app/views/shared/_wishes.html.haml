@@ -1,0 +1,10 @@
+%ul.clearfix
+  - wishes.each do |wish|
+    %li.tooltip
+      %h3
+        %span.stars= stars(wish)
+        = link_to wish.name, wish, {name: "stars_#{wish.id}", class: 'toggle wish-link'}
+        %div{class: "toggle_stars_#{wish.id} big-tooltip"}
+          %p.meta= meta(wish)
+          %p= wish.description.truncate(180)
+          %p= link_to 'mehr', wish

@@ -1,2 +1,7 @@
-.section
-  = render wish
+%section
+  .clearfix
+    %span.stars= stars(wish)
+    .meta= meta(wish)
+
+  %h3= wish.name
+  %p= wish.description

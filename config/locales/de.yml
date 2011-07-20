@@ -39,7 +39,7 @@ de:
       short: "%d. %B, %H:%M Uhr"
       long: "%A, %d. %B %Y, %H:%M Uhr"
       time: "%H:%M"
-      date: "%d.%m. %H:%M Uhr"
+      date: "%d.%m. %H:%M"
 
     am: "vormittags"
     pm: "nachmittags"
