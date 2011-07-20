@@ -1,0 +1,11 @@
+/ = link_to 'Alle Events', '#' TODO hier noch per AJAX alle Events laden
+%ul.clearfix
+  - events.each do |event|
+    %li.tooltip
+      = link_to "#{l(event.date, format: :date)} - #{event.name}", event, {name: "event_#{event.id}", class: 'toggle'}
+      %div{class: "toggle_event_#{event.id} big-tooltip"}
+        %p= event.description.truncate(80)
+        %ul
+          - event.topics.each do |topic|
+            %li= topic.name
+        %p= link_to 'mehr', event

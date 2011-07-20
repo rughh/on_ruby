@@ -10,10 +10,7 @@
       = link_to current_event.location.name, current_event.location.url
       statt!
   %h3 Vergangene Events:
-  %ul
-    - events.each do |event|
-      %li= raw("#{content_tag(:em, l(event.date, format: :date))} - #{link_to event.name, event}")
-  / = link_to 'Alle Events', '#' TODO hier noch per AJAX alle Events laden
+  = render 'shared/events', events: events
     
 %hr
 %section.people
@@ -25,7 +22,8 @@
 %section.locations
   %a{id: 'locations'}
   %h2 Orte
-  .map_canvas{'data-map' => locations.to_json, 'data-init' => {zoom: 14, lat: locations.first.lat, long: locations.first.long}.to_json}
+  = map(locations)
+  
 %hr
 %section.wishes
   %a{id: 'wishes'}
@@ -46,7 +44,7 @@
   = render 'wishes/add_wish'
   = render 'shared/wishes', wishes: wishes
     
-%hr
+/ %hr
 / %section.companies
 /   %a{id: 'companies'}
 /   %h2 Firmen
@@ -55,4 +53,3 @@
 / %section.usergroups
 /   %a{id: 'usergroups'}
 /   %h2 Gruppen
-/ %hr

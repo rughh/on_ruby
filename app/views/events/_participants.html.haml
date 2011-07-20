@@ -1,10 +1,3 @@
 - unless event.participants.empty?
-  %h4 Teilnehmer:
-  %ul.participants
-    - event.participants.each do |p|
-      %li
-        = link_to_twitter p.user do
-          .avatar
-            = image_tag p.user.image, :width => 48, :height => 48
-            %span.rounded
-  %br.clear
+  %h3 Teilnehmer:
+  = render = render 'shared/users', users: event.participants.map(&:user)
