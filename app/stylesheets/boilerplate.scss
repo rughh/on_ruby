@@ -187,9 +187,12 @@ header {
   width: 60em;
   color: white;
   h1 {
+    padding-left:120px;
+    padding-bottom:7px;
     font:bold 4em hero,arial,verdana,sans-serif;
   }
   h2 {
+    padding-left:120px;
     font:bold 1.5em hero,arial,verdana,sans-serif;
   }
   
@@ -199,6 +202,9 @@ header {
     @include border-radius(0.5em, 0.5em);
     padding: 1em;
     float: right;
+  }
+  #logo {
+    float: left;
   }
 }
 
@@ -216,28 +222,62 @@ nav {
   padding-top: 0.7em;
   
   ul {
-    border: 0 none;
-    display: inline-block;
-    list-style: none outside;
-    overflow: hidden;
+    border:0 none;
+    display:inline-block;
+    list-style:none outside;
+    overflow:hidden;
   }
   li {
-    margin-left: 1em;
-    float: left;
+    margin-left:1.2em;
+    padding-top:1px;
+    float:left;
+    
+    a, a:hover, a:active, a:visited {
+      text-decoration:none;
+      color:black;
+    }
+  }
+  .logo {
+    background:url(/images/logo_small.png) 0 0 no-repeat;
+    padding-left:2em;
   }
 }
 
 .main {
-  padding: 2em;
-  margin: 2em;
+  padding:2em;
+  margin:2em;
+
+  em {
+    font-style:italic;
+    font-weight:bolder;
+  }
+  
+  h3 {
+    margin-top:1em;
+    margin-bottom:1em;
+  }
+
+  hr {
+    border:none;
+    padding:1em;
+  }
+
+  p {
+    margin-bottom:1em;
+  }
+  
+  li {
+    list-style:none;
+  }
+  
   section {
-    padding: 1em;
-    margin-bottom: 2em;
-    display: block;
-    margin: 0 auto;
-    width: 60em;
+    padding:1em;
+    margin-bottom:2em;
+    display:block;
+    margin:0 auto;
+    width:60em;
     background:url(/images/bg/whitey.png) left top repeat;
-    border: 1px solid white;
+    border:1px solid white;
     @include border-radius(0.5em, 0.5em);
     
     h2 {
@@ -246,30 +286,10 @@ nav {
     }
     
     ul {
-      margin: 1em;
+      margin:1em;
     }
-  }
-  
-  hr {
-    border:none;
-    padding:1em;
-  }
-  
-  
-  .star {
-    padding:8px 8px 2px 14px;
-    margin-right:2px;
-    text-decoration:none;
-    background:url(/images/star-empty.png) 3px 4px no-repeat;
-    font-size:9px;
-    
-    &:hover, &:active {
-      background:url(/images/star.png) 3px 4px no-repeat;
-      color:black;
-    }
-    
-    &.highlight {
-      background:url(/images/star.png) 3px 4px no-repeat;
+    li {
+      margin:1em;
     }
   }
   
@@ -277,7 +297,7 @@ nav {
     list-style:none;
     li {
       float:left;
-      margin:0 15px 15px 0;
+      margin:0 1em 1em 0;
       img {
         border: 1px solid white;
         @include border-radius(0.5em, 0.5em);
@@ -286,28 +306,99 @@ nav {
   }
   
   .map_canvas {
-    margin: 0 auto;
-    height:45em;
-    border: 1px solid white;
+    margin:0 auto;
+    height:40em;
+    width:95%;
+    border:1px solid white;
     @include border-radius(0.5em, 0.5em);
   }
   
+  .stars {
+    float:left;
+    position:relative;
+    top:-0.2em;
+    padding-right:1em;
+    img {
+      padding-left:0.2em;
+    }
+  }
+  
+  .wish-link {
+    padding-top:0.2em;
+  }
+  
+  .meta {
+    font-size:smaller;
+    font-style:italic;
+    padding-top:0.2em;
+  }
+  
   .tooltip {
-    position: relative;
+    position:relative;
+    
+    .big-tooltip {
+      right:40em;
+    }
   }
   .tooltip div {
     display:none;
     position:absolute;
-    top:-205px;
-    righ:-160px;
+    top:-210px;
+    right:-160px;
     background:url(/images/black_arrow_big.png);
     height:163px;
     padding:40px 30px 10px 30px;
     width:310px;
-    h4, li, li a {
-      color:#fff;
+    h3, li, p, dt, dd {
+      color:white;
     }
   }
+
+  form {
+    margin:1em;
+    
+    ol {
+      margin:0em;
+    }
+    
+    li {
+      list-style:none;
+      margin:0em;
+      margin-bottom:1em;
+    }
+    
+    fieldset {
+      li {
+        float:left;
+        padding-right:1em;
+        margin:0em;
+      }
+      label {
+        margin:0em;
+      }
+    }
+    
+    input[type=text] {
+      width:40em;
+    }
+
+    input[type=checkbox], input[type=radio] {
+      margin-right:0.5em;
+    }
+
+    textarea {
+      width:40em;
+      height:20em;
+    }
+    
+    
+    label {
+      display:block;
+      font-weight:bold;
+      margin-bottom:1em;
+    }
+  }
+
 }
 
 footer {
@@ -349,7 +440,8 @@ footer {
 
 /* Hide for both screenreaders and browsers:
    css-discuss.incutio.com/wiki/Screenreader_Visibility */
-.hidden { display: none; visibility: hidden; }
+//.hidden { display: none; visibility: hidden; }
+.hidden { display: none; }
 
 /* Hide only visually, but have it available for screenreaders: by Jon Neal.
   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */

@@ -13,16 +13,17 @@
         #login
           = login
         %a{id: 'hor'}
+        #logo= image_tag '/images/logo.png'
         %h1 Hamburg on Ruby
         %h2 Heimathafen der Hamburger Ruby-Community
       %nav.nav
         %ul
-          %li= link_to 'HoR', '#hor'
-          %li= link_to 'Events', '#events'
-          %li= link_to 'Leute', '#people'
-          %li= link_to 'Orte', '#locations'
-          %li= link_to 'Themen', '#wishes'
-          %li= link_to 'Firmen', '#companies'
+          %li.logo= link_to 'HoR', '/#hor'
+          %li= link_to 'Events', '/#events'
+          %li= link_to 'Leute', '/#people'
+          %li= link_to 'Orte', '/#locations'
+          %li= link_to 'Themen', '/#wishes'
+          %li= link_to 'Firmen', '/#companies'
           / %li=link_to 'Gruppen', '#usergroups'
       .main{role: "main"}
         = yield
