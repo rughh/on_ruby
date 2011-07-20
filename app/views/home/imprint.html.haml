@@ -1,22 +1,22 @@
-.section
+%section
   %h3 Impressum:
-  %dl.imprint
+  %dl.clearfix
     %dt Seitenbetreiber:
-    %dl Peter Schröder
+    %dd Peter Schröder
     
     %dt Anschrift:
-    %dl Schanzenstr. 85
-    %dl 20357 Hamburg
+    %dd Schanzenstr. 85</br>20357 Hamburg
   
-    %dt Kontakt:
-    %dl
-      Mobil: +49 178 1391035
-    %dl
-      E-Mail:
-      = mail_to "phoetmail@googlemail.com"
-    %dl
-      Twitter: 
-      =link_to "@phoet", "http://twitter.com/phoet"
-    %dl
-      Web:
-      = link_to "peter-schröder.info", "http://www.peter-schröder.info/"
+  %h3 Kontakt:
+  %dl.clearfix
+    %dt Mobil: 
+    %dd+49 178 1391035
+    
+    %dt E-Mail:
+    %dd= mail_to "phoetmail@googlemail.com"
+    
+    %dt Twitter: 
+    %dd=link_to "@phoet", "http://twitter.com/phoet"
+    
+    %dt Web:
+    %dd= link_to "peter-schröder.info", "http://www.peter-schröder.info/"

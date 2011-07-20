@@ -1,11 +1,2 @@
-%h4 Anfahrt:
-- l = event.location
-#map_canvas{ 'data-map' => l.to_json }
-#map_info_content.location
-  %strong= l.name
-  %br
-  #{l.street} #{l.house_number}
-  %br
-  #{l.zip} #{l.city}
-  %br
-  =link_to l.url, l.url
+%h3 Anfahrt:
+= map(event.location)

@@ -5,20 +5,19 @@
     = stylesheet_link_tag 'boilerplate'
     = auto_discovery_link_tag :rss, rss_events_path, title: "Event-Feed"
     = csrf_meta_tag
-    = javascript_include_tag('https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js', 'http://maps.google.com/maps/api/js?sensor=true', 'rails.js', 'application.js')
+    = javascript_include_tag('https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js', 'http://maps.google.com/maps/api/js?sensor=true', 'humane.js', 'rails.js', 'application.js')
 
   %body
     .container
       %header
-        #login
-          = login
+        = render 'shared/login'
         %a{id: 'hor'}
         #logo= image_tag '/images/logo.png'
-        %h1 Hamburg on Ruby
-        %h2 Heimathafen der Hamburger Ruby-Community
-      %nav.nav
+        %h1= link_to 'Hamburg on Ruby', root_path
+        %h2= link_to 'Heimathafen der Hamburger Ruby-Community', root_path
+      %nav#nav
         %ul
-          %li.logo= link_to 'HoR', '/#hor'
+          %li.logo{id: 'home'}= link_to 'HoR', '/#hor'
           %li= link_to 'Events', '/#events'
           %li= link_to 'Leute', '/#people'
           %li= link_to 'Orte', '/#locations'
@@ -26,23 +25,24 @@
           %li= link_to 'Firmen', '/#companies'
           / %li=link_to 'Gruppen', '#usergroups'
       .main{role: "main"}
+        = flash_growl
         = yield
       %footer
         %section.clearfix
+          #imprint
+            %h2 Impressum:
+            %ul
+              %li= mail_to 'phoetmail@googlemail.com', 'Peter Schröder'
+              %li Schanzenstr. 85</br>20357 Hamburg
           #contact
-            %h2 Kontakt
-            %dl
-              %dt E-Mail:
-              %dd= mail_to AppConfig.email
-              %dt Twitter:
-              %dd= link_to '@hamburgsync', 'http://twitter.com/hamburgsync'
-            = link_to 'Impressum', imprint_path
+            %h2 Kontakt:
+            %ul
+              %li= link_to 'Twitter', 'http://twitter.com/hamburgsync'
+              %li= mail_to AppConfig.email, 'E-Mail'
           #links
-            %h2 Links
-            %dl
-              %dt Github:
-              %dd= mail_to AppConfig.email
-              %dt Mailingliste:
-              %dd= link_to '@hamburgsync', 'http://twitter.com/hamburgsync'
+            %h2 Links:
+            %ul
+              %li= link_to 'Github', 'http://github.com/phoet/hamburg_on_ruby'
+              %li= link_to 'Mailingliste', 'http://mailman.headflash.com/listinfo/rubyonrails-ug'
 
         

@@ -49,6 +49,7 @@ $(document).ready(function(){
   initialize_map();
   show_hide();
   
+  // thx to appfertigung.de
   var history_counter = 0;
   var scrollPage = function(hash, event) {
     $target = $(hash);
@@ -66,4 +67,14 @@ $(document).ready(function(){
   $('a[href*="#"]').click(function(event) {
     scrollPage(this.hash, event);
   });
+  
+  var animateNavi = function() {
+    var scrollY = $(document).scrollTop();
+    var opacity = (scrollY - $('#logo').offset().top) * 0.005;
+    if (opacity < 0) opacity = 0;
+    else if (opacity > 1) opacity = 1;
+    $('#nav').css('opacity', opacity);
+  };
+  
+  $(window).load(animateNavi).scroll(animateNavi);
 });

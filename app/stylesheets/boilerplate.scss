@@ -181,27 +181,42 @@ html {
 }
 
 header {
-  padding: 8em 1em 1em 1em;
-  display: block;
-  margin: 0 auto;
-  width: 60em;
-  color: white;
-  h1 {
+  padding:4em 1em 1em 1em;
+  display:block;
+  margin:0 auto;
+  width:60em;
+  color:white;
+
+  h1, h2 {
     padding-left:120px;
     padding-bottom:7px;
     font:bold 4em hero,arial,verdana,sans-serif;
+    a, a:hover, a:active, a:visited {
+      color:white;
+      text-decoration:none;
+    }
   }
   h2 {
-    padding-left:120px;
     font:bold 1.5em hero,arial,verdana,sans-serif;
   }
   
   #login {
     background:url(/images/bg/whitey.png) left top repeat;
-    border: 1px solid white;
+    border:1px solid white;
     @include border-radius(0.5em, 0.5em);
-    padding: 1em;
-    float: right;
+    padding:1em;
+    float:right;
+    h3 {
+      color:#444;
+      padding-bottom:0.5em;
+    }
+    ul {
+      margin:0;
+      padding:0;
+    }
+    li {
+      list-style:none;
+    }
   }
   #logo {
     float: left;
@@ -209,6 +224,7 @@ header {
 }
 
 nav {
+  opacity:0;
   background:url(/images/bg/whitey.png) left top repeat;
   text-align: center;
   position: fixed;
@@ -286,10 +302,11 @@ nav {
     }
     
     ul {
-      margin:1em;
+      margin:0em;
     }
     li {
-      margin:1em;
+      margin:0em;
+      margin-bottom:1em;
     }
   }
   
@@ -398,14 +415,28 @@ nav {
       margin-bottom:1em;
     }
   }
+  
+  dt {
+    clear:left;
+    padding-right:5px;
+  }
+
+  dt, dd {
+    float:left;
+  }
+  
+  dt {
+    font-weight:bold;
+  }
 
 }
 
 footer {
   background:url(/images/bg/whitey.png) left top repeat;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-  padding: 0.5em;
+  border-top:1px solid white;
+  border-bottom:1px solid white;
+  height:30em;
+
   section {
     padding: 1em;
     margin-bottom: 2em;
@@ -414,19 +445,103 @@ footer {
     width: 60em;
     h2 {
       font:bold 1.4em hero,arial,verdana,sans-serif;
+      padding-bottom:1em;
     }
     
-    #contact, #links {
+    #contact, #links, #imprint {
       float:left;
-      margin: 0em 1em 1em 0em;
+      margin:1em 0em 1em 8em;
+      
+      ul {
+        padding:0;
+        margin:0;
+      }
+      
+      li {
+        list-style:none;
+        padding-bottom:1em;
+      }
     }
   }
 }
 
 
 
+/**
+ * Humane styles
+ */
 
+ /* recommended base settings */
+ html, body { height: 100%; }
+ .humane {
+   filter                : progid:DXImageTransform.Microsoft.alpha(opacity=100);
+   -ms-filter            : "progid:DXImageTransform.Microsoft.alpha(opacity=100)";
+   position              : fixed;
+   _position             : absolute; /* ie6 */
+   -moz-transition       : all .5s;  /* .5s transition */
+   -webkit-transition    : all .5s;
+   -o-transition         : all .5s;
+   -ms-transition        : all .5s;
+   transition            : all .5s;
+   visibility            : hidden;
+   z-index               : 100000;
+ }
+ .humane.humane-show { visibility : visible; }
+ /* ie hover state, recommended */
+ .humane:hover {
+   filter                : progid:DXImageTransform.Microsoft.alpha(opacity=20);
+   -ms-filter            : "progid:DXImageTransform.Microsoft.alpha(opacity=20)";
+ }
+ /* standards hover state, recommended */
+ div.humane.humane-show:hover { opacity: 0.2; }
 
+ /* custom settings */
+ .humane {
+   font-family           : Verdana, sans-serif;
+   font-size             : 25px;
+   letter-spacing        : -1px;
+   top                   : 25%;
+   left                  : 25%;
+   opacity               : 0;
+   width                 : 50%;
+   color                 : #fff;
+   padding               : 10px;
+   text-align            : center;
+   background-color      : #000;
+   background-color      : rgba(0,0,0,0.8);
+   background-image      : -moz-linear-gradient(top, rgba(0,0,0,.8), rgba(50,50,50,.8));
+   background-image      : -ms-linear-gradient(top, rgba(0,0,0,.8), rgba(50,50,50,.8));
+   background-image      : -o-linear-gradient(top, rgba(0,0,0,.8), rgba(50,50,50,.8));
+   background-image      : -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,.8)), to(rgba(50,50,50,.8)));
+   background-image      : -webkit-linear-gradient(top, rgba(0,0,0,.8), rgba(50,50,50,.8));
+   background-image      : linear-gradient(top, rgba(0,0,0,.8), rgba(50,50,50,.8));;
+   -moz-border-radius    : 15px;
+   -webkit-border-radius : 15px;
+   -o-border-radius      : 15px;
+   border-radius         : 15px;
+   text-shadow           : 0 -1px 1px #ddd;
+   -moz-box-shadow       : 0 4px 4px -4px #000;
+   -webkit-box-shadow    : 0 4px 4px -4px #000;
+   box-shadow            : 0 4px 4px -4px #000;
+ }
+
+ /* custom animation for css transition supported browsers */
+ .humane.humane-show { opacity: 1; }
+
+ /* other customizations */
+ .humane p {
+   margin                : 1em;
+   display               : inline;
+ }
+ .humane ul {
+   list-style            : none;
+   margin                : 0;
+   padding               : 0;
+ }
+ .humane .error {
+   color                 : red;
+   text-shadow           : 0 -1px 1px #f33;
+ }
 
 
 

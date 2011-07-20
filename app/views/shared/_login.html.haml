@@ -1,0 +1,9 @@
+#login
+  -if signed_in?
+    %h3= "Hallo #{current_user.nickname}!"
+    %ul
+      %li= link_to 'Profil', edit_user_path(current_user)
+      %li= link_to 'Ausloggen', destroy_session_path(current_user)
+  -else
+    %ul
+      %li= link_to 'Einloggen', auth_path
