@@ -14,11 +14,11 @@ de:
         count: 'Sterne'
     actions:
       wish:
-        create: 'Wunsch eintragen'
+        create: 'eintragen'
       vote:
         create: 'bewerten'
       user:
-        update: 'Profil aktualisieren'
+        update: 'aktualisieren'
   
   date:
     formats:

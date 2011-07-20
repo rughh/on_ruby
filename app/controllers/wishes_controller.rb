@@ -18,9 +18,9 @@ class WishesController < ApplicationController
     end
     if wish.save
       wish.publish(wishes_url)
-      redirect_to(wishes_path, :notice => 'Dein Eintrag wurde gespeichert.')
+      redirect_to(root_path, :notice => 'Dein Eintrag wurde gespeichert.')
     else
-      redirect_to(wishes_path, :alert => wish.errors.full_messages.join(' '))
+      redirect_to(root_path, :alert => wish.errors.full_messages.join(' '))
     end
   end
 

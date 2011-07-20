@@ -10,10 +10,45 @@
 
   %p.description= event.description
 
-  = render 'participate'
-  = render 'publish'
+  - if event.date > Time.now
+    %p
+      %strong
+        - if current_user
+          - if current_user.participates?(event)
+            = button_to 'Ich möchte mich abmelden', event_participant_path(event, current_user.participation(event)), method: 'delete'
+          - else
+            = button_to 'Ich möchte mich anmelden', add_user_event_path(event)
+        - else
+          = button_to 'Ich möchte mich anmelden', auth_path
 
-  = render 'topics'
-  = render 'materials'
-  = render 'participants'
-  = render 'map'
+  - if can?(:manage, Event) and not event.published?
+    %p
+      %strong
+        = button_to 'Event publizieren (Twitter, Rails Mailinglist)', publish_event_path(event)
+
+  - unless event.topics.empty?
+    %h3 Themen
+    %ul
+      - event.topics.each do |t|
+        %li
+          = t.name
+          - if t.user
+            = link_to_twitter(t.user, clung: true)
+          %p= t.description
+
+  - unless event.materials.empty?
+    %h3 Material
+    %ul
+      - event.materials.each do |m|
+        %li
+          = link_to m.name, m.url, class: m.material_type
+          - if m.user
+            = link_to_twitter(m.user, clung: true)
+          %p= m.description
+
+  - unless event.participants.empty?
+    %h3 Teilnehmer
+    = render = render 'shared/users', users: event.participants.map(&:user)
+
+  %h3 Anfahrt
+  = map(event.location)
