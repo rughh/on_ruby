@@ -1,7 +1,7 @@
 %section
   %h3 Profil bearbeiten
   %ul
-    = render 'shared/users', users: [current_user]
+    = render 'home/users_list', users: [current_user]
   
   = semantic_form_for user do |f|
     = f.input :name

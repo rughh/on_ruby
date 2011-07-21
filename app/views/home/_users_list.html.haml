@@ -2,7 +2,7 @@
   - users.each do |user|
     - uid = "#{user.id}_#{rand(100)}"
     %li.tooltip
-      = image_tag user.image, class: 'toggle', name: uid
+      = image_tag user.image, class: 'toggle', name: uid, size: '48x48', alt: user.name, title: user.name
       = tooltip_box(uid) do
         %p= user.name
         %dl

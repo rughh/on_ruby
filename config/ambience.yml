@@ -1,9 +1,8 @@
 defaults: &defaults
   email: "hamburg@onruby.de"
   host: "hamburg.onruby.de"
-  twitter: "<%= Rails.env.development? ? "youmouth" : "hamburgsync" %>"
-  usergroup_email: "phoet@gmx.de"
-  usergroup_email_real: "rubyonrails-ug@headflash.com"
+  twitter: "<%= Rails.env.development? ? 'youmouth' : 'hamburgsync' %>"
+  usergroup_email: "<%= Rails.env.production? ? 'rubyonrails-ug@headflash.com' : 'phoet@gmx.de' %>"
 
 development:
   <<: *defaults
