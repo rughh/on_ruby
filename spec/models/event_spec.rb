@@ -42,12 +42,12 @@ END:VCALENDAR\r
   it "should find a current event" do
     @event.date = Time.now
     @event.save!
-    Event.current.should_not be(nil)
+    Event.current.first.should_not be(@event)
   end
   
   it "should find preview_events" do
     10.times{|i| Factory(:event, :name => "Event #{i}", :date => (Time.now + i.weeks)) }
-    Event.preview_events.map(&:name).should == ['Event 9', 'Event 8']
+    Event.latest.map(&:name).should == ["Event 9", "Event 8", "Event 7", "Event 6", "Event 5"]
   end
   
 end

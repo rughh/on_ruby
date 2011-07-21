@@ -11,6 +11,9 @@ class Event < ActiveRecord::Base
 
   accepts_nested_attributes_for :materials
   accepts_nested_attributes_for :topics
+  
+  scope :current, lambda{ where(:date => Date.today.to_time..(Time.now + 1.week)) }
+  scope :latest, limit(5).order('date DESC')
 
   def end_date
     date + 2.hours
@@ -45,18 +48,6 @@ class Event < ActiveRecord::Base
 
   def twitter_message(url)
     "#{name} am #{I18n.l date, :locale => :de, :format => :short} - #{url}"
-  end
-
-  class << self
-
-    def preview_events
-      self.order('date DESC').limit(2)
-    end
-
-    def current
-      self.where(:date => Date.today.to_time..(Time.now + 1.week)).first
-    end
-
   end
 
 end

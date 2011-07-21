@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :participants
 
   attr_accessible :github, :name, :freelancer, :available
+  
+  scope :organizer, where(nickname: ['halfbyte', 'ralph', 'phoet', 'rubiii'])
 
   def participates?(event)
     participants.any? { |participant| participant.event_id == event.id }
@@ -30,6 +32,10 @@ class User < ActiveRecord::Base
   end
 
   class << self
+    def main
+      User.find_by_nickname(AppConfig.twitter) || User.find_by_nickname('phoet')
+    end
+    
     def random(num=50)
       all.shuffle[0, num].reject{|u| u.nil? }
     end
