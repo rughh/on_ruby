@@ -4,19 +4,6 @@ include SpecHelper
 
 describe WishesController do
 
-  describe "GET :index" do
-    before do
-      @wish = Factory(:wish)
-      get :index
-    end
-
-    it "should assign members" do
-      controller.wishes.should eql([@wish])
-      controller.wish.should be_new_record
-      response.should render_template(:index)
-    end
-  end
-  
   describe "GET :show" do
     before do
       @wish = Factory(:wish)

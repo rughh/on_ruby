@@ -4,7 +4,7 @@ class UsergroupMailer < ActionMailer::Base
   
   def invitation_mail(event)
     @event = event
-    recipient = Rails.env.production? ? AppConfig.usergroup_email_real : AppConfig.usergroup_email
+    recipient = AppConfig.usergroup_email
     mail(:to => recipient, :subject => "RUGHH Info: #{event.name}")
   end
 end

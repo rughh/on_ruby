@@ -18,9 +18,9 @@ describe Wish do
     it "should calculate stars" do
       @wish.stars.should eql 0
       @wish.votes << @vote
-      @wish.stars.should eql 5
+      @wish.stars.should eql 5.0
       @wish.votes << Factory.build(:vote, :wish => nil, :count => 0)
-      @wish.stars.should eql 2
+      @wish.stars.should eql 2.5
     end
 
     it "should indicate already_voted?" do
