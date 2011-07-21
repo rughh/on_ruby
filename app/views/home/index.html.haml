@@ -1,63 +1,9 @@
-%section.events
-  %a{id: 'events'}
-  %h2 Events
-  -if current_event
-    %p
-      .tooltip
-        = link_to 'Das nächste Event', current_event, {name: "current_event", class: 'toggle'}
-        findet am
-        %em= l(current_event.date)
-        bei 
-        = link_to current_event.location.name, current_event.location.url
-        statt!
-        %div{class: "toggle_current_event big-tooltip"}
-          %p= current_event.description.truncate(80)
-          %ul
-            - current_event.topics.each do |topic|
-              %li= topic.name
-          %p= link_to 'mehr', current_event
-  %h3 Vergangene Events
-  = render 'shared/events', events: events
-    
+= render 'events', events: events, current_event: current_event
 %hr
-%section.people
-  %a{id: 'people'}
-  %h2 Leute
-  = render 'shared/users', users: users
-
+= render 'people', people: people
 %hr
-%section.locations
-  %a{id: 'locations'}
-  %h2 Orte
-  = map(locations)
-  
+= render 'locations', locations: locations
 %hr
-%section.wishes
-  %a{id: 'wishes'}
-  %h2 Themen
-  %p
-    Möchtest du einen Vortrag auf der Rails Usergroup halten oder hast du zusätzliche Themenvorschläge?
-    Dann schicke uns einfach eine
-    = mail_to AppConfig.email, "E-Mail"
-    oder spreche uns persönlich an:
-  %ul
-    = render 'shared/users', users: organizers
-  %p
-    Usergroups leben von Vorträgen und dem Engagement der Teilnehmer.
-    Wenn du ein Thema vermisst, oder nähre Informationen zu speziellen Bereichen suchst,
-    dann <strong>kannst du hier gerne etwas in die Wunschliste eintragen</strong>.
-    Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben,
-    dann <strong>kannst du ihn hier eintragen</strong>, um Feedback von der Community zu bekommen.
-  = render 'wishes/add_wish'
-  %br
-  = render 'shared/wishes', wishes: wishes
-    
-/ %hr
-/ %section.companies
-/   %a{id: 'companies'}
-/   %h2 Firmen
-/   .map_canvas{'data-map' => locations.to_json, 'data-init' => {zoom: 14, lat: locations.first.lat, long: locations.first.long}.to_json}
-/ %hr
-/ %section.usergroups
-/   %a{id: 'usergroups'}
-/   %h2 Gruppen
+= render 'wishes', wishes: wishes, organizers: organizers    
+%hr
+= render 'companies', companies: companies

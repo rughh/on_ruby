@@ -1,17 +1,44 @@
-%section.vevent
-  %h2.summary= event.name
-  %p
-    %abbr.dtstart.url{title: event.date}= link_to l(event.date), event_path(event, format: :ics), class: 'ical'
-    %abbr.dtend.hidden{title: event.date + 3.hours}= l(event.date + 4.hours)
+%section
+  - if can?(:manage, Event) and not event.published?
+    .topbutton
+      %strong
+        = button_to 'Event publizieren (Twitter, Rails Mailinglist)', publish_event_path(event)
+  %h2= event.name
+  %p= event.description
+  %p.meta
+    = link_to l(event.date), event_path(event, format: :ics), class: 'ical'
     gehostet durch
     = link_to_twitter event.user
     bei
     = link_to event.location.name, event.location.url
 
-  %p.description= event.description
+  %h3 Themen
+  - if event.topics.present?
+    %ul.enumeration
+      - event.topics.each do |t|
+        %li
+          %strong= t.name
+          - if t.user
+            = link_to_twitter(t.user, clung: true)
+          %p= t.description
+  - else
+    %strong Es sind noch keine Themen eingetragen.
 
+  %h3 Material
+  - if event.materials.present?
+    %ul.enumeration
+      - event.materials.each do |m|
+        %li
+          = link_to m.name, m.url, class: m.material_type
+          - if m.user
+            = link_to_twitter(m.user, clung: true)
+          %p= m.description
+  - else
+    %strong Es ist noch kein Material eingetragen.
+%hr
+%section
   - if event.date > Time.now
-    %p
+    .topbutton
       %strong
         - if current_user
           - if current_user.participates?(event)
@@ -20,35 +47,11 @@
             = button_to 'Ich möchte mich anmelden', add_user_event_path(event)
         - else
           = button_to 'Ich möchte mich anmelden', auth_path
-
-  - if can?(:manage, Event) and not event.published?
-    %p
-      %strong
-        = button_to 'Event publizieren (Twitter, Rails Mailinglist)', publish_event_path(event)
-
-  - unless event.topics.empty?
-    %h3 Themen
-    %ul
-      - event.topics.each do |t|
-        %li
-          = t.name
-          - if t.user
-            = link_to_twitter(t.user, clung: true)
-          %p= t.description
-
-  - unless event.materials.empty?
-    %h3 Material
-    %ul
-      - event.materials.each do |m|
-        %li
-          = link_to m.name, m.url, class: m.material_type
-          - if m.user
-            = link_to_twitter(m.user, clung: true)
-          %p= m.description
-
-  - unless event.participants.empty?
-    %h3 Teilnehmer
-    = render = render 'shared/users', users: event.participants.map(&:user)
+  %h2 Teilnehmer
+  - if event.participants.present?
+    = render = render 'home/users_list', users: event.participants.map(&:user)
+  - else
+    %strong Es ist noch niemand angemeldet.
 
   %h3 Anfahrt
   = map(event.location)

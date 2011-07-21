@@ -1,7 +1,0 @@
-%p= submit_tag 'Eigenes Thema eintragen', {name: 'new_wish'}.merge(signed_in? ? {class: 'toggle'} : {:confirm => 'Bitte anmelden!'})
-
-.toggle_new_wish.hidden
-  = semantic_form_for Wish.new do |f|
-    = f.input :name
-    = f.input :description
-    = f.buttons

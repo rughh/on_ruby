@@ -1,50 +1,8 @@
 module ApplicationHelper
 
-  Menu = Struct.new :name, :controller, :action
-  MENU_ENTRIES = [
-    Menu.new(:info,     :home,    :info),
-    Menu.new(:events,   :events,  :index),
-    Menu.new(:users,    :users,   :index),
-    Menu.new(:wishes,   :wishes,  :index),
-    Menu.new(:imprint,  :home,    :imprint),
-  ]
-
-  def menu
-    MENU_ENTRIES.map do |item|
-      content_tag :li, :class => css_class_for_menu_item(item) do
-        content_tag(:span) + content_tag(:b) do
-          link_to t("menu.#{item.name}"), :controller => item.controller, :action => item.action
-        end
-      end
-    end.join.html_safe
-  end
-
-  def user_entries
-    return unless signed_in?
-    [
-      Menu.new(:profile, :users, :edit)
-    ].map do |item|
-      content_tag :li, :class => css_class_for_menu_item(item) do
-        content_tag(:span) + content_tag(:b) do
-          link_to t("menu.#{item.name}"), :controller => item.controller, :action => item.action, :id => current_user.id
-        end
-      end
-    end.join.html_safe
-  end
-
-  def admin
-    return unless current_user.try(:admin?)
-    content_tag(:div) do
-      content_tag :li do
-        content_tag(:span) + content_tag(:b) do
-          link_to t("menu.admin"), admin_dashboard_path
-        end
-      end
-    end.html_safe
-  end
-  
-  def map(locations, init={:zoom => 14, :lat => 53.56544, :long => 9.95947})
+  def map(locations, init={})
     locations = Array(locations)
+    init = {:zoom => 14, :lat => 53.56544, :long => 9.95947}.merge(init)
     content_tag(:div, '', :class => 'map_canvas', 'data-map' => locations.to_json, 'data-init' => init.to_json)
   end
 
@@ -69,11 +27,20 @@ module ApplicationHelper
       params[:clung] ? ('(' + link + ')').html_safe : link
     end
   end
-  
-  private()
 
-  def css_class_for_menu_item(item)
-    item.controller == controller.controller_name.to_sym && item.action == controller.action_name.to_sym ? 'active' : ''
+  def tooltip_box(uid, options={})
+    content_tag :div, class: "toggle_#{uid} tooltip #{options[:class]}" do 
+      concat link_to('[x]', '#', class: 'topbutton toggle', name: uid)
+      yield
+    end
+  end
+  
+  def section_box(name, options={})
+    content_tag :section, class: name, id: name do
+      concat content_tag(:div, options[:topbutton], class: 'topbutton') if options[:topbutton]
+      concat content_tag(:h2, t(name))
+      yield
+    end
   end
 
 end

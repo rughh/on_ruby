@@ -1,11 +1,6 @@
 de:
-  menu:
-    info: "Info"
-    events: "Events"
-    users: "Mitglieder"
-    wishes: "Wunschliste"
-    imprint: "Impressum"
-    logout: "Abmelden"
-    login: "Anmelden"
-    profile: "Profil bearbeiten"
-    admin: "Administration"
+  companies: "Firmen"
+  events: "Treffen"
+  locations: "Orte"
+  people: "Leute"
+  wishes: "Themen"
