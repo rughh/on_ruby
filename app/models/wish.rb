@@ -7,7 +7,7 @@ class Wish < ActiveRecord::Base
 
   def stars
     return 0 if votes.empty?
-    votes.sum(:count) / votes.count
+    votes.sum(:count) / votes.count.to_f
   end
 
   def already_voted?(user)

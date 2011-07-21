@@ -23,7 +23,7 @@ module WishHelper
   end
 
   def meta(wish)
-    "von #{link_to_twitter(wish.user)} - #{wish.votes.count} mal bewertet".html_safe
+    "von #{link_to_twitter(wish.user)} - #{wish.votes.count} mal mit #{wish.stars} von 5 Sternen bewertet".html_safe
   end
 
 end
