@@ -1,9 +1,0 @@
-%li
-  %h3
-    = link_to wish.name, wish, {name: "stars_#{wish.id}", class: 'toggle'}
-  .hidden{class: "toggle_stars_#{wish.id}"}
-    %p
-      = wish.description
-    .clearfix
-      .stars= stars(wish)
-      .meta= meta(wish)
