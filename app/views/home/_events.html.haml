@@ -1,6 +1,6 @@
 = section_box :events do
-  -if current_event
-    %p
+  %p
+    - if current_event
       - uid = 'current_event'
       .tooltip
         = link_to 'Das nächste Treffen', current_event, {name: uid, class: 'toggle'}
@@ -15,6 +15,11 @@
             - current_event.topics.each do |topic|
               %li= topic.name
           %p= link_to 'mehr', current_event
+    - else
+      Das nächste Treffen finde voraussichtlich am
+      %em= "#{l(next_event_date)}"
+      statt.
+    
   %h3 Vergangene Treffen
   %ul.clearfix
     - events.each do |event|
