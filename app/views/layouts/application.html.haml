@@ -9,21 +9,21 @@
 
   %body
     .container
-      %header
+      %header#hor
         = render 'shared/login'
-        %a{id: 'hor'}
-        #logo= image_tag '/images/logo.png'
+        #logo= link_to(image_tag('/images/logo.png'), root_path)
         %h1= link_to 'Hamburg on Ruby', root_path
         %h2= link_to 'Heimathafen der Hamburger Ruby-Community', root_path
       %nav#nav
         %ul
-          %li.logo{id: 'home'}= link_to 'HoR', '/#hor'
-          %li= link_to 'Events', '/#events'
-          %li= link_to 'Leute', '/#people'
-          %li= link_to 'Orte', '/#locations'
-          %li= link_to 'Themen', '/#wishes'
-          %li= link_to 'Firmen', '/#companies'
-          / %li=link_to 'Gruppen', '#usergroups'
+          %li
+            = link_to '/#hor' do
+              %p.logo.ir HoR
+          - [:events, :people, :locations, :wishes, :companies].each do |it|
+            %li= link_to t(it), "/##{it}"
+          %li
+            = link_to '/#hor' do
+              %p.logo.ir HoR
       .main
         = flash_growl
         = yield

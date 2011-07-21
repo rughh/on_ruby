@@ -23,9 +23,9 @@ function initialize_map() {
         title: data.name
       });
       
-      var h = '<h1>' + data.name + "</h1><p>"
-      h += data.street + ' ' + data.house_number + ' ' + ' in ' + data.zip + ' ' + data.city + '</p></p>'
-      h += '<a href="' + data.url + '">' + data.url + '</a></p>'
+      var h = '<strong><a href="' + data.url + '">' + data.name + '</a></strong></br>'
+      h    += data.street + ' ' + data.house_number + '</br>'
+      h    += data.zip + ' ' + data.city
       var infowindow = new google.maps.InfoWindow({
           content: h
       });
@@ -46,36 +46,35 @@ function show_hide() {
   });
 }
 
-$(document).ready(function(){
-  initialize_map();
-  show_hide();
-  
-  // thx to appfertigung.de
-  var history_counter = 0;
-  var scrollPage = function(hash, event) {
-    $target = $(hash);
-    if ($target.length) {
-      event.preventDefault();
-      var top = ($target.offset().top - 80);
-      $('html, body').animate({scrollTop:top}, 1200, 'easeInOutCubic');
-      if (window.history && window.history.pushState) {
-        var new_url = /\#/.test(location.href) ? location.href.replace(/\#.+/, hash) : (location.href + hash), stateObj = { count : history_counter };
-        window.history.pushState(stateObj, 'page-' + history_counter, new_url);
-      }
+// thx to appfertigung.de
+var history_counter = 0;
+var scrollPage = function(hash, event) {
+  $target = $(hash);
+  if ($target.length) {
+    event.preventDefault();
+    var top = ($target.offset().top - 80);
+    $('html, body').animate({scrollTop:top}, 1200, 'easeInOutCubic');
+    if (window.history && window.history.pushState) {
+      var new_url = /\#/.test(location.href) ? location.href.replace(/\#.+/, hash) : (location.href + hash), stateObj = { count : history_counter };
+      window.history.pushState(stateObj, 'page-' + history_counter, new_url);
     }
-  };
-  
+  }
+};
+
+var animateNavi = function() {
+  var scrollY = $(document).scrollTop();
+  var opacity = (scrollY - $('#logo').offset().top) * 0.005;
+  if (opacity < 0) opacity = 0;
+  else if (opacity > 1) opacity = 1;
+  $('.logo').css('opacity', opacity);
+};
+
+
+$(document).ready(function(){
   $('a[href*="#"]').click(function(event) {
     scrollPage(this.hash, event);
   });
-  
-  var animateNavi = function() {
-    var scrollY = $(document).scrollTop();
-    var opacity = (scrollY - $('#logo').offset().top) * 0.005;
-    if (opacity < 0) opacity = 0;
-    else if (opacity > 1) opacity = 1;
-    $('#nav').css('opacity', opacity);
-  };
-  
   $(window).load(animateNavi).scroll(animateNavi);
+  initialize_map();
+  show_hide();
 });

@@ -1,0 +1,33 @@
+- button = submit_tag 'Eigenes Thema eintragen', {name: 'new_wish'}.merge(signed_in? ? {class: 'toggle'} : {:confirm => 'Bitte anmelden!'})
+= section_box :wishes, topbutton: button do
+  .toggle_new_wish.hidden
+    %p
+      = semantic_form_for Wish.new do |f|
+        = f.input :name
+        = f.input :description
+        = f.buttons
+    
+  %p
+    %strong Möchtest du einen Vortrag auf der Rails Usergroup halten oder hast du zusätzliche Themenvorschläge?
+    Dann schicke uns einfach eine
+    = mail_to AppConfig.email, "E-Mail"
+    oder spreche uns persönlich an:
+  %ul
+    = render 'users_list', users: organizers
+  %p
+    Usergroups leben von Vorträgen und dem Engagement der Teilnehmer.
+    Wenn du ein Thema vermisst, oder nähre Informationen zu speziellen Bereichen suchst,
+    dann <strong>kannst du hier gerne etwas in die Wunschliste eintragen</strong>.
+    Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben,
+    dann <strong>kannst du ihn hier eintragen</strong>, um Feedback von der Community zu bekommen.
+  %h3 Aktuelle Themen
+  %ul.clearfix
+    - wishes.each do |wish|
+      - uid = "stars_#{wish.id}"
+      %li.tooltip
+        %span.stars= stars(wish)
+        = link_to wish.name, wish, {name: uid, class: 'toggle wish-link'}
+        = tooltip_box(uid, class: 'big') do
+          %p= wish.description.truncate(180)
+          %p.meta= meta(wish)
+          %p= link_to 'mehr', wish

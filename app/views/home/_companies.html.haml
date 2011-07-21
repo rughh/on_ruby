@@ -1,0 +1,7 @@
+= section_box :companies do
+  %p= map(companies, zoom: 13)
+  %p
+    Solltest du eine Firma vermissen, dann schicke uns einfach eine
+    = mail_to AppConfig.email, "E-Mail"
+    oder Direct-Message an
+    = raw(link_to_twitter(main_user) + '.')

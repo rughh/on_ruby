@@ -1,11 +1,10 @@
-/     TODO remove the rand and the * 10 from the users
 %ul.imagelist.clearfix
-  - (users * 10).each do |user|
+  - users.each do |user|
+    - uid = "#{user.id}_#{rand(100)}"
     %li.tooltip
-      - uid = rand(200) + user.id + rand(200)
       = image_tag user.image, class: 'toggle', name: uid
-      %div{class: "toggle_#{uid}"}
-        %h3= user.name
+      = tooltip_box(uid) do
+        %p= user.name
         %dl
           %dt Twitter:
           %dd= link_to_twitter user
