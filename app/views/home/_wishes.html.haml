@@ -30,4 +30,6 @@
         = tooltip_box(uid, class: 'big') do
           %p= wish.description.truncate(180)
           %p.meta= meta(wish)
+          - if wish.done?
+            %p.meta Thema wurde schon auf einem Treffen abgefrühstückt.
           %p= link_to 'mehr', wish

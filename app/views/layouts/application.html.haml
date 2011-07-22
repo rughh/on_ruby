@@ -1,7 +1,14 @@
-!!!
+!!! utf-8
 %html
   %head
-    %title Hamburg on Ruby
+    %title= "#{title} - #{content_for?(:page_title) ? yield(:page_title) : subtitle}"
+    
+    %meta{charset: "utf-8"}
+    %meta{name: "description", content: "#{title} - #{subtitle}"}
+    %meta{name: "author", content: "Peter Schröder"}
+    
+    %link{rel: 'shortcut icon', href: image_path('logo_icon.png')}
+    
     = stylesheet_link_tag 'screen'
     = auto_discovery_link_tag :rss, rss_events_path, title: "Event-Feed"
     = csrf_meta_tag
@@ -11,9 +18,9 @@
     .container
       %header#hor
         = render 'shared/login'
-        #logo= link_to(image_tag('/images/logo.png'), root_path)
-        %h1= link_to 'Hamburg on Ruby', root_path
-        %h2= link_to 'Heimathafen der Hamburger Ruby-Community', root_path
+        #logo= link_to(image_tag('/images/logo.png', alt: title, title: title), root_path)
+        %h1= link_to title, root_path
+        %h2= link_to subtitle, root_path
       %nav#nav
         %ul
           %li

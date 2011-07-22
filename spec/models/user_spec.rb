@@ -7,6 +7,9 @@ describe User do
   before(:each) do
     @event = Factory(:event)
   end
+  
+  it { should allow_values_for(:github, "abc", "111bbb888_") }
+  it { should_not allow_values_for(:github, "http://", "www.bla") }
 
   it "should authorize phoet as admin" do
     admin_user.admin?.should be(true)

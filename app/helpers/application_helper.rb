@@ -1,4 +1,12 @@
 module ApplicationHelper
+  
+  def title
+    'Hamburg on Ruby'
+  end
+  
+  def subtitle
+    'Heimathafen der Hamburger Ruby-Community'
+  end
 
   def map(locations, init={})
     locations = Array(locations)
@@ -15,7 +23,7 @@ module ApplicationHelper
   end
 
   def link_to_github(user)
-    link_to "github.com/#{user.github}", "http://github.com/#{user.github}" if user.github
+    link_to user.github, "http://github.com/#{user.github}" if user.github
   end
 
   def link_to_twitter(user, params={:clung => false}, &block)

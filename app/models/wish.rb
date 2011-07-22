@@ -4,6 +4,8 @@ class Wish < ActiveRecord::Base
   has_many :votes, :dependent => :destroy
 
   validates :name, :description, :user, :presence => true
+  
+  scope :latest, limit(5).order('done, id DESC')
 
   def stars
     return 0 if votes.empty?
