@@ -1,9 +1,9 @@
 module ApplicationHelper
-  
+
   def title
     'Hamburg on Ruby'
   end
-  
+
   def subtitle
     'Heimathafen der Hamburger Ruby-Community'
   end
@@ -37,12 +37,12 @@ module ApplicationHelper
   end
 
   def tooltip_box(uid, options={})
-    content_tag :div, class: "toggle_#{uid} tooltip #{options[:class]}" do 
+    content_tag :div, class: "toggle_#{uid} tooltip #{options[:class]}" do
       concat link_to('[x]', '#', class: 'topbutton toggle', name: uid)
       yield
     end
   end
-  
+
   def section_box(name, options={})
     content_tag :section, class: name, id: name do
       concat content_tag(:div, options[:topbutton], class: 'topbutton') if options[:topbutton]

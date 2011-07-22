@@ -7,7 +7,7 @@ describe User do
   before(:each) do
     @event = Factory(:event)
   end
-  
+
   it { should allow_values_for(:github, "abc", "111bbb888_", {allow_nil: true}) }
   it { should_not allow_values_for(:github, "http://", "www.bla") }
 
@@ -34,4 +34,3 @@ describe User do
   end
 
 end
-
