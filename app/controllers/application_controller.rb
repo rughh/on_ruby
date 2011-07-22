@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   private()
-  
+
   def authenticate_admin_user!
     unless current_user.try(:admin?)
       redirect_to(root_path, :notice => 'Hoppala, da dürfen nur Admins hin!') and return
@@ -35,28 +35,4 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.id
   end
 
-  
-  
-  
-
-  # def preview_events
-  #   @preview_events ||= Event.preview_events
-  # end
-  # 
-  # def tweets
-  #   cache(:tweets, :expires_in => 5.minutes) do
-  #     random_users[0..2].map do |user|
-  #       logger.debug "fetching new tweets for #{user.nickname}"
-  #       Twitter::Search.new.from(user.nickname).fetch
-  #     end.flatten
-  #   end.shuffle[0..1]
-  # rescue
-  #   []
-  # end
-  # 
-  # def random_users
-  #   cache(:random_users, :expires_in => 1.minute) do
-  #     User.random
-  #   end
-  # end
 end
