@@ -24,11 +24,11 @@ foreman start
 
 h2. Todo
 
-* wunschliste verbessern mit post to twitter und einem ('done' stempel für die mitglieder, die es eingestellt haben + admins, verknüpft mit nem event)
+* themen anders markieren, wenn sie 'done' sind
 * xml sitemap
-* add companies from hamburg that do rails/ruby
 * rails 3.1
 * publishing via xing
+* add rack-cache
 
 h3. Add other Usergroups
 
