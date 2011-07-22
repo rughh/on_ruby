@@ -2,12 +2,16 @@
   - users.each do |user|
     - uid = "#{user.id}_#{rand(100)}"
     %li.tooltip
-      = image_tag user.image, class: 'toggle', name: uid, size: '48x48', alt: user.name, title: user.name
+      = image_tag user.image, class: 'toggle', name: uid, size: '48x48', alt: user.name
       = tooltip_box(uid) do
         %p= user.name
+        %p
+          = user.name
+          = user.freelancer? ? ' ist Freiberufler und ' : ''
+          = user.available? ? ' sucht was neues!' : ' hat genug Arbeit.'
         %dl
           %dt Twitter:
           %dd= link_to_twitter user
-          - if user.github
+          - unless user.github.blank?
             %dt Github:
             %dd= link_to_github user

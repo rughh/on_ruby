@@ -1,12 +1,13 @@
+= content_for(:page_title){user.name}
 %section
   %h3 Profil bearbeiten
   %ul
-    = render 'home/users_list', users: [current_user]
+    = render 'home/users_list', users: [user]
   
   = semantic_form_for user do |f|
     = f.input :name
     %br
-    = f.input :github
+    = f.input :github, input_html: { placeholder: 'GitHub Username' }
     %br
     = f.input :freelancer
     %br

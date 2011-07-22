@@ -12,6 +12,8 @@ de:
           description: 'Genauere Beschreibung'
       vote:
         count: 'Sterne'
+    placeholders:
+      github: 'GitHub-Username'
     actions:
       wish:
         create: 'eintragen'

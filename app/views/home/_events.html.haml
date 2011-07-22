@@ -10,11 +10,7 @@
         = link_to current_event.location.name, current_event.location.url
         statt!
         = tooltip_box(uid, class: 'big') do
-          %p= current_event.description.truncate(80)
-          %ul
-            - current_event.topics.each do |topic|
-              %li= topic.name
-          %p= link_to 'mehr', current_event
+          = event_with_tooltip current_event
     - else
       Das nächste Treffen findet voraussichtlich am
       %em= "#{l(next_event_date)}"
@@ -27,9 +23,5 @@
       %li.tooltip
         = link_to "#{l(event.date, format: :date)} - #{event.name}", event, {name: uid, class: 'toggle'}
         = tooltip_box(uid, class: 'big') do
-          %p= event.description.truncate(80)
-          %ul
-            - event.topics.each do |topic|
-              %li= topic.name
-          %p= link_to 'mehr', event
+          = event_with_tooltip event
 / = link_to 'Alle Treffen', '#' TODO hier noch per AJAX alle Events laden
