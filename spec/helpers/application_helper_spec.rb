@@ -8,7 +8,7 @@ describe ApplicationHelper do
   
   describe "#link_to_github" do
     it "should generate the link" do
-      helper.link_to_github(@user).should eql('<a href="http://github.com/giddiup">github.com/giddiup</a>')
+      helper.link_to_github(@user).should eql('<a href="http://github.com/giddiup">giddiup</a>')
     end
     
     it "should render nothing for no github" do
