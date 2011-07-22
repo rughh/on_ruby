@@ -1,3 +1,4 @@
+= content_for(:page_title){event.name}
 %section
   - if can?(:manage, Event) and not event.published?
     .topbutton

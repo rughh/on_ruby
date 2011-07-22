@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
-  validates :nickname, :name, :image, :presence => true
+  validates :nickname, :name, :image, presence: true
+  validates :github, format: {with: /^\w+$/}
 
   has_many :authorizations
   has_many :participants
