@@ -1,8 +1,9 @@
 %ul.imagelist.clearfix
-  - users.each do |user|
+  - users.each_with_index do |user, index|
     - uid = "#{user.id}_#{rand(100)}"
+    - hack = index > 11
     %li.tooltip
-      = image_tag user.image, class: 'toggle', name: uid, size: '48x48', alt: user.name
+      = image_tag hack ? 'logo.png' : user.image, class: "toggle", name: uid, size: '48x48', alt: user.name, 'data-src' => user.image
       = tooltip_box(uid) do
         %p= user.name
         %p
