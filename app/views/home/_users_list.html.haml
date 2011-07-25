@@ -5,11 +5,10 @@
     %li.tooltip
       = image_tag hack ? 'logo.png' : user.image, class: "toggle", name: uid, size: '48x48', alt: user.name, 'data-src' => user.image
       = tooltip_box(uid) do
-        %p= user.name
         %p
           = user.name
-          = user.freelancer? ? ' ist Freiberufler und ' : ''
-          = user.available? ? ' sucht was neues!' : ' hat genug Arbeit.'
+          = user.freelancer? ? '/ Freiberufler' : ''
+          = user.available? ? '/ Verfügbar' : ''
         %dl
           %dt Twitter:
           %dd= link_to_twitter user
