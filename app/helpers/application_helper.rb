@@ -26,12 +26,13 @@ module ApplicationHelper
     link_to user.github, "http://github.com/#{user.github}" if user.github
   end
 
-  def link_to_twitter(user, params={:clung => false}, &block)
-    url = "http://twitter.com/#{user.nickname}"
+  def link_to_twitter(thing, params={:clung => false}, &block)
+    nick = thing.respond_to?(:nickname) ? thing.nickname : thing
+    url = "http://twitter.com/#{nick}"
     if block_given?
       link_to url, &block
     else
-      link = link_to("@#{user.nickname}", url)
+      link = link_to("@#{nick}", url)
       params[:clung] ? ('(' + link + ')').html_safe : link
     end
   end

@@ -29,37 +29,3 @@ h2. Todo
 * rails 3.1
 * publishing via xing
 * add rack-cache
-
-h3. Add other Usergroups
-
-HH.js
-http://www.meetup.com/hamburg-js/
-@hhjs
-
-Cocoaheads
-http://groups.google.com/group/cocoaheads-hh/
-@hh_cocoaheads
-
-Scrumtisch
-https://www.xing.com/net/sug-hh/
-http://sug-hh.wikispaces.com/
-@hhscrum
-
-Kanban Usergroup
-http://limited-wip-society-hamburg.mixxt.de/
-@LimitedWIPSocHH
-
-Android Usergroup
-https://www.xing.com/net/androidusergroup
-https://groups.google.com/group/android-user-group-hamburg
-
-Java Usergroup
-http://www.jughh.org/
-
-AWS Usergroup
-http://awsug.wordpress.com/
-@awsug
-
-DJANGO Usergroup
-http://www.arnebrodowski.de/blog/django-usergroup-hamburg-jetzt-mit-festen-terminen.html
-
