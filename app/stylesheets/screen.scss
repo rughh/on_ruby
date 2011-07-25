@@ -223,21 +223,21 @@ header {
     }
   }
   #logo {
-    float: left;
+    float:left;
   }
 }
 
 nav {
   background:url(/images/bg/whitey.png) left top repeat;
-  text-align: center;
-  position: fixed;
+  text-align:center;
+  position:fixed;
   top:0;
-  width: 100%;
-  z-index: 10;
+  width:100%;
+  z-index:10;
   font:bold 1.4em hero,arial,verdana,sans-serif;
   border-bottom: 1px solid white;
-  padding: 0.5em;
-  padding-top: 0.7em;
+  padding:0.5em;
+  padding-top:0.7em;
   
   ul {
     border:0 none;
@@ -475,28 +475,49 @@ footer {
   padding:0;
   margin:0;
   border-top:1px solid white;
-
+  
+  hr {
+    margin:0 auto;
+    height:3px;
+    background-color:white;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+  }
+  
   section {
     margin:0 auto;
     margin-bottom:2em;
     display:block;
     width:60em;
+
     h2 {
       font:bold 1.4em hero,arial,verdana,sans-serif;
       padding-bottom:1em;
     }
     
-    #contact, #links, #imprint {
+    .block {
       float:left;
       margin:3em 0em 1em 8em;
       
       ul {
         padding:0;
         margin:0;
+        list-style:none;
       }
       
       li {
-        list-style:none;
+        padding-bottom:1em;
+      }
+    }
+    
+    #usergroups {
+      ol {
+        list-style:lower-greek;
+      }
+      li {
+        float:left;
+        padding-right:1em;
+        margin-right:1em;
         padding-bottom:1em;
       }
     }
