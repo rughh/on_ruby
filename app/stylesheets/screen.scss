@@ -275,10 +275,10 @@ nav {
   }
   
   h2, h3 {
-    margin-bottom:1em;
+    margin-bottom:1.2em;
   }
   h3 {
-    margin-top:1em;
+    margin-top:1.2em;
   }
 
   hr {
@@ -287,7 +287,7 @@ nav {
   }
 
   p {
-    margin-bottom:1em;
+    margin-bottom:1.2em;
   }
   
   li {
@@ -295,11 +295,11 @@ nav {
   }
   
   section {
-    padding:1em;
+    padding:2em;
     margin-bottom:2em;
     display:block;
     margin:0 auto;
-    width:60em;
+    width:56em;
     background:url(/images/bg/whitey.png) left top repeat;
     border:1px solid white;
     @include border-radius(0.5em, 0.5em);
@@ -317,7 +317,7 @@ nav {
     }
     li {
       margin:0em;
-      margin-bottom:1em;
+      margin-bottom:1.2em;
     }
   }
   
