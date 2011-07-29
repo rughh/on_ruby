@@ -1,9 +1,12 @@
 require "spec_helper"
 
-describe "/events/show" do
+describe "events/show.html.haml" do
+  
+  let(:user)  { Factory(:user) }
+  let(:event) { Factory(:event) }
 
   it "should render successfully" do
-    view.stubs(current_user: Factory(:user), can?: false, event: Factory(:event))
+    view.stubs(current_user: user, can?: false, event: event)
     render
   end
 

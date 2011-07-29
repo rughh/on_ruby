@@ -29,5 +29,7 @@ HamburgOnRuby::Application.routes.draw do
   match '/home/info',     :to => 'home#info',     :as => :info
   match '/home/imprint',  :to => 'home#imprint',  :as => :imprint
 
+  match '/sitemap.xml',   :to => 'misc#sitemap',  :constraints => {:format => /(xml)/}
+
   root :to => "home#index"
 end

@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   def index; end
   
   def edit; end
+  
+  def show; end
 
   def update
     if user == current_user

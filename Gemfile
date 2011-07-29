@@ -29,8 +29,8 @@ end
 
 group(:development, :test) do
   gem "heroku", "~> 2.0.4"
-  gem "autotest", "~> 4.4.6"
-  gem "autotest-growl", "~> 0.2.9"
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-rspec'
   gem "fuubar", "~> 0.0.3"
   gem "mocha", "~> 0.9.12"
   gem "sqlite3-ruby", :require => "sqlite3"

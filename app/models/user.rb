@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
 
   has_many :authorizations
   has_many :participants
+  has_many :materials
+  has_many :topics
+  has_many :wishes
+  has_many :events
 
   attr_accessible :github, :name, :freelancer, :available
 

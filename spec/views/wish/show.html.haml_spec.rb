@@ -1,9 +1,11 @@
 require "spec_helper"
 
-describe "/wishes/show" do
+describe "wishes/show.html.haml" do
+
+  let(:wish) { Factory(:wish) }
 
   it "should render successfully" do
-    view.stubs(wish: Factory(:wish), signed_in?: false)
+    view.stubs(wish: wish, signed_in?: false)
     render
   end
 
