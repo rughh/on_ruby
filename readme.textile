@@ -9,7 +9,6 @@ If you want to dedicate some work for the Community you could:
 * fix bugs
 * extend functionality
 * improve Layout
-* provide a Logo
 * donate/get sponsorship
 
 h2. Setup
@@ -25,7 +24,7 @@ foreman start
 h2. Todo
 
 * themen anders markieren, wenn sie 'done' sind
-* xml sitemap
 * rails 3.1
 * publishing via xing
 * add rack-cache
+* geocoder for locations
