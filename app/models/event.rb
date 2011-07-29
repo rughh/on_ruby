@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
 
+  has_friendly_id :name, :use_slug => true
+
   belongs_to :location
   belongs_to :user
 

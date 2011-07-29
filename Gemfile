@@ -6,13 +6,10 @@ gem "rake", "0.9.2"
 
 gem "bitly", "~> 0.6.1"
 gem "twitter", "~> 1.1.1"
-gem "dalli", "~> 1.0.0"
-gem "hpricot", "~> 0.8.3"
 gem "haml", "~> 3.1.2"
 gem "sass", "~> 3.1.1"
-gem "will_paginate", "~> 3.0.pre2"
-gem "friendly_id", "~> 3.0"
 gem "compass", "~> 0.10.5"
+gem "friendly_id", "~> 3.0"
 gem "omniauth", "~> 0.2.0"
 gem "icalendar", "~> 1.1.5"
 gem "cancan", "~> 1.4.1"
@@ -21,14 +18,13 @@ gem "activeadmin", "~> 0.2.2"
 gem "thin", "~> 1.2.11"
 gem "foreman", "~> 0.19.0"
 gem "decent_exposure", "~> 1.0.1"
-gem "formtastic", "~> 1.2.4"
 
 group :production do
   gem "pg", "~> 0.11.0" # env ARCHFLAGS="-arch x86_64" gem install pg
 end
 
 group(:development, :test) do
-  gem "heroku", "~> 2.0.4"
+  gem "heroku"
   gem 'rb-fsevent', :require => false
   gem 'guard-rspec'
   gem "fuubar", "~> 0.0.3"

@@ -1,10 +1,13 @@
 class Wish < ActiveRecord::Base
 
-  belongs_to :user
-  has_many :votes, :dependent => :destroy
+  has_friendly_id :name, :use_slug => true
 
   validates :name, :description, :user, :presence => true
-  
+
+  belongs_to :user
+
+  has_many :votes, :dependent => :destroy
+
   scope :latest, limit(5).order('done, id DESC')
 
   def stars
