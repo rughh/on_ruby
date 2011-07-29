@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_friendly_id :nickname
+
   validates :nickname, :name, :image, presence: true
   validates :github, format: {with: /^\w+$/, allow_nil: true, allow_blank: true}
 

@@ -21,9 +21,6 @@ HamburgOnRuby::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
   
-  # use memcache
-  config.cache_store = :dalli_store
-  
   # use gmail for development-mails
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
