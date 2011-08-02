@@ -1,16 +1,15 @@
 require 'spec_helper'
 
 describe Event do
-  before(:each) do
-    @event = Factory(:event)
-  end
+  
+  let(:event) { Factory(:event) }
   
   it "should provide end_date" do
-    @event.end_date.should > @event.date
+    event.end_date.should > event.date
   end
   
   it "should create ical" do
-    @event.to_ical('path').gsub!(/DTSTAMP:\w+/, 'DTSTAMP:20101212T172636').should == <<-ICAL
+    event.to_ical('path').gsub!(/DTSTAMP:\w+/, 'DTSTAMP:20101212T172636').should == <<-ICAL
 BEGIN:VCALENDAR\r
 CALSCALE:GREGORIAN\r
 METHOD:PUBLISH\r
@@ -36,13 +35,13 @@ END:VCALENDAR\r
   end
   
   it "should create a proper twitter-message" do
-    @event.twitter_message('URL').should eql('Weihnachtstreffen am 06. Dezember, 11:47 Uhr - URL')
+    event.twitter_message('URL').should eql('Weihnachtstreffen am 06. Dezember, 11:47 Uhr - URL')
   end
   
   it "should find a current event" do
-    @event.date = Time.now
-    @event.save!
-    Event.current.first.should_not be(@event)
+    event.date = Time.now
+    event.save!
+    Event.current.first.should_not be(event)
   end
   
   it "should find preview_events" do
