@@ -1,9 +1,5 @@
 = content_for(:page_title){event.name}
 %section
-  - if can?(:manage, Event) and not event.published?
-    .topbutton
-      %strong
-        = button_to 'Event publizieren (Twitter, Rails Mailinglist)', publish_event_path(event)
   %h2= event.name
   %p= event.description
   %p.meta

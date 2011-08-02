@@ -16,6 +16,7 @@ class Event < ActiveRecord::Base
   
   scope :current, lambda{ where(:date => Date.today.to_time..(Time.now + 2.weeks)) }
   scope :latest, limit(5).order('date DESC')
+  scope :unpublished, where(:published => false)
 
   def end_date
     date + 2.hours
@@ -42,9 +43,13 @@ class Event < ActiveRecord::Base
   end
 
   def publish(event_url)
-    url = Bitly.new.shorten(event_url).short_url
-    Twitter.update(twitter_message(url))
-    UsergroupMailer.invitation_mail(self).deliver!
+    if Rails.env.production?
+      url = Bitly.new.shorten(event_url).short_url
+      Twitter.update(twitter_message(url))
+      UsergroupMailer.invitation_mail(self).deliver!
+    else
+      logger.warn "publishing in test-modus with url #{event_url}"
+    end
     update_attributes!(:published => true)
   end
 
