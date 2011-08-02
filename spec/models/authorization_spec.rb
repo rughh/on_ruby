@@ -3,8 +3,8 @@ require 'spec_helper'
 
 describe Authorization do
 
-  before(:each) do
-    @auth = {
+  let(:auth) do
+    {
       "provider"=>"twitter",
       "uid"=>"14339524",
       "user_info"=>{
@@ -20,7 +20,7 @@ describe Authorization do
 
   it "should create an auth and a user from an auth-hash" do
     expect do
-      Authorization.create_from_hash(@auth)
+      Authorization.create_from_hash(auth)
     end.to change(Authorization, :count).by(1)
   end
 end

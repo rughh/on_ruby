@@ -4,9 +4,7 @@ include SpecHelper
 
 describe User do
 
-  before(:each) do
-    @event = Factory(:event)
-  end
+  let(:event) { Factory(:event) }
 
   it { should allow_values_for(:github, "abc", "111bbb888_", {allow_nil: true, allow_blank: true}) }
   it { should_not allow_values_for(:github, "http://", "www.bla") }
@@ -16,14 +14,14 @@ describe User do
   end
 
   it "should participate?" do
-    admin_user.participates?(@event).should be(false)
-    admin_user.participants.create!(:event_id => @event.id, :user_id => admin_user.id)
-    admin_user.participates?(@event).should be(true)
+    admin_user.participates?(event).should be(false)
+    admin_user.participants.create!(:event_id => event.id, :user_id => admin_user.id)
+    admin_user.participates?(event).should be(true)
   end
 
   it "should find the participation" do
-    admin_user.participants.create!(:event_id => @event.id, :user_id => admin_user.id)
-    admin_user.participation(@event).should_not be_nil
+    admin_user.participants.create!(:event_id => event.id, :user_id => admin_user.id)
+    admin_user.participation(event).should_not be_nil
   end
 
   it "should select random users" do

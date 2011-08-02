@@ -1,7 +1,6 @@
 # encoding: utf-8
 class EventsController < ApplicationController
   
-  expose(:upcoming_events) { Event.where(:date => (Time.now)..(1.month.from_now)).order("date DESC") }
   expose(:events) { Event.order("date DESC").paginate(:page => params[:page], :per_page => 10) }
   expose(:event)
 
@@ -22,12 +21,12 @@ class EventsController < ApplicationController
   end
 
   def add_user
-    participant = Participant.new do |p|
-      p.user = current_user
-      p.event = event
+    if current_user.participates?(event)
+      redirect_to event_path(event), :alert => 'Du bist schon angemeldet.'
+    else
+      event.participants.create!(:user => current_user)
+      redirect_to event_path(event), :notice => 'Du bist am Event angemeldet.'
     end
-    raise particpant.errors unless participant.save
-    redirect_to event_path(event), :notice => 'Du bist am Event angemeldet.'
   end
 
 end

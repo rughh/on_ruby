@@ -10,4 +10,9 @@ namespace :cleanup do
     end
   end
 
+  desc 'remove all broken participants'
+  task :participant => :environment do
+    Participant.all.select{|p| p.user.nil? or p.event.nil?}.map(&:destroy)
+  end
+
 end
