@@ -14,7 +14,7 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :materials
   accepts_nested_attributes_for :topics
   
-  scope :current, lambda{ where(:date => Date.today.to_time..(Time.now + 1.week)) }
+  scope :current, lambda{ where(:date => Date.today.to_time..(Time.now + 2.weeks)) }
   scope :latest, limit(5).order('date DESC')
 
   def end_date
