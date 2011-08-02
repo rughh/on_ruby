@@ -7,5 +7,13 @@ ActiveAdmin::Dashboards.build do
       end
     end
   end
+  
+  section "Unpublished Events" do
+    ul do
+      Event.unpublished.collect do |event|
+        li link_to("Publizieren: #{event.name}", publish_admin_event_path(event))
+      end
+    end
+  end
 
 end

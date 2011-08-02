@@ -6,7 +6,7 @@ describe "events/show.html.haml" do
   let(:event) { Factory(:event) }
 
   it "should render successfully" do
-    view.stubs(current_user: user, can?: false, event: event)
+    view.stubs(current_user: user, event: event)
     render
   end
 
