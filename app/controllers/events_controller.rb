@@ -30,14 +30,4 @@ class EventsController < ApplicationController
     redirect_to event_path(event), :notice => 'Du bist am Event angemeldet.'
   end
 
-  def publish
-    authorize! :manage, event
-    if event.published?
-      redirect_to events_path, :alert => 'Event wurde bereits publiziert.' 
-    else
-      event.publish(event_url(event))
-      redirect_to events_path, :notice => 'Event wurde erfolgreich publiziert.'
-    end
-  end
-
 end
