@@ -41,7 +41,7 @@ module ApplicationHelper
     content_tag :div, class: "toggle_#{uid} tooltip #{options[:class]}" do
       concat link_to('[x]', '#', class: 'topbutton toggle', name: uid)
       yield
-      concat content_tag(:p, link_to('mehr', model))
+      concat content_tag(:p, link_to('mehr...', model))
     end
   end
 

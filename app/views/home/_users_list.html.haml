@@ -9,6 +9,12 @@
           = user.name
           = user.freelancer? ? '/ Freiberufler' : ''
           = user.available? ? '/ Verfügbar' : ''
+          - unless user.location.blank?
+            %br
+            = user.location
+          - unless user.description.blank?
+            %br
+            %strong= user.description
         %p
           %dl.clearfix
             %dt Twitter:
@@ -16,3 +22,6 @@
             - unless user.github.blank?
               %dt Github:
               %dd= link_to_github user
+            - unless user.url.blank?
+              %dt Homepage:
+              %dd= link_to user.url, user.url
