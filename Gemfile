@@ -17,6 +17,7 @@ gem "activeadmin", "~> 0.2.2"
 gem "thin", "~> 1.2.11"
 gem "foreman", "~> 0.19.0"
 gem "decent_exposure", "~> 1.0.1"
+gem "geocoder", "~> 1.0.2"
 
 group :production do
   gem "pg", "~> 0.11.0" # env ARCHFLAGS="-arch x86_64" gem install pg
