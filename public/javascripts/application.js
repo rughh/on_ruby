@@ -29,6 +29,9 @@ function initialize_map() {
       var infowindow = new google.maps.InfoWindow({
           content: h
       });
+      if(arr.length == 1) {
+        infowindow.open(map, marker);
+      }
       
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.open(map, marker);
