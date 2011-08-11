@@ -22,8 +22,6 @@ foreman start
 
 h2. Todo
 
-* themen anders markieren, wenn sie 'done' sind
 * rails 3.1
-* publishing via xing
 * add rack-cache
-* geocoder for locations
+* publishing via xing
