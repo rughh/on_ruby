@@ -5,7 +5,10 @@ class WishesController < ApplicationController
   expose(:wishes) { Wish.order('CREATED_AT DESC').paginate :page => params[:page], :per_page => 10 }
   expose(:wish)
 
-  def index; end
+  def index
+    # workaround for bad linking in tweets
+    redirect_to wishes.last
+  end
   
   def show; end
 
@@ -17,7 +20,7 @@ class WishesController < ApplicationController
       v.count = 5
     end
     if wish.save
-      wish.publish(wishes_url)
+      wish.publish(wish_url(wish))
       redirect_to(root_path, :notice => 'Dein Eintrag wurde gespeichert.')
     else
       redirect_to(root_path, :alert => wish.errors.full_messages.join(' '))

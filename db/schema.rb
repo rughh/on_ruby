@@ -114,14 +114,6 @@ ActiveRecord::Schema.define(:version => 20110722114954) do
     t.datetime "updated_at"
   end
 
-  create_table "usergroups", :force => true do |t|
-    t.string   "name"
-    t.string   "url"
-    t.string   "twitter"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "nickname"
     t.string   "name"
