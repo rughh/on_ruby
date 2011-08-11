@@ -7,7 +7,7 @@ class WishesController < ApplicationController
 
   def index
     # workaround for bad linking in tweets
-    redirect_to wishes.last
+    redirect_to wishes.first
   end
   
   def show; end
