@@ -14,7 +14,7 @@ describe Wish do
 
   context "with votes" do
     it "should calculate stars" do
-      wish.stars.should eql 0
+      wish.stars.should eql 0.0
       wish.votes << vote
       wish.stars.should eql 5.0
       wish.votes << Factory.build(:vote, :wish => nil, :count => 0)

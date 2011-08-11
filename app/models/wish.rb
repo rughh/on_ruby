@@ -11,8 +11,8 @@ class Wish < ActiveRecord::Base
   scope :latest, limit(5).order('done, id DESC')
 
   def stars
-    return 0 if votes.empty?
-    votes.sum(:count) / votes.count.to_f
+    return 0.0 if votes.empty?
+    (votes.sum(:count) / votes.count.to_f).round(1)
   end
 
   def already_voted?(user)
