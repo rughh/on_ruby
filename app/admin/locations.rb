@@ -7,6 +7,7 @@ ActiveAdmin.register Location do
        f.input :city
        f.input :street
        f.input :house_number
+       f.input :company
      end
      f.buttons
    end

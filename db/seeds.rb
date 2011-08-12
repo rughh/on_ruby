@@ -38,6 +38,7 @@ if User.all.empty?
     }
   }
   Authorization.create_from_hash(auth_hash)
+  User.update_all(admin: true)
 end
 
 if Event.all.empty?

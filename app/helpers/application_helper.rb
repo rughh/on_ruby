@@ -37,11 +37,11 @@ module ApplicationHelper
     end
   end
 
-  def tooltip_box(uid, model, options={})
+  def tooltip_box(uid, target, options={})
     content_tag :div, class: "toggle_#{uid} tooltip #{options[:class]}" do
       concat link_to('[x]', '#', class: 'topbutton toggle', name: uid)
       yield
-      concat content_tag(:p, link_to('mehr...', model))
+      concat content_tag(:p, link_to('mehr...', target))
     end
   end
 
