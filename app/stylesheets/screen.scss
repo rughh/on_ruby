@@ -400,6 +400,20 @@ nav {
     }
   }
   
+  .pagination {
+    padding-bottom:2em;
+    a, em, span {
+      padding:0.5em 0.7em 0.4em 0.7em;
+      display:inline block;
+      background-color:white;
+      font-style:normal;
+      font-size:larger;
+      text-decoration:none;
+      border:1px solid #999;
+      @include border-radius(0.5em, 0.5em);
+    }
+  }
+  
   .topbutton {
     float:right;
     font-weight:bold;
