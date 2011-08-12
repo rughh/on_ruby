@@ -1,3 +1,6 @@
 = section_box :locations do
   %p= map(locations, zoom: 13)
-  %p Dies sind die Locations an denen unsere Usergroups in der Regel stattfinden.
+  %p
+    Dies sind
+    = link_to 'die Orte', locations_path
+    an denen unsere Usergroups in der Regel stattfinden.

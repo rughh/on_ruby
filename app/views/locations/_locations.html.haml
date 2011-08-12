@@ -1,0 +1,19 @@
+%section
+  %h2= title
+  %ul.enumeration
+    - locations.each do |location|
+      - uid = "location_#{location.id}"
+      %li.tooltip
+        = link_to "#{location.name}", location.url, {name: uid, class: 'toggle'}
+        = tooltip_box(uid, location.url, class: 'big') do
+          %p
+            %strong= location.name
+          %p= location.full_address
+  
+  %br
+  
+  %p= will_paginate locations
+  
+  %h3 Karte
+  
+  %p= map(locations, zoom: 12)
