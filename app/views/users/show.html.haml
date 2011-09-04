@@ -6,29 +6,32 @@
   %ul
     = render 'home/users_list', users: [user]
 
-  %h3 Teilgenommene Events
-  %ul.enumeration
-    - user.participants.each do |p|
-      %li= link_to p.event.name, p.event
+  - if user.participants.present?
+    %h3 Teilgenommene Events
+    %ul.enumeration
+      - user.participants.each do |p|
+        %li= link_to p.event.name, p.event
 
-  %h3 Ausgerichtete Events
-  %ul.enumeration
-    - user.events.each do |e|
-      %li= link_to e.name, e
-  
-  %h3 Vorgestellte Themen
-  %ul.enumeration
-    - user.topics.each do |t|
-      %li= link_to t.name, t.event
-  
-  %h3 Zusätzliches Material
-  %ul.enumeration
-    - user.materials.each do |m|
-      %li= link_to m.name, m.event
+  - if user.events.present?
+    %h3 Ausgerichtete Events
+    %ul.enumeration
+      - user.events.each do |e|
+        %li= link_to e.name, e
 
-  %h3 Vorgeschlagene Themen
-  %ul.enumeration
-    - user.wishes.each do |w|
-      %li= link_to w.name, w
+  - if user.topics.present?
+    %h3 Vorgestellte Themen
+    %ul.enumeration
+      - user.topics.each do |t|
+        %li= link_to t.name, t.event
 
-  
+  - if user.materials.present?
+    %h3 Zusätzliches Material
+    %ul.enumeration
+      - user.materials.each do |m|
+        %li= link_to m.name, m.event
+
+  - if user.wishes.present?
+    %h3 Vorgeschlagene Themen
+    %ul.enumeration
+      - user.wishes.each do |w|
+        %li= link_to w.name, w
