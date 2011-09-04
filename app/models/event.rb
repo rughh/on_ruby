@@ -13,9 +13,9 @@ class Event < ActiveRecord::Base
 
   accepts_nested_attributes_for :materials
   accepts_nested_attributes_for :topics
-  
+
   scope :current, lambda{ where(:date => Date.today.to_time..(Time.now + 2.weeks)) }
-  scope :latest, limit(5).order('date DESC')
+  scope :latest, where('date < ?', Time.now).limit(5).order('date DESC')
   scope :unpublished, where(:published => false)
 
   def end_date
@@ -55,6 +55,30 @@ class Event < ActiveRecord::Base
 
   def twitter_message(url)
     "#{name} am #{I18n.l date, :locale => :de, :format => :short} - #{url}"
+  end
+
+  class << self
+
+    def next_event_date
+      d = second_wednesday(Date.today)
+      d = second_wednesday(Date.today.next_month) if d < Date.today
+      Time.utc(d.year, d.month, d.day, 19, 0)
+    end
+
+    def second_wednesday(date)
+      d = date.at_beginning_of_month
+      d.wday > 3 ? d + (17 - d.wday).days : d + (10 - d.wday)
+    end
+
+    def duplicate!
+      Event.last.clone.tap do |event|
+        event.date = Event.next_event_date
+        event.name = "Ruby Usergroup Hamburg - #{event.date.strftime("%B %Y")}"
+        event.published = false
+        event.save!
+        event
+      end
+    end
   end
 
 end
