@@ -6,6 +6,7 @@ coverage
 public/cache
 public/system
 public/javascripts/*_packaged.js
+public/stylesheets/admin
 doc/specs.html
 doc/features.html
 tags
