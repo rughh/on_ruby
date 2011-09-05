@@ -4,12 +4,20 @@ describe Wish do
 
   let(:wish) { Factory(:wish) }
   let(:vote) { Factory.build(:vote, :wish => nil) }
-  
+
   it "should generate a nice twitter message" do
     message = wish.twitter_message('http://bitly.url')
     message.length.should be < 140
     message.should match "Neues Thema von @uschi"
     message.should match "'The xing mobile website: touch.xing.com' http://bitly.url"
+  end
+
+  it "should create a topic from a wish" do
+    Factory(:event) # there needs to be an event
+    expect do
+      wish.copy_to_topic!
+      wish.done.should be(true)
+    end.to change(Topic, :count).by(1)
   end
 
   context "with votes" do
