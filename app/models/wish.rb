@@ -9,6 +9,7 @@ class Wish < ActiveRecord::Base
   has_many :votes, :dependent => :destroy
 
   scope :latest, limit(5).order('done, id DESC')
+  scope :undone, where(done: false)
 
   def stars
     return 0.0 if votes.empty?
@@ -27,6 +28,11 @@ class Wish < ActiveRecord::Base
 
   def twitter_message(url)
     "Neues Thema von @#{user.nickname} '#{name.truncate(50)}' #{url}"
+  end
+
+  def copy_to_topic!
+    Topic.create!(name: name, description: description, user: user, event: Event.last)
+    update_attributes!(done: true)
   end
 
 end
