@@ -1,1 +1,1 @@
-rvm use 1.9.2@hamburg_on_ruby --create
+rvm use ruby-1.9.2-p290@hamburg_on_ruby --create
