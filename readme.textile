@@ -13,15 +13,20 @@ If you want to dedicate some work for the Community you could:
 
 h2. Setup
 
-rvm install 1.9.2
+* install rvm
+* install rvm-version of .rvmrc
+
+h3. GitHub-Authentication
+
+You need "GitHub App credentials":https://dev.twitter.com in order to have a working login.
+See config/initializers/omniauth.rb for details.
 
 h2. Running
 
-bundle --without=production # don't want to install postgresql stuff...
-foreman start
+  bundle --without=production # don't want to install postgresql stuff...
+  foreman start
 
 h2. Todo
 
-* rails 3.1
 * add rack-cache
 * publishing via xing
