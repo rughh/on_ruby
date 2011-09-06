@@ -8,7 +8,7 @@ describe EventsController do
   let(:user) { Factory(:user) }
 
   describe "GET :rss" do
-    before { get :rss }
+    before { get :rss, format: :xml }
 
     it "should assign the events to display" do
       controller.events.should_not be_nil
@@ -36,19 +36,19 @@ describe EventsController do
   describe "POST :add_user" do
     it "should add a prticipant for current user" do
       controller.stubs(current_user: user)
-      
+
       expect { post :add_user, id: event.id }.to change(Participant, :count).by(1)
-      
+
       flash[:notice].should_not be_nil
       response.should redirect_to(event)
     end
-    
+
     it "should should not add paritcipant if already exists" do
       user.participants.create(event: event)
       controller.stubs(current_user: user)
-      
+
       expect { post :add_user, id: event.id }.to change(Participant, :count).by(0)
-      
+
       flash[:alert].should_not be_nil
       response.should redirect_to(event)
     end

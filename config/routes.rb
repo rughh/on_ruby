@@ -14,7 +14,7 @@ HamburgOnRuby::Application.routes.draw do
   end
 
   resources :events do
-    get 'rss',        on: :collection
+    get 'rss',        on: :collection, format: :xml
     post 'add_user',  on: :member
     get 'publish',    on: :member
     resources :materials
@@ -32,7 +32,7 @@ HamburgOnRuby::Application.routes.draw do
   match '/home/info',     to: 'home#info',     as: :info
   match '/home/imprint',  to: 'home#imprint',  as: :imprint
 
-  match '/sitemap.xml',   to: 'misc#sitemap',  constraints: {:format => /(xml)/}
+  match '/sitemap.xml',   to: 'misc#sitemap',  format: :xml
 
   root to: "home#index"
 end

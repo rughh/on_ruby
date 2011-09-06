@@ -1,6 +1,6 @@
 # encoding: utf-8
 class EventsController < ApplicationController
-  
+
   expose(:events) { Event.order("date DESC").paginate(:page => params[:page], :per_page => 10) }
   expose(:event)
 
