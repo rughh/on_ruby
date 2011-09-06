@@ -24,7 +24,7 @@ HamburgOnRuby::Application.routes.draw do
 
   match '/auth/:provider/callback',   to: 'sessions#create'
   match '/auth/failure',              to: 'sessions#failure'
-  match '/admin/logout',              to: 'sessions#destroy' # make the logout of rails-admin functional
+  match '/admin/logout',              to: 'sessions#destroy',              as: :destroy_admin_user_session # make the logout of rails-admin functional
   match '/auth/destroy_user_session', to: 'sessions#destroy_user_session', as: :destroy_user_session
   match '/auth/destroy_session',      to: 'sessions#destroy',              as: :destroy_session
   match '/auth/login/:provider',      to: 'sessions#auth',                 as: :auth,                 defaults: { :provider => 'twitter' }

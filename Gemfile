@@ -17,7 +17,7 @@ gem "thin", "~> 1.2.11"
 gem "foreman", "~> 0.19.0"
 gem "decent_exposure", "~> 1.0.1"
 gem "geocoder", "~> 1.0.2"
-gem "will_paginate", "~> 3.0.pre4"
+gem "will_paginate", "3.0.pre2"
 
 # Gems used only for assets and not required
 # in production environments by default.
