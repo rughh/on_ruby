@@ -9,10 +9,14 @@
     
     %link{rel: 'shortcut icon', href: image_path('logo_icon.png')}
     
-    = stylesheet_link_tag 'screen'
+    / = stylesheet_link_tag 'screen'
     = auto_discovery_link_tag :rss, rss_events_path, title: "Event-Feed"
     = csrf_meta_tag
-    = javascript_include_tag('https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js', 'http://maps.google.com/maps/api/js?sensor=true', 'humane.js', 'rails.js', 'application.js')
+    = stylesheet_link_tag "application"
+    = javascript_include_tag 'http://maps.google.com/maps/api/js?sensor=true'
+    = javascript_include_tag "application"
+
+    
 
   %body
     .container
