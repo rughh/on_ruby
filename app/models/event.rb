@@ -71,12 +71,11 @@ class Event < ActiveRecord::Base
     end
 
     def duplicate!
-      Event.last.clone.tap do |event|
-        event.date = Event.next_event_date
-        event.name = "Ruby Usergroup Hamburg - #{event.date.strftime("%B %Y")}"
-        event.published = false
-        event.save!
-        event
+      Event.last.dup.tap do |it|
+        it.date = Event.next_event_date
+        it.name = "Ruby Usergroup Hamburg - #{it.date.strftime("%B %Y")}"
+        it.published = false
+        it.save!
       end
     end
   end
