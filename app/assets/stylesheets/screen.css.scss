@@ -1,8 +1,8 @@
 @import "compass";
 @import "compass/css3/border-radius";
 
-@font-face { font-family:hero; src:url("/fonts/hero_light.otf") format("opentype"); }
-@font-face { font-family:hero; font-weight:bold; src:url("/fonts/hero.otf") format("opentype"); }
+@font-face { font-family:hero; src:url("/assets/hero_light.otf") format("opentype"); }
+@font-face { font-family:hero; font-weight:bold; src:url("/assets/hero.otf") format("opentype"); }
 
 
 
@@ -177,11 +177,11 @@ a:hover { color: #666; }
  */
 
 html {
-  background:url(/images/bg/whitey.png) left top repeat;
+  background:url(/assets/bg/whitey.png) left top repeat;
 }
 
 .container {
-  background:url(/images/bg/black-Linen.png) left top repeat;
+  background:url(/assets/bg/black-Linen.png) left top repeat;
 }
 
 header {
@@ -205,7 +205,7 @@ header {
   }
   
   #login {
-    background:url(/images/bg/whitey.png) left top repeat;
+    background:url(/assets/bg/whitey.png) left top repeat;
     border:1px solid white;
     @include border-radius(0.5em, 0.5em);
     padding:1em;
@@ -228,7 +228,7 @@ header {
 }
 
 nav {
-  background:url(/images/bg/whitey.png) left top repeat;
+  background:url(/assets/bg/whitey.png) left top repeat;
   text-align:center;
   position:fixed;
   top:0;
@@ -257,7 +257,7 @@ nav {
   }
   .logo {
     opacity:0;
-    background:url(/images/logo_small.png) 0 0 no-repeat;
+    background:url(/assets/logo_small.png) 0 0 no-repeat;
     width:25px;
     height:25px;
   }
@@ -300,7 +300,7 @@ nav {
     display:block;
     margin:0 auto;
     width:56em;
-    background:url(/images/bg/whitey.png) left top repeat;
+    background:url(/assets/bg/whitey.png) left top repeat;
     border:1px solid white;
     @include border-radius(0.5em, 0.5em);
     
@@ -381,7 +381,7 @@ nav {
       position:absolute;
       top:-210px;
       right:-160px;
-      background:url(/images/black_arrow_big.png);
+      background:url(/assets/black_arrow_big.png);
       height:163px;
       width:310px;
       padding:30px 30px 10px 30px;
