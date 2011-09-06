@@ -7,7 +7,7 @@
     %meta{name: "description", content: "#{title} - #{subtitle}"}
     %meta{name: "author", content: "Peter Schröder"}
     
-    %link{rel: 'shortcut icon', href: image_path('logo_icon.png')}
+    %link{rel: 'shortcut icon', href: asset_path('logo_icon.png')}
     
     / = stylesheet_link_tag 'screen'
     = auto_discovery_link_tag :rss, rss_events_path, title: "Event-Feed"
