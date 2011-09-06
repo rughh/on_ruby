@@ -1,3 +1,8 @@
+//= require jquery
+//= require jquery_ujs
+//= require_self
+//= require_tree .
+
 function initialize_map() {
   jQuery.each($(".map_canvas"), function() {
     var element = this;
@@ -15,7 +20,7 @@ function initialize_map() {
     
     var arr = $.parseJSON($(element).attr('data-map'));
     jQuery.each(arr, function() {
-      var data = this.location;
+      var data = this;
 
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(data.lat, data.long),
