@@ -1,19 +1,19 @@
 source :rubygems
 
-gem "rails", "~> 3.0.9"
+gem "rails", "~> 3.1.0"
 
 gem "rake", "0.9.2"
 
 gem "bitly", "~> 0.6.1"
-gem "twitter", "~> 1.1.1"
+gem "twitter", "~> 1.7.0"
 gem "haml", "~> 3.1.2"
-gem "sass", "~> 3.1.1"
-gem "compass", "~> 0.10.5"
+gem "sass-rails"
+gem 'compass', :git => 'https://github.com/chriseppstein/compass.git', :branch => 'rails31'
 gem "friendly_id", "~> 3.0"
-gem "omniauth", "~> 0.2.0"
+gem "omniauth", "0.3.0.rc3"
 gem "icalendar", "~> 1.1.5"
 gem "ambience", "~> 0.3.1"
-gem "activeadmin", "~> 0.2.2"
+gem "activeadmin", "~> 0.3.1"
 gem "thin", "~> 1.2.11"
 gem "foreman", "~> 0.19.0"
 gem "decent_exposure", "~> 1.0.1"
