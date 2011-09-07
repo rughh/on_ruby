@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  expose(:users) { User.order(:name).paginate(:page => params[:page], :per_page => 10) }
+  expose(:users) { User.order(:name) }
   expose(:user)
   
   before_filter :authenticate_current_user!, :only => [:edit, :update]

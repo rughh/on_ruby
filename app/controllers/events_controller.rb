@@ -1,7 +1,7 @@
 # encoding: utf-8
 class EventsController < ApplicationController
 
-  expose(:events) { Event.order("date DESC").paginate(:page => params[:page], :per_page => 10) }
+  expose(:events) { Event.order("date DESC").limit(10) }
   expose(:event)
 
   def index; end

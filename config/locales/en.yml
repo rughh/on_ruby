@@ -1,7 +1,0 @@
-# WORKAROUND (ps) spec default back to locale :en
-
-en:
-
-  time:
-    formats:
-      date: "%d.%m. %H:%M"
