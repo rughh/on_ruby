@@ -2,7 +2,7 @@ class WishesController < ApplicationController
 
   before_filter :check_login, :only => :create
   
-  expose(:wishes) { Wish.order('CREATED_AT DESC').paginate :page => params[:page], :per_page => 10 }
+  expose(:wishes) { Wish.order('CREATED_AT DESC') }
   expose(:wish)
 
   def index

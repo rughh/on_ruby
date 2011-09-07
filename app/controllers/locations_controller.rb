@@ -1,7 +1,7 @@
 class LocationsController < ApplicationController
 
-  expose(:locations) { Location.cometogether.paginate(page: params[:page], per_page: 5) }
-  expose(:companies) { Location.company.paginate(page: params[:page], per_page: 5) }
+  expose(:locations) { Location.cometogether }
+  expose(:companies) { Location.company }
 
   def index; end
   def company; end

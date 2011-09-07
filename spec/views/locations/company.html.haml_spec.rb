@@ -6,7 +6,7 @@ describe "locations/company.html.haml" do
   let(:user) { Factory(:user) }
 
   it "should render successfully" do
-    view.stubs(main_user: user, companies: companies, will_paginate: '')
+    view.stubs(main_user: user, companies: companies)
     render
   end
 

@@ -311,7 +311,6 @@ GEM
       macaddr (~> 1.0)
     warden (1.0.5)
       rack (>= 1.0)
-    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
@@ -348,4 +347,3 @@ DEPENDENCIES
   thin (~> 1.2.11)
   twitter (~> 1.7.0)
   uglifier
-  will_paginate (= 3.0.pre2)

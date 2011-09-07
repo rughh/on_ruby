@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_self
+//= require humane
 
 function initialize_map() {
   jQuery.each($(".map_canvas"), function() {
