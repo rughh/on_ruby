@@ -5,6 +5,6 @@ class UsergroupMailer < ActionMailer::Base
   def invitation_mail(event)
     @event = event
     recipient = AppConfig.usergroup_email
-    mail(:to => recipient, :subject => "RUGHH Info: #{event.name}")
+    mail(to: recipient, subject: "RUGHH Info: #{event.name}")
   end
 end
