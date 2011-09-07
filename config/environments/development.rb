@@ -11,7 +11,7 @@ HamburgOnRuby::Application.configure do
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = true
+  config.action_controller.perform_caching = false
 
   # Configure Gmail for development-mails
   config.action_mailer.raise_delivery_errors = true
