@@ -1,5 +1,7 @@
 %section
   %h2= title
+  %p= map(locations, zoom: 12)
+  %br
   %ul.enumeration
     - locations.each do |location|
       - uid = "location_#{location.id}"
@@ -9,11 +11,3 @@
           %p
             %strong= location.name
           %p= location.full_address
-  
-  %br
-  
-  %p= will_paginate locations
-  
-  %h3 Karte
-  
-  %p= map(locations, zoom: 12)
