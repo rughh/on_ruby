@@ -7,8 +7,11 @@ require "rake"
 
 HamburgOnRuby::Application.load_tasks
 
-task :travis_ci=>['db:migrate', 'spec'] do
-  puts "*" * 50
-  puts "i love travis-ci "
-  puts "*" * 50
+task :travis do
+  ["rspec spec"].each do |cmd|
+    puts "Starting to run #{cmd}..."
+    system("export DISPLAY=:99.0 && bundle exec #{cmd}")
+    raise "#{cmd} failed!" unless $?.exitstatus == 0
+  end
+  puts "we looooooooooove travis-ci <3"
 end
