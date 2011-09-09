@@ -1,3 +1,4 @@
-script: "bundle exec rake travis_ci"
+script: "bundle exec rake travis"
+bundler_args: "--without development"
 rvm:
   - 1.9.2
