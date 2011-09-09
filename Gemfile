@@ -32,7 +32,7 @@ group :production do
 end
 
 group :development do
-  gem "ruby-debug19", :require => "ruby-debug", :platforms => :mri_19
+  gem "pry"
   gem "heroku"
   gem 'rb-fsevent', :require => false
   gem 'guard-rspec'
@@ -43,6 +43,7 @@ group :development, :test do
   gem "mocha", "~> 0.9.12"
   gem "sqlite3-ruby", :require => "sqlite3"
   gem "rspec-rails", "~> 2.6.1"
+  gem "capybara", "~> 1.1.1"
   gem "remarkable_activemodel", "~> 4.0.0.alpha4"
   gem "remarkable_activerecord", "~> 4.0.0.alpha4"
   gem "factory_girl", "~> 1.3.3"
