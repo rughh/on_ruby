@@ -8,7 +8,7 @@ class Location < ActiveRecord::Base
   validates :name, :url, :city, :street, :house_number, :zip, :presence => true
 
   scope :company, where(company: true)
-  scope :cometogether, joins(:events).select("distinct(locations.id)")
+  scope :cometogether, joins(:events).select("distinct(locations.id), locations.*")
 
   def full_address
     "#{street} #{house_number}, #{zip} #{city}, Deutschland"
