@@ -8,7 +8,6 @@ describe Location do
     it "should find distinct cometogethers" do
       3.times.each { |n| Factory(:event, location: location) }
       Location.cometogether.should have(1).things
-      Location.cometogether.first.attributes.should eql(location.attributes)
     end
   end
 end
