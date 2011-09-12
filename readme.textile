@@ -2,15 +2,6 @@ h1. Hamburg on Ruby "!http://travis-ci.org/phoet/hamburg_on_ruby.png!":https://s
 
 Source for the "Site of Hamburg's Ruby Community":http://onruby.de.
 
-h2. Help
-
-If you want to dedicate some work for the Community you could:
-
-* fix bugs
-* extend functionality
-* improve Layout
-* donate/get sponsorship
-
 h2. Setup
 
 * install rvm
@@ -24,15 +15,17 @@ See config/initializers/omniauth.rb for details.
 
 h2. Running
 
-  bundle --without=production # don't want to install postgresql stuff...
-  foreman start
+    bundle --without=production # don't want to install postgresql stuff...
+    foreman start
 
 h2. Heroku for Rails 3.1
 
-  rake assets:precompile
-  git add .
-  git commit -m 'precompiled'
-  git push horrr rails_3_1_new:master
+Heroku is not supporting the asset-pipeline properly at the moment, so you need to checkin the precompiled stuff...
+
+    rake assets:precompile
+    git add .
+    git commit -m 'precompiled'
+    git push heroku master
 
 h2. Todo
 
