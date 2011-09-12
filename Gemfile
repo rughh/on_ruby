@@ -36,6 +36,7 @@ group :development do
   gem "heroku"
   gem 'rb-fsevent', :require => false
   gem 'guard-rspec'
+  gem 'guard-spork'
 end
 
 group :development, :test do

@@ -120,6 +120,9 @@ GEM
       thor (~> 0.14.6)
     guard-rspec (0.4.4)
       guard (>= 0.4.0)
+    guard-spork (0.2.1)
+      guard (>= 0.2.2)
+      spork (>= 0.8.4)
     haml (3.1.2)
     has_scope (0.5.1)
     hashie (1.1.0)
@@ -293,6 +296,7 @@ GEM
     sexp_processor (3.0.6)
     simple_oauth (0.1.5)
     slop (1.9.1)
+    spork (0.8.5)
     sprockets (2.0.0)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -347,6 +351,7 @@ DEPENDENCIES
   fuubar (~> 0.0.3)
   geocoder (~> 1.0.2)
   guard-rspec
+  guard-spork
   haml (~> 3.1.2)
   heroku
   icalendar (~> 1.1.5)
