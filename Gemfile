@@ -40,6 +40,7 @@ group :development do
 end
 
 group :development, :test do
+  gem "spork", "~> 0.8.5"
   gem "fuubar", "~> 0.0.3"
   gem "mocha", "~> 0.9.12"
   gem "sqlite3-ruby", :require => "sqlite3"
