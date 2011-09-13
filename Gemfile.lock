@@ -367,6 +367,7 @@ DEPENDENCIES
   remarkable_activerecord (~> 4.0.0.alpha4)
   rspec-rails (~> 2.6.1)
   sass-rails (~> 3.1.0)
+  spork (~> 0.8.5)
   sqlite3-ruby
   thin (~> 1.2.11)
   twitter (~> 1.7.0)
