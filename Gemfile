@@ -1,6 +1,6 @@
 source :rubygems
 
-gem "rails", "3.1.0"
+gem "rails", "3.1.1.rc1"
 
 gem "rake", "0.9.2"
 
@@ -8,7 +8,7 @@ gem "jquery-rails", "1.0.13"
 gem "bitly", "0.6.1"
 gem "twitter", "1.7.0"
 gem "haml", "3.1.2"
-gem "friendly_id", "3.0"
+gem "friendly_id", "3.3.0.1"
 gem "omniauth", "0.3.0.rc3"
 gem "icalendar", "1.1.5"
 gem "ambience", "0.3.1"
