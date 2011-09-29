@@ -2,21 +2,21 @@ source :rubygems
 
 gem "rails", "3.1.1.rc1"
 
-gem "rake", "0.9.2"
-
-gem "jquery-rails", "1.0.13"
-gem "bitly", "0.6.1"
-gem "twitter", "1.7.0"
-gem "haml", "3.1.2"
-gem "friendly_id", "3.3.0.1"
-gem "omniauth", "0.3.0.rc3"
-gem "icalendar", "1.1.5"
-gem "ambience", "0.3.1"
-gem "activeadmin", "0.3.1"
-gem "thin", "1.2.11"
-gem "foreman", "0.19.0"
-gem "decent_exposure", "1.0.1"
-gem "geocoder", "1.0.2"
+gem "rake",             "0.9.2"
+gem "jquery-rails",     "1.0.13"
+gem "fancybox-rails",   "0.1.4"
+gem "bitly",            "0.6.1"
+gem "twitter",          "1.7.0"
+gem "haml",             "3.1.2"
+gem "friendly_id",      "3.3.0.1"
+gem "omniauth",         "0.3.0.rc3"
+gem "icalendar",        "1.1.5"
+gem "ambience",         "0.3.1"
+gem "activeadmin",      "0.3.1"
+gem "thin",             "1.2.11"
+gem "foreman",          "0.19.0"
+gem "decent_exposure",  "1.0.1"
+gem "geocoder",         "1.0.2"
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,4 +1,5 @@
 /*
-*= require_self
-*= require screen
-*/
+ *= require_self
+ *= require fancybox
+ *= require screen
+ */
