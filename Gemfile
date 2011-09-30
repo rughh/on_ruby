@@ -32,13 +32,14 @@ group :production do
 end
 
 group :development do
-  gem "pry"
   gem "heroku"
   gem 'rb-fsevent', :require => false
   gem 'guard-rspec'
+  gem 'growl_notify'
 end
 
 group :development, :test do
+  gem "pry"
   gem "fuubar", "0.0.3"
   gem "mocha", "0.9.12"
   gem "sqlite3-ruby", :require => "sqlite3"
