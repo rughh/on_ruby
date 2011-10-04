@@ -3,6 +3,7 @@ source :rubygems
 gem "rails", "3.1.1.rc1"
 
 gem "rake",             "0.9.2"
+gem 'rack',             '1.3.3'
 gem "jquery-rails",     "1.0.13"
 gem "fancybox-rails",   "0.1.4"
 gem "bitly",            "0.6.1"
@@ -12,7 +13,7 @@ gem "friendly_id",      "3.3.0.1"
 gem "omniauth",         "0.3.0.rc3"
 gem "icalendar",        "1.1.5"
 gem "ambience",         "0.3.1"
-gem "activeadmin",      "0.3.1"
+gem "activeadmin",      "0.3.2"
 gem "thin",             "1.2.11"
 gem "foreman",          "0.19.0"
 gem "decent_exposure",  "1.0.1"
