@@ -51,4 +51,4 @@
     %strong Es ist noch niemand angemeldet.
 
   %h3 Anfahrt
-  = map(event.location)
+  = map(event.location, lat: event.location.lat, long: event.location.long)
