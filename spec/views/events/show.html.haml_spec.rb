@@ -1,8 +1,8 @@
 require "spec_helper"
 
 describe "events/show.html.haml" do
-  
-  let(:user)  { Factory(:user) }
+
+  let(:user)  { Factory.build(:user) }
   let(:event) { Factory(:event) }
 
   it "should render successfully" do
