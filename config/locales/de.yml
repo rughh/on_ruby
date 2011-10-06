@@ -45,6 +45,7 @@ de:
       long: "%A, %d. %B %Y, %H:%M Uhr"
       time: "%H:%M"
       date: "%d.%m. %H:%M"
+      month: "%B %Y"
 
     am: "vormittags"
     pm: "nachmittags"

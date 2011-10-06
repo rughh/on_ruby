@@ -13,7 +13,7 @@ describe Wish do
   end
 
   it "should create a topic from a wish" do
-    Factory(:event) # there needs to be an event
+    Factory(:event)
     expect do
       wish.copy_to_topic!
       wish.done.should be(true)
@@ -34,5 +34,4 @@ describe Wish do
       wish.already_voted?(vote.user).should be_true
     end
   end
-
 end
