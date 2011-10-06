@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "wishes/show.html.haml" do
 
-  let(:wish) { Factory(:wish) }
+  let(:wish) { Factory.build(:wish) }
 
   it "should render successfully" do
     view.stubs(wish: wish, signed_in?: false)

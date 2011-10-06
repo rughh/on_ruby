@@ -3,7 +3,7 @@ source :rubygems
 gem "rails", "3.1.1.rc1"
 
 gem "rake",             "0.9.2"
-gem 'rack',             '1.3.3'
+gem "rack",             "1.3.3"
 gem "jquery-rails",     "1.0.13"
 gem "fancybox-rails",   "0.1.4"
 gem "bitly",            "0.6.1"
@@ -22,10 +22,10 @@ gem "geocoder",         "1.0.2"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'compass',      "0.12.alpha.0"
-  gem 'sass-rails',   "3.1.0"
-  gem 'coffee-rails', "3.1.0"
-  gem 'uglifier'
+  gem "compass",      "0.12.alpha.0"
+  gem "sass-rails",   "3.1.0"
+  gem "coffee-rails", "3.1.0"
+  gem "uglifier",     "1.0.3"
 end
 
 group :production do
@@ -34,17 +34,17 @@ end
 
 group :development do
   gem "heroku"
-  gem 'rb-fsevent', :require => false
-  gem 'guard-rspec'
-  gem 'growl_notify'
+  gem "rb-fsevent", :require => false
+  gem "guard-rspec"
+  gem "growl_notify"
 end
 
 group :development, :test do
   gem "pry"
-  gem "fuubar", "0.0.3"
-  gem "mocha", "0.9.12"
-  gem "sqlite3-ruby", :require => "sqlite3"
-  gem "rspec-rails", "2.6.1"
-  gem "capybara", "1.1.1"
+  gem "fuubar",       "0.0.3"
+  gem "mocha",        "0.9.12"
+  gem "sqlite3-ruby", "1.3.3", :require => "sqlite3"
+  gem "rspec-rails",  "2.6.1"
+  gem "capybara",     "1.1.1"
   gem "factory_girl", "1.3.3"
 end

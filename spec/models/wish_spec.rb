@@ -6,7 +6,7 @@ describe Wish do
   let(:vote) { Factory.build(:vote, :wish => nil) }
 
   it "should generate a nice twitter message" do
-    message = wish.twitter_message('http://bitly.url')
+    message = Factory.build(:wish).twitter_message('http://bitly.url')
     message.length.should be < 140
     message.should match "Neues Thema von @uschi"
     message.should match "'The xing mobile website: touch.xing.com' http://bitly.url"
@@ -34,4 +34,5 @@ describe Wish do
       wish.already_voted?(vote.user).should be_true
     end
   end
+
 end
