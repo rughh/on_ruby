@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-include SpecHelper
+require 'spec_helper' 
 
 describe EventsController do
 

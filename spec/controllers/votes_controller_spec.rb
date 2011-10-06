@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-include SpecHelper
-
 describe VotesController do
 
   describe "POST :create" do
@@ -23,5 +21,4 @@ describe VotesController do
       response.should redirect_to(auth_path)
     end
   end
-
 end

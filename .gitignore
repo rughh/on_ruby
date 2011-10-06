@@ -1,7 +1,7 @@
 .DS_Store
 log/*
 tmp/*
-db/*.sqlite3
+db/*.sqlite3*
 coverage
 public/cache
 public/system
