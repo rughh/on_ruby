@@ -1,6 +1,9 @@
 ActiveAdmin::Dashboards.build do
 
-  section "Unpublished Events" do
+  section "Event Stuff" do
+    ul do
+      li link_to 'Dup latest Event', duplicate_admin_events_path
+    end
     ul do
       Event.unpublished.collect do |event|
         li link_to("Publish: #{event.name}", publish_admin_event_path(event))
@@ -15,5 +18,4 @@ ActiveAdmin::Dashboards.build do
       end
     end
   end
-
 end
