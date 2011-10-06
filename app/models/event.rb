@@ -54,7 +54,7 @@ class Event < ActiveRecord::Base
   end
 
   def twitter_message(url)
-    "#{name} am #{I18n.l date, :locale => :de, :format => :short} - #{url}"
+    "#{name} am #{I18n.l date, locale: :de, format: :short} - #{url}"
   end
 
   class << self
@@ -73,7 +73,7 @@ class Event < ActiveRecord::Base
     def duplicate!
       Event.last.dup.tap do |it|
         it.date = Event.next_event_date
-        it.name = "Ruby Usergroup Hamburg - #{it.date.strftime("%B %Y")}"
+        it.name = "Ruby Usergroup Hamburg - #{I18n.l it.date, locale: :de, format: :month}"
         it.published = false
         it.save!
       end

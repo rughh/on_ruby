@@ -1,10 +1,9 @@
 require 'spec_helper'
 
-include SpecHelper
-
 describe User do
 
   let(:event) { Factory(:event) }
+  let(:admin_user) { Factory(:user, :admin => true) }
 
   it { should allow_values_for(:github, "abc", "111bbb888_", {allow_nil: true, allow_blank: true}) }
   it { should_not allow_values_for(:github, "http://", "www.bla") }

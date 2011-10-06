@@ -27,16 +27,4 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-  
-  # register global before stuff TODO (ps) why this no work?!
-  # config.before(:type => :controller) do
-  #   request.env["HTTP_REFERER"] = "/"
-  # end
-
-end
-
-module SpecHelper
-  def admin_user
-    @admin_user ||= Factory(:user, :admin => true)
-  end
 end
