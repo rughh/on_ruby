@@ -1,5 +1,10 @@
 class SessionsController < ApplicationController
 
+  def offline_login
+    self.current_user = User.find_by_nickname(params[:nickname])
+    redirect_to root_path, :notice => "Offline Login!"
+  end
+
   def create
     auth = request.env['omniauth.auth']
     unless @auth = Authorization.find_from_hash(auth)
@@ -22,7 +27,7 @@ class SessionsController < ApplicationController
   def failure
     redirect_to root_path, :alert => 'Fehler beim Einloggen mit Twitter, bist du dort vielleicht nicht eingeloggt?'
   end
-  
+
   def auth
     redirect_to "/auth/#{params[:provider]}"
   end
