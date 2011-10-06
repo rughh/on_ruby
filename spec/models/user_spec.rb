@@ -3,10 +3,22 @@ require 'spec_helper'
 describe User do
 
   let(:event) { Factory(:event) }
+  let(:user) { Factory(:user) }
   let(:admin_user) { Factory(:user, :admin => true) }
 
-  it { should allow_values_for(:github, "abc", "111bbb888_", {allow_nil: true, allow_blank: true}) }
-  it { should_not allow_values_for(:github, "http://", "www.bla") }
+  it "should allow names and nothing on github" do
+    ["abc", "111bbb888_", nil, ""].each do |val|
+      user.github = val
+      user.should have(0).errors_on(:github)
+    end
+  end
+
+  it "should not allow urls on github" do
+    ["http://", "www.bla"].each do |val|
+      user.github = val
+      user.should have(1).errors_on(:github)
+    end
+  end
 
   it "should authorize phoet as admin" do
     admin_user.admin?.should be(true)
