@@ -20,7 +20,7 @@ describe Event do
 
   context "#duplicate!" do
     before do
-      Factory(:event, date: Time.utc(2011, 9, 14, 19, 0, 0))
+      Factory(:event, date: Time.new(2011, 9, 14, 19, 0, 0))
     end
 
     it "should duplicate the event" do
@@ -30,7 +30,7 @@ describe Event do
     it "should create a german title and not change the timezone" do
       Event.duplicate!.tap do |it|
         it.name.should eql('Ruby Usergroup Hamburg - Oktober 2011')
-        it.date.should eql(Time.utc(2011, 10, 12, 19, 0, 0))
+        it.date.should eql(Time.new(2011, 10, 12, 19, 0, 0))
       end
     end
   end

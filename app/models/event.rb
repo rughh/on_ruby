@@ -62,7 +62,7 @@ class Event < ActiveRecord::Base
     def next_event_date
       d = second_wednesday(Date.today)
       d = second_wednesday(Date.today.next_month) if d < Date.today
-      Time.utc(d.year, d.month, d.day, 19, 0)
+      Time.new(d.year, d.month, d.day, 19, 0)
     end
 
     def second_wednesday(date)
