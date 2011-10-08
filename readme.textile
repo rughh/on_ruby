@@ -15,19 +15,8 @@ See config/initializers/omniauth.rb for details.
 
 h2. Running
 
-<pre><code>bundle --without=production # don't want to install postgresql stuff...
-foreman start
-</code></pre>
-
-h2. Heroku for Rails 3.1
-
-Heroku is not supporting the asset-pipeline properly at the moment, so you need to checkin the precompiled stuff...
-
-<pre><code>rake assets:precompile
-git add .
-git commit -m 'precompiled'
-git push heroku master
-</code></pre>
+  bundle --without=production
+  foreman start
 
 h2. Todo
 
