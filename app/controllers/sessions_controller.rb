@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     auth = request.env['omniauth.auth']
+    logger.info "logging in with auth='#{auth}'"
     unless @auth = Authorization.find_from_hash(auth)
       @auth = Authorization.create_from_hash auth, current_user
     end

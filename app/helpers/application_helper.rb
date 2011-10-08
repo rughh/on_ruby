@@ -45,12 +45,10 @@ module ApplicationHelper
     end
   end
 
-  def section_box(name, options={})
+  def section_box(name)
     content_tag :section, class: name, id: name do
-      concat content_tag(:div, options[:topbutton], class: 'topbutton') if options[:topbutton]
       concat content_tag(:h2, t(name))
       yield
     end
   end
-
 end

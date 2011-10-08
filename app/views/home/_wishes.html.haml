@@ -1,12 +1,4 @@
-- button = submit_tag 'Eigenes Thema eintragen', {name: 'new_wish'}.merge(signed_in? ? {class: 'toggle'} : {:confirm => 'Bitte anmelden!'})
-= section_box :wishes, topbutton: button do
-  .toggle_new_wish.hidden
-    %p
-      = semantic_form_for Wish.new do |f|
-        = f.input :name
-        = f.input :description
-        = f.buttons
-    
+= section_box :wishes do
   %p
     %strong Möchtest du einen Vortrag auf der Rails Usergroup halten oder hast du zusätzliche Themenvorschläge?
     Dann schicke uns einfach eine
@@ -20,6 +12,17 @@
     dann <strong>kannst du hier gerne etwas in die Wunschliste eintragen</strong>.
     Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben,
     dann <strong>kannst du ihn hier eintragen</strong>, um Feedback von der Community zu bekommen.
+  %p
+    = submit_tag 'Eigenes Thema eintragen', name: 'new_wish', class: 'toggle'
+    .toggle_new_wish.hidden
+      - unless signed_in?
+        %p
+          %strong Bitte melde dich an bevor du einen Eintrag machst!
+      %p
+        = semantic_form_for Wish.new do |f|
+          = f.input :name
+          = f.input :description
+          = f.buttons
   %h3 Aktuelle Themen
   %ul.clearfix
     - wishes.each do |wish|
