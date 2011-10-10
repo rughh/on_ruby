@@ -46,10 +46,6 @@ GEM
     arel (2.2.1)
     babosa (0.3.5)
     bcrypt-ruby (3.0.1)
-    bitly (0.6.1)
-      crack (>= 0.1.4)
-      httparty (>= 0.5.2)
-      oauth2 (>= 0.1.1)
     builder (3.0.0)
     capybara (1.1.1)
       mime-types (>= 1.16)
@@ -66,7 +62,6 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    crack (0.3.1)
     daemons (1.1.4)
     decent_exposure (1.0.1)
     devise (1.4.7)
@@ -86,8 +81,6 @@ GEM
       addressable (~> 2.2.6)
       multipart-post (~> 1.1.3)
       rack (< 2, >= 1.1.0)
-    faraday_middleware (0.7.0)
-      faraday (~> 0.7.3)
     fastercsv (1.5.4)
     ffi (1.0.9)
     foreman (0.19.0)
@@ -120,9 +113,6 @@ GEM
       rubyzip
       term-ansicolor (~> 1.0.5)
     hike (1.2.1)
-    httparty (0.8.1)
-      multi_json
-      multi_xml
     i18n (0.6.0)
     icalendar (1.1.6)
     inherited_resources (1.2.2)
@@ -278,7 +268,6 @@ GEM
       json_pure
       rubyzip
     sexp_processor (3.0.7)
-    simple_oauth (0.1.5)
     slop (2.1.0)
     sprockets (2.0.2)
       hike (~> 1.2)
@@ -298,13 +287,6 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    twitter (1.7.2)
-      faraday (~> 0.7.4)
-      faraday_middleware (~> 0.7.0)
-      hashie (~> 1.1.0)
-      multi_json (~> 1.0.0)
-      multi_xml (~> 0.4.0)
-      simple_oauth (~> 0.1.5)
     tzinfo (0.3.30)
     uglifier (1.0.3)
       execjs (>= 0.3.0)
@@ -322,7 +304,6 @@ PLATFORMS
 DEPENDENCIES
   activeadmin (= 0.3.2)
   ambience (= 1.0.0)
-  bitly (= 0.6.1)
   capybara (= 1.1.1)
   compass (= 0.12.alpha.0)
   decent_exposure (= 1.0.1)
@@ -350,5 +331,4 @@ DEPENDENCIES
   sass-rails (= 3.1.4)
   sqlite3-ruby (= 1.3.3)
   thin (= 1.2.11)
-  twitter (= 1.7.2)
   uglifier (= 1.0.3)
