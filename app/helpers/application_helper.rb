@@ -14,14 +14,6 @@ module ApplicationHelper
     content_tag(:div, '', :class => 'map_canvas', 'data-map' => locations.to_json, 'data-init' => init.to_json)
   end
 
-  def flash_growl
-    if notice
-      javascript_tag "humane('#{flash[:notice]}');"
-    elsif alert
-      javascript_tag "humane(\"<p class='error'>#{flash[:alert]}</p>\");"
-    end
-  end
-
   def link_to_github(user)
     link_to user.github, "http://github.com/#{user.github}" if user.github
   end
@@ -37,11 +29,12 @@ module ApplicationHelper
     end
   end
 
-  def tooltip_box(uid, target, options={})
-    content_tag :div, class: "toggle_#{uid} tooltip #{options[:class]}" do
-      concat link_to('[x]', '#', class: 'topbutton toggle', name: uid)
-      yield
-      concat content_tag(:p, link_to('mehr...', target))
+  def fancy_box(uid, target=nil)
+    content_tag :div, style: "display:none;" do
+      content_tag :div, id: uid, style: "width:560px;" do
+        yield
+        concat content_tag(:p, link_to('mehr...', target)) if target
+      end
     end
   end
 
@@ -59,9 +52,17 @@ module ApplicationHelper
   def likes
     content_tag :span, class: 'likes' do
       raw <<-HERE
-          <g:plusone size="medium"></g:plusone>
-          <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="hamburgsync" data-lang="de">Tweet</a>
-          HERE
+      <g:plusone size="medium"></g:plusone>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="hamburgsync" data-lang="de">Tweet</a>
+      HERE
     end
+  end
+
+  def fancy_link_to(text, url, uid)
+    link_to text, url, name: uid, class: 'fancy'
+  end
+
+  def fancy_block_to(url, uid, &block)
+    link_to url, {name: uid, class: 'fancy'}, &block
   end
 end

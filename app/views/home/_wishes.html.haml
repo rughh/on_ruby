@@ -27,11 +27,14 @@
   %ul.clearfix
     - wishes.each do |wish|
       - uid = "stars_#{wish.id}"
-      %li.tooltip
+      %li
         %span.stars= stars(wish)
-        = link_to wish.name, wish, {name: uid, class: 'toggle wish-link'}
-        = tooltip_box(uid, wish, class: 'big') do
-          %p= wish.description.truncate(180)
+        = fancy_link_to wish.name, wish, uid
+        = fancy_box(uid, wish) do
+          %h2= wish.name
+          %p
+            %strong Beschreibung:
+            = wish.description
           %p.meta= meta(wish)
           - if wish.done?
             %p.meta Thema wurde schon auf einem Treffen abgefrühstückt.
