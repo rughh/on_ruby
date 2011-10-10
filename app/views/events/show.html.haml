@@ -1,6 +1,8 @@
 = content_for(:page_title){event.name}
 %section
-  %h2= event.name
+  %h2
+    = likes
+    = event.name
   %p= event.description
   %p.meta
     = link_to l(event.date), event_path(event, format: :ics), class: 'ical'

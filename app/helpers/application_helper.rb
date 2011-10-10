@@ -55,4 +55,13 @@ module ApplicationHelper
   def twitter_update_url(text)
     "http://twitter.com/home?status=#{URI.encode(text)}"
   end
+
+  def likes
+    content_tag :span, class: 'likes' do
+      raw <<-HERE
+          <g:plusone size="medium"></g:plusone>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="hamburgsync" data-lang="de">Tweet</a>
+          HERE
+    end
+  end
 end

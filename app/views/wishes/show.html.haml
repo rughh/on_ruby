@@ -1,10 +1,11 @@
 = content_for(:page_title){wish.name}
 %section
   .clearfix
+    = likes
     %span.stars= stars(wish)
     .meta= meta(wish)
     - if wish.done?
       %p.meta Thema wurde schon auf einem Treffen abgefrühstückt.
 
-  %h3= wish.name
+  %h2= wish.name
   %p= wish.description
