@@ -17,10 +17,6 @@ describe WishesController do
   end
 
   describe "POST :create" do
-    before do
-      Wish.any_instance.stubs(:publish => true)
-    end
-
     it "should create a wish for logged-in user" do
       @controller.stubs(:current_user => user)
       expect do

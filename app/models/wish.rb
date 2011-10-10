@@ -3,6 +3,7 @@ class Wish < ActiveRecord::Base
   has_friendly_id :name, :use_slug => true
 
   validates :name, :description, :user, :presence => true
+  validates :name, :uniqueness => true
 
   belongs_to :user
 
@@ -20,12 +21,6 @@ class Wish < ActiveRecord::Base
     votes.any?{|vote| vote.user == user}
   end
 
-  def publish(wish_url)
-    return true unless Rails.env.production?
-    url = Bitly.new.shorten(wish_url).short_url
-    Twitter.update(twitter_message(url))
-  end
-
   def twitter_message(url)
     "Neues Thema von @#{user.nickname} '#{name.truncate(50)}' #{url}"
   end
@@ -34,5 +29,4 @@ class Wish < ActiveRecord::Base
     Topic.create!(name: name, description: description, user: user, event: Event.last)
     update_attributes!(done: true)
   end
-
 end

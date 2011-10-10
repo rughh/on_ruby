@@ -42,10 +42,8 @@ class Event < ActiveRecord::Base
     end.to_ical
   end
 
-  def publish(event_url)
+  def publish_mailinglist(event_url)
     if Rails.env.production?
-      url = Bitly.new.shorten(event_url).short_url
-      Twitter.update(twitter_message(url))
       UsergroupMailer.invitation_mail(self).deliver!
     else
       logger.warn "publishing in test-modus with url #{event_url}"
