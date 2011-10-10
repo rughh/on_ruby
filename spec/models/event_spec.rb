@@ -9,7 +9,7 @@ describe Event do
   end
 
   it "should create a proper twitter-message" do
-    event.twitter_message('URL').should eql('Weihnachtstreffen am 06. Dezember, 11:47 Uhr - URL')
+    event.twitter_message('http://some.url').should eql('Weihnachtstreffen am 06. Dezember, 11:47 Uhr - http://some.url')
   end
 
   it "should find a current event" do

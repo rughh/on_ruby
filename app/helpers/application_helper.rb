@@ -51,4 +51,8 @@ module ApplicationHelper
       yield
     end
   end
+
+  def twitter_update_url(text)
+    "http://twitter.com/home?status=#{URI.encode(text)}"
+  end
 end

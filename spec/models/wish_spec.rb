@@ -5,11 +5,31 @@ describe Wish do
   let(:wish) { Factory(:wish) }
   let(:vote) { Factory.build(:vote, :wish => nil) }
 
+  context "validation" do
+    it "should be valid" do
+      wish.should be_valid
+    end
+
+    it "should validate uniqueness" do
+      Factory.build(:wish, name: wish.name).should have(1).errors_on(:name)
+    end
+
+    it "should validate presence" do
+      Wish.new.tap do |it|
+        it.should have(1).errors_on(:name)
+        it.should have(1).errors_on(:description)
+        it.should have(1).errors_on(:user)
+      end
+    end
+  end
+
   it "should generate a nice twitter message" do
-    message = Factory.build(:wish).twitter_message('http://bitly.url')
-    message.length.should be < 140
-    message.should match "Neues Thema von @uschi"
-    message.should match "'The xing mobile website: touch.xing.com' http://bitly.url"
+    Factory.build(:wish).twitter_message('http://some.url').tap do |it|
+      it.length.should be < 140
+      it.should match "Neues Thema von @uschi"
+      it.should match "'The xing mobile website: touch.xing.com"
+      it.should match "' http://some.url"
+    end
   end
 
   it "should create a topic from a wish" do
@@ -34,5 +54,4 @@ describe Wish do
       wish.already_voted?(vote.user).should be_true
     end
   end
-
 end
