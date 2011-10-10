@@ -12,10 +12,10 @@
     = auto_discovery_link_tag :rss, rss_events_path, title: "Event-Feed"
     = csrf_meta_tag
     = stylesheet_link_tag "application"
-    = javascript_include_tag "application", "http://maps.google.com/maps/api/js?sensor=true"
+    = javascript_include_tag "application", "https://maps.google.com/maps/api/js?sensor=true", "https://apis.google.com/js/plusone.js", "https://platform.twitter.com/widgets.js"
 
   %body
-    = link_to "http://github.com/phoet/hamburg_on_ruby" do
+    = link_to "https://github.com/phoet/hamburg_on_ruby" do
       = image_tag "https://a248.e.akamai.net/assets.github.com/img/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67", alt: "Fork me on GitHub", style: "position: absolute; top: 0; right: 0; border: 0; margin-top: 50px"
     .container
       %header#hor
