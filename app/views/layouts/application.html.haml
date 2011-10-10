@@ -34,7 +34,13 @@
             = link_to '/#hor' do
               %p.logo.ir HoR
       .main
-        = flash_growl
+        - if flash.present?
+          #fancy_growl
+            - uid = "fancy_flash"
+            .hidden= fancy_link_to 'not visisble', '#', uid
+            = fancy_box uid do
+              - flash.each do |key, value|
+                %h3{class: key}= value
         = yield
         = render 'shared/script'
     %footer
