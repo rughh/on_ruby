@@ -6,7 +6,6 @@ h2. Setup
 
 * install rvm
 * install rvm-version of .rvmrc
-* brew install coffee-script
 
 h3. GitHub-Authentication
 
