@@ -1,0 +1,9 @@
+%ul
+  %li
+    = link_to '/#hor' do
+      %p.logo.ir HoR
+  - [:events, :people, :locations, :wishes, :companies].each do |it|
+    %li= link_to t(it), "/##{it}"
+  %li
+    = link_to '/#hor' do
+      %p.logo.ir HoR
