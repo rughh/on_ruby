@@ -1,31 +1,7 @@
 %ul.imagelist.clearfix
   - users.each_with_index do |user, index|
-    - uid = "#{user.id}_#{rand(1000)}"
     - hack = index > 11
     %li
-      = fancy_block_to user, uid do
+      = fancy_block_to user do
         = image_tag hack ? 'logo.png' : user.image, size: '48x48', alt: user.name, 'data-src' => user.image
-      = fancy_box(uid, user) do
-        %h2
-          = user.name
-          = user.freelancer? ? '/ Freiberufler' : ''
-          = user.available? ? '/ Verfügbar' : ''
-        - unless user.location.blank?
-          %p
-            %strong Location:
-            = user.location
-        - unless user.description.blank?
-          %p
-            %strong Beschreibung:
-            = user.description
-        %p
-          %strong Twitter:
-          = link_to_twitter user
-        - unless user.github.blank?
-          %p
-            %strong Github:
-            link_to_github user
-        - unless user.url.blank?
-          %p
-            %strong Homepage:
-            = link_to user.url, user.url
+      

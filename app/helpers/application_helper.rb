@@ -29,15 +29,6 @@ module ApplicationHelper
     end
   end
 
-  def fancy_box(uid, target=nil)
-    content_tag :div, style: "display:none;" do
-      content_tag :div, id: uid, style: "width:560px;" do
-        yield
-        concat content_tag(:p, link_to('mehr...', target)) if target
-      end
-    end
-  end
-
   def section_box(name)
     content_tag :section, class: name, id: name do
       concat content_tag(:h2, t(name))
@@ -58,12 +49,12 @@ module ApplicationHelper
     end
   end
 
-  def fancy_link_to(text, url, uid)
-    link_to text, url, name: uid, class: 'fancy'
+  def fancy_link_to(text, url)
+    link_to text, url_for(url), class: 'fancy iframe'
   end
 
-  def fancy_block_to(url, uid, &block)
-    link_to url, {name: uid, class: 'fancy'}, &block
+  def fancy_block_to(url, &block)
+    link_to url_for(url), {class: 'fancy iframe'}, &block
   end
 
   def fork_me_ribbon

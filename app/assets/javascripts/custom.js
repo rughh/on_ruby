@@ -83,13 +83,10 @@ $(document).ready(function() {
   HOR.initializeMap();
   setTimeout(HOR.displayUsers, 500);
   $(window).load(HOR.animateNavi).scroll(HOR.animateNavi);
-  
+
   jQuery.each($("a.fancy"), function() {
-    $(this).attr("href", '#' + $(this).attr("name"));
+    $(this).attr("href", $(this).attr("href") + '?iframe=true');
   });
-  $("a.fancy").fancybox({
-    hideOnContentClick: true
-  });
-  
-  $("#fancy_growl a").trigger('click');
+  $("a.fancy").fancybox({width: 1000, height: 600});
+  setTimeout(function(){$(".flash").slideToggle()}, 3000);
 });

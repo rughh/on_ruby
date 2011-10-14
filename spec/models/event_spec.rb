@@ -29,8 +29,8 @@ describe Event do
 
     it "should create a german title and not change the timezone" do
       Event.duplicate!.tap do |it|
-        it.name.should eql('Ruby Usergroup Hamburg - Oktober 2011')
-        it.date.should eql(Time.new(2011, 10, 12, 19, 0, 0))
+        it.name.should match('Ruby Usergroup Hamburg')
+        it.date.hour.should eql(19)
       end
     end
   end

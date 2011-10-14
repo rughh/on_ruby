@@ -1,10 +1,28 @@
 = content_for(:page_title){user.name}
 %section
-  %h3
+  %ul.imagelist
+    %li= image_tag user.image, size: '48x48', alt: user.name, 'data-src' => user.image
+  %h3.clearfix
     = user.name
-    = link_to_twitter(user, clung: true)
-  %ul
-    = render 'home/users_list', users: [user]
+    = user.freelancer? ? '/ Freiberufler' : ''
+    = user.available? ? '/ Verfügbar' : ''
+    %p.meta= user.description
+  %p.info
+    %span
+      %strong Twitter:
+      = link_to_twitter user
+    - unless user.github.blank?
+      %span
+        %strong Github:
+        link_to_github user
+    - unless user.url.blank?
+      %span
+        %strong Homepage:
+        = link_to user.url, user.url
+    - unless user.location.blank?
+      %span
+        %strong Location:
+        = user.location
 
   - if user.participants.present?
     %h3 Teilgenommene Events
