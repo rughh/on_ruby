@@ -26,15 +26,6 @@
   %h3 Aktuelle Themen
   %ul.clearfix
     - wishes.each do |wish|
-      - uid = "stars_#{wish.id}"
       %li
         %span.stars= stars(wish)
-        = fancy_link_to wish.name, wish, uid
-        = fancy_box(uid, wish) do
-          %h2= wish.name
-          %p
-            %strong Beschreibung:
-            = wish.description
-          %p.meta= meta(wish)
-          - if wish.done?
-            %p.meta Thema wurde schon auf einem Treffen abgefrühstückt.
+        = fancy_link_to wish.name, wish
