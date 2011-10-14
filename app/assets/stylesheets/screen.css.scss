@@ -263,33 +263,12 @@ nav {
   }
 }
 
-
-#fancybox-content {
-  h2, h3 {
-    margin-bottom:1em;
-  }
-  h2 {
-    font:bold 1.4em hero,arial,verdana,sans-serif;
-  }
-  
-  h3 {
-    font:bold 1.2em hero,arial,verdana,sans-serif;
-  }
-  
-  p {
-    margin-bottom:1em;
-  }
-  
-  .meta {
-    font-size:smaller;
-  }
-}
-
 .main {
   padding:2em;
   padding-bottom:6em;
   margin:2em;
   margin-bottom:0;
+  height:100%;
 
   em {
     font-style:italic;
@@ -314,6 +293,18 @@ nav {
   
   li {
     list-style:none;
+  }
+  
+  .info {
+    span {
+      background-color:white;
+      padding:5px;
+      margin-right:5px;
+      margin-bottom:5px;
+      @include border-radius(5px);
+      border:1px solid #bbb;
+      display:inline-block;
+    }
   }
   
   section {

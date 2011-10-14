@@ -1,0 +1,6 @@
+- if flash.present?
+  .flash
+    %section
+      - flash.each do |key, value|
+        %strong{class: key}= value
+    %hr

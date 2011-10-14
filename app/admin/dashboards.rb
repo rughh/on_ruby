@@ -1,8 +1,6 @@
 ActiveAdmin::Dashboards.build do
   section "Event Stuff" do
-    ul do
-      li link_to 'Duplicate latest Event', duplicate_admin_events_path
-    end
+    div link_to 'Duplicate latest Event', duplicate_admin_events_path
     ul do
       Event.unpublished.collect do |event|
         item = event.name + ": " + link_to("tweet", twitter_helper.twitter_update_url(event.twitter_message(event_url(event)))) + " / " + link_to("publish", publish_admin_event_path(event))

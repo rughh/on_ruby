@@ -13,7 +13,7 @@ gem "icalendar",        "1.1.6"
 gem "ambience",         "1.0.0"
 gem "activeadmin",      "0.3.2"
 gem "thin",             "1.2.11"
-gem "foreman",          "0.19.0"
+gem "foreman",          "0.24.0"
 gem "decent_exposure",  "1.0.1"
 gem "geocoder",         "1.0.2"
 

@@ -4,11 +4,4 @@
   %br
   %ul.enumeration
     - locations.each do |location|
-      - uid = "location_#{location.id}"
-      %li
-        = fancy_link_to location.name, location.url, uid
-        = fancy_box(uid, location.url) do
-          %h2= location.name
-          %p
-            %strong Adresse:
-            = location.full_address
+      %li= fancy_link_to location.name, location.url
