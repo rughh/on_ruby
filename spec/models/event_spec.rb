@@ -20,7 +20,7 @@ describe Event do
 
   context "#duplicate!" do
     before do
-      Factory(:event, date: Time.new(2011, 9, 14, 19, 0, 0))
+      Factory(:event, date: Time.utc(2011, 9, 14, 19, 0, 0))
     end
 
     it "should duplicate the event" do
