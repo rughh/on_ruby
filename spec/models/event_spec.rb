@@ -26,13 +26,6 @@ describe Event do
     it "should duplicate the event" do
       expect { Event.duplicate! }.to change(Event, :count).by(1)
     end
-
-    it "should create a german title and not change the timezone" do
-      Event.duplicate!.tap do |it|
-        it.name.should match('Ruby Usergroup Hamburg')
-        it.date.hour.should eql(19)
-      end
-    end
   end
 
   it "should find latest events" do
