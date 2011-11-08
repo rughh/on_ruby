@@ -23,9 +23,19 @@
           = f.input :name
           = f.input :description
           = f.buttons
-  %h3 Aktuelle Themen
-  %ul.clearfix
-    - wishes.each do |wish|
-      %li
-        %span.stars= stars(wish)
-        = link_to wish.name, wish
+  - if wishes_undone.present?
+    #undone
+      %h3 Aktuelle Themen
+      %ul.undone.clearfix
+        - wishes_undone.each do |wish|
+          %li
+            %span.stars= stars(wish)
+            = link_to wish.name, wish
+  - if wishes_done.present?
+    #done
+      %h3 Vergangene Themen
+      %ul.clearfix
+        - wishes_done.each do |wish|
+          %li
+            %span.stars= stars(wish)
+            = link_to wish.name, wish

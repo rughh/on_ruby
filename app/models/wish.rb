@@ -9,8 +9,8 @@ class Wish < ActiveRecord::Base
 
   has_many :votes, :dependent => :destroy
 
-  scope :latest, limit(5).order('done, id DESC')
-  scope :undone, where(done: false)
+  scope :done,   where(done: true).order('id DESC')
+  scope :undone, where(done: false).order('id DESC')
 
   def stars
     return 0.0 if votes.empty?

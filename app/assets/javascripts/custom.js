@@ -73,6 +73,18 @@ var HOR = {
       opacity = 1;
     }
     $('.logo').css('opacity', opacity);
+  },
+  moreList: function(name) {
+    var elements = $(name + " ul li");
+    if(elements.size() > 5) {
+      elements.slice(5).hide();
+      $("<p class='more'>[<a href='#'>Alle anzeigen</a>]</p>").insertAfter(name + " ul");
+    }
+    $(name + ' .more a').click(function(event) {
+      event.preventDefault();
+      $(name + " ul li").filter(":hidden").show();
+      $(name + ' .more').hide();
+    });
   }
 };
 $(document).ready(function() {
@@ -81,6 +93,9 @@ $(document).ready(function() {
   });
   HOR.showHide();
   HOR.initializeMap();
+  HOR.moreList("#events");
+  HOR.moreList("#undone");
+  HOR.moreList("#done");
   setTimeout(HOR.displayUsers, 500);
   $(window).load(HOR.animateNavi).scroll(HOR.animateNavi);
   setTimeout(function(){$(".flash").slideToggle()}, 3000);
