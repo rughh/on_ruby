@@ -2,25 +2,23 @@ source :rubygems
 
 gem "rails",            "3.1.1"
 
-gem "rake",             "0.9.2"
-gem "rack",             "1.3.3"
-gem "jquery-rails",     "1.0.14"
-gem "fancybox-rails",   "0.1.4"
+gem "jquery-rails",     "1.0.16"
 gem "haml",             "3.1.3"
 gem "friendly_id",      "3.3.0.1"
-gem "omniauth",         "0.3.0"
+gem "omniauth",         "1.0.0"
+gem "omniauth-twitter", "0.0.6"
 gem "icalendar",        "1.1.6"
-gem "ambience",         "1.0.0"
-gem "activeadmin",      "0.3.2"
+gem "ambience",         "2.0.0"
+gem "activeadmin",      "0.3.3"
 gem "thin",             "1.2.11"
-gem "foreman",          "0.24.0"
+gem "foreman",          "0.25.0"
 gem "decent_exposure",  "1.0.1"
-gem "geocoder",         "1.0.2"
+gem "geocoder",         "1.0.5"
 
 group :assets do
   gem "compass",      "0.12.alpha.0"
   gem "sass-rails",   "3.1.4"
-  gem "uglifier",     "1.0.3"
+  gem "uglifier",     "1.0.4"
 end
 
 group :production do
@@ -35,11 +33,11 @@ group :development do
 end
 
 group :development, :test do
-  gem "pry"
-  gem "fuubar",       "0.0.3"
+  gem "pry",          "0.9.7.4"
+  gem "fuubar",       "0.0.6"
   gem "mocha",        "0.10.0"
   gem "sqlite3-ruby", "1.3.3", :require => "sqlite3"
-  gem "rspec-rails",  "2.6.1"
+  gem "rspec-rails",  "2.7.0"
   gem "capybara",     "1.1.1"
   gem "factory_girl", "2.1.2"
 end

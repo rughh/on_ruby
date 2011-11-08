@@ -2,7 +2,6 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery
-  layout :check_layout
 
   expose(:main_user) { User.main }
 
@@ -13,10 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   private()
-
-  def check_layout
-    params[:iframe].present? ? 'iframe' : 'application'
-  end
 
   def authenticate_admin_user!
     unless current_user.try(:admin?)
