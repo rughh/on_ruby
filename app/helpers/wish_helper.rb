@@ -5,20 +5,13 @@ module WishHelper
     5.times.map do |n|
       value = n + 1
       img = wish.stars >= value ? 'star.png' : 'star-empty.png'
-      if signed_in?
-        if wish.done?
-          image_tag img, alt: 'Thema ist schon abgefrühstückt!'
-        else
-          title = "mit #{value} Sternen bewerten"
-          link_to wish_votes_path(wish, Vote.new, 'vote[count]' => n + 1), {method: 'post', title: title} do
-            image_tag img, alt: title
-          end
-        end
-      else
-        title = 'Bitte anmelden!'
-        link_to '#', :confirm => title do
+      if signed_in? && !wish.done? && !wish.already_voted?(current_user)
+        title = "mit #{value} Sternen bewerten"
+        link_to wish_votes_path(wish, Vote.new, 'vote[count]' => n + 1), {method: 'post', title: title} do
           image_tag img, alt: title
         end
+      else
+        image_tag img
       end
     end.join.html_safe
   end
