@@ -30,12 +30,12 @@ class User < ActiveRecord::Base
   end
 
   def handle_attributes(hash)
-    self.nickname     = hash['user_info']['nickname']
-    self.name         = hash['user_info']['name']
-    self.location     = hash['user_info']['location']
-    self.image        = hash['user_info']['image']
-    self.description  = hash['user_info']['description']
-    self.url          = hash['user_info']['urls']['Website']
+    self.nickname     = hash['info']['nickname']
+    self.name         = hash['info']['name']
+    self.location     = hash['info']['location']
+    self.image        = hash['info']['image']
+    self.description  = hash['info']['description']
+    self.url          = hash['info']['urls']['Website']
   end
 
   class << self

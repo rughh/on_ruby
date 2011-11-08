@@ -1,7 +1,7 @@
 = section_box :events do
   %p
     - if current_event
-      = fancy_link_to 'Das nächste Treffen', current_event
+      = link_to 'Das nächste Treffen', current_event
       findet am
       %em= l(current_event.date)
       bei 
@@ -15,5 +15,5 @@
   %h3 Vergangene Treffen
   %ul.clearfix
     - events.each do |event|
-      %li= fancy_link_to "#{l(event.date, format: :date)} - #{event.name}", event
+      %li= link_to "#{l(event.date, format: :date)} - #{event.name}", event
 
