@@ -1,7 +1,6 @@
 %ul.imagelist.clearfix
   - users.each_with_index do |user, index|
-    - hack = index > 11
     %li
-      = fancy_block_to user do
-        = image_tag hack ? 'logo.png' : user.image, size: '48x48', alt: user.name, 'data-src' => user.image
+      = link_to user do
+        = image_tag 'logo.png', size: '48x48', alt: user.name, 'data-src' => user.image
       

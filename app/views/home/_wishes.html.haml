@@ -28,4 +28,4 @@
     - wishes.each do |wish|
       %li
         %span.stars= stars(wish)
-        = fancy_link_to wish.name, wish
+        = link_to wish.name, wish
