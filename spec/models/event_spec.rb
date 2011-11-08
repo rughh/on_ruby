@@ -30,7 +30,7 @@ describe Event do
 
   it "should find latest events" do
     10.times{|i| Factory(:event, :name => "Event #{i}", :date => (Time.now - i.weeks)) }
-    Event.latest.map(&:name).should == ["Event 1", "Event 2", "Event 3", "Event 4", "Event 5"]
+    Event.latest.map(&:name).should == ["Event 1", "Event 2", "Event 3", "Event 4", "Event 5", "Event 6", "Event 7", "Event 8", "Event 9"]
   end
 
   describe "#next_event_date" do

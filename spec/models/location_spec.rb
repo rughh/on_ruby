@@ -6,8 +6,8 @@ describe Location do
 
   context "finder" do
     it "should find distinct cometogethers" do
-      3.times.each { |n| Factory(:event, location: location) }
-      Location.cometogether.should have(1).things
+      5.times.each { |n| Factory(:event, location: location) }
+      Location.cometogether.all.should have(1).things
     end
   end
 end
