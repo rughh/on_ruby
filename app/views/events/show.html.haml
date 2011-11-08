@@ -43,8 +43,7 @@
             = button_to 'Ich möchte mich abmelden', event_participant_path(event, current_user.participation(event)), method: 'delete'
           - else
             = button_to 'Ich möchte mich anmelden', add_user_event_path(event)
-        - else
-          = button_to 'Ich möchte mich anmelden', auth_path
+
   %h2 Teilnehmer
   - if event.participants.present?
     = render = render 'home/users_list', users: event.participants.map(&:user)
