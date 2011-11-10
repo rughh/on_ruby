@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   attr_accessible :github, :name, :freelancer, :available
 
   scope :organizer, where(nickname: ['halfbyte', 'ralph', 'phoet', 'rubiii'])
+  scope :ordered, order('created_at DESC')
 
   def participates?(event)
     participants.any? { |participant| participant.event_id == event.id }
