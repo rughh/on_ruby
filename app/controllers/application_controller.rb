@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :signed_in?, :preview_events, :tweets, :random_users
 
+  before_filter :api_sign_in
+
   def check_login
     redirect_to(auth_path) unless signed_in?
   end
@@ -15,13 +17,13 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin_user!
     unless current_user.try(:admin?)
-      redirect_to(root_path, :alert => 'Hoppala, da dürfen nur Admins hin!') and return
+      redirect_to(root_path, alert: 'Hoppala, da dürfen nur Admins hin!') and return
     end
   end
 
   def authenticate_current_user!
     unless current_user and current_user == user
-      redirect_to(root_path, :alert => 'Hoppala, diese Seite ist nicht für dich bestimmt!') and return
+      redirect_to(root_path, alert: 'Hoppala, diese Seite ist nicht für dich bestimmt!') and return
     end
   end
 
@@ -36,6 +38,14 @@ class ApplicationController < ActionController::Base
   def current_user=(user)
     @current_user = user
     session[:user_id] = user.id
+  end
+
+  def api_sign_in
+    if request.format.json?
+      if request.headers["x-api-key"] != ENV["HOR_API_KEY"]
+        head :unauthorized
+      end
+    end
   end
 
 end

@@ -14,6 +14,7 @@ gem "thin",             "1.2.11"
 gem "foreman",          "0.25.0"
 gem "decent_exposure",  "1.0.1"
 gem "geocoder",         "1.0.5"
+gem "acts_as_api",      "0.3.11"
 
 group :assets do
   gem "compass",      "0.12.alpha.0"
