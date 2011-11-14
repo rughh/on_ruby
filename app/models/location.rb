@@ -1,5 +1,17 @@
 class Location < ActiveRecord::Base
 
+  acts_as_api
+
+  api_accessible :ios do |template|
+    template.add :id
+    template.add :name
+    template.add :url
+    template.add :city
+    template.add :street
+    template.add :house_number
+    template.add :zip
+  end
+
   geocoded_by :full_address, latitude: :lat, longitude: :long
   after_validation :geocode unless Rails.env.test? # TODO (ps) disable geocoder somehow
 

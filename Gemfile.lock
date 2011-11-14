@@ -38,6 +38,10 @@ GEM
       activesupport (= 3.1.1)
     activesupport (3.1.1)
       multi_json (~> 1.0)
+    acts_as_api (0.3.11)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      rack (>= 1.1.0)
     addressable (2.2.6)
     ambience (2.0.0)
       hashie (>= 0.2.0)
@@ -250,6 +254,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin (= 0.3.3)
+  acts_as_api (= 0.3.11)
   ambience (= 2.0.0)
   capybara (= 1.1.1)
   compass (= 0.12.alpha.0)
