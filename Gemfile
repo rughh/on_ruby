@@ -1,6 +1,6 @@
 source :rubygems
 
-gem "rails",            "3.1.1"
+gem "rails",            "3.1.2.rc2"
 
 gem "jquery-rails",     "1.0.16"
 gem "haml",             "3.1.3"
@@ -18,7 +18,7 @@ gem "acts_as_api",      "0.3.11"
 
 group :assets do
   gem "compass",      "0.12.alpha.0"
-  gem "sass-rails",   "3.1.4"
+  gem "sass-rails",   "3.1.5.rc.2"
   gem "uglifier",     "1.0.4"
 end
 
