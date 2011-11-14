@@ -1,5 +1,19 @@
 class Event < ActiveRecord::Base
 
+  acts_as_api
+
+  api_accessible :ios do |template|
+    template.add :id
+    template.add :name
+    template.add :description
+    template.add :date
+    template.add :location_id
+    template.add :user_id
+    template.add :participants
+    template.add :topics
+    template.add :materials
+  end
+
   has_friendly_id :name, :use_slug => true
 
   belongs_to :location

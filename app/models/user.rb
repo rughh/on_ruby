@@ -1,5 +1,18 @@
 class User < ActiveRecord::Base
 
+  acts_as_api
+
+  api_accessible :ios do |template|
+    template.add :id
+    template.add :nickname
+    template.add :name
+    template.add :image
+    template.add :url
+    template.add :github
+    template.add :freelancer
+    template.add :available
+  end
+
   has_friendly_id :nickname
 
   validates :nickname, :name, :image, presence: true

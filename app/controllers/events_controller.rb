@@ -4,7 +4,12 @@ class EventsController < ApplicationController
   expose(:events) { Event.order("date DESC").limit(10) }
   expose(:event)
 
-  def index; end
+  def index
+    respond_to do |format|
+      format.html
+      format.json { render_for_api :ios, :json => events }
+    end
+  end
 
   def rss
     render :layout => false
