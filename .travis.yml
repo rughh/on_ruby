@@ -1,4 +1,4 @@
 script: "bundle exec rake travis"
 bundler_args: "--without development production"
 rvm:
-  - 1.9.2
+  - 1.9.3
