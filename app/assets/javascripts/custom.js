@@ -72,7 +72,7 @@ var HOR = {
     } else if (opacity > 1) {
       opacity = 1;
     }
-    $('nav').css('opacity', opacity);
+    $('.logo').css('opacity', opacity);
   },
   moreList: function(name) {
     var elements = $(name + " ul li");
