@@ -35,5 +35,7 @@ HamburgOnRuby::Application.routes.draw do
 
   match '/sitemap.xml',   to: 'misc#sitemap',  format: :xml
 
+  match '/api',           to: 'api#index'
+
   root to: "home#index"
 end

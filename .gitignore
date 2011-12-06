@@ -18,3 +18,5 @@ specifications
 cache
 gems
 spec/reports/
+.vagrant
+Vagrantfile

@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
 
   acts_as_api
 
-  api_accessible :ios do |template|
+  api_accessible :ios_v1 do |template|
     template.add :id
     template.add :name
     template.add :description
@@ -31,6 +31,7 @@ class Event < ActiveRecord::Base
   scope :current, lambda{ where(:date => Date.today.to_time..(Time.now + 4.weeks)).limit(1) }
   scope :latest, where('date < ?', Time.now).order('date DESC')
   scope :unpublished, where(:published => false)
+  scope :ordered, order("date DESC")
 
   def end_date
     date + 2.hours

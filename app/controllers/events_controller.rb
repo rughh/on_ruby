@@ -1,15 +1,8 @@
 # encoding: utf-8
 class EventsController < ApplicationController
 
-  expose(:events) { Event.order("date DESC").limit(10) }
+  expose(:events) { Event.ordered }
   expose(:event)
-
-  def index
-    respond_to do |format|
-      format.html
-      format.json { render_for_api :ios, :json => events }
-    end
-  end
 
   def rss
     render :layout => false
