@@ -2,13 +2,7 @@ class WishesController < ApplicationController
 
   before_filter :check_login, :only => :create
 
-  expose(:wishes) { Wish.order('CREATED_AT DESC') }
   expose(:wish)
-
-  def index
-    # workaround for bad linking in tweets
-    redirect_to wishes.first
-  end
 
   def show; end
 

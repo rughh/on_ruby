@@ -1,5 +1,15 @@
 class Wish < ActiveRecord::Base
 
+  acts_as_api
+
+  api_accessible :ios_v1 do |template|
+    template.add :id
+    template.add :name
+    template.add :done
+    template.add :stars
+    template.add :user_id
+  end
+
   has_friendly_id :name, :use_slug => true
 
   validates :name, :description, :user, :presence => true
@@ -9,8 +19,9 @@ class Wish < ActiveRecord::Base
 
   has_many :votes, :dependent => :destroy
 
-  scope :done,   where(done: true).order('id DESC')
-  scope :undone, where(done: false).order('id DESC')
+  scope :done,    where(done: true).order('id DESC')
+  scope :undone,  where(done: false).order('id DESC')
+  scope :ordered, order('created_at DESC')
 
   def stars
     return 0.0 if votes.empty?

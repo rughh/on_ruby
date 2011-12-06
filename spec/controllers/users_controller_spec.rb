@@ -6,27 +6,6 @@ describe UsersController do
   let(:data) { {id: user.id, user: { github: 'testo', freelancer: true, available: true }} }
   let(:unallowed_data) { data.merge({:user => {:nickname => 'not_allowed_property'}}) }
 
-  describe "GET :index" do
-
-    before do
-      Factory(:user)
-      request.env['x-api-key'] = ''
-    end
-
-    it "should redirect and have status not_authorized" do
-      get :index, format: :json
-      response.status.should eql(401)
-      response.body.should eql(' ')
-    end
-
-    it "should render json with valid api-key" do
-      request.env['x-api-key'] = ENV["HOR_API_KEY"] = 'bla'
-      get :index, format: :json
-      response.status.should eql(200)
-      JSON.parse(response.body)["users"].should have(1).elements
-    end
-  end
-
   describe "GET :edit" do
     it "should show alert for wrong user" do
       get :edit, id: user.id

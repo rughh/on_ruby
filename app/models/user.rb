@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   acts_as_api
 
-  api_accessible :ios do |template|
+  api_accessible :ios_v1 do |template|
     template.add :id
     template.add :nickname
     template.add :name
