@@ -1,5 +1,6 @@
 @import "compass";
 @import "compass/css3/border-radius";
+@import "compass/utilities/text/replacement";
 
 @font-face { font-family:hero; src:url("/assets/hero_light.otf") format("opentype"); }
 @font-face { font-family:hero; font-weight:bold; src:url("/assets/hero.otf") format("opentype"); }
@@ -293,6 +294,16 @@ nav {
   
   li {
     list-style:none;
+  }
+  
+  .close_flash {
+    @include replace-text('/assets/close.png', 28, 28);
+    float:right;
+    height:28px;
+    width:28px;
+    position:relative;
+    top:-40px;
+    right:-40px;
   }
   
   .info {
