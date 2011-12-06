@@ -98,5 +98,8 @@ $(document).ready(function() {
   HOR.moreList("#done");
   setTimeout(HOR.displayUsers, 500);
   $(window).load(HOR.animateNavi).scroll(HOR.animateNavi);
-  setTimeout(function(){$(".flash").slideToggle()}, 3000);
+  $(".close_flash").click(function(event) {
+    event.preventDefault();
+    $(".flash").fadeOut();
+  });
 });

@@ -1,6 +1,7 @@
 - if flash.present?
   .flash
     %section
+      .close_flash= link_to 'Schliessen', '#'
       - flash.each do |key, value|
         %strong{class: key}= value
     %hr
