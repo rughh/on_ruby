@@ -3,7 +3,7 @@ source :rubygems
 gem "rails",            "3.1.3"
 
 gem "jquery-rails",     "1.0.19"
-gem "haml",             "3.1.3"
+gem "haml",             "3.1.4"
 gem "friendly_id",      "3.3.0.1"
 gem "omniauth",         "1.0.1"
 gem "omniauth-twitter", "0.0.7"
@@ -11,9 +11,9 @@ gem "icalendar",        "1.1.6"
 gem "ambience",         "2.0.0"
 gem "activeadmin",      "0.3.4"
 gem "thin",             "1.3.1"
-gem "foreman",          "0.26.1"
+gem "foreman",          "0.27.0"
 gem "decent_exposure",  "1.0.1"
-gem "geocoder",         "1.0.5"
+gem "geocoder",         "1.1.0"
 gem "acts_as_api",      "0.3.11"
 
 group :assets do
