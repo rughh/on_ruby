@@ -1,16 +1,9 @@
 class UsersController < ApplicationController
 
-  expose(:users) { User.order(:name) }
+  expose(:users) { User.ordered }
   expose(:user)
 
   before_filter :authenticate_current_user!, :only => [:edit, :update]
-
-  def index
-    respond_to do |format|
-      format.json { render_for_api :ios, :json => users }
-      format.xml { render :text => 'bla' }
-    end
-  end
 
   def show; end
 

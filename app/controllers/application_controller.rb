@@ -7,8 +7,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :signed_in?, :preview_events, :tweets, :random_users
 
-  before_filter :api_sign_in
-
   def check_login
     redirect_to(auth_path) unless signed_in?
   end
@@ -39,13 +37,4 @@ class ApplicationController < ActionController::Base
     @current_user = user
     session[:user_id] = user.id
   end
-
-  def api_sign_in
-    if request.format.json?
-      if request.headers["x-api-key"] != ENV["HOR_API_KEY"]
-        head :unauthorized
-      end
-    end
-  end
-
 end
