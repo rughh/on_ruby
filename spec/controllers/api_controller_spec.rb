@@ -16,7 +16,7 @@ describe ApiController do
       request.env['x-api-key'] = ENV["HOR_API_KEY"] = 'bla'
       get :index, format: :json
       response.status.should eql(200)
-      JSON.parse(response.body).should eql({"wishes"=>[], "locations"=>[], "events"=>[], "users"=>[]})
+      JSON.parse(response.body).keys.should eql(["wishes", "locations", "events", "users"])
     end
   end
 end
