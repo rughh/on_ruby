@@ -38,6 +38,10 @@ class User < ActiveRecord::Base
     participants.find(:first, :conditions => [ "event_id = ?", event.id])
   end
 
+  def salt
+    authorizations.first.uid
+  end
+
   def update_from_auth!(hash)
     handle_attributes(hash)
     save!
@@ -65,6 +69,11 @@ class User < ActiveRecord::Base
       create do |user|
         user.handle_attributes(hash)
       end
+    end
+
+    def authenticated_with_token(id, stored_salt)
+      u = find_by_id(id)
+      u && u.salt == stored_salt ? u : nil
     end
   end
 

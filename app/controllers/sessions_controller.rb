@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-
   def offline_login
     self.current_user = User.find_by_nickname(params[:nickname])
     redirect_to root_path, :notice => "Offline Login!"
@@ -13,6 +12,7 @@ class SessionsController < ApplicationController
     end
     @auth.user.update_from_auth! auth
     self.current_user = @auth.user
+    cookies.permanent.signed[:remember_me] = [@auth.user.id, @auth.user.salt]
     redirect_to request.env['omniauth.origin'] || root_path, :notice => "Hi #{current_user.name}, du bist erfolgreich eingeloggt!"
   end
 
@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    cookies.permanent.signed[:remember_me] = ['', '']
     redirect_to root_path, :notice => 'Du bist erfolgreich ausgeloggt!'
   end
 
