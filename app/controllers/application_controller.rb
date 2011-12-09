@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     redirect_to(auth_path) unless signed_in?
   end
 
-  private()
+  protected()
 
   def authenticate_admin_user!
     unless current_user.try(:admin?)
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find_by_id session[:user_id]
+    @current_user ||= find_by_session_or_cookie
   end
 
   def signed_in?
@@ -37,4 +37,9 @@ class ApplicationController < ActionController::Base
     @current_user = user
     session[:user_id] = user.id
   end
+
+  def find_by_session_or_cookie
+    User.find_by_id session[:user_id] || User.authenticated_with_token(*(cookies.signed[:remember_me] || ['', '']))
+  end
+
 end
