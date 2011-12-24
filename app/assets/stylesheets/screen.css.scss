@@ -178,11 +178,11 @@ a:hover { color: #666; }
  */
 
 html {
-  background:url(/assets/bg/whitey.png) left top repeat;
+  background:url(/assets/whitey.png) left top repeat;
 }
 
 .container {
-  background:url(/assets/bg/black-Linen.png) left top repeat;
+  background:url(/assets/black-Linen.png) left top repeat;
 }
 
 header {
@@ -206,7 +206,7 @@ header {
   }
   
   #login {
-    background:url(/assets/bg/whitey.png) left top repeat;
+    background:url(/assets/whitey.png) left top repeat;
     border:1px solid white;
     @include border-radius(0.5em, 0.5em);
     padding:1em;
@@ -229,7 +229,7 @@ header {
 }
 
 nav {
-  background:url(/assets/bg/whitey.png) left top repeat;
+  background:url(/assets/whitey.png) left top repeat;
   text-align:center;
   position:fixed;
   top:0;
@@ -324,7 +324,7 @@ nav {
     display:block;
     margin:0 auto;
     width:56em;
-    background:url(/assets/bg/whitey.png) left top repeat;
+    background:url(/assets/whitey.png) left top repeat;
     border:1px solid white;
     @include border-radius(0.5em, 0.5em);
     
