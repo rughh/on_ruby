@@ -38,6 +38,6 @@ group :development, :test do
   gem "fuubar",       "0.0.6"
   gem "mocha",        "0.10.0"
   gem "sqlite3-ruby", "1.3.3", :require => "sqlite3"
-  gem "rspec-rails",  "2.7.0"
+  gem "rspec-rails",  "2.8.0"
   gem "factory_girl", "2.3.2"
 end
