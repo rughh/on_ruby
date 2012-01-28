@@ -1,5 +1,8 @@
 class Wish < ActiveRecord::Base
 
+  extend FriendlyId
+  friendly_id :name, :use => :slugged
+
   acts_as_api
 
   api_accessible :ios_v1 do |template|
@@ -9,8 +12,6 @@ class Wish < ActiveRecord::Base
     template.add :stars
     template.add :user_id
   end
-
-  has_friendly_id :name, :use_slug => true
 
   validates :name, :description, :user, :presence => true
   validates :name, :uniqueness => true

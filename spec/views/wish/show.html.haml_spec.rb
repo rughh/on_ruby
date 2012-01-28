@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "wishes/show.html.haml" do
+describe "wishes/show" do
 
   let(:wish) { Factory.build(:wish) }
 

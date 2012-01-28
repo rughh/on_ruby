@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "home/index.html.haml" do
+describe "home/index" do
 
   let(:event)     { Factory.build(:event) }
   let(:user)      { Factory.build(:user) }

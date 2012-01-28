@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "misc/sitemap.xml.builder" do
+describe "misc/sitemap" do
 
   let(:urls) { ['url1', 'url2'] }
 

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "locations/company.html.haml" do
+describe "locations/company" do
 
   let(:companies) { [Factory.build(:location, company: true)] }
   let(:user) { Factory.build(:user) }

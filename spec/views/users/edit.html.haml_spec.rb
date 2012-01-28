@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "users/edit.html.haml" do
+describe "users/edit" do
 
   let(:user) { Factory.build(:user) }
 
