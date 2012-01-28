@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "events/show.html.haml" do
+describe "events/show" do
 
   let(:user)  { Factory.build(:user) }
   let(:event) { Factory(:event) }

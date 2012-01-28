@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "events/rss.xml.builder" do
+describe "events/rss" do
 
   let(:events) { 3.times.map { Factory(:event) } }
 

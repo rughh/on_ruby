@@ -1,5 +1,8 @@
 class Event < ActiveRecord::Base
 
+  extend FriendlyId
+  friendly_id :name, :use => :slugged
+
   acts_as_api
 
   api_accessible :ios_v1 do |template|
@@ -13,8 +16,6 @@ class Event < ActiveRecord::Base
     template.add :topics
     template.add :materials
   end
-
-  has_friendly_id :name, :use_slug => true
 
   belongs_to :location
   belongs_to :user

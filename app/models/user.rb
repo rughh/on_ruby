@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  extend FriendlyId
+  friendly_id :nickname, :use => :slugged
+
   acts_as_api
 
   api_accessible :ios_v1 do |template|
@@ -12,8 +15,6 @@ class User < ActiveRecord::Base
     template.add :freelancer
     template.add :available
   end
-
-  has_friendly_id :nickname
 
   validates :nickname, :name, :image, presence: true
   validates :github, format: {with: /^\w+$/, allow_nil: true, allow_blank: true}
