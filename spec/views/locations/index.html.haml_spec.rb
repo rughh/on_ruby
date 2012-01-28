@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "locations/index.html.haml" do
+describe "locations/index" do
 
   let(:locations) { [Factory.build(:location)] }
 
