@@ -28,7 +28,7 @@ if User.all.empty?
   auth_hash = {
     "provider"=>"twitter",
     "uid"=>"14339524",
-    "user_info"=>{
+    "info"=>{
       "nickname"=>"phoet",
       "name"=>"Peter Schröder",
       "location"=>"Sternschanze, Hamburg",
