@@ -35,7 +35,8 @@ group :development do
 end
 
 group :development, :test do
-  gem "pry",          "0.9.8"
+  gem "pry",          "0.9.8.1"
+  gem "pry-remote",   "0.1.0"
   gem "fuubar",       "0.0.6"
   gem "mocha",        "0.10.0"
   gem "sqlite3-ruby", "1.3.3", :require => "sqlite3"
