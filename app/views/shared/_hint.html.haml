@@ -1,0 +1,14 @@
+- if flash.present?
+  = hint do
+    - flash.each do |key, value|
+      %strong{class: key}= value
+- elsif jobs.present?
+  #jobs
+    = hint do
+      .reload= link_to 'Anderer Job', '#'
+      - jobs.each do |job|
+        .jobs
+          Ruby Jobs in Hamburg:
+          %strong= link_to job.name, job.url
+          bei
+          = link_to job.location.name, job.location.url

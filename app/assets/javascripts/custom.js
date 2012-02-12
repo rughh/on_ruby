@@ -7,14 +7,17 @@ var HOR = {
     });
   },
   displayUsers: function() {
-    jQuery.each($('.imagelist img'), function() {
-      var lazy = this;
-      var src = $(lazy).attr('src');
-      var dataSrc = $(lazy).attr('data-src');
-      if (src !== dataSrc) {
-        $(lazy).attr('src', dataSrc);
-      }
-    });
+    func = function() {
+      jQuery.each($('.imagelist img'), function() {
+        var lazy = this;
+        var src = $(lazy).attr('src');
+        var dataSrc = $(lazy).attr('data-src');
+        if (src !== dataSrc) {
+          $(lazy).attr('src', dataSrc);
+        }
+      });
+    };
+    setTimeout(func, 500);
   },
   initializeMap: function() {
     jQuery.each($(".map_canvas"), function() {
@@ -50,29 +53,53 @@ var HOR = {
     });
   },
   hitCounter: 0,
-  scrollPage: function(hash, event) {
-    var $target = $(hash);
-    if ($target.length) {
-      event.preventDefault();
-      var top = $target.offset().top - 80;
-      $('html, body').animate({
-        scrollTop: top
-      }, 1200);
-      if (window.history && window.history.pushState) {
-        var new_url = /\#/.test(location.href) ? location.href.replace(/\#.+/, hash) : "" + location.href + hash;
-        window.history.pushState({ count: HOR.historyCounter }, "page-" + HOR.historyCounter, new_url);
+  scrollPage: function() {
+    $('a[href*="#"]').click(function(event) {
+      var $target = $(this.hash);
+      if ($target.length) {
+        event.preventDefault();
+        var top = $target.offset().top - 80;
+        $('html, body').animate({
+          scrollTop: top
+        }, 1200);
+        if (window.history && window.history.pushState) {
+          var new_url = /\#/.test(location.href) ? location.href.replace(/\#.+/, this.hash) : "" + location.href + this.hash;
+          window.history.pushState({ count: HOR.historyCounter }, "page-" + HOR.historyCounter, new_url);
+        }
       }
-    }
+    });
   },
   animateNavi: function() {
-    var scrollY = $(document).scrollTop();
-    var opacity = (scrollY - $('#logo').offset().top) * 0.005;
-    if (opacity < 0) {
-      opacity = 0;
-    } else if (opacity > 1) {
-      opacity = 1;
-    }
-    $('.logo').css('opacity', opacity);
+    var func = function() {
+      var scrollY = $(document).scrollTop();
+      var opacity = (scrollY - $('#logo').offset().top) * 0.005;
+      if (opacity < 0) {
+        opacity = 0;
+      } else if (opacity > 1) {
+        opacity = 1;
+      }
+      $('.logo').css('opacity', opacity);
+    };
+    $(window).load(func).scroll(func);
+  },
+  close: function() {
+    $(".close").click(function(event) {
+      event.preventDefault();
+      $(this).parent().fadeOut();
+    });
+  },
+  reload: function() {
+    $(".jobs").filter(":gt(0)").hide();
+    $('.reload').click(function(event) {
+      event.preventDefault();
+      var first = $(".jobs").filter(":visible");
+      first.hide();
+      if(first.next().length > 0) {
+        first.next().show();
+      } else {
+        $(".jobs").filter(":hidden :first").show();
+      }
+    });
   },
   moreList: function(name) {
     var elements = $(name + " ul li");
@@ -88,18 +115,15 @@ var HOR = {
   }
 };
 $(document).ready(function() {
-  $('a[href*="#"]').click(function(event) {
-    HOR.scrollPage(this.hash, event);
-  });
+  HOR.scrollPage();
   HOR.showHide();
+  HOR.reload();
+  HOR.close();
   HOR.initializeMap();
   HOR.moreList("#events");
+  HOR.moreList("#jobs");
   HOR.moreList("#undone");
   HOR.moreList("#done");
-  setTimeout(HOR.displayUsers, 500);
-  $(window).load(HOR.animateNavi).scroll(HOR.animateNavi);
-  $(".close_flash").click(function(event) {
-    event.preventDefault();
-    $(".flash").fadeOut();
-  });
+  HOR.displayUsers();
+  HOR.animateNavi();
 });
