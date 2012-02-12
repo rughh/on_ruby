@@ -114,7 +114,7 @@ pre {
 
 textarea { overflow: auto; } /* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
 
-.ie6 legend, .ie7 legend { margin-left: -7px; } 
+.ie6 legend, .ie7 legend { margin-left: -7px; }
 
 /* Align checkboxes, radios, text inputs with their label by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
 input[type="radio"] { vertical-align: text-bottom; }
@@ -186,9 +186,10 @@ html {
 }
 
 header {
-  padding:10em 1em 2em 1em;
+  padding:7em 1em 0em 1em;
   display:block;
   margin:0 auto;
+  margin-bottom:3em;
   width:60em;
   color:white;
 
@@ -204,7 +205,7 @@ header {
   h2 {
     font:bold 1.5em hero,arial,verdana,sans-serif;
   }
-  
+
   #login {
     background:url(/assets/whitey.png) left top repeat;
     border:1px solid white;
@@ -235,11 +236,10 @@ nav {
   top:0;
   width:100%;
   z-index:10;
-  font:bold 1.4em hero,arial,verdana,sans-serif;
+  font:bold 1.5em hero,arial,verdana,sans-serif;
   border-bottom: 1px solid white;
-  padding:0.5em;
-  padding-top:0.7em;
-  
+  padding:0.5em 0em 0.2em 0em;
+
   ul {
     border:0 none;
     display:inline-block;
@@ -247,10 +247,11 @@ nav {
     overflow:hidden;
   }
   li {
-    margin-left:2em;
-    padding-top:1px;
+    margin-left:1em;
+    margin-right:1em;
+    padding-top:2px;
     float:left;
-    
+
     a, a:hover, a:active, a:visited {
       text-decoration:none;
       color:black;
@@ -265,20 +266,26 @@ nav {
 }
 
 .main {
-  padding:2em;
-  padding-bottom:6em;
-  margin:2em;
-  margin-bottom:0;
+  padding:0em 2em 2em 2em;
+  margin:0em;
   height:100%;
+
+  .hint {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top:0em;
+    margin-bottom:3em;
+  }
 
   em {
     font-style:italic;
     font-weight:bolder;
   }
-  
+
   h2, h3 {
     margin-bottom:1.2em;
   }
+
   h3 {
     margin-top:1.2em;
   }
@@ -291,21 +298,29 @@ nav {
   p {
     margin-bottom:1.2em;
   }
-  
+
   li {
     list-style:none;
   }
-  
-  .close_flash {
+
+  .reload {
+    @include replace-text('/assets/reload.png', 16, 16);
+    float:left;
+    height:16px;
+    width:16px;
+    position:relative;
+    padding-right:1em;
+  }
+  .close {
     @include replace-text('/assets/close.png', 28, 28);
     float:right;
     height:28px;
     width:28px;
     position:relative;
-    top:-40px;
-    right:-40px;
+    top:-2em;
+    right:-3em;
   }
-  
+
   .info {
     span {
       background-color:white;
@@ -317,25 +332,26 @@ nav {
       display:inline-block;
     }
   }
-  
+
   section {
     padding:2em;
-    margin-bottom:2em;
     display:block;
     margin:0 auto;
+    margin-top:0em;
+    margin-bottom:3em;
     width:56em;
     background:url(/assets/whitey.png) left top repeat;
     border:1px solid white;
     @include border-radius(0.5em, 0.5em);
-    
+
     h2 {
       font:bold 1.4em hero,arial,verdana,sans-serif;
     }
-    
+
     h3 {
       font:bold 1.2em hero,arial,verdana,sans-serif;
     }
-    
+
     ul {
       margin:0em;
     }
@@ -344,7 +360,7 @@ nav {
       margin-bottom:1.2em;
     }
   }
-  
+
   ul.imagelist {
     list-style:none;
     li {
@@ -356,14 +372,14 @@ nav {
       }
     }
   }
-  
+
   .map_canvas {
     margin:0 auto;
     height:40em;
     border:1px solid white;
     @include border-radius(0.5em, 0.5em);
   }
-  
+
   .stars {
     float:left;
     position:relative;
@@ -373,22 +389,22 @@ nav {
       padding-left:0.2em;
     }
   }
-  
+
   .wish-link {
     padding-top:0.2em;
   }
-  
+
   .meta {
     font-size:smaller;
     font-style:italic;
     padding-top:0.2em;
   }
-  
+
   .likes {
     float:right;
     margin-top: -5px;
   }
-  
+
   .pagination {
     padding-bottom:2em;
     a, em, span {
@@ -402,17 +418,17 @@ nav {
       @include border-radius(0.5em, 0.5em);
     }
   }
-  
+
   .topbutton {
     float:right;
     font-weight:bold;
     text-decoration:none;
     padding-right:2em;
   }
-  
+
   .enumeration {
     reset-counter:enumeration;
-    
+
     li {
       counter-increment:enumeration;
       &:before {
@@ -425,13 +441,13 @@ nav {
     ol {
       margin:0em;
     }
-    
+
     li {
       list-style:none;
       margin:0em;
       margin-bottom:1em;
     }
-    
+
     fieldset {
       li {
         float:left;
@@ -442,7 +458,7 @@ nav {
         margin:0em;
       }
     }
-    
+
     input[type=text] {
       width:40em;
     }
@@ -455,15 +471,14 @@ nav {
       width:40em;
       height:10em;
     }
-    
-    
+
     label {
       display:block;
       font-weight:bold;
       margin-bottom:1em;
     }
   }
-  
+
   dt {
     clear:left;
     padding-right:1em;
@@ -472,7 +487,7 @@ nav {
   dt, dd {
     float:left;
   }
-  
+
   dt {
     font-weight:bold;
   }
@@ -482,7 +497,7 @@ footer {
   padding:0;
   margin:0;
   border-top:1px solid white;
-  
+
   hr {
     margin:0 auto;
     height:3px;
@@ -490,7 +505,7 @@ footer {
     border-top:1px solid #ccc;
     border-bottom:1px solid #ccc;
   }
-  
+
   section {
     margin:0 auto;
     margin-bottom:2em;
@@ -501,22 +516,22 @@ footer {
       font:bold 1.4em hero,arial,verdana,sans-serif;
       padding-bottom:1em;
     }
-    
+
     .block {
       float:left;
       margin:3em 0em 1em 8em;
-      
+
       ul {
         padding:0;
         margin:0;
         list-style:none;
       }
-      
+
       li {
         padding-bottom:1em;
       }
     }
-    
+
     #usergroups {
       ol {
         list-style:lower-greek;
