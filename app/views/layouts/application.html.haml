@@ -2,13 +2,13 @@
 %html
   %head
     %title= "#{title} - #{content_for?(:page_title) ? yield(:page_title) : subtitle}"
-    
+
     %meta{charset: "utf-8"}
     %meta{name: "description", content: "#{title} - #{subtitle}"}
     %meta{name: "author", content: "Peter Schröder"}
-    
+
     %link{rel: 'shortcut icon', href: image_path('logo_icon.png')}
-    
+
     = auto_discovery_link_tag :rss, rss_events_path, title: "Event-Feed"
     = csrf_meta_tag
     = stylesheet_link_tag "application"
@@ -25,7 +25,7 @@
       %nav#nav
         = render 'shared/nav'
       .main
-        = render 'shared/flash_message'
+        = render 'shared/hint'
         = yield
         = render 'shared/script'
     %footer

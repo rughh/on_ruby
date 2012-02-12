@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   expose(:main_user) { User.main }
+  expose(:jobs) { Job.all.shuffle }
 
   helper_method :current_user, :signed_in?, :preview_events, :tweets, :random_users
 
