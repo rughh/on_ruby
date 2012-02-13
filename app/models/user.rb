@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   has_many :wishes
   has_many :events
 
-  attr_accessible :github, :name, :freelancer, :available
+  attr_accessible :github, :name, :freelancer, :available, :hide_jobs
 
   scope :organizer, where(nickname: ['halfbyte', 'ralph', 'phoet', 'rubiii'])
   scope :ordered, order('created_at DESC')
