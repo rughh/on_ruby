@@ -12,6 +12,8 @@ de:
           description: 'Genauere Beschreibung'
       vote:
         count: 'Sterne'
+      user:
+        hide_jobs: 'Jobs ausblenden'
     placeholders:
       github: 'GitHub-Username'
     actions:
