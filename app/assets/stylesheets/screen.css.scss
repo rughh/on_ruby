@@ -310,6 +310,7 @@ nav {
     width:16px;
     position:relative;
     padding-right:1em;
+    cursor:pointer;
   }
   .close {
     @include replace-text('/assets/close.png', 28, 28);
@@ -319,6 +320,12 @@ nav {
     position:relative;
     top:-2em;
     right:-3em;
+    cursor:pointer;
+  }
+  .more {
+    background:url(/assets/more.png) 6px top no-repeat;
+    padding-left:30px;
+    font-style:italic;
   }
 
   .info {

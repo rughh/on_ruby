@@ -2,7 +2,6 @@
 # by Clemens Kofler (clemens@railway.at)
 
 de:
-
   formtastic:
     labels:
       wish:
@@ -14,6 +13,7 @@ de:
         count: 'Sterne'
       user:
         hide_jobs: 'Jobs ausblenden'
+        available: 'auf Job-/Projektsuche'
     placeholders:
       github: 'GitHub-Username'
     actions:
