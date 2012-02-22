@@ -88,7 +88,9 @@ var HOR = {
     });
   },
   reload: function() {
-    $(".jobs").filter(":gt(0)").hide();
+    if($(".jobs").filter(":visible").size() === 0) {
+      $(".jobs").filter(":hidden :first").show();
+    }
     $('.reload').click(function(event) {
       event.preventDefault();
       var first = $(".jobs").filter(":visible");
