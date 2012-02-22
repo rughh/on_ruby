@@ -9,11 +9,10 @@ var HOR = {
   displayUsers: function() {
     func = function() {
       jQuery.each($('.imagelist img'), function() {
-        var lazy = this;
-        var src = $(lazy).attr('src');
-        var dataSrc = $(lazy).attr('data-src');
+        var src = $(this).attr('src');
+        var dataSrc = $(this).attr('data-src');
         if (src !== dataSrc) {
-          $(lazy).attr('src', dataSrc);
+          $(this).attr('src', dataSrc);
         }
       });
     };
@@ -105,7 +104,7 @@ var HOR = {
     var elements = $(name + " ul li");
     if(elements.size() > 5) {
       elements.slice(5).hide();
-      $("<p class='more'>[<a href='#'>Alle anzeigen</a>]</p>").insertAfter(name + " ul");
+      $("<p class='more'><a href='#'>mehr anzeigen</a></p>").insertAfter(name + " ul");
     }
     $(name + ' .more a').click(function(event) {
       event.preventDefault();
@@ -114,16 +113,17 @@ var HOR = {
     });
   }
 };
+
 $(document).ready(function() {
-  HOR.scrollPage();
-  HOR.showHide();
   HOR.reload();
   HOR.close();
-  HOR.initializeMap();
+  HOR.showHide();
+  HOR.scrollPage();
+  HOR.animateNavi();
   HOR.moreList("#events");
   HOR.moreList("#jobs");
   HOR.moreList("#undone");
   HOR.moreList("#done");
+  HOR.initializeMap();
   HOR.displayUsers();
-  HOR.animateNavi();
 });
