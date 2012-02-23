@@ -15,10 +15,6 @@ describe UsersController do
   end
 
   describe "PUT :update" do
-    before do
-      request.env["HTTP_REFERER"] = root_url
-    end
-
     it "should update the github attribute of a user" do
       @controller.stubs(current_user: user)
       put :update, data
