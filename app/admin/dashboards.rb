@@ -17,6 +17,14 @@ ActiveAdmin::Dashboards.build do
       end
     end
   end
+
+  section "Highlights" do
+    ul do
+      Highlight.active.collect do |highlight|
+        li link_to "Disable lsdfjsadljfsadljsdljkfjsdflkj '#{highlight.description}'", disable_admin_highlight_path(highlight)
+      end
+    end
+  end
 end
 
 def twitter_helper

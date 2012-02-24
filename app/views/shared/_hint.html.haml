@@ -2,10 +2,16 @@
   = hint do
     - flash.each do |key, value|
       %strong{class: key}= value
+- elsif highlights.present?
+  = hint(false) do
+    - highlights.each do |highlight|
+      .highlights
+        %strong Achtung:
+        = link_to highlight.description, highlight.url
 - elsif jobs.present?
   - unless current_user && current_user.hide_jobs?
     #jobs
-      = hint do
+      = hint(false) do
         .reload= link_to 'Anderer Job', '#'
         - jobs.each do |job|
           .jobs

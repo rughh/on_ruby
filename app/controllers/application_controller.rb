@@ -3,8 +3,9 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  expose(:main_user) { User.main }
-  expose(:jobs) { Job.all.shuffle }
+  expose(:main_user)  { User.main }
+  expose(:jobs)       { Job.all.shuffle }
+  expose(:highlights) { Highlight.active }
 
   helper_method :current_user, :signed_in?, :preview_events, :tweets, :random_users
 
@@ -12,7 +13,7 @@ class ApplicationController < ActionController::Base
     redirect_to(auth_path) unless signed_in?
   end
 
-  protected()
+  protected
 
   def authenticate_admin_user!
     unless current_user.try(:admin?)

@@ -57,9 +57,9 @@ module ApplicationHelper
     end
   end
 
-  def hint
+  def hint(close=true)
     content_tag(:section, class: :hint) do
-      concat content_tag(:div, link_to('Schliessen', '#'), class: :close)
+      concat content_tag(:div, link_to('Schliessen', '#'), class: :close) if close
       yield
     end
   end
