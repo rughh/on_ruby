@@ -31,7 +31,6 @@ group :development do
   gem "heroku",       :require => false
   gem "rb-fsevent",   :require => false
   gem "guard-rspec",  :require => false
-  gem "growl_notify", :require => false
 end
 
 group :development, :test do
