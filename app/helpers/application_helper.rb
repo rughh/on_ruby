@@ -5,7 +5,11 @@ module ApplicationHelper
   end
 
   def subtitle
-    'Heimathafen der Hamburger Ruby-Community'
+    'Heimathafen der Hamburger Ruby Community'
+  end
+
+  def meta_desc
+    'Ruby / Rails Usergroup Hamburg'
   end
 
   def map(locations, init={})
