@@ -22,7 +22,7 @@
         = semantic_form_for Wish.new do |f|
           = f.input :name
           = f.input :description
-          = f.buttons
+          = f.action(:submit)
   - if wishes_undone.present?
     #undone
       %h3 Aktuelle Themen
