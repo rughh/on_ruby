@@ -3,7 +3,7 @@ var HOR = {
     $(".toggle").click(function(event) {
       event.preventDefault();
       var name = $(this).attr('name');
-      $(".toggle_" + name).toggle('slow');
+      $(".toggle_" + name).slideToggle();
     });
   },
   displayUsers: function() {
@@ -39,9 +39,7 @@ var HOR = {
         h = "<strong><a href='" + this.url + "'>" + this.name + "</a></strong></br>";
         h += "" + this.street + " " + this.house_number + "</br>";
         h += "" + this.zip + " " + this.city;
-        infoWindow = new google.maps.InfoWindow({
-          content: h
-        });
+        infoWindow = new google.maps.InfoWindow({content: h});
         if (arr.length === 1) {
           infoWindow.open(map, marker);
         }
@@ -54,13 +52,11 @@ var HOR = {
   hitCounter: 0,
   scrollPage: function() {
     $('a[href*="#"]').click(function(event) {
-      var $target = $(this.hash);
-      if ($target.length) {
+      var target = $(this.hash);
+      if (target.length) {
         event.preventDefault();
-        var top = $target.offset().top - 80;
-        $('html, body').animate({
-          scrollTop: top
-        }, 1200);
+        var top = target.offset().top - 80;
+        $('html, body').animate({scrollTop: top}, 1200);
         if (window.history && window.history.pushState) {
           var new_url = /\#/.test(location.href) ? location.href.replace(/\#.+/, this.hash) : "" + location.href + this.hash;
           window.history.pushState({ count: HOR.historyCounter }, "page-" + HOR.historyCounter, new_url);
@@ -96,9 +92,9 @@ var HOR = {
       var first = $(".jobs").filter(":visible");
       first.hide();
       if(first.next().length > 0) {
-        first.next().show();
+        first.next().fadeIn();
       } else {
-        $(".jobs").filter(":hidden :first").show();
+        $(".jobs").filter(":hidden :first").fadeIn();
       }
     });
   },
@@ -106,12 +102,12 @@ var HOR = {
     var elements = $(name + " ul li");
     if(elements.size() > 5) {
       elements.slice(5).hide();
-      $("<p class='more'><a href='#'>mehr anzeigen</a></p>").insertAfter(name + " ul");
+      $("<p><a class='more' href='#'>mehr anzeigen</a></p>").insertAfter(name + " ul");
     }
-    $(name + ' .more a').click(function(event) {
+    $(name + " a.more").click(function(event) {
       event.preventDefault();
-      $(name + " ul li").filter(":hidden").show();
-      $(name + ' .more').hide();
+      $(name + " ul li").filter(":hidden").fadeIn();
+      $(name + " a.more").parent().hide();
     });
   }
 };
