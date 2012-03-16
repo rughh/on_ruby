@@ -2,7 +2,7 @@
 %section
   = likes
   %h2= event.name
-  %p= event.description
+  %p= simple_format event.description
   %p.meta
     = link_to l(event.date), event_path(event, format: :ics), class: 'ical'
     gehostet durch
