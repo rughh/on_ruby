@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "locations/index" do
 
-  let(:locations) { [Factory.build(:location)] }
+  let(:locations) { [FactoryGirl.build(:location)] }
 
   it "should render successfully" do
     view.stubs(locations: locations)

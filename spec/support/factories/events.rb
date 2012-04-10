@@ -1,11 +1,11 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
-
-Factory.define :event do |f|
-  f.name "Weihnachtstreffen"
-  f.date "2010-12-06 11:47:30"
-  f.description "MyText"
-  f.association :location
-  f.association :user
-  f.created_at "2010-12-06 11:47:30"
-  f.updated_at "2010-12-06 11:47:30"
+FactoryGirl.define do
+  factory :event do
+    name "Weihnachtstreffen"
+    date "2010-12-06 11:47:30"
+    description "MyText"
+    association :location
+    association :user
+    created_at "2010-12-06 11:47:30"
+    updated_at "2010-12-06 11:47:30"
+  end
 end

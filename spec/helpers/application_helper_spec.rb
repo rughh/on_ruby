@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe ApplicationHelper do
 
-  let(:user) { Factory.build(:user) }
+  let(:user) { FactoryGirl.build(:user) }
 
   describe "#link_to_github" do
     it "should generate the link" do

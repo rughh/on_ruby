@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe WishHelper do
 
-  let(:wish) { Factory(:wish) }
+  let(:wish) { FactoryGirl.create(:wish) }
 
   describe "wish description" do
     it "should render a list of stars" do

@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe VotesController do
 
-  let(:user) { Factory(:user) }
-  let(:wish) { Factory(:wish) }
-  let(:data) { {:vote => Factory.attributes_for(:vote), :wish_id => wish.id} }
+  let(:user) { FactoryGirl.create(:user) }
+  let(:wish) { FactoryGirl.create(:wish) }
+  let(:data) { {:vote => FactoryGirl.attributes_for(:vote), :wish_id => wish.id} }
 
   describe "POST :create" do
     it "should create a vote for logged-in user" do

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Events" do
 
-  let(:event) { Factory(:event) }
+  let(:event) { FactoryGirl.create(:event) }
 
   describe "GET /events" do
     it "works!" do

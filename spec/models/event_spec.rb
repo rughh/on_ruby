@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Event do
 
-  let(:event) { Factory.build(:event) }
+  let(:event) { FactoryGirl.build(:event) }
 
   it "should provide end_date" do
     event.end_date.should > event.date
@@ -20,7 +20,7 @@ describe Event do
 
   context "#duplicate!" do
     before do
-      Factory(:event, date: Time.utc(2011, 9, 14, 19, 0, 0))
+      FactoryGirl.create(:event, date: Time.utc(2011, 9, 14, 19, 0, 0))
     end
 
     it "should duplicate the event" do
@@ -29,7 +29,7 @@ describe Event do
   end
 
   it "should find latest events" do
-    10.times{|i| Factory(:event, :name => "Event #{i}", :date => (Time.now - i.weeks)) }
+    10.times{|i| FactoryGirl.create(:event, :name => "Event #{i}", :date => (Time.now - i.weeks)) }
     Event.latest.map(&:name).should == ["Event 1", "Event 2", "Event 3", "Event 4", "Event 5", "Event 6", "Event 7", "Event 8", "Event 9"]
   end
 
