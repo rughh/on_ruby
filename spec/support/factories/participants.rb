@@ -1,8 +1,8 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
-
-Factory.define :participant do |f|
-  f.association :user, :factory => :user
-  f.association :event, :factory => :event
-  f.maybe false
-  f.comment "MyText"
+FactoryGirl.define do
+  factory :participant do
+    association :user, :factory => :user
+    association :event, :factory => :event
+    maybe false
+    comment "MyText"
+  end
 end

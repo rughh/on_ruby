@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe EventsController do
 
-  let(:event) { Factory(:event) }
-  let(:user) { Factory(:user) }
+  let(:event) { FactoryGirl.create(:event) }
+  let(:user) { FactoryGirl.create(:user) }
 
   describe "GET :rss" do
     before { get :rss, format: :xml }

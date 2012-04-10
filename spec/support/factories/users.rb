@@ -1,9 +1,10 @@
-# encoding: utf-8
-# Read about factories at http://github.com/thoughtbot/factory_girl
+# encoding: UTF-8
 
-Factory.define :user do |f|
-  f.name 'Uschi Müller'
-  f.sequence(:nickname){|n| "uschi #{n}"}
-  f.image 'http://onruby.de/logo.png'
-  f.github 'giddiup'
+FactoryGirl.define do
+  factory :user do
+    name 'Uschi Müller'
+    sequence(:nickname){|n| "uschi #{n}"}
+    image 'http://onruby.de/logo.png'
+    github 'giddiup'
+  end
 end
