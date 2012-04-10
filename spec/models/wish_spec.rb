@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Wish do
 
-  let(:wish) { Factory(:wish) }
-  let(:vote) { Factory.build(:vote, :wish => nil) }
+  let(:wish) { FactoryGirl.create(:wish) }
+  let(:vote) { FactoryGirl.build(:vote, :wish => nil) }
 
   context "validation" do
     it "should be valid" do
@@ -11,7 +11,7 @@ describe Wish do
     end
 
     it "should validate uniqueness" do
-      Factory.build(:wish, name: wish.name).should have(1).errors_on(:name)
+      FactoryGirl.build(:wish, name: wish.name).should have(1).errors_on(:name)
     end
 
     it "should validate presence" do
@@ -24,7 +24,7 @@ describe Wish do
   end
 
   it "should generate a nice twitter message" do
-    Factory.build(:wish).twitter_message('http://some.url').tap do |it|
+    FactoryGirl.build(:wish).twitter_message('http://some.url').tap do |it|
       it.length.should be < 140
       it.should match "Neues Thema von @uschi"
       it.should match "'The xing mobile website: touch.xing.com"
@@ -33,7 +33,7 @@ describe Wish do
   end
 
   it "should create a topic from a wish" do
-    Factory(:event)
+    FactoryGirl.create(:event)
     expect do
       wish.copy_to_topic!
       wish.done.should be(true)
@@ -45,7 +45,7 @@ describe Wish do
       wish.stars.should eql 0.0
       wish.votes << vote
       wish.stars.should eql 5.0
-      wish.votes << Factory.build(:vote, :wish => nil, :count => 0)
+      wish.votes << FactoryGirl.build(:vote, :wish => nil, :count => 0)
       wish.stars.should eql 2.5
     end
 

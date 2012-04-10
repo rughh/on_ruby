@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe UsergroupMailer do
   
-  let(:event) { Factory(:event) }
+  let(:event) { FactoryGirl.create(:event) }
 
   context "sending a mail" do
     it "should send the mail" do

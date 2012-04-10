@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ParticipantsController do
   describe "DELETE :destroy" do
     before do
-      @participant = Factory(:participant)
+      @participant = FactoryGirl.create(:participant)
       @event = @participant.event
       @user = @participant.user
     end
@@ -15,7 +15,7 @@ describe ParticipantsController do
     end
 
     it "should delete a participant for another user" do
-      @controller.stubs(:current_user => Factory(:user))
+      @controller.stubs(:current_user => FactoryGirl.create(:user))
       expect { delete(:destroy, :id => @participant.id, :event_id => @event.id) }.to change(Participant, :count).by(0)
       response.should redirect_to(@event)
     end
