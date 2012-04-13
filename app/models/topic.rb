@@ -13,6 +13,8 @@ class Topic < ActiveRecord::Base
   validates :event, :name, :description, :presence => true
   validates :name, :uniqueness => true
 
+  attr_accessible :name, :event, :user, :description
+
   belongs_to :user
   belongs_to :event
 
