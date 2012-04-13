@@ -29,8 +29,6 @@ end
 
 group :development do
   gem "heroku",       :require => false
-  gem "rb-fsevent",   :require => false
-  gem "guard-rspec",  :require => false
 end
 
 group :development, :test do
