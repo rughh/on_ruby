@@ -15,3 +15,12 @@ de:
     attendees: "Teilnehmer"
     no_attendees: "Es ist noch niemand angemeldet."
     route: "Anfahrt"
+  home:
+    like_to_talk: "Möchtest du einen Vortrag auf der Ruby Usergroup halten oder hast du zusätzliche Themenvorschläge?"
+    send_us_an_email: "Dann schicke uns einfach eine <a href='mailto:%{mail_to}'>E-Mail</a> oder spreche uns persönlich an:"
+    engage: "Usergroups leben von Vorträgen und dem Engagement der Teilnehmer. Wenn du ein Thema vermisst, oder nähre Informationen zu speziellen Bereichen suchst, dann <strong>kannst du hier gerne etwas in die Wunschliste eintragen</strong>. Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben, dann <strong>kannst du ihn hier eintragen</strong>, um Feedback von der Ruby / Rails Community zu bekommen."
+    add_topic: "Eigenes Thema eintragen"
+    please_sign_in: "Bitte melde dich an bevor du einen Eintrag machst!"
+    new_topics: "Aktuelle Themen"
+    old_topics: "Vergangene Themen"
+    
