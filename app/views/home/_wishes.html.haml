@@ -1,23 +1,16 @@
 = section_box :wishes do
   %p
-    %strong Möchtest du einen Vortrag auf der Ruby Usergroup halten oder hast du zusätzliche Themenvorschläge?
-    Dann schicke uns einfach eine
-    = mail_to AppConfig.email, "E-Mail"
-    oder spreche uns persönlich an:
+    %strong= t("home.like_to_talk")
+    = t("home.send_us_an_email", :mail_to => AppConfig.email).html_safe
   %ul
     = render 'users_list', users: organizers
+  %p= t("home.engage").html_safe
   %p
-    Usergroups leben von Vorträgen und dem Engagement der Teilnehmer.
-    Wenn du ein Thema vermisst, oder nähre Informationen zu speziellen Bereichen suchst,
-    dann <strong>kannst du hier gerne etwas in die Wunschliste eintragen</strong>.
-    Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben,
-    dann <strong>kannst du ihn hier eintragen</strong>, um Feedback von der Ruby / Rails Community zu bekommen.
-  %p
-    = submit_tag 'Eigenes Thema eintragen', name: 'new_wish', class: 'toggle'
+    = submit_tag t("home.add_topic"), name: 'new_wish', class: 'toggle'
     .toggle_new_wish.hidden
       - unless signed_in?
         %p
-          %strong Bitte melde dich an bevor du einen Eintrag machst!
+          %strong= t("home.please_sign_in")
       %p
         = semantic_form_for Wish.new do |f|
           = f.input :name
@@ -25,7 +18,7 @@
           = f.action(:submit)
   - if wishes_undone.present?
     #undone
-      %h3 Aktuelle Themen
+      %h3= t("home.new_topics")
       %ul.undone.clearfix
         - wishes_undone.each do |wish|
           %li
@@ -33,7 +26,7 @@
             = link_to wish.name, wish
   - if wishes_done.present?
     #done
-      %h3 Vergangene Themen
+      %h3= t("home.old_topics")
       %ul.clearfix
         - wishes_done.each do |wish|
           %li
