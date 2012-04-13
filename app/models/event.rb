@@ -26,6 +26,8 @@ class Event < ActiveRecord::Base
 
   validates :location, :user, :name, :description, :date, presence: true
 
+  attr_accessible :location, :user, :name, :description, :date
+
   accepts_nested_attributes_for :materials
   accepts_nested_attributes_for :topics
 

@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
 
   before_filter :check_login, :only => :create
-  
+
   expose(:wish)
   expose(:vote)
 
