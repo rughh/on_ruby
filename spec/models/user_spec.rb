@@ -32,12 +32,12 @@ describe User do
 
     it "should participate?" do
       admin_user.participates?(event).should be(false)
-      admin_user.participants.create!(:event_id => event.id, :user_id => admin_user.id)
+      admin_user.participants.create!(:event => event, :user => admin_user)
       admin_user.participates?(event).should be(true)
     end
 
     it "should find the participation" do
-      admin_user.participants.create!(:event_id => event.id, :user_id => admin_user.id)
+      admin_user.participants.create!(:event => event, :user => admin_user)
       admin_user.participation(event).should_not be_nil
     end
 

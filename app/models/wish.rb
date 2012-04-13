@@ -16,6 +16,8 @@ class Wish < ActiveRecord::Base
   validates :name, :description, :user, :presence => true
   validates :name, :uniqueness => true
 
+  attr_accessible :name, :done, :stars, :description
+
   belongs_to :user
 
   has_many :votes, :dependent => :destroy

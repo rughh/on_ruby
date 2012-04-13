@@ -19,6 +19,8 @@ class Location < ActiveRecord::Base
 
   validates :name, :url, :city, :street, :house_number, :zip, :presence => true
 
+  attr_accessible :name, :url, :city, :street, :house_number, :zip
+
   scope :company, where(company: true)
   scope :cometogether, joins(:events).select("distinct(locations.id), locations.*")
 

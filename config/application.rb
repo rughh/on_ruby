@@ -50,5 +50,8 @@ module HamburgOnRuby
       g.stylesheet_engine = :scss
     end
 
+    # Mass assignment settings
+    config.active_record.whitelist_attributes = true
+
   end
 end
