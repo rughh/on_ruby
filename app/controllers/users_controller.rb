@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   expose(:users) { User.ordered }
   expose(:user)
 
-  before_filter :authenticate_current_user!, :only => [:edit, :update]
+  before_filter :authenticate_current_user!, only: [:edit, :update]
 
   def show; end
 
@@ -11,6 +11,6 @@ class UsersController < ApplicationController
 
   def update
     user.update_attributes! params[:user]
-    redirect_to :back, :notice => 'Deine Daten wurden gespeichert.'
+    redirect_to :back, notice: t("user.saved_successful")
   end
 end

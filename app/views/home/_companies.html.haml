@@ -1,11 +1,4 @@
 = section_box :companies do
   %p= map(companies, zoom: 12)
-  %p
-    Viele der Teilnehmer an der Ruby Usergroup arbeiten
-    = link_to 'in diesen Firmen', company_locations_path
-    und wir freuen uns immer über neue Gesichter.
-  %p
-    Solltest du eine Firma vermissen, dann schicke uns einfach eine
-    = mail_to AppConfig.email, "E-Mail"
-    oder Direct-Message an
-    = raw(link_to_twitter(main_user) + '.')
+  %p= raw t("home.company_workers", companies_link: link_to(t("companies"), company_locations_path))
+  %p= raw t("home.company_missing", email_link: mail_to(AppConfig.email, "E-Mail"), twitter_link: link_to_twitter(main_user))

@@ -1,9 +1,12 @@
 #login
   -if signed_in?
-    %h3= "Hallo #{current_user.nickname}!"
+    %h3= t("login.hello", nickname: current_user.nickname)
     %ul
-      %li= link_to 'Profil', edit_user_path(current_user)
-      %li= link_to 'Ausloggen', destroy_session_path(current_user)
+      %li= link_to t("login.profile"), edit_user_path(current_user)
+      %li= link_to t("login.logout"), destroy_session_path(current_user)
   -else
     %ul
-      %li= link_to 'Twitter Login', auth_path
+      %li= link_to t("login.twitter_login"), auth_path
+  #locale
+    = link_to t("locale.german"), switch_locale_path(locale: :de)
+    = link_to t("locale.english"), switch_locale_path(locale: :en)

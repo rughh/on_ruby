@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def offline_login
     self.current_user = User.find_by_nickname(params[:nickname])
-    redirect_to root_path, :notice => "Offline Login!"
+    redirect_to root_path, notice: "Offline Login!"
   end
 
   def create
@@ -13,7 +13,12 @@ class SessionsController < ApplicationController
     @auth.user.update_from_auth! auth
     self.current_user = @auth.user
     cookies.permanent.signed[:remember_me] = [@auth.user.id, @auth.user.salt]
-    redirect_to request.env['omniauth.origin'] || root_path, :notice => "Hi #{current_user.name}, du bist erfolgreich eingeloggt!"
+    redirect_to request.env['omniauth.origin'] || root_path, notice: t("flash.logged_in", nickname: current_user.nickname)
+  end
+
+  def switch_locale
+    I18n.locale = params[:locale]
+    redirect_to :back
   end
 
   def destroy_user_session
@@ -23,11 +28,11 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     cookies.permanent.signed[:remember_me] = ['', '']
-    redirect_to root_path, :notice => 'Du bist erfolgreich ausgeloggt!'
+    redirect_to root_path, notice: t("flash.logged_out")
   end
 
   def failure
-    redirect_to root_path, :alert => 'Fehler beim Einloggen mit Twitter, bist du dort vielleicht nicht eingeloggt?'
+    redirect_to root_path, alert: t("flash.login_error")
   end
 
   def auth

@@ -6,16 +6,12 @@
   = hint(false) do
     - highlights.each do |highlight|
       .highlights
-        %strong Achtung:
+        %strong= t("hint.attention")
         = link_to highlight.description, highlight.url
 - elsif jobs.present?
   - unless current_user && current_user.hide_jobs?
     #jobs
       = hint(false) do
-        .reload= link_to 'Anderer Job', '#'
+        .reload= link_to t("hint.other_job"), '#'
         - jobs.each do |job|
-          .jobs
-            Ruby / Rails Jobs in Hamburg:
-            %strong= link_to job.name, job.url
-            bei
-            = link_to job.location.name, job.location.url
+          .jobs= raw t("hint.job_description", job_link: content_tag(:strong, link_to(job.name, job.url)), company_link: link_to(job.location.name, job.location.url))

@@ -5,7 +5,7 @@
     %span.stars= stars(wish)
     .meta= meta(wish)
     - if wish.done?
-      %p.meta Thema wurde schon auf einem Treffen abgefrühstückt.
+      %p.meta= t("wish.already_done")
 
   %h2= wish.name
   %p= wish.description
