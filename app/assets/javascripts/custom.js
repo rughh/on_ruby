@@ -1,3 +1,5 @@
+var I18n = {};
+
 var HOR = {
   showHide: function() {
     $(".toggle").click(function(event) {
@@ -102,7 +104,7 @@ var HOR = {
     var elements = $(name + " ul li");
     if(elements.size() > 5) {
       elements.slice(5).hide();
-      $("<p><a class='more' href='#'>mehr anzeigen</a></p>").insertAfter(name + " ul");
+      $("<p><a class='more' href='#'>" + I18n.showMore + "</a></p>").insertAfter(name + " ul");
     }
     $(name + " a.more").click(function(event) {
       event.preventDefault();
