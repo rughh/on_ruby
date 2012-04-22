@@ -58,7 +58,7 @@ GEM
     builder (3.0.0)
     chunky_png (1.2.5)
     coderay (1.0.6)
-    compass (0.12.1)
+    compass (0.12.alpha.4)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
@@ -230,7 +230,7 @@ DEPENDENCIES
   activeadmin!
   acts_as_api (= 0.3.11)
   ambience (= 2.0.0)
-  compass (= 0.12.1)
+  compass (= 0.12.alpha.4)
   decent_exposure (= 1.0.2)
   factory_girl (= 3.1.0)
   foreman (= 0.41.0)

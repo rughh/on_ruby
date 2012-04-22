@@ -223,6 +223,20 @@ header {
     li {
       list-style:none;
     }
+    #locale {
+      padding-top:5px;
+      .de a {
+        float:left;
+        width:16px;
+        @include replace-text('/assets/flags/de.png', 16, 11);
+      }
+      .en a {
+        float:left;
+        width:16px;
+        margin-left:5px;
+        @include replace-text('/assets/flags/en.png', 16, 11);
+      }
+    }
   }
   #logo {
     float:left;

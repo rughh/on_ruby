@@ -16,11 +16,6 @@ class SessionsController < ApplicationController
     redirect_to request.env['omniauth.origin'] || root_path, notice: t("flash.logged_in", nickname: current_user.nickname)
   end
 
-  def switch_locale
-    I18n.locale = params[:locale]
-    redirect_to :back
-  end
-
   def destroy_user_session
     redirect_to destroy_session_path
   end
