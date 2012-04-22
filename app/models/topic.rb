@@ -1,5 +1,4 @@
 class Topic < ActiveRecord::Base
-
   acts_as_api
 
   api_accessible :ios_v1 do |template|
@@ -10,12 +9,11 @@ class Topic < ActiveRecord::Base
     template.add :description
   end
 
-  validates :event, :name, :description, :presence => true
-  validates :name, :uniqueness => true
+  validates :event, :name, :description, presence: true
+  validates :name, uniqueness: true
 
   attr_accessible :name, :event, :user, :description
 
   belongs_to :user
   belongs_to :event
-
 end

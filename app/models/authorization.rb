@@ -2,8 +2,8 @@ class Authorization < ActiveRecord::Base
 
   belongs_to :user
 
-  validates :user_id, :uid, :provider, :presence => true
-  validates :uid, :uniqueness => { :scope => :provider }
+  validates :user_id, :uid, :provider, presence: true
+  validates :uid, uniqueness: { scope: :provider }
 
   attr_accessible :user, :uid, :provider
 
@@ -13,7 +13,7 @@ class Authorization < ActiveRecord::Base
 
   def self.create_from_hash(hash, user = nil)
     user ||= User.create_from_hash!(hash)
-    Authorization.create! :user => user, :uid => hash['uid'], :provider => hash['provider']
+    Authorization.create! user: user, uid: hash['uid'], provider: hash['provider']
   end
 
 end

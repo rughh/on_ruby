@@ -17,7 +17,7 @@ class Location < ActiveRecord::Base
 
   has_many :events
 
-  validates :name, :url, :city, :street, :house_number, :zip, :presence => true
+  validates :name, :url, :city, :street, :house_number, :zip, presence: true
 
   attr_accessible :name, :url, :city, :street, :house_number, :zip
 

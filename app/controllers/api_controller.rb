@@ -8,17 +8,17 @@ class ApiController < ApplicationController
 
   def index
     hash = {
-      :wishes     => wishes.as_api_response(:ios_v1),
-      :locations  => locations.as_api_response(:ios_v1),
-      :events     => events.as_api_response(:ios_v1),
-      :users      => users.as_api_response(:ios_v1),
+      wishes:     wishes.as_api_response(:ios_v1),
+      locations:  locations.as_api_response(:ios_v1),
+      events:     events.as_api_response(:ios_v1),
+      users:      users.as_api_response(:ios_v1),
     }
     respond_to do |format|
-      format.json { render :text => hash.to_json }
+      format.json { render text: hash.to_json }
     end
   end
 
-  private()
+  private
 
   def api_sign_in
     if request.format.json?
