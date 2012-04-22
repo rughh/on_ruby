@@ -6,7 +6,7 @@ module WishHelper
       value = n + 1
       img = wish.stars >= value ? 'star.png' : 'star-empty.png'
       if signed_in? && !wish.done? && !wish.already_voted?(current_user)
-        title = "mit #{value} Sternen bewerten"
+        title = t("wish.vote", stars: value)
         link_to wish_votes_path(wish, Vote.new, 'vote[count]' => n + 1), {method: 'post', title: title} do
           image_tag img, alt: title
         end
@@ -17,6 +17,6 @@ module WishHelper
   end
 
   def meta(wish)
-    "von #{link_to_twitter(wish.user)} - #{wish.votes.count} mal mit #{wish.stars} von 5 Sternen bewertet".html_safe
+    raw t("wish.meta", twitter_link: link_to_twitter(wish.user), count: wish.votes.count, stars: wish.stars)
   end
 end

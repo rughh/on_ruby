@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def subtitle
-    'Heimathafen der Hamburger Ruby Community'
+    t("subtitle")
   end
 
   def meta_desc
@@ -14,15 +14,15 @@ module ApplicationHelper
 
   def map(locations, init={})
     locations = Array(locations)
-    init = {:zoom => 14, :lat => 53.56544, :long => 9.95947}.merge(init)
-    content_tag(:div, '', :class => 'map_canvas', 'data-map' => locations.to_json, 'data-init' => init.to_json)
+    init = {zoom: 14, lat: 53.56544, long: 9.95947}.merge(init)
+    content_tag(:div, '', class: 'map_canvas', 'data-map' => locations.to_json, 'data-init' => init.to_json)
   end
 
   def link_to_github(user)
     link_to user.github, "http://github.com/#{user.github}" if user.github
   end
 
-  def link_to_twitter(thing, params={:clung => false}, &block)
+  def link_to_twitter(thing, params={clung: false}, &block)
     nick = thing.respond_to?(:nickname) ? thing.nickname : thing
     url = "http://twitter.com/#{nick}"
     if block_given?
@@ -63,7 +63,7 @@ module ApplicationHelper
 
   def hint(close=true)
     content_tag(:section, class: :hint) do
-      concat content_tag(:div, link_to('Schliessen', '#'), class: :close) if close
+      concat content_tag(:div, link_to(t("hint.close"), '#'), class: :close) if close
       yield
     end
   end
