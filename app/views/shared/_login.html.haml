@@ -8,5 +8,5 @@
     %ul
       %li= link_to t("login.twitter_login"), auth_path
   #locale
-    = link_to t("locale.german"), switch_locale_path(locale: :de)
-    = link_to t("locale.english"), switch_locale_path(locale: :en)
+    .de= link_to t("locale.german"), locale: :de
+    .en= link_to t("locale.english"), locale: :en
