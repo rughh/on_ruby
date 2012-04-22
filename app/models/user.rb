@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
-
   extend FriendlyId
-  friendly_id :nickname, :use => :slugged
+  friendly_id :nickname, use: :slugged
 
   acts_as_api
 
@@ -36,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def participation(event)
-    participants.find(:first, :conditions => [ "event_id = ?", event.id])
+    participants.find(:first, conditions: [ "event_id = ?", event.id])
   end
 
   def salt
@@ -77,5 +76,4 @@ class User < ActiveRecord::Base
       u && u.salt == stored_salt ? u : nil
     end
   end
-
 end

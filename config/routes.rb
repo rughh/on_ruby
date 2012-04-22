@@ -30,6 +30,8 @@ HamburgOnRuby::Application.routes.draw do
   match '/auth/login/:provider',          to: 'sessions#auth',                 as: :auth,                 defaults: { :provider => 'twitter' }
   match '/auth/offline_login/:nickname',  to: 'sessions#offline_login' if Rails.env.development?
 
+  match '/session/switch_locale/:locale',  to: 'sessions#switch_locale', as: :switch_locale
+
   match '/mobile',     to: 'mobile#index',     as: :mobile
 
   match '/home/info',     to: 'home#info',     as: :info

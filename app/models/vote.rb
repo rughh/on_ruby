@@ -1,6 +1,5 @@
 class Vote < ActiveRecord::Base
-
-  validates :count, :user, :wish, :presence => true
+  validates :count, :user, :wish, presence: true
 
   attr_accessible :count, :user, :wish
 

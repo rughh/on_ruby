@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
 
   extend FriendlyId
-  friendly_id :name, :use => :slugged
+  friendly_id :name, use: :slugged
 
   acts_as_api
 
@@ -31,9 +31,9 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :materials
   accepts_nested_attributes_for :topics
 
-  scope :current, lambda{ where(:date => Date.today.to_time..(Time.now + 4.weeks)).limit(1) }
+  scope :current, lambda{ where(date: Date.today.to_time..(Time.now + 4.weeks)).limit(1) }
   scope :latest, where('date < ?', Time.now).order('date DESC')
-  scope :unpublished, where(:published => false)
+  scope :unpublished, where(published: false)
   scope :ordered, order("date DESC")
 
   def end_date
@@ -66,7 +66,7 @@ class Event < ActiveRecord::Base
     else
       logger.warn "publishing in test-modus with url #{event_url}"
     end
-    update_attributes!(:published => true)
+    update_attributes!(published: true)
   end
 
   def twitter_message(url)
