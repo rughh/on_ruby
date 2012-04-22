@@ -19,7 +19,7 @@ gem "geocoder",         "1.1.1"
 gem "acts_as_api",      "0.3.11"
 
 group :assets do
-  gem "compass",      "0.12.1"
+  gem "compass",      "0.12.alpha.4"
   gem "uglifier",     "1.2.4"
 end
 

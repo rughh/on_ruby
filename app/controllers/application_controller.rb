@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :signed_in?, :preview_events, :tweets, :random_users
 
+  before_filter :switch_locale
+
   def check_login
     redirect_to(auth_path) unless signed_in?
   end
@@ -41,6 +43,10 @@ class ApplicationController < ActionController::Base
   def current_user=(user)
     @current_user = user
     session[:user_id] = user.id
+  end
+
+  def switch_locale
+    I18n.locale = params[:locale] if params[:locale]
   end
 
   def find_by_session_or_cookie
