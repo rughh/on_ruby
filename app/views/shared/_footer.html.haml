@@ -1,25 +1,25 @@
 %section.clearfix
   #imprint.block
-    %h2 Impressum
+    %h2= t("footer.imprint")
     %ul
       %li= mail_to 'phoetmail@googlemail.com', 'Peter Schröder'
       %li Schanzenstr. 85</br>20357 Hamburg
   #contact.block
-    %h2 Kontakt
+    %h2= t("footer.contact")
     %ul
       %li= link_to 'Twitter', 'http://twitter.com/hamburgsync'
       %li= mail_to AppConfig.email, 'E-Mail'
   #links.block
-    %h2 Links
+    %h2= t("footer.links")
     %ul
       %li= link_to 'Github', 'http://github.com/phoet/hamburg_on_ruby'
-      %li= link_to 'Mailingliste', 'http://mailman.headflash.com/listinfo/rubyonrails-ug'
+      %li= link_to 'Mailinglist', 'http://mailman.headflash.com/listinfo/rubyonrails-ug'
 
 %hr
 
 %section.clearfix
   #usergroups.block
-    %h2 Weitere Hamburger Usergroups
+    %h2= t("footer.other_usergroups")
     %ol
       %li
         = link_to 'HH.js', 'http://www.meetup.com/hamburg-js/'

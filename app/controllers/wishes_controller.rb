@@ -1,6 +1,5 @@
 class WishesController < ApplicationController
-
-  before_filter :check_login, :only => :create
+  before_filter :check_login, only: :create
 
   expose(:wish)
 
@@ -14,10 +13,9 @@ class WishesController < ApplicationController
       v.count = 5
     end
     if wish.save
-      redirect_to(root_path, :notice => 'Dein Eintrag wurde gespeichert.')
+      redirect_to(root_path, notice: t("flash.wish_added"))
     else
-      redirect_to(root_path, :alert => wish.errors.full_messages.join(' '))
+      redirect_to(root_path, alert: wish.errors.full_messages.join(' '))
     end
   end
-
 end

@@ -1,7 +1,7 @@
 class Wish < ActiveRecord::Base
 
   extend FriendlyId
-  friendly_id :name, :use => :slugged
+  friendly_id :name, use: :slugged
 
   acts_as_api
 
@@ -13,14 +13,14 @@ class Wish < ActiveRecord::Base
     template.add :user_id
   end
 
-  validates :name, :description, :user, :presence => true
-  validates :name, :uniqueness => true
+  validates :name, :description, :user, presence: true
+  validates :name, uniqueness: true
 
   attr_accessible :name, :done, :stars, :description
 
   belongs_to :user
 
-  has_many :votes, :dependent => :destroy
+  has_many :votes, dependent: :destroy
 
   scope :done,    where(done: true).order('id DESC')
   scope :undone,  where(done: false).order('id DESC')
@@ -36,7 +36,8 @@ class Wish < ActiveRecord::Base
   end
 
   def twitter_message(url)
-    "Neues Thema von @#{user.nickname} '#{name.truncate(50)}' #{url}"
+    # TODO (ps) move to view
+    I18n.t("wish.twitter_message", nickname: user.nickname, name: name.truncate(50), url: url)
   end
 
   def copy_to_topic!

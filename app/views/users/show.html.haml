@@ -4,8 +4,8 @@
     %li= image_tag user.image, size: '48x48', alt: user.name, 'data-src' => user.image
   %h3.clearfix
     = user.name
-    = user.freelancer? ? '/ Freiberufler' : ''
-    = user.available? ? '/ Verfügbar' : ''
+    = user.freelancer? ? "/ #{t("profile.freelancer")}" : ''
+    = user.available? ? "/ #{t("profile.available")}" : ''
     %p.meta= user.description
   %p.info
     %span
@@ -25,31 +25,31 @@
         = user.location
 
   - if user.participants.present?
-    %h3 Teilgenommene Events
+    %h3= t("profile.events_participated")
     %ul.enumeration
       - user.participants.each do |p|
         %li= link_to p.event.name, p.event
 
   - if user.events.present?
-    %h3 Ausgerichtete Events
+    %h3= t("profile.organized_events")
     %ul.enumeration
       - user.events.each do |e|
         %li= link_to e.name, e
 
   - if user.topics.present?
-    %h3 Vorgestellte Themen
+    %h3= t("profile.talks_done")
     %ul.enumeration
       - user.topics.each do |t|
         %li= link_to t.name, t.event
 
   - if user.materials.present?
-    %h3 Zusätzliches Material
+    %h3= t("profile.provided_material")
     %ul.enumeration
       - user.materials.each do |m|
         %li= link_to m.name, m.event
 
   - if user.wishes.present?
-    %h3 Vorgeschlagene Themen
+    %h3= t("profile.proposed_topics")
     %ul.enumeration
       - user.wishes.each do |w|
         %li= link_to w.name, w

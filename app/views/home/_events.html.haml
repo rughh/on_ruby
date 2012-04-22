@@ -1,18 +1,11 @@
 = section_box :events do
   %p
     - if current_event
-      = link_to 'Das nächste Treffen', current_event
-      findet am
-      %em= l(current_event.date)
-      bei 
-      = link_to current_event.location.name, current_event.location.url
-      statt!
+      = link_to t("home.next_meetup"), current_event
+      = raw t("home.takes_place", event_date: content_tag(:em, l(current_event.date)), location_link: link_to(current_event.location.name, current_event.location.url))
     - else
-      Das nächste Ruby / Rails Treffen findet voraussichtlich am
-      %em= "#{l(next_event_date)}"
-      statt.
-    
-  %h3 Vergangene Treffen
+      = raw t("home.next_possible_meetup", event_date: content_tag(:em, l(next_event_date)))
+  %h3= t("home.past_events")
   %ul.clearfix
     - events.each do |event|
       %li= link_to "#{l(event.date, format: :date)} - #{event.name}", event
