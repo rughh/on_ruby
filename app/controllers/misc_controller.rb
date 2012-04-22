@@ -5,8 +5,8 @@ class MiscController < ApplicationController
     @urls += Wish.all.map {|wish| url_for wish}
     @urls += Event.all.map {|event| url_for event}
     @urls += User.all.map {|user| url_for user}
-    
+
     response.headers["Content-Type"] = 'text/xml'
-    render :layout=>false
+    render layout: false
   end
 end

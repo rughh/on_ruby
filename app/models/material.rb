@@ -1,5 +1,4 @@
 class Material < ActiveRecord::Base
-
   acts_as_api
 
   api_accessible :ios_v1 do |template|
@@ -10,11 +9,10 @@ class Material < ActiveRecord::Base
     template.add :user_id
   end
 
-  validates :name, :url, :event, :presence => true
+  validates :name, :url, :event, presence: true
 
   attr_accessible :name, :url, :event
 
   belongs_to :user
   belongs_to :event
-
 end

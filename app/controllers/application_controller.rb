@@ -1,6 +1,5 @@
 # encoding: UTF-8
 class ApplicationController < ActionController::Base
-
   protect_from_forgery
 
   expose(:main_user)  { User.main }
@@ -13,17 +12,21 @@ class ApplicationController < ActionController::Base
     redirect_to(auth_path) unless signed_in?
   end
 
+  def default_url_options(options={})
+    options.merge locale: I18n.locale
+  end
+
   protected
 
   def authenticate_admin_user!
     unless current_user.try(:admin?)
-      redirect_to(root_path, alert: 'Hoppala, da dürfen nur Admins hin!') and return
+      redirect_to(root_path, alert: t("flash.only_admins")) and return
     end
   end
 
   def authenticate_current_user!
     unless current_user and current_user == user
-      redirect_to(root_path, alert: 'Hoppala, diese Seite ist nicht für dich bestimmt!') and return
+      redirect_to(root_path, alert: t("flash.not_authenticated")) and return
     end
   end
 
@@ -43,5 +46,4 @@ class ApplicationController < ActionController::Base
   def find_by_session_or_cookie
     User.find_by_id session[:user_id] || User.authenticated_with_token(*(cookies.signed[:remember_me] || ['', '']))
   end
-
 end
