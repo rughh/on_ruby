@@ -1,0 +1,21 @@
+en:
+  formtastic:
+    labels:
+      wish:
+        index:
+          name: 'Your Topic'
+          description: 'Description'
+      vote:
+        count: 'Stars'
+      user:
+        hide_jobs: 'hide Jobs'
+        available: 'looking for Jobs/Projects'
+    placeholders:
+      github: 'GitHub-Username'
+    actions:
+      wish:
+        create: 'add'
+      vote:
+        create: 'vote'
+      user:
+        update: 'update'
