@@ -1,0 +1,21 @@
+de:
+  formtastic:
+    labels:
+      wish:
+        index:
+          name: 'Dein Vorschlag'
+          description: 'Genauere Beschreibung'
+      vote:
+        count: 'Sterne'
+      user:
+        hide_jobs: 'Jobs ausblenden'
+        available: 'auf Job-/Projektsuche'
+    placeholders:
+      github: 'GitHub-Username'
+    actions:
+      wish:
+        create: 'eintragen'
+      vote:
+        create: 'bewerten'
+      user:
+        update: 'aktualisieren'
