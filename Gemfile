@@ -21,6 +21,7 @@ gem "acts_as_api",      "0.3.11"
 group :assets do
   gem "compass",      "0.12.alpha.4"
   gem "uglifier",     "1.2.4"
+  gem "coffee-rails", "3.2.2"
 end
 
 group :production do
