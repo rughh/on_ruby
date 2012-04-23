@@ -1,5 +1,5 @@
 @import "compass";
-@import "compass/css3/border-radius";
+@import "compass/css3/";
 @import "compass/utilities/text/replacement";
 
 @font-face { font-family:hero; src:url("/assets/hero_light.otf") format("opentype"); }
@@ -210,6 +210,7 @@ header {
     background:url(/assets/whitey.png) left top repeat;
     border:1px solid white;
     @include border-radius(0.5em, 0.5em);
+    width:100px;
     padding:1em;
     float:right;
     h3 {
@@ -217,24 +218,12 @@ header {
       padding-bottom:0.5em;
     }
     ul {
-      margin:0;
-      padding:0;
-    }
-    li {
-      list-style:none;
+      @include horizontal-list;
     }
     #locale {
-      padding-top:5px;
-      .de a {
-        float:left;
-        width:16px;
-        @include replace-text('/assets/flags/de.png', 16, 11);
-      }
-      .en a {
-        float:left;
-        width:16px;
-        margin-left:5px;
-        @include replace-text('/assets/flags/en.png', 16, 11);
+      padding-top:10px;
+      ul {
+        @include horizontal-list;
       }
     }
   }
