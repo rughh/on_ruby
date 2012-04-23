@@ -1,218 +1,83 @@
-# German translations for Ruby on Rails 
-# by Clemens Kofler (clemens@railway.at)
-
 de:
-  formtastic:
-    labels:
-      wish:
-        index:
-          name: 'Name des Vorschlags'
-          activity: 'Vorschlagsart'
-          description: 'Genauere Beschreibung'
-      vote:
-        count: 'Sterne'
-      user:
-        hide_jobs: 'Jobs ausblenden'
-        available: 'auf Job-/Projektsuche'
-    placeholders:
-      github: 'GitHub-Username'
-    actions:
-      wish:
-        create: 'eintragen'
-      vote:
-        create: 'bewerten'
-      user:
-        update: 'aktualisieren'
-
-  date:
-    formats:
-      default: "%d.%m.%Y"
-      short: "%e. %b"
-      long: "%e. %B %Y"
-      only_day: "%e"
-
-    day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
-    abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
-    month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
-    abbr_month_names: [~, Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
-    order:
-      - :day
-      - :month
-      - :year
-
   time:
     formats:
-      default: "%A, %d. %B %Y, %H:%M Uhr"
-      short: "%d. %B, %H:%M Uhr"
-      long: "%A, %d. %B %Y, %H:%M Uhr"
       time: "%H:%M"
       date: "%d.%m. %H:%M"
       month: "%B %Y"
-
-    am: "vormittags"
-    pm: "nachmittags"
-
-  datetime:
-    distance_in_words:
-      half_a_minute: 'eine halbe Minute'
-      less_than_x_seconds:
-        one: 'weniger als eine Sekunde'
-        other: 'weniger als %{count} Sekunden'
-      x_seconds:
-        one: 'eine Sekunde'
-        other: '%{count} Sekunden'
-      less_than_x_minutes:
-        one: 'weniger als eine Minute'
-        other: 'weniger als %{count} Minuten'
-      x_minutes:
-        one: 'eine Minute'
-        other: '%{count} Minuten'
-      about_x_hours:
-        one: 'etwa eine Stunde'
-        other: 'etwa %{count} Stunden'
-      x_days:
-        one: 'ein Tag'
-        other: '%{count} Tage'
-      about_x_months:
-        one: 'etwa ein Monat'
-        other: 'etwa %{count} Monate'
-      x_months:
-        one: 'ein Monat'
-        other: '%{count} Monate'
-      almost_x_years:
-        one: 'fast ein Jahr'
-        other: 'fast %{count} Jahre'
-      about_x_years:
-        one: 'etwa ein Jahr'
-        other: 'etwa %{count} Jahre'
-      over_x_years:
-        one: 'mehr als ein Jahr'
-        other: 'mehr als %{count} Jahre'
-    prompts:
-      second: "Sekunden"
-      minute: "Minuten"
-      hour: "Stunden"
-      day: "Tag"
-      month: "Monat"
-      year: "Jahr"
-
-  number:
-    format:
-      precision: 2
-      separator: ','
-      delimiter: '.'
-    currency:
-      format:
-        unit: '€'
-        format: '%n%u'
-        separator: ","
-        delimiter: ""
-        precision: 2
-    percentage:
-      format:
-        delimiter: ""
-    precision:
-      format:
-        delimiter: ""
-    human:
-      format:
-        delimiter: ""
-        precision: 1
-      storage_units:
-        # Storage units output formatting.
-        # %u is the storage unit, %n is the number (default: 2 MB)
-        format: "%n %u"
-        units:
-          byte:
-            one:   "Byte"
-            other: "Bytes"
-          kb: "KB"
-          mb: "MB"
-          gb: "GB"
-          tb: "TB"
-
-  support:
-    array:
-      words_connector: ", "
-      two_words_connector: " und "
-      last_word_connector: " und "
-    select:
-      prompt: "Bitte wählen:"
-
-  activemodel:
-    errors:
-      template:
-        header:
-          one:    "Konnte %{model} nicht speichern: ein Fehler."
-          other:  "Konnte %{model} nicht speichern: %{count} Fehler."
-        body: "Bitte überprüfen Sie die folgenden Felder:"
-
-  activerecord:
-    errors:
-      template:
-        header:
-          one:    "Konnte %{model} nicht speichern: ein Fehler."
-          other:  "Konnte %{model} nicht speichern: %{count} Fehler."
-        body: "Bitte überprüfen Sie die folgenden Felder:"
-
-      messages:
-        inclusion: "ist kein gültiger Wert"
-        exclusion: "ist nicht verfügbar"
-        invalid: "ist nicht gültig"
-        confirmation: "stimmt nicht mit der Bestätigung überein"
-        accepted: "muss akzeptiert werden"
-        empty: "muss ausgefüllt werden"
-        blank: "muss ausgefüllt werden"
-        too_long: "ist zu lang (nicht mehr als %{count} Zeichen)"
-        too_short: "ist zu kurz (nicht weniger als %{count} Zeichen)"
-        wrong_length: "hat die falsche Länge (muss genau %{count} Zeichen haben)"
-        taken: "ist bereits vergeben"
-        not_a_number: "ist keine Zahl"
-        greater_than: "muss größer als %{count} sein"
-        greater_than_or_equal_to: "muss größer oder gleich %{count} sein"
-        equal_to: "muss genau %{count} sein"
-        less_than: "muss kleiner als %{count} sein"
-        less_than_or_equal_to: "muss kleiner oder gleich %{count} sein"
-        odd: "muss ungerade sein"
-        even: "muss gerade sein"
-        record_invalid: "Gültigkeitsprüfung ist fehlgeschlagen: %{errors}"
-
-  active_admin:
-    dashboard: Dashboard
-    dashboard_welcome:
-      welcome: "Welcome to Active Admin. This is the default dashboard page."
-      call_to_action: "To add dashboard sections, checkout 'app/admin/dashboards.rb'"
-    view: "View"
-    edit: "Edit"
-    delete: "Delete"
-    delete_confirmation: "Are you sure you want to delete this?"
-    new_model: "New %{model}"
-    edit_model: "Edit %{model}"
-    delete_model: "Delete %{model}"
-    details: "%{model} Details"
-    cancel: "Cancel"
-    empty: "Empty"
-    previous: "Previous"
-    next: "Next"
-    download: "Download:"
-    has_many_new: "Add New %{model}"
-    has_many_delete: "Delete"
-    filter: "Filter"
-    clear_filters: "Clear Filters"
-    search_field: "Search %{field}"
-    equal_to: "Equal To"
-    greater_than: "Greater Than"
-    less_than: "Less Than"
-    main_content: "Please implement %{model}#main_content to display content."
-    logout: "Logout"
-    sidebars:
-      filters: "Filters"
-    pagination:
-      empty: "No %{model} found"
-      one: "Displaying <b>1</b> %{model}"
-      one_page: "Displaying <b>all %{n}</b> %{model}"
-      multiple: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{total}</b> in total"
-    any: "Any"
-    blank_slate:
-      content: "There are no %{resource_name} yet."
-      link: "Create one"
+  companies: "Firmen"
+  events: "Treffen"
+  locations: "Orte"
+  people: "Leute"
+  wishes: "Themen"
+  topics: "Themen"
+  subtitle: "Heimathafen der Hamburger Ruby Community"
+  login:
+    hello: "Hallo %{nickname}!"
+    profile: "Profil"
+    logout: "Ausloggen"
+    twitter_login: "Twitter Login"
+  hint:
+    close: "Schliessen"
+    attention: "Achtung:"
+    other_job: "Anderer Job"
+    job_description: "Ruby / Rails Jobs in Hamburg: %{job_link} bei %{company_link}"
+  footer:
+    imprint: "Impressum"
+    contact: "Kontakt"
+    links: "Links"
+    other_usergroups: "Weitere Hamburger Usergroups"
+  show:
+    hosted_by: "gehostet durch"
+    at: "bei"
+    no_topics: "Es sind noch keine Themen eingetragen."
+    no_material: "Es ist noch kein Material eingetragen."
+    attend: "Ich möchte teilnehmen"
+    not_attend: "Nicht mehr teilnehmen"
+    attendees: "Teilnehmer"
+    no_attendees: "Es ist noch niemand angemeldet."
+    route: "Anfahrt"
+  home:
+    like_to_talk: "Möchtest du einen Vortrag auf der Ruby Usergroup halten oder hast du zusätzliche Themenvorschläge?"
+    send_us_an_email: "Dann schicke uns einfach eine <a href='mailto:%{mail_to}'>E-Mail</a> oder spreche uns persönlich an:"
+    engage: "Usergroups leben von Vorträgen und dem Engagement der Teilnehmer. Wenn du ein Thema vermisst, oder nähre Informationen zu speziellen Bereichen suchst, dann <strong>kannst du hier gerne etwas in die Wunschliste eintragen</strong>. Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben, dann <strong>kannst du ihn hier eintragen</strong>, um Feedback von der Ruby / Rails Community zu bekommen."
+    add_topic: "Eigenes Thema eintragen"
+    please_sign_in: "Bitte melde dich an bevor du einen Eintrag machst!"
+    new_topics: "Aktuelle Themen"
+    old_topics: "Vergangene Themen"
+    company_workers: "Viele der Teilnehmer an der Ruby Usergroup arbeiten in diesen %{companies_link} und wir freuen uns immer über neue Gesichter."
+    company_missing: "Solltest du eine Firma vermissen, dann schicke uns einfach eine %{email_link} oder Direct-Message an %{twitter_link}"
+    next_possible_meetup: "Das nächste Ruby / Rails Treffen findet voraussichtlich am %{event_date} statt."
+    next_meetup: "Das nächste Treffen"
+    takes_place: "findet am %{event_date} bei %{location_link} statt!"
+    past_events: "Vergangene Treffen"
+    usergroup_locations: "Dies sind die %{location_link} an denen unsere Ruby Usergroups in der Regel stattfinden."
+    show_more: "mehr anzeigen"
+  profile:
+    edit: "Profil bearbeiten"
+    freelancer: "Freiberufler"
+    available: "Verfügbar"
+    events_participated: "Teilgenommene Events"
+    organized_events: "Ausgerichtete Events"
+    talks_done: "Vorgestellte Themen"
+    provided_material: "Zusätzliches Material"
+    proposed_topics: "Vorgeschlagene Themen"
+  user:
+    saved_successful: "Deine Daten wurden gespeichert."
+  wish:
+    already_done: "Thema wurde schon auf einem Treffen abgefrühstückt."
+    vote: "mit %{stars} Sternen bewerten"
+    meta: "von %{twitter_link} - %{count} mal mit %{stars} von 5 Sternen bewertet"
+    twitter_message: "Neues Thema von @%{nickname} '%{name}' %{url}"
+  flash:
+    only_admins: "Hoppala, da dürfen nur Admins hin!"
+    not_authenticated: "Hoppala, diese Seite ist nicht für dich bestimmt!"
+    already_participating: "Du bist schon angemeldet."
+    now_participating: "Du bist am Event angemeldet."
+    dont_participate: "Du bist vom Event abgemeldet."
+    forbidden: "Hoppala, das darfst du nicht tun!"
+    logged_in: "Hi %{nickname}, du bist erfolgreich eingeloggt!"
+    logged_out: "Du bist erfolgreich ausgeloggt!"
+    login_error: "Fehler beim Einloggen mit Twitter, bist du dort vielleicht nicht eingeloggt?"
+    double_vote: "Du darfst nicht mehrfach bewerten!"
+    voted: "Das Thema wurde bewertet."
+    wish_added: "Dein Eintrag wurde gespeichert."
