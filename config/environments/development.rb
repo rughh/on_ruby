@@ -36,7 +36,10 @@ HamburgOnRuby::Application.configure do
   config.assets.compress = false
 
   # Expands the lines which load the assets
-  # config.assets.debug = true
+  config.assets.debug = false
+
+  # Disable logging of asset requests
+  config.assets.logger = false
 
   # Debug RJS
   # config.action_view.debug_rjs = true
