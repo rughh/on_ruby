@@ -8,5 +8,6 @@
     %ul
       %li= link_to t("login.twitter_login"), auth_path
   #locale
-    .de= link_to t("locale.german"), locale: :de
-    .en= link_to t("locale.english"), locale: :en
+    %ul
+      -[:de, :en].each do |locale|
+        %li= link_to image_tag("flags/#{locale}.png"), locale: locale
