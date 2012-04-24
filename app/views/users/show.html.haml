@@ -1,12 +1,12 @@
 = content_for(:page_title){user.name}
 %section
-  %ul.imagelist
-    %li= image_tag user.image, size: '48x48', alt: user.name, 'data-src' => user.image
-  %h3.clearfix
-    = user.name
-    = user.freelancer? ? "/ #{t("profile.freelancer")}" : ''
-    = user.available? ? "/ #{t("profile.available")}" : ''
-    %p.meta= user.description
+  .user
+    .imagelist= image_tag user.image, size: '48x48', alt: user.name, 'data-src' => user.image
+    %h3
+      = user.name
+      = user.freelancer? ? "/ #{t("profile.freelancer")}" : ''
+      = user.available? ? "/ #{t("profile.available")}" : ''
+      %p.meta= user.description
   %p.info
     %span
       %strong Twitter:
