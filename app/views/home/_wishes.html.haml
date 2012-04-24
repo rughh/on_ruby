@@ -1,10 +1,10 @@
 = section_box :wishes do
   %p
     %strong= t("home.like_to_talk")
-    = t("home.send_us_an_email", :mail_to => AppConfig.email).html_safe
+    = raw t("home.send_us_an_email", :mail_to => AppConfig.email)
   %ul
     = render 'users_list', users: organizers
-  %p= t("home.engage").html_safe
+  %p= raw t("home.engage")
   %p
     = submit_tag t("home.add_topic"), name: 'new_wish', class: 'toggle'
     .toggle_new_wish.hidden
@@ -23,7 +23,7 @@
         - wishes_undone.each do |wish|
           %li
             %span.stars= stars(wish)
-            = link_to wish.name, wish
+            = link_to wish.name, wish, title: wish.name
   - if wishes_done.present?
     #done
       %h3= t("home.old_topics")
@@ -31,4 +31,4 @@
         - wishes_done.each do |wish|
           %li
             %span.stars= stars(wish)
-            = link_to wish.name, wish
+            = link_to wish.name, wish, title: wish.name

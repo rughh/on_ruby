@@ -1,6 +1,6 @@
 .imagelist
   %ul
-    - users.each_with_index do |user, index|
+    - users.each do |user|
       %li
-        = link_to user do
-          = image_tag 'logo.png', size: '48x48', alt: user.name, 'data-src' => user.image
+        = link_to user, title: user.name do
+          = image_tag 'logo.png', alt: user.name, title: user.name, 'data-src' => user.image

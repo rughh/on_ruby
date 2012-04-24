@@ -388,6 +388,8 @@ nav {
 
   .imagelist {
     img {
+      width:48px;
+      height:48px;
       border: 1px solid white;
       @include border-radius(0.5em, 0.5em);
     }
