@@ -1,5 +1,6 @@
-%ul.imagelist.clearfix
-  - users.each_with_index do |user, index|
-    %li
-      = link_to user do
-        = image_tag 'logo.png', size: '48x48', alt: user.name, 'data-src' => user.image
+.imagelist
+  %ul
+    - users.each_with_index do |user, index|
+      %li
+        = link_to user do
+          = image_tag 'logo.png', size: '48x48', alt: user.name, 'data-src' => user.image
