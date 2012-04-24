@@ -1,9 +1,9 @@
 %ul
   %li
-    = link_to '/#hamburg_on_ruby' do
+    = link_to root_path(anchor: "hamburg_on_ruby") do
       %p.logo.ir= title
   - [:events, :people, :locations, :wishes, :companies].each do |it|
-    %li= link_to t(it), "/##{it}"
+    %li= link_to t(it), root_path(anchor: it)
   %li
-    = link_to '/#hamburg_on_ruby' do
+    = link_to root_path(anchor: "hamburg_on_ruby") do
       %p.logo.ir= title
