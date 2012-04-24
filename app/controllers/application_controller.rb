@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
   end
 
   def switch_locale
-    I18n.locale = params[:locale] if params[:locale]
+    I18n.locale = params[:locale] || :de
   end
 
   def find_by_session_or_cookie
