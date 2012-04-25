@@ -25,7 +25,8 @@ group :assets do
 end
 
 group :production do
-  gem "pg", "0.13.2" # env ARCHFLAGS="-arch x86_64" gem install pg
+  gem "pg",           "0.13.2" # env ARCHFLAGS="-arch x86_64" gem install pg
+  gem "dalli",        "2.0.3"
 end
 
 group :development do
