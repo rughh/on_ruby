@@ -1,7 +1,7 @@
 !!! utf-8
 %html
   %head
-    %title= "#{title} - #{content_for?(:page_title) ? yield(:page_title) : subtitle} - #{meta_desc}"
+    %title= "#{Whitelabel[:name]} - #{title} - #{content_for?(:page_title) ? yield(:page_title) : subtitle} - #{meta_desc}"
 
     %meta{charset: "utf-8"}
     %meta{name: "description", content: "#{title} - #{subtitle} - #{meta_desc}"}
