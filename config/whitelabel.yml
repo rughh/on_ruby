@@ -1,0 +1,7 @@
+---
+- !ruby/struct:Usergroup
+  label_id: hamburg
+  name: Ruby Usergroup Hamburg
+- !ruby/struct:Usergroup
+  label_id: cologne
+  name: Cologne.rb

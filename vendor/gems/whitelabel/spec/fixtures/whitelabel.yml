@@ -1,0 +1,5 @@
+---
+- &70266423416560 !ruby/struct:Dummy
+  label_id: test
+  name: bla
+- *70266423416560

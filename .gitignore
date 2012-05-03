@@ -16,7 +16,6 @@ rerun.txt
 .bundle
 specifications
 cache
-gems
 spec/reports/
 .vagrant
 Vagrantfile
