@@ -33,7 +33,6 @@ RSpec.configure do |config|
   config.before(:each) do
     I18n.locale = :de
     Whitelabel.label_for 'hamburg'
-    ActionDispatch::Request.any_instance.stubs(:subdomains).returns(['hamburg'])
   end
 
   config.include HttpReferer, :type => :controller
