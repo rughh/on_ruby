@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe "Events" do
 
+  before(:each) do
+    ActionDispatch::Request.any_instance.stubs(:subdomains).returns(['hamburg'])
+  end
+
   let(:event) { FactoryGirl.create(:event) }
 
   describe "GET /events" do
