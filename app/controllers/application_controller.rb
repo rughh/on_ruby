@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :signed_in?, :preview_events, :tweets, :random_users
 
-  before_filter :switch_locale
+  before_filter :switch_locale, :switch_label
 
   def check_login
     redirect_to(auth_path) unless signed_in?
@@ -43,6 +43,12 @@ class ApplicationController < ActionController::Base
   def current_user=(user)
     @current_user = user
     session[:user_id] = user.id
+  end
+
+  def switch_label
+    unless request.subdomains.empty? or Whitelabel.label_for request.subdomains.first
+      redirect_to(root_url(subdomain: false), alert: t("flash.no_whitelabel")) and return
+    end
   end
 
   def switch_locale
