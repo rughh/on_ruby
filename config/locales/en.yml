@@ -69,6 +69,7 @@ en:
     meta: "from %{twitter_link} - %{count} times voted with a score of %{stars} out of 5 stars"
     twitter_message: "New Topic by @%{nickname} '%{name}' %{url}"
   flash:
+    no_whitelabel: "Ups, the requested usergroup does not exist (yet!)"
     only_admins: "Ups, only admins allowed!"
     not_authenticated: "Ups, you are not allowed to visit this page!"
     already_participating: "You're already in."
