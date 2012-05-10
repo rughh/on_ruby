@@ -2,3 +2,7 @@ script: "bundle exec rake travis:build"
 bundler_args: "--without development production"
 rvm:
   - 1.9.3
+branches:
+  only:
+    - master
+    - whitelabel
