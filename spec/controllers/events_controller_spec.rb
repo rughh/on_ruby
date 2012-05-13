@@ -1,9 +1,11 @@
-require 'spec_helper' 
+require 'spec_helper'
 
 describe EventsController do
 
   let(:event) { FactoryGirl.create(:event) }
   let(:user) { FactoryGirl.create(:user) }
+
+  before { set_subdomain }
 
   describe "GET :rss" do
     before { get :rss, format: :xml }

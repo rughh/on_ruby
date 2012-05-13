@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe ParticipantsController do
+
+  before { set_subdomain }
+
   describe "DELETE :destroy" do
     before do
       @participant = FactoryGirl.create(:participant)
@@ -20,5 +23,6 @@ describe ParticipantsController do
       response.should redirect_to(@event)
     end
   end
+
 end
 
