@@ -6,6 +6,8 @@ describe VotesController do
   let(:wish) { FactoryGirl.create(:wish) }
   let(:data) { {:vote => FactoryGirl.attributes_for(:vote), :wish_id => wish.id} }
 
+  before { set_subdomain }
+
   describe "POST :create" do
     it "should create a vote for logged-in user" do
       @controller.stubs(:current_user => user)
@@ -19,4 +21,5 @@ describe VotesController do
       response.should redirect_to(auth_path)
     end
   end
+
 end

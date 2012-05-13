@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe LocationsController do
 
+  before { set_subdomain }
+
   describe "GET :index" do
     before { get :index }
 
