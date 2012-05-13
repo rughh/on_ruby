@@ -1,9 +1,11 @@
-  require 'spec_helper'
+require 'spec_helper'
 
 describe WishesController do
 
   let(:wish) { FactoryGirl.create(:wish) }
   let(:user) { FactoryGirl.create(:user) }
+
+  before { set_subdomain }
 
   describe "GET :show" do
     before do
@@ -33,4 +35,5 @@ describe WishesController do
       response.should redirect_to(auth_path)
     end
   end
+
 end
