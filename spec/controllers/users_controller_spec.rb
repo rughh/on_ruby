@@ -17,6 +17,9 @@ describe UsersController do
   end
 
   describe "PUT :update" do
+
+    before { set_referer }
+
     it "should update the github attribute of a user" do
       @controller.stubs(current_user: user)
       put :update, data
