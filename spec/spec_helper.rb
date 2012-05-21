@@ -36,9 +36,6 @@ RSpec.configure do |config|
     Whitelabel.label = Whitelabel.labels.first
   end
 
-  config.include HttpReferer, :type => :controller
-end
-
-def set_subdomain(subdomain = "hamburg")
-  @request.host = "#{subdomain}.example.com"
+  config.include RequestHelper, :type => :controller
+  config.include FactoryGirl::Syntax::Methods
 end
