@@ -1,7 +1,4 @@
-# A sample Guardfile
-# More info at https://github.com/guard/guard#readme
-
-guard 'rspec', :version => 2 do
+guard 'rspec', version: 2 do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
@@ -14,6 +11,7 @@ guard 'rspec', :version => 2 do
   watch(%r{^spec/support/(.+)\.rb$})                  { "spec" }
   watch('spec/spec_helper.rb')                        { "spec" }
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
+
   # Capybara request specs
   watch(%r{^app/views/(.+)/.*\.(rxml|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
 end
