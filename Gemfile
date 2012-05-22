@@ -31,6 +31,9 @@ end
 
 group :development do
   gem "heroku",       require: false
+  gem "guard-rspec"
+  gem "ruby_gntp"
+  gem "rb-fsevent",   require: false
 end
 
 group :development, :test do
