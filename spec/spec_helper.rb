@@ -31,7 +31,10 @@ RSpec.configure do |config|
   config.filter_run :focus => true
   config.run_all_when_everything_filtered = true
 
-  config.before { I18n.locale = :de }
+  config.before do
+    I18n.locale = :de
+    Whitelabel.label = Whitelabel.labels.first
+  end
 
   config.include HttpReferer, :type => :controller
 end
