@@ -1,7 +1,9 @@
 ---
 - !ruby/struct:Usergroup
   label_id: hamburg
-  name: Ruby Usergroup Hamburg
+  location:
+    zoom: 14
+    lat: 53.56544
+    long: 9.95947
 - !ruby/struct:Usergroup
   label_id: cologne
-  name: Cologne.rb

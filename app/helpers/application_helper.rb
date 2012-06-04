@@ -1,29 +1,30 @@
 module ApplicationHelper
 
   def title
-    'Hamburg on Ruby'
+    I18n.tw("title")
   end
 
   def subtitle
-    t("subtitle")
+    I18n.tw("subtitle")
   end
 
   def page_title
     t = []
-    t << Whitelabel[:name] if Whitelabel.label
+    t << I18n.tw("name") if Whitelabel.label
     t << title
     t << content_for?(:page_title) ? content_for(:page_title) : subtitle
     t << meta_desc
     t.join(' - ')
   end
 
+
   def meta_desc
-    'Ruby / Rails Usergroup Hamburg'
+    I18n.tw("meta_desc")
   end
 
   def map(locations, init={})
     locations = Array(locations)
-    init = {zoom: 14, lat: 53.56544, long: 9.95947}.merge(init)
+    init = Whitelabel[:location].merge(init)
     content_tag(:div, '', class: 'map_canvas', 'data-map' => locations.to_json, 'data-init' => init.to_json)
   end
 
