@@ -4,14 +4,27 @@
   email: "hamburg@onruby.de"
   host: "hamburg.onruby.de"
   twitter: "hamburgsync"
-  usergroup_email: "rubyonrails-ug@headflash.com"
   organizers: ['halfbyte', 'ralph', 'phoet', 'rubiii']
   location:
     zoom: 14
     lat: 53.56544
     long: 9.95947
 - !ruby/struct:Usergroup
+  label_id: "bremen"
+  email: "awesome-bremen@googlegroups.com"
+  host: "bremen.onruby.de"
+  twitter: "hackhb"
+  organizers: ['dennisreimann']
+  location:
+    zoom: 14
+    lat: 53.079296
+    long: 8.801694
+- !ruby/struct:Usergroup
   label_id: "cologne"
+  email: "colognerb@googlegroups.com"
+  host: "cologne.onruby.de"
+  twitter: "colognerb"
+  organizers: ['jkwebs']
   location:
     zoom: 13
     lat: 50.941231

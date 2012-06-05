@@ -1,0 +1,44 @@
+/ %section.clearfix
+/   #imprint.block
+/     %h2= t("footer.imprint")
+/     %ul
+/       %li= mail_to 'phoetmail@googlemail.com', 'Peter Schröder'
+/       %li Schanzenstr. 85</br>20357 Hamburg
+/   #contact.block
+/     %h2= t("footer.contact")
+/     %ul
+/       %li= link_to 'Twitter', 'http://twitter.com/hamburgsync'
+/       %li= mail_to Whitelabel[:email], 'E-Mail'
+/   #links.block
+/     %h2= t("footer.links")
+/     %ul
+/       %li= link_to 'Github', 'http://github.com/phoet/hamburg_on_ruby'
+/       %li= link_to 'Mailinglist', 'http://mailman.headflash.com/listinfo/rubyonrails-ug'
+
+/ %hr
+
+/ %section.clearfix
+/   #usergroups.block
+/     %h2= t("footer.other_usergroups")
+/     %ol
+/       %li
+/         = link_to 'HH.js', 'http://www.meetup.com/hamburg-js/'
+/         = link_to_twitter('hhjs', clung: true)
+/       %li
+/         = link_to 'Scrumtisch', 'http://sug-hh.wikispaces.com/'
+/         = link_to_twitter('hhscrum', clung: true)
+/       %li
+/         = link_to 'Kanban Usergroup', 'http://limited-wip-society-hamburg.mixxt.de/'
+/         = link_to_twitter('LimitedWIPSocHH', clung: true)
+/       %li
+/         = link_to 'Cocoaheads', 'http://groups.google.com/group/cocoaheads-hh/'
+/         = link_to_twitter('hh_cocoaheads', clung: true)
+/       %li
+/         = link_to 'AWS Usergroup', 'http://awsug.wordpress.com/'
+/         = link_to_twitter('awsug', clung: true)
+/       %li
+/         = link_to 'Java Usergroup', 'http://www.jughh.org/'
+/       %li
+/         = link_to 'Android Usergroup', 'https://groups.google.com/group/android-user-group-hamburg'
+/       %li
+/         = link_to 'DJANGO Usergroup', 'http://www.dughh.de/'
