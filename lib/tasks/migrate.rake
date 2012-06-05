@@ -21,6 +21,7 @@ namespace :migrate do
     Whitelabel.label = Whitelabel.label_for("cologne")
     [User, Authorization, Location, Event, Material, Participant, Topic, Wish, Vote].each do |model|
       puts "importing #{model}"
+      model.where("id > 1000").delete_all
       entities = File.open("migration/#{model.to_s.downcase}.json", "r:UTF-8") { |file| YAML.load(file)}
       entities.each do |attrs|
         begin
