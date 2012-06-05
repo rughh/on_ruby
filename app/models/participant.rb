@@ -18,4 +18,8 @@ class Participant < ActiveRecord::Base
   def owned_by?(other_user)
     user.id == other_user.id
   end
+
+  def self.label_users
+    includes(:user).joins(:event).where("events.label" => Whitelabel[:label_id]).map(&:user)
+  end
 end
