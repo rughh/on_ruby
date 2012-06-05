@@ -1,5 +1,6 @@
-= render 'events', events: events, current_event: current_event
-= render 'people', people: people
-= render 'locations', locations: locations
-= render 'wishes', wishes_done: wishes_done, wishes_undone: wishes_undone, organizers: organizers
-= render 'companies', companies: companies
+= section_box :usergroups do
+  %ul
+    - Whitelabel.labels.each do |label|
+      %li
+        = link_to label_url(subdomain: label.label_id) do
+          = image_tag("labels/#{label.label_id}.png")
