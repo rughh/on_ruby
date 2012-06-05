@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   expose(:current_event) { Event.current.first }
   expose(:events) { Event.latest }
-  expose(:people) { User.ordered }
+  expose(:people) { Participant.label_users }
   expose(:wishes_undone) { Wish.undone }
   expose(:wishes_done) { Wish.done }
   expose(:organizers) { User.organizer }
