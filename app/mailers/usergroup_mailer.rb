@@ -1,10 +1,12 @@
 class UsergroupMailer < ActionMailer::Base
-  default from: AppConfig.email
-  default_url_options[:host] = AppConfig.host
-
   def invitation_mail(event)
     @event = event
-    recipient = AppConfig.usergroup_email
-    mail(to: recipient, subject: "RUGHH Info: #{event.name}")
+    options = {
+      to: Whitelabel[:usergroup_email],
+      subject: "#{Whitelabel[:label_id].upcase} Info: #{event.name}",
+      from: Whitelabel[:email]
+    }
+    default_url_options[:host] = Whitelabel[:host]
+    mail(options)
   end
 end
