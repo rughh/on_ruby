@@ -19,7 +19,7 @@ class Location < ActiveRecord::Base
 
   validates :name, :url, :city, :street, :house_number, :zip, presence: true
 
-  attr_accessible :name, :url, :city, :street, :house_number, :zip
+  attr_accessible :name, :url, :city, :street, :house_number, :zip, :lat, :long, as: :admin
 
   default_scope -> { where(:label => Whitelabel[:label_id]) }
 

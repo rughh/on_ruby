@@ -1,4 +1,16 @@
 ActiveAdmin.register Event do
+  form do |f|
+    f.inputs "Details" do
+      f.input :location
+      f.input :user
+      f.input :date
+      f.input :name
+      f.input :description
+      f.input :published
+    end
+    f.buttons
+  end
+
   member_action :publish, method: :get do
     resource.publish_mailinglist(event_url(resource))
     redirect_to admin_dashboard_path, notice: "Published!"
