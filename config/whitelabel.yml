@@ -7,3 +7,7 @@
     long: 9.95947
 - !ruby/struct:Usergroup
   label_id: cologne
+  location:
+    zoom: 13
+    lat: 50.941231
+    long: 6.957092
