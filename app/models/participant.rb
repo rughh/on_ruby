@@ -20,6 +20,7 @@ class Participant < ActiveRecord::Base
   end
 
   def self.label_users
-    includes(:user).joins(:event).where("events.label" => Whitelabel[:label_id]).map(&:user)
+    # TODO (ps) there should be a better way to retrieve those...
+    includes(:user).joins(:event).where("events.label" => Whitelabel[:label_id]).map(&:user).uniq.compact
   end
 end
