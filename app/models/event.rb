@@ -53,7 +53,7 @@ class Event < ActiveRecord::Base
       e.created = created_at
       e.last_modified = updated_at
       e.uid = e.url = path
-      e.add_comment("iCal Event by Hamburg on Ruby!")
+      e.add_comment("iCal Event by On Ruby!")
     end
 
     Icalendar::Calendar.new.tap do |cal|
@@ -91,7 +91,7 @@ class Event < ActiveRecord::Base
     def duplicate!
       Event.last.dup.tap do |it|
         it.date = Event.next_event_date
-        it.name = "Ruby Usergroup Hamburg - #{I18n.l it.date, locale: :de, format: :month}"
+        it.name = "#{I18n.tw('name')} - #{I18n.l it.date, locale: :de, format: :month}"
         it.published = false
         it.save!
       end
