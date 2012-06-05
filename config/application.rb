@@ -46,12 +46,10 @@ module HamburgOnRuby
       g.test_framework :rspec, :fixture => true, :views => false
       g.integration_tool :rspec, :fixture => true, :views => true
       g.fixture_replacement :factory_girl, :dir => "spec/support/factories"
-#      g.stylesheets false
       g.stylesheet_engine = :scss
     end
 
     # Mass assignment settings
     config.active_record.whitelist_attributes = true
-
   end
 end
