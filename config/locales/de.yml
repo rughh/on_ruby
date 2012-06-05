@@ -69,7 +69,7 @@ de:
     meta: "von %{twitter_link} - %{count} mal mit %{stars} von 5 Sternen bewertet"
     twitter_message: "Neues Thema von @%{nickname} '%{name}' %{url}"
   flash:
-    no_whitelabel: "Hoppala, diese Usergroup existiert (noch) nicht!"
+    no_whitelabel: "Bitte wähle deine Usergroup aus!"
     only_admins: "Hoppala, da dürfen nur Admins hin!"
     not_authenticated: "Hoppala, diese Seite ist nicht für dich bestimmt!"
     already_participating: "Du bist schon angemeldet."
