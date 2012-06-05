@@ -23,8 +23,12 @@ namespace :migrate do
       puts "importing #{model}"
       entities = File.open("migration/#{model.to_s.downcase}.json", "r:UTF-8") { |file| YAML.load(file)}
       entities.each do |attrs|
-        model.create do |m|
-          attrs.each { |key, value| m.send("#{key}=", value)}
+        begin
+          model.create do |m|
+            attrs.each { |key, value| m.send("#{key}=", value)}
+          end
+        rescue
+          puts "could not import #{attrs} #{$!}"
         end
       end
     end
