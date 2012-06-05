@@ -1,7 +1,7 @@
 = section_box :wishes do
   %p
     %strong= t("home.like_to_talk")
-    = raw t("home.send_us_an_email", :mail_to => AppConfig.email)
+    = raw t("home.send_us_an_email", mail_to: Whitelabel[:email])
   %ul
     = render 'users_list', users: organizers
   %p= raw t("home.engage")

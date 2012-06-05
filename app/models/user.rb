@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :github, :name, :freelancer, :available, :hide_jobs, :participants
 
-  scope :organizer, where(nickname: ['halfbyte', 'ralph', 'phoet', 'rubiii'])
+  scope :organizers, -> { where(nickname: Whitelabel[:organizers]) }
   scope :ordered, order('created_at DESC')
 
   def participates?(event)
@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
 
   class << self
     def main
-      User.find_by_nickname(AppConfig.twitter) || User.find_by_nickname('phoet')
+      User.find_by_nickname(Whitelabel[:twitter])
     end
 
     def random(num=50)

@@ -1,6 +1,6 @@
 source :rubygems
 
-gem "rails",            "3.2.3"
+gem "rails",            "3.2.5"
 
 gem "jquery-rails",     "2.0.2"
 gem "haml",             "3.1.4"
@@ -8,7 +8,6 @@ gem "friendly_id",      "4.0.4"
 gem "omniauth",         "1.0.3"
 gem "omniauth-twitter", "0.0.9"
 gem "icalendar",        "1.1.6"
-gem "ambience",         "2.0.0"
 gem "activeadmin",      git: "https://github.com/gregbell/active_admin.git"
 gem 'sass-rails',       "3.2.4"
 gem 'meta_search',      ">= 1.1.0.pre"
@@ -39,6 +38,6 @@ group :development, :test do
   gem "fuubar",       "1.0.0"
   gem "mocha",        "0.10.5"
   gem "sqlite3-ruby", "1.3.3", require: "sqlite3"
-  gem "rspec-rails",  "2.9.0"
+  gem "rspec-rails",  "2.10.1"
   gem "factory_girl", "3.1.0"
 end
