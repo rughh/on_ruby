@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
 
   def switch_label
     unless Whitelabel.label_for(request.subdomains.first)
-      redirect_to(root_url(subdomain: false), alert: t("flash.no_whitelabel")) and return
+      redirect_to(labels_url(subdomain: false), alert: t("flash.no_whitelabel")) and return
     end
   end
 

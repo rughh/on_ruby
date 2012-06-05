@@ -6,6 +6,17 @@ describe ApplicationHelper do
 
   let(:user) { FactoryGirl.build(:user) }
 
+  describe "#page_title" do
+    it "should generate a page_title" do
+      helper.page_title.should eql("Ruby Usergroup Hamburg - Hamburg on Ruby - Heimathafen der Hamburger Ruby Community - Ruby / Rails Usergroup Hamburg")
+    end
+
+    it "should have a page_title for default label" do
+      Whitelabel.label = nil
+      helper.page_title.should eql("Wir on Ruby - Ruby Communities Deutschland - Ruby Communities Deutschland")
+    end
+  end
+
   describe "#link_to_github" do
     it "should generate the link" do
       helper.link_to_github(user).should eql('<a href="http://github.com/giddiup">giddiup</a>')

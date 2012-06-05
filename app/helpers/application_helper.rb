@@ -12,11 +12,10 @@ module ApplicationHelper
     t = []
     t << I18n.tw("name") if Whitelabel.label
     t << title
-    t << content_for?(:page_title) ? content_for(:page_title) : subtitle
+    t << (content_for?(:page_title) ? content_for(:page_title) : subtitle)
     t << meta_desc
     t.join(' - ')
   end
-
 
   def meta_desc
     I18n.tw("meta_desc")

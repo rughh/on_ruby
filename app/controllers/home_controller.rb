@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  skip_before_filter :switch_label, only: :labels
+
   expose(:current_event) { Event.current.first }
   expose(:events) { Event.latest }
   expose(:people) { User.ordered }
@@ -7,4 +9,8 @@ class HomeController < ApplicationController
   expose(:organizers) { User.organizer }
   expose(:locations) { Location.cometogether }
   expose(:companies) { Location.company }
+
+  def labels
+    render :layout => 'labels'
+  end
 end
