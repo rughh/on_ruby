@@ -7,6 +7,14 @@ h2. Setup
 * install rvm
 * install rvm-version of .rvmrc
 
+h3. Hosts
+
+For working with the whitelabel functionality, you need to add all supported subdomains to your /etc/hosts :
+
+  127.0.0.1       local.de hamburg.local.de cologne.local.de
+
+Access via http://local.de:5000
+
 h3. GitHub-Authentication
 
 You need "GitHub App credentials":https://dev.twitter.com in order to have a working login.
