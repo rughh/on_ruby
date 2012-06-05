@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def title
     I18n.tw("title")
   end
@@ -47,6 +46,10 @@ module ApplicationHelper
       concat content_tag(:h2, t(name))
       yield
     end
+  end
+
+  def render_labeled(template)
+    render "/labels/#{Whitelabel[:label_id]}/#{template}"
   end
 
   def twitter_update_url(text)

@@ -20,7 +20,7 @@
   %body
     = fork_me_ribbon
     .container
-      %header#hamburg_on_ruby
+      %header#on_ruby
         = render 'shared/login'
         #logo= link_to(image_tag('/assets/logo.png', alt: title, title: title), root_path)
         %h1= link_to title, root_path
@@ -32,5 +32,5 @@
         = yield
         = render 'shared/script'
     %footer
-      = render 'shared/footer'
+      = render_labeled :footer
   = render 'shared/info'

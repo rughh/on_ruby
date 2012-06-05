@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   expose(:people) { Participant.label_users }
   expose(:wishes_undone) { Wish.undone }
   expose(:wishes_done) { Wish.done }
-  expose(:organizers) { User.organizer }
+  expose(:organizers) { User.organizers }
   expose(:locations) { Location.cometogether }
   expose(:companies) { Location.company }
 
