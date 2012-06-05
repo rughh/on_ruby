@@ -1,5 +1,10 @@
 de:
   label:
+    default:
+      name: "onruby"
+      title: "Wir on Ruby"
+      subtitle: "Ruby Communities Deutschland"
+      meta_desc: "Ruby Communities Deutschland"
     hamburg:
       city: "Hamburg"
       name: "Ruby Usergroup Hamburg"

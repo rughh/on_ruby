@@ -6,6 +6,8 @@ describe UsersController do
   let(:data) { {id: user.id, user: { github: 'testo', freelancer: true, available: true }} }
   let(:unallowed_data) { data.merge({:user => {:nickname => 'not_allowed_property'}}) }
 
+  before { set_subdomain }
+
   describe "GET :edit" do
     it "should show alert for wrong user" do
       get :edit, id: user.id

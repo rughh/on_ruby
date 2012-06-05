@@ -32,7 +32,7 @@ HamburgOnRuby::Application.routes.draw do
 
   match '/mobile',     to: 'mobile#index',     as: :mobile
 
-  match '/home/label',     to: 'home#label',   as: :label
+  match '/home/labels',   to: 'home#labels',   as: :labels
   match '/home/info',     to: 'home#info',     as: :info
   match '/home/imprint',  to: 'home#imprint',  as: :imprint
 
