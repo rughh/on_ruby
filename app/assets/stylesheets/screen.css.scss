@@ -346,6 +346,25 @@ nav {
     }
   }
 
+  #usergroups {
+    a {
+      text-decoration:none;
+    }
+    li {
+      padding-bottom:1em;
+    }
+  }
+  .label {
+    font:bold 4em hero,arial,verdana,sans-serif;
+    border:1px solid white;
+    @include border-radius(0.5em, 0.5em);
+    padding:0.5em;
+    background:url(/assets/black-Linen.png) left top repeat;
+    img {
+      vertical-align:middle;
+    }
+  }
+
   section {
     padding:2em;
     display:block;

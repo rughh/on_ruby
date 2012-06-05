@@ -3,4 +3,6 @@
     - Whitelabel.labels.each do |label|
       %li
         = link_to root_url(subdomain: label.label_id) do
-          = image_tag("labels/#{label.label_id}.png")
+          .label
+            = image_tag("labels/#{label.label_id}.png")
+            = label.host
