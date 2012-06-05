@@ -4,6 +4,8 @@ class Highlight < ActiveRecord::Base
 
   attr_accessible :description, :url, :start_at, :end_at
 
+  default_scope -> { where(:label => Whitelabel[:label_id]) }
+
   scope :active, lambda { where('end_at > ?', Time.now).order('start_at').limit(1) }
 
   def active?

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224151318) do
+ActiveRecord::Schema.define(:version => 20120604194617) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -42,10 +42,11 @@ ActiveRecord::Schema.define(:version => 20120224151318) do
     t.text     "description"
     t.integer  "location_id"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.boolean  "published"
     t.string   "slug"
+    t.string   "label",       :default => "hamburg"
   end
 
   add_index "events", ["slug"], :name => "index_events_on_slug", :unique => true
@@ -55,16 +56,18 @@ ActiveRecord::Schema.define(:version => 20120224151318) do
     t.string   "url"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "label",       :default => "hamburg"
   end
 
   create_table "jobs", :force => true do |t|
     t.string   "name"
     t.string   "url"
     t.integer  "location_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "label",       :default => "hamburg"
   end
 
   create_table "locations", :force => true do |t|
@@ -76,9 +79,10 @@ ActiveRecord::Schema.define(:version => 20120224151318) do
     t.string   "zip"
     t.float    "lat"
     t.float    "long"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.boolean  "company"
+    t.string   "label",        :default => "hamburg"
   end
 
   create_table "materials", :force => true do |t|
@@ -167,10 +171,11 @@ ActiveRecord::Schema.define(:version => 20120224151318) do
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.boolean  "done",        :default => false
     t.string   "slug"
+    t.string   "label",       :default => "hamburg"
   end
 
   add_index "wishes", ["slug"], :name => "index_wishes_on_slug", :unique => true
