@@ -43,7 +43,7 @@ class Wish < ActiveRecord::Base
   end
 
   def copy_to_topic!
-    Topic.create!(name: name, description: description, user: user, event: Event.last)
+    Topic.create!({name: name, description: description, user: user, event: Event.last}, as: :admin)
     update_attributes!(done: true)
   end
 end
