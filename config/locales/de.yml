@@ -29,13 +29,11 @@ de:
   show:
     hosted_by: "gehostet durch"
     at: "bei"
-    no_topics: "Es sind noch keine Themen eingetragen."
-    no_material: "Es ist noch kein Material eingetragen."
     attend: "Ich möchte teilnehmen"
     not_attend: "Nicht mehr teilnehmen"
     attendees: "Teilnehmer"
-    no_attendees: "Es ist noch niemand angemeldet."
     route: "Anfahrt"
+    material: "Material"
   home:
     like_to_talk: "Möchtest du einen Vortrag auf der Ruby Usergroup halten oder hast du zusätzliche Themenvorschläge?"
     send_us_an_email: "Dann schicke uns einfach eine <a href='mailto:%{mail_to}'>E-Mail</a> oder spreche uns persönlich an:"

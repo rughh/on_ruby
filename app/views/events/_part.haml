@@ -1,0 +1,10 @@
+- parts = event.send(type)
+- if parts.present?
+  %h3= t("#{type}")
+  %ul.enumeration
+    - parts.each do |p|
+      %li
+        = link_to p.name, p.url if p.respond_to?(:url)
+        - if p.user
+          = link_to_twitter(p.user, clung: true)
+        %p= p.description

@@ -11,7 +11,7 @@ class Material < ActiveRecord::Base
 
   validates :name, :url, :event, presence: true
 
-  attr_accessible :name, :url, :event, as: :admin
+  attr_accessible :name, :url, :description, :event_id, :user_id, as: :admin
 
   belongs_to :user
   belongs_to :event
