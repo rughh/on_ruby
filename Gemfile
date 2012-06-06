@@ -31,13 +31,16 @@ end
 
 group :development do
   gem "heroku",       require: false
+  gem "guard-rspec"
+  gem "ruby_gntp"
+  gem "rb-fsevent",   require: false
 end
 
 group :development, :test do
+  gem "sqlite3"
   gem "pry-remote",   "0.1.1"
   gem "fuubar",       "1.0.0"
   gem "mocha",        "0.10.5"
-  gem "sqlite3-ruby", "1.3.3", require: "sqlite3"
   gem "rspec-rails",  "2.10.1"
   gem "factory_girl", "3.1.0"
 end
