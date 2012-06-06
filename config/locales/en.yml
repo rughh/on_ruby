@@ -29,13 +29,11 @@ en:
   show:
     hosted_by: "hosted by"
     at: "by"
-    no_topics: "No Topics added."
-    no_material: "No Material added."
     attend: "I want in"
     not_attend: "I want out"
     attendees: "Attendees"
-    no_attendees: "No Attendees."
     route: "Route"
+    material: "Material"
   home:
     like_to_talk: "Do you want to give a Talk at the Ruby Usergroup or do you have additional Topics to talk about?"
     send_us_an_email: "Then send us an <a href='mailto:%{mail_to}'>E-Mail</a> oder ping us on Twitter:"
