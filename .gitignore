@@ -3,6 +3,7 @@ log/*
 tmp/*
 db/*.sqlite3*
 coverage
+public/assets
 public/cache
 public/system
 public/javascripts/*_packaged.js
