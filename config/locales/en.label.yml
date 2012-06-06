@@ -2,20 +2,20 @@ de:
   label:
     default:
       name: "onruby"
-      title: "Wir on Ruby"
-      subtitle: "Ruby Communities Deutschland"
-      meta_desc: "Ruby Communities Deutschland"
+      title: "We on Ruby"
+      subtitle: "Ruby Communities Germany"
+      meta_desc: "Ruby Communities Germany"
     hamburg:
       city: "Hamburg"
       name: "Ruby Usergroup Hamburg"
       title: "Hamburg on Ruby"
-      subtitle: "Heimathafen der Hamburger Ruby Community"
+      subtitle: "Harbor of Hamburg's Ruby Community"
       meta_desc: "Ruby / Rails Usergroup Hamburg"
     bremen:
       city: "Bremen"
       name: "HackHB"
       title: "HackHB"
-      subtitle: "Hacken und Schnacken"
+      subtitle: "Hack und Snack"
       meta_desc: "Hacking Usergroup Bremen: Ruby / Rails / JavaScript / HTML5 / Objective-C"
     cologne:
       city: "Köln"
