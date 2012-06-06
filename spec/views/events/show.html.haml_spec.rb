@@ -6,7 +6,7 @@ describe "events/show" do
   let(:event) { FactoryGirl.create(:event) }
 
   it "should render successfully" do
-    view.stubs(current_user: user, event: event)
+    view.stubs(signed_in?: true, current_user: user, event: event)
     render
   end
 end

@@ -1,5 +1,5 @@
 module EventsHelper
-  def participation_link
+  def participation_link(event)
     if signed_in?
       if current_user.participates?(event)
         button_to t("show.not_attend"), event_participant_path(event, current_user.participation(event)), class: 'button', method: 'delete'

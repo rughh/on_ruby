@@ -16,7 +16,7 @@ class Wish < ActiveRecord::Base
   validates :name, :description, :user, presence: true
   validates :name, uniqueness: true
 
-  attr_accessible :name, :done, :stars, :description
+  attr_accessible :name, :done, :stars, :description, :user
 
   belongs_to :user
 
