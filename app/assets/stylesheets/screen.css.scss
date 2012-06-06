@@ -82,37 +82,25 @@ header {
   h2 {
     font:bold 1.5em hero,arial,verdana,sans-serif;
   }
-  #boxxx {
+  #login {
     float:right;
-    #login {
-      width:110px;
-      padding:1em;
-      background:url(/assets/whitey.png) left top repeat;
-      border:1px solid white;
+    width:110px;
+    padding:1em;
+    background:url(/assets/whitey.png) left top repeat;
+    border:1px solid white;
+    @include border-radius(0.5em, 0.5em);
+    img.user {
+      width:32px;
+      height:32px;
+      border: 1px solid white;
       @include border-radius(0.5em, 0.5em);
-      img.user {
-        width:32px;
-        height:32px;
-        border: 1px solid white;
-        @include border-radius(0.5em, 0.5em);
-      }
-      h3 {
-        color:#444;
-        padding-bottom:0.5em;
-      }
-      ul {
-        @include horizontal-list;
-      }
     }
-    #locale {
-      padding-top:10px;
-      ul {
-        @include horizontal-list;
-        img {
-          border:1px solid lightgray;
-        }
-      }
-
+    h3 {
+      color:#444;
+      padding-bottom:0.5em;
+    }
+    ul {
+      @include horizontal-list;
     }
   }
   #logo {
@@ -131,6 +119,19 @@ nav {
   border-bottom: 1px solid white;
   padding:0.5em 0em 0.2em 0em;
 
+  #locale {
+    float:right;
+    margin-right:1em;
+    ul {
+      @include horizontal-list;
+      li {
+        margin:0px;
+      }
+      img {
+        border:1px solid lightgray;
+      }
+    }
+  }
   ul {
     margin: 0;
     border: 0;
