@@ -1,15 +1,9 @@
-#boxxx
-  #login
-    -if signed_in?
-      %ul
-        %li= link_to image_tag(current_user.image, class: "user"), edit_user_path(current_user), title: user.nickname
-        %li= link_to t("login.profile"), edit_user_path(current_user)
-        %li= link_to t("login.logout"), destroy_session_path(current_user)
-    -else
-      %ul
-        %li= link_to t("login.twitter_login"), auth_path
-
-  #locale
+#login
+  -if signed_in?
     %ul
-      -[:de, :en].each do |locale|
-        %li= link_to image_tag("flags/#{locale}.png"), locale: locale
+      %li= link_to image_tag(current_user.image, class: "user"), edit_user_path(current_user), title: current_user.nickname
+      %li= link_to t("login.profile"), edit_user_path(current_user)
+      %li= link_to t("login.logout"), destroy_session_path(current_user)
+  -else
+    %ul
+      %li= link_to t("login.twitter_login"), auth_path
