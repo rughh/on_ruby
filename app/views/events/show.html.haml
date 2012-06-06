@@ -9,41 +9,15 @@
     = link_to_twitter event.user
     = t("show.at")
     = link_to event.location.name, event.location.url
+  %p= participation_link
 
-  %p
-    - if current_user
-      - if current_user.participates?(event)
-        = button_to t("show.not_attend"), event_participant_path(event, current_user.participation(event)), method: 'delete'
-      - else
-        = button_to t("show.attend"), add_user_event_path(event)
+  - if event.participants.present?
+    %h3= t("show.attendees")
+    %p= render 'home/users_list', users: event.participants.map(&:user)
 
-  %h3= t("participants")
-  %p
-    = render 'home/users_list', users: event.participants.map(&:user)
+  = render "part", event: event, type: :topics
 
-  %h3= t("topics")
-  - if event.topics.present?
-    %ul.enumeration
-      - event.topics.each do |t|
-        %li
-          %strong= t.name
-          - if t.user
-            = link_to_twitter(t.user, clung: true)
-          %p= t.description
-  - else
-    %strong= t("show.no_topics")
-
-  %h3 Material
-  - if event.materials.present?
-    %ul.enumeration
-      - event.materials.each do |m|
-        %li
-          = link_to m.name, m.url
-          - if m.user
-            = link_to_twitter(m.user, clung: true)
-          %p= m.description
-  - else
-    %strong= t("no_material")
+  = render "part", event: event, type: :materials
 
   %h3= t("show.route")
   = map(event.location, lat: event.location.lat, long: event.location.long)
