@@ -10,6 +10,17 @@
     = t("show.at")
     = link_to event.location.name, event.location.url
 
+  %p
+    - if current_user
+      - if current_user.participates?(event)
+        = button_to t("show.not_attend"), event_participant_path(event, current_user.participation(event)), method: 'delete'
+      - else
+        = button_to t("show.attend"), add_user_event_path(event)
+
+  %h3= t("participants")
+  %p
+    = render 'home/users_list', users: event.participants.map(&:user)
+
   %h3= t("topics")
   - if event.topics.present?
     %ul.enumeration
@@ -33,22 +44,6 @@
           %p= m.description
   - else
     %strong= t("no_material")
-%hr
-%section
-  - if event.date > Time.now
-    .topbutton
-      %strong
-        - if current_user
-          - if current_user.participates?(event)
-            = button_to t("show.not_attend"), event_participant_path(event, current_user.participation(event)), method: 'delete'
-          - else
-            = button_to t("show.attend"), add_user_event_path(event)
-
-  %h2= t("show.attendees")
-  - if event.participants.present?
-    = render 'home/users_list', users: event.participants.map(&:user)
-  - else
-    %strong= t("show.no_attendees")
 
   %h3= t("show.route")
   = map(event.location, lat: event.location.lat, long: event.location.long)
