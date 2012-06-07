@@ -14,11 +14,6 @@ GIT
       rails (>= 3.0.0)
       sass (>= 3.1.0)
 
-PATH
-  remote: vendor/gems/whitelabel
-  specs:
-    whitelabel (0.0.1)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -259,6 +254,7 @@ GEM
       multi_json (>= 1.0.2)
     warden (1.1.1)
       rack (>= 1.0)
+    whitelabel (0.1.0)
     yajl-ruby (1.1.0)
 
 PLATFORMS
@@ -296,5 +292,5 @@ DEPENDENCIES
   sqlite3
   thin (= 1.3.1)
   uglifier (= 1.2.4)
-  whitelabel!
+  whitelabel (= 0.1.0)
   yajl-ruby
