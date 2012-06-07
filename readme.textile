@@ -1,6 +1,16 @@
-h1. Hamburg on Ruby "!http://travis-ci.org/phoet/hamburg_on_ruby.png!":https://secure.travis-ci.org/phoet/hamburg_on_ruby.png
+h1. OnRuby "!http://travis-ci.org/phoet/hamburg_on_ruby.png!":https://secure.travis-ci.org/phoet/hamburg_on_ruby.png
 
-Source for the "Site of Hamburg's Ruby Community":http://onruby.de.
+Source for the Sites of the Ruby Communities of "Hamburg":http://hamburg.onruby.de, "Bremen":http://bremen.onruby.de and "Cologne":http://cologne.onruby.de
+
+h2. Your Usergroup Missing? (aka THE GUIDE TO YOUR UG)
+
+There are just a couple of steps for your Ruby Usergroup Site to get alive:
+
+* fork this repo
+* provide mandatory changes to the following files:
+** config/whitelabel.yml config/locales/*.label.yml
+* add optional custom files to:
+** app/assets/images/labels app/assets/stylesheets/labels app/assets/javascripts/labels
 
 h2. Setup
 
@@ -13,7 +23,7 @@ For working with the whitelabel functionality, you need to add all supported sub
 
   127.0.0.1    onruby.dev hamburg.onruby.dev cologne.onruby.dev bremen.onruby.dev
 
-Access via http://local.de:5000
+Access via http://onruby.dev:5000
 
 h3. GitHub-Authentication
 
