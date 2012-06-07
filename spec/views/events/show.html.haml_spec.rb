@@ -2,8 +2,8 @@ require "spec_helper"
 
 describe "events/show" do
 
-  let(:user)  { FactoryGirl.build(:user) }
-  let(:event) { FactoryGirl.create(:event) }
+  let(:user)  { build(:user) }
+  let(:event) { create(:event) }
 
   it "should render successfully" do
     view.stubs(signed_in?: true, current_user: user, event: event)

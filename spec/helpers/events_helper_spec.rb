@@ -2,9 +2,9 @@
 require 'spec_helper'
 
 describe EventsHelper do
-  let(:event) { FactoryGirl.create(:event) }
-  let(:participant) { FactoryGirl.create(:participant, user: event.user) }
-  let(:participation_event) { FactoryGirl.create(:event, participants: [participant]) }
+  let(:event) { create(:event) }
+  let(:participant) { create(:participant, user: event.user) }
+  let(:participation_event) { create(:event, participants: [participant]) }
 
   describe "signed_out user" do
     before(:each) do

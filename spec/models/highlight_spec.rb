@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Highlight do
 
-  let(:highlight) { FactoryGirl.build(:highlight) }
-  let(:active_highlight) { FactoryGirl.build(:highlight, start_at: Date.tomorrow, end_at: 2.days.since) }
+  let(:highlight) { build(:highlight) }
+  let(:active_highlight) { build(:highlight, start_at: Date.tomorrow, end_at: 2.days.since) }
 
   it "should be valid" do
     highlight.should be_valid
