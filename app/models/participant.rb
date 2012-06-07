@@ -18,9 +18,4 @@ class Participant < ActiveRecord::Base
   def owned_by?(other_user)
     user.id == other_user.id
   end
-
-  def self.label_users
-    # TODO (ps) there should be a better way to retrieve those...
-    includes(:user).joins(:event).where("events.label" => Whitelabel[:label_id]).map(&:user).uniq.compact
-  end
 end
