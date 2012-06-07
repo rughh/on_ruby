@@ -1,0 +1,26 @@
+%section.clearfix
+  #contact.block
+    %h2= t("footer.contact")
+    %ul
+      %li= link_to "Twitter", (Whitelabel[:twitter])
+      %li= mail_to Whitelabel[:email], 'E-Mail'
+  #links.block
+    %h2= t("footer.links")
+    %ul
+      %li= link_to 'Github', 'http://github.com/phoet/hamburg_on_ruby'
+      %li= link_to 'Mailinglist', 'http://mailman.headflash.com/listinfo/rubyonrails-ug'
+  #imprint.block
+    %h2= t("footer.imprint")
+    %ul
+      %li
+        - imprint[:contributors].each do |contributor|
+          = mail_to contributor[:email], contributor[:name]
+      %li= raw imprint[:address].gsub("\n", "<br/>")
+
+  #usergroups.block
+    %h2= t("footer.other_usergroups")
+    %ol.clearfix
+      - other_usergroups.each do |ug|
+        %li
+          = link_to ug[:name], ug[:url]
+          = link_to_twitter(ug[:twitter], clung: true) if ug[:twitter]
