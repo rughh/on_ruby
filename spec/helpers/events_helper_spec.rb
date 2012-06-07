@@ -13,7 +13,7 @@ describe EventsHelper do
 
     describe "#participation_link" do
       it "should render nothing" do
-        helper.participation_link(event).should be_nil
+        helper.participation_link(event).should match("Ich möchte teilnehmen")
       end
     end
   end
