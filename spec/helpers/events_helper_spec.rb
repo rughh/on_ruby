@@ -2,7 +2,6 @@
 require 'spec_helper'
 
 describe EventsHelper do
-  # TODO (ps) move this stuff to it's own factory
   let(:event) { FactoryGirl.create(:event) }
   let(:participant) { FactoryGirl.create(:participant, user: event.user) }
   let(:participation_event) { FactoryGirl.create(:event, participants: [participant]) }

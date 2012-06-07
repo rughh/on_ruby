@@ -7,4 +7,8 @@ FactoryGirl.define do
     image 'http://onruby.de/logo.png'
     github 'giddiup'
   end
+
+  factory :admin_user, parent: :user do
+    admin true
+  end
 end

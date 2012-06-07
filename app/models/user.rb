@@ -57,6 +57,10 @@ class User < ActiveRecord::Base
   end
 
   class << self
+    def peers
+      joins(:participants => :event).where("events.label" => Whitelabel[:label_id]).uniq
+    end
+
     def main
       User.find_by_nickname(Whitelabel[:twitter])
     end
