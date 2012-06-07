@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe EventsController do
 
-  let(:event) { FactoryGirl.create(:event) }
-  let(:user) { FactoryGirl.create(:user) }
+  let(:event) { create(:event) }
+  let(:user) { create(:user) }
 
   before { set_subdomain }
 
