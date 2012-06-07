@@ -6,9 +6,37 @@
   twitter: "hamburgsync"
   organizers: ['halfbyte', 'ralph', 'phoet', 'rubiii']
   location:
-    zoom: 14
-    lat: 53.56544
-    long: 9.95947
+    :zoom: 14
+    :lat: 53.56544
+    :long: 9.95947
+  imprint:
+    :address: "Schanzenstr. 85\n20357 Hamburg"
+    :contributors:
+    - :name: "Peter Schröder"
+      :email: "phoetmail@googlemail.com"
+  other_usergroups:
+  - :name: "HH.js"
+    :url: "http://www.meetup.com/hamburg-js/"
+    :twitter: "hhjs"
+  - :name: "Scrumtisch"
+    :url: "http://sug-hh.wikispaces.com/"
+    :twitter: "hhscrum"
+  - :name: "Kanban Usergroup"
+    :url: "http://limited-wip-society-hamburg.mixxt.de/"
+    :twitter: "LimitedWIPSocHH"
+  - :name: "Cocoaheads"
+    :url: "http://groups.google.com/group/cocoaheads-hh/"
+    :twitter: "hh_cocoaheads"
+  - :name: "AWS Usergroup"
+    :url: "http://awsug.wordpress.com/"
+    :twitter: "awsug"
+  - :name: "Android Usergroup"
+    :url: "https://groups.google.com/group/android-user-group-hamburg"
+  - :name: "Java Usergroup"
+    :url: "http://www.jughh.org/"
+    :twitter: "jughh"
+  - :name: "DJANGO Usergroup"
+    :url: "http://www.dughh.de/"
 - !ruby/struct:Usergroup
   label_id: "bremen"
   email: "awesome-bremen@googlegroups.com"
@@ -16,9 +44,20 @@
   twitter: "hackhb"
   organizers: ['dennisreimann']
   location:
-    zoom: 14
-    lat: 53.079296
-    long: 8.801694
+    :zoom: 14
+    :lat: 53.079296
+    :long: 8.801694
+  imprint:
+    :address: "Hansator 1\n28217 Bremen"
+    :contributors:
+    - :name: "Dennis Reimann"
+      :email: "mail@dennisreimann.de"
+  other_usergroups:
+  - :name: "Agile Gruppe Bremen"
+    :url: "http://agb.wikispaces.com/"
+  - :name: "CocoaHeads Bremen"
+    :url: "http://cocoaheads.org/de/Bremen/index.html"
+    :twitter: "CocoaHeadsHB"
 - !ruby/struct:Usergroup
   label_id: "cologne"
   email: "colognerb@googlegroups.com"
@@ -26,6 +65,30 @@
   twitter: "colognerb"
   organizers: ['jkwebs']
   location:
-    zoom: 13
-    lat: 50.941231
-    long: 6.957092
+    :zoom: 13
+    :lat: 50.941231
+    :long: 6.957092
+  imprint:
+    :address: "Deutz-Mülheimer Straße 129\n51063 Köln"
+    :contributors:
+    - :name: "Jakob Hilden"
+      :email: "jakob@railslove.com"
+    - :name: "Marco Schaden"
+      :email: "hello@donschado.de"
+    - :name: "Railslove GmbH"
+      :email: "http://railslove.com"
+  other_usergroups:
+  - :name: "Cologne.js"
+    :url: "http://colognejs.de/"
+    :twitter: "cgnjs"
+  - :name: "DevHouse Friday"
+    :url: "http://devhousefriday.org/"
+    :twitter: "devhousefriday"
+  - :name: "NoSQL User Group Cologne"
+    :url: "http://www.nosql-cologne.org/"
+    :twitter: "nosqlcgn"
+  - :name: "pyCologne"
+    :url: "http://wiki.python.de/pycologne/"
+    :twitter: "pycologne"
+  - :name: "Hacking.de"
+    :url: "http://hcking.de/"

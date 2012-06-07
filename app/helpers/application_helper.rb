@@ -48,10 +48,6 @@ module ApplicationHelper
     end
   end
 
-  def render_labeled(template)
-    render "/labels/#{Whitelabel[:label_id]}/#{template}"
-  end
-
   def twitter_update_url(text)
     "http://twitter.com/home?status=#{URI.encode(text)}"
   end
