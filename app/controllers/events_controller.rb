@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_filter :check_login, only: :add_user
+  
   expose(:events) { Event.ordered }
   expose(:event)
 

@@ -8,9 +8,6 @@
   %p
     = submit_tag t("home.add_topic"), name: 'new_wish', class: 'toggle'
     .toggle_new_wish.hidden
-      - unless signed_in?
-        %p
-          %strong= t("home.please_sign_in")
       %p
         = semantic_form_for Wish.new do |f|
           = f.input :name

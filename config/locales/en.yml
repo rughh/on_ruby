@@ -39,7 +39,6 @@ en:
     send_us_an_email: "Then send us an <a href='mailto:%{mail_to}'>E-Mail</a> oder ping us on Twitter:"
     engage: "Usergroups need engaging People. If you think some Topic is missing, or you want to have more Infos on something, <strong>you are encouraged to add it to our Wishlist</strong>. If you have an Idea for a Talk or anything else <strong>add it here</strong> to get instant Feedback of the Ruby / Rails Community."
     add_topic: "Add a Topic"
-    please_sign_in: "Please login before adding the Topic!"
     new_topics: "New Topics"
     old_topics: "Past Topics"
     company_workers: "A lot of the Members of the Ruby Usergroup work at these %{companies_link} and we love to see new faces around."
