@@ -76,7 +76,7 @@ class Event < ActiveRecord::Base
   end
 
   class << self
-
+    # FIXME (ps) this needs to be configurable (somehow...)
     def next_event_date
       d = second_wednesday(Date.today)
       d = second_wednesday(Date.today.next_month) if d < Date.today
