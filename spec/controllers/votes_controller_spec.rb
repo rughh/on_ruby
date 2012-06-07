@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe VotesController do
 
-  let(:user) { FactoryGirl.create(:user) }
-  let(:wish) { FactoryGirl.create(:wish) }
-  let(:data) { {:vote => FactoryGirl.attributes_for(:vote), :wish_id => wish.id} }
+  let(:user) { create(:user) }
+  let(:wish) { create(:wish) }
+  let(:data) { {:vote => attributes_for(:vote), :wish_id => wish.id} }
 
   before { set_subdomain }
 

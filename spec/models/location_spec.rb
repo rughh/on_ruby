@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Location do
 
   before(:each) do
-    @location       = FactoryGirl.create(:location)
-    @other_location = FactoryGirl.create(:location, label: "cologne")
+    @location       = create(:location)
+    @other_location = create(:location, label: "cologne")
   end
 
   context "finder" do
@@ -17,7 +17,7 @@ describe Location do
     end
 
     it "should find distinct cometogethers" do
-      5.times.each { |n| FactoryGirl.create(:event, location: @location) }
+      5.times.each { |n| create(:event, location: @location) }
       Location.cometogether.all.should have(1).things
     end
   end

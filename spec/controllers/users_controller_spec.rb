@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UsersController do
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { create(:user) }
   let(:data) { {id: user.id, user: { github: 'testo', freelancer: true, available: true }} }
   let(:unallowed_data) { data.merge({:user => {:nickname => 'not_allowed_property'}}) }
 

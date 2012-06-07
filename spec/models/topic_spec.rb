@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Topic do
 
-  let(:topic) { FactoryGirl.create(:topic) }
+  let(:topic) { create(:topic) }
 
   context "validation" do
     it "should be valid" do
@@ -18,7 +18,7 @@ describe Topic do
     end
 
     it "should validate uniqueness" do
-      FactoryGirl.build(:topic, name: topic.name).should have(1).errors_on(:name)
+      build(:topic, name: topic.name).should have(1).errors_on(:name)
     end
   end
 end

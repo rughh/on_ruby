@@ -6,7 +6,7 @@ describe ParticipantsController do
 
   describe "DELETE :destroy" do
     before do
-      @participant = FactoryGirl.create(:participant)
+      @participant = create(:participant)
       @event = @participant.event
       @user = @participant.user
     end
@@ -18,7 +18,7 @@ describe ParticipantsController do
     end
 
     it "should delete a participant for another user" do
-      @controller.stubs(:current_user => FactoryGirl.create(:user))
+      @controller.stubs(:current_user => create(:user))
       expect { delete(:destroy, :id => @participant.id, :event_id => @event.id) }.to change(Participant, :count).by(0)
       response.should redirect_to(@event)
     end

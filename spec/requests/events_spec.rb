@@ -6,7 +6,7 @@ describe "Events" do
     ActionDispatch::Request.any_instance.stubs(:subdomains).returns(['hamburg'])
   end
 
-  let(:event) { FactoryGirl.create(:event) }
+  let(:event) { create(:event) }
 
   describe "GET /events" do
     it "works!" do
