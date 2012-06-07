@@ -2,9 +2,9 @@ module EventsHelper
   def participation_link(event)
     if signed_in?
       if current_user.participates?(event)
-        button_to t("show.not_attend"), event_participant_path(event, current_user.participation(event)), class: 'button', method: 'delete'
+        button_to t("show.not_attend"), event_participant_path(event, current_user.participation(event)), class: 'large', method: 'delete'
       else
-        button_to t("show.attend"), add_user_event_path(event), class: 'button'
+        button_to t("show.attend"), add_user_event_path(event), class: 'large'
       end
     end
   end
