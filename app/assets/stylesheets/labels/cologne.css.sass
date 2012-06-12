@@ -1,5 +1,48 @@
+@import "compass"
+@import "compass/css3"
+@import "compass/utilities/text/replacement"
+
+@import "cologne/colors"
+@import "cologne/dimensions"
+@import "cologne/typography"
+
 header
+  h1, h2
+    font-family: UbuntuBold, arial, verdana, sans-serif
+    color: $dark-text-color
+    +single-text-shadow($light-text-color, 1px, 1px, 2px)
+    font-weight: normal
+    a
+      color: $dark-text-color !important
+      &:hover
+        color: $red !important
+        +single-text-shadow($dark-text-color, 1px, 1px, 2px)
   h1
-    font-size: 6em
+    font-size: $font-ubuntu-large
   h2
-    font-size: 2.5em
+    font-size: $font-ubuntu-big
+
+a:hover
+  color: $red
+
+.container
+  background-image: image-url("whitey.png")
+
+nav
+  +background(linear-gradient(color-stops(lighten($dark-grey, 20%), $dark-grey)))
+  border-color: $light-grey
+  color: $light-text-color
+  li
+    color: $light-text-color
+    a
+      color: $light-text-color
+      &:hover
+        color: $light-gold
+
+.main section, header #login
+  background: $white
+  border: none
+  font-size: $base-font-size
+  color: $dark-text-color
+  +single-box-shadow($light-grey, 1px, 1px, 3px, false, true)
+
