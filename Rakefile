@@ -5,4 +5,4 @@
 require File.expand_path('../config/application', __FILE__)
 require "rake"
 
-HamburgOnRuby::Application.load_tasks
+OnRuby::Application.load_tasks

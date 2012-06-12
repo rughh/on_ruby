@@ -54,15 +54,12 @@ module ApplicationHelper
 
   def likes
     content_tag :span, class: 'likes' do
-      raw <<-HERE
-      <g:plusone size="medium"></g:plusone>
-      <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="hamburgsync" data-lang="de">Tweet</a>
-      HERE
+      raw %Q(<g:plusone size="medium"></g:plusone><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="#{Whitelabel[:twitter]}" data-lang="de">Tweet</a>)
     end
   end
 
   def fork_me_ribbon
-    target = "https://github.com/phoet/hamburg_on_ruby"
+    target = "https://github.com/phoet/on_ruby"
     img    = "https://a248.e.akamai.net/camo.github.com/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
     link_to target do
       image_tag img, alt: "Fork me on GitHub", style: "position: fixed; top: 0; right: 0; border: 0; margin-top: 40px"
