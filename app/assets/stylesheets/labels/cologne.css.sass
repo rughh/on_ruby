@@ -46,3 +46,31 @@ nav
   color: $dark-text-color
   +single-box-shadow($light-grey, 1px, 1px, 3px, false, true)
 
+#gem
+  width: 149px
+  height: 449px
+  position: fixed !important
+  bottom: 40px
+  left: 20px
+  z-index: 90
+  img
+    z-index: 95
+  #beer
+    position: absolute
+    bottom: 0px
+    width: 149px
+    height: 449px
+    background: image-url("labels/cologne/gem-glas-full.png") left bottom no-repeat
+    z-index: 96
+
+#refill
+  position: fixed !important
+  bottom: 10px
+  left: 54px
+  text-decoration: none
+  font: normal 2em UbuntuBold,arial,verdana,sans-serif
+  z-index: 90
+  opacity: 0
+  a:hover
+    @include text-shadow(0px 0px 1px $dark-grey)
+    color: $red
