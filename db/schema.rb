@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20120604194617) do
     t.integer  "author_id"
     t.string   "author_type"
     t.text     "body"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "namespace"
   end
 
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(:version => 20120604194617) do
     t.string   "provider"
     t.string   "uid"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "events", :force => true do |t|
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(:version => 20120604194617) do
     t.text     "description"
     t.integer  "location_id"
     t.integer  "user_id"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "published"
     t.string   "slug"
     t.string   "label",       :default => "hamburg"
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(:version => 20120604194617) do
     t.string   "zip"
     t.float    "lat"
     t.float    "long"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "company"
     t.string   "label",        :default => "hamburg"
   end
@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(:version => 20120604194617) do
     t.string   "url"
     t.integer  "user_id"
     t.integer  "event_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "participants", :force => true do |t|
@@ -100,8 +100,8 @@ ActiveRecord::Schema.define(:version => 20120604194617) do
     t.integer  "event_id"
     t.boolean  "maybe"
     t.text     "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -111,8 +111,8 @@ ActiveRecord::Schema.define(:version => 20120604194617) do
     t.string   "table"
     t.integer  "month",      :limit => 2
     t.integer  "year",       :limit => 5
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
@@ -134,8 +134,16 @@ ActiveRecord::Schema.define(:version => 20120604194617) do
     t.text     "description"
     t.integer  "user_id"
     t.integer  "event_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "usergroups", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.string   "twitter"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -145,8 +153,8 @@ ActiveRecord::Schema.define(:version => 20120604194617) do
     t.string   "url"
     t.string   "location"
     t.text     "description"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "github"
     t.boolean  "admin"
     t.boolean  "freelancer"
@@ -163,16 +171,16 @@ ActiveRecord::Schema.define(:version => 20120604194617) do
     t.integer  "user_id"
     t.integer  "count"
     t.text     "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "wishes", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean  "done",        :default => false
     t.string   "slug"
     t.string   "label",       :default => "hamburg"
