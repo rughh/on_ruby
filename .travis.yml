@@ -1,3 +1,4 @@
+before_install: gem install bundler --pre
 script: "bundle exec rake travis:build"
 bundler_args: "--without development production"
 rvm:
