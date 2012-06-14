@@ -28,15 +28,4 @@ describe Event do
     10.times{|i| create(:event, :name => "Event #{i}", :date => (Time.now - i.weeks)) }
     Event.latest.map(&:name).should == ["Event 1", "Event 2", "Event 3", "Event 4", "Event 5", "Event 6", "Event 7", "Event 8", "Event 9"]
   end
-
-  describe "#next_event_date" do
-    it "should always be in the future on wednesday" do
-      Event.next_event_date.should be_wednesday
-      Event.next_event_date.should be > Date.today
-    end
-
-    it "should find the second wednesday" do
-      Event.second_wednesday(Time.new(2011, 9, 1, 0, 0, 0)).should eql(Time.new(2011, 9, 14, 0, 0, 0))
-    end
-  end
 end

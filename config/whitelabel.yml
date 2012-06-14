@@ -1,5 +1,5 @@
 ---
-- !ruby/struct:Usergroup
+- !ruby/struct:Rughh
   label_id: "hamburg"
   email: "hamburg@onruby.de"
   host: "hamburg.onruby.de"
@@ -37,7 +37,7 @@
     :twitter: "jughh"
   - :name: "DJANGO Usergroup"
     :url: "http://www.dughh.de/"
-- !ruby/struct:Usergroup
+- !ruby/struct:Hackhb
   label_id: "bremen"
   email: "awesome-bremen@googlegroups.com"
   host: "bremen.onruby.de"
@@ -58,7 +58,7 @@
   - :name: "CocoaHeads Bremen"
     :url: "http://cocoaheads.org/de/Bremen/index.html"
     :twitter: "CocoaHeadsHB"
-- !ruby/struct:Usergroup
+- !ruby/struct:Colognerb
   label_id: "cologne"
   email: "colognerb@googlegroups.com"
   host: "cologne.onruby.de"
