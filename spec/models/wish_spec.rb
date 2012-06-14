@@ -23,15 +23,6 @@ describe Wish do
     end
   end
 
-  it "should generate a nice twitter message" do
-    build(:wish).twitter_message('http://some.url').tap do |it|
-      it.length.should be < 140
-      it.should match "Neues Thema von @uschi"
-      it.should match "'The xing mobile website: touch.xing.com"
-      it.should match "' http://some.url"
-    end
-  end
-
   it "should create a topic from a wish" do
     create(:event)
     expect do

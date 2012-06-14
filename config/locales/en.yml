@@ -65,6 +65,8 @@ en:
     vote: "vote with %{stars} stars"
     meta: "from %{twitter_link} - %{count} times voted with a score of %{stars} out of 5 stars"
     twitter_message: "New Topic by @%{nickname} '%{name}' %{url}"
+  event:
+    twitter_message: "%{name} at %{date} %{url}"
   flash:
     no_whitelabel: "Please select your usergroup!"
     only_admins: "Ups, only admins allowed!"

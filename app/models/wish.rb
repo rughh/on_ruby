@@ -37,11 +37,6 @@ class Wish < ActiveRecord::Base
     votes.any?{|vote| vote.user == user}
   end
 
-  def twitter_message(url)
-    # TODO (ps) move to view
-    I18n.t("wish.twitter_message", nickname: user.nickname, name: name.truncate(50), url: url)
-  end
-
   def copy_to_topic!
     Topic.create!({name: name, description: description, user: user, event: Event.last}, as: :admin)
     update_attributes!(done: true)
