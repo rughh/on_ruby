@@ -8,10 +8,6 @@ describe Event do
     event.end_date.should > event.date
   end
 
-  it "should create a proper twitter-message" do
-    event.twitter_message('http://some.url').should eql('Weihnachtstreffen am 06. Dezember, 11:47 Uhr - http://some.url')
-  end
-
   it "should find a current event" do
     event.date = Time.now
     event.save!

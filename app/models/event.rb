@@ -71,10 +71,6 @@ class Event < ActiveRecord::Base
     update_attributes!(published: true)
   end
 
-  def twitter_message(url)
-    "#{name} am #{I18n.l date, locale: :de, format: :short} - #{url}"
-  end
-
   class << self
     # FIXME (ps) this needs to be configurable (somehow...)
     def next_event_date

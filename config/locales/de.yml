@@ -65,6 +65,8 @@ de:
     vote: "mit %{stars} Sternen bewerten"
     meta: "von %{twitter_link} - %{count} mal mit %{stars} von 5 Sternen bewertet"
     twitter_message: "Neues Thema von @%{nickname} '%{name}' %{url}"
+  event:
+    twitter_message: "%{name} am %{date} %{url}"
   flash:
     no_whitelabel: "Bitte wähle deine Usergroup aus!"
     only_admins: "Hoppala, da dürfen nur Admins hin!"
