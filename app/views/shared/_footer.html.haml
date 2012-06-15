@@ -24,3 +24,11 @@
         %li
           = link_to ug[:name], ug[:url]
           = link_to_twitter(ug[:twitter], clung: true) if ug[:twitter]
+
+  #railsgroups.block
+    %h2= t("footer.ruby_usergroups")
+    %ol.clearfix
+      - Whitelabel.labels.each do |label|
+        %li
+          = link_to t("label.#{label.label_id}.name"), root_url(subdomain: label.label_id)
+          = link_to_twitter(label.twitter, clung: true)
