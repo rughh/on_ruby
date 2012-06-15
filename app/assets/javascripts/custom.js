@@ -22,7 +22,7 @@ var HOR = {
   },
   initializeMap: function() {
     jQuery.each($(".map_canvas"), function() {
-      L.Icon.Default.imagePath = 'assets/map';
+      L.Icon.Default.imagePath = '/assets/map';
 
       var init = $(this).data('init');
 
