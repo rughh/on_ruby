@@ -7,7 +7,7 @@
   #links.block
     %h2= t("footer.links")
     %ul
-      %li= link_to 'Github', 'http://github.com/phoet/hamburg_on_ruby'
+      %li= link_to 'Github', 'http://github.com/phoet/on_ruby'
       %li= link_to 'Mailinglist', 'http://mailman.headflash.com/listinfo/rubyonrails-ug'
   #imprint.block
     %h2= t("footer.imprint")
@@ -24,3 +24,11 @@
         %li
           = link_to ug[:name], ug[:url]
           = link_to_twitter(ug[:twitter], clung: true) if ug[:twitter]
+
+  #railsgroups.block
+    %h2= t("footer.ruby_usergroups")
+    %ol.clearfix
+      - Whitelabel.labels.each do |label|
+        %li
+          = link_to t("label.#{label.label_id}.name"), root_url(subdomain: label.label_id)
+          = link_to_twitter(label.twitter, clung: true)

@@ -1,4 +1,4 @@
-HamburgOnRuby::Application.routes.draw do
+OnRuby::Application.routes.draw do
 
   devise_for :users, ActiveAdmin::Devise.config
 

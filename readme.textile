@@ -1,4 +1,4 @@
-h1. OnRuby "!http://travis-ci.org/phoet/hamburg_on_ruby.png!":https://secure.travis-ci.org/phoet/hamburg_on_ruby.png
+h1. OnRuby "!http://travis-ci.org/phoet/on_ruby.png!":https://secure.travis-ci.org/phoet/on_ruby.png
 
 Source for the Sites of the Ruby Communities of "Hamburg":http://hamburg.onruby.de, "Bremen":http://bremen.onruby.de and "Cologne":http://cologne.onruby.de
 

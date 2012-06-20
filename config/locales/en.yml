@@ -4,15 +4,14 @@ en:
       time: "%H:%M"
       date: "%d.%m. %H:%M"
       month: "%B %Y"
+  usergroups: "Usergroups"
   companies: "Companies"
   events: "Events"
   locations: "Locations"
   people: "People"
   wishes: "Topics"
   topics: "Topics"
-  subtitle: "Harbour of Hamburgs Ruby Community"
   login:
-    hello: "Hello %{nickname}!"
     profile: "Profile"
     logout: "Logout"
     twitter_login: "Twitter Login"
@@ -20,12 +19,13 @@ en:
     close: "Close"
     attention: "Attention:"
     other_job: "Other Job"
-    job_description: "Ruby / Rails Jobs in Hamburg: %{job_link} at %{company_link}"
+    job_description: "Ruby / Rails Jobs in %{city}: %{job_link} at %{company_link}"
   footer:
     imprint: "Imprint"
     contact: "Contact"
     links: "Links"
-    other_usergroups: "Other Usergroups in Hamburg"
+    other_usergroups: "Other Usergroups"
+    ruby_usergroups: "Other Ruby Groups"
   show:
     hosted_by: "hosted by"
     at: "by"
@@ -35,6 +35,7 @@ en:
     route: "Route"
     material: "Material"
   home:
+    the_usergroup: "The <strong>%{usergroup}</strong> is a usergroup, group of interest or just a bunch of people loving Ruby. Get in contact with us at our next meetup! Newbees are always welcome."
     like_to_talk: "Do you want to give a Talk at the Ruby Usergroup or do you have additional Topics to talk about?"
     send_us_an_email: "Then send us an <a href='mailto:%{mail_to}'>E-Mail</a> oder ping us on Twitter:"
     engage: "Usergroups need engaging People. If you think some Topic is missing, or you want to have more Infos on something, <strong>you are encouraged to add it to our Wishlist</strong>. If you have an Idea for a Talk or anything else <strong>add it here</strong> to get instant Feedback of the Ruby / Rails Community."
@@ -65,6 +66,8 @@ en:
     vote: "vote with %{stars} stars"
     meta: "from %{twitter_link} - %{count} times voted with a score of %{stars} out of 5 stars"
     twitter_message: "New Topic by @%{nickname} '%{name}' %{url}"
+  event:
+    twitter_message: "%{name} at %{date} %{url}"
   flash:
     no_whitelabel: "Please select your usergroup!"
     only_admins: "Ups, only admins allowed!"

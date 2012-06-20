@@ -22,32 +22,32 @@ var HOR = {
   },
   initializeMap: function() {
     jQuery.each($(".map_canvas"), function() {
-      var init = $.parseJSON($(this).attr('data-init'));
-      var myOptions = {
+      L.Icon.Default.imagePath = '/assets/map';
+
+      var init = $(this).data('init');
+
+      var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/b2b4845cfc774e478439692a106b4f26/997/256/{z}/{x}/{y}.png';
+      var cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18});
+
+      var mapOptions = {
+        center: new L.LatLng(init.lat, init.long),
+        layers: [cloudmade],
         zoom: init.zoom,
-        center: new google.maps.LatLng(init.lat, init.long),
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        scrollwheel: false
+        scrollWheelZoom: false,
+        trackResize: false,
+        zoomAnimation: false,
+        fadeAnimation: false
       };
-      var map = new google.maps.Map(this, myOptions);
-      var arr = $.parseJSON($(this).attr('data-map'));
+      var map = new L.Map(this, mapOptions);
+      var arr = $(this).data('map');
       jQuery.each(arr, function() {
-        var h, infoWindow, marker;
-        marker = new google.maps.Marker({
-          position: new google.maps.LatLng(this.lat, this.long),
-          map: map,
-          title: this.name
-        });
+        var h, marker;
         h = "<strong><a href='" + this.url + "'>" + this.name + "</a></strong></br>";
         h += "" + this.street + " " + this.house_number + "</br>";
         h += "" + this.zip + " " + this.city;
-        infoWindow = new google.maps.InfoWindow({content: h});
-        if (arr.length === 1) {
-          infoWindow.open(map, marker);
-        }
-        google.maps.event.addListener(marker, 'click', function() {
-          infoWindow.open(map, marker);
-        });
+
+        marker = new L.Marker(new L.LatLng(this.lat, this.long)).bindPopup(h);
+        map.addLayer(marker);
       });
     });
   },

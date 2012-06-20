@@ -12,7 +12,6 @@ de:
   wishes: "Themen"
   topics: "Themen"
   login:
-    hello: "Hallo %{nickname}!"
     profile: "Profil"
     logout: "Ausloggen"
     twitter_login: "Twitter Login"
@@ -26,6 +25,7 @@ de:
     contact: "Kontakt"
     links: "Links"
     other_usergroups: "Weitere Usergroups"
+    ruby_usergroups: "Weitere Ruby Gruppen"
   show:
     hosted_by: "gehostet durch"
     at: "bei"
@@ -35,6 +35,7 @@ de:
     route: "Anfahrt"
     material: "Material"
   home:
+    the_usergroup: "Die <strong>%{usergroup}</strong> ist eine Benutzergruppe, Anwendergruppe, Interessengemeinschaft oder auch einfach nur ein Haufen Leute, die Spaß an der Programmiersprache Ruby haben. Tausch dich mit uns aus und komm zu unserem nächsten Treffen! Neue Gesichter sind immer gerne gesehen."
     like_to_talk: "Möchtest du einen Vortrag auf der Ruby Usergroup halten oder hast du zusätzliche Themenvorschläge?"
     send_us_an_email: "Dann schicke uns einfach eine <a href='mailto:%{mail_to}'>E-Mail</a> oder spreche uns persönlich an:"
     engage: "Usergroups leben von Vorträgen und dem Engagement der Teilnehmer. Wenn du ein Thema vermisst, oder nähre Informationen zu speziellen Bereichen suchst, dann <strong>kannst du hier gerne etwas in die Wunschliste eintragen</strong>. Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben, dann <strong>kannst du ihn hier eintragen</strong>, um Feedback von der Ruby / Rails Community zu bekommen."
@@ -65,6 +66,8 @@ de:
     vote: "mit %{stars} Sternen bewerten"
     meta: "von %{twitter_link} - %{count} mal mit %{stars} von 5 Sternen bewertet"
     twitter_message: "Neues Thema von @%{nickname} '%{name}' %{url}"
+  event:
+    twitter_message: "%{name} am %{date} %{url}"
   flash:
     no_whitelabel: "Bitte wähle deine Usergroup aus!"
     only_admins: "Hoppala, da dürfen nur Admins hin!"
