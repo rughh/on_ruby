@@ -61,6 +61,7 @@
 - !ruby/struct:Colognerb
   label_id: "cologne"
   email: "colognerb@googlegroups.com"
+  mailing_list: "https://groups.google.com/group/colognerb"
   host: "cologne.onruby.de"
   twitter: "colognerb"
   organizers: ['jkwebs']
