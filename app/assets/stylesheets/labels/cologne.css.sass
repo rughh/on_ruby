@@ -7,20 +7,25 @@
 @import "cologne/typography"
 
 header
-  h1, h2
-    font-family: UbuntuBold, arial, verdana, sans-serif
+  #title
     color: $dark-text-color
     +single-text-shadow($light-text-color, 1px, 1px, 2px)
-    font-weight: normal
-    a
-      color: $dark-text-color !important
-      &:hover
-        color: $red !important
-        +single-text-shadow($dark-text-color, 1px, 1px, 2px)
-  h1
-    font-size: $font-ubuntu-large
-  h2
-    font-size: $font-ubuntu-big
+    +transition-duration(0.2s)
+    +transition-timing-function(ease-in-out)
+    width: 350px
+    margin-left: $padding
+    display: inline-block
+    &:hover
+      color: $red !important
+      +single-text-shadow($dark-text-color, 1px, 1px, 2px)
+    h1, h2
+      font-family: UbuntuBold, arial, verdana, sans-serif
+      font-weight: normal
+      padding-left: 0
+    h1
+      font-size: $font-ubuntu-large
+    h2
+      font-size: $font-ubuntu-big
 
 a:hover
   color: $red
