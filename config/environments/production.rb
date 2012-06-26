@@ -81,4 +81,6 @@ OnRuby::Application.configure do
 
   # Set the default host for production
   config.default_host = 'onruby.de'
+
+  config.middleware.use "CookieDomain", ".onruby.de"
 end
