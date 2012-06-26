@@ -30,5 +30,5 @@
     %ol.clearfix
       - Whitelabel.labels.each do |label|
         %li
-          = link_to t("label.#{label.label_id}.name"), root_url(subdomain: label.label_id)
+          = link_to t("label.#{label.label_id}.name"), "http://#{label.label_id}.onruby.de"
           = link_to_twitter(label.twitter, clung: true)
