@@ -43,4 +43,6 @@ OnRuby::Application.configure do
 
   # Debug RJS
   # config.action_view.debug_rjs = true
+
+  config.middleware.use "CookieDomain", ".onruby.dev"
 end

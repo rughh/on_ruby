@@ -1,4 +1,4 @@
-Usergroup = Struct.new :label_id, :email, :mailing_list, :host, :twitter, :usergroup_email, :organizers, :location, :imprint, :other_usergroups
+Usergroup = Struct.new :label_id, :domains, :email, :mailing_list, :host, :twitter, :usergroup_email, :organizers, :location, :imprint, :other_usergroups
 
 # TODO (ps) this inheritance cold be greatly reduced with some configuration option:
 # ie: recurring: every_third_wednesday

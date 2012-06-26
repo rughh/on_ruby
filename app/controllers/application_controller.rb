@@ -46,9 +46,14 @@ class ApplicationController < ActionController::Base
   end
 
   def switch_label
-    unless Whitelabel.label_for(request.subdomains.first)
-      redirect_to(labels_url(subdomain: false), alert: t("flash.no_whitelabel")) and return
+    return if Whitelabel.label_for(request.subdomains.first)
+
+    Whitelabel.labels.each do |label|
+      if label.domains && label.domains.any? { |custom_domain| request.host =~ /#{custom_domain}/ }
+        Whitelabel.label = label and return
+      end
     end
+    redirect_to(labels_url(subdomain: false), alert: t("flash.no_whitelabel"))
   end
 
   def switch_locale
