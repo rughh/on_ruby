@@ -13,7 +13,7 @@ class Location < ActiveRecord::Base
   end
 
   geocoded_by :full_address, latitude: :lat, longitude: :long
-  after_validation :geocode unless Rails.env.test? # TODO (ps) disable geocoder somehow
+  after_validation :geocode unless Rails.env.test? # REM (ps) no geocoder for tests
 
   has_many :events
 
