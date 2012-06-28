@@ -1,6 +1,7 @@
 ---
-- !ruby/struct:Rughh
+- !ruby/object:Usergroup
   label_id: "hamburg"
+  recurring: "second wednesday"
   email: "hamburg@onruby.de"
   host: "hamburg.onruby.de"
   twitter: "hamburgsync"
@@ -37,8 +38,9 @@
     :twitter: "jughh"
   - :name: "DJANGO Usergroup"
     :url: "http://www.dughh.de/"
-- !ruby/struct:Hackhb
+- !ruby/object:Usergroup
   label_id: "bremen"
+  recurring: "first wednesday"
   email: "awesome-bremen@googlegroups.com"
   host: "bremen.onruby.de"
   twitter: "hackhb"
@@ -58,9 +60,10 @@
   - :name: "CocoaHeads Bremen"
     :url: "http://cocoaheads.org/de/Bremen/index.html"
     :twitter: "CocoaHeadsHB"
-- !ruby/struct:Colognerb
+- !ruby/object:Usergroup
   label_id: "cologne"
   domains: ["colognerb", "koelschrb"]
+  recurring: "third wednesday"
   email: "colognerb@googlegroups.com"
   mailing_list: "https://groups.google.com/group/colognerb"
   host: "cologne.onruby.de"
