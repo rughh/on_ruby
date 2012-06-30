@@ -43,7 +43,8 @@ var HOR = {
       var markers = {};
       var arr = $(this).data('map');
       jQuery.each(arr, function() {
-        var h, marker
+        var h, marker;
+        
         h = "<strong><a href='" + this.url + "'>" + this.name + "</a></strong></br>";
         h += "" + this.street + " " + this.house_number + "</br>";
         h += "" + this.zip + " " + this.city;
