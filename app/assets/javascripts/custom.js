@@ -39,15 +39,27 @@ var HOR = {
         fadeAnimation: false
       };
       var map = new L.Map(this, mapOptions);
+      
+      var markers = {};
       var arr = $(this).data('map');
       jQuery.each(arr, function() {
-        var h, marker;
+        var h, marker
         h = "<strong><a href='" + this.url + "'>" + this.name + "</a></strong></br>";
         h += "" + this.street + " " + this.house_number + "</br>";
         h += "" + this.zip + " " + this.city;
-
-        marker = new L.Marker(new L.LatLng(this.lat, this.long)).bindPopup(h);
-        map.addLayer(marker);
+		
+        ll = new L.LatLng(this.lat, this.long); 
+        
+        // Super unfancy hacking workaround to collect places at the exact same location       
+        if (markers[ll] != undefined) {
+          popupContent = markers[ll]._popup._content
+          markers[ll].bindPopup(popupContent + "<br/><br/>" + h);
+        } else {
+          marker = new L.Marker(ll).bindPopup(h);
+          markers[ll]=marker;
+          
+          map.addLayer(marker);
+        }
       });
     });
   },
