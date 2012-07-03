@@ -17,13 +17,14 @@
           = mail_to contributor[:email], contributor[:name]
       %li= raw imprint[:address].gsub("\n", "<br/>")
 
-  #usergroups.block
-    %h2= t("footer.other_usergroups")
-    %ol.clearfix
-      - other_usergroups.each do |ug|
-        %li
-          = link_to ug[:name], ug[:url]
-          = link_to_twitter(ug[:twitter], clung: true) if ug[:twitter]
+  - if other_usergroups.present?
+    #usergroups.block
+      %h2= t("footer.other_usergroups")
+      %ol.clearfix
+        - other_usergroups.each do |ug|
+          %li
+            = link_to ug[:name], ug[:url]
+            = link_to_twitter(ug[:twitter], clung: true) if ug[:twitter]
 
   #railsgroups.block
     %h2= t("footer.ruby_usergroups")
@@ -32,3 +33,5 @@
         %li
           = link_to t("label.#{label.label_id}.name"), "http://#{label.label_id}.onruby.de"
           = link_to_twitter(label.twitter, clung: true)
+
+          
