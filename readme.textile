@@ -12,6 +12,8 @@ There are just a couple of steps for your Ruby Usergroup Site to get alive:
 ** config/locales/*.label.yml
 * add optional custom files to:
 ** app/assets/images/labels app/assets/stylesheets/labels app/assets/javascripts/labels
+* create pull request
+* lean back and wait :)
 
 h2. Setup
 
