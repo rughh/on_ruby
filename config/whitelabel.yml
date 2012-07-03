@@ -97,3 +97,22 @@
     :twitter: "pycologne"
   - :name: "Hacking.de"
     :url: "http://hcking.de/"
+- !ruby/object:Usergroup
+  label_id: "karlsruhe"
+  domains: ["karlsruherb"]
+  recurring: "third wednesday"
+  email: "karlsruherb@googlegroups.com"
+  mailing_list: "https://groups.google.com/group/karlsruherb"
+  host: "karlsruhe.onruby.de"
+  twitter: "rug_ka"
+  organizers: ['basiszwo']
+  location:
+    :zoom: 14
+    :lat: 49.006292
+    :long: 8.398361
+  imprint:
+    :address: "Amalienstraße 44\n76133 Karlsruhe"
+    :contributors:
+    - :name: "Stefan Botzenhart"
+      :email: "sb@ninjaconcept.com"
+  other_usergroups:
