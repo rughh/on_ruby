@@ -2,8 +2,11 @@
   #contact.block
     %h2= t("footer.contact")
     %ul
-      %li= link_to "Twitter", (Whitelabel[:twitter])
+      %li
+        = link_to_twitter Whitelabel[:twitter] do
+          = "Twitter"
       %li= mail_to Whitelabel[:email], 'E-Mail'
+
   #links.block
     %h2= t("footer.links")
     %ul
@@ -34,5 +37,3 @@
         %li
           = link_to t("label.#{label.label_id}.name"), "http://#{label.label_id}.onruby.de"
           = link_to_twitter(label.twitter, clung: true)
-
-          
