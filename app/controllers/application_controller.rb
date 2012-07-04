@@ -1,14 +1,13 @@
 # encoding: UTF-8
 class ApplicationController < ActionController::Base
+
   protect_from_forgery
-
-  expose(:main_user)  { User.main }
-  expose(:jobs)       { Job.all.shuffle }
-  expose(:highlights) { Highlight.active }
-
-  helper_method :current_user, :signed_in?, :preview_events, :tweets, :random_users
-
   before_filter :switch_locale, :switch_label
+  helper_method :current_user, :signed_in?
+
+  expose(:jobs)       { Job.shuffled }
+  expose(:main_user)  { User.main }
+  expose(:highlights) { Highlight.active }
 
   def check_login
     redirect_to(auth_path) unless signed_in?
@@ -33,7 +32,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= find_by_session_or_cookie
+    @current_user ||= User.find_by_session_or_cookies(session, cookies)
   end
 
   def signed_in?
@@ -46,6 +45,7 @@ class ApplicationController < ActionController::Base
   end
 
   def switch_label
+    # TODO (ps) move this to usergroup class
     return if Whitelabel.label_for(request.subdomains.first)
 
     Whitelabel.labels.each do |label|
@@ -58,9 +58,5 @@ class ApplicationController < ActionController::Base
 
   def switch_locale
     I18n.locale = params[:locale] || :de
-  end
-
-  def find_by_session_or_cookie
-    User.find_by_id session[:user_id] || User.authenticated_with_token(*(cookies.signed[:remember_me] || ['', '']))
   end
 end
