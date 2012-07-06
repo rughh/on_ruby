@@ -9,6 +9,7 @@
     = link_to_twitter event.user
     = t("show.at")
     = link_to event.location.name, event.location.url
+    = event.location.full_address
   %p= participation_link(event)
 
   - if event.participants.present?
