@@ -28,7 +28,7 @@ class Location < ActiveRecord::Base
   scope :cometogether, joins(:events).select("distinct(locations.id), locations.*")
 
   def full_address
-    "#{street} #{house_number}, #{zip} #{city}, Deutschland"
+    "#{street} #{house_number}, #{zip} #{city}, #{I18n.t('countries.DE')}"
   end
 
 end
