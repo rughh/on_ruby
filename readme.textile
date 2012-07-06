@@ -1,6 +1,6 @@
 h1. OnRuby "!http://travis-ci.org/phoet/on_ruby.png!":https://secure.travis-ci.org/phoet/on_ruby.png
 
-Source for the Sites of the Ruby Communities of "Hamburg":http://hamburg.onruby.de, "Bremen":http://bremen.onruby.de and "Cologne":http://cologne.onruby.de
+Source for the Sites of the Ruby Communities of "Hamburg":http://hamburg.onruby.de, "Bremen":http://bremen.onruby.de, "Cologne":http://cologne.onruby.de and "Saarland":http://saar.onruby.de
 
 h2. Your Usergroup Missing? (aka THE GUIDE TO YOUR UG)
 
@@ -21,7 +21,7 @@ h3. Hosts
 
 For working with the whitelabel functionality, you need to add all supported subdomains to your /etc/hosts :
 
-  127.0.0.1    onruby.dev hamburg.onruby.dev cologne.onruby.dev bremen.onruby.dev
+  127.0.0.1    onruby.dev hamburg.onruby.dev cologne.onruby.dev bremen.onruby.dev saar.onruby.dev
 
 Access via http://onruby.dev:5000
 
