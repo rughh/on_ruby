@@ -29,3 +29,9 @@ de:
       title: "Karlsruhe.rb"
       subtitle: "Ruby User Group Karlsruhe"
       meta_desc: "Ruby / Rails User Group Karlsruhe"
+    saar:
+      city: "Saarland"
+      name: "RUGSaar"
+      title: "RUGSaar"
+      subtitle: "Ruby User Group Saar"
+      meta_desc: "Ruby / User Group Saarland"

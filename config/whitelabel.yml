@@ -115,4 +115,27 @@
     :contributors:
     - :name: "Stefan Botzenhart"
       :email: "sb@ninjaconcept.com"
-  other_usergroups:
+  other_usergroups: []
+- !ruby/object:Usergroup
+  label_id: "saar"
+  domains: ["rugsaar.de"]
+  recurring: "third friday 19:30"
+  email: "rug.saar@gmail.com"
+  # mailing_list: "https://groups.google.com/group/colognerb"
+  host: "saar.onruby.de"
+  twitter: "RUGSaar"
+  organizers: ['SweeD', 'gogolok']
+  location:
+    :zoom: 13
+    :lat: 49.238560
+    :long: 6.996574
+  imprint:
+    :address: "Science Park 2\n66123 Saarbrücken"
+    :contributors:
+    - :name: "Markus Schwed"
+      :email: "ma.schwed@googlemail.com"
+    - :name: "Robert Gogolok"
+      :email: "gogolok@gmail.com"
+    - :name: "Avarteq GmbH"
+      :email: "http://avarteq.de"
+  other_usergroups: []
