@@ -18,10 +18,33 @@ describe Usergroup do
       end
     end
 
+    it 'should include the parsed time, also' do
+      rughh.recurring = 'second wednesday 18:30'
+      rughh.next_event_date.hour.should eq(18)
+      rughh.next_event_date.min.should eq(30)
+    end
+  end
+
+  describe '#parse_recurring_date' do
     it "should find the right wednesday" do
-      hackhb.parse_recurring(some_date).should eql(first_wednesday)
-      rughh.parse_recurring(some_date).should eql(second_wednesday)
-      colognerb.parse_recurring(some_date).should eql(third_wednesday)
+      hackhb.parse_recurring_date(some_date).should eql(first_wednesday)
+      rughh.parse_recurring_date(some_date).should eql(second_wednesday)
+      colognerb.parse_recurring_date(some_date).should eql(third_wednesday)
+    end
+  end
+
+  describe '#parse_recurring_time' do
+    it "should return a time with 19:00 as default" do
+      parsed_time = hackhb.parse_recurring_time
+      parsed_time.hour.should eql(19)
+      parsed_time.min.should eql(0)
+    end
+
+    it "should parse the recurring time" do
+      rughh.recurring = 'second wednesday 18:30'
+      parsed_time = rughh.parse_recurring_time
+      parsed_time.hour.should eql(18)
+      parsed_time.min.should eql(30)
     end
   end
 end
