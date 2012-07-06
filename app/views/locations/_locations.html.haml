@@ -1,6 +1,6 @@
 %section
   %h2= title
-  %p= map(locations, zoom: 12)
+  = map(locations, zoom: 12)
   %br
   %ul.enumeration
     - locations.each do |location|
