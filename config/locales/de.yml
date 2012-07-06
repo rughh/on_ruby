@@ -4,6 +4,8 @@ de:
       time: "%H:%M"
       date: "%d.%m. %H:%M"
       month: "%B %Y"
+  countries:
+    DE: "Deutschland"
   usergroups: "Usergroups"
   companies: "Firmen"
   events: "Treffen"
