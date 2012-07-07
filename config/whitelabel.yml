@@ -124,7 +124,7 @@
   # mailing_list: "https://groups.google.com/group/colognerb"
   host: "saar.onruby.de"
   twitter: "RUGSaar"
-  organizers: ['SweeD', 'gogolok']
+  organizers: ['markusschwed', 'gogolok']
   location:
     :zoom: 13
     :lat: 49.238560
