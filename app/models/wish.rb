@@ -17,6 +17,7 @@ class Wish < ActiveRecord::Base
   validates :name, uniqueness: true
 
   attr_accessible :name, :done, :stars, :description, :user
+  attr_accessible :name, :done, :stars, :description, :slug, :label, :user_id, as: :admin
 
   belongs_to :user
 
