@@ -5,13 +5,13 @@ module ExternalLinkHelper
     if block_given?
       link_to url, &block
     else
-      link = link_to("@#{nick}", url)
-      params[:clung] ? ('(' + link + ')').html_safe : link
+      link = "@#{link_to(nick, url, title: nick)}"
+      raw params[:clung] ? "(#{link})" : link
     end
   end
 
   def link_to_github(user)
-    link_to user.github, "http://github.com/#{user.github}" if user.github
+    link_to(user.github, "http://github.com/#{user.github}", title: user.github) if user.github
   end
 
   def twitter_update_url(model)

@@ -2,14 +2,17 @@
 %section
   = likes
   %h2= event.name
-  %p= simple_format event.description
   %p.meta
-    = link_to l(event.date), event_path(event, format: :ics), class: 'ical'
+    %span.calendar-icon= link_to l(event.date), event_path(event, format: :ics), class: 'ical'
     = t("show.hosted_by")
     = link_to_twitter event.user
+  %p.meta
+    %span.map-icon= link_to event.location.full_address, "#route"
     = t("show.at")
-    = link_to event.location.name, event.location.url
-    = link_to event.location.full_address, "#route"
+    %span.open-icon= link_to event.location.name, event.location.url
+
+  %p= simple_format event.description
+
   %p= participation_link(event)
 
   - if event.participants.present?

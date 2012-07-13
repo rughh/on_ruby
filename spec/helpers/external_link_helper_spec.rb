@@ -1,4 +1,3 @@
-# encoding: utf-8
 require "spec_helper"
 
 describe ExternalLinkHelper do
@@ -6,7 +5,7 @@ describe ExternalLinkHelper do
 
   describe "#link_to_github" do
     it "should generate the link" do
-      helper.link_to_github(user).should eql('<a href="http://github.com/giddiup">giddiup</a>')
+      helper.link_to_github(user).should eql('<a href="http://github.com/giddiup" title="giddiup">giddiup</a>')
     end
 
     it "should render nothing for no github" do
@@ -17,8 +16,8 @@ describe ExternalLinkHelper do
 
   describe "#link_to_twitter" do
     it "should generate the link" do
-      nickname = user.nickname
-      helper.link_to_twitter(user).should eql("<a href=\"http://twitter.com/#{nickname}\">@#{nickname}</a>")
+      user.nickname = "klaus"
+      helper.link_to_twitter(user).should eql('@<a href="http://twitter.com/klaus" title="klaus">klaus</a>')
     end
   end
 
