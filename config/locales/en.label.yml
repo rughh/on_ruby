@@ -29,3 +29,9 @@ en:
       title: "RUGSaar"
       subtitle: "Ruby User Group Saar"
       meta_desc: "Ruby User Group Saarland"
+    munich:
+      city: "Munich"
+      name: "Munich Ruby User Group"
+      title: "Munich Ruby"
+      subtitle: "Munich Ruby User Group"
+      meta_desc: "Munich Ruby User Group"
