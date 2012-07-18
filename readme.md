@@ -7,6 +7,8 @@ Source for the Sites of the Ruby Communities
 * [Bremen](http://bremen.onruby.de)
 * [Cologne](http://cologne.onruby.de)
 * [Saarland](http://saar.onruby.de)
+* [München](http://munich.onruby.de)
+* [Karlsruhe](http://karlsruhe.onruby.de)
 
 ## Setup
 
@@ -19,7 +21,7 @@ Use *foreman* to start the server, otherwise you need to export the options of t
 
 For working with the whitelabel functionality, you need to add all supported subdomains to your */etc/hosts* :
 
-    127.0.0.1    onruby.dev hamburg.onruby.dev cologne.onruby.dev bremen.onruby.dev saar.onruby.dev
+    127.0.0.1    onruby.dev hamburg.onruby.dev cologne.onruby.dev bremen.onruby.dev saar.onruby.dev munich.onruby.dev karlsruhe.onruby.dev
 
 Access via [http://onruby.dev:5000](http://onruby.dev:5000)
 
@@ -37,6 +39,7 @@ There are just a couple of steps for your Ruby Usergroup Site to get alive:
 - provide mandatory changes to the following files:
     - config/whitelabel.yml
     - config/locales/*.label.yml
+    - app/assets/images/labels/your_label.png
 - add optional custom files to:
     - app/assets/images/labels
     - app/assets/stylesheets/labels
