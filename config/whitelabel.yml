@@ -122,7 +122,7 @@
   other_usergroups: []
 - !ruby/object:Usergroup
   label_id: "munich"
-  recurring: "doodle"
+  recurring: "first thursday 19:00"
   email: "rubyshift-muenchen@googlegroups.com"
   host: "munich.rubyshift.org"
   twitter: "muc_rubyshift"
