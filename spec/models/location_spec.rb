@@ -26,6 +26,5 @@ describe Location do
     it 'should return a full address string with street, house_number, zip, city and internationalized country name' do
       @location.full_address.should eq('Schanzenstr. 85, 20357 Hamburg, Deutschland')
     end
-  end
-  
+  end  
 end
