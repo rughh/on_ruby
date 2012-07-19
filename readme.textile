@@ -11,7 +11,9 @@ There are just a couple of steps for your Ruby Usergroup Site to get alive:
 ** config/whitelabel.yml 
 ** config/locales/*.label.yml
 * add optional custom files to:
-** app/assets/images/labels app/assets/stylesheets/labels app/assets/javascripts/labels
+** app/assets/images/labels 
+** app/assets/stylesheets/labels 
+** app/assets/javascripts/labels
 * create pull request
 * lean back and wait :)
 
@@ -26,11 +28,11 @@ For working with the whitelabel functionality, you need to add all supported sub
 
   127.0.0.1    onruby.dev hamburg.onruby.dev cologne.onruby.dev bremen.onruby.dev
 
-Start with 
+h3. Starting
 
-  SECRET_TOKEN=myverylongsecrettokenwhichhastobepassedontheconsole bundle exec rails s
+  foreman start
 
-Access via http://onruby.dev:3000
+Access via http://onruby.dev:5000
 
 h3. GitHub-Authentication
 
