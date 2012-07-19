@@ -28,6 +28,7 @@ Access via [http://onruby.dev:5000](http://onruby.dev:5000)
 ### Twitter-Authentication
 
 You need [Twitter App credentials](https://dev.twitter.com) in order to have a working login.
+
 See *config/initializers/omniauth.rb* for details.
 
 ## THE GUIDE TO YOUR RUG
