@@ -7,6 +7,14 @@ end
 
 ActiveAdmin.setup do |config|
 
+  # == Root
+  #
+  # Set the action to call for the root path. You can set different
+  # roots for each namespace.
+  #
+  # Default:
+  config.root_to = 'dashboard#index'
+
   # == Site Title
   #
   # Set the title that is displayed on the main layout
