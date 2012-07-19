@@ -84,5 +84,6 @@ class User < ActiveRecord::Base
     def find_by_session_or_cookies(session, cookies)
       find_by_id(session[:user_id]) || authenticated_with_token(*(cookies.signed[:remember_me] || ['', '']))
     end
+
   end
 end

@@ -27,4 +27,5 @@ describe Location do
       @location.full_address.should eq('Schanzenstr. 85, 20357 Hamburg, Deutschland')
     end
   end
+  
 end

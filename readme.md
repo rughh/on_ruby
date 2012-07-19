@@ -25,9 +25,9 @@ For working with the whitelabel functionality, you need to add all supported sub
 
 Access via [http://onruby.dev:5000](http://onruby.dev:5000)
 
-### GitHub-Authentication
+### Twitter-Authentication
 
-You need [GitHub App credentials](https://dev.twitter.com) in order to have a working login.
+You need [Twitter App credentials](https://dev.twitter.com) in order to have a working login.
 See *config/initializers/omniauth.rb* for details.
 
 ## THE GUIDE TO YOUR RUG
