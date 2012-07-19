@@ -5,7 +5,6 @@ describe Usergroup do
   let(:colognerb) { Whitelabel.label_for("cologne") }
   let(:hackhb) { Whitelabel.label_for("bremen") }
   let(:karlsruhe) { Whitelabel.label_for("karlsruhe")}
-
   let(:some_date) { Time.new(2011, 9, 1, 0, 0, 0) }
   let(:first_wednesday) { Time.new(2011, 9, 7, 0, 0, 0) }
   let(:second_wednesday) { Time.new(2011, 9, 14, 0, 0, 0) }
