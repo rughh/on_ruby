@@ -56,10 +56,22 @@ On the admin-site we need to:
 - deploy to heroku
 - add admin privileges to someone for the new RUG
 
-## Todo
+## Admin Interface
 
-- add rack-cache
-- publishing via xing
+The app comes with an [ActiveAdmin](https://github.com/gregbell/active_admin) interface to manage the model data.
+In order to access the admin stuff, you need to be a registered user with the "admin role".
+ActiveAdmin is mounted under */admin* of your label, so it's *hamburg.onruby.de/admin* for Hamburg.
+
+### Stuff to manage (CRUD)
+
+- Users
+- Events
+    - Materials
+    - Topics
+- Locations / Companies (Companies are just special Locations)
+- Wishes (Stuff that user can demand/propose)
+- Jobs (The Display on top of the Page)
+- Highlights (Special infos, that you want to display for a short period of time)
 
 ## License
 
