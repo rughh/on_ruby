@@ -3,7 +3,7 @@ require 'spec_helper'
 describe HomeController do
 
   before { set_subdomain }
-  
+
   describe "GET :index" do
     before { get :index }
 
