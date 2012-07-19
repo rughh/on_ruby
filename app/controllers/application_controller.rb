@@ -46,7 +46,6 @@ class ApplicationController < ActionController::Base
 
   def switch_label
     # TODO (ps) move this to usergroup class
-
     return if Whitelabel.label_for(request.subdomains.first)
 
     Whitelabel.labels.each do |label|

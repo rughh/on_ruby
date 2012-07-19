@@ -2,7 +2,6 @@
 %section
   = likes
   %h2= event.name
-
   %p.meta
     %span.calendar-icon= link_to l(event.date), event_path(event, format: :ics), class: 'ical'
     = t("show.hosted_by")
@@ -25,5 +24,4 @@
   = render "part", event: event, type: :materials
 
   %h3#route= t("show.route")
-
   = map(event.location, lat: event.location.lat, long: event.location.long)
