@@ -154,3 +154,12 @@
     :contributors:
     - :name: "Stefan Botzenhart"
       :email: "sb@ninjaconcept.com"
+    - :name: "NinjaConcept GmbH"
+      :email: "http://www.ninjaconcept.com/"
+  other_usergroups:
+  - :name: "KarlsruheJS"
+    :url: "http://www.karlsruhejs.org/"
+    :twitter: 'kajs'
+  - :name: "Google Technology User Group"
+    :url: "https://plus.google.com/109775289623271731783/posts"
+    :twitter: 'karlsruhegtug'
