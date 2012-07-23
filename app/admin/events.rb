@@ -11,6 +11,14 @@ ActiveAdmin.register Event do
     f.buttons
   end
 
+  index do
+    column :id
+    column :name
+    column :date
+    column :description
+    default_actions
+  end
+
   member_action :publish, method: :get do
     resource.publish_mailinglist(event_url(resource))
     redirect_to admin_dashboard_path, notice: "Published!"
