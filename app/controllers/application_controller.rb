@@ -2,7 +2,7 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery
-  before_filter :switch_locale, :switch_label
+  before_filter :switch_label, :switch_locale
   helper_method :current_user, :signed_in?
 
   expose(:jobs)       { Job.shuffled }
@@ -57,6 +57,6 @@ class ApplicationController < ActionController::Base
   end
 
   def switch_locale
-    I18n.locale = params[:locale] || :de
+    I18n.locale = params[:locale] || Whitelabel[:default_locale]
   end
 end

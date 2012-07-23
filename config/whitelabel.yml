@@ -1,6 +1,7 @@
 ---
 - !ruby/object:Usergroup
   label_id: "hamburg"
+  default_locale: "de"
   recurring: "second wednesday"
   email: "hamburg@onruby.de"
   host: "hamburg.onruby.de"
@@ -40,6 +41,7 @@
     :url: "http://www.dughh.de/"
 - !ruby/object:Usergroup
   label_id: "bremen"
+  default_locale: "de"
   recurring: "first wednesday"
   email: "awesome-bremen@googlegroups.com"
   host: "bremen.onruby.de"
@@ -62,6 +64,7 @@
     :twitter: "CocoaHeadsHB"
 - !ruby/object:Usergroup
   label_id: "cologne"
+  default_locale: "de"
   domains: ["colognerb", "koelschrb"]
   recurring: "third wednesday"
   email: "colognerb@googlegroups.com"
@@ -99,6 +102,7 @@
     :url: "http://hcking.de/"
 - !ruby/object:Usergroup
   label_id: "saar"
+  default_locale: "de"
   domains: ["rugsaar.de"]
   recurring: "third friday 19:30"
   email: "rug.saar@gmail.com"
@@ -120,6 +124,7 @@
       :email: "http://avarteq.de"
 - !ruby/object:Usergroup
   label_id: "munich"
+  default_locale: "de"
   recurring: "first thursday 19:00"
   email: "rubyshift-muenchen@googlegroups.com"
   host: "munich.rubyshift.org"
@@ -138,6 +143,7 @@
     - :name: "Florian Bergmann"
 - !ruby/object:Usergroup
   label_id: "karlsruhe"
+  default_locale: "de"
   domains: ["karlsruherb"]
   recurring: "third wednesday"
   email: "karlsruherb@googlegroups.com"
