@@ -11,4 +11,16 @@ ActiveAdmin.register Location do
      end
      f.buttons
    end
+
+  index do
+    column :id
+    column :name
+    column :url
+    column :zip
+    column :city
+    column :street
+    column :house_number
+    column :company
+    default_actions
+  end
 end
