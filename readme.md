@@ -3,12 +3,14 @@
 
 Source for the Sites of the Ruby Communities
 
-* [Hamburg](http://hamburg.onruby.de)
-* [Bremen](http://bremen.onruby.de)
-* [Cologne](http://cologne.onruby.de)
-* [Saarland](http://saar.onruby.de)
-* [München](http://munich.onruby.de)
-* [Karlsruhe](http://karlsruhe.onruby.de)
+- [Hamburg](http://hamburg.onruby.de)
+- [Bremen](http://bremen.onruby.de)
+- [Cologne](http://cologne.onruby.de)
+- [Saarland](http://saar.onruby.de)
+- [München](http://munich.onruby.de)
+- [Karlsruhe](http://karlsruhe.onruby.de)
+
+![OnRuby](http://f.cl.ly/items/0Z1V0M0f3V1C390R0L0s/Bildschirmfoto%202012-07-23%20um%2023.13.12.png)
 
 ## Setup
 
@@ -73,6 +75,8 @@ ActiveAdmin is mounted under */admin* of your label, so it's *hamburg.onruby.de/
 - Wishes (Stuff that user can demand/propose)
 - Jobs (The Display on top of the Page)
 - Highlights (Special infos, that you want to display for a short period of time)
+
+![ActiveAdmin](http://f.cl.ly/items/2w3P211I0a032u2x1k3k/Bildschirmfoto%202012-07-23%20um%2023.09.59.png)
 
 ## License
 
