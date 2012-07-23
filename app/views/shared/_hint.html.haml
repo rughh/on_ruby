@@ -3,11 +3,12 @@
     - flash.each do |key, value|
       %strong{class: key}= value
 - elsif highlights.present?
-  = hint(false) do
-    - highlights.each do |highlight|
-      .highlights
-        %strong= t("hint.attention")
-        = link_to highlight.description, highlight.url, title: highlight.description
+  #highlights
+    = hint(false) do
+      - highlights.each do |highlight|
+        .highlights
+          %strong= t("hint.attention")
+          = link_to highlight.description, highlight.url, title: highlight.description
 - elsif jobs.present?
   - unless current_user && current_user.hide_jobs?
     #jobs
