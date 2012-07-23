@@ -15,6 +15,8 @@ class Participant < ActiveRecord::Base
   belongs_to :user
   belongs_to :event
 
+  default_scope -> { joins(:event).where("events.label" => Whitelabel[:label_id]) }
+
   def owned_by?(other_user)
     user.id == other_user.id
   end
