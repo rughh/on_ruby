@@ -1,5 +1,5 @@
 class Usergroup
-  attr_accessor :label_id, :domains, :recurring, :email, :mailing_list, :host, :twitter, :usergroup_email, :organizers, :location, :imprint, :other_usergroups
+  attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :mailing_list, :host, :twitter, :usergroup_email, :organizers, :location, :imprint, :other_usergroups
 
   def parse_recurring_date(date)
     num, day = recurring.split
@@ -14,7 +14,7 @@ class Usergroup
   end
 
   def parse_recurring_time
-    num, day, time_string = recurring.split
+    _, _, time_string = recurring.split
     if time_string.present?
       hour, min = time_string.split(':')
       t = Time.new(2012, 5, 1, hour.to_i, min.to_i)
