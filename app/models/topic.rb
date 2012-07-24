@@ -17,5 +17,5 @@ class Topic < ActiveRecord::Base
   belongs_to :user
   belongs_to :event
 
-  default_scope -> { joins(:event).where("events.label" => Whitelabel[:label_id]) }
+  default_scope -> { joins(:event).where("events.label" => Whitelabel[:label_id]).readonly(false) }
 end
