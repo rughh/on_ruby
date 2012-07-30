@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module ApplicationHelper
   def title
     I18n.tw("title")
@@ -5,6 +6,20 @@ module ApplicationHelper
 
   def subtitle
     I18n.tw("subtitle")
+  end
+
+  def contributors
+    {
+      phoet:          "Peter Schröder",
+      rubiii:         "Daniel Harrington",
+      ralph:          "Ralph von der Heyden",
+      dennisreimann:  "Dennis Reimann",
+      jhilden:        "Jakob Hilden",
+      SweeD:          "Markus Schwed",
+      nistude:        "Nikolay Sturm",
+      basiszwo:       "Stefan Botzenhart",
+      mustangore:     "Sébastien Jelsch",
+    }.map {|key, value| "#{key} (#{value})"}.join(" - ")
   end
 
   def page_title
