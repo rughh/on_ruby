@@ -11,6 +11,7 @@ class HomeController < ApplicationController
   expose(:companies) { Location.company }
 
   def labels
+    flash.now[:alert] = t("flash.no_whitelabel")
     render :layout => 'labels'
   end
 end
