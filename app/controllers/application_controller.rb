@@ -45,15 +45,9 @@ class ApplicationController < ActionController::Base
   end
 
   def switch_label
-    # TODO (ps) move this to usergroup class
-    return if Whitelabel.label_for(request.subdomains.first)
-
-    Whitelabel.labels.each do |label|
-      if label.domains && label.domains.any? { |custom_domain| request.host =~ /#{custom_domain}/ }
-        Whitelabel.label = label and return
-      end
+    unless Usergroup.switch_by_request(request)
+      redirect_to labels_url(subdomain: false)
     end
-    redirect_to(labels_url(subdomain: false), alert: t("flash.no_whitelabel"))
   end
 
   def switch_locale

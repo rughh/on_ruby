@@ -29,4 +29,8 @@ class Usergroup
     t = parse_recurring_time
     Time.new(d.year, d.month, d.day, t.hour, t.min)
   end
+
+  def self.switch_by_request(request)
+    Whitelabel.label_for(request.subdomains.first) || Whitelabel.label = Whitelabel.labels.find { |label| label.domains && label.domains.any? { |custom_domain| request.host =~ /#{custom_domain}/ } }
+  end
 end

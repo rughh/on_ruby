@@ -5,7 +5,6 @@ describe "Whitelabel" do
     it "redirects to main url" do
       get root_url(subdomain: "rostock")
       response.should redirect_to(labels_url(subdomain: false, locale: 'de'))
-      flash[:alert].should == I18n.t('flash.no_whitelabel')
     end
   end
 
