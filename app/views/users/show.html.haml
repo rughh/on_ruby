@@ -25,31 +25,36 @@
         = user.location
 
   - if user.participants.present?
-    %h3= t("profile.events_participated")
-    %ul.enumeration
-      - user.participants.each do |p|
-        %li= link_to p.event.name, p.event
+    #events_participated
+      %h3= t("profile.events_participated")
+      %ul.enumeration
+        - user.participants.each do |p|
+          %li= link_to p.event.name, p.event
 
   - if user.events.present?
-    %h3= t("profile.organized_events")
-    %ul.enumeration
-      - user.events.each do |e|
-        %li= link_to e.name, e
+    #organized_events
+      %h3= t("profile.organized_events")
+      %ul.enumeration
+        - user.events.each do |e|
+          %li= link_to e.name, e
 
   - if user.topics.present?
-    %h3= t("profile.talks_done")
-    %ul.enumeration
-      - user.topics.each do |t|
-        %li= link_to t.name, t.event
+    #talks_done
+      %h3= t("profile.talks_done")
+      %ul.enumeration
+        - user.topics.each do |t|
+          %li= link_to t.name, t.event
 
   - if user.materials.present?
-    %h3= t("profile.provided_material")
-    %ul.enumeration
-      - user.materials.each do |m|
-        %li= link_to m.name, m.event
+    #provided_material
+      %h3= t("profile.provided_material")
+      %ul.enumeration
+        - user.materials.each do |m|
+          %li= link_to m.name, m.event
 
   - if user.wishes.present?
-    %h3= t("profile.proposed_topics")
-    %ul.enumeration
-      - user.wishes.each do |w|
-        %li= link_to w.name, w
+    #proposed_topics
+      %h3= t("profile.proposed_topics")
+      %ul.enumeration
+        - user.wishes.each do |w|
+          %li= link_to w.name, w
