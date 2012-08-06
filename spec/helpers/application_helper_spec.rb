@@ -6,12 +6,12 @@ describe ApplicationHelper do
 
   describe "#page_title" do
     it "should generate a page_title" do
-      helper.page_title.should eql("Ruby Usergroup Hamburg - Hamburg on Ruby - Heimathafen der Hamburger Ruby Community - Ruby / Rails Usergroup Hamburg")
+      helper.page_title.should eql("Hamburg on Ruby - Heimathafen der Hamburger Ruby Community")
     end
 
     it "should have a page_title for default label" do
       Whitelabel.label = nil
-      helper.page_title.should eql("Wir on Ruby - Ruby Communities Deutschland - Ruby Communities Deutschland")
+      helper.page_title.should eql("Wir on Ruby - Ruby Communities Deutschland")
     end
   end
 end

@@ -21,13 +21,13 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin_user!
     unless current_user.try(:admin?)
-      redirect_to(root_path, alert: t("flash.only_admins")) and return
+      redirect_to root_path, alert: t("flash.only_admins")
     end
   end
 
   def authenticate_current_user!
     unless current_user and current_user == user
-      redirect_to(root_path, alert: t("flash.not_authenticated")) and return
+      redirect_to root_path, alert: t("flash.not_authenticated")
     end
   end
 

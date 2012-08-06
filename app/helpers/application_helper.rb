@@ -23,12 +23,7 @@ module ApplicationHelper
   end
 
   def page_title
-    t = []
-    t << I18n.tw("name") if Whitelabel.label
-    t << title
-    t << (content_for?(:page_title) ? content_for(:page_title) : subtitle)
-    t << meta_desc
-    t.join(' - ')
+    "#{title} - #{content_for?(:page_title) ? content_for(:page_title) : subtitle}"
   end
 
   def meta_desc
