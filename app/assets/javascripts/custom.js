@@ -137,6 +137,11 @@ $(document).ready(function() {
   HOR.moreList("#jobs");
   HOR.moreList("#undone");
   HOR.moreList("#done");
-  HOR.initializeMap();
+  HOR.moreList("#events_participated");
+  HOR.moreList("#organized_events");
+  HOR.moreList("#talks_done");
+  HOR.moreList("#provided_material");
+  HOR.moreList("#proposed_topics");
   HOR.displayUsers();
+  HOR.initializeMap();
 });
