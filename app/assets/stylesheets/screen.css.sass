@@ -414,3 +414,29 @@ footer
     #railsgroups
       ol
         list-style: armenian
+
+#github, #senor_developer
+  height: 30px
+  top: 100px
+  position: absolute
+  text-decoration: none
+  width: 250px
+  span
+    background: white
+    color: #444
+    font-size: 14px
+    left: 0
+    padding: 5px 0
+    position: absolute
+    text-align: center
+    width: 250px
+    @include box-shadow(#888 0px 1px 10px)
+    @include text-shadow(#888 0px 1px 10px)
+
+#senor_developer
+  left: -65px
+  @include rotate(-45deg)
+
+#github
+  right: -65px
+  @include rotate(45deg)
