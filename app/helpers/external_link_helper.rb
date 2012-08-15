@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module ExternalLinkHelper
   def link_to_twitter(thing, params={clung: false}, &block)
     nick = thing.respond_to?(:nickname) ? thing.nickname : thing
@@ -31,11 +32,15 @@ module ExternalLinkHelper
     end
   end
 
+  def senor_developer_ribbon
+    link_to "http://senordevelopershop.spreadshirt.de", id: :senor_developer do
+      content_tag :span, "Señor Developer!"
+    end
+  end
+
   def fork_me_ribbon
-    target = "https://github.com/phoet/on_ruby"
-    img    = "https://a248.e.akamai.net/camo.github.com/4c7dc970b89fd04b81c8e221ba88ff99a06c6b61/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67"
-    link_to target do
-      image_tag img, alt: "Fork me on GitHub", style: "position: fixed; top: 0; right: 0; border: 0; margin-top: 40px"
+    link_to "https://github.com/phoet/on_ruby", id: :github do
+      content_tag :span, "Fork me on GitHub!"
     end
   end
 end
