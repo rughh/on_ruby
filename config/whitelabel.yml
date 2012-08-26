@@ -98,7 +98,7 @@
   - :name: "pyCologne"
     :url: "http://wiki.python.de/pycologne/"
     :twitter: "pycologne"
-  - :name: "Hacking.de"
+  - :name: "Hcking.de"
     :url: "http://hcking.de/"
 - !ruby/object:Usergroup
   label_id: "saar"
