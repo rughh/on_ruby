@@ -4,7 +4,7 @@
   %ul.enumeration
     - parts.each do |p|
       %li
-        = link_to p.name, p.url if p.respond_to?(:url)
+        = p.respond_to?(:url) ? link_to(p.name, p.url) : p.name
         - if p.user
           = link_to_twitter(p.user, clung: true)
         %p= simple_format p.description
