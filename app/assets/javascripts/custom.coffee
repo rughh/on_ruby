@@ -1,5 +1,3 @@
-I18n = {}
-
 HOR =
   showHide: ->
     $(".toggle").click (event) ->
