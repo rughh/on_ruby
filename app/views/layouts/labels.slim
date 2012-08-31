@@ -1,0 +1,20 @@
+doctype utf-8
+html
+  head
+    title= page_title
+
+    meta charset: "utf-8"
+    meta{name: "description", content: "#{title} - #{subtitle} - # meta_desc}"
+    meta name: "author", content: "Peter Schröder"
+
+    link rel: 'shortcut icon', href: image_path('logo_icon.png')
+    = stylesheet_link_tag "application"
+
+  body
+    .container
+      header
+      .main
+        = render 'shared/show_flash'
+        = yield
+        = render 'shared/script'
+  = render 'shared/info'

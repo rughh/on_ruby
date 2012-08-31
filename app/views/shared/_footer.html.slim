@@ -1,39 +1,39 @@
-%section.clearfix
+section.clearfix
   #contact.block
-    %h2= t("footer.contact")
-    %ul
-      %li
+    h2= t("footer.contact")
+    ul
+      li
         = link_to_twitter Whitelabel[:twitter] do
           = "Twitter"
-      %li= mail_to Whitelabel[:email], 'E-Mail'
+      li= mail_to Whitelabel[:email], 'E-Mail'
 
   #links.block
-    %h2= t("footer.links")
-    %ul
-      %li= link_to 'Github', 'http://github.com/phoet/on_ruby'
-      %li= link_to 'Mailinglist', (Whitelabel[:mailing_list] || 'https://groups.google.com/forum/?fromgroups#!forum/rubyonrails-ug-germany')
+    h2= t("footer.links")
+    ul
+      li= link_to 'Github', 'http://github.com/phoet/on_ruby'
+      li= link_to 'Mailinglist', (Whitelabel[:mailing_list] || 'https://groups.google.com/forum/?fromgroups#!forum/rubyonrails-ug-germany')
   #imprint.block
-    %h2= t("footer.imprint")
-    %ul
-      %li
+    h2= t("footer.imprint")
+    ul
+      li
         - imprint[:contributors].each do |contributor|
           = mail_to contributor[:email], contributor[:name]
       - if imprint[:address]
-        %li= raw imprint[:address].gsub("\n", "<br/>")
+        li== imprint[:address].gsub("\n", "<br/>")
 
   - if other_usergroups.present?
     #usergroups.block
-      %h2= t("footer.other_usergroups")
-      %ol.clearfix
+      h2= t("footer.other_usergroups")
+      ol.clearfix
         - other_usergroups.each do |ug|
-          %li
+          li
             = link_to ug[:name], ug[:url]
             = link_to_twitter(ug[:twitter], clung: true) if ug[:twitter]
 
   #railsgroups.block
-    %h2= t("footer.ruby_usergroups")
-    %ol.clearfix
+    h2= t("footer.ruby_usergroups")
+    ol.clearfix
       - Whitelabel.labels.each do |label|
-        %li
+        li
           = link_to t("label.#{label.label_id}.name"), "http://#{label.label_id}.onruby.de"
           = link_to_twitter(label.twitter, clung: true)

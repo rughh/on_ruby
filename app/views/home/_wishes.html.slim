@@ -1,31 +1,31 @@
 = section_box :wishes do
-  %p
-    %strong= t("home.like_to_talk")
-    = raw t("home.send_us_an_email", mail_to: Whitelabel[:email])
-  %ul
+  p
+    strong= t("home.like_to_talk")
+    == t("home.send_us_an_email", mail_to: Whitelabel[:email])
+  ul
     = render 'users_list', users: organizers
-  %p= raw t("home.engage")
-  %p
+  p== t("home.engage")
+  p
     = submit_tag t("home.add_topic"), name: 'new_wish', class: 'toggle'
     .toggle_new_wish.hidden
-      %p
+      p
         = semantic_form_for Wish.new do |f|
           = f.input :name
           = f.input :description
           = f.action(:submit)
   - if wishes_undone.present?
     #undone
-      %h3= t("home.new_topics")
-      %ul.undone.clearfix
+      h3= t("home.new_topics")
+      ul.undone.clearfix
         - wishes_undone.each do |wish|
-          %li
-            %span.stars= stars(wish)
+          li
+            span.stars= stars(wish)
             = link_to wish.name, wish, title: wish.name
   - if wishes_done.present?
     #done
-      %h3= t("home.old_topics")
-      %ul.clearfix
+      h3= t("home.old_topics")
+      ul.clearfix
         - wishes_done.each do |wish|
-          %li
-            %span.stars= stars(wish)
+          li
+            span.stars= stars(wish)
             = link_to wish.name, wish, title: wish.name

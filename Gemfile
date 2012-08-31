@@ -4,14 +4,14 @@ ruby "1.9.3"
 gem "rails",            "3.2.5"
 
 gem "jquery-rails",     "2.0.2"
-gem "haml",             "3.1.4"
 gem "friendly_id",      "4.0.4"
 gem "omniauth",         "1.0.3"
 gem "omniauth-twitter", "0.0.9"
 gem "icalendar",        "1.1.6"
 gem "activeadmin",      git: "https://github.com/gregbell/active_admin.git"
-gem 'sass-rails',       "3.2.4"
-gem 'meta_search',      ">= 1.1.0.pre"
+gem "sass-rails",       "3.2.4"
+gem "slim-rails",       "1.0.3"
+gem "meta_search",      ">= 1.1.0.pre"
 gem "thin",             "1.3.1"
 gem "foreman",          "0.41.0"
 gem "decent_exposure",  "1.0.2"
@@ -32,11 +32,6 @@ end
 
 group :development do
   gem "heroku",       require: false
-  gem "rb-fsevent",   require: false
-  gem "guard-rspec"
-  gem "guard-livereload"
-  gem "ruby_gntp"
-  gem "yajl-ruby"
 end
 
 group :development, :test do

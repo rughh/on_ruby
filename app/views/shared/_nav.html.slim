@@ -1,14 +1,14 @@
-%ul
-  %li
+ul
+  li
     = link_to root_path(anchor: "on_ruby"), title: title do
-      %p.logo.ir= title
+      p.logo.ir= title
   - [:events, :people, :locations, :wishes, :companies].each do |it|
-    %li= link_to t(it), root_path(anchor: it), title: t(it)
-  %li
+    li= link_to t(it), root_path(anchor: it), title: t(it)
+  li
     = link_to root_path(anchor: "on_ruby"), title: title do
-      %p.logo.ir= title
+      p.logo.ir= title
 
 #locale
-  %ul
+  ul
     -[:de, :en].each do |locale|
-      %li= link_to image_tag("flags/#{locale}.png"), locale: locale
+      li= link_to image_tag("flags/#{locale}.png")

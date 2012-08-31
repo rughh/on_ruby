@@ -1,60 +1,60 @@
 = content_for(:page_title){user.name}
-%section
+section
   .user
     .imagelist= image_tag user.image, size: '48x48', alt: user.name, 'data-src' => user.image
-    %h3
+    h3
       = user.name
       = user.freelancer? ? "/ #{t("profile.freelancer")}" : ''
       = user.available? ? "/ #{t("profile.available")}" : ''
-      %p.meta= user.description
-  %p.info
-    %span
-      %strong Twitter:
+      p.meta= user.description
+  p.info
+    span
+      strong Twitter:
       = link_to_twitter user
     - unless user.github.blank?
-      %span
-        %strong Github:
+      span
+        strong Github:
         = link_to_github user
     - unless user.url.blank?
-      %span
-        %strong Homepage:
+      span
+        strong Homepage:
         = link_to user.url, user.url
     - unless user.location.blank?
-      %span
-        %strong Location:
+      span
+        strong Location:
         = user.location
 
   - if user.participants.present?
     #events_participated
-      %h3= t("profile.events_participated")
-      %ul.enumeration
+      h3= t("profile.events_participated")
+      ul.enumeration
         - user.participants.each do |p|
-          %li= link_to p.event.name, p.event
+          li= link_to p.event.name, p.event
 
   - if user.events.present?
     #organized_events
-      %h3= t("profile.organized_events")
-      %ul.enumeration
+      h3= t("profile.organized_events")
+      ul.enumeration
         - user.events.each do |e|
-          %li= link_to e.name, e
+          li= link_to e.name, e
 
   - if user.topics.present?
     #talks_done
-      %h3= t("profile.talks_done")
-      %ul.enumeration
+      h3= t("profile.talks_done")
+      ul.enumeration
         - user.topics.each do |t|
-          %li= link_to t.name, t.event
+          li= link_to t.name, t.event
 
   - if user.materials.present?
     #provided_material
-      %h3= t("profile.provided_material")
-      %ul.enumeration
+      h3= t("profile.provided_material")
+      ul.enumeration
         - user.materials.each do |m|
-          %li= link_to m.name, m.event
+          li= link_to m.name, m.event
 
   - if user.wishes.present?
     #proposed_topics
-      %h3= t("profile.proposed_topics")
-      %ul.enumeration
+      h3= t("profile.proposed_topics")
+      ul.enumeration
         - user.wishes.each do |w|
-          %li= link_to w.name, w
+          li= link_to w.name, w

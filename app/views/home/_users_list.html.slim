@@ -1,6 +1,6 @@
 .imagelist
-  %ul
+  ul
     - users.compact.each do |user|
-      %li
+      li
         = link_to user, title: user.name do
           = image_tag 'logo.png', alt: user.name, title: user.name, 'data-src' => user.image
