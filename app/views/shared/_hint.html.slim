@@ -1,13 +1,13 @@
 - if flash.present?
   = hint do
     - flash.each do |key, value|
-      %strong{class: key}= value
+      strong class: key
 - elsif highlights.present?
   #highlights
     = hint(false) do
       - highlights.each do |highlight|
         .highlights
-          %strong= t("hint.attention")
+          strong= t("hint.attention")
           = link_to highlight.description, highlight.url, title: highlight.description
 - elsif jobs.present?
   - unless current_user && current_user.hide_jobs?
@@ -15,4 +15,4 @@
       = hint(false) do
         .reload= link_to t("hint.other_job"), '#'
         - jobs.each do |job|
-          .jobs= raw t("hint.job_description", city: I18n.tw("city"), job_link: content_tag(:strong, link_to(job.name, job.url, title: job.name)), company_link: link_to(job.location.name, job.location.url, title: job.location.name))
+          .jobs== t("hint.job_description", city: I18n.tw("city"), job_link: content_tag(:strong, link_to(job.name, job.url, title: job.name)), company_link: link_to(job.location.name, job.location.url, title: job.location.name))

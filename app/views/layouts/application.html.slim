@@ -1,38 +1,38 @@
-!!! utf-8
-%html
-  %head
-    %title= page_title
+doctype 5
+html
+  head
+    title= page_title
 
-    %meta{charset: "utf-8"}
-    %meta{name: "description", content: "#{title} - #{subtitle} - #{meta_desc}"}
-    %meta{name: "author", content: "github contributors: #{contributors}"}
+    meta charset="utf-8"
+    meta name="description" content="#{title} - #{subtitle} - #{meta_desc}"
+    meta name="author" content="github contributors: #{contributors}"
 
-    %link{rel: 'shortcut icon', href: image_path('logo_icon.png')}
+    link rel='shortcut icon' href=image_path('logo_icon.png')
 
     = auto_discovery_link_tag :rss, rss_events_path, title: "Event-Feed"
     = csrf_meta_tag
     = stylesheet_link_tag "application", "labels/#{Whitelabel[:label_id]}"
     = javascript_include_tag "application", "labels/#{Whitelabel[:label_id]}", "https://apis.google.com/js/plusone.js", "https://platform.twitter.com/widgets.js"
 
-    :javascript
+    javascript:
       I18n.showMore = '#{t("home.show_more")}';
 
-  %body
+  body
     = fork_me_ribbon
     = senor_developer_ribbon
     .container
-      %header#on_ruby.clearfix
+      header#on_ruby.clearfix
         = render 'shared/login'
-        #logo= link_to(image_tag("labels/#{Whitelabel[:label_id]}.png", alt: title, title: title), root_path)
+        #logo= link_to(image_tag("labels/#{Whitelabel[:label_id]}.png"))
         = link_to root_path, id: "title" do
-          %h1= title
-          %h2= subtitle
-      %nav#nav
+          h1= title
+          h2= subtitle
+      nav#nav
         = render 'shared/nav'
       .main
         = render 'shared/hint'
         = yield
         = render 'shared/script'
-    %footer
+    footer
       = render 'shared/footer', imprint: Whitelabel[:imprint], other_usergroups: Whitelabel[:other_usergroups]
   = render 'shared/info'

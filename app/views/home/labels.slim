@@ -1,7 +1,7 @@
 = section_box :usergroups do
-  %ul
+  ul
     - Whitelabel.labels.each do |label|
-      %li
+      li
         = link_to root_url(subdomain: label.label_id) do
           .whitelabel
             = image_tag("labels/#{label.label_id}.png")
