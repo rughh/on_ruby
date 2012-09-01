@@ -30,7 +30,7 @@ module ApplicationHelper
     I18n.tw("meta_desc")
   end
 
-  def map(locations, init={})
+  def map(locations, init = {zoom: 12})
     locations = Array(locations)
     init = Whitelabel[:location].merge(init)
     content_tag(:div, '', class: 'map_canvas', 'data-map' => locations.to_json, 'data-init' => init.to_json)
