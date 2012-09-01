@@ -3,12 +3,12 @@ section
   = likes
   h2= event.name
   p.meta
-    span.calendar-icon= link_to l(event.date), event_path(event, format: :ics), class: 'ical'
-    = t("show.hosted_by")
+    span.calendar-icon=' link_to l(event.date), event_path(event, format: :ics), class: 'ical'
+    =' t("show.hosted_by")
     = link_to_twitter event.user
   p.meta
-    span.map-icon= link_to event.location.full_address, "#route"
-    = t("show.at")
+    span.map-icon=' link_to event.location.full_address, "#route"
+    =' t("show.at")
     span.open-icon= link_to event.location.name, event.location.url
 
   p= simple_format event.description
