@@ -2,7 +2,6 @@ source :rubygems
 ruby "1.9.3"
 
 gem "rails",            "3.2.5"
-
 gem "jquery-rails",     "2.0.2"
 gem "friendly_id",      "4.0.4"
 gem "omniauth",         "1.0.3"
@@ -26,8 +25,8 @@ group :assets do
 end
 
 group :production do
-  gem "pg",           "0.13.2" # env ARCHFLAGS="-arch x86_64" gem install pg
-  gem "dalli",        "2.0.3"
+  gem "pg",           "0.14.0"
+  gem "dalli",        "2.1.0"
 end
 
 group :development do
