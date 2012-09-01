@@ -2,32 +2,22 @@ doctype 5
 html
   head
     title= page_title
-
     meta charset="utf-8"
     meta name="description" content="#{title} - #{subtitle} - #{meta_desc}"
     meta name="author" content="github contributors: #{contributors}"
-
     link rel='shortcut icon' href=image_path('logo_icon.png')
-
     = auto_discovery_link_tag :rss, rss_events_path, title: "Event-Feed"
     = csrf_meta_tag
     = stylesheet_link_tag "application", "labels/#{Whitelabel[:label_id]}"
     = javascript_include_tag "application", "labels/#{Whitelabel[:label_id]}", "https://apis.google.com/js/plusone.js", "https://platform.twitter.com/widgets.js"
-
-    javascript:
-      I18n = {}
-      I18n.showMore = '#{t("home.show_more")}';
-
+    = render 'shared/i18njs'
   body
     = fork_me_ribbon
     = senor_developer_ribbon
     .container
       header#on_ruby.clearfix
         = render 'shared/login'
-        #logo= link_to(image_tag("labels/#{Whitelabel[:label_id]}.png"))
-        = link_to root_path, id: "title" do
-          h1= title
-          h2= subtitle
+        = render 'shared/headline'
       nav#nav
         = render 'shared/nav'
       .main
