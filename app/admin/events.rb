@@ -27,4 +27,12 @@ ActiveAdmin.register Event do
   collection_action :duplicate, method: :get do
     redirect_to edit_admin_event_path(Event.duplicate!)
   end
+
+  controller do
+    def new
+      super do |format|
+        @event.date = Date.today
+      end
+    end
+  end
 end
