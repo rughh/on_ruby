@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
 
   def update_from_auth!(hash)
     handle_attributes(hash)
-    save!
+    save! if changed?
   end
 
   def handle_attributes(hash)

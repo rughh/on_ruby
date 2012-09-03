@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   skip_before_filter :switch_label, only: :labels
 
+  caches_action :index, layout: false
+
   expose(:current_event) { Event.current.first }
   expose(:events) { Event.latest }
   expose(:people) { User.peers }
