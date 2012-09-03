@@ -1,7 +1,7 @@
 source :rubygems
 ruby "1.9.3"
 
-gem "rails",            "3.2.5"
+gem "rails",            "3.2.8"
 gem "jquery-rails",     "2.0.2"
 gem "friendly_id",      "4.0.4"
 gem "omniauth",         "1.0.3"
@@ -38,6 +38,6 @@ group :development, :test do
   gem "pry-remote",   "0.1.1"
   gem "fuubar",       "1.0.0"
   gem "mocha",        "0.10.5"
-  gem "rspec-rails",  "2.10.1"
+  gem "rspec-rails",  "2.11.0"
   gem "factory_girl", "3.1.0"
 end
