@@ -4,7 +4,7 @@ describe "Whitelabel" do
   describe "GET page with non existing subdomain" do
     it "redirects to main url" do
       get root_url(subdomain: "rostock")
-      response.should redirect_to(labels_url(subdomain: false, locale: 'de'))
+      response.should redirect_to(labels_url(subdomain: false))
     end
   end
 

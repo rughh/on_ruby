@@ -13,10 +13,6 @@ class ApplicationController < ActionController::Base
     redirect_to(auth_path) unless signed_in?
   end
 
-  def default_url_options(options={})
-    options.merge locale: I18n.locale
-  end
-
   protected
 
   def authenticate_admin_user!
@@ -51,6 +47,7 @@ class ApplicationController < ActionController::Base
   end
 
   def switch_locale
-    I18n.locale = params[:locale] || Whitelabel[:default_locale]
+    locale = params[:locale] || cookies[:locale] || Whitelabel[:default_locale]
+    cookies[:locale] = I18n.locale = locale
   end
 end
