@@ -27,7 +27,7 @@ section.clearfix
       ol.clearfix
         - other_usergroups.each do |ug|
           li
-            = link_to ug[:name], ug[:url]
+            =' link_to ug[:name], ug[:url]
             = link_to_twitter(ug[:twitter], clung: true) if ug[:twitter]
 
   #railsgroups.block
@@ -35,5 +35,5 @@ section.clearfix
     ol.clearfix
       - Whitelabel.labels.each do |label|
         li
-          = link_to t("label.#{label.label_id}.name"), "http://#{label.label_id}.onruby.de"
+          =' link_to t("label.#{label.label_id}.name"), "http://#{label.label_id}.onruby.de"
           = link_to_twitter(label.twitter, clung: true)
