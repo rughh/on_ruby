@@ -1,1 +1,1 @@
-rvm use ruby-1.9.3-p125@on_ruby --install --create
+rvm use ruby-1.9.3@on_ruby --install --create
