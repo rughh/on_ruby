@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   skip_before_filter :switch_label, only: :labels
+  skip_before_filter :switch_locale, only: :labels
 
   caches_action :index, layout: false
 
