@@ -5,14 +5,7 @@
   ul
     = render 'users_list', users: organizers
   p== t("home.engage")
-  p
-    = submit_tag t("home.add_topic"), name: 'new_wish', class: 'toggle'
-    .toggle_new_wish.hidden
-      p
-        = semantic_form_for Wish.new do |f|
-          = f.input :name
-          = f.input :description
-          = f.action(:submit)
+  p== button_to t("home.add_topic"), new_wish_path, method: :get
   - if wishes_undone.present?
     #undone
       h3= t("home.new_topics")

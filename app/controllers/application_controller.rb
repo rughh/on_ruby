@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_filter :switch_label, :switch_locale
   helper_method :current_user, :signed_in?
 
+  cache_sweeper :index_sweeper
+
   expose(:jobs)       { Job.shuffled }
   expose(:main_user)  { User.main }
   expose(:highlights) { Highlight.active }
