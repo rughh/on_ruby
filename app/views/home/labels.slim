@@ -4,5 +4,4 @@
       li
         = link_to root_url(subdomain: label.label_id) do
           .whitelabel
-            = image_tag("labels/#{label.label_id}.png")
-            = label.host
+            #{image_tag("labels/#{label.label_id}.png")} #{label.host}
