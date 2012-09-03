@@ -48,7 +48,6 @@ HOR =
           markers[ll] = marker
           map.addLayer marker
 
-  hitCounter: 0
   scrollPage: ->
     $("a[href*=\"#\"]").click (event) ->
       target = $(@hash)
@@ -63,16 +62,6 @@ HOR =
           window.history.pushState
             count: HOR.historyCounter
           , "page-" + HOR.historyCounter, new_url
-
-  animateNavi: ->
-    func = ->
-      scrollY = $(document).scrollTop()
-      opacity = (scrollY - $("#logo").offset().top) * 0.005
-      if opacity < 0
-        opacity = 0
-      else opacity = 1  if opacity > 1
-      $(".logo").css "opacity", opacity
-    $(window).load(func).scroll func
 
   close: ->
     $(".close").click (event) ->
@@ -105,7 +94,6 @@ $(document).ready ->
   HOR.close()
   HOR.showHide()
   HOR.scrollPage()
-  HOR.animateNavi()
   HOR.moreList "#events"
   HOR.moreList "#jobs"
   HOR.moreList "#undone"

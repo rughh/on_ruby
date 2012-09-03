@@ -9,20 +9,16 @@ section
       p.meta= user.description
   p.info
     span
-      strong Twitter:
-      = link_to_twitter user
+      strong Twitter: #{link_to_twitter user}
     - unless user.github.blank?
       span
-        strong Github:
-        = link_to_github user
+        strong Github: #{link_to_github user}
     - unless user.url.blank?
       span
-        strong Homepage:
-        = link_to user.url, user.url
+        strong Homepage: #{link_to user.url, user.url}
     - unless user.location.blank?
       span
-        strong Location:
-        = user.location
+        strong Location: #{user.location}
 
   - if user.participants.present?
     #events_participated

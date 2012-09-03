@@ -1,12 +1,6 @@
 ul
-  li
-    = link_to root_path(anchor: "on_ruby"), title: title do
-      p.logo.ir= title
   - [:events, :people, :locations, :wishes, :companies].each do |it|
     li= link_to t(it), root_path(anchor: it), title: t(it)
-  li
-    = link_to root_path(anchor: "on_ruby"), title: title do
-      p.logo.ir= title
 
 #locale
   ul
