@@ -1,9 +1,8 @@
 = section_box :wishes do
   p
-    strong= t("home.like_to_talk")
-    == t("home.send_us_an_email", mail_to: Whitelabel[:email])
-  ul
-    = render 'users_list', users: organizers
+    strong=' t("home.like_to_talk")
+    == t("home.send_us_an_email", mail_to: mail_to(Whitelabel[:email], "E-Mail", title: "E-Mail"))
+  = render 'users_list', users: organizers
   p== t("home.engage")
   p== button_to t("home.add_topic"), new_wish_path, method: :get
   - if wishes_undone.present?

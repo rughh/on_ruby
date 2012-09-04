@@ -4,7 +4,7 @@ module ExternalLinkHelper
     nick = thing.respond_to?(:nickname) ? thing.nickname : thing
     url = "http://twitter.com/#{nick}"
     if block_given?
-      link_to url, &block
+      link_to url, title: nick, &block
     else
       link = "@#{link_to(nick, url, title: nick)}"
       raw params[:clung] ? "(#{link})" : link
@@ -32,15 +32,14 @@ module ExternalLinkHelper
     end
   end
 
-  def senor_developer_ribbon
-    link_to "http://senordevelopershop.spreadshirt.de", id: :senor_developer do
-      content_tag :span, "Señor Developer!"
-    end
-  end
-
-  def fork_me_ribbon
-    link_to "https://github.com/phoet/on_ruby", id: :github do
-      content_tag :span, "Fork me on GitHub!"
+  def ribbon(type)
+    types = {
+      github:          ["Fork me on GitHub!", "https://github.com/phoet/on_ruby"],
+      senor_developer: ["Señor Developer!",   "http://senordevelopershop.spreadshirt.de"],
+    }
+    text, url = types[type]
+    link_to url, id: type, title: text do
+      content_tag :span, text
     end
   end
 end

@@ -9,4 +9,4 @@
     h3= t("home.past_events")
     ul.clearfix
       - events.each do |event|
-        li= link_to "#{l(event.date, format: :date)} - #{event.name}", event_path(event)
+        li= link_to "#{l(event.date, format: :date)} - #{event.name}", event_path(event), title: event.name
