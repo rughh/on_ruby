@@ -8,10 +8,12 @@ describe Event do
     event.end_date.should > event.date
   end
 
-  it "should find a current event" do
-    event.date = Time.now
-    event.save!
-    Event.current.first.should_not be(event)
+  context "current event" do
+    it "should find a current event" do
+      event_next = create(:event, date: 2.days.from_now)
+      event_after_next = create(:event, date: 4.days.from_now)
+      Event.current.first.should_not be(event_next)
+    end
   end
 
   context "#duplicate!" do
