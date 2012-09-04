@@ -33,6 +33,12 @@ You need [Twitter App credentials](https://dev.twitter.com) in order to have a w
 
 See *config/initializers/omniauth.rb* for details.
 
+### Test-Data
+
+Dump Data from Heroku via [Taps Gem](https://devcenter.heroku.com/articles/taps):
+
+    heroku db:pull
+
 ## THE GUIDE TO YOUR RUG
 
 There are just a couple of steps for your Ruby Usergroup Site to get alive:
