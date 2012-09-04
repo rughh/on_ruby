@@ -27,7 +27,7 @@ module ApplicationHelper
   end
 
   def meta_desc
-    I18n.tw("meta_desc")
+    "#{page_title} - #{I18n.tw("meta_desc")}"
   end
 
   def map(locations, init = {zoom: 12})
