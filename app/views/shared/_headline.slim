@@ -1,4 +1,4 @@
-#logo= link_to image_tag("labels/#{Whitelabel[:label_id]}.png"), root_path
-= link_to root_path, id: "title" do
+#logo= link_to image_tag("labels/#{Whitelabel[:label_id]}.png", alt: title), root_path, title: title
+= link_to root_path, id: :title, title: title do
   h1= title
   h2= subtitle

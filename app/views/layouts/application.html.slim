@@ -12,8 +12,8 @@ html
     = javascript_include_tag "application", "labels/#{Whitelabel[:label_id]}", "https://apis.google.com/js/plusone.js", "https://platform.twitter.com/widgets.js"
     = render 'shared/i18njs'
   body
-    = fork_me_ribbon
-    = senor_developer_ribbon
+    = ribbon(:github)
+    = ribbon(:senor_developer)
     .container
       header#on_ruby.clearfix
         = render 'shared/login'

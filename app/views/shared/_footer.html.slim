@@ -5,19 +5,19 @@ section.clearfix
       li
         = link_to_twitter Whitelabel[:twitter] do
           = "Twitter"
-      li= mail_to Whitelabel[:email], 'E-Mail'
+      li= mail_to Whitelabel[:email], 'E-Mail', title: 'E-Mail'
 
   #links.block
     h2= t("footer.links")
     ul
-      li= link_to 'Github', 'http://github.com/phoet/on_ruby'
-      li= link_to 'Mailinglist', (Whitelabel[:mailing_list] || 'https://groups.google.com/forum/?fromgroups#!forum/rubyonrails-ug-germany')
+      li= link_to 'GitHub', 'http://github.com/phoet/on_ruby', title: 'Fork me on GitHub'
+      li= link_to 'Mailinglist', (Whitelabel[:mailing_list] || 'https://groups.google.com/forum/?fromgroups#!forum/rubyonrails-ug-germany'), title: 'Mailinglist'
   #imprint.block
     h2= t("footer.imprint")
     ul
       li
         - imprint[:contributors].each do |contributor|
-          = mail_to contributor[:email], contributor[:name]
+          = mail_to contributor[:email], contributor[:name], title: contributor[:name]
       - if imprint[:address]
         li== imprint[:address].gsub("\n", "<br/>")
 
@@ -27,7 +27,7 @@ section.clearfix
       ol.clearfix
         - other_usergroups.each do |ug|
           li
-            =' link_to ug[:name], ug[:url]
+            =' link_to ug[:name], ug[:url], title: ug[:name]
             = link_to_twitter(ug[:twitter], clung: true) if ug[:twitter]
 
   #railsgroups.block
@@ -35,5 +35,6 @@ section.clearfix
     ol.clearfix
       - Whitelabel.labels.each do |label|
         li
-          =' link_to t("label.#{label.label_id}.name"), "http://#{label.label_id}.onruby.de"
+          - name = t("label.#{label.label_id}.name")
+          =' link_to name, "http://#{label.label_id}.onruby.de", title: name
           = link_to_twitter(label.twitter, clung: true)

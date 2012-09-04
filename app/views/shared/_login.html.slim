@@ -1,9 +1,9 @@
 #login
   -if signed_in?
     ul
-      li= link_to image_tag(current_user.image, class: "user"), edit_user_path(current_user), title: current_user.nickname
-      li= link_to t("login.profile"), edit_user_path(current_user)
-      li= link_to t("login.logout"), destroy_session_path(current_user)
+      li= link_to image_tag(current_user.image, class: "user", alt: current_user.nickname), edit_user_path(current_user), title: current_user.nickname
+      li= link_to t("login.profile"), edit_user_path(current_user), title: t("login.profile")
+      li= link_to t("login.logout"), destroy_session_path(current_user), title: t("login.logout")
   -else
     ul
-      li= link_to t("login.twitter_login"), auth_path
+      li= link_to t("login.twitter_login"), auth_path, title: t("login.twitter_login")
