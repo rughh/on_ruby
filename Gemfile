@@ -31,6 +31,7 @@ end
 
 group :development do
   gem "heroku",       require: false
+  gem "taps",         require: false
 end
 
 group :development, :test do
