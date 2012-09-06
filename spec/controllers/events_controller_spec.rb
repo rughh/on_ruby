@@ -15,6 +15,7 @@ describe EventsController do
     end
 
     it "should render the :rss template" do
+      response.headers["Content-Type"].should eql("application/xml; charset=utf-8")
       response.should render_template(:rss)
     end
   end

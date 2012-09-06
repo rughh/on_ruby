@@ -30,15 +30,10 @@ OnRuby::Application.routes.draw do
   match '/auth/login/:provider',          to: 'sessions#auth',                 as: :auth,                 defaults: { :provider => 'twitter' }
   match '/auth/offline_login/:nickname',  to: 'sessions#offline_login' if Rails.env.development?
 
-  match '/mobile',     to: 'mobile#index',     as: :mobile
-
-  match '/home/labels',   to: 'home#labels',   as: :labels
-  match '/home/info',     to: 'home#info',     as: :info
-  match '/home/imprint',  to: 'home#imprint',  as: :imprint
-
-  match '/sitemap.xml',   to: 'misc#sitemap',  format: :xml
-
-  match '/api',           to: 'api#index'
+  match '/mobile',      to: 'mobile#index', as: :mobile
+  match '/home/labels', to: 'home#labels',  as: :labels
+  match '/sitemap.xml', to: 'misc#sitemap', format: :xml
+  match '/api',         to: 'api#index'
 
   root to: "home#index"
 end

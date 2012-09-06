@@ -4,10 +4,9 @@ class EventsController < ApplicationController
   expose(:events) { Event.ordered }
   expose(:event)
 
-  def rss
-    render layout: false
-    response.headers["Content-Type"] = "application/xml; charset=utf-8"
-  end
+  respond_to :xml, only: :rss
+
+  def rss; end
 
   def show
     respond_to do |format|
