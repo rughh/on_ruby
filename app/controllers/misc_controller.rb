@@ -4,10 +4,9 @@ class MiscController < ApplicationController
 
   helper_method :urls
 
-  def sitemap
-    response.headers["Content-Type"] = 'text/xml'
-    render layout: false
-  end
+  respond_to :xml
+
+  def sitemap; end
 
   private
 
