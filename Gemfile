@@ -17,6 +17,7 @@ gem "decent_exposure",  "1.0.2"
 gem "geocoder",         "1.1.1"
 gem "acts_as_api",      "0.3.11"
 gem "whitelabel",       "0.1.1"
+gem "newrelic_rpm",     "3.4.2"
 
 group :assets do
   gem "compass",      "0.12.alpha.4"
