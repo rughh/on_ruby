@@ -30,6 +30,16 @@ module ApplicationHelper
     "#{page_title} - #{I18n.tw("meta_desc")}"
   end
 
+  def whitelabel_stylesheet_link_tag
+    link = "labels/#{Whitelabel[:label_id]}"
+    stylesheet_link_tag link if File.exists? Rails.root.join("app/assets/stylesheets/#{link}.css.sass")
+  end
+
+  def whitelabel_javascript_include_tag
+    link = "labels/#{Whitelabel[:label_id]}"
+    javascript_include_tag link if File.exists? Rails.root.join("app/assets/javascripts/#{link}.coffee")
+  end
+
   def map(locations, init = {zoom: 12})
     locations = Array(locations)
     init = Whitelabel[:location].merge(init)
