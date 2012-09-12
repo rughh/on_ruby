@@ -34,4 +34,6 @@ OnRuby::Application.routes.draw do
   match '/api',         to: 'api#index'
 
   root to: "home#index"
+
+  match '/*tail' => redirect("/home/labels")
 end
