@@ -17,6 +17,7 @@ Source for the Sites of the Ruby Communities
 Use *foreman* to start the server, otherwise you need to export the options of the *.env* file manually:
 
     bundle --without=production
+    rake db:setup
     foreman start
 
 ### Hosts
