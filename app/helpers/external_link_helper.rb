@@ -38,8 +38,10 @@ module ExternalLinkHelper
       senor_developer: ["Señor Developer!",   "http://senordevelopershop.spreadshirt.de"],
     }
     text, url = types[type]
-    link_to url, id: type, title: text do
-      content_tag :span, text
+    content_tag :div, id: "#{type}_ribbon", class: 'ribbon_wrap' do
+      link_to url, id: type, title: text do
+        content_tag :span, text
+      end
     end
   end
 end
