@@ -1,5 +1,5 @@
 .DS_Store
-log/*
+log/*.log
 tmp/*
 db/*.sqlite3*
 coverage
