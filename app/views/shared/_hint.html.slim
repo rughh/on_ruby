@@ -15,4 +15,4 @@
       = hint(false) do
         .reload= link_to t("hint.other_job"), '#'
         - jobs.each do |job|
-          .jobs== t("hint.job_description", city: I18n.tw("city"), job_link: content_tag(:strong, link_to(job.name, job.url, title: job.name)), company_link: link_to(job.location.name, job.location.url, title: job.location.name))
+          .jobs== job_description(job)
