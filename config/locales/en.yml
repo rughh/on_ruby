@@ -67,6 +67,8 @@ en:
     proposed_topics: "Proposed Topics"
   user:
     saved_successful: "Saved your updates."
+  location:
+    job_offers: "Job offers"
   wish:
     already_done: "This Topic has already been talked about."
     vote: "vote with %{stars} stars"

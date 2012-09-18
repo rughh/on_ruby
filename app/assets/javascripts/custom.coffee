@@ -36,7 +36,7 @@ HOR =
       jQuery.each arr, ->
         h = undefined
         marker = undefined
-        h = "<strong><a href='" + @url + "'>" + @name + "</a></strong></br>"
+        h = "<strong><a href='/locations/" + @slug + "'>" + @name + "</a></strong></br>"
         h += "" + @street + " " + @house_number + "</br>"
         h += "" + @zip + " " + @city
         ll = new L.LatLng(@lat, @long)
