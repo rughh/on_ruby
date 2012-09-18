@@ -1,5 +1,8 @@
 class Location < ActiveRecord::Base
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   acts_as_api
 
   api_accessible :ios_v1 do |template|
@@ -16,6 +19,7 @@ class Location < ActiveRecord::Base
   after_validation :geocode unless Rails.env.test? # REM (ps) no geocoder for tests
 
   has_many :events
+  has_many :jobs
 
   validates :name, :url, :city, :street, :house_number, :zip, presence: true
 
@@ -31,4 +35,7 @@ class Location < ActiveRecord::Base
     "#{street} #{house_number}, #{zip} #{city}, #{I18n.t('countries.DE')}"
   end
 
+  def nice_url
+    URI.parse(url).host
+  end
 end

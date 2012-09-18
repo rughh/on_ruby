@@ -40,6 +40,22 @@ module ApplicationHelper
     javascript_include_tag link if File.exists? Rails.root.join("app/assets/javascripts/#{link}.coffee")
   end
 
+  def job_description(job)
+    t("hint.job_description", city: I18n.tw("city"), job_link: content_tag(:strong, link_to(job.name, job.url, title: job.name)), company_link: link_to_location(job.location))
+  end
+
+  def link_to_location(location)
+    "#{link_to location.name, location, title: location.name} (#{link_to location.nice_url, location.url, title: location.name})".html_safe
+  end
+
+  def link_to_route(location)
+    content_tag :p, class: :meta do
+      content_tag(:span, link_to(location.full_address, "#route"), class: 'map-icon') +
+      " #{t("show.at")} " +
+      content_tag(:span, link_to_location(location), class: 'open-icon')
+    end
+  end
+
   def map(locations, init = {zoom: 12})
     locations = Array(locations)
     init = Whitelabel[:location].merge(init)

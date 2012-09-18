@@ -67,6 +67,8 @@ de:
     proposed_topics: "Vorgeschlagene Themen"
   user:
     saved_successful: "Deine Daten wurden gespeichert."
+  location:
+    job_offers: "Jobangebote"
   wish:
     already_done: "Thema wurde schon auf einem Treffen abgefrühstückt."
     vote: "mit %{stars} Sternen bewerten"

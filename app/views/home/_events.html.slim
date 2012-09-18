@@ -2,7 +2,7 @@
   p
     - if current_event
       =' link_to t("home.next_meetup"), current_event, title: current_event.name
-      == t("home.takes_place", event_date: content_tag(:em, l(current_event.date)), location_link: link_to(current_event.location.name, current_event.location.url, title: current_event.location.name))
+      == t("home.takes_place", event_date: content_tag(:em, l(current_event.date)), location_link: link_to(current_event.location.name, current_event.location, title: current_event.location.name))
     - else
       == t("home.next_possible_meetup", event_date: content_tag(:em, l(next_event_date)))
   - if events.any?
