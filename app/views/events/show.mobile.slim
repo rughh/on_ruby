@@ -1,0 +1,9 @@
+h2= event.name
+p= link_to l(event.date), event_path(event, format: :ics), class: 'ical'
+
+= render "part", event: event, type: :topics
+= render "part", event: event, type: :materials
+
+- if event.participants.present?
+  h3= t("show.attendees")
+  p= render 'home/users_list', users: event.participants.map(&:user)
