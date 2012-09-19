@@ -302,10 +302,14 @@ nav
 
   .enumeration
     reset-counter:enumeration
-    li
+    li:nth-child(-n+9)
       counter-increment: enumeration
       &:before
         content: "0" counter(enumeration) ". "
+    li:nth-child(n+10)
+      counter-increment: enumeration
+      &:before
+        content: counter(enumeration) ". "
   form
     ol
       margin: 0em
