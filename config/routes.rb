@@ -29,6 +29,7 @@ OnRuby::Application.routes.draw do
   match '/auth/offline_login/:nickname',  to: 'sessions#offline_login' if Rails.env.development?
 
   match '/mobile',      to: 'mobile#index', as: :mobile
+  match '/imprint',     to: 'mobile#imprint', as: :imprint, format: :mobile
   match '/home/labels', to: 'home#labels',  as: :labels
   match '/sitemap.xml', to: 'misc#sitemap', format: :xml
   match '/api',         to: 'api#index'

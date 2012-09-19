@@ -1,6 +1,5 @@
 ul data-role="listview"
   - Whitelabel.labels.each do |label|
     li
-      = link_to root_url(subdomain: label.label_id) do
-        = image_tag("labels/#{label.label_id}.png")
-        h3= label.host
+      = link_to label.host, root_url(subdomain: label.label_id)
+      = link_to label.host, root_url(subdomain: label.label_id), data: {icon: :home}
