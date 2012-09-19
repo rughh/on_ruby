@@ -2,8 +2,13 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery
+
+  # REM: order matters!
   before_filter :switch_label, :switch_locale
+  before_filter :prepare_for_mobile
+
   helper_method :current_user, :signed_in?
+  helper_method :mobile_device?
 
   cache_sweeper :index_sweeper
 
@@ -51,5 +56,18 @@ class ApplicationController < ActionController::Base
   def switch_locale
     locale = params[:locale] || cookies[:locale] || Whitelabel[:default_locale]
     cookies[:locale] = I18n.locale = locale
+  end
+
+  def mobile_device?
+    if session[:mobile_param]
+      session[:mobile_param] == "1"
+    else
+      request.user_agent =~ /Mobile|webOS/
+    end
+  end
+
+  def prepare_for_mobile
+    session[:mobile_param] = params[:mobile] if params[:mobile]
+    request.format = :mobile if mobile_device?
   end
 end
