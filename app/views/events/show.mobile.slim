@@ -1,9 +1,28 @@
 h2= event.name
-p= link_to l(event.date), event_path(event, format: :ics), class: 'ical'
+/ TODO (ps) provide a button to download the ics
+p= l(event.date)
+p== "#{t("show.hosted_by")} #{link_to event.user.nickname, event.user}"
 
-= render "part", event: event, type: :topics
-= render "part", event: event, type: :materials
-
-- if event.participants.present?
-  h3= t("show.attendees")
-  p= render 'home/users_list', users: event.participants.map(&:user)
+div data-role="collapsible-set"
+  div data-role="collapsible" class="#{event.participants.present? ? '' : 'ui-disabled'}"
+    h2= t("show.attendees")
+    ul data-role="listview"
+      - event.participants.map(&:user).each do |user|
+        li= link_to user do
+          = image_tag user.image, class: "ui-li-icon", style: "margin-top: -2px"
+          = user.nickname
+  div data-role="collapsible" class="#{event.topics.present? ? '' : 'ui-disabled'}"
+    h2= t("show.topics")
+    ul data-role="listview"
+      - event.topics.each do |topic|
+        li(data-role="list-divider")= topic.name
+        li
+          h3= topic.user.nickname
+          = simple_format topic.description
+  div data-role="collapsible" class="#{event.materials.present? ? '' : 'ui-disabled'}"
+    h2= t("show.materials")
+    ul data-role="listview"
+      - event.materials.each do |material|
+        li data-icon="info"
+          = link_to material.url do
+            h3= material.name
