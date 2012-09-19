@@ -2,10 +2,23 @@ require 'spec_helper'
 
 describe Event do
 
-  let(:event) { build(:event) }
+  let(:event) { create(:event) }
 
   it "should provide end_date" do
     event.end_date.should > event.date
+  end
+
+  context "validation" do
+    it "should be valid" do
+      event.should be_valid
+    end
+
+    it "should validate uniqueness" do
+      build(:event, name: event.name).should have(1).errors_on(:name)
+      Whitelabel.with_label(Whitelabel.labels.last) do
+        build(:event, name: event.name).should have(0).errors_on(:name)
+      end
+    end
   end
 
   context "current event" do

@@ -12,6 +12,9 @@ describe Wish do
 
     it "should validate uniqueness" do
       build(:wish, name: wish.name).should have(1).errors_on(:name)
+      Whitelabel.with_label(Whitelabel.labels.last) do
+        build(:wish, name: wish.name).should have(0).errors_on(:name)
+      end
     end
 
     it "should validate presence" do

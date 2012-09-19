@@ -25,6 +25,7 @@ class Event < ActiveRecord::Base
   has_many :materials
 
   validates :location, :user, :name, :description, :date, presence: true
+  validates :name, uniqueness: {scope: :label}
 
   attr_accessible :location_id, :user_id, :published, :name, :description, :date, as: :admin
 
