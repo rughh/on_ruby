@@ -5,7 +5,7 @@ section
   p.meta
     span.calendar-icon=' link_to l(event.date), event_path(event, format: :ics), class: 'ical'
     =' t("show.hosted_by")
-    = link_to_twitter event.user
+    = link_to event.user.nickname, event.user
   == link_to_route(event.location)
 
   p= simple_format event.description
