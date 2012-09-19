@@ -14,7 +14,7 @@ class Wish < ActiveRecord::Base
   end
 
   validates :name, :description, :user, presence: true
-  validates :name, uniqueness: true
+  validates :name, uniqueness: {scope: :label}
 
   attr_accessible :name, :done, :stars, :description, :user
   attr_accessible :name, :done, :stars, :description, :slug, :label, :user_id, as: :admin
