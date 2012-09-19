@@ -9,8 +9,8 @@
   organizers: ['halfbyte', 'ralph', 'phoet', 'rubiii']
   location:
     :zoom: 14
-    :lat: 53.58500
-    :long: 9.97000
+    :lat: 53.56544
+    :long: 9.95947
   imprint:
     :address: "Schanzenstr. 85\n20357 Hamburg"
     :contributors:
