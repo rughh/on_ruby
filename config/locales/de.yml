@@ -90,3 +90,6 @@ de:
     double_vote: "Du darfst nicht mehrfach bewerten!"
     voted: "Das Thema wurde bewertet."
     wish_added: "Dein Eintrag wurde gespeichert."
+  mobile:
+    back: "Zurück"
+    home: "Home"

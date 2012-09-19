@@ -1,0 +1,4 @@
+div data-role="header"
+  h3= I18n.tw 'title'
+  = link_to t('mobile.home'), root_url, data: {icon: "home", rel: "home"}
+  = link_to t('mobile.back'), request.referrer, data: {icon: "back", rel: "back"}, class: request.referrer ? "" : "ui-disabled"
