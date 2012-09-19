@@ -1,1 +1,21 @@
 h2= user.nickname
+p= user.name
+p= user.description if user.description
+= content_tag :p, "Location: #{user.location}" if user.location
+
+div data-role="collapsible-set"
+  div data-role="collapsible" data-collapsed="false"
+    h2 Links
+    p
+      strong Twitter: #{link_to_twitter user}
+    - unless user.github.blank?
+      p
+        strong Github: #{link_to_github user}
+    - unless user.url.blank?
+      p
+        strong Homepage: #{link_to user.url, user.url}
+  div data-role="collapsible"
+    h3= t("profile.events_participated")
+    ul data-role="listview"
+      - user.participants.each do |p|
+        li= link_to p.event.name, p.event

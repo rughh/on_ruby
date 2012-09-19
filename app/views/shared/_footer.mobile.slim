@@ -1,2 +1,4 @@
-div data-role="footer"
-  = link_to 'GitHub', 'http://github.com/phoet/on_ruby', title: 'Fork me on GitHub'
+- unless @dialog
+  div data-role="footer" class="ui-bar"
+    = link_to 'Normale Ansicht', url_for(mobile: 0), rel: :external
+    = link_to 'Impressum', imprint_path, data: {rel: :dialog}

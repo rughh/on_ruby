@@ -1,0 +1,6 @@
+- imprint = Whitelabel[:imprint]
+h2= t("footer.imprint")
+- imprint[:contributors].each do |contributor|
+  p= mail_to contributor[:email], contributor[:name], title: contributor[:name]
+- if imprint[:address]
+  p== imprint[:address].gsub("\n", "<br/>")
