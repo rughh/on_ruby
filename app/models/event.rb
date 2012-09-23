@@ -69,7 +69,8 @@ class Event < ActiveRecord::Base
     else
       logger.warn "publishing in test-modus with url #{event_url}"
     end
-    update_attributes!(published: true)
+    self.published = true
+    self.save!
   end
 
   class << self
