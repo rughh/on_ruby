@@ -26,6 +26,10 @@ module ApplicationHelper
     "#{title} - #{content_for?(:page_title) ? content_for(:page_title) : subtitle}"
   end
 
+  def mobile_title
+    content_for?(:mobile_title) ? content_for(:mobile_title) : I18n.tw('title')
+  end
+
   def meta_desc
     "#{page_title} - #{I18n.tw("meta_desc")}"
   end

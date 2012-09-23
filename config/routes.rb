@@ -20,6 +20,10 @@ OnRuby::Application.routes.draw do
     resources :participants
   end
 
+  resource :mobile, controller: :mobile do
+    get 'settings'
+  end
+
   match '/auth/:provider/callback',       to: 'sessions#create'
   match '/auth/failure',                  to: 'sessions#failure'
   match '/admin/logout',                  to: 'sessions#destroy',              as: :destroy_admin_user_session # make the logout of rails-admin functional
@@ -28,10 +32,8 @@ OnRuby::Application.routes.draw do
   match '/auth/login/:provider',          to: 'sessions#auth',                 as: :auth,                 defaults: { :provider => 'twitter' }
   match '/auth/offline_login/:nickname',  to: 'sessions#offline_login' if Rails.env.development?
 
-  match '/mobile',      to: 'mobile#index', as: :mobile
-  match '/imprint',     to: 'mobile#imprint', as: :imprint, format: :mobile
   match '/home/labels', to: 'home#labels',  as: :labels
-  match '/sitemap.xml', to: 'misc#sitemap', format: :xml
+  match '/sitemap.xml', to: 'misc#sitemap', as: :sitemap, format: :xml
   match '/api',         to: 'api#index'
 
   root to: "home#index"
