@@ -38,8 +38,8 @@ end
 
 group :development, :test do
   gem "sqlite3"
-  gem "pry-remote",   "0.1.1"
-  gem "fuubar",       "1.0.0"
+  gem "pry-remote",   "0.1.6"
+  gem "pry-nav",      "0.2.2"
   gem "mocha",        "0.10.5"
   gem "rspec-rails",  "2.11.0"
   gem "factory_girl", "3.1.0"
