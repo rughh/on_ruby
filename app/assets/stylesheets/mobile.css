@@ -2,3 +2,10 @@
  *= require_self
  *= require jquery.mobile
  */
+
+/* jQuery Mobile customizations */
+
+.ui-li-desc {
+  white-space: normal !important;
+}
+

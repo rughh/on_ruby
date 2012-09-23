@@ -11,8 +11,15 @@ module ExternalLinkHelper
     end
   end
 
-  def link_to_github(user)
-    link_to(user.github, "http://github.com/#{user.github}", title: user.github) if user.github
+  def link_to_github(user, &block)
+    return unless user.github
+    url = "http://github.com/#{user.github}"
+    title = user.github
+    if block_given?
+      link_to url, title: title, &block
+    else
+      link_to(user.github, url, title: title)
+    end
   end
 
   def twitter_update_url(model)

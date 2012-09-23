@@ -1,0 +1,15 @@
+- content_for :mobile_title, t('mobile.settings')
+
+-if signed_in?
+  = link_to t("login.logout"), destroy_session_path(current_user), data: {role: :button}
+-else
+  = link_to t("login.twitter_login"), auth_path, rel: :external, data: {role: :button}
+
+= link_to 'Mobile Ansicht deaktivieren', root_path(mobile: 0), rel: :external, data: {role: :button, icon: :alert}
+
+- imprint = Whitelabel[:imprint]
+h2= t("footer.imprint")
+- imprint[:contributors].each do |contributor|
+  p= mail_to contributor[:email], contributor[:name]
+- if imprint[:address]
+  p== imprint[:address].gsub("\n", "<br/>")

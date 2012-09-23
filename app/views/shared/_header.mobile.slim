@@ -1,5 +1,5 @@
 div data-role="header"
-  h3= I18n.tw 'title'
-  - unless @dialog
-    = link_to t('mobile.home'), root_url, data: {icon: "home", rel: "home"}
-    = link_to t('mobile.back'), request.referrer, data: {icon: "back", rel: "back"}, class: request.referrer ? "" : "ui-disabled"
+  h3= mobile_title
+  = link_to t('mobile.home'), labels_url(subdomain: false), data: {icon: :home, iconpos: :notext}
+  - unless url_for(:only_path => true) == labels_path
+    = link_to t('mobile.settings'), settings_mobile_path, data: {icon: :gear, iconpos: :notext}
