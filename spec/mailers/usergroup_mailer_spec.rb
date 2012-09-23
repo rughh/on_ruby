@@ -9,7 +9,7 @@ describe UsergroupMailer do
       email = UsergroupMailer.invitation_mail(event).deliver
       ActionMailer::Base.deliveries.should_not be_empty
 
-      email.to.should eql(["rubyonrails-ug@headflash.com"])
+      email.to.should eql(["rubyonrails-ug-germany@googlegroups.com"])
       email.subject.should match(event.name)
       email.encoded.should =~ /<h1>#{event.name}<\/h1>/
     end
