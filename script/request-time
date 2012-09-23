@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-# File.absolute_path(__FILE__)
-
 FORMAT = <<-FORMAT
     time_namelookup:  %{time_namelookup}
        time_connect:  %{time_connect}
