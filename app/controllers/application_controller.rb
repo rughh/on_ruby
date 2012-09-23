@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   # REM: order matters!
+  before_filter :reset_locales
   before_filter :switch_label, :switch_locale
   before_filter :prepare_for_mobile
 
@@ -47,6 +48,12 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.id
   end
 
+  def reset_locales
+    # REM (ps): thread locales need to be reset, when shared between requests!
+    Whitelabel.reset!
+    I18n.locale = I18n.default_locale
+  end
+
   def switch_label
     unless Usergroup.switch_by_request(request)
       redirect_to labels_url(subdomain: false)
@@ -54,7 +61,8 @@ class ApplicationController < ActionController::Base
   end
 
   def switch_locale
-    locale = params[:locale] || cookies[:locale] || Whitelabel[:default_locale]
+    locale = params[:locale] || cookies[:locale]
+    locale ||= Whitelabel[:default_locale] if Whitelabel.label
     cookies[:locale] = I18n.locale = locale
   end
 

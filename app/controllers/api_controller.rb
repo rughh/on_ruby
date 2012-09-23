@@ -1,6 +1,5 @@
 class ApiController < ApplicationController
   before_filter :api_sign_in
-  skip_before_filter :switch_label
 
   expose(:wishes)     { Wish.ordered }
   expose(:locations)  { Location.all }
