@@ -1,6 +1,5 @@
 class MiscController < ApplicationController
   skip_before_filter :switch_label, only: :sitemap
-  skip_before_filter :switch_locale, only: :sitemap
 
   helper_method :urls
   respond_to :xml
