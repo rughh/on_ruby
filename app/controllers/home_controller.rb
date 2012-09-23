@@ -14,6 +14,6 @@ class HomeController < ApplicationController
 
   def labels
     flash.now[:alert] = t("flash.no_whitelabel")
-    render :layout =>  mobile_device? ? 'application' : 'labels'
+    render :layout =>  request.format.mobile? ? 'application' : 'labels'
   end
 end
