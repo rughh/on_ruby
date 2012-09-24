@@ -1,7 +1,9 @@
 - content_for :mobile_title, event.name
+
 h2= event.name
 h5= link_to l(event.date), event_path(event, format: :ics), rel: :external
 h5== "#{t("show.hosted_by")} #{link_to event.user.nickname, event.user}"
+h5== link_to event.location.full_address, "#route", rel: :external
 
 p
   - if signed_in? && current_user.participates?(event)
@@ -10,8 +12,6 @@ p
     = button_to t("show.attend"), add_user_event_path(event)
   - else
     = link_to t("login.twitter_login"), auth_path, rel: :external, data: {role: :button}
-
-
 
 div data-role="collapsible-set"
   div data-role="collapsible" class="#{event.participants.present? ? '' : 'ui-disabled'}"
@@ -36,5 +36,5 @@ div data-role="collapsible-set"
           = link_to material.url do
             h3= material.name
 
-/ TODO (ps) add a map
-
+h3#route= t("show.route")
+= content_tag :p, '', id: :mobile_map, data: {url: static_map(event.location)}
