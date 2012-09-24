@@ -1,16 +1,15 @@
 doctype 5
 html
   head
-    title= page_title
+    title= mobile_title
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1"
     link rel='shortcut icon' href=image_path('ruby.png')
     = csrf_meta_tag
     = stylesheet_link_tag "mobile"
     = javascript_include_tag "mobile"
-    = render 'shared/i18njs'
   body
     div data-role="page" data-theme="a" data-content-theme="a"
-      = render 'shared/header'
+      = render 'layouts/header'
       div data-role="content"
         = yield
