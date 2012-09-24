@@ -9,3 +9,10 @@
   white-space: normal !important;
 }
 
+h2.ui-collapsible-heading {
+  margin-bottom: 4px;
+}
+
+h2.ui-collapsible-heading-collapsed {
+  margin-bottom: 0px;
+}
