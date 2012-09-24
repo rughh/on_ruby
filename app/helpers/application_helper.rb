@@ -60,6 +60,18 @@ module ApplicationHelper
     end
   end
 
+  def static_map(*locations)
+    options = {
+      zoom:     12,
+      sensor:   false,
+      key:      "AIzaSyBskJCTxAU9UbH3qijy46oNtZ1-4ad14PM",
+    }
+    params =  options.collect{ |k,v| "#{k}=#{v}" }
+    params += locations.map { |l| "markers=#{l.lat},#{l.long}" }
+    url = "http://maps.googleapis.com/maps/api/staticmap"
+    "#{url}?#{URI.escape(params.join('&'))}"
+  end
+
   def map(locations, init = {zoom: 12})
     locations = Array(locations)
     init = Whitelabel[:location].merge(init)
