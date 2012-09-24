@@ -1,8 +1,8 @@
-= content_for(:page_title){user.name}
+- content_for :page_title, user.name
+
 section
   h3= t("profile.edit")
-  ul
-    = render 'home/users_list', users: [user]
+  ul= render 'home/users_list', users: [user]
 
   = semantic_form_for user do |f|
     = f.input :name
