@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+# encoding: UTF-8
+
+FORMAT = <<-OUTPUT
+/* CONTRIBUTORS */
+
+  Peter Schröder (Señor Developer)
+  Site: https://github.com/phoet
+  Location: Hamburg, Germany
+
+  Daniel Harrington (Señor Developer)
+  Site: https://github.com/rubiii
+  Location: Hamburg, Germany
+
+  Dennis Reimann (Señor Developer)
+  Site: https://github.com/dennisreimann
+  Location: Bremen, Germany
+
+/* COMMITTERS */
+
+%{commiters}
+OUTPUT
+
+FALLBACKS = {
+  "phoet" => "Peter Schröder",
+  "Peter Schröder" => "Peter Schröder",
+  "ralph" => "Ralph von der Heyden",
+  "rubiii" => "Daniel Harrington",
+}
+commiters = `git log --format='%aN' | sort -u`
+commiters = commiters.split("\n").map { |c| "  #{FALLBACKS[c] || c}"}.uniq.sort.join("\n\n")
+
+output = FORMAT % {commiters: commiters}
+path = File.expand_path("../public/humans.txt", File.dirname(__FILE__))
+File.open(path, "w") { |file| file.write(output) }
