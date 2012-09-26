@@ -1,16 +1,7 @@
 # OnRuby
 ![Status](https://secure.travis-ci.org/phoet/on_ruby.png "Status")
 
-Source for the Sites of the Ruby Communities
-
-- [Hamburg](http://hamburg.onruby.de)
-- [Bremen](http://bremen.onruby.de)
-- [Cologne](http://cologne.onruby.de)
-- [Saarland](http://saar.onruby.de)
-- [München](http://munich.onruby.de)
-- [Karlsruhe](http://karlsruhe.onruby.de)
-
-![OnRuby](http://f.cl.ly/items/0Z1V0M0f3V1C390R0L0s/Bildschirmfoto%202012-07-23%20um%2023.13.12.png)
+Source for the Sites of the Ruby Communities [Hamburg](http://hamburg.onruby.de), [Bremen](http://bremen.onruby.de), [Cologne](http://cologne.onruby.de), [Saarland](http://saar.onruby.de) and [Karlsruhe](http://karlsruhe.onruby.de)
 
 ## Setup
 
@@ -24,7 +15,7 @@ Use *foreman* to start the server, otherwise you need to export the options of t
 
 For working with the whitelabel functionality, you need to add all supported subdomains to your */etc/hosts* :
 
-    127.0.0.1    onruby.dev hamburg.onruby.dev cologne.onruby.dev bremen.onruby.dev saar.onruby.dev munich.onruby.dev karlsruhe.onruby.dev
+    127.0.0.1    onruby.dev hamburg.onruby.dev cologne.onruby.dev bremen.onruby.dev saar.onruby.dev karlsruhe.onruby.dev
 
 Access via [http://onruby.dev:5000](http://onruby.dev:5000)
 
@@ -65,6 +56,14 @@ On the admin-site we need to:
 - merge the pull
 - deploy to heroku
 - add admin privileges to someone for the new RUG
+
+## Website
+
+![OnRuby Website](http://f.cl.ly/items/3o0v3c2d1X3A0o3s0O11/Bildschirmfoto%202012-09-26%20um%2019.23.17.png)
+
+## Mobile Website
+
+![OnRuby Mobile](http://f.cl.ly/items/340F1y343N3H0S2k3c2F/iOS%20Simulator%20Bildschirmfoto%2026.09.2012%2019.26.49.png)
 
 ## Admin Interface
 
