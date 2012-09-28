@@ -16,7 +16,7 @@ class IndexSweeper < ActionController::Caching::Sweeper
   private
 
   def expire_index_cache
-    Rails.logger.info "invalidating home#index cache"
-    expire_action controller: "/home", action: "index"
+    Rails.logger.info "invalidating the whole cache"
+    Rails.cache.clear
   end
 end
