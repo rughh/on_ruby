@@ -1,14 +1,15 @@
 source :rubygems
 ruby "1.9.3"
 
+gem "thin",                 "1.3.1",  require: false
+gem "foreman",              "0.41.0", require: false
+
 gem "rails",                "3.2.8"
 gem "friendly_id",          "4.0.4"
 gem "omniauth",             "1.0.3"
 gem "omniauth-twitter",     "0.0.9"
 gem "icalendar",            "1.1.6"
 gem "meta_search",          ">= 1.1.0.pre"
-gem "thin",                 "1.3.1"
-gem "foreman",              "0.41.0"
 gem "decent_exposure",      "1.0.2"
 gem "geocoder",             "1.1.1"
 gem "acts_as_api",          "0.3.11"
