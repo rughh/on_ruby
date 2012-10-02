@@ -1,5 +1,6 @@
 # encoding: UTF-8
 class ApplicationController < ActionController::Base
+  include ActionCaching
 
   protect_from_forgery
 

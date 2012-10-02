@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   skip_before_filter :switch_label, only: :labels
 
-  caches_action :index, layout: false, if: lambda { |controller| !controller.request.format.mobile? }, cache_path: lambda { |controller| controller.params.merge(locale: I18n.locale, date: Date.today) }
+  my_caches_action :index
 
   expose(:current_event) { Event.current.first }
   expose(:events) { Event.latest }
