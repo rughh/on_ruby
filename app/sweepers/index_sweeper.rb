@@ -16,7 +16,11 @@ class IndexSweeper < ActionController::Caching::Sweeper
   private
 
   def expire_index_cache
-    Rails.logger.info "invalidating the whole cache"
-    Rails.cache.clear
+    if Rails.env.test?
+      Rails.logger.info "not invalidating the cache for tests"
+    else
+      Rails.logger.info "invalidating the whole cache"
+      Rails.cache.clear
+    end
   end
 end
