@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  my_caches_action :show
+
   expose(:users) { User.ordered }
   expose(:user)
 
