@@ -1,6 +1,9 @@
 source :rubygems
 ruby "1.9.3"
 
+gem "thin",         require: false
+gem "foreman",      require: false
+
 gem "rails",                "3.2.8"
 gem "friendly_id",          "4.0.4"
 gem "omniauth",             "1.0.3"
@@ -31,8 +34,6 @@ group :production do
 end
 
 group :development do
-  gem "thin",         require: false
-  gem "foreman",      require: false
   gem "heroku",       require: false
   gem "taps",         require: false
 end
