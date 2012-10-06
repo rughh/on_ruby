@@ -58,6 +58,10 @@ class User < ActiveRecord::Base
   end
 
   class << self
+    def all_for_selections
+      order("name").map { |user| ["#{user.name} (#{user.nickname})", user.id] }
+    end
+
     def peers
       joins(:participants => :event).where("events.label" => Whitelabel[:label_id]).order("created_at DESC").uniq
     end
