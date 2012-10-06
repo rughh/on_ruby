@@ -1,8 +1,6 @@
 require 'spec_helper'
 
-# TODO (ps) move this to it's own spec group
-
-describe HomeController do
+describe HomeController, type: :controller do
 
   before { set_subdomain }
 
