@@ -30,6 +30,15 @@ describe User do
     let(:user) { create(:user) }
     let(:admin_user) { create(:admin_user) }
 
+    it "should find and transform usernames for semanticform" do
+      %w(uschi klaus mauro).each { |name| create(:user, name: name, nickname: "nick_#{name}") }
+      User.all_for_selections.should eql([
+        ["klaus (nick_klaus)", 2],
+        ["mauro (nick_mauro)", 3],
+        ["uschi (nick_uschi)", 1]
+      ])
+    end
+
     it "should find peers" do
       3.times { create(:event_with_participants) }
       User.peers.should have(3).elements
