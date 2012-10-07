@@ -18,7 +18,7 @@ describe HomeController, type: :controller do
 
   describe "cache path" do
     let(:date) { Date.new(2012, 07, 07) }
-    let(:options) { {"controller"=>"home", "action"=>"index", "locale"=>:de, "date"=>date} }
+    let(:options) { {"controller"=>"home", "action"=>"index", "locale"=>"de", "date"=>"2012-07-06"} }
 
     it "should generate a valid cache path options" do
       Timecop.freeze date do

@@ -9,7 +9,7 @@ module ActionCaching
     end
 
     def caches_action_cache_path(controller)
-      controller.params.merge(locale: I18n.locale, date: Date.today)
+      controller.params.merge(locale: I18n.locale.to_s, date: Time.now.utc.to_date.to_s)
     end
 
     def my_caches_action(action)
