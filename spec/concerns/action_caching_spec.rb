@@ -17,7 +17,7 @@ describe HomeController, type: :controller do
   end
 
   describe "cache path" do
-    let(:date) { Date.today }
+    let(:date) { Date.new(2012, 07, 07) }
     let(:options) { {"controller"=>"home", "action"=>"index", "locale"=>:de, "date"=>date} }
 
     it "should generate a valid cache path options" do
