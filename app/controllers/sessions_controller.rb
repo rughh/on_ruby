@@ -5,14 +5,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    auth = request.env['omniauth.auth']
-    logger.info "logging in with auth='#{auth}'"
-    unless @auth = Authorization.find_from_hash(auth)
-      @auth = Authorization.create_from_hash auth, current_user
-    end
-    @auth.user.update_from_auth! auth
-    self.current_user = @auth.user
-    cookies.permanent.signed[:remember_me] = [@auth.user.id, @auth.user.salt]
+    authorization = Authorization.handle_authorization request.env['omniauth.auth']
+    self.current_user = authorization.user
+    cookies.permanent.signed[:remember_me] = [current_user.id, current_user.salt]
     redirect_to request.env['omniauth.origin'] || root_path, notice: t("flash.logged_in", nickname: current_user.nickname)
   end
 
@@ -33,5 +28,4 @@ class SessionsController < ApplicationController
   def auth
     redirect_to "/auth/#{params[:provider]}"
   end
-
 end
