@@ -78,6 +78,11 @@ module ApplicationHelper
     content_tag(:div, '', class: 'map_canvas', 'data-map' => locations.to_json, 'data-init' => init.to_json)
   end
 
+  def markdown(content)
+    content = markdown_parser.render(content).html_safe
+    content_tag :div, content, class: :markdown
+  end
+
   def section_box(name)
     content_tag :section, class: name, id: name do
       concat content_tag(:h2, t(name))
@@ -90,5 +95,11 @@ module ApplicationHelper
       concat content_tag(:div, link_to(t("hint.close"), '#'), class: :close) if close
       yield
     end
+  end
+
+  private
+
+  def markdown_parser
+    @@_markdown_parser ||= Redcarpet::Markdown.new Redcarpet::Render::HTML, autolink: true, space_after_headers: true
   end
 end

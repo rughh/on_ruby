@@ -26,8 +26,7 @@ div data-role="collapsible-set"
     ul data-role="listview"
       - event.topics.each do |topic|
         li(data-role="list-divider")== "#{topic.name} (#{link_to topic.user.nickname, topic.user})"
-        li
-          = simple_format topic.description
+        li== markdown topic.description
   div data-role="collapsible" class="#{event.materials.present? ? '' : 'ui-disabled'}"
     h2= t("show.materials")
     ul data-role="listview"

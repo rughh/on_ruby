@@ -70,6 +70,7 @@ de:
   location:
     job_offers: "Jobangebote"
   wish:
+    markdown: "Du kannst <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> in deiner Beschreibung verwenden, URLs werden automatisch verlinkt."
     already_done: "Thema wurde schon auf einem Treffen abgefrühstückt."
     vote: "mit %{stars} Sternen bewerten"
     meta: "von %{twitter_link} - %{count} mal mit %{stars} von 5 Sternen bewertet"

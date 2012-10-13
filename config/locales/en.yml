@@ -70,6 +70,7 @@ en:
   location:
     job_offers: "Job offers"
   wish:
+    markdown: "You can use <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> in your description, URLs will get auto-linked."
     already_done: "This Topic has already been talked about."
     vote: "vote with %{stars} stars"
     meta: "from %{twitter_link} - %{count} times voted with a score of %{stars} out of 5 stars"
