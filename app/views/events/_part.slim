@@ -7,4 +7,4 @@
         = p.respond_to?(:url) ? link_to(p.name, p.url) : p.name
         - if p.user
           == " (#{link_to(p.user.nickname, p.user)})"
-        = simple_format p.description
+        == markdown p.description

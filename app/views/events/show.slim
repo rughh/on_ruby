@@ -9,7 +9,7 @@ section
     = link_to event.user.nickname, event.user
   == link_to_route(event.location)
 
-  p= simple_format event.description
+  == markdown event.description
   p= participation_link(event)
 
   - if event.participants.present?

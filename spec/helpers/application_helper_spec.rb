@@ -14,4 +14,9 @@ describe ApplicationHelper do
       helper.page_title.should eql("Wir on Ruby - Ruby Communities Deutschland")
     end
   end
+
+  describe "markdown" do
+    it { markdown("*underline*").should match("<em>underline</em>") }
+    it { markdown("auto http://href.org").should match("auto <a href=\"http://href.org\">http://href.org</a>") }
+  end
 end

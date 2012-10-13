@@ -5,6 +5,8 @@ gem "thin",         require: false
 gem "foreman",      require: false
 
 gem "rails",                "3.2.8"
+gem "slim-rails",           "1.0.3"
+gem "redcarpet",            "2.2.1"
 gem "friendly_id",          "4.0.4"
 gem "omniauth",             "1.0.3"
 gem "omniauth-twitter",     "0.0.9"
@@ -22,7 +24,6 @@ group :assets do
   gem "jquery-rails",         "2.0.2"
   gem "jquery_mobile_rails",  "1.1.1.1"
   gem "sass-rails",           "3.2.4"
-  gem "slim-rails",           "1.0.3"
   gem "compass",              "0.12.alpha.4"
   gem "uglifier",             "1.2.4"
   gem "coffee-rails",         "3.2.2"
