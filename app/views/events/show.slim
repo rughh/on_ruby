@@ -13,7 +13,7 @@ section
   p= participation_link(event)
 
   - if event.participants.present?
-    h3= t("show.attendees")
+    h3= "#{t("show.attendees")} (#{event.participants.count})"
     p= render 'home/users_list', users: event.participants.map(&:user)
 
   = render "part", event: event, type: :topics
