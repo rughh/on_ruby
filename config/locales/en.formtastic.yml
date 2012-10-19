@@ -2,9 +2,8 @@ en:
   formtastic:
     labels:
       wish:
-        index:
-          name: 'Your Topic'
-          description: 'Description'
+        name: 'Your Topic'
+        description: 'Description'
       vote:
         count: 'Stars'
       user:
