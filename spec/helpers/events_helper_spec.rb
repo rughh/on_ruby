@@ -12,8 +12,8 @@ describe EventsHelper do
     end
 
     describe "#participation_link" do
-      it "should render nothing" do
-        helper.participation_link(event).should match("Ich möchte teilnehmen")
+      it "should have a login message attached" do
+        helper.participation_link(event).should match("Bitte logge dich zuerst ein")
       end
     end
   end
