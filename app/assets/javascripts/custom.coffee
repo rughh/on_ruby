@@ -1,4 +1,9 @@
 HOR =
+  loginNote: ->
+    $('form').on 'click', 'input[data-disable]', (event) ->
+      event.preventDefault()
+      alert($(this).data('disable'))
+
   showHide: ->
     $(".toggle").click (event) ->
       event.preventDefault()
@@ -90,6 +95,7 @@ HOR =
       $(name + " a.more").parent().hide()
 
 $(document).ready ->
+  HOR.loginNote()
   HOR.reload()
   HOR.close()
   HOR.showHide()

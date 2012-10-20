@@ -37,6 +37,7 @@ de:
     at: "bei"
     attend: "Ich möchte teilnehmen"
     not_attend: "Nicht mehr teilnehmen"
+    login_before_attend: "Bitte logge dich zuerst ein!"
     attendees: "Teilnehmer"
     route: "Anfahrt"
     material: "Material"

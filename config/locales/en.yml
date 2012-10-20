@@ -37,6 +37,7 @@ en:
     at: "by"
     attend: "I want in"
     not_attend: "I want out"
+    login_before_attend: "Please login first!"
     attendees: "Attendees"
     route: "Route"
     material: "Material"
