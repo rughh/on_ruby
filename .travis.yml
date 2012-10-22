@@ -1,5 +1,14 @@
-before_install: "gem install bundler --pre"
+env:
+  global:
+    - secure: "RR/L5w7n10/dS/nkpVCa9VSLrHNwEj7gLaYeFbYtfl8Tu94yNgD801NMj9so\nXzwbj/veSflqEch2/HSPs/iANct752ufxZWH2Q0w4HVsdY2U/waIfxXIXHAL\nce89ZxqSvOBc+ipzhLV+nWaEls8HxEkJYzFFLlePyCLGLn1DL4s="
 script: "bundle exec rake travis:build"
 bundler_args: "--without development production"
+language: ruby
 rvm:
   - 1.9.3
+after_script:
+  - gem install heroku
+  - yes | ruby travis_deployer.rb
+  - heroku keys:clear
+  - yes | heroku keys:add
+  - git push heroku master
