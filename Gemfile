@@ -45,6 +45,6 @@ group :development, :test do
   gem "pry-nav",      "0.2.2"
   gem "mocha",        "0.12.7", require: "mocha_standalone"
   gem "rspec-rails",  "2.11.4"
-  gem "factory_girl", "3.1.0"
+  gem "factory_girl", "4.1.0"
   gem "timecop",      "0.5.3"
 end

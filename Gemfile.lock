@@ -84,7 +84,7 @@ GEM
     excon (0.16.7)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    factory_girl (3.1.0)
+    factory_girl (4.1.0)
       activesupport (>= 3.0.0)
     fastercsv (1.5.5)
     foreman (0.60.2)
@@ -262,7 +262,7 @@ DEPENDENCIES
   compass (= 0.12.alpha.4)
   dalli (= 2.1.0)
   decent_exposure (= 1.0.2)
-  factory_girl (= 3.1.0)
+  factory_girl (= 4.1.0)
   foreman
   friendly_id (= 4.0.4)
   geocoder (= 1.1.4)
