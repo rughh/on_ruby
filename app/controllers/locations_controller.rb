@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
-  expose(:location) { Location.find params[:id] }
+  # REM (ps): location is a reserved method!
+  expose(:current_location, model: :location)
   expose(:locations) { Location.cometogether }
   expose(:companies) { Location.company }
 
