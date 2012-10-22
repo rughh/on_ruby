@@ -40,14 +40,14 @@ section
       h3= t("profile.talks_done")
       ul.enumeration
         - user.topics.each do |t|
-          li= link_to t.name, t.event
+          li= link_to t.name, event_url(t.event, anchor: :topics)
 
   - if user.materials.present?
     #provided_material
       h3= t("profile.provided_material")
       ul.enumeration
         - user.materials.each do |m|
-          li= link_to m.name, m.event
+          li= link_to m.name, m.url
 
   - if user.wishes.present?
     #proposed_topics
