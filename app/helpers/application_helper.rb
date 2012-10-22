@@ -79,6 +79,7 @@ module ApplicationHelper
   end
 
   def markdown(content)
+    return nil unless content
     content = markdown_parser.render(content).html_safe
     content_tag :div, content, class: :markdown
   end
