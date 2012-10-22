@@ -17,6 +17,7 @@ en:
   people: "People"
   wishes: "Topics"
   topics: "Topics"
+  materials: "Additional Material"
   login:
     profile: "Profile"
     logout: "Logout"
