@@ -14,9 +14,9 @@ gem "icalendar",            "1.2.0"
 gem "meta_search",          ">= 1.1.0.pre"
 gem "decent_exposure",      "1.0.2"
 gem "geocoder",             "1.1.4"
-gem "acts_as_api",          "0.3.11"
+gem "acts_as_api",          "0.4.1"
 gem "whitelabel",           "0.2.0"
-gem "newrelic_rpm",         "3.4.2"
+gem "newrelic_rpm",         "3.5.0"
 
 gem "activeadmin",          git: "https://github.com/gregbell/active_admin.git"
 
