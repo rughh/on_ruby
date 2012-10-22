@@ -7,7 +7,7 @@ gem "foreman",      require: false
 gem "rails",                "3.2.8"
 gem "slim-rails",           "1.0.3"
 gem "redcarpet",            "2.2.2"
-gem "friendly_id",          "4.0.4"
+gem "friendly_id",          "4.0.8"
 gem "omniauth",             "1.0.3"
 gem "omniauth-twitter",     "0.0.9"
 gem "icalendar",            "1.2.0"

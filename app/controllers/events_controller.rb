@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
   respond_to :html, :mobile, :json, only: :add_user
   respond_to :xml, only: :rss
+  respond_to :ics, only: :show
 
   def rss; end
 
