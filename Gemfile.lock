@@ -91,7 +91,7 @@ GEM
       thor (>= 0.13.6)
     formtastic (2.2.1)
       actionpack (>= 3.0)
-    friendly_id (4.0.4)
+    friendly_id (4.0.8)
     fssm (0.2.9)
     geocoder (1.1.4)
     has_scope (0.5.1)
@@ -264,7 +264,7 @@ DEPENDENCIES
   decent_exposure (= 1.0.2)
   factory_girl (= 4.1.0)
   foreman
-  friendly_id (= 4.0.4)
+  friendly_id (= 4.0.8)
   geocoder (= 1.1.4)
   heroku
   icalendar (= 1.2.0)
