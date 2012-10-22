@@ -1,6 +1,6 @@
 - parts = event.send(type)
 - if parts.present?
-  h3= t("#{type}")
+  h3(id=type)= t("#{type}")
   ul.enumeration
     - parts.each do |p|
       li
