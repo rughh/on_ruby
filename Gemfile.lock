@@ -72,7 +72,7 @@ GEM
       sass (~> 3.1)
     daemons (1.1.9)
     dalli (2.1.0)
-    decent_exposure (1.0.2)
+    decent_exposure (2.0.0)
     devise (2.1.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -261,7 +261,7 @@ DEPENDENCIES
   coffee-rails (= 3.2.2)
   compass (= 0.12.alpha.4)
   dalli (= 2.1.0)
-  decent_exposure (= 1.0.2)
+  decent_exposure (= 2.0.0)
   factory_girl (= 4.1.0)
   foreman
   friendly_id (= 4.0.8)
