@@ -21,11 +21,11 @@ gem "newrelic_rpm",         "3.4.2"
 gem "activeadmin",          git: "https://github.com/gregbell/active_admin.git"
 
 group :assets do
-  gem "jquery-rails",         "2.0.2"
-  gem "jquery_mobile_rails",  "1.1.1.1"
-  gem "sass-rails",           "3.2.5"
+  gem "jquery-rails",         "2.1.3"
+  gem "jquery_mobile_rails",  "1.2.0"
   gem "compass",              "0.12.alpha.4"
-  gem "uglifier",             "1.2.4"
+  gem "sass-rails",           "3.2.5"
+  gem "uglifier",             "1.3.0"
   gem "coffee-rails",         "3.2.2"
 end
 

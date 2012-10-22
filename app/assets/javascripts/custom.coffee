@@ -74,7 +74,7 @@ HOR =
       $(this).parent().fadeOut()
 
   reload: ->
-    $(".jobs").filter(":hidden :first").show()  if $(".jobs").filter(":visible").size() is 0
+    $(".jobs").filter(":hidden").first().show()  if $(".jobs").filter(":visible").size() is 0
     $(".reload").click (event) ->
       event.preventDefault()
       first = $(".jobs").filter(":visible")
@@ -82,7 +82,7 @@ HOR =
       if first.next().length > 0
         first.next().fadeIn()
       else
-        $(".jobs").filter(":hidden :first").fadeIn()
+        $(".jobs").filter(":hidden").first().fadeIn()
 
   moreList: (name) ->
     elements = $(name + " ul li")
@@ -101,7 +101,6 @@ $(document).ready ->
   HOR.showHide()
   HOR.scrollPage()
   HOR.moreList "#events"
-  HOR.moreList "#jobs"
   HOR.moreList "#undone"
   HOR.moreList "#done"
   HOR.moreList "#events_participated"
