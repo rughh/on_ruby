@@ -18,7 +18,7 @@ gem "acts_as_api",          "0.4.1"
 gem "whitelabel",           "0.2.0"
 gem "newrelic_rpm",         "3.5.0"
 
-gem "activeadmin",          git: "https://github.com/gregbell/active_admin.git"
+gem "activeadmin",          git: "https://github.com/gregbell/active_admin.git", ref: "91c47b4fad79a1daa1e2bf070a120154b3b36818"
 
 group :assets do
   gem "jquery-rails",         "2.1.3"
