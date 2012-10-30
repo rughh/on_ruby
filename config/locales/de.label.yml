@@ -11,6 +11,12 @@ de:
       title: "Hamburg on Ruby"
       subtitle: "Heimathafen der Hamburger Ruby Community"
       meta_desc: "Ruby / Rails Usergroup Hamburg"
+    berlin:
+      city: "Berlin"
+      name: "Ruby Usergroup Berlin"
+      title: "RUG::B"
+      subtitle: "Ruby User Group Berlin"
+      meta_desc: "RUG::B—Ruby User Group Berlin"
     bremen:
       city: "Bremen"
       name: "HackHB"
