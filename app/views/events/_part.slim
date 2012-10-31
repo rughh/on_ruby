@@ -4,7 +4,7 @@
   ul.enumeration
     - parts.each do |p|
       li
-        = p.respond_to?(:url) ? link_to(p.name, p.url) : p.name
+        strong= p.respond_to?(:url) ? link_to(p.name, p.url) : p.name
         - if p.user
           == " (#{link_to(p.user.nickname, p.user)})"
         == markdown p.description
