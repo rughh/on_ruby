@@ -53,3 +53,9 @@ en:
       title: "Leipzig on Rails"
       subtitle: "Ruby / Rails User Group Leipzig"
       meta_desc: "Ruby / Rails User Group Leipzig"
+    dresden:
+      city: "Dresden"
+      name: "Ruby Usergroup Dresden"
+      title: "Dresden on Ruby"
+      subtitle: "Ruby User Group Dresden"
+      meta_desc: "Ruby / Rails User Group Dresden"

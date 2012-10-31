@@ -210,3 +210,26 @@
       :email: "leipzigonrails@googlegroups.com"
     - :name: "Thomas Metzmacher"
       :email: "leipzigonrails@googlegroups.com"
+- !ruby/object:Usergroup
+  label_id: "dresden"
+  default_locale: "de"
+  recurring: "first thursday"
+  email: "sonnendeck2000@gmail.de"
+  host: "dresden.onruby.de"
+  twitter: "ruby_dresden"
+  organizers: ['_sonnendeck']
+  location:
+    :zoom: 14
+    :lat: 51.049013
+    :long: 13.798582
+  imprint:
+    :address: "Pohlandstraße 19\n01309 Dresden"
+    :contributors:
+    - :name: "Martin Schrader"
+      :email: "sonnendeck2000@gmail.com"
+  other_usergroups:
+  - :name: "Dresden Perl Mongers"
+    :url: "http://renormalist.net/PM/WebHome"
+  - :name: "WDCM Dresden"
+    :url: "http://wdcmdresden.com/"
+>>>>>>> e644a4e... Added dresden specific data
