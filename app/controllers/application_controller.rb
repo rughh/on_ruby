@@ -64,7 +64,12 @@ class ApplicationController < ActionController::Base
   def switch_locale
     locale = params[:locale] || cookies[:locale]
     locale ||= Whitelabel[:default_locale] if Whitelabel.label
-    cookies[:locale] = I18n.locale = locale
+    I18n.locale = locale
+    cookies[:locale] = {
+      value:   locale,
+      expires: 1.year.from_now,
+      domain:  request.domain
+    }
   end
 
   def mobile_device?
