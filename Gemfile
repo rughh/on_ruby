@@ -4,10 +4,10 @@ ruby "1.9.3"
 gem "thin",         require: false
 gem "foreman",      require: false
 
-gem "rails",                "3.2.8"
+gem "rails",                "3.2.9.rc1"
 gem "slim-rails",           "1.0.3"
 gem "redcarpet",            "2.2.2"
-gem "friendly_id",          "4.0.8"
+gem "friendly_id",          "4.0.9"
 gem "omniauth",             "1.1.1"
 gem "omniauth-twitter",     "0.0.13"
 gem "icalendar",            "1.2.0"
