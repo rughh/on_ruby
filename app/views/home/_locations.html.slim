@@ -1,3 +1,7 @@
 = section_box :locations do
   = map(locations)
-  p== t("home.usergroup_locations", location_link: link_to(t("locations"), locations_path, title: t("locations")))
+  - options = { location_link: link_to(t("locations"), locations_path, title: t("locations")) }
+  p== t("home.usergroup_locations", options)
+  p== t("home.company_workers")
+  - options = { email_link: mail_to(Whitelabel[:email], "E-Mail", title: "E-Mail"), twitter_link: link_to_twitter(Whitelabel[:twitter]) }
+  p== t("home.company_missing", options)

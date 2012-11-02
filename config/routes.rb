@@ -7,9 +7,7 @@ OnRuby::Application.routes.draw do
   end
 
   resources :users
-  resources :locations do
-    get 'company', on: :collection
-  end
+  resources :locations
 
   resources :events do
     get 'rss',        on: :collection, format: :xml

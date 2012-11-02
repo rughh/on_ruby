@@ -1,10 +1,8 @@
 class LocationsController < ApplicationController
   # REM (ps): location is a reserved method!
   expose(:current_location, model: :location)
-  expose(:locations) { Location.cometogether }
-  expose(:companies) { Location.company }
+  expose(:locations)
 
   def index; end
   def show; end
-  def company; end
 end
