@@ -1,4 +1,0 @@
-= section_box :companies do
-  = map(companies)
-  p== t("home.company_workers", companies_link: link_to(t("companies"), company_locations_path, title: t("companies")))
-  p== t("home.company_missing", email_link: mail_to(Whitelabel[:email], "E-Mail", title: "E-Mail"), twitter_link: link_to_twitter(Whitelabel[:twitter]))

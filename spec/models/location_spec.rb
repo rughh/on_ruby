@@ -15,16 +15,11 @@ describe Location do
 
       Location.unscoped.all.size.should be(2)
     end
-
-    it "should find distinct cometogethers" do
-      5.times.each { |n| create(:event, location: @location) }
-      Location.cometogether.all.should have(1).things
-    end
   end
 
-  describe '#full_address' do
+  describe "#full_address" do
     it 'should return a full address string with street, house_number, zip, city and internationalized country name' do
       @location.full_address.should eq('Schanzenstr. 85, 20357 Hamburg, Deutschland')
     end
-  end  
+  end
 end

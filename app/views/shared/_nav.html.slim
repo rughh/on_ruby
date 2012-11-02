@@ -1,5 +1,5 @@
 ul
-  - [:events, :people, :locations, :wishes, :companies].each do |it|
+  - [:events, :wishes, :people, :locations].each do |it|
     li= link_to t(it), root_path(anchor: it), title: t(it)
 
 #locale

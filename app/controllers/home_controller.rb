@@ -9,8 +9,7 @@ class HomeController < ApplicationController
   expose(:wishes_undone) { Wish.undone }
   expose(:wishes_done) { Wish.done }
   expose(:organizers) { User.organizers }
-  expose(:locations) { Location.cometogether }
-  expose(:companies) { Location.company }
+  expose(:locations)
 
   def labels
     flash.now[:alert] = t("flash.no_whitelabel")
