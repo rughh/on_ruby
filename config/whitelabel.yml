@@ -178,7 +178,7 @@
   mailing_list: "https://groups.google.com/group/rug-b"
   host: "berlin.onruby.de"
   twitter: "rug_b"
-  organizers: ['freaklikeme']
+  organizers: ['freaklikeme','hagenburger,'PragTobi']
   location:
     :zoom: 14
     :lat: 52.52
@@ -186,6 +186,6 @@
   imprint:
     :address: "Adalbertstraße 8\n10999 Berlin"
     :contributors:
-    - :name: "Thilo Utke"
+    - :name: "Ruby Berlin e.V."
       :email: "thilo@upstre.am"
 
