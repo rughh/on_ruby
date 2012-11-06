@@ -178,7 +178,7 @@
   mailing_list: "https://groups.google.com/group/rug-b"
   host: "berlin.onruby.de"
   twitter: "rug_b"
-  organizers: ['freaklikeme', 'hagenburger', 'PragTobi']
+  organizers: ['freaklikeme', 'Hagenburger', 'PragTob']
   location:
     :zoom: 14
     :lat: 52.52
