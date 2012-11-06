@@ -3,7 +3,7 @@ class Job < ActiveRecord::Base
 
   attr_accessible :name, :url, :location, :location_id, as: :admin
 
-  default_scope -> { where(:label => Whitelabel[:label_id]) }
+  default_scope -> { where(label: Whitelabel[:label_id]) }
 
   scope :shuffled, -> { all.shuffle }
 

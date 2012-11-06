@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
     end
 
     def peers
-      joins(:participants => :event).where("events.label" => Whitelabel[:label_id]).order("created_at DESC").uniq
+      joins(participants: :event).where("events.label" => Whitelabel[:label_id]).order("created_at DESC").uniq
     end
 
     def main

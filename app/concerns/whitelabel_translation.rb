@@ -6,7 +6,7 @@ module WhitelabelTranslation
   module ClassMethods
     def translate_whitelabel(token, options = {})
       sub = Whitelabel.label ? Whitelabel[:label_id] : "default"
-      t(token, options.merge(:scope => "label.#{sub}"))
+      t(token, options.merge(scope: "label.#{sub}"))
     end
     alias :tw :translate_whitelabel
   end

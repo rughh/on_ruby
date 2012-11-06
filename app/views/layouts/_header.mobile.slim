@@ -1,7 +1,7 @@
 div data-role="header"
   h3= mobile_title
   = link_to t('mobile.home'), labels_url(subdomain: false), data: {icon: :home, iconpos: :notext}
-  - unless url_for(:only_path => true) == labels_path
+  - unless url_for(only_path: true) == labels_path
     = link_to t('mobile.settings'), settings_mobile_path, data: {icon: :gear, iconpos: :notext}
 - flash.each do |name, msg|
   = content_tag :div, msg, id: "flash_#{name}", class: "ui-body"
