@@ -32,7 +32,7 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :materials
   accepts_nested_attributes_for :topics
 
-  default_scope -> { where(:label => Whitelabel[:label_id]) }
+  default_scope -> { where(label: Whitelabel[:label_id]) }
 
   scope :current, lambda{ where(date: Date.today.to_time..(Time.now + 8.weeks)).limit(1).order('date ASC') }
   scope :latest, where('date < ?', Date.today.to_time).order('date DESC')

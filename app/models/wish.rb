@@ -23,7 +23,7 @@ class Wish < ActiveRecord::Base
 
   has_many :votes, dependent: :destroy
 
-  default_scope -> { where(:label => Whitelabel[:label_id]) }
+  default_scope -> { where(label: Whitelabel[:label_id]) }
 
   scope :done,    where(done: true).order('id DESC')
   scope :undone,  where(done: false).order('id DESC')
