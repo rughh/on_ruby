@@ -92,3 +92,8 @@ en:
     double_vote: "Don't vote twice, please!"
     voted: "Voted on Topic."
     wish_added: "Added new Topic."
+  mobile:
+    settings: "Settings"
+    back: "Back"
+    home: "Home"
+    disable: "Deactivate Mobile View"

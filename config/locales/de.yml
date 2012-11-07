@@ -93,5 +93,7 @@ de:
     voted: "Das Thema wurde bewertet."
     wish_added: "Dein Eintrag wurde gespeichert."
   mobile:
+    settings: "Einstellungen"
     back: "Zurück"
     home: "Home"
+    disable: "Mobile Ansicht deaktivieren"
