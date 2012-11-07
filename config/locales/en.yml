@@ -35,8 +35,8 @@ en:
   show:
     hosted_by: "hosted by"
     at: "by"
-    attend: "I want in"
-    not_attend: "I want out"
+    attend: "Attend"
+    not_attend: "Cancel"
     login_before_attend: "Please login first!"
     attendees: "Attendees"
     route: "Route"

@@ -3,6 +3,7 @@
 section
   = likes
   h2= event.name
+  .participation= participation_link(event)
   p.meta
     span.calendar-icon=' link_to l(event.date), event_path(event, format: :ics), class: 'ical'
     =' t("show.hosted_by")
@@ -10,7 +11,6 @@ section
   == link_to_route(event.location)
 
   == markdown event.description
-  p= participation_link(event)
 
   - if event.participants.present?
     h3= "#{t("show.attendees")} (#{event.participants.count})"
