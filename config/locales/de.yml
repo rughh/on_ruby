@@ -35,8 +35,8 @@ de:
   show:
     hosted_by: "gehostet durch"
     at: "bei"
-    attend: "Ich möchte teilnehmen"
-    not_attend: "Nicht mehr teilnehmen"
+    attend: "Teilnehmen"
+    not_attend: "Absagen"
     login_before_attend: "Bitte logge dich zuerst ein!"
     attendees: "Teilnehmer"
     route: "Anfahrt"

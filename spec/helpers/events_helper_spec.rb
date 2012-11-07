@@ -25,11 +25,11 @@ describe EventsHelper do
 
     describe "#participation_link" do
       it "should render a paritcipate button" do
-        helper.participation_link(event).should match("Ich möchte teilnehmen")
+        helper.participation_link(event).should match("Teilnehmen")
       end
 
       it "should render a cancel button" do
-        helper.participation_link(participation_event).should match("Nicht mehr teilnehmen")
+        helper.participation_link(participation_event).should match("Absagen")
       end
     end
   end
