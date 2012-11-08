@@ -27,7 +27,7 @@ See *config/initializers/omniauth.rb* for details.
 
 ### Test-Data
 
-Dump Data from Heroku via [Taps Gem](https://devcenter.heroku.com/articles/taps):
+You don't need any to setup a new project! If you are a heroku project admin, you can dump Data from Heroku via [Taps Gem](https://devcenter.heroku.com/articles/taps):
 
     heroku db:pull
 
