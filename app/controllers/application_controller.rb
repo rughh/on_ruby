@@ -62,8 +62,9 @@ class ApplicationController < ActionController::Base
   end
 
   def switch_locale
-    locale = params[:locale] || cookies[:locale] || I18n.default_locale
+    locale = params[:locale] || cookies[:locale]
     locale ||= Whitelabel[:default_locale] if Whitelabel.label
+    locale ||= I18n.default_locale
     I18n.locale = locale
     cookies[:locale] = {
       value:   locale,
