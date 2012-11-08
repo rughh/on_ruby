@@ -230,6 +230,6 @@
   other_usergroups:
   - :name: "Dresden Perl Mongers"
     :url: "http://renormalist.net/PM/WebHome"
-  - :name: "WDCM Dresden"
+  - :name: "WDCM Dresden - Web Developer Conference Meeting"
     :url: "http://wdcmdresden.com/"
->>>>>>> e644a4e... Added dresden specific data
+    :twitter: "wdcmdresden"
