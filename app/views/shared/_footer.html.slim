@@ -15,9 +15,7 @@ section.clearfix
   #imprint.block
     h2= t("footer.imprint")
     ul
-      li
-        - imprint[:contributors].each do |contributor|
-          = mail_to contributor[:email], contributor[:name], title: contributor[:name]
+      li== imprint[:contributors].map { |c| mail_to c[:email], c[:name], title: c[:name] }.join(' ')
       - if imprint[:address]
         li== imprint[:address].gsub("\n", "<br/>")
 
