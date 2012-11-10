@@ -6,7 +6,7 @@ class Authorization < ActiveRecord::Base
 
   attr_accessible :user, :uid, :provider
 
-  def self.handle_authorization auth
+  def self.handle_authorization(auth)
     provider = auth['provider']
     uid      = auth['uid']
 
@@ -14,7 +14,7 @@ class Authorization < ActiveRecord::Base
     if authorization.present?
       authorization.user.update_from_auth! auth
     else
-      user = User.create_from_hash! auth
+      user = User.find_or_create_from_hash! auth
       authorization = Authorization.create! user: user, provider: provider, uid: uid
     end
     authorization

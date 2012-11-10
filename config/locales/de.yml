@@ -21,6 +21,7 @@ de:
     profile: "Profil"
     logout: "Ausloggen"
     twitter_login: "Twitter Login"
+    github_login: "GitHub Login"
   hint:
     close: "Schliessen"
     attention: "Achtung:"
