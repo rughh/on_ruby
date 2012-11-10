@@ -44,17 +44,28 @@ class User < ActiveRecord::Base
   end
 
   def update_from_auth!(hash)
-    handle_attributes(hash)
+    send :"handle_#{hash['provider']}_attributes", hash
     save! if changed?
+    self
   end
 
-  def handle_attributes(hash)
-    self.nickname     = hash['info']['nickname']
+  def handle_twitter_attributes(hash)
+    self.nickname     = hash['info']['nickname'] unless self.nickname
     self.name         = hash['info']['name']
-    self.location     = hash['info']['location']
     self.image        = hash['info']['image']
-    self.description  = hash['info']['description']
     self.url          = hash['info']['urls']['Website']
+    self.description  = hash['info']['description']
+    self.location     = hash['info']['location']
+  end
+
+  def handle_github_attributes(hash)
+    self.nickname     = hash['info']['nickname'] unless self.nickname
+    self.name         = hash['info']['name']
+    self.github       = hash['info']['nickname']
+    self.image        = hash['info']['image']
+    self.url          = hash['info']['urls']['Blog'] || hash['info']['urls']['GitHub']
+    self.description  = hash['extra']['raw_info']['bio']
+    self.location     = hash['extra']['raw_info']['location']
   end
 
   class << self
@@ -74,10 +85,10 @@ class User < ActiveRecord::Base
       all.shuffle[0, num].reject{|u| u.nil? }
     end
 
-    def create_from_hash!(hash)
-      create do |user|
-        user.handle_attributes(hash)
-      end
+    def find_or_create_from_hash!(hash)
+      nickname = hash['info']['nickname']
+      user = find_or_initialize_by_nickname nickname
+      user.update_from_auth! hash
     end
 
     def authenticated_with_token(id, stored_salt)

@@ -96,16 +96,26 @@ header
     background: url(/assets/whitey.png) left top repeat
     border: 1px solid white
     @include border-radius(0.5em, 0.5em)
-    img.user
-      width: 32px
-      height: 32px
-      border: 1px solid white
-      @include border-radius(0.5em, 0.5em)
+    .user
+      float: left
+      padding-right: 5px
+      img
+        width: 32px
+        height: 32px
+        border: 1px solid white
+        @include border-radius(0.5em, 0.5em)
     h3
       color: #444
       padding-bottom: 0.5em
     ul
-      @include horizontal-list
+      list-style: none
+      margin: 0px
+      li
+        padding-bottom: 2px
+    .provider
+      margin-left: 0px
+      padding-left: 20px
+      background: url(/assets/login.png) left top no-repeat
   #logo
     float: left
 

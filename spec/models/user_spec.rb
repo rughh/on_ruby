@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'spec_helper'
 
 describe User do
@@ -22,6 +23,42 @@ describe User do
 
     it "should authorize phoet as admin" do
       admin_user.admin?.should be(true)
+    end
+  end
+
+  context "auth" do
+    let(:user) { create(:user) }
+
+    it "should create a user from an outh-hash" do
+      expect do
+        User.find_or_create_from_hash!(TWITTER_AUTH_HASH)
+      end.to change(User, :count).by(1)
+    end
+
+    it "should create not create a new user for same nickname" do
+      tu = User.find_or_create_from_hash!(TWITTER_AUTH_HASH)
+      gu = User.find_or_create_from_hash!(GITHUB_AUTH_HASH)
+      tu.id.should eql(gu.id)
+    end
+
+    it "should update a user from twitter-auth-hash" do
+      user.update_from_auth!(TWITTER_AUTH_HASH).tap do |it|
+        it.name.should eql('Peter Schröder')
+        it.location.should eql('Sternschanze, Hamburg')
+        it.image.should eql('http://a3.twimg.com/profile_images/1100439667/P1040913_normal.JPG')
+        it.description.should eql('I am a freelance Ruby and Java developer from Hamburg, Germany. ☠ nofail')
+        it.url.should eql('http://nofail.de')
+      end
+    end
+
+    it "should update a user from github-auth-hash" do
+      user.update_from_auth!(GITHUB_AUTH_HASH).tap do |it|
+        it.name.should eql('Peter Schröder')
+        it.location.should eql('Hamburg, Germany')
+        it.image.should eql('https://secure.gravatar.com/avatar/056c32203f8017f075ac060069823b66?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png')
+        it.description.should match('My name is')
+        it.url.should eql('http://blog.nofail.de')
+      end
     end
   end
 

@@ -1,9 +1,11 @@
 #login
-  -if signed_in?
+  - if signed_in?
+    .user= link_to image_tag(current_user.image, alt: current_user.nickname), edit_user_path(current_user), title: current_user.nickname
     ul
-      li= link_to image_tag(current_user.image, class: "user", alt: current_user.nickname), edit_user_path(current_user), title: current_user.nickname
       li= link_to t("login.profile"), edit_user_path(current_user), title: t("login.profile")
       li= link_to t("login.logout"), destroy_session_path(current_user), title: t("login.logout")
-  -else
+  - else
     ul
-      li= link_to t("login.twitter_login"), auth_path, title: t("login.twitter_login")
+      - [:twitter, :github].each do |provider|
+        - title = t("login.#{provider}_login")
+        li.provider= link_to title, auth_path(provider: provider), title: title

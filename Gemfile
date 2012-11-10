@@ -10,6 +10,7 @@ gem "redcarpet",            "2.2.2"
 gem "friendly_id",          "4.0.9"
 gem "omniauth",             "1.1.1"
 gem "omniauth-twitter",     "0.0.13"
+gem "omniauth-github",      "1.0.3"
 gem "icalendar",            "1.2.0"
 gem "meta_search",          ">= 1.1.0.pre"
 gem "decent_exposure",      "2.0.0"
@@ -35,7 +36,6 @@ group :production do
 end
 
 group :development do
-  gem "heroku",       require: false
   gem "taps",         require: false
 end
 
