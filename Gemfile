@@ -36,7 +36,8 @@ group :production do
 end
 
 group :development do
-  gem "taps",         require: false
+  gem "rack-mini-profiler", "0.1.22"
+  gem "taps",               require: false
 end
 
 group :development, :test do
