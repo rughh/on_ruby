@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   my_caches_action :show
 
   expose(:users) { User.ordered }
-  expose(:user)
+  expose(:user) { User.includes(participants: :event, topics: :event).find(params[:id]) }
 
   before_filter :authenticate_current_user!, only: [:edit, :update]
 

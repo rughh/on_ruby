@@ -36,11 +36,11 @@ describe Wish do
 
   context "with votes" do
     it "should calculate stars" do
-      wish.stars.should eql 0.0
+      wish.calculate_stars.should eql 0.0
       wish.votes << vote
-      wish.stars.should eql 5.0
+      wish.calculate_stars.should eql 5.0
       wish.votes << build(:vote, :wish => nil, :count => 0)
-      wish.stars.should eql 2.5
+      wish.calculate_stars.should eql 2.5
     end
 
     it "should indicate already_voted?" do

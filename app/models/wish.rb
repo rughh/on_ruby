@@ -25,11 +25,9 @@ class Wish < ActiveRecord::Base
 
   default_scope -> { where(label: Whitelabel[:label_id]) }
 
-  scope :done,    where(done: true).order('id DESC')
-  scope :undone,  where(done: false).order('id DESC')
   scope :ordered, order('created_at DESC')
 
-  def stars
+  def calculate_stars
     return 0.0 if votes.empty?
     (votes.sum(:count) / votes.count.to_f).round(1)
   end
@@ -41,5 +39,13 @@ class Wish < ActiveRecord::Base
   def copy_to_topic!
     Topic.create!({name: name, description: description, user: user, event: Event.last}, as: :admin)
     update_attributes!(done: true)
+  end
+
+  def update_stars!
+    update_attributes!(stars: calculate_stars)
+  end
+
+  def self.by_status(status = :done)
+    includes(votes: :user).where(done: status == :done).order('id DESC')
   end
 end

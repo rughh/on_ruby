@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_filter :check_login, only: :add_user
 
   expose(:events) { Event.ordered }
-  expose(:event)
+  expose(:event) { Event.includes(materials: :user, topics: :user, participants: :user).find(params[:id]) }
 
   respond_to :html, :mobile, :json, only: :add_user
   respond_to :xml, only: :rss

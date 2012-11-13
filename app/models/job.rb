@@ -5,7 +5,9 @@ class Job < ActiveRecord::Base
 
   default_scope -> { where(label: Whitelabel[:label_id]) }
 
-  scope :shuffled, -> { all.shuffle }
-
   belongs_to :location
+
+  def self.shuffled
+    includes(:location).shuffle
+  end
 end
