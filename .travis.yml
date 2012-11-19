@@ -12,4 +12,4 @@ after_script:
   - heroku keys:clear
   - yes | heroku keys:add
   - git push heroku master
-  - heroku run rake db:migrate
+  - heroku run rake db:migrate --app hamburg-on-ruby
