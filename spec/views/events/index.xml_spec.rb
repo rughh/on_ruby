@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "events/rss" do
+describe "events/index" do
 
   let(:events) { 3.times.map { build(:event, id: 123) } }
 

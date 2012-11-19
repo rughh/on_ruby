@@ -7,16 +7,16 @@ describe EventsController do
 
   before { set_subdomain }
 
-  describe "GET :rss" do
-    before { get :rss, format: :xml }
+  describe "GET :index" do
+    before { get :index, format: :xml }
 
     it "should assign the events to display" do
       controller.events.should_not be_nil
     end
 
-    it "should render the :rss template" do
+    it "should render the :index template" do
       response.headers["Content-Type"].should eql("application/xml; charset=utf-8")
-      response.should render_template(:rss)
+      response.should render_template(:index)
     end
   end
 
