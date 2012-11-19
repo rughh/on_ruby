@@ -12,4 +12,12 @@ describe "Events" do
       response.status.should be(200)
     end
   end
+
+  describe "GET /events.son" do
+    it "renders valid json" do
+      get event_path(event, format: :json)
+      json = JSON.parse(response.body)
+      json['name'].should eql(event.name)
+    end
+  end
 end
