@@ -6,7 +6,7 @@ html
     meta name="description" content="#{meta_desc}"
     meta name="author" content="github contributors: #{contributors}"
     link rel='shortcut icon' href=image_path('ruby.png')
-    = auto_discovery_link_tag :rss, rss_events_path, title: "Event-Feed"
+    = auto_discovery_link_tag :rss, events_path(format: :xml), title: "Event-Feed"
     = csrf_meta_tag
     = stylesheet_link_tag "application"
     = whitelabel_stylesheet_link_tag
