@@ -24,6 +24,7 @@ gem "activeadmin",          git: "https://github.com/gregbell/active_admin.git",
 group :assets do
   gem "jquery-rails",         "2.1.3"
   gem "jquery_mobile_rails",  "1.2.0"
+  gem "leaflet-rails",        "0.4.5"
   gem "compass",              "0.12.alpha.4"
   gem "sass-rails",           "3.2.5"
   gem "uglifier",             "1.3.0"
