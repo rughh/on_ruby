@@ -2,7 +2,7 @@ class WishesController < ApplicationController
   before_filter :check_login, only: [:new, :create]
 
   expose(:wish)
-  expose(:wishes_undone) { Wish.undone }
+  expose(:wishes_undone) { Wish.by_status(:undone) }
 
   def show; end
 
