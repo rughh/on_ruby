@@ -5,8 +5,4 @@ class Vote < ActiveRecord::Base
 
   belongs_to :wish
   belongs_to :user
-
-  after_save do |vote|
-    vote.wish.update_stars!
-  end
 end
