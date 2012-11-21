@@ -4,6 +4,24 @@ describe HomeController, type: :controller do
 
   before { set_subdomain }
 
+  describe "caching condition" do
+    it "should not cache for mobile user agents" do
+      controller.request.stubs(user_agent: "Mobile Safari")
+      get :index
+      controller.class.caches_action_condition(controller).should be_false
+    end
+
+    it "should not cache for mobile user agents" do
+      get :index, format: :mobile
+      controller.class.caches_action_condition(controller).should be_false
+    end
+
+    it "should cache for other formats" do
+      get :index
+      controller.class.caches_action_condition(controller).should be_true
+    end
+  end
+
   describe "cache path" do
     let(:date) { Date.new(2012, 07, 07) }
     let(:standard_options) { {"controller"=>"home", "action"=>"index", "locale"=>"de", "date"=>"2012-07-06", "format"=>"text/html_html"} }
