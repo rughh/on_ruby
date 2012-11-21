@@ -11,4 +11,12 @@ describe HomeController do
       response.should render_template(:index)
     end
   end
+
+  describe "GET :labels" do
+    before { get :labels }
+
+    it "should render the :labels template" do
+      response.should render_template(:labels)
+    end
+  end
 end

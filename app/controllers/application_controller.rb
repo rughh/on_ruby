@@ -1,16 +1,12 @@
 # encoding: UTF-8
 class ApplicationController < ActionController::Base
   include ActionCaching
+  include MobileDetection
 
   protect_from_forgery
 
-  # REM: order matters!
-  before_filter :reset_locales
-  before_filter :switch_label, :switch_locale
-  before_filter :prepare_for_mobile
-
-  helper_method :current_user, :signed_in?
-  helper_method :mobile_device?
+  before_filter :setup
+  helper_method :current_user, :signed_in?, :mobile_device?
 
   cache_sweeper :index_sweeper
 
@@ -49,8 +45,14 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.id
   end
 
-  def reset_locales
-    # REM (ps): thread locales need to be reset, when shared between requests!
+  def setup
+    reset_thread_locales
+    switch_label unless %w(home_labels misc_sitemap).include?("#{controller_name}_#{action_name}")
+    switch_locale
+    prepare_for_mobile
+  end
+
+  def reset_thread_locales
     Whitelabel.reset!
     I18n.locale = I18n.default_locale
   end
@@ -71,18 +73,5 @@ class ApplicationController < ActionController::Base
       expires: 1.year.from_now,
       domain:  request.domain
     }
-  end
-
-  def mobile_device?
-    if session[:mobile_param]
-      session[:mobile_param] == "1"
-    else
-      request.user_agent =~ /Mobile|webOS/
-    end
-  end
-
-  def prepare_for_mobile
-    session[:mobile_param] = params[:mobile] if params[:mobile]
-    request.format = :mobile if mobile_device? && !params[:format]
   end
 end
