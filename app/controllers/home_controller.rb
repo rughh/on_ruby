@@ -1,6 +1,4 @@
 class HomeController < ApplicationController
-  skip_before_filter :switch_label, only: :labels
-
   my_caches_action :index
 
   expose(:current_event) { Event.current.first }
