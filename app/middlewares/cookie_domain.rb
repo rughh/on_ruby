@@ -1,3 +1,4 @@
+# http://codetunes.com/2009/04/17/dynamic-cookie-domains-with-racks-middleware
 class CookieDomain
   def initialize(app, default_domain)
     @app = app
