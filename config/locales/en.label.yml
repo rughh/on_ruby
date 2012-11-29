@@ -47,3 +47,9 @@ en:
       title: "Karlsruhe.rb"
       subtitle: "Ruby User Group Karlsruhe"
       meta_desc: "Ruby / Rails User Group Karlsruhe"
+    leipzig:
+      city: "Leipzig"
+      name: "LoR"
+      title: "Leipzig on Rails"
+      subtitle: "Ruby / Rails User Group Leipzig"
+      meta_desc: "Ruby / Rails User Group Leipzig"
