@@ -188,4 +188,25 @@
     :contributors:
     - :name: "Ruby Berlin e.V."
       :email: "thilo@upstre.am"
-
+- !ruby/object:Usergroup
+  label_id: "leipzig"
+  default_locale: "de"
+  domains: ["leipzigonrails.de"]
+  recurring: "third thursday 19:00"
+  email: "leipzigonrails@googlegroups.com"
+  mailing_list: "https://groups.google.com/group/leipzigonrails"
+  host: "leipzig.onruby.de"
+  twitter: "LeipzigOnRails"
+  organizers: ['cpetschnig', 'knugie', 'tmetzmac']
+  location:
+    :zoom: 14
+    :lat: 51.32870
+    :long: 12.32329
+  imprint:
+    :contributors:
+    - :name: "Christoph Petschnig"
+      :email: "leipzigonrails@googlegroups.com"
+    - :name: "Wolfgang Teuber"
+      :email: "leipzigonrails@googlegroups.com"
+    - :name: "Thomas Metzmacher"
+      :email: "leipzigonrails@googlegroups.com"
