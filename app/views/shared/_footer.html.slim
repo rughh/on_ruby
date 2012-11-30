@@ -1,5 +1,5 @@
 section.clearfix
-  #contact.block
+  .contact.block
     h2= t("footer.contact")
     ul
       li
@@ -7,12 +7,12 @@ section.clearfix
           = "Twitter"
       li= mail_to Whitelabel[:email], 'E-Mail', title: 'E-Mail'
 
-  #links.block
+  .links.block
     h2= t("footer.links")
     ul
       li= link_to 'GitHub', 'http://github.com/phoet/on_ruby', title: 'Fork me on GitHub'
       li= link_to 'Mailinglist', (Whitelabel[:mailing_list] || 'https://groups.google.com/forum/?fromgroups#!forum/rubyonrails-ug-germany'), title: 'Mailinglist'
-  #imprint.block
+  .imprint.block
     h2= t("footer.imprint")
     ul
       li== imprint[:contributors].map { |c| mail_to c[:email], c[:name], title: c[:name] }.join(' ')
@@ -20,7 +20,7 @@ section.clearfix
         li== imprint[:address].gsub("\n", "<br/>")
 
   - if other_usergroups.present?
-    #usergroups.block
+    .usergroups.block
       h2= t("footer.other_usergroups")
       ol.clearfix
         - other_usergroups.each do |ug|
@@ -28,7 +28,7 @@ section.clearfix
             =' link_to ug[:name], ug[:url], title: ug[:name]
             = link_to_twitter(ug[:twitter], clung: true) if ug[:twitter]
 
-  #railsgroups.block
+  .railsgroups.block
     h2= t("footer.ruby_usergroups")
     ol.clearfix
       - Whitelabel.labels.each do |label|
