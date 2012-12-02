@@ -12,7 +12,10 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    user.update_attributes! params[:user]
-    redirect_to :back, notice: t("user.saved_successful")
+    if user.update_attributes params[:user]
+      redirect_to :back, notice: t("user.saved_successful")
+    else
+      redirect_to :back, alert: user.errors.full_messages.join(' ')
+    end
   end
 end
