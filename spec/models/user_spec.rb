@@ -8,7 +8,7 @@ describe User do
     let(:admin_user) { build(:admin_user) }
 
     it "should allow names and nothing on github" do
-      ["abc", "111bbb888_", nil, ""].each do |val|
+      ["abc", "hanno-nym", "111bbb888_", nil, ""].each do |val|
         user.github = val
         user.should have(0).errors_on(:github)
       end
