@@ -4,7 +4,7 @@ ActiveAdmin.register Material do
       f.input :name
       f.input :description
       f.input :url
-      f.input :user
+      f.input :user, as: :select, collection: User.all_for_selections
       f.input :event
     end
     f.buttons
