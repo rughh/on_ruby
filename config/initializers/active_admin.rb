@@ -63,6 +63,7 @@ ActiveAdmin.setup do |config|
   # == Admin Comments
   #
   # Admin notes allow you to add notes to any model
+  config.allow_comments = false
   #
   # Admin notes are enabled by default in the default
   # namespace only. You can turn them on in a namesapce
