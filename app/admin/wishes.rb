@@ -4,7 +4,7 @@ ActiveAdmin.register Wish do
       f.input :name
       f.input :description
       f.input :done
-      f.input :user
+      f.input :user, as: :select, collection: User.all_for_selections
     end
     f.buttons
   end
