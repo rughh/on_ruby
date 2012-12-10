@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
 
   def handle_github_attributes(hash)
     self.nickname     = hash['info']['nickname'] unless self.nickname
-    self.name         = hash['info']['name']
+    self.name         = hash['info']['name'].blank? ? hash['info']['nickname'] : hash['info']['name']
     self.github       = hash['info']['nickname']
     self.image        = hash['info']['image']
     self.url          = hash['info']['urls']['Blog'] || hash['info']['urls']['GitHub']

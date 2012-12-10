@@ -29,6 +29,18 @@ describe User do
   context "auth" do
     let(:user) { create(:user) }
 
+    context "regressions" do
+      let(:github_auth_missing_params) do
+        {"provider"=>"github", "uid"=>"213249", "info"=>{"nickname"=>"lukas2", "email"=>nil, "name"=>"", "image"=>"image", "urls"=>{"GitHub"=>"https://github.com/lukas2", "Blog"=>nil}}, "extra"=>{"raw_info"=>{"type"=>"User", "html_url"=>"https://github.com/lukas2", "email"=>nil, "public_gists"=>6, "location"=>"Munich", "company"=>nil, "public_repos"=>18, "following"=>11, "blog"=>nil, "hireable"=>false, "login"=>"lukas2", "name"=>"", "created_at"=>"2010-03-01T16:39:16Z", "bio"=>nil, "id"=>213249, "followers"=>6}}}
+      end
+
+      it "should handle missing params" do
+        expect do
+          User.find_or_create_from_hash!(github_auth_missing_params)
+        end.to change(User, :count).by(1)
+      end
+    end
+
     it "should create a user from an outh-hash" do
       expect do
         User.find_or_create_from_hash!(TWITTER_AUTH_HASH)
