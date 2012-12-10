@@ -18,6 +18,7 @@ gem "geocoder",             "1.1.4"
 gem "acts_as_api",          "0.4.1"
 gem "whitelabel",           "0.2.0"
 gem "newrelic_rpm",         "3.5.0"
+gem "dalli",                "2.1.0"
 
 gem "activeadmin",          git: "https://github.com/gregbell/active_admin.git", ref: "91c47b4fad79a1daa1e2bf070a120154b3b36818"
 
@@ -33,7 +34,6 @@ end
 
 group :production do
   gem "pg",           "0.14.0"
-  gem "dalli",        "2.1.0"
 end
 
 group :development do
@@ -41,7 +41,7 @@ group :development do
   gem "taps",               require: false
 end
 
-group :development, :test do
+group :development, :test, :caching do
   gem "sqlite3",      "1.3.6"
   gem "pry-remote",   "0.1.6"
   gem "pry-nav",      "0.2.2"

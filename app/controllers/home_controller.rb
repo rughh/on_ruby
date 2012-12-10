@@ -1,6 +1,4 @@
 class HomeController < ApplicationController
-  my_caches_action :index
-
   expose(:current_event) { Event.current.first }
   expose(:events) { Event.latest }
   expose(:people) { User.peers }

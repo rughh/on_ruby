@@ -1,12 +1,13 @@
 # encoding: UTF-8
 class ApplicationController < ActionController::Base
-  include ActionCaching
   include MobileDetection
 
   protect_from_forgery
 
   before_filter :setup
-  helper_method :current_user, :signed_in?, :mobile_device?
+
+  helper_method :current_user
+  helper_method :signed_in?, :mobile_device?
 
   cache_sweeper :index_sweeper
 
