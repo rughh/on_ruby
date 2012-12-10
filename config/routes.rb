@@ -11,6 +11,9 @@ OnRuby::Application.routes.draw do
   resources :users
   resources :locations
 
+  # legacy urls
+  match '/events/rss', to: 'events#index', defaults: {format: :xml}
+
   resources :events do
     post 'add_user',  on: :member
     resources :materials
