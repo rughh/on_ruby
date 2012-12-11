@@ -21,7 +21,7 @@ OnRuby::Application.routes.draw do
     resources :participants
   end
 
-  resource :mobile, controller: :mobile do
+  resource :mobile, controller: :mobile, defaults: { format: :mobile } do
     get 'settings'
   end
 
