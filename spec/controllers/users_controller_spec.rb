@@ -1,12 +1,20 @@
 require 'spec_helper'
 
 describe UsersController do
-
   let(:user) { create(:user) }
   let(:data) { {id: user.id, user: { github: 'testo', freelancer: true, available: true }} }
   let(:unallowed_data) { data.merge({:user => {:nickname => 'not_allowed_property'}}) }
 
   before { set_subdomain }
+
+  describe "GET :show" do
+    render_views
+
+    it "rescues from not found" do
+      get :show, id: "unknown"
+      response.status.should eql(404)
+    end
+  end
 
   describe "GET :edit" do
     it "should show alert for wrong user" do
@@ -17,7 +25,6 @@ describe UsersController do
   end
 
   describe "PUT :update" do
-
     before { set_referer }
 
     it "should update the github attribute of a user" do
@@ -43,5 +50,4 @@ describe UsersController do
       response.should redirect_to(root_url)
     end
   end
-
 end

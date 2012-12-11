@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
 
   cache_sweeper :index_sweeper
 
+  rescue_from ActiveRecord::RecordNotFound, with: ->{ head 404 }
+
   expose(:jobs)       { Job.shuffled }
   expose(:main_user)  { User.main }
   expose(:highlights) { Highlight.active }
