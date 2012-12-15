@@ -11,7 +11,7 @@ p
   - elsif signed_in?
     = button_to t("show.attend"), add_user_event_path(event)
   - else
-    = link_to t("login.twitter_login"), auth_path, rel: :external, data: {role: :button}
+    = link_to_login
 
 div data-role="collapsible-set"
   div data-role="collapsible" class="#{event.participants.present? ? '' : 'ui-disabled'}"

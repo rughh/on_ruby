@@ -1,13 +1,13 @@
 - content_for :mobile_title, t('mobile.settings')
 
--if signed_in?
-  = link_to t("login.logout"), destroy_session_path(current_user), data: {role: :button}
--else
-  = link_to t("login.twitter_login"), auth_path, rel: :external, data: {role: :button}
-
 = link_to t("mobile.disable"), root_path(mobile: 0), rel: :external, data: {role: :button, icon: :alert}
 
-div(data-role="controlgroup" data-type="horizontal")
+-if signed_in?
+  = link_to t("login.logout"), destroy_session_path(current_user), rel: :external, data: {role: :button, icon: :alert}
+-else
+  = link_to_login
+
+div data-role="controlgroup" data-type="horizontal"
   -[:de, :en].each do |locale|
     - data = {role: "button"}
     - data[:icon] = "check" if I18n.locale == locale
