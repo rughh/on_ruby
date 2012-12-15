@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
   end
 
   def auth
+    session[:omniauth_keys] = Usergroup.omniauth_keys(params[:provider], request)
     redirect_to "/auth/#{params[:provider]}"
   end
 end
