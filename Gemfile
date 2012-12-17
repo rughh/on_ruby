@@ -34,12 +34,13 @@ group :assets do
 end
 
 group :production do
-  gem "pg",           "0.14.0"
+  gem "mysql2"
 end
 
 group :development do
   gem "rack-mini-profiler", "0.1.22"
   gem "taps",               require: false
+  gem "capistrano",         require: false
 end
 
 group :development, :test, :caching do
