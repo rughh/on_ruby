@@ -1,6 +1,4 @@
 - location = current_location
-- content_for :page_title, location.name
-
 section
   h2== "#{location.name} (#{link_to location.nice_url, location.url})"
   == link_to_route(location)

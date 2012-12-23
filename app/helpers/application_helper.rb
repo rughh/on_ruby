@@ -1,13 +1,5 @@
 # encoding: UTF-8
 module ApplicationHelper
-  def title
-    I18n.tw("title")
-  end
-
-  def subtitle
-    I18n.tw("subtitle")
-  end
-
   def contributors
     {
       phoet:          "Peter Schröder",
@@ -20,18 +12,6 @@ module ApplicationHelper
       basiszwo:       "Stefan Botzenhart",
       mustangore:     "Sébastien Jelsch",
     }.map {|key, value| "#{key} (#{value})"}.join(" - ")
-  end
-
-  def page_title
-    "#{title} - #{content_for?(:page_title) ? content_for(:page_title) : subtitle}"
-  end
-
-  def mobile_title
-    content_for?(:mobile_title) ? content_for(:mobile_title) : I18n.tw('title')
-  end
-
-  def meta_desc
-    "#{page_title} - #{I18n.tw("meta_desc")}"
   end
 
   def whitelabel_stylesheet_link_tag

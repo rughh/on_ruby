@@ -1,5 +1,3 @@
-- content_for :mobile_title, event.name
-
 h2= event.name
 h5= link_to l(event.date), event_path(event, format: :ics), rel: :external
 h5== "#{t("show.hosted_by")} #{link_to event.user.nickname, event.user}"
