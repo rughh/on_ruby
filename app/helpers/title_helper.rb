@@ -25,7 +25,7 @@ module TitleHelper
     {
       'users/show'      => -> { user.name },
       'wishes/show'     => -> { wish.name },
-      'locations/show'  => -> { location.name },
+      'locations/show'  => -> { current_location.name },
       'events/show'     => -> { event.name },
       'mobile/settings' => -> { t('mobile.settings') }
    }["#{controller_name}/#{action_name}"]
