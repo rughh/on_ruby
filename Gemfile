@@ -20,14 +20,13 @@ gem "whitelabel",             "0.2.0"
 gem "newrelic_rpm",           "3.5.4.34"
 gem "dalli",                  "2.6.0"
 gem "exception_notification", "3.0.0"
-
-gem "activeadmin", "0.5.1"
+gem "activeadmin",            "0.5.1"
 
 group :assets do
   gem "jquery-rails",         "2.1.4"
   gem "jquery_mobile_rails",  "1.2.0"
   gem "leaflet-rails",        "0.4.5"
-  gem "compass",              "0.13.alpha.0"
+  gem "compass",              "0.12.alpha.4"
   gem "sass-rails",           "3.2.5"
   gem "uglifier",             "1.3.0"
   gem "coffee-rails",         "3.2.2"
