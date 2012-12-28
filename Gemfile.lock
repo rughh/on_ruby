@@ -61,7 +61,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
-    compass (0.12.2)
+    compass (0.12.alpha.4)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
@@ -283,7 +283,7 @@ DEPENDENCIES
   activeadmin (= 0.5.1)
   acts_as_api (= 0.4.1)
   coffee-rails (= 3.2.2)
-  compass (= 0.12.2)
+  compass (= 0.12.alpha.4)
   dalli (= 2.6.0)
   decent_exposure (= 2.0.1)
   exception_notification (= 3.0.0)
