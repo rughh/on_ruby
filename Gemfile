@@ -38,16 +38,16 @@ group :production do
 end
 
 group :development do
-  gem "rack-mini-profiler", "0.1.22"
+  gem "rack-mini-profiler", "0.1.23"
   gem "taps",               require: false
 end
 
 group :development, :test, :caching do
   gem "sqlite3",      "1.3.6"
   gem "pry-remote",   "0.1.6"
-  gem "pry-nav",      "0.2.2"
-  gem "mocha",        "0.12.7", require: "mocha_standalone"
-  gem "rspec-rails",  "2.11.4"
+  gem "pry-nav",      "0.2.3"
+  gem "mocha",        "0.13.1", require: "mocha/api"
+  gem "rspec-rails",  "2.12.0"
   gem "factory_girl", "4.1.0"
-  gem "timecop",      "0.5.3"
+  gem "timecop",      "0.5.7"
 end
