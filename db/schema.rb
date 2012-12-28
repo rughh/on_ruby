@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121113191723) do
+ActiveRecord::Schema.define(:version => 20121228174714) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer   "resource_id",   :null => false
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(:version => 20121113191723) do
     t.timestamp "updated_at"
   end
 
+  add_index "authorizations", ["user_id"], :name => "index_authorizations_on_user_id"
+
   create_table "events", :force => true do |t|
     t.string    "name"
     t.timestamp "date"
@@ -49,7 +51,9 @@ ActiveRecord::Schema.define(:version => 20121113191723) do
     t.string    "label",       :default => "hamburg"
   end
 
+  add_index "events", ["location_id"], :name => "index_events_on_location_id"
   add_index "events", ["slug"], :name => "index_events_on_slug", :unique => true
+  add_index "events", ["user_id"], :name => "index_events_on_user_id"
 
   create_table "highlights", :force => true do |t|
     t.string    "description"
@@ -69,6 +73,8 @@ ActiveRecord::Schema.define(:version => 20121113191723) do
     t.timestamp "updated_at",                         :null => false
     t.string    "label",       :default => "hamburg"
   end
+
+  add_index "jobs", ["location_id"], :name => "index_jobs_on_location_id"
 
   create_table "locations", :force => true do |t|
     t.string   "name"
@@ -98,6 +104,9 @@ ActiveRecord::Schema.define(:version => 20121113191723) do
     t.timestamp "updated_at"
   end
 
+  add_index "materials", ["event_id"], :name => "index_materials_on_event_id"
+  add_index "materials", ["user_id"], :name => "index_materials_on_user_id"
+
   create_table "participants", :force => true do |t|
     t.integer   "user_id"
     t.integer   "event_id"
@@ -106,6 +115,9 @@ ActiveRecord::Schema.define(:version => 20121113191723) do
     t.timestamp "created_at"
     t.timestamp "updated_at"
   end
+
+  add_index "participants", ["event_id"], :name => "index_participants_on_event_id"
+  add_index "participants", ["user_id"], :name => "index_participants_on_user_id"
 
   create_table "rails_admin_histories", :force => true do |t|
     t.string    "message"
@@ -130,6 +142,7 @@ ActiveRecord::Schema.define(:version => 20121113191723) do
   end
 
   add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
+  add_index "slugs", ["sluggable_id", "sluggable_type"], :name => "index_slugs_on_sluggable_id_and_sluggable_type"
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
   create_table "topics", :force => true do |t|
@@ -140,6 +153,9 @@ ActiveRecord::Schema.define(:version => 20121113191723) do
     t.timestamp "created_at"
     t.timestamp "updated_at"
   end
+
+  add_index "topics", ["event_id"], :name => "index_topics_on_event_id"
+  add_index "topics", ["user_id"], :name => "index_topics_on_user_id"
 
   create_table "usergroups", :force => true do |t|
     t.string    "name"
@@ -178,6 +194,9 @@ ActiveRecord::Schema.define(:version => 20121113191723) do
     t.timestamp "updated_at"
   end
 
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
+  add_index "votes", ["wish_id"], :name => "index_votes_on_wish_id"
+
   create_table "wishes", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -192,5 +211,6 @@ ActiveRecord::Schema.define(:version => 20121113191723) do
   end
 
   add_index "wishes", ["slug"], :name => "index_wishes_on_slug", :unique => true
+  add_index "wishes", ["user_id"], :name => "index_wishes_on_user_id"
 
 end
