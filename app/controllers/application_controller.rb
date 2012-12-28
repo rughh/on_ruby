@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
 
   def setup
     reset_thread_locales
-    switch_label unless %w(home_labels misc_sitemap).include?("#{controller_name}_#{action_name}")
+    switch_label
     switch_locale
     prepare_for_mobile
   end
@@ -61,6 +61,8 @@ class ApplicationController < ActionController::Base
   end
 
   def switch_label
+    controller_action = "#{controller_name}_#{action_name}"
+    return if %w(home_labels misc_sitemap).include?(controller_action)
     unless Usergroup.switch_by_request(request)
       redirect_to labels_url(subdomain: false)
     end

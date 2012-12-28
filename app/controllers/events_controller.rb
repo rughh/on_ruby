@@ -5,10 +5,17 @@ class EventsController < ApplicationController
   expose(:event) { Event.includes(materials: :user, topics: :user, participants: :user).find(params[:id]) }
 
   respond_to :html, :mobile, :json, only: :add_user
-  respond_to :xml, only: :index
+  respond_to :json, :xml, only: :index
   respond_to :json, :ics, only: :show
 
-  def index; end
+  def index
+    respond_to do |format|
+      format.xml
+      format.json do
+        render json: events.as_api_response(:ios_v1)
+      end
+    end
+  end
 
   def show
     respond_to do |format|
