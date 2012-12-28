@@ -81,10 +81,6 @@ class User < ActiveRecord::Base
       User.find_by_nickname(Whitelabel[:twitter])
     end
 
-    def random(num=50)
-      all.shuffle[0, num].reject{|u| u.nil? }
-    end
-
     def find_or_create_from_hash!(hash)
       nickname = hash['info']['nickname']
       user = find_or_initialize_by_nickname nickname

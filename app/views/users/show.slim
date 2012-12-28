@@ -9,13 +9,13 @@ section
     div.info.small
       span
         strong Twitter: #{link_to_twitter user}
-      - unless user.github.blank?
+      - if user.github?
         span
           strong Github: #{link_to_github user}
-      - unless user.url.blank?
+      - if user.url?
         span
           strong Homepage: #{link_to user.url, user.url}
-      - unless user.location.blank?
+      - if user.location?
         span
           strong Location: #{user.location}
 

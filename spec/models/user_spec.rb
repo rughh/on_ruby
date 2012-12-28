@@ -111,12 +111,5 @@ describe User do
       admin_user.participants.create!(event: event, user: admin_user)
       admin_user.participation(event).should_not be_nil
     end
-
-    it "should select random users" do
-      10.times {|i| create(:user, nickname: "phoet#{i}")}
-      users = User.random(5)
-      users.size.should be(5)
-      users.map(&:nickname).to_s.should_not be(User.random(5).map(&:nickname))
-    end
   end
 end

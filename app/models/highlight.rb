@@ -8,10 +8,6 @@ class Highlight < ActiveRecord::Base
 
   scope :active, lambda { where('end_at > ?', Time.now).order('start_at').limit(1) }
 
-  def active?
-    !disabled?
-  end
-
   def disabled?
     end_at <= Time.now
   end

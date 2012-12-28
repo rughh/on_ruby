@@ -1,5 +1,4 @@
 # encoding: UTF-8
-
 module WishHelper
   def stars(wish)
     5.times.map do |n|

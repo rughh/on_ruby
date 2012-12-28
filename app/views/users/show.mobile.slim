@@ -1,7 +1,7 @@
 h2= user.nickname
 p
   = user.name
-  = " (#{user.location})" if user.location.present?
+  = " (#{user.location})" if user.location?
 = markdown user.description if user.description
 
 div data-role="collapsible-set"
@@ -11,11 +11,11 @@ div data-role="collapsible-set"
       li data-icon="forward"
         = link_to_twitter user do
           == "Twitter: @#{user.nickname}"
-      - if user.github.present?
+      - if user.github?
         li data-icon="forward"
           = link_to_github user do
             == "Github: #{user.github}"
-      - if user.url.present?
+      - if user.url?
         li data-icon="forward"
           = link_to user.url do
             == "Homepage: #{user.url}"
