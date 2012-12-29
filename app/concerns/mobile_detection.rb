@@ -1,8 +1,4 @@
-require 'active_support/concern'
-
 module MobileDetection
-  extend ActiveSupport::Concern
-
   def mobile_device?
     if session[:mobile_param]
       session[:mobile_param] == "1"
