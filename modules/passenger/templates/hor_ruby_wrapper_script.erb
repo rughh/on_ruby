@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# exports coming from secret file not in version control
+<%=
+file = File.join(File.dirname(__FILE__), "secret.properties")
+File.readlines(file).map { |line| "export #{line}"}.join
+%>
+exec "/usr/local/bin/ruby" "$@"
