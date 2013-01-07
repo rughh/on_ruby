@@ -1,14 +1,24 @@
 ActiveAdmin.register Event do
   form do |f|
-    f.inputs "Details" do
-      f.input :location
-      f.input :user, as: :select, collection: User.all_for_selections
-      f.input :date
-      f.input :name
-      f.input :description
-      f.input :published
+    if f.object.persisted?
+      f.inputs "Update" do
+        f.input :location
+        f.input :user, as: :select, collection: User.all_for_selections
+        f.input :date
+        f.input :name
+        f.input :description
+        f.input :published
+      end
+    else
+      f.inputs "Create" do
+        f.input :location
+        f.input :user, as: :select, collection: User.all_for_selections
+        f.input :date
+        f.input :name
+        f.input :description
+      end
     end
-    f.buttons
+    f.actions
   end
 
   index do

@@ -6,7 +6,7 @@ ActiveAdmin.register Highlight do
       f.input :start_at
       f.input :end_at
     end
-    f.buttons
+    f.actions
   end
 
   index do

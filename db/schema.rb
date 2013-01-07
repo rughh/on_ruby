@@ -14,14 +14,14 @@
 ActiveRecord::Schema.define(:version => 20121228174714) do
 
   create_table "active_admin_comments", :force => true do |t|
-    t.integer   "resource_id",   :null => false
-    t.string    "resource_type", :null => false
-    t.integer   "author_id"
-    t.string    "author_type"
-    t.text      "body"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "namespace"
+    t.integer  "resource_id",   :null => false
+    t.string   "resource_type", :null => false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.text     "body"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "namespace"
   end
 
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
@@ -29,26 +29,26 @@ ActiveRecord::Schema.define(:version => 20121228174714) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
   create_table "authorizations", :force => true do |t|
-    t.string    "provider"
-    t.string    "uid"
-    t.integer   "user_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "authorizations", ["user_id"], :name => "index_authorizations_on_user_id"
 
   create_table "events", :force => true do |t|
-    t.string    "name"
-    t.timestamp "date"
-    t.text      "description"
-    t.integer   "location_id"
-    t.integer   "user_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.boolean   "published"
-    t.string    "slug"
-    t.string    "label",       :default => "hamburg"
+    t.string   "name"
+    t.datetime "date"
+    t.text     "description"
+    t.integer  "location_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "published"
+    t.string   "slug"
+    t.string   "label",       :default => "hamburg"
   end
 
   add_index "events", ["location_id"], :name => "index_events_on_location_id"
@@ -56,22 +56,22 @@ ActiveRecord::Schema.define(:version => 20121228174714) do
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
 
   create_table "highlights", :force => true do |t|
-    t.string    "description"
-    t.string    "url"
-    t.timestamp "start_at"
-    t.timestamp "end_at"
-    t.timestamp "created_at",                         :null => false
-    t.timestamp "updated_at",                         :null => false
-    t.string    "label",       :default => "hamburg"
+    t.string   "description"
+    t.string   "url"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "label",       :default => "hamburg"
   end
 
   create_table "jobs", :force => true do |t|
-    t.string    "name"
-    t.string    "url"
-    t.integer   "location_id"
-    t.timestamp "created_at",                         :null => false
-    t.timestamp "updated_at",                         :null => false
-    t.string    "label",       :default => "hamburg"
+    t.string   "name"
+    t.string   "url"
+    t.integer  "location_id"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "label",       :default => "hamburg"
   end
 
   add_index "jobs", ["location_id"], :name => "index_jobs_on_location_id"
@@ -85,8 +85,8 @@ ActiveRecord::Schema.define(:version => 20121228174714) do
     t.string   "zip"
     t.float    "lat"
     t.float    "long"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.boolean  "company"
     t.string   "label",        :default => "hamburg"
     t.string   "slug"
@@ -95,50 +95,50 @@ ActiveRecord::Schema.define(:version => 20121228174714) do
   add_index "locations", ["slug"], :name => "index_locations_on_slug", :unique => true
 
   create_table "materials", :force => true do |t|
-    t.string    "name"
-    t.text      "description"
-    t.string    "url"
-    t.integer   "user_id"
-    t.integer   "event_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "name"
+    t.text     "description"
+    t.string   "url"
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "materials", ["event_id"], :name => "index_materials_on_event_id"
   add_index "materials", ["user_id"], :name => "index_materials_on_user_id"
 
   create_table "participants", :force => true do |t|
-    t.integer   "user_id"
-    t.integer   "event_id"
-    t.boolean   "maybe"
-    t.text      "comment"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.boolean  "maybe"
+    t.text     "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "participants", ["event_id"], :name => "index_participants_on_event_id"
   add_index "participants", ["user_id"], :name => "index_participants_on_user_id"
 
   create_table "rails_admin_histories", :force => true do |t|
-    t.string    "message"
-    t.string    "username"
-    t.integer   "item"
-    t.string    "table"
-    t.integer   "month"
-    t.integer   "year"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 5
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
 
   create_table "slugs", :force => true do |t|
-    t.string    "name"
-    t.integer   "sluggable_id"
-    t.integer   "sequence",                     :default => 1, :null => false
-    t.string    "sluggable_type", :limit => 40
-    t.string    "scope"
-    t.timestamp "created_at"
+    t.string   "name"
+    t.integer  "sluggable_id"
+    t.integer  "sequence",                     :default => 1, :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.string   "scope"
+    t.datetime "created_at"
   end
 
   add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
@@ -146,52 +146,44 @@ ActiveRecord::Schema.define(:version => 20121228174714) do
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
   create_table "topics", :force => true do |t|
-    t.string    "name"
-    t.text      "description"
-    t.integer   "user_id"
-    t.integer   "event_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "topics", ["event_id"], :name => "index_topics_on_event_id"
   add_index "topics", ["user_id"], :name => "index_topics_on_user_id"
 
-  create_table "usergroups", :force => true do |t|
-    t.string    "name"
-    t.string    "url"
-    t.string    "twitter"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-  end
-
   create_table "users", :force => true do |t|
-    t.string    "nickname"
-    t.string    "name"
-    t.string    "image"
-    t.string    "url"
-    t.string    "location"
-    t.text      "description"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "github"
-    t.boolean   "admin"
-    t.boolean   "freelancer"
-    t.boolean   "available"
-    t.string    "slug"
-    t.boolean   "hide_jobs",   :default => false
+    t.string   "nickname"
+    t.string   "name"
+    t.string   "image"
+    t.string   "url"
+    t.string   "location"
+    t.text     "description"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.string   "github"
+    t.boolean  "admin"
+    t.boolean  "freelancer"
+    t.boolean  "available"
+    t.string   "slug"
+    t.boolean  "hide_jobs",   :default => false
   end
 
   add_index "users", ["nickname"], :name => "index_users_on_nickname", :unique => true
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
 
   create_table "votes", :force => true do |t|
-    t.integer   "wish_id"
-    t.integer   "user_id"
-    t.integer   "count"
-    t.text      "comment"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.integer  "wish_id"
+    t.integer  "user_id"
+    t.integer  "count"
+    t.text     "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
@@ -201,12 +193,11 @@ ActiveRecord::Schema.define(:version => 20121228174714) do
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.boolean  "done",        :default => false
     t.string   "slug"
     t.string   "label",       :default => "hamburg"
-    t.integer  "votes_count", :default => 0
     t.integer  "stars",       :default => 0
   end
 

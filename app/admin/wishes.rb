@@ -6,7 +6,7 @@ ActiveAdmin.register Wish do
       f.input :done
       f.input :user, as: :select, collection: User.all_for_selections
     end
-    f.buttons
+    f.actions
   end
 
   index do

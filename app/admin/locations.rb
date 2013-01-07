@@ -9,7 +9,7 @@ ActiveAdmin.register Location do
        f.input :house_number
        f.input :company
      end
-     f.buttons
+     f.actions
    end
 
   index do

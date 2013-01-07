@@ -6,7 +6,7 @@ ActiveAdmin.register Topic do
       f.input :user, as: :select, collection: User.all_for_selections
       f.input :event
     end
-    f.buttons
+    f.actions
   end
 
   index do

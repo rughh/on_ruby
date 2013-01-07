@@ -12,7 +12,7 @@ ActiveAdmin.register User do
       f.input :available
       f.input :hide_jobs
     end
-    f.buttons
+    f.actions
   end
 
   index do

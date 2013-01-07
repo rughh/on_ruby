@@ -5,7 +5,7 @@ ActiveAdmin.register Job do
       f.input :url
       f.input :location
     end
-    f.buttons
+    f.actions
   end
 
   index do
