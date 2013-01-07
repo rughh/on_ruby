@@ -45,9 +45,9 @@ OnRuby::Application.configure do
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
-  config.cache_store = :dalli_store, ENV["MEMCACHIER_SERVERS"], {:username => ENV["MEMCACHIER_USERNAME"], :password => ENV["MEMCACHIER_PASSWORD"]}
+  config.cache_store = :dalli_store
   config.action_dispatch.rack_cache = {
-    :metastore    => Dalli::Client.new(ENV["MEMCACHIER_SERVERS"], {:username => ENV["MEMCACHIER_USERNAME"], :password => ENV["MEMCACHIER_PASSWORD"]}),
+    :metastore    => Dalli::Client.new,
     :entitystore  => 'file:tmp/cache/rack/body',
     :allow_reload => false
   }
@@ -60,15 +60,7 @@ OnRuby::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com'
-  }
+  config.action_mailer.delivery_method = :sendmail
 
   # Enable threaded mode
   # config.threadsafe!
