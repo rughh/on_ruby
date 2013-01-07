@@ -1,8 +1,5 @@
 require 'bundler/capistrano'
 
-# ssh_options[:port] = 2222
-# ssh_options[:keys] = "~/.vagrant.d/insecure_private_key"
-
 set :user,          "deployer"
 set :group,         "deployer"
 set :deploy_to,     "/var/onruby"
@@ -15,7 +12,10 @@ set :application, "onruby"
 set :scm,         :git
 set :repository,  "https://github.com/phoet/on_ruby.git"
 
-server "176.58.97.120", :web, :app, :db, :primary => true
+# TODO use a stage for vagrant vm
+ssh_options[:port] = 2222
+server "localhost", :web, :app, :db, :primary => true
+# server "176.58.97.120", :web, :app, :db, :primary => true
 
 after "deploy:restart", "deploy:cleanup"
 
