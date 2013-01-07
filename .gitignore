@@ -20,3 +20,4 @@ cache
 spec/reports/
 .vagrant
 Vagrantfile
+secret.properties
