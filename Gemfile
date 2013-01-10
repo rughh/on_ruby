@@ -4,8 +4,8 @@ ruby "1.9.3"
 gem "thin",         require: false
 gem "foreman",      require: false
 
-gem "rails",                  "3.2.9"
-gem "slim-rails",             "1.0.3"
+gem "rails",                  "3.2.11"
+gem "slim-rails",             "1.1.0"
 gem "redcarpet",              "2.2.2"
 gem "friendly_id",            "4.0.9"
 gem "omniauth",               "1.1.1"
@@ -46,7 +46,7 @@ group :development, :test, :caching do
   gem "pry-remote",   "0.1.6"
   gem "pry-nav",      "0.2.3"
   gem "mocha",        "0.13.1", require: "mocha/api"
-  gem "rspec-rails",  "2.12.0"
+  gem "rspec-rails",  "2.12.1"
   gem "factory_girl", "4.1.0"
   gem "timecop",      "0.5.7"
 end
