@@ -24,6 +24,16 @@ module ApplicationHelper
     javascript_include_tag link if File.exists? Rails.root.join("app/assets/javascripts/#{link}.coffee")
   end
 
+  def browser_icon
+    path = image_path "labels/#{Whitelabel[:label_id]}.ico"
+    tag :link, rel: 'shortcut icon', href: path
+  end
+
+  def touch_icon
+    path = image_path "labels/#{Whitelabel[:label_id]}.ico"
+    tag :link, rel: 'apple-touch-icon-precomposed', href: path
+  end
+
   def job_description(job)
     t("hint.job_description", city: I18n.tw("city"), job_link: content_tag(:strong, link_to(job.name, job.url, title: job.name)), company_link: link_to_location(job.location))
   end
