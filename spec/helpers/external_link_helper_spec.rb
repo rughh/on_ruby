@@ -6,6 +6,7 @@ describe ExternalLinkHelper do
 
   describe "#link_to_github" do
     it "should generate the link" do
+      user = build(:user, github: "giddiup")
       helper.link_to_github(user).should eql('<a href="http://github.com/giddiup" title="giddiup">giddiup</a>')
     end
 
@@ -17,7 +18,7 @@ describe ExternalLinkHelper do
 
   describe "#link_to_twitter" do
     it "should generate the link" do
-      user.nickname = "klaus"
+      user = build(:user, twitter: "klaus")
       helper.link_to_twitter(user).should eql('@<a href="http://twitter.com/klaus" title="klaus">klaus</a>')
     end
   end
@@ -28,7 +29,7 @@ describe ExternalLinkHelper do
 
     it "should generate a proper url for wishes" do
       url = helper.twitter_update_url(wish)
-      url.should match(Regexp.escape("http://twitter.com/home?status=Neues%20Thema%20von%20@uschi"))
+      url.should match(Regexp.escape("http://twitter.com/home?status=Neues%20Thema%20von%20@Uschi"))
       url.should match(Regexp.escape("The%20xing%20mobile%20website:%20touch.xing.com"))
       url.should match(Regexp.escape("http://test.host/wishes/the-xing-mobile-website-touch-xing-com"))
     end

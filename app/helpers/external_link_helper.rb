@@ -1,7 +1,7 @@
 # encoding: UTF-8
 module ExternalLinkHelper
   def link_to_twitter(thing, params={clung: false}, &block)
-    nick = thing.respond_to?(:nickname) ? thing.nickname : thing
+    nick = thing.respond_to?(:twitter) ? thing.twitter : thing
     url = "http://twitter.com/#{nick}"
     if block_given?
       link_to url, title: nick, &block
@@ -27,7 +27,7 @@ module ExternalLinkHelper
     when Event
       options = {name: model.name, date: l(model.date, locale: :de, format: :short), url: event_url(model)}
     when Wish
-      options = {nickname: model.user.nickname, name: model.name.truncate(50), url: wish_url(model)}
+      options = {username: model.user.name, name: model.name.truncate(50), url: wish_url(model)}
     end
     text = t("#{model.class.to_s.downcase}.twitter_message", options)
     "http://twitter.com/home?status=#{URI.encode(text)}"

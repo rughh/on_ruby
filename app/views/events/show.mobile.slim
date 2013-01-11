@@ -1,6 +1,6 @@
 h2= event.name
 h5= link_to l(event.date), event_path(event, format: :ics), rel: :external
-h5== "#{t("show.hosted_by")} #{link_to event.user.nickname, event.user}"
+h5== "#{t("show.hosted_by")} #{link_to event.user.name, event.user}"
 h5== link_to event.location.full_address, "#route", rel: :external
 
 p
@@ -18,7 +18,7 @@ div data-role="collapsible-set"
       - event.participants.map(&:user).each do |user|
         li= link_to user do
           = image_tag user.image, class: "ui-li-icon", style: "margin-top: -2px"
-          = user.nickname
+          = user.name
   div data-role="collapsible" class="#{event.topics.present? ? '' : 'ui-disabled'}"
     h2= t("topics")
     ul data-role="listview"
@@ -26,7 +26,7 @@ div data-role="collapsible-set"
         li(data-role="list-divider")
           = topic.name
           - if topic.user
-            == " (#{link_to(topic.user.nickname, topic.user)})"
+            == " (#{link_to(topic.user.name, topic.user)})"
         li== markdown topic.description
   div data-role="collapsible" class="#{event.materials.present? ? '' : 'ui-disabled'}"
     h2= t("show.materials")

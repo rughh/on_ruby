@@ -11,22 +11,24 @@ class User < ActiveRecord::Base
     template.add :image
     template.add :url
     template.add :github
+    template.add :twitter
     template.add :freelancer
     template.add :available
   end
 
   validates :nickname, :name, :image, presence: true
-  validates :github, format: { with: /^(\w|-)+$/, allow_nil: true, allow_blank: true }
+  validates :nickname, :twitter, :github, uniqueness: true
+  validates :twitter, :github, format: { with: /^(\w|-)+$/, allow_nil: true, allow_blank: true }
 
-  has_many :authorizations
+  has_many :authorizations, dependent: :destroy
   has_many :participants
   has_many :materials
   has_many :topics
   has_many :wishes
   has_many :events
 
-  attr_accessible :github, :name, :freelancer, :available, :hide_jobs, :participants, :image, :url
-  attr_accessible :github, :name, :freelancer, :available, :hide_jobs, :participants, :image, :url, :nickname, :admin, as: :admin
+  attr_accessible :twitter, :github, :name, :freelancer, :available, :hide_jobs, :participants, :image, :url
+  attr_accessible :twitter, :github, :name, :freelancer, :available, :hide_jobs, :participants, :image, :url, :nickname, :admin, as: :admin
 
   scope :organizers, -> { where(nickname: Whitelabel[:organizers]) }
   scope :ordered, order('created_at DESC')
@@ -51,6 +53,7 @@ class User < ActiveRecord::Base
 
   def handle_twitter_attributes(hash)
     self.nickname     = hash['info']['nickname'] unless self.nickname
+    self.twitter      = hash['info']['nickname']
     self.name         = hash['info']['name']
     self.image        = hash['info']['image']
     self.url          = hash['info']['urls']['Website']
@@ -60,12 +63,24 @@ class User < ActiveRecord::Base
 
   def handle_github_attributes(hash)
     self.nickname     = hash['info']['nickname'] unless self.nickname
-    self.name         = hash['info']['name'].blank? ? hash['info']['nickname'] : hash['info']['name']
     self.github       = hash['info']['nickname']
+    self.name         = hash['info']['name'].blank? ? hash['info']['nickname'] : hash['info']['name']
     self.image        = hash['info']['image']
     self.url          = hash['info']['urls']['Blog'] || hash['info']['urls']['GitHub']
     self.description  = hash['extra']['raw_info']['bio']
     self.location     = hash['extra']['raw_info']['location']
+  end
+
+  def with_provider?(provider)
+    authorizations.map(&:provider).include?("#{provider}")
+  end
+
+  class DuplicateNickname < StandardError
+    attr_reader :nickname
+
+    def initialize(nickname)
+      @nickname = nickname
+    end
   end
 
   class << self
@@ -82,8 +97,12 @@ class User < ActiveRecord::Base
     end
 
     def find_or_create_from_hash!(hash)
+      provider = hash['provider']
       nickname = hash['info']['nickname']
-      user = find_or_initialize_by_nickname nickname
+      user = self.send "find_or_initialize_by_#{provider}", nickname
+      if !user.persisted? && self.find_by_nickname(nickname)
+        raise DuplicateNickname.new(nickname)
+      end
       user.update_from_auth! hash
     end
 

@@ -76,10 +76,11 @@ de:
     already_done: "Thema wurde schon auf einem Treffen abgefrühstückt."
     vote: "mit %{stars} Sternen bewerten"
     meta: "von %{link} - %{count} mal mit %{stars} von 5 Sternen bewertet"
-    twitter_message: "Neues Thema von @%{nickname} '%{name}' %{url}"
+    twitter_message: "Neues Thema von @%{username} '%{name}' %{url}"
   event:
     twitter_message: "%{name} am %{date} %{url}"
   flash:
+    duplicate_nick: "Der Nickname '%{name}' ist bereits vergeben! Wenn Du Dich schon über einen anderen Provider angemeldet hast, dann trage bitte in Deinem Profil die entsprechenden Handles ein!"
     no_whitelabel: "Bitte wähle deine Usergroup aus!"
     only_admins: "Hoppala, da dürfen nur Admins hin!"
     not_authenticated: "Hoppala, diese Seite ist nicht für dich bestimmt!"
@@ -87,7 +88,7 @@ de:
     now_participating: "Du bist am Event angemeldet."
     dont_participate: "Du bist vom Event abgemeldet."
     forbidden: "Hoppala, das darfst du nicht tun!"
-    logged_in: "Hi %{nickname}, du bist erfolgreich eingeloggt!"
+    logged_in: "Hi %{name}, du bist erfolgreich eingeloggt!"
     logged_out: "Du bist erfolgreich ausgeloggt!"
     login_error: "Fehler beim Einloggen mit Twitter, bist du dort vielleicht nicht eingeloggt?"
     double_vote: "Du darfst nicht mehrfach bewerten!"

@@ -5,10 +5,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    authorization = Authorization.handle_authorization request.env['omniauth.auth']
-    self.current_user = authorization.user
-    cookies.permanent.signed[:remember_me] = [current_user.id, current_user.salt]
-    redirect_to request.env['omniauth.origin'] || root_path, notice: t("flash.logged_in", nickname: current_user.nickname)
+    begin
+      authorization = Authorization.handle_authorization request.env['omniauth.auth']
+      self.current_user = authorization.user
+      options = { notice: t("flash.logged_in", name: current_user.name) }
+      cookies.permanent.signed[:remember_me] = [current_user.id, current_user.salt]
+    rescue User::DuplicateNickname => error
+      options = { alert: t("flash.duplicate_nick", name: error.nickname) }
+    end
+    redirect_to request.env['omniauth.origin'] || root_path, options
   end
 
   def destroy_user_session

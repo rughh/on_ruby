@@ -1,7 +1,5 @@
-h2= user.nickname
-p
-  = user.name
-  = " (#{user.location})" if user.location?
+h2= user.name
+p= " (#{user.location})" if user.location?
 = markdown user.description if user.description
 
 div data-role="collapsible-set"
@@ -10,7 +8,7 @@ div data-role="collapsible-set"
     ul data-role="listview"
       li data-icon="forward"
         = link_to_twitter user do
-          == "Twitter: @#{user.nickname}"
+          == "Twitter: @#{user.twitter}"
       - if user.github?
         li data-icon="forward"
           = link_to_github user do

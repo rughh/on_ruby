@@ -6,5 +6,5 @@
       li
         strong= p.respond_to?(:url) ? link_to(p.name, p.url) : p.name
         - if p.user
-          == " (#{link_to(p.user.nickname, p.user)})"
+          == " (#{link_to(p.user.name, p.user)})"
         == markdown p.description

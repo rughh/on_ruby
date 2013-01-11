@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228174714) do
+ActiveRecord::Schema.define(:version => 20130111130456) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -172,6 +172,7 @@ ActiveRecord::Schema.define(:version => 20121228174714) do
     t.boolean  "available"
     t.string   "slug"
     t.boolean  "hide_jobs",   :default => false
+    t.string   "twitter"
   end
 
   add_index "users", ["nickname"], :name => "index_users_on_nickname", :unique => true

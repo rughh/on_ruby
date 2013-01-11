@@ -1,6 +1,6 @@
 #login
   - if signed_in?
-    .user= link_to image_tag(current_user.image, alt: current_user.nickname), edit_user_path(current_user), title: current_user.nickname
+    .user= link_to image_tag(current_user.image, alt: current_user.name), edit_user_path(current_user), title: current_user.name
     ul
       li= link_to t("login.profile"), edit_user_path(current_user), title: t("login.profile")
       li= link_to t("login.logout"), destroy_session_path(current_user), title: t("login.logout")
