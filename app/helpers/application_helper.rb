@@ -25,13 +25,16 @@ module ApplicationHelper
   end
 
   def browser_icon
-    path = image_path "labels/#{Whitelabel[:label_id]}.ico"
-    tag :link, rel: 'shortcut icon', href: path
+    icon 'shortcut icon'
   end
 
   def touch_icon
-    path = image_path "labels/#{Whitelabel[:label_id]}.ico"
-    tag :link, rel: 'apple-touch-icon-precomposed', href: path
+    icon 'apple-touch-icon-precomposed'
+  end
+
+  def icon(type)
+    path = image_path Whitelabel.label ? "labels/#{Whitelabel[:label_id]}.ico" : "favicon.ico"
+    tag :link, rel: type, href: path
   end
 
   def job_description(job)
