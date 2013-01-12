@@ -14,13 +14,13 @@ namespace :migrate do
     inactive.map(&:delete)
   end
 
-  desc "migrate data for twitter"
-  task :add_twitter_column => [:environment] do
+  desc "migrate data for login"
+  task :add_login_column => [:environment] do
     Whitelabel.label = Whitelabel.label_for("hamburg")
-    Authorization.find_all_by_provider("twitter").each do |auth|
-      user = auth.user
+    User.unscoped.each do |user|
       puts "migrate user with id #{user.id} to have twitter handle #{user.nickname}"
-      user.update_attributes! twitter: user.nickname
+      user.update_attribute(:twitter, user.nickname) unless user.twitter
+      user.update_attribute(:github, user.nickname) unless user.github
     end
   end
 

@@ -17,7 +17,8 @@ class User < ActiveRecord::Base
   end
 
   validates :nickname, :name, :image, presence: true
-  validates :nickname, :twitter, :github, uniqueness: true
+  validates :nickname, uniqueness: true
+  validates :twitter, :github, uniqueness: true, allow_nil: true
   validates :twitter, :github, format: { with: /^(\w|-)+$/, allow_nil: true, allow_blank: true }
 
   has_many :authorizations, dependent: :destroy
