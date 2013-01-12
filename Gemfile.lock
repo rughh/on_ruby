@@ -52,6 +52,10 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.0.4)
+    chosen-rails (0.9.11.1)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
     chunky_png (1.2.7)
     coderay (1.0.8)
     coffee-rails (3.2.2)
@@ -281,6 +285,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin (= 0.5.1)
   acts_as_api (= 0.4.1)
+  chosen-rails (~> 0.9.11)
   coffee-rails (= 3.2.2)
   compass (= 0.12.alpha.4)
   dalli (= 2.6.0)
