@@ -19,12 +19,11 @@ class passenger {
     require => Package[apache2, libcurl4-openssl-dev, apache2-prefork-dev, libapr1-dev, libaprutil1-dev],
   }
   exec { "passenger_apache_module":
-    user    => root,
-    group   => root,
     path    => "/bin:/usr/bin:/usr/local/apache2/bin/",
-    unless  => "ls /usr/local/lib/ruby/gems/1.9.1/gems/passenger-3.0.18/ext/apache2/mod_passenger.so",
+    creates => '/usr/local/lib/ruby/gems/1.9.1/gems/passenger-3.0.18/ext/apache2/mod_passenger.so',
     command => "/usr/local/bin/passenger-install-apache2-module --auto",
-    require => Exec[install_passenger],
+    notify  => Service['apache2'],
+    require => Exec['install_passenger'],
   }
   file { "/usr/local/bin/hor_ruby_wrapper_script":
     owner   => root,
