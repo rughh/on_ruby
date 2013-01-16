@@ -7,6 +7,11 @@ describe User do
     let(:user) { build(:user) }
     let(:admin_user) { build(:admin_user) }
 
+    it "should allow empty and nil github and twitter keys for all" do
+      create(:user, github: "", twitter: "")
+      expect { create(:user, github: "", twitter: "") }.not_to raise_error
+    end
+
     it "should allow names and nothing on github" do
       ["abc", "hanno-nym", "111bbb888_", nil, ""].each do |val|
         user.github = val
