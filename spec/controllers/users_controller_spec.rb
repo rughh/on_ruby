@@ -24,6 +24,35 @@ describe UsersController do
     end
   end
 
+  describe "DELETE :destroy" do
+    context "removing" do
+      let(:user) { create(:user, authorizations: [create(:authorization)]) }
+      let(:event) { create(:event) }
+
+      it "should delete a user and logout" do
+        @controller.stubs(current_user: user)
+        expect do
+          expect do
+            delete :destroy, id: user.id
+          end.to change(User, :count).by(-1)
+        end.to change(Authorization, :count).by(-1)
+
+        flash[:notice].should_not be_nil
+        response.should redirect_to(destroy_session_url)
+      end
+
+      it "should not delete an organizer" do
+        @controller.stubs(current_user: event.user)
+        expect do
+          delete :destroy, id: event.user.id
+        end.to change(User, :count).by(0)
+
+        flash[:alert].should_not be_nil
+        response.should redirect_to(edit_user_url(event.user))
+      end
+    end
+  end
+
   describe "PUT :update" do
     before { set_referer }
 

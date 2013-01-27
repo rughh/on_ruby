@@ -67,8 +67,12 @@ en:
     talks_done: "Your Topics"
     provided_material: "Additional Material"
     proposed_topics: "Proposed Topics"
+    remove_account: "Delete profile"
+    remove_confirm: "make it so"
   user:
     saved_successful: "Saved your updates."
+    removed: "Your account was removed!"
+    not_removed_organizer: "Event-Organizer can't be removed!"
   location:
     job_offers: "Job offers"
   wish:

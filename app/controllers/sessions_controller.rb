@@ -23,7 +23,8 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     cookies.permanent.signed[:remember_me] = ['', '']
-    redirect_to root_path, notice: t("flash.logged_out")
+    message = flash[:notice] || t("flash.logged_out")
+    redirect_to root_path, notice: message
   end
 
   def failure

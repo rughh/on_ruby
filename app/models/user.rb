@@ -22,10 +22,11 @@ class User < ActiveRecord::Base
   validates :twitter, :github, format: { with: /^(\w|-)+$/, allow_nil: true, allow_blank: true }
 
   has_many :authorizations, dependent: :destroy
-  has_many :participants
-  has_many :materials
-  has_many :topics
-  has_many :wishes
+  has_many :participants, dependent: :destroy
+  has_many :materials, dependent: :destroy
+  has_many :topics, dependent: :destroy
+  has_many :wishes, dependent: :destroy
+  has_many :votes
   has_many :events
 
   attr_accessible :twitter, :github, :name, :freelancer, :available, :hide_jobs, :participants, :image, :url

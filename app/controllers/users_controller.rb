@@ -15,4 +15,13 @@ class UsersController < ApplicationController
       redirect_to :back, alert: user.errors.full_messages.join(' ')
     end
   end
+
+  def destroy
+    if current_user.events.present?
+      redirect_to edit_user_url(current_user), alert: t("user.not_removed_organizer")
+    else
+      current_user.destroy
+      redirect_to destroy_session_url, notice: t("user.removed")
+    end
+  end
 end
