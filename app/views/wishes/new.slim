@@ -1,5 +1,5 @@
 = section_box :wishes do
-  p== t("wish.markdown")
+  p.info== t("wish.markdown")
   p
     = semantic_form_for Wish.new do |f|
       = f.input :name
