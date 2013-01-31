@@ -51,8 +51,8 @@ class Event < ActiveRecord::Base
       e.description = description
       e.location = location.name
       e.klass = "PUBLIC"
-      e.created = created_at
-      e.last_modified = updated_at
+      e.created = created_at.strftime("%Y%m%dT%H%M%S")
+      e.last_modified = updated_at.strftime("%Y%m%dT%H%M%S")
       e.uid = e.url = path
       e.add_comment("iCal Event by On Ruby!")
     end
