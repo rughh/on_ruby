@@ -34,4 +34,10 @@
 
   Stefan Botzenhart
 
+  Stefan Wienert
+
   Sébastien Jelsch
+
+  Thilo Utke
+
+  Thomas Metzmacher

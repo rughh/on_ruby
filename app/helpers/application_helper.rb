@@ -1,18 +1,5 @@
 # encoding: UTF-8
 module ApplicationHelper
-  def contributors
-    {
-      phoet:          "Peter Schröder",
-      rubiii:         "Daniel Harrington",
-      ralph:          "Ralph von der Heyden",
-      dennisreimann:  "Dennis Reimann",
-      jhilden:        "Jakob Hilden",
-      SweeD:          "Markus Schwed",
-      nistude:        "Nikolay Sturm",
-      basiszwo:       "Stefan Botzenhart",
-      mustangore:     "Sébastien Jelsch",
-    }.map {|key, value| "#{key} (#{value})"}.join(" - ")
-  end
 
   def whitelabel_stylesheet_link_tag
     link = "labels/#{Whitelabel[:label_id]}"
