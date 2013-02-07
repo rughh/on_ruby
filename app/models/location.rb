@@ -29,7 +29,11 @@ class Location < ActiveRecord::Base
   default_scope -> { where(label: Whitelabel[:label_id]) }
 
   def full_address
-    "#{street} #{house_number}, #{zip} #{city}, #{I18n.t('countries.DE')}"
+    "#{address}, #{I18n.t('countries.DE')}"
+  end
+
+  def address
+    "#{street} #{house_number}, #{zip} #{city}"
   end
 
   def nice_url

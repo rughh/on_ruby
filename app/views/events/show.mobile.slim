@@ -1,7 +1,7 @@
 h2= event.name
 h5= link_to l(event.date), event_path(event, format: :ics), rel: :external
 h5== "#{t("show.hosted_by")} #{link_to event.user.name, event.user}"
-h5== link_to event.location.full_address, "#route", rel: :external
+h5== link_to event.location.address, "#route", rel: :external
 
 p
   - if signed_in? && current_user.participates?(event)

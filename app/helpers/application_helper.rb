@@ -34,7 +34,7 @@ module ApplicationHelper
 
   def link_to_route(location)
     content_tag :p, class: :meta do
-      content_tag(:span, link_to(location.full_address, "#route"), class: 'map-icon') +
+      content_tag(:span, link_to(location.address, "#route"), class: 'map-icon') +
       " #{t("show.at")} " +
       content_tag(:span, link_to_location(location), class: 'open-icon')
     end
