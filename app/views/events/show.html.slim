@@ -12,7 +12,7 @@ section
 
   - if event.participants.present?
     h3= "#{t("show.attendees")} (#{event.participants.count})"
-    p= render 'home/users_list', users: event.participants.map(&:user)
+    p= render 'home/users_list', users: event.users
 
   = render "part", event: event, type: :topics
   = render "part", event: event, type: :materials

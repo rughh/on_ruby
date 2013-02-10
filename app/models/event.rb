@@ -39,6 +39,10 @@ class Event < ActiveRecord::Base
   scope :unpublished, where(published: false)
   scope :ordered, order("date DESC")
 
+  def users
+    participants.map(&:user).compact
+  end
+
   def end_date
     date + 2.hours
   end
