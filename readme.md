@@ -48,7 +48,7 @@ There are just a couple of steps for your Ruby Usergroup Site to get alive:
 - create pull request
 - *lean back and wait :)*
 
-If you have a custom domain, you need to setup the CNAME of your domain to point to [heroku](https://devcenter.heroku.com/articles/custom-domains#dns_setup).
+If you have a custom domain, you need to setup the [CNAME of your domain to point to heroku](https://devcenter.heroku.com/articles/custom-domains#dns_setup).
 
 On the admin-site we need to:
 
