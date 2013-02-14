@@ -1,0 +1,8 @@
+- if wishes.present?
+  #done
+    h3= t("home.old_topics")
+    ul.clearfix
+      - wishes.each do |wish|
+        li
+          span.stars= stars wish
+          = link_to_wish wish

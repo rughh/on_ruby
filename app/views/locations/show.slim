@@ -1,6 +1,6 @@
 - location = current_location
 section
-  h2== "#{location.name} (#{link_to location.nice_url, location.url})"
+  h2== "#{location.name} (#{link_to location.nice_url, location.url, title: location.name})"
   == link_to_route(location)
 
   - if location.jobs.present?
@@ -8,14 +8,14 @@ section
       h3= t("location.job_offers")
       ul.enumeration
         - location.jobs.each do |job|
-          li= link_to job.name, job.url
+          li= link_to_job job
 
   - if location.events.present?
     #organized_events
       h3= t("profile.organized_events")
       ul.enumeration
         - location.events.each do |e|
-          li= link_to e.name, e
+          li= link_to_event e
 
   h3#route= t("show.route")
   = map(location)

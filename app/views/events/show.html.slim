@@ -3,16 +3,16 @@ section
   h2= event.name
   .participation= participation_link(event)
   p.meta
-    span.calendar-icon=' link_to l(event.date), event_path(event, format: :ics), class: 'ical'
+    span.calendar-icon=' link_to l(event.date), event_path(event, format: :ics), title: event.name, class: 'ical'
     =' t("show.hosted_by")
-    = link_to event.user.name, event.user
-  == link_to_route(event.location)
+    = link_to_user event.user
+  == link_to_route event.location
 
   == markdown event.description
 
   - if event.participants.present?
     h3= "#{t("show.attendees")} (#{event.participants.count})"
-    p= render 'home/users_list', users: event.users
+    p= render 'users/list', users: event.users
 
   = render "part", event: event, type: :topics
   = render "part", event: event, type: :materials

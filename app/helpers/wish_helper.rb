@@ -16,6 +16,6 @@ module WishHelper
   end
 
   def meta(wish)
-    raw t("wish.meta", link: link_to(wish.user.name, wish.user), count: wish.votes.count, stars: wish.stars)
+    raw t("wish.meta", link: link_to_user(wish.user), count: wish.votes.count, stars: wish.stars)
   end
 end

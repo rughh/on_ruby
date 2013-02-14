@@ -2,22 +2,8 @@
   p
     strong=' t("home.like_to_talk")
     == t("home.send_us_an_email", mail_to: mail_to(Whitelabel[:email], "E-Mail", title: "E-Mail"))
-  = render 'users_list', users: organizers
+  = render 'users/list', users: organizers
   p== t("home.engage")
-  p== button_to t("home.add_topic"), new_wish_path, method: :get
-  - if wishes_undone.present?
-    #undone
-      h3= t("home.new_topics")
-      ul.undone.clearfix
-        - wishes_undone.each do |wish|
-          li
-            span.stars= stars(wish)
-            = link_to wish.name, wish, title: wish.name
-  - if wishes_done.present?
-    #done
-      h3= t("home.old_topics")
-      ul.clearfix
-        - wishes_done.each do |wish|
-          li
-            span.stars= stars(wish)
-            = link_to wish.name, wish, title: wish.name
+  = button_to t("home.add_topic"), new_wish_path, method: :get
+  = render 'wishes/undone', wishes: wishes_undone
+  = render 'wishes/done', wishes: wishes_done

@@ -5,11 +5,4 @@
       = f.input :name
       = f.input :description
       = f.action(:submit)
-  - if wishes_undone.present?
-    #undone
-      h3= t("home.new_topics")
-      ul.undone.clearfix
-        - wishes_undone.each do |wish|
-          li
-            span.stars= stars(wish)
-            = link_to wish.name, wish, title: wish.name
+  = render 'undone', wishes: wishes_undone
