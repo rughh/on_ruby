@@ -84,7 +84,6 @@ en:
   event:
     twitter_message: "%{name} at %{date} %{url}"
   flash:
-    no_whitelabel: "Please select your usergroup!"
     only_admins: "Ups, only admins allowed!"
     not_authenticated: "Ups, you are not allowed to visit this page!"
     already_participating: "You're already in."

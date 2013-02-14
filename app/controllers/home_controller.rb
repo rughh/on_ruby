@@ -8,7 +8,6 @@ class HomeController < ApplicationController
   expose(:locations)
 
   def labels
-    flash.now[:alert] = t("flash.no_whitelabel")
     render layout: "labels"
   end
 end

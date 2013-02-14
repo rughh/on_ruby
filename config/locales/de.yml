@@ -85,7 +85,6 @@ de:
     twitter_message: "%{name} am %{date} %{url}"
   flash:
     duplicate_nick: "Der Nickname '%{name}' ist bereits vergeben! Wenn Du Dich schon über einen anderen Provider angemeldet hast, dann trage bitte in Deinem Profil die entsprechenden Handles ein!"
-    no_whitelabel: "Bitte wähle deine Usergroup aus!"
     only_admins: "Hoppala, da dürfen nur Admins hin!"
     not_authenticated: "Hoppala, diese Seite ist nicht für dich bestimmt!"
     already_participating: "Du bist schon angemeldet."
