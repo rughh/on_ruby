@@ -30,24 +30,22 @@ group :assets do
   gem "sass-rails",           "3.2.5"
   gem "uglifier",             "1.3.0"
   gem "coffee-rails",         "3.2.2"
-  gem 'chosen-rails',         "~> 0.9.11"
+  gem 'chosen-rails',         "0.9.11"
 end
 
 group :production do
   gem "pg",           "0.14.0"
 end
 
-group :development do
-  gem "meta_request",       "0.2.1"
-  gem "taps",               require: false
-end
-
 group :development, :test, :caching do
-  gem "sqlite3",      "1.3.6"
-  gem "pry-remote",   "0.1.6"
-  gem "pry-nav",      "0.2.3"
-  gem "mocha",        "0.13.1", require: "mocha/api"
-  gem "rspec-rails",  "2.12.1"
-  gem "factory_girl", "4.1.0"
-  gem "timecop",      "0.5.7"
+  gem "sqlite3",            "1.3.6"
+  gem "pry-remote",         "0.1.6"
+  gem "pry-nav",            "0.2.3"
+  gem "mocha",              "0.13.1", require: "mocha/api"
+  gem "rspec-rails",        "2.12.1"
+  gem "factory_girl",       "4.1.0"
+  gem "timecop",            "0.5.7"
+  gem "meta_request",       "0.2.1"
+  gem "better_errors",      "0.6.0"
+  gem "taps",               require: false
 end
