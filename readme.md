@@ -19,12 +19,6 @@ For working with the whitelabel functionality, you need to add all supported sub
 
 Access via [http://onruby.dev:5000](http://onruby.dev:5000)
 
-### Twitter-Authentication
-
-You need [Twitter App credentials](https://dev.twitter.com) in order to have a working login.
-
-See *config/initializers/omniauth.rb* for details.
-
 ### Test-Data
 
 You don't need any to setup a new project! If you are a heroku project admin, you can dump Data from Heroku via [Taps Gem](https://devcenter.heroku.com/articles/taps):
