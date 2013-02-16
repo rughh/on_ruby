@@ -1,7 +1,8 @@
-ul
-  - Whitelabel.labels.each do |label|
-    li
-      - name = t("label.#{label.label_id}.name")
-      = link_to root_url(subdomain: label.label_id), title: name do
-        span.image = image_tag("labels/#{label.label_id}.png", alt: name)
-        span.host  = name
+section
+  ul
+    - Whitelabel.labels.each do |label|
+      li
+        - name = t("label.#{label.label_id}.name")
+        = link_to root_url(subdomain: label.label_id), title: name do
+          span.image = image_tag("labels/#{label.label_id}.png", alt: name)
+          span.host  = name
