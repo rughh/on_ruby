@@ -26,7 +26,7 @@ gem "sass-rails",             "3.2.6"
 gem "activeadmin",            "0.5.1"
 
 group :assets do
-  gem "jquery-rails",         "2.2.1"
+  gem "jquery-rails",         "2.1.4"
   gem "jquery_mobile_rails",  "1.2.0"
   gem "leaflet-rails",        "0.5.0"
   gem "compass-rails",        "1.0.3"
@@ -36,7 +36,7 @@ group :assets do
 end
 
 group :production do
-  gem "pg",           "0.14.0"
+  gem "pg",                   "0.14.0"
 end
 
 group :development, :test, :caching do
