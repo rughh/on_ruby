@@ -26,11 +26,11 @@ group :assets do
   gem "jquery-rails",         "2.1.4"
   gem "jquery_mobile_rails",  "1.2.0"
   gem "leaflet-rails",        "0.4.5"
-  gem "compass",              "0.12.alpha.4"
+  gem "compass-rails",        "1.0.3"
   gem "sass-rails",           "3.2.5"
-  gem "uglifier",             "1.3.0"
   gem "coffee-rails",         "3.2.2"
-  gem 'chosen-rails',         "0.9.11"
+  gem "chosen-rails",         "0.9.11"
+  gem "uglifier",             "1.3.0"
 end
 
 group :production do
