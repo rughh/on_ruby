@@ -22,12 +22,13 @@ gem "dalli",                  "2.6.2"
 gem "exception_notification", "3.0.1"
 gem "activeadmin",            "0.5.1"
 
+# https://github.com/rails/sass-rails/issues/38
+gem "sass-rails",             "3.2.6"
 group :assets do
   gem "jquery-rails",         "2.2.1"
   gem "jquery_mobile_rails",  "1.2.0"
   gem "leaflet-rails",        "0.5.0"
   gem "compass-rails",        "1.0.3"
-  gem "sass-rails",           "3.2.6"
   gem "coffee-rails",         "3.2.2"
   gem "chosen-rails",         "0.9.11.2"
   gem "uglifier",             "1.3.0"
