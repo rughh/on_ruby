@@ -8,7 +8,7 @@ de:
     DE: "Deutschland"
   switch_languages: "Umschalten auf %{language}"
   languages:
-    de: "Deusch"
+    de: "Deutsch"
     en: "Englisch"
   usergroups: "Usergroups"
   events: "Treffen"
