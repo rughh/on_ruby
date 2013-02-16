@@ -20,10 +20,11 @@ gem "whitelabel",             "0.2.0"
 gem "newrelic_rpm",           "3.5.6.55"
 gem "dalli",                  "2.6.2"
 gem "exception_notification", "3.0.1"
+
+# http://stackoverflow.com/questions/9307476/uninitialized-constant-sassrailssasstemplate
+gem "sass-rails",             "3.2.6"
 gem "activeadmin",            "0.5.1"
 
-# https://github.com/rails/sass-rails/issues/38
-gem "sass-rails",             "3.2.6"
 group :assets do
   gem "jquery-rails",         "2.2.1"
   gem "jquery_mobile_rails",  "1.2.0"
