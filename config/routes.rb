@@ -20,6 +20,7 @@ OnRuby::Application.routes.draw do
   resources :topics do
     resources :likes
   end
+  match 'wishes/:slug' => redirect('/topics/%{slug}')
 
   resource :mobile, controller: :mobile, defaults: { format: :mobile } do
     get 'settings'
