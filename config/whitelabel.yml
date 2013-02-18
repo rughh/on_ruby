@@ -46,7 +46,7 @@
   email: "awesome-bremen@googlegroups.com"
   host: "bremen.onruby.de"
   twitter: "hackhb"
-  organizers: ['dennisreimann']
+  organizers: ['dennisreimann', 'erotte']
   location:
     :zoom: 14
     :lat: 53.079296
