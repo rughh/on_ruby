@@ -75,7 +75,9 @@ de:
   location:
     job_offers: "Jobangebote"
   topic:
-    likes: "+%{count} Likes"
+    likes: "gefällt %{count} Leuten"
+    like: "gefällt mir"
+    unlike: "gefällt mir nicht mehr"
     markdown: "Du kannst <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> in deiner Beschreibung verwenden, URLs werden automatisch verlinkt."
     twitter_message: "Neues Thema von @%{username} '%{name}' %{url}"
   event:
@@ -91,8 +93,9 @@ de:
     logged_in: "Hi %{name}, du bist erfolgreich eingeloggt!"
     logged_out: "Du bist erfolgreich ausgeloggt!"
     login_error: "Fehler beim Einloggen mit Twitter, bist du dort vielleicht nicht eingeloggt?"
-    double_liked: "Du darfst nicht mehrfach bewerten!"
-    liked: "Das Thema wurde bewertet."
+    double_liked: "Bitte nicht mehrfach bewerten!"
+    liked: "Das Thema gefällt dir."
+    unliked: "Das Thema gefällt dir nicht mehr."
     topic_added: "Dein Eintrag wurde gespeichert."
   mobile:
     settings: "Einstellungen"

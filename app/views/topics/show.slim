@@ -1,0 +1,7 @@
+section
+  = likes
+  h2= topic.name
+
+  == markdown topic.description
+
+  = render 'likes', likes: topic.likes

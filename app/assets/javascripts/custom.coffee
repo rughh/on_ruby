@@ -1,11 +1,4 @@
 HOR =
-  like: ->
-    $('.like a').on 'ajax:success', (event, data) ->
-      $(this).find('.like_text').animate({opacity: 0.4}, 1000 );
-      if data.id
-        num = $(this).closest('li').find('.like_count .num')
-        num.html parseInt(num.html()) + 1
-
   loginNote: ->
     $('form').on 'click', 'input[data-disable]', (event) ->
       event.preventDefault()
@@ -114,4 +107,3 @@ $(document).ready ->
   HOR.moreList()
   HOR.displayUsers()
   HOR.initializeMap()
-  HOR.like()

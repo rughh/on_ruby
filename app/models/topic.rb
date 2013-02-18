@@ -30,6 +30,6 @@ class Topic < ActiveRecord::Base
   default_scope -> { where(label: Whitelabel[:label_id]) }
 
   def already_liked?(user)
-    likes.any?{ |like| like.user == user }
+    likes.detect{ |like| like.user == user }
   end
 end
