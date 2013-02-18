@@ -1,8 +1,0 @@
-= section_box :wishes do
-  p.info== t("wish.markdown")
-  p
-    = semantic_form_for Wish.new do |f|
-      = f.input :name
-      = f.input :description
-      = f.action(:submit)
-  = render 'undone', wishes: wishes_undone

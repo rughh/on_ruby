@@ -1,9 +1,8 @@
-= section_box :wishes do
+= section_box :topics do
   p
     strong=' t("home.like_to_talk")
     == t("home.send_us_an_email", mail_to: mail_to(Whitelabel[:email], "E-Mail", title: "E-Mail"))
   = render 'users/list', users: organizers
   p== t("home.engage")
-  = button_to t("home.add_topic"), new_wish_path, method: :get
-  = render 'wishes/undone', wishes: wishes_undone
-  = render 'wishes/done', wishes: wishes_done
+  = button_to t("home.add_topic"), new_topic_path, method: :get
+  = render 'topics/undone', topics: open_topics

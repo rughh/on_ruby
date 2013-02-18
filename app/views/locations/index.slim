@@ -2,6 +2,6 @@ section
   h2= title
   = map(locations)
   br
-  ul.enumeration
+  ul.more-list.enumeration
     - locations.each do |location|
       li= link_to location.name, location

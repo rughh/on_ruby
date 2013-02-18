@@ -26,8 +26,8 @@ module ExternalLinkHelper
     case model
     when Event
       options = {name: model.name, date: l(model.date, locale: :de, format: :short), url: event_url(model)}
-    when Wish
-      options = {username: model.user.name, name: model.name.truncate(50), url: wish_url(model)}
+    when Topic
+      options = {username: model.user.name, name: model.name.truncate(50), url: topic_url(model)}
     end
     text = t("#{model.class.to_s.downcase}.twitter_message", options)
     "http://twitter.com/home?status=#{URI.encode(text)}"

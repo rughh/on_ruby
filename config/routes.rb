@@ -4,10 +4,6 @@ OnRuby::Application.routes.draw do
   # make the logout of rails-admin functional
   match '/admin/logout', to: 'sessions#destroy', as: :destroy_admin_user_session
 
-  resources :wishes do
-    resources :votes
-  end
-
   resources :users
   resources :locations
 
@@ -19,6 +15,10 @@ OnRuby::Application.routes.draw do
     resources :materials
     resources :topics
     resources :participants
+  end
+
+  resources :topics do
+    resources :likes
   end
 
   resource :mobile, controller: :mobile, defaults: { format: :mobile } do

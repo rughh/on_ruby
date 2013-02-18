@@ -1,0 +1,10 @@
+- if signed_in?
+  .like_count
+    = "+"
+    span.num= "#{topic.likes.count}"
+  - if topic.already_liked?(current_user)
+    .like.liked
+      .like_text like
+  - else
+    .like= link_to topic_likes_path(topic), method: :post, remote: true do
+      .like_text like

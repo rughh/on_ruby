@@ -14,7 +14,6 @@ de:
   events: "Treffen"
   locations: "Orte"
   people: "Leute"
-  wishes: "Themen"
   topics: "Themen"
   materials: "Zusätzliches Material"
   login:
@@ -75,11 +74,9 @@ de:
     not_removed_organizer: "Event-Organizer können nicht gelöscht werden!"
   location:
     job_offers: "Jobangebote"
-  wish:
+  topic:
+    likes: "+%{count} Likes"
     markdown: "Du kannst <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> in deiner Beschreibung verwenden, URLs werden automatisch verlinkt."
-    already_done: "Thema wurde schon auf einem Treffen abgefrühstückt."
-    vote: "mit %{stars} Sternen bewerten"
-    meta: "von %{link} - %{count} mal mit %{stars} von 5 Sternen bewertet"
     twitter_message: "Neues Thema von @%{username} '%{name}' %{url}"
   event:
     twitter_message: "%{name} am %{date} %{url}"
@@ -94,9 +91,9 @@ de:
     logged_in: "Hi %{name}, du bist erfolgreich eingeloggt!"
     logged_out: "Du bist erfolgreich ausgeloggt!"
     login_error: "Fehler beim Einloggen mit Twitter, bist du dort vielleicht nicht eingeloggt?"
-    double_vote: "Du darfst nicht mehrfach bewerten!"
-    voted: "Das Thema wurde bewertet."
-    wish_added: "Dein Eintrag wurde gespeichert."
+    double_liked: "Du darfst nicht mehrfach bewerten!"
+    liked: "Das Thema wurde bewertet."
+    topic_added: "Dein Eintrag wurde gespeichert."
   mobile:
     settings: "Einstellungen"
     back: "Zurück"

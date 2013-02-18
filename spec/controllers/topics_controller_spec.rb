@@ -1,0 +1,36 @@
+require 'spec_helper'
+
+describe TopicsController do
+
+  before { set_subdomain }
+
+  describe "GET :show" do
+    let(:topic) { create(:topic) }
+
+    it "should assign members" do
+      get :show, id: topic.id
+
+      controller.topic.should eql(topic)
+      response.should render_template(:show)
+    end
+  end
+
+  describe "POST :create" do
+    let(:user) { create(:user) }
+    let(:topic_data) { attributes_for(:topic) }
+
+    it "should create a topic for logged-in user" do
+      @controller.stubs(current_user: user)
+      expect do
+        post(:create, topic: topic_data)
+      end.to change(Topic, :count).by(1)
+      controller.topic.user.should eql(user)
+      flash[:notice].should_not be_nil
+    end
+
+    it "should not create a topic if not signed in" do
+      expect { post(:create, topic: topic_data) }.to change(Topic, :count).by(0)
+      response.should redirect_to(auth_path)
+    end
+  end
+end

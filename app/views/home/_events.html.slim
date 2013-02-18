@@ -7,6 +7,6 @@
       == t("home.next_possible_meetup", event_date: content_tag(:em, l(next_event_date)))
   - if events.any?
     h3= t("home.past_events")
-    ul.clearfix
+    ul.more-list.clearfix
       - events.each do |event|
         li= link_to "#{l(event.date, format: :date)} - #{event.name}", event_path(event), title: event.name

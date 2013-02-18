@@ -44,4 +44,8 @@ class Usergroup
       end
     end
   end
+
+  def to_s
+    label_id
+  end
 end

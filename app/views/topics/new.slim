@@ -1,0 +1,8 @@
+= section_box :topics do
+  p.info== t("topic.markdown")
+  p
+    = semantic_form_for Topic.new do |f|
+      = f.input :name
+      = f.input :description
+      = f.action :submit
+  = render 'undone', topics: topics_undone

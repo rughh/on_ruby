@@ -24,7 +24,7 @@ module TitleHelper
   def title_mapping(controller_name = self.controller_name, action_name = self.action_name)
     {
       'users/show'      => -> { user.name },
-      'wishes/show'     => -> { wish.name },
+      'topics/show'     => -> { topic.name },
       'locations/show'  => -> { current_location.name },
       'events/show'     => -> { event.name },
       'mobile/settings' => -> { t('mobile.settings') }

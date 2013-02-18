@@ -24,34 +24,27 @@ section
   - if user.participants.present?
     #events_participated
       h3= t("profile.events_participated")
-      ul.enumeration
+      ul.more-list.enumeration
         - user.participants.each do |p|
           li= link_to p.event.name, p.event
 
   - if user.events.present?
     #organized_events
       h3= t("profile.organized_events")
-      ul.enumeration
+      ul.more-list.enumeration
         - user.events.each do |e|
           li= link_to e.name, e
 
   - if user.topics.present?
     #talks_done
       h3= t("profile.talks_done")
-      ul.enumeration
+      ul.more-list.enumeration
         - user.topics.each do |t|
-          li= link_to t.name, event_url(t.event, anchor: :topics)
+          li= link_to_topic t
 
   - if user.materials.present?
     #provided_material
       h3= t("profile.provided_material")
-      ul.enumeration
+      ul.more-list.enumeration
         - user.materials.each do |m|
           li= link_to m.name, m.url
-
-  - if user.wishes.present?
-    #proposed_topics
-      h3= t("profile.proposed_topics")
-      ul.enumeration
-        - user.wishes.each do |w|
-          li= link_to w.name, w

@@ -2,8 +2,6 @@
 class ApplicationController < ActionController::Base
   include MobileDetection
 
-  _404 = ->{ Rails.logger.warn "render 404 with params #{params}" and head 404 }
-
   protect_from_forgery
 
   before_filter :setup
@@ -13,8 +11,8 @@ class ApplicationController < ActionController::Base
 
   cache_sweeper :index_sweeper
 
-  rescue_from ActiveRecord::RecordNotFound, with: _404
-  rescue_from ActionView::MissingTemplate,  with: _404
+  rescue_from ActiveRecord::RecordNotFound, with: :_404
+  rescue_from ActionView::MissingTemplate,  with: :_404
 
   expose(:jobs)       { Job.shuffled }
   expose(:main_user)  { User.main }
@@ -81,5 +79,11 @@ class ApplicationController < ActionController::Base
       expires: 1.year.from_now,
       domain:  request.domain
     }
+  end
+
+  def _404(exception)
+    Rails.logger.warn exception
+    Rails.logger.warn "head 404 with params #{params}"
+    head 404
   end
 end

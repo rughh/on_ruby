@@ -8,10 +8,5 @@ describe LocationsController do
       get :index
       response.should render_template(:index)
     end
-
-    it "rescues from not found" do
-      get :index, format: :mobile
-      response.status.should eql(404)
-    end
   end
 end

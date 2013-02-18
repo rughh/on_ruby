@@ -41,6 +41,7 @@ end
 
 group :development, :test, :caching do
   gem "sqlite3",            "1.3.7"
+  gem "pry",                "0.9.10"
   gem "pry-remote",         "0.1.6"
   gem "pry-nav",            "0.2.3"
   gem "mocha",              "0.13.2", require: "mocha/api"
@@ -49,5 +50,6 @@ group :development, :test, :caching do
   gem "timecop",            "0.5.9.2"
   gem "meta_request",       "0.2.1"
   gem "better_errors",      "0.6.0"
+  gem "binding_of_caller",  "0.7.1"
   gem "taps",               require: false
 end

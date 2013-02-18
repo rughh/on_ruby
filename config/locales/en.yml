@@ -14,7 +14,6 @@ en:
   events: "Events"
   locations: "Locations"
   people: "People"
-  wishes: "Topics"
   topics: "Topics"
   materials: "Additional Material"
   login:
@@ -75,11 +74,9 @@ en:
     not_removed_organizer: "Event-Organizer can't be removed!"
   location:
     job_offers: "Job offers"
-  wish:
+  topic:
+    likes: "+%{count} Likes"
     markdown: "You can use <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> in your description, URLs will get auto-linked."
-    already_done: "This Topic has already been talked about."
-    vote: "vote with %{stars} stars"
-    meta: "from %{link} - %{count} times voted with a score of %{stars} out of 5 stars"
     twitter_message: "New Topic by @%{username} '%{name}' %{url}"
   event:
     twitter_message: "%{name} at %{date} %{url}"
@@ -93,9 +90,9 @@ en:
     logged_in: "Hi %{name}, you logged in succesfully!"
     logged_out: "Logout complete!"
     login_error: "Login to Twitter failed, logged into Twitter?"
-    double_vote: "Don't vote twice, please!"
-    voted: "Voted on Topic."
-    wish_added: "Added new Topic."
+    double_liked: "Don't vote twice, please!"
+    liked: "Voted on Topic."
+    topic_added: "Added new Topic."
   mobile:
     settings: "Settings"
     back: "Back"

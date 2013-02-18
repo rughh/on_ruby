@@ -36,8 +36,8 @@ module ApplicationHelper
     link_to event.name, event, title: event.name
   end
 
-  def link_to_wish(wish)
-    link_to wish.name, wish, title: wish.name
+  def link_to_topic(topic)
+    link_to topic.name, topic, title: topic.name
   end
 
   def job_description(job)

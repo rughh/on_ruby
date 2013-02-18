@@ -11,7 +11,6 @@ describe Topic do
 
     it "should validate presence" do
       Topic.new.tap do |it|
-        it.should have(1).errors_on(:event)
         it.should have(1).errors_on(:name)
         it.should have(1).errors_on(:description)
       end
@@ -19,6 +18,15 @@ describe Topic do
 
     it "should validate uniqueness" do
       build(:topic, name: topic.name).should have(1).errors_on(:name)
+    end
+  end
+
+  context "likes" do
+    let(:like) { build(:like, :topic => nil) }
+
+    it "indicates already_liked?" do
+      topic.likes << like
+      topic.already_liked?(like.user).should be_true
     end
   end
 end

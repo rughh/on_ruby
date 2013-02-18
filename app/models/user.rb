@@ -25,8 +25,8 @@ class User < ActiveRecord::Base
   has_many :participants, dependent: :destroy
   has_many :materials, dependent: :destroy
   has_many :topics, dependent: :destroy
-  has_many :wishes, dependent: :destroy
-  has_many :votes
+  has_many :likes, dependent: :destroy
+
   has_many :events
 
   attr_accessible :twitter, :github, :name, :freelancer, :available, :hide_jobs, :participants, :image, :url

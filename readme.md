@@ -70,9 +70,8 @@ ActiveAdmin is mounted under */admin* of your label, so it's *hamburg.onruby.de/
 - Users
 - Events
     - Materials
-    - Topics
 - Locations / Companies (Companies are just special Locations)
-- Wishes (Stuff that user can demand/propose)
+- Topics (Stuff that user can demand/propose)
 - Jobs (The Display on top of the Page)
 - Highlights (Special infos, that you want to display for a short period of time)
 

@@ -1,4 +1,20 @@
 namespace :migrate do
+  desc "migrate topic data"
+  task :topic_data => [:environment] do
+    Whitelabel.labels.each do |label|
+      puts "migrating with label #{label}"
+      Whitelabel.label = label
+      Event.all.each do |event|
+        event.topics.each do |topic|
+          puts "updating topic #{topic.id}"
+          topic.label = label.label_id
+          topic.save!
+        end
+      end
+    end
+    Topic.unscoped.find_each(&:save)
+  end
+
   desc "delete inactive users"
   task :delete_inactive => [:environment] do
     Whitelabel.label = Whitelabel.label_for("hamburg")

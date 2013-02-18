@@ -160,6 +160,24 @@ nav
   margin: 0em
   height: 100%
 
+  .like_count
+    position: absolute
+    padding-left: 6px
+    font-size: 10px
+    font-style: italic
+    padding-top: 0.2em
+  .like
+    float: left
+    position: relative
+    padding-right: 5px
+    top: -7px
+  .liked
+    opacity: 0.4
+  .like_text
+    @include replace-text('/assets/thumb-up.png', 24, 24)
+    height: 24px
+    width: 24px
+
   .info
     background: url(/assets/information.png) left top no-repeat
     padding-left: 20px
@@ -279,14 +297,6 @@ nav
     height: 40em
     border: 1px solid white
     @include border-radius(0.5em, 0.5em)
-
-  .stars
-    float: left
-    position: relative
-    top: -2px
-    img
-      padding-right: 5px
-
   .calendar-icon
     @include meta-icon("/assets/calendar.png")
   .map-icon
@@ -295,11 +305,9 @@ nav
     font-size: smaller
     font-style: italic
     padding-top: 0.2em
-
   .likes
     float: right
     margin-top: -5px
-
   .pagination
     padding-bottom: 2em
     a, em, span
@@ -311,7 +319,6 @@ nav
       text-decoration: none
       border: 1px solid #999
       @include border-radius(0.5em, 0.5em)
-
   .enumeration
     reset-counter:enumeration
     >li:nth-child(-n+9)
