@@ -1,5 +1,5 @@
 class IndexSweeper < ActionController::Caching::Sweeper
-  observe Event, Highlight, Job, Location, Material, Participant, Topic, User, Vote, Wish
+  observe Event, Highlight, Job, Location, Material, Participant, Topic, User, Like
 
   def after_create(entitiy)
     self.class.expire_view_cache

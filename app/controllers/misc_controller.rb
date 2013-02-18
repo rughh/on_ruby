@@ -11,7 +11,7 @@ class MiscController < ApplicationController
     Whitelabel.labels.map do |label|
       Whitelabel.with_label(label) do
         subdomain = label.label_id
-        %w(Wish User Event Location).map do |clazz|
+        %w(Topic User Event Location).map do |clazz|
           clazz.constantize.all.map { |it| send :"#{clazz.downcase}_url", it, subdomain: subdomain }
         end + [root_url(subdomain: subdomain)]
       end

@@ -12,7 +12,5 @@ en:
     actions:
       topic:
         create: 'add'
-      vote:
-        create: 'vote'
       user:
         update: 'update'

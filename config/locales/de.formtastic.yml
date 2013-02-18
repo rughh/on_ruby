@@ -12,7 +12,5 @@ de:
     actions:
       topic:
         create: 'eintragen'
-      vote:
-        create: 'bewerten'
       user:
         update: 'aktualisieren'

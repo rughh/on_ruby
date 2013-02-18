@@ -1,4 +1,10 @@
 ActiveAdmin.register Topic do
+  member_action :copy, method: :get do
+    resource.event = Event.last
+    resource.save!
+    redirect_to admin_dashboard_path, notice: "Added to last Event!"
+  end
+
   form do |f|
     f.inputs "Details" do
       f.input :name
