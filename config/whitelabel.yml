@@ -215,7 +215,7 @@
   default_locale: "de"
   domains: ["ruby-dresden.de"]
   recurring: "first thursday 19:00"
-  email: "sonnendeck2000@gmail.de"
+  email: "admin@ruby-dresden.de"
   host: "dresden.onruby.de"
   twitter: "ruby_dresden"
   organizers: ['_sonnendeck','sgemkow']
