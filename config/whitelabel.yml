@@ -213,20 +213,23 @@
 - !ruby/object:Usergroup
   label_id: "dresden"
   default_locale: "de"
-  recurring: "first thursday"
+  domains: ["ruby-dresden.de"]
+  recurring: "first thursday 19:00"
   email: "sonnendeck2000@gmail.de"
   host: "dresden.onruby.de"
   twitter: "ruby_dresden"
-  organizers: ['_sonnendeck']
+  organizers: ['_sonnendeck','sgemkow']
   location:
     :zoom: 14
     :lat: 51.049013
     :long: 13.798582
   imprint:
-    :address: "Pohlandstraße 19\n01309 Dresden"
+    :address: "ObjectFab GmbH\nPohlandstraße 19\n01309 Dresden"
     :contributors:
     - :name: "Martin Schrader"
       :email: "sonnendeck2000@gmail.com"
+    - :name: "Steffen Gemkow"
+      :email: "info@objectfab.de"
   other_usergroups:
   - :name: "Dresden Perl Mongers"
     :url: "http://renormalist.net/PM/WebHome"
