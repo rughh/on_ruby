@@ -36,7 +36,7 @@ OnRuby::Application.routes.draw do
   end
 
   match '/home/labels', to: 'home#labels',  as: :labels
-  match '/sitemap.xml', to: 'misc#sitemap', as: :sitemap, format: :xml
+  match '/sitemap/:label', to: 'misc#sitemap', as: :sitemap, format: :xml
   match '/api',         to: 'api#index'
 
   root to: "home#index"
