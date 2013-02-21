@@ -5,7 +5,7 @@ describe MiscController do
     render_views
 
     before(:each) do
-      create(:user)
+      create(:participant_user)
     end
 
     it "should render the :index template" do

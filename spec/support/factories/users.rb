@@ -12,4 +12,10 @@ FactoryGirl.define do
   factory :admin_user, parent: :user do
     admin true
   end
+
+  factory :participant_user, parent: :user do
+    after(:create) do |user, evaluator|
+      FactoryGirl.create_list(:participant, 1, user: user)
+    end
+  end
 end
