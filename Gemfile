@@ -41,7 +41,7 @@ end
 
 group :development, :test, :caching do
   gem "sqlite3",            "1.3.7"
-  gem "pry",                "0.9.10"
+  gem "pry",                "0.9.12"
   gem "pry-remote",         "0.1.6"
   gem "pry-nav",            "0.2.3"
   gem "mocha",              "0.13.2", require: "mocha/api"
