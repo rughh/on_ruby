@@ -1,6 +1,6 @@
 ActiveAdmin.register Topic do
   member_action :copy, method: :get do
-    resource.event = Event.last
+    resource.event = Event.current.first
     resource.save!
     redirect_to admin_dashboard_path, notice: "Added to last Event!"
   end
