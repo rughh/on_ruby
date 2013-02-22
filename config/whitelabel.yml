@@ -122,25 +122,6 @@
       :email: "gogolok@gmail.com"
     - :name: "Avarteq GmbH"
       :email: "http://avarteq.de"
-# - !ruby/object:Usergroup
-#   label_id: "munich"
-#   default_locale: "de"
-#   recurring: "first thursday 19:00"
-#   email: "rubyshift-muenchen@googlegroups.com"
-#   host: "munich.rubyshift.org"
-#   twitter: "muc_rubyshift"
-#   organizers: ["ifesdjeen", "coffeejunk", "hidden_features", "kuzrob", "flobby"]
-#   location:
-#     :zoom: 13
-#     :lat: 48.136538
-#     :long: 11.577187
-#   imprint:
-#     :contributors:
-#     - :name: "Alex P"
-#     - :name: "Maximilian Haack"
-#     - :name: "Christoph Engelhardt"
-#     - :name: "Robert Kuzelj"
-#     - :name: "Florian Bergmann"
 - !ruby/object:Usergroup
   label_id: "karlsruhe"
   default_locale: "de"
