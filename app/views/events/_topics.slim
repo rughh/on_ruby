@@ -1,0 +1,7 @@
+h3= t("topics")
+ul.enumeration
+  - topics.each do |p|
+    li
+      = link_to_topic p
+      == " (#{link_to_user(p.user)})"
+      == markdown p.description

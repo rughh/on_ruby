@@ -77,7 +77,9 @@ de:
   topic:
     likes: "gefällt %{count} Leuten"
     like: "gefällt mir"
-    unlike: "gefällt mir nicht mehr"
+    unlike: "gefällt nicht"
+    created_by_user: "%{user_link} stellt dieses Thema vor"
+    no_event: "noch kein Event-Termin, ist aber in der Mache"
     markdown: "Du kannst <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> in deiner Beschreibung verwenden, URLs werden automatisch verlinkt."
     twitter_message: "Neues Thema von @%{username} '%{name}' %{url}"
   event:

@@ -1,8 +1,3 @@
-- if like = topic.already_liked?(current_user)
-  = button_to t('topic.unlike'), topic_like_path(like.topic, like), method: :delete
-- else
-  = button_to t('topic.like'), topic_likes_path(topic), method: :post
-
 - if topic.likes.present?
   h3= t 'topic.likes', count: topic.likes.size
   ul

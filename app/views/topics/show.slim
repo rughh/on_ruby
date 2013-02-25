@@ -1,6 +1,17 @@
 section
   = likes
   h2= topic.name
+  .participation= like_link(topic)
+  p.meta
+    == t 'topic.created_by_user', user_link: link_to_user(topic.user)
+  p.meta
+    - if event = topic.event
+      = l(event.date)
+      =' t("show.hosted_by")
+      = link_to_user event.user
+    - else
+      = t 'topic.no_event'
+
 
   == markdown topic.description
 
