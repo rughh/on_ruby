@@ -83,10 +83,14 @@ class Event < ActiveRecord::Base
     end
 
     def duplicate!
-      Event.last.dup.tap do |it|
-        it.date = Event.next_event_date
-        it.name = "#{I18n.tw('name')} - #{I18n.l it.date, locale: :de, format: :month}"
-        it.published = false
+      latest  = Event.last
+      date    = Event.next_event_date
+      Event.new.tap do |it|
+        it.name         = "#{I18n.tw('name')} - #{I18n.l date, locale: :de, format: :month}"
+        it.date         = date
+        it.user         = latest.user
+        it.location     = latest.location
+        it.description  = latest.description
         it.save!
       end
     end
