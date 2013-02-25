@@ -5,10 +5,11 @@ script: "bundle exec rake travis:build"
 bundler_args: "--without development production"
 language: ruby
 rvm:
-  - 1.9.3
+  - 2.0.0
 branches:
   only:
     - master
+before_install: gem install bundler --pre
 after_script:
   - gem install heroku
   - yes | ruby travis_deployer.rb
