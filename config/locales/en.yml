@@ -78,6 +78,9 @@ en:
     likes: "%{count} People like it"
     like: "like"
     unlike: "unlike"
+    edit: "edit Topic"
+    hosted_by: "at %{event}, hosted by %{host}"
+    created_by_user: "this Topic will be presented by %{user}"
     markdown: "You can use <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> in your description, URLs will get auto-linked."
     twitter_message: "New Topic by @%{username} '%{name}' %{url}"
   event:
@@ -96,6 +99,7 @@ en:
     liked: "You like the Topic."
     unliked: "You don't like the Topic."
     topic_added: "Added new Topic."
+    topic_updated: "Updated the Topic."
   mobile:
     settings: "Settings"
     back: "Back"

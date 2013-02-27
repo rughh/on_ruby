@@ -33,4 +33,22 @@ describe TopicsController do
       response.should redirect_to(auth_path)
     end
   end
+
+  describe "POST :update" do
+    let(:user) { create(:user) }
+    let(:topic) { create(:topic, user: user) }
+
+    it "should update a topic for logged-in user" do
+      @controller.stubs(current_user: user)
+      put(:update, id: topic, topic: {name: 'blupp'})
+
+      controller.topic.name.should eql('blupp')
+      flash[:notice].should_not be_nil
+    end
+
+    it "should not update a topic if not signed in" do
+      put(:update, id: topic.id, topic: attributes_for(:topic))
+      response.should redirect_to(auth_path)
+    end
+  end
 end
