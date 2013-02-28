@@ -14,7 +14,7 @@ section
     h3= "#{t("show.attendees")} (#{event.participants.count})"
     p= render 'users/list', users: event.users
 
-  = render "part", event: event, type: :topics
+  = render "topics", topics: event.topics if event.topics
   = render "part", event: event, type: :materials
 
   h3#route= t("show.route")

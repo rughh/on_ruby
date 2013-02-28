@@ -77,7 +77,11 @@ de:
   topic:
     likes: "gefällt %{count} Leuten"
     like: "gefällt mir"
-    unlike: "gefällt mir nicht mehr"
+    unlike: "gefällt nicht"
+    edit: "Thema bearbeiten"
+    hosted_by: "bei %{event}, gehostet durch %{host}"
+    created_by_user: "dieses Thema wird vorgestellt von %{user}"
+    no_event: "noch kein Event-Termin, ist aber in der Mache"
     markdown: "Du kannst <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> in deiner Beschreibung verwenden, URLs werden automatisch verlinkt."
     twitter_message: "Neues Thema von @%{username} '%{name}' %{url}"
   event:
@@ -96,7 +100,8 @@ de:
     double_liked: "Bitte nicht mehrfach bewerten!"
     liked: "Das Thema gefällt dir."
     unliked: "Das Thema gefällt dir nicht mehr."
-    topic_added: "Dein Eintrag wurde gespeichert."
+    topic_added: "Dein Thema wurde gespeichert."
+    topic_updated: "Dein Thema wurde aktualisiert."
   mobile:
     settings: "Einstellungen"
     back: "Zurück"
