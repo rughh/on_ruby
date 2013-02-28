@@ -5,7 +5,7 @@ script: "bundle exec rake travis:build"
 bundler_args: "--without development production"
 language: ruby
 rvm:
-  - 2.0.0p0
+  - 2.0.0-p0
 branches:
   only:
     - master
