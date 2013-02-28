@@ -6,4 +6,4 @@
   p== t("home.engage")
   = button_to t("home.add_topic"), new_topic_path, method: :get
   = render 'topics/undone', topics: undone_topics
-  = link_to t('home.old_topics'), topics_path
+  = render 'topics/done', topics: done_topics

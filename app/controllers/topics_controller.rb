@@ -3,6 +3,7 @@ class TopicsController < ApplicationController
 
   expose(:topic)
   expose(:undone_topics) { Topic.ordered.undone }
+  expose(:done_topics) { Topic.ordered.done }
 
   def show; end
   def new; end
