@@ -3,5 +3,4 @@
     h3= t("home.new_topics")
     ul.more-list.undone.clearfix
       - topics.each do |topic|
-        li
-          .topic= link_to_topic topic
+        li.topic= link_to_topic topic

@@ -1,6 +1,5 @@
 - if topics.present?
   #done
-    h3= t("home.old_topics")
-    - links = topics.map { |t| link_to_topic t }.join(', ')
-    p== "Bei den Letzten Events wurde unter anderem über #{links} gesprochen."
-    p Hier kannst du dir alle Themen ansehen.
+    ul.more-list.clearfix
+      - topics.each do |topic|
+        li.topic= link_to_topic topic

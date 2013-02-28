@@ -48,7 +48,7 @@ en:
     engage: "Usergroups need engaging People. If you think some Topic is missing, or you want to have more Infos on something, <strong>you are encouraged to add it to our Wishlist</strong>. If you have an Idea for a Talk or anything else <strong>add it here</strong> to get instant Feedback of the Ruby / Rails Community."
     add_topic: "Add a Topic"
     new_topics: "Proposals"
-    old_topics: "Past Topics"
+    old_topics: "Recent Topics"
     company_workers: "A lot of the Members of the Ruby Usergroup are working there too and we love to see new faces around."
     company_missing: "If you think that a Company is missing, send us an %{email_link} or Direct-Message to %{twitter_link}"
     next_possible_meetup: "The next Ruby / Rails Meeting is supposed to be on %{event_date}."
