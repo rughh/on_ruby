@@ -4,6 +4,7 @@ html
     title= page_title
     meta charset="utf-8"
     meta name="description" content="#{meta_desc}"
+    link type="text/plain" rel="author" href="/humans.txt"
     = browser_icon
     = touch_icon
     = auto_discovery_link_tag :rss, events_path(format: :xml), title: "Event-Feed"
