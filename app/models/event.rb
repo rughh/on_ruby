@@ -21,6 +21,7 @@ class Event < ActiveRecord::Base
   belongs_to :user
 
   has_many :participants
+  has_many :users, through: :participants
   has_many :topics
   has_many :materials
 
@@ -38,10 +39,6 @@ class Event < ActiveRecord::Base
   scope :latest, -> { where('date < ?', Date.today.to_time).order('date DESC') }
   scope :unpublished, where(published: false)
   scope :ordered, order("date DESC")
-
-  def users
-    participants.map(&:user).compact
-  end
 
   def end_date
     date + 2.hours

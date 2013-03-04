@@ -51,5 +51,6 @@ group :development, :test, :caching do
   gem "meta_request",       "0.2.1"
   gem "better_errors",      "0.6.0"
   gem "binding_of_caller",  "0.7.1"
+  gem "heroku",             require: false
   gem "taps",               require: false
 end
