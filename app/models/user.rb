@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
 
   has_many :authorizations, dependent: :destroy
   has_many :participants, dependent: :destroy
+  has_many :participations, through: :participants, source: :user
   has_many :materials, dependent: :destroy
   has_many :topics, dependent: :destroy
   has_many :likes, dependent: :destroy
