@@ -6,14 +6,14 @@ section
   - if location.jobs.present?
     #jobs_present
       h3= t("location.job_offers")
-      ul.enumeration
+      ul.enumeration.more-list
         - location.jobs.each do |job|
           li= link_to_job job
 
   - if location.events.present?
     #organized_events
       h3= t("profile.organized_events")
-      ul.enumeration
+      ul.enumeration.more-list
         - location.events.each do |e|
           li= link_to_event e
 
