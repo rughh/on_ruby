@@ -1,19 +1,9 @@
-env:
-  global:
-    - secure: "RR/L5w7n10/dS/nkpVCa9VSLrHNwEj7gLaYeFbYtfl8Tu94yNgD801NMj9so\nXzwbj/veSflqEch2/HSPs/iANct752ufxZWH2Q0w4HVsdY2U/waIfxXIXHAL\nce89ZxqSvOBc+ipzhLV+nWaEls8HxEkJYzFFLlePyCLGLn1DL4s="
 script: "bundle exec rake travis:build"
 bundler_args: "--without development production"
 language: ruby
 rvm:
-  - 2.0.0-p0
+  - 2.0.0
 branches:
   only:
     - master
 before_install: gem install bundler --pre
-after_script:
-  - gem install heroku
-  - yes | ruby travis_deployer.rb
-  - heroku keys:clear
-  - yes | heroku keys:add
-  - git push heroku master
-  - heroku run rake db:migrate --app hamburg-on-ruby
