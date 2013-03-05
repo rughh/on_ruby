@@ -7,8 +7,9 @@ section
       = user.available? ? " / #{t("profile.available")}" : ''
 
     div.info.small
-      span
-        strong Twitter: #{link_to_twitter user}
+      - if user.twitter?
+        span
+          strong Twitter: #{link_to_twitter user}
       - if user.github?
         span
           strong Github: #{link_to_github user}
