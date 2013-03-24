@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   expose(:events) { Event.ordered }
   expose(:event) { Event.includes(materials: :user, topics: :user, participants: :user).find(params[:id]) }
 
-  respond_to :html, :mobile, :json, only: :add_user
+  respond_to :html, :json, only: :add_user
   respond_to :json, :xml, only: :index
   respond_to :json, :ics, only: :show
 
@@ -33,14 +33,12 @@ class EventsController < ApplicationController
     if current_user.participates?(event)
       respond_with(event) do |format|
         format.html { redirect_to event_path(event), alert: t("flash.already_participating") }
-        format.mobile { redirect_to event_path(event), alert: t("flash.already_participating") }
         format.json { head(200) }
       end
     else
       event.participants.create!(user: current_user)
       respond_with(event) do |format|
         format.html { redirect_to event_path(event), notice: t("flash.now_participating") }
-        format.mobile { redirect_to event_path(event), notice: t("flash.now_participating") }
         format.json { head(201) }
       end
     end

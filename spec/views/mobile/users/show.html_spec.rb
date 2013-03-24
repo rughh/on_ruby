@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "users/show" do
+describe "mobile/users/show" do
   let(:user) { build(:user) }
 
   it "should render successfully" do

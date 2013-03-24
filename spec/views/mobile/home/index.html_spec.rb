@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "home/index" do
+describe "mobile/home/index" do
   let(:event) { build(:event) }
 
   it "should render successfully" do

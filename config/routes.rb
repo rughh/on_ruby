@@ -22,10 +22,6 @@ OnRuby::Application.routes.draw do
   end
   match 'wishes/:slug' => redirect('/topics/%{slug}')
 
-  resource :mobile, controller: :mobile, defaults: { format: :mobile } do
-    get 'settings'
-  end
-
   scope '/auth' do
     get '/:provider/callback',       to: 'sessions#create'
     get '/failure',                  to: 'sessions#failure'
@@ -35,9 +31,10 @@ OnRuby::Application.routes.draw do
     get '/offline_login/:nickname',  to: 'sessions#offline_login' if Rails.env.development?
   end
 
-  match '/home/labels', to: 'home#labels',  as: :labels
-  match '/sitemap/:label', to: 'misc#sitemap', as: :sitemap, format: :xml
-  match '/api',         to: 'api#index'
+  match '/home/labels',     to: 'home#labels',    as: :labels
+  match '/home/settings',   to: 'home#settings',  as: :settings
+  match '/sitemap/:label',  to: 'misc#sitemap',   as: :sitemap, format: :xml
+  match '/api',             to: 'api#index'
 
   root to: "home#index"
 

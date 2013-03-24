@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "home/labels" do
+describe "mobile/home/labels" do
   before do
     Whitelabel.label = nil
   end

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "events/show" do
+describe "mobile/events/show", type: :view do
   let(:user)  { build(:user) }
   let(:event) { build(:event, id: 123) }
 

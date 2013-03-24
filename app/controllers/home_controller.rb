@@ -8,6 +8,8 @@ class HomeController < ApplicationController
   expose(:locations)
 
   def labels
-    render layout: "labels"
+    render layout: "labels" unless mobile_device?
   end
+
+  def settings; end
 end
