@@ -12,6 +12,7 @@ xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
        xml.link        url_for only_path: false, controller: 'events', action: 'show', id: event.id
        xml.description event.description
        xml.guid        url_for only_path: false, controller: 'events', action: 'show', id: event.id
+       xml.pubDate     event.created_at.rfc822
      end
    end
  end
