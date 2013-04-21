@@ -45,7 +45,7 @@ group :development, :test, :caching do
   gem "pry-remote",         "0.1.6"
   gem "pry-nav",            "0.2.3"
   gem "mocha",              "0.13.2", require: "mocha/api"
-  gem "rspec-rails",        "2.12.2"
+  gem "rspec-rails",        "2.13.0"
   gem "factory_girl",       "4.2.0"
   gem "timecop",            "0.5.9.2"
   gem "meta_request",       "0.2.1"
