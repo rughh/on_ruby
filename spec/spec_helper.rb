@@ -20,5 +20,6 @@ RSpec.configure do |config|
 
   config.include RequestHelper, type: :controller
   config.include CachingHelper, type: :controller
+  config.include KaminariHelper
   config.include FactoryGirl::Syntax::Methods
 end

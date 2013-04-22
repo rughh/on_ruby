@@ -2,10 +2,10 @@ require "spec_helper"
 
 describe "topics/index" do
 
-  let(:topic) { build(:topic) }
+  let(:event) { build(:event) }
 
   it "should render successfully" do
-    view.stubs(undone_topics: [topic], done_topics: [topic])
+    view.stubs(events: paged(event))
     render
   end
 end
