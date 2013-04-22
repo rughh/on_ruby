@@ -58,6 +58,7 @@ de:
     past_events: "Vergangene Treffen"
     usergroup_locations: "Dies sind die %{location_link} an denen unsere Ruby Usergroups in der Regel stattfinden."
     show_more: "mehr anzeigen"
+    no_new_topics: "Es gibt im Moment keine Themenvorschläge, trage hier deinen %{new_topic_link} ein!"
   profile:
     edit: "Profil bearbeiten"
     freelancer: "Freiberufler"
@@ -76,6 +77,8 @@ de:
   location:
     job_offers: "Jobangebote"
   topic:
+    topic: "Thema"
+    all_topics: "Alle Themen"
     likes: "gefällt %{count} Leuten"
     like: "gefällt mir"
     unlike: "gefällt nicht"

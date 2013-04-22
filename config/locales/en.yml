@@ -58,6 +58,7 @@ en:
     past_events: "Past events"
     usergroup_locations: "This are the %{location_link} our usergroup takes place usually."
     show_more: "show more"
+    no_new_topics: "Currently no proposals, add your %{new_topic_link} here!"
   profile:
     edit: "Edit profile"
     freelancer: "Freelancer"
@@ -76,6 +77,8 @@ en:
   location:
     job_offers: "Job offers"
   topic:
+    topic: "Topic"
+    all_topics: "All Topics"
     likes: "%{count} People like it"
     like: "like"
     unlike: "unlike"

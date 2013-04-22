@@ -12,17 +12,19 @@
   font-weight: bold
   src: url("/assets/hero.otf") format("opentype")
 
+@mixin list-icon($icon)
+  background: image-url($icon) left top no-repeat
+  padding-left: 20px
 
 @mixin meta-icon($icon)
-  background: url($icon) left top no-repeat
-  padding-left: 20px
+  @include list-icon($icon)
   padding-top: 2px
   padding-bottom: 2px
 
 // Primary styles
 
 html
-  background: url(/assets/whitey.png) left top repeat
+  background: image-url('whitey.png') left top repeat
 
 body
   font: 13px/1.231 sans-serif
@@ -46,7 +48,7 @@ a
     color: #666
 
 .container
-  background: url(/assets/black-Linen.png) left top repeat
+  background: image-url('black-Linen.png') left top repeat
 
 // For image replacement
 .ir
@@ -94,7 +96,7 @@ header
     float: right
     width: 140px
     padding: 1em
-    background: url(/assets/whitey.png) left top repeat
+    background: image-url('whitey.png') left top repeat
     border: 1px solid white
     @include border-radius(0.5em, 0.5em)
     .user
@@ -117,12 +119,12 @@ header
     .provider
       margin-left: 0px
       padding-left: 20px
-      background: url(/assets/login.png) left top no-repeat
+      background: image-url('login.png') left top no-repeat
   #logo
     float: left
 
 nav
-  background: url(/assets/whitey.png) left top repeat
+  background: image-url('whitey.png') left top repeat
   text-align: center
   position: fixed
   top: 0
@@ -163,17 +165,18 @@ nav
   height: 100%
 
   li.topic
-    background: url(/assets/topic.png) left top no-repeat
-    padding-left: 20px
+    @include list-icon('topic.png')
+
+  li.all
+    @include list-icon('all.png')
 
   .like
-    background: url(/assets/thumb-up.png) left top no-repeat
+    background: image-url('thumb-up.png') left top no-repeat
     padding-top: 9px
     padding-left: 30px
 
   .info
-    background: url(/assets/information.png) left top no-repeat
-    padding-left: 20px
+    @include list-icon('information.png')
 
   .markdown
     ul
@@ -209,7 +212,7 @@ nav
     list-style: none
 
   .reload
-    @include replace-text('/assets/reload.png', 16, 16)
+    @include replace-text(image-path('reload.png'), 16, 16)
     float: left
     height: 16px
     width: 16px
@@ -217,7 +220,7 @@ nav
     padding-right: 1em
     cursor: pointer
   .close
-    @include replace-text('/assets/close.png', 28, 28)
+    @include replace-text(image-path('close.png'), 28, 28)
     float: right
     height: 28px
     width: 28px
@@ -226,7 +229,7 @@ nav
     right: -3em
     cursor: pointer
   .more
-    background: url(/assets/more.png) 6px top no-repeat
+    background: image-url('more.png') 6px top no-repeat
     padding-left: 30px
     font-style: italic
   .info
@@ -252,7 +255,7 @@ nav
     margin-top: 0em
     margin-bottom: 3em
     width: 56em
-    background: url(/assets/whitey.png) left top repeat
+    background: image-url('whitey.png') left top repeat
     border: 1px solid white
     @include border-radius(0.5em, 0.5em)
 
@@ -291,9 +294,9 @@ nav
     border: 1px solid white
     @include border-radius(0.5em, 0.5em)
   .calendar-icon
-    @include meta-icon("/assets/calendar.png")
+    @include meta-icon('calendar.png')
   .map-icon
-    @include meta-icon("/assets/map.png")
+    @include meta-icon('map.png')
   .meta
     font-size: smaller
     font-style: italic

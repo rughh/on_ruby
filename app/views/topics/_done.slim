@@ -1,7 +1,7 @@
 - if topics.present?
   #done
-    h3= link_to_unless current_page?(controller: :topics), t('home.old_topics'), topics_path
-
+    h3= t('home.old_topics')
     ul.more-list.clearfix
       - topics.each do |topic|
         li.topic= link_to_topic topic
+      li.all= link_to(t('topic.all_topics'), topics_path)
