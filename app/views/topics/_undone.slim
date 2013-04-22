@@ -5,4 +5,4 @@
       - topics.each do |topic|
         li.topic= link_to_topic topic
   - else
-    p== t("home.no_new_topics", new_topic_link: link_to(t('topic.topic')))
+    p== t("home.no_new_topics", new_topic_link: link_to(t('topic.topic'), new_topic_path))
