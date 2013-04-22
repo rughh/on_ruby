@@ -35,6 +35,7 @@ class Event < ActiveRecord::Base
 
   default_scope -> { where(label: Whitelabel[:label_id]) }
 
+  scope :with_topics, -> { joins(:topics) }
   scope :current, -> { where(date: Date.today.to_time..(Time.now + 8.weeks)).limit(1).order('date ASC') }
   scope :latest, -> { where('date < ?', Date.today.to_time).order('date DESC') }
   scope :unpublished, where(published: false)

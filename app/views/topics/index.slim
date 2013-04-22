@@ -1,2 +1,9 @@
 = section_box :topics do
-  = render 'done', topics: done_topics
+  - events.each do |event|
+    p
+      strong= link_to_event event
+      = " (#{l(event.date, format: :date)})"
+    ul.more-list.undone.clearfix
+    - event.topics.each do |topic|
+      li.topic= link_to_topic topic
+  = paginate events

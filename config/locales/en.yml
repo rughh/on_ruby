@@ -109,3 +109,9 @@ en:
     back: "Back"
     home: "Home"
     disable: "Deactivate Mobile View"
+  views:
+    pagination:
+      first: "<<"
+      last: ">>"
+      previous: "<"
+      next: ">"

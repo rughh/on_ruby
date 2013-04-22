@@ -123,7 +123,7 @@ header
   #logo
     float: left
 
-nav
+nav#nav
   background: image-url('whitey.png') left top repeat
   text-align: center
   position: fixed
@@ -305,14 +305,17 @@ nav
     float: right
     margin-top: -5px
   .pagination
-    padding-bottom: 2em
-    a, em, span
-      padding: 0.5em 0.7em 0.4em 0.7em
+    margin-top: 2em
+    a
+      text-decoration: none
+    .current
+      font-weight: bold
+    .page, .next, .last, .first, .prev
+      margin: 0.2em
+      padding: 0.2em 0.5em 0.2em 0.6em
       display: inline block
       background-color: white
-      font-style: normal
       font-size: larger
-      text-decoration: none
       border: 1px solid #999
       @include border-radius(0.5em, 0.5em)
   .enumeration
