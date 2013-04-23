@@ -6,7 +6,6 @@
   email: "hamburg@onruby.de"
   host: "hamburg.onruby.de"
   twitter: "hamburgsync"
-  google_site_verification: "XfZHvvjXbSbmQ62P16oJOcENIAaWlLzNrHk7EoDE6G4"
   organizers: ['halfbyte', 'ralph', 'phoet', 'rubiii']
   location:
     :zoom: 14
@@ -47,7 +46,6 @@
   email: "awesome-bremen@googlegroups.com"
   host: "bremen.onruby.de"
   twitter: "hackhb"
-  google_site_verification: "XfZHvvjXbSbmQ62P16oJOcENIAaWlLzNrHk7EoDE6G4"
   organizers: ['dennisreimann', 'erotte']
   location:
     :zoom: 14
@@ -73,7 +71,6 @@
   mailing_list: "https://groups.google.com/group/colognerb"
   host: "cologne.onruby.de"
   twitter: "colognerb"
-  google_site_verification: "XfZHvvjXbSbmQ62P16oJOcENIAaWlLzNrHk7EoDE6G4"
   organizers: ['jkwebs']
   location:
     :zoom: 13
@@ -111,7 +108,6 @@
   email: "rug.saar@gmail.com"
   host: "saar.onruby.de"
   twitter: "RUGSaar"
-  google_site_verification: "XfZHvvjXbSbmQ62P16oJOcENIAaWlLzNrHk7EoDE6G4"
   organizers: ['markusschwed', 'gogolok']
   location:
     :zoom: 13
@@ -135,7 +131,6 @@
   mailing_list: "https://groups.google.com/group/karlsruherb"
   host: "karlsruhe.onruby.de"
   twitter: "rug_ka"
-  google_site_verification: "XfZHvvjXbSbmQ62P16oJOcENIAaWlLzNrHk7EoDE6G4"
   organizers: ['basiszwo']
   location:
     :zoom: 14
@@ -164,7 +159,6 @@
   mailing_list: "https://groups.google.com/group/rug-b"
   host: "berlin.onruby.de"
   twitter: "rug_b"
-  google_site_verification: "XfZHvvjXbSbmQ62P16oJOcENIAaWlLzNrHk7EoDE6G4"
   organizers: ['freaklikeme', 'Hagenburger', 'PragTob']
   location:
     :zoom: 14
@@ -184,7 +178,6 @@
   mailing_list: "https://groups.google.com/group/leipzigonrails"
   host: "leipzig.onruby.de"
   twitter: "LeipzigOnRails"
-  google_site_verification: "XfZHvvjXbSbmQ62P16oJOcENIAaWlLzNrHk7EoDE6G4"
   organizers: ['cpetschnig', 'knugie', 'tmetzmac']
   location:
     :zoom: 14
@@ -206,7 +199,6 @@
   email: "admin@ruby-dresden.de"
   host: "dresden.onruby.de"
   twitter: "ruby_dresden"
-  google_site_verification: "XfZHvvjXbSbmQ62P16oJOcENIAaWlLzNrHk7EoDE6G4"
   organizers: ['_sonnendeck','sgemkow']
   location:
     :zoom: 14

@@ -7,7 +7,6 @@ html
     link type="text/plain" rel="author" href="/humans.txt"
     = browser_icon
     = touch_icon
-    = google_verification
     = rss_feed
     = csrf_meta_tag
     = stylesheet_link_tag "application"
@@ -15,6 +14,7 @@ html
     = javascript_include_tag "application"
     = whitelabel_javascript_include_tag
     = render 'shared/i18njs'
+    = render 'shared/script'
   body
     = ribbon(:github)
     = ribbon(:senor_developer)
@@ -27,7 +27,6 @@ html
       .main
         = render 'shared/hint'
         = yield
-        = render 'shared/script'
     footer
       = render 'shared/footer', imprint: Whitelabel[:imprint], other_usergroups: Whitelabel[:other_usergroups]
   = render 'shared/info'

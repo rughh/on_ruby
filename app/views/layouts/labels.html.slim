@@ -2,16 +2,14 @@ doctype 5
 html
   head
     title= page_title
-
     meta charset="utf-8"
     meta name="description" content="#{meta_desc}"
     = browser_icon
     = touch_icon
     = stylesheet_link_tag "application"
-
+    = render 'shared/script'
   body#labels
     .container
       .main
         = yield
-        = render 'shared/script'
   = render 'shared/info'

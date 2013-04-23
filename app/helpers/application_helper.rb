@@ -23,11 +23,6 @@ module ApplicationHelper
     auto_discovery_link_tag :rss, events_path(format: :xml), title: "Event-Feed"
   end
 
-  def google_verification
-    return unless content = Whitelabel[:google_site_verification]
-    tag :meta, name: "google-site-verification", content: content
-  end
-
   def icon(type)
     path = image_path Whitelabel.label ? "labels/#{Whitelabel[:label_id]}.ico" : "favicon.ico"
     tag :link, rel: type, href: path
