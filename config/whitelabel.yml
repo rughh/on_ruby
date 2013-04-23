@@ -6,6 +6,7 @@
   email: "hamburg@onruby.de"
   host: "hamburg.onruby.de"
   twitter: "hamburgsync"
+  google_site_verification: "XfZHvvjXbSbmQ62P16oJOcENIAaWlLzNrHk7EoDE6G4"
   organizers: ['halfbyte', 'ralph', 'phoet', 'rubiii']
   location:
     :zoom: 14
