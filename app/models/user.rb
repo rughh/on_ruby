@@ -44,6 +44,11 @@ class User < ActiveRecord::Base
     participants.find(:first, conditions: [ "event_id = ?", event.id])
   end
 
+  def url
+    return unless url = read_attribute(:url)
+    url =~ /\Ahttps?:\/\/.+/ ? url : "http://#{url}"
+  end
+
   def salt
     authorizations.first.uid
   end
