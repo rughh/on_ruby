@@ -39,7 +39,7 @@ group :production do
   gem "pg",                   "0.14.0"
 end
 
-group :development, :test, :caching do
+group :development, :test do
   gem "sqlite3",            "1.3.7"
   gem "pry",                "0.9.12"
   gem "pry-remote",         "0.1.6"
