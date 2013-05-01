@@ -59,6 +59,7 @@ en:
     usergroup_locations: "This are the %{location_link} our usergroup takes place usually."
     show_more: "show more"
     no_new_topics: "Currently no proposals, add your %{new_topic_link} here!"
+    all_events: "All Events"
   profile:
     edit: "Edit profile"
     freelancer: "Freelancer"

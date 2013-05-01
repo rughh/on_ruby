@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_filter :check_login, only: :add_user
 
-  expose(:events) { Event.ordered }
+  expose(:events) { Event.ordered.page(params[:page]).per(10) }
   expose(:event) { Event.includes(materials: :user, topics: :user, participants: :user).find(params[:id]) }
 
   respond_to :html, :json, only: :add_user
@@ -10,6 +10,7 @@ class EventsController < ApplicationController
 
   def index
     respond_to do |format|
+      format.html
       format.xml
       format.json do
         render json: events.as_api_response(:ios_v1)
