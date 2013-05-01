@@ -27,16 +27,20 @@ HOR =
       mapTypeId: google.maps.MapTypeId.ROADMAP
     map = new google.maps.Map($(".map_canvas")[0], mapOptions)
 
+    contents = {}
     recentWindow = null
     jQuery.each $(".map_canvas").data("map"), ->
       position = new google.maps.LatLng(@lat, @long)
       marker = new google.maps.Marker(position: position, map: map, title: @name)
-      marker.content = "<strong><a href='/locations/#{this.slug}'>#{this.name}</a></strong></br>#{this.street} #{this.house_number}</br>#{this.zip} #{this.city}"
-      marker.infoWindow = new google.maps.InfoWindow(content: marker.content)
+      content = "<strong><a href='/locations/#{this.slug}'>#{this.name}</a></strong></br>#{this.street} #{this.house_number}</br>#{this.zip} #{this.city}"
+      if contents[position]
+        contents[position] += "</br></br>#{content}"
+      else
+        contents[position] = content
       google.maps.event.addListener marker, 'click', ->
         recentWindow.close() if recentWindow
-        recentWindow = marker.infoWindow
-        marker.infoWindow.open map, marker
+        recentWindow = infoWindow = new google.maps.InfoWindow(content: contents[marker.position])
+        infoWindow.open map, marker
 
   scrollPage: ->
     $("a[href*=\"#\"]").click (event) ->
