@@ -19,39 +19,24 @@ HOR =
     setTimeout func, 500
 
   initializeMap: ->
-    jQuery.each $(".map_canvas"), ->
-      L.Icon.Default.imagePath = "/assets/map"
-      init = $(this).data("init")
-      cloudmadeUrl = "http://{s}.tile.cloudmade.com/b2b4845cfc774e478439692a106b4f26/997/256/{z}/{x}/{y}.png"
-      cloudmade = new L.TileLayer(cloudmadeUrl,
-        maxZoom: 18
-      )
-      mapOptions =
-        center: new L.LatLng(init.lat, init.long)
-        layers: [cloudmade]
-        zoom: init.zoom
-        scrollWheelZoom: false
-        trackResize: false
-        zoomAnimation: false
-        fadeAnimation: false
+    init = $(".map_canvas").data("init")
+    mapOptions =
+      zoom: init.zoom,
+      scrollwheel: false,
+      center: new google.maps.LatLng(init.lat, init.long),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    map = new google.maps.Map($(".map_canvas")[0], mapOptions)
 
-      map = new L.Map(this, mapOptions)
-      markers = {}
-      arr = $(this).data("map")
-      jQuery.each arr, ->
-        h = undefined
-        marker = undefined
-        h = "<strong><a href='/locations/" + @slug + "'>" + @name + "</a></strong></br>"
-        h += "" + @street + " " + @house_number + "</br>"
-        h += "" + @zip + " " + @city
-        ll = new L.LatLng(@lat, @long)
-        unless markers[ll] is `undefined`
-          popupContent = markers[ll]._popup._content
-          markers[ll].bindPopup popupContent + "<br/><br/>" + h
-        else
-          marker = new L.Marker(ll).bindPopup(h)
-          markers[ll] = marker
-          map.addLayer marker
+    recentWindow = null
+    jQuery.each $(".map_canvas").data("map"), ->
+      position = new google.maps.LatLng(@lat, @long)
+      marker = new google.maps.Marker(position: position, map: map, title: @name)
+      marker.content = "<strong><a href='/locations/#{this.slug}'>#{this.name}</a></strong></br>#{this.street} #{this.house_number}</br>#{this.zip} #{this.city}"
+      marker.infoWindow = new google.maps.InfoWindow(content: marker.content)
+      google.maps.event.addListener marker, 'click', ->
+        recentWindow.close() if recentWindow
+        recentWindow = marker.infoWindow
+        marker.infoWindow.open map, marker
 
   scrollPage: ->
     $("a[href*=\"#\"]").click (event) ->

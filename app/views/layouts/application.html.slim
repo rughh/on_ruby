@@ -11,7 +11,7 @@ html
     = csrf_meta_tag
     = stylesheet_link_tag "application"
     = whitelabel_stylesheet_link_tag
-    = javascript_include_tag "application"
+    = javascript_include_tag "application", "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"
     = whitelabel_javascript_include_tag
     = render 'shared/i18njs'
     = render 'shared/script'

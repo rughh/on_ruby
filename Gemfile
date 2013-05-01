@@ -28,7 +28,6 @@ gem "activeadmin",            "0.5.1"
 group :assets do
   gem "jquery-rails",         "2.1.4"
   gem "jquery_mobile_rails",  "1.2.0"
-  gem "leaflet-rails",        "0.5.0"
   gem "compass-rails",        "1.0.3"
   gem "coffee-rails",         "3.2.2"
   gem "chosen-rails",         "0.9.11.2"
@@ -51,6 +50,5 @@ group :development, :test do
   gem "meta_request",       "0.2.1"
   gem "better_errors",      "0.6.0"
   gem "binding_of_caller",  "0.7.1"
-  gem "heroku",             require: false
   gem "taps",               require: false
 end
