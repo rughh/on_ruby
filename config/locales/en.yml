@@ -28,6 +28,7 @@ en:
     other_job: "Other Job"
     job_description: "Ruby / Rails Jobs in %{city}: %{job_link} at %{company_link}"
   footer:
+    to_mobile: "mobile Version"
     imprint: "Imprint"
     contact: "Contact"
     links: "Links"
