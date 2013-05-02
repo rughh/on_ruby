@@ -8,7 +8,7 @@ html
     = touch_icon
     = csrf_meta_tag
     = stylesheet_link_tag "mobile"
-    = javascript_include_tag "mobile"
+    = javascript_include_tag "mobile", "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"
   body
     div data-role="page" data-theme="a" data-content-theme="a"
       = render 'layouts/header'
