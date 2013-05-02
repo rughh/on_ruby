@@ -16,7 +16,7 @@ div data-role="collapsible-set"
     h2#map-link= t("show.route")
     ul data-role="listview"
       li= map(event.location, lat: event.location.lat, long: event.location.long)
-      li= link_to event.location.address, "http://maps.apple.com/?q=#{event.location.address}"
+      li(data-icon="forward")= link_to event.location.address, "http://maps.apple.com/?q=#{event.location.address}"
   div data-role="collapsible" class="#{event.participants.present? ? '' : 'ui-disabled'}"
     h2= t("show.attendees")
     ul data-role="listview"
