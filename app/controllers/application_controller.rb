@@ -63,7 +63,8 @@ class ApplicationController < ActionController::Base
 
   def switch_label
     controller_action = "#{controller_name}_#{action_name}"
-    return if %w(home_labels home_settings misc_sitemap).include?(controller_action)
+    # TODO (ps) split up the logic and use includes instead of checking the actions
+    return if %w(home_labels misc_sitemap).include?(controller_action)
     unless Usergroup.switch_by_request(request)
       redirect_to labels_url(subdomain: false)
     end
