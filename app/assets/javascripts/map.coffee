@@ -1,6 +1,6 @@
 class Map
   @initMobile: ->
-    $("#map-link").bind 'click', ->
+    $(".map-link").bind 'click', ->
       new Map($(".map_canvas")).show()
 
   @init: ->

@@ -13,7 +13,7 @@ p
 
 div data-role="collapsible-set"
   div data-role="collapsible"
-    h2#map-link= t("show.route")
+    h2.map-link= t("show.route")
     ul data-role="listview"
       li= map(event.location, lat: event.location.lat, long: event.location.long)
       li(data-icon="forward")= link_to event.location.address, "http://maps.apple.com/?q=#{event.location.address}"
