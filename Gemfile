@@ -4,7 +4,7 @@ ruby "2.0.0"
 gem "thin",         require: false
 gem "foreman",      require: false
 
-gem "rails",                  "3.2.13.rc1"
+gem "rails",                  "3.2.13"
 gem "slim-rails",             "1.1.0"
 gem "redcarpet",              "2.2.2"
 gem "friendly_id",            "4.0.9"
