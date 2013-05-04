@@ -1,9 +1,4 @@
 OnRuby::Application.routes.draw do
-
-  ActiveAdmin.routes(self)
-  # make the logout of rails-admin functional
-  match '/admin/logout', to: 'sessions#destroy', as: :destroy_admin_user_session
-
   resources :users
   resources :locations
 
@@ -37,6 +32,10 @@ OnRuby::Application.routes.draw do
   match '/api',             to: 'api#index'
 
   root to: "home#index"
+
+  ActiveAdmin.routes(self)
+  # make the logout of rails-admin functional
+  match '/admin/logout', to: 'sessions#destroy', as: :destroy_admin_user_session
 
   match '/*tail' => redirect("/home/labels")
 end
