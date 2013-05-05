@@ -7,9 +7,6 @@ class HomeController < ApplicationController
   expose(:organizers) { User.organizers }
   expose(:locations)
 
-  def labels
-    render layout: "labels" unless mobile_device?
-  end
-
+  def index; end
   def settings; end
 end
