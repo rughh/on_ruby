@@ -4,7 +4,7 @@ describe MiscController do
   describe "GET :sitemap" do
     render_views
 
-    before(:each) do
+    before do
       create(:participant_user)
     end
 

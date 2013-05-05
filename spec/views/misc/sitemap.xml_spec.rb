@@ -2,10 +2,10 @@ require "spec_helper"
 
 describe "misc/sitemap" do
 
-  let(:urls) { ['url1', 'url2'] }
+  let(:example_urls) { ['url1', 'url2'] }
 
   it "should render successfully" do
-    view.stubs(urls: urls)
+    view.stubs(urls: example_urls)
     render
   end
 
