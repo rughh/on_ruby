@@ -15,7 +15,7 @@ Use *foreman* to start the server, otherwise you need to export the options of t
 
 For working with the whitelabel functionality, you need to add all supported subdomains to your */etc/hosts* :
 
-    127.0.0.1    onruby.dev hamburg.onruby.dev cologne.onruby.dev bremen.onruby.dev saar.onruby.dev berlin.onruby.dev karlsruhe.onruby.dev leipzig.onruby.dev dresden.onruby.dev
+    127.0.0.1    www.onruby.dev hamburg.onruby.dev cologne.onruby.dev bremen.onruby.dev saar.onruby.dev berlin.onruby.dev karlsruhe.onruby.dev leipzig.onruby.dev dresden.onruby.dev
 
 Access via [http://onruby.dev:5000](http://onruby.dev:5000)
 

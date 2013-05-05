@@ -26,7 +26,10 @@ OnRuby::Application.routes.draw do
     get '/offline_login/:nickname',  to: 'sessions#offline_login' if Rails.env.development?
   end
 
-  match '/home/labels',     to: 'home#labels',    as: :labels
+  constraints subdomain: "www" do
+    match '/', to: 'labels#index', as: :labels
+  end
+
   match '/home/settings',   to: 'home#settings',  as: :settings
   match '/sitemap/:label',  to: 'misc#sitemap',   as: :sitemap, format: :xml
   match '/api',             to: 'api#index'

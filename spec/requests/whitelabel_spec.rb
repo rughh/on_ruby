@@ -3,7 +3,7 @@ require "spec_helper"
 describe "Whitelabel" do
   describe "GET label page with non existing subdomain" do
     it "does not do an endless redirect but halts" do
-      get labels_url(subdomain: false)
+      get labels_url(subdomain: 'www')
       response.should be_success
     end
   end
@@ -11,7 +11,7 @@ describe "Whitelabel" do
   describe "GET page with non existing subdomain" do
     it "redirects to main url" do
       get root_url(subdomain: "rostock")
-      response.should redirect_to(labels_url(subdomain: false))
+      response.should redirect_to(labels_url(subdomain: 'www'))
     end
   end
 
