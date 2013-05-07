@@ -5,6 +5,9 @@ gem "thin",         require: false
 gem "foreman",      require: false
 
 gem "rails",                  "4.0.0.rc1"
+gem "rails-observers",        "0.1.1"
+gem "protected_attributes",   "1.0.1"
+
 gem "slim-rails",             "1.1.1"
 gem "redcarpet",              "2.2.2"
 gem "friendly_id",            "4.0.9"
