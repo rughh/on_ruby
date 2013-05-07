@@ -2,7 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-Bundler.require(*Rails.groups(:assets)) if defined?(Bundler)
+Bundler.require(:default, Rails.env)
 
 module OnRuby
   class Application < Rails::Application
@@ -35,7 +35,6 @@ module OnRuby
     config.filter_parameters += [:password]
 
     # Enable the asset pipeline
-    config.assets.enabled = true
     config.assets.initialize_on_precompile = false
 
     # Version of your assets, change this if you want to expire all your assets.
@@ -56,6 +55,7 @@ module OnRuby
     end
 
     # Mass assignment settings
-    config.active_record.whitelist_attributes = true
+    # TODO rails4
+    config.active_record.whitelist_attributes = false
   end
 end
