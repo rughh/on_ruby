@@ -4,7 +4,7 @@ ruby "2.0.0"
 gem "thin",         require: false
 gem "foreman",      require: false
 
-gem "rails",                  "3.2.13"
+gem "rails",                  "4.0.0.rc1"
 gem "slim-rails",             "1.1.1"
 gem "redcarpet",              "2.2.2"
 gem "friendly_id",            "4.0.9"
@@ -12,24 +12,23 @@ gem "omniauth",               "1.1.4"
 gem "omniauth-twitter",       "0.0.16"
 gem "omniauth-github",        "1.1.0"
 gem "icalendar",              "1.3.0"
-gem "meta_search",            ">= 1.1.0.pre"
 gem "decent_exposure",        "2.1.0"
 gem "geocoder",               "1.1.8"
 gem "acts_as_api",            "0.4.1"
 gem "whitelabel",             "0.2.0"
 gem "dalli",                  "2.6.2"
 gem "exception_notification", "3.0.1"
-gem "activeadmin",            "0.6.0"
 
-group :assets do
-  gem "jquery-rails",         "2.2.1"
-  gem "jquery_mobile_rails",  "1.3.0"
-  gem "sass-rails",           "3.2.6"
-  gem "compass-rails",        "1.0.3"
-  gem "coffee-rails",         "3.2.2"
-  gem "chosen-rails",         "0.9.13"
-  gem "uglifier",             "2.0.1"
-end
+gem "ransack",                github: "avit/ransack",           branch: 'rails4-dependencies'
+gem "activeadmin",            github: "gregbell/active_admin",  branch: '"metasearch->ransack"'
+
+gem "jquery-rails",           "2.2.1"
+gem "jquery_mobile_rails",    "1.3.0"
+gem "sass-rails",             "4.0.0.rc1"
+gem "compass-rails",          "1.0.3"
+gem "coffee-rails",           "4.0.0"
+gem "chosen-rails",           "0.9.13"
+gem "uglifier",               "2.0.1"
 
 group :production do
   gem "pg",                   "0.14.0"
