@@ -17,7 +17,8 @@ gem "geocoder",               "1.1.8"
 gem "acts_as_api",            "0.4.1"
 gem "whitelabel",             "0.2.0"
 gem "dalli",                  "2.6.2"
-gem "exception_notification", "3.0.1"
+# TODO rails4
+# gem "exception_notification", "3.0.1"
 
 gem "ransack",                github: "avit/ransack",           branch: 'rails4-dependencies'
 gem "activeadmin",            github: "gregbell/active_admin",  branch: '"metasearch->ransack"'
