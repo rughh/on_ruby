@@ -23,8 +23,9 @@ gem "dalli",                  "2.6.2"
 # TODO rails4
 # gem "exception_notification", "3.0.1"
 
-gem "ransack",                github: "avit/ransack",           branch: 'rails4-dependencies'
-gem "activeadmin",            github: "gregbell/active_admin",  branch: '"metasearch->ransack"'
+# TODO rails 4 https://github.com/gregbell/active_admin/pull/2120
+gem "ransack",                github: "avit/ransack",             branch: "rails4-dependencies"
+gem "activeadmin",            github: "akashkamboj/active_admin", branch: "rails4"
 
 gem "jquery-rails",           "2.2.1"
 gem "jquery_mobile_rails",    "1.3.0"
