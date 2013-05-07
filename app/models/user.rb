@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   validates :nickname, :name, :image, presence: true
   validates :nickname, uniqueness: true
   validates :twitter, :github, uniqueness: true, allow_nil: true, allow_blank: true
-  validates :twitter, :github, format: { with: /^(\w|-)+$/, allow_nil: true, allow_blank: true }
+  validates :twitter, :github, format: { with: /\A(\w|-)+\z/, allow_nil: true, allow_blank: true }
 
   has_many :authorizations, dependent: :destroy
   has_many :participants, dependent: :destroy
@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   attr_accessible :twitter, :github, :name, :freelancer, :available, :hide_jobs, :participants, :image, :url, :nickname, :admin, as: :admin
 
   scope :organizers, -> { where(nickname: Whitelabel[:organizers]) }
-  scope :ordered, order('created_at DESC')
+  scope :ordered,    -> { order('created_at DESC') }
 
   def participates?(event)
     participants.any? { |participant| participant.event_id == event.id }

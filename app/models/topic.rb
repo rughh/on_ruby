@@ -23,9 +23,9 @@ class Topic < ActiveRecord::Base
 
   has_many :likes, dependent: :destroy
 
-  scope :ordered, order('created_at DESC')
-  scope :undone, where('event_id IS NULL')
-  scope :done, where('event_id IS NOT NULL')
+  scope :ordered, -> { order('created_at DESC') }
+  scope :undone,  -> { where('event_id IS NULL') }
+  scope :done,    -> { where('event_id IS NOT NULL') }
 
   default_scope -> { where(label: Whitelabel[:label_id]) }
 
