@@ -1,7 +1,11 @@
-div data-role="header"
+div data-role="header" data-position="fixed"
   h3= mobile_title
   - if Whitelabel.label
     = link_to t('mobile.home'), root_url, data: {icon: :home, iconpos: :notext}
     = link_to t('mobile.settings'), settings_path, data: {icon: :gear, iconpos: :notext}
+  div data-role="navbar" data-iconpos="right"
+    ul
+      - [:events, :topics, :people, :locations].each do |it|
+        li= link_to t(it), root_path(anchor: it), data: { icon: "grid" }
 - flash.each do |name, msg|
   = content_tag :div, msg, id: "flash_#{name}", class: "ui-body"
