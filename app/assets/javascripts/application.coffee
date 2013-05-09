@@ -3,3 +3,7 @@
 //= require navi
 //= require custom
 //= require map
+
+$ ->
+  new Navi().scroll()
+  Map.init()

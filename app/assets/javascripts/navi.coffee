@@ -2,7 +2,7 @@ class Navi
 
   @historyCounter: 0
 
-  duration: 1200
+  duration: 1000
   offset:   80
 
   scroll: ->
@@ -19,8 +19,4 @@ class Navi
             count: Navi.historyCounter,
             "page-#{Navi.historyCounter}", url
 
-$ ->
-  new Navi().scroll()
-
-$(document).bind 'pageinit', ->
-  new Navi().scroll()
+window.Navi = Navi

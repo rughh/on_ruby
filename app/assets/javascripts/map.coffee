@@ -35,8 +35,4 @@ class Map
         recentWindow = infoWindow = new google.maps.InfoWindow(content: contents[marker.position])
         infoWindow.open map, marker
 
-$ ->
-  Map.init()
-
-$(document).bind 'pageinit', ->
-  Map.initMobile()
+window.Map = Map
