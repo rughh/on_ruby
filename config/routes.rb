@@ -1,14 +1,13 @@
+_404 = proc { |env| [404, {"Content-Type" => "text/html"}, ["404"]] }
+
 OnRuby::Application.routes.draw do
   resources :sitemaps, only: :show
 
   resources :users
   resources :locations
 
-  # legacy urls
-  match '/events/rss', to: 'events#index', defaults: {format: :xml}
-
   resources :events do
-    post 'add_user',  on: :member
+    post 'add_user', on: :member
     resources :materials
     resources :topics
     resources :participants
@@ -17,7 +16,6 @@ OnRuby::Application.routes.draw do
   resources :topics do
     resources :likes
   end
-  match 'wishes/:slug' => redirect('/topics/%{slug}')
 
   scope '/auth' do
     get '/:provider/callback',       to: 'sessions#create'
@@ -38,8 +36,6 @@ OnRuby::Application.routes.draw do
   root to: "home#index"
 
   ActiveAdmin.routes(self)
-  # make the logout of rails-admin functional
-  match '/admin/logout', to: 'sessions#destroy', as: :destroy_admin_user_session
 
-  match '/*tail' => redirect("/home/labels")
+  match '/*tail', to: _404
 end
