@@ -1,6 +1,6 @@
 ul#events data-role="listview"
   - if event = current_event
-    li(data-role="list-divider")= l(event.date)
+    li(data-role="list-divider")= l(event.date, format: :long)
     li(data-theme="c")
       = link_to event do
         h3= event.name
@@ -14,7 +14,7 @@ ul#events data-role="listview"
           strong=' event.topics.count
           = t('topics')
   - events.each do |event|
-    li(data-role="list-divider")= l(event.date)
+    li(data-role="list-divider")= l(event.date, format: :long)
     li
       = link_to event do
         h3= event.name
