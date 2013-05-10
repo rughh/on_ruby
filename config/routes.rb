@@ -2,6 +2,7 @@ _404 = proc { |env| [404, {"Content-Type" => "text/html"}, ["404"]] }
 
 OnRuby::Application.routes.draw do
   resources :sitemaps, only: :show
+  resources :settings, only: :index
 
   resources :users
   resources :locations
@@ -30,7 +31,6 @@ OnRuby::Application.routes.draw do
     match '/', to: 'labels#index', as: :labels
   end
 
-  match '/home/settings',   to: 'home#settings',  as: :settings
   match '/api',             to: 'api#index'
 
   root to: "home#index"

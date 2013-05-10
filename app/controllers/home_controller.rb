@@ -8,5 +8,4 @@ class HomeController < ApplicationController
   expose(:locations)
 
   def index; end
-  def settings; end
 end

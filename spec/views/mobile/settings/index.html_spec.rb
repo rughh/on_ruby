@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "mobile/home/settings" do
+describe "mobile/settings/index" do
   it "should render successfully" do
     render
   end
