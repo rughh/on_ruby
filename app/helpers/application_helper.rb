@@ -1,6 +1,4 @@
-# encoding: UTF-8
 module ApplicationHelper
-
   def whitelabel_stylesheet_link_tag
     link = "labels/#{Whitelabel[:label_id]}"
     stylesheet_link_tag link if File.exists? Rails.root.join("app/assets/stylesheets/#{link}.css.sass")
