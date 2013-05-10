@@ -9,4 +9,4 @@ div data-role="controlgroup" data-type="horizontal"
   -[:de, :en].each do |locale|
     - data = {role: "button"}
     - data[:icon] = "check" if I18n.locale == locale
-    = link_to t("languages.#{locale}"), root_path(locale: locale), title: title, data: data
+    = link_to t("languages.#{locale}"), root_path(locale: locale), rel: :external, data: data
