@@ -1,4 +1,6 @@
 OnRuby::Application.routes.draw do
+  resources :sitemaps, only: :show
+
   resources :users
   resources :locations
 
@@ -31,7 +33,6 @@ OnRuby::Application.routes.draw do
   end
 
   match '/home/settings',   to: 'home#settings',  as: :settings
-  match '/sitemap/:label',  to: 'misc#sitemap',   as: :sitemap, format: :xml
   match '/api',             to: 'api#index'
 
   root to: "home#index"

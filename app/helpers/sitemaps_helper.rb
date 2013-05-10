@@ -1,5 +1,5 @@
-module MiscHelper
-  def urls(p = params[:label])
+module SitemapsHelper
+  def urls(p = params[:id])
     label = Whitelabel.label_for(p)
     Whitelabel.with_label(label) do
       subdomain = label.label_id
