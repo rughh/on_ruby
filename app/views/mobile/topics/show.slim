@@ -1,3 +1,6 @@
 h2= topic.name
 
 == markdown topic.description
+
+- if event = topic.event
+  = link_to event.name, event, data: {role: :button}

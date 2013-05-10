@@ -61,6 +61,7 @@ en:
     show_more: "show more"
     no_new_topics: "Currently no proposals, add your %{new_topic_link} here!"
     all_events: "All Events"
+    all_people: "All People"
   profile:
     edit: "Edit profile"
     freelancer: "Freelancer"
