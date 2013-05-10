@@ -15,7 +15,7 @@ section
     p= render 'users/list', users: event.users
 
   = render "topics", topics: event.topics
-  = render "part", event: event, type: :materials
+  = render "materials", materials: event.materials
 
   h3#route= t("show.route")
   = map(event.location, lat: event.location.lat, long: event.location.long)
