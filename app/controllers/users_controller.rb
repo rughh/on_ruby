@@ -4,8 +4,8 @@ class UsersController < ApplicationController
 
   before_filter :authenticate_current_user!, only: [:edit, :update]
 
+  def index; end
   def show; end
-
   def edit; end
 
   def update

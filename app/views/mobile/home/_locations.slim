@@ -1,0 +1,4 @@
+ul#locations data-role="listview"
+  li(data-role="list-divider")= t('locations')
+  - locations.each do |location|
+    li= link_to location.name, location_path(location)

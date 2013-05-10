@@ -61,6 +61,7 @@ de:
     show_more: "mehr anzeigen"
     no_new_topics: "Es gibt im Moment keine Themenvorschläge, trage hier deinen %{new_topic_link} ein!"
     all_events: "Alle Events"
+    all_people: "Alle Leute"
   profile:
     edit: "Profil bearbeiten"
     freelancer: "Freiberufler"

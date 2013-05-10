@@ -1,2 +1,4 @@
 = render 'home/events', current_event: current_event, events: events
-= render 'home/topics'
+= render 'home/topics', undone_topics: undone_topics, done_topics: done_topics
+= render 'people', people: people[0..9]
+= render 'locations', locations: locations

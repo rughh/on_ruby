@@ -1,0 +1,7 @@
+ul data-role="listview"
+  li(data-role="list-divider")= t("people")
+  - users.each do |user|
+    li
+      = link_to user do
+        = image_tag user.image, class: "ui-li-icon", style: "margin-top: -2px"
+        = user.name
