@@ -18,8 +18,8 @@ describe SessionsController do
     let(:secret)  { 'sss' }
 
     before do
-      ENV['OMNIAUTH_TWITTER_EXAMPLE_COM_KEY']    = key
-      ENV['OMNIAUTH_TWITTER_EXAMPLE_COM_SECRET'] = secret
+      ENV['OMNIAUTH_TWITTER_ONRUBY_DEV_KEY']    = key
+      ENV['OMNIAUTH_TWITTER_ONRUBY_DEV_SECRET'] = secret
     end
 
     it "sets omniauth session options in the :auth action" do

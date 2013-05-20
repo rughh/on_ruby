@@ -27,7 +27,7 @@ OnRuby::Application.routes.draw do
     get '/offline_login/:nickname',  to: 'sessions#offline_login' if Rails.env.development?
   end
 
-  constraints subdomain: "www" do
+  constraints MainDomainConstraint.new do
     match '/', to: 'labels#index', as: :labels
   end
 

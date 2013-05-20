@@ -3,7 +3,8 @@ require "spec_helper"
 describe "Whitelabel" do
   describe "GET label page with non existing subdomain" do
     it "does not do an endless redirect but halts" do
-      get labels_url(subdomain: 'www')
+      host! 'www.onruby.dev'
+      get labels_url
       response.should be_success
     end
   end
