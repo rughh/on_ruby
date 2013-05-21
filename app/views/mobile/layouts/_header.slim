@@ -3,10 +3,7 @@ div data-role="header" data-position="fixed"
   - if Whitelabel.label
     = link_to t('mobile.home'), root_url, data: {icon: :home, iconpos: :notext}
     = link_to t('mobile.settings'), settings_path, data: {icon: :gear, iconpos: :notext}
-  - if current_page? root_path
-    div data-role="navbar" data-iconpos="right"
-      ul
-        - [:events, :topics, :people, :locations].each do |it|
-          li= link_to t(it), root_path(anchor: it), class: it == :events ? "ui-btn-active" : ""
+  = content_for :mobile_navigation
+
 - flash.each do |name, msg|
   = content_tag :div, msg, id: "flash_#{name}", class: "ui-body"
