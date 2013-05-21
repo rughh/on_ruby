@@ -4,4 +4,4 @@
     - materials.each do |material|
       li
         = link_to(material.name, material.url, title: material.name)
-        == " (#{link_to_user(material.user)})"
+        == " (#{link_to_user(material.user)})" if material.user
