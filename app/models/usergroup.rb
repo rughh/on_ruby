@@ -1,11 +1,15 @@
 class Usergroup
+  DELIMITER_TIME = ':'
+  DELIMITER_DATE = ' '
+  NUMBERS        = %w(first second third)
+
   attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :mailing_list
   attr_accessor :host, :twitter, :usergroup_email, :organizers, :location, :imprint, :other_usergroups
 
   def parse_recurring_date(date)
-    num, day = recurring.split
+    number, day, _ = recurring.split(DELIMITER_DATE)
     day = Date::DAYS_INTO_WEEK[day.to_sym] + 1
-    num = %w(first second third).index(num)
+    num = NUMBERS.index(number)
     d = date.at_beginning_of_month
     if d.wday > day
       d + ((num + 1) * 7 + day - d.wday).days
@@ -15,9 +19,9 @@ class Usergroup
   end
 
   def parse_recurring_time
-    _, _, time_string = recurring.split
+    _, _, time_string = recurring.split(DELIMITER_DATE)
     if time_string.present?
-      hour, min = time_string.split(':')
+      hour, min = time_string.split(DELIMITER_TIME)
       t = Time.new(2012, 5, 1, hour.to_i, min.to_i)
     else
       t = Time.new(2012, 5, 1, 19, 0)
@@ -29,6 +33,13 @@ class Usergroup
     d = parse_recurring_date(Date.today.next_month) unless d.future?
     t = parse_recurring_time
     Time.new(d.year, d.month, d.day, t.hour, t.min)
+  end
+
+  def localized_recurring
+    number, day, _ = recurring.split(DELIMITER_DATE)
+    number  = NUMBERS.index(number) + 1
+    day     = I18n.t('date.day_names')[Date::DAYS_INTO_WEEK[day.to_sym] + 1]
+    I18n.t("event.recurring", number: number, day: day)
   end
 
   def self.omniauth_keys(provider, request)

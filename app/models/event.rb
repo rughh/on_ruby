@@ -75,13 +75,9 @@ class Event < ActiveRecord::Base
   end
 
   class << self
-    def next_event_date
-      Whitelabel.label.next_event_date
-    end
-
     def duplicate!
       latest  = Event.last
-      date    = Event.next_event_date
+      date    = Whitelabel[:next_event_date]
       Event.new.tap do |it|
         it.name         = "#{I18n.tw('name')} - #{I18n.l date, locale: :de, format: :month}"
         it.date         = date
