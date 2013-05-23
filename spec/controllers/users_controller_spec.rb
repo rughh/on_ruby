@@ -7,7 +7,7 @@ describe UsersController do
 
   before { set_subdomain }
 
-  describe "GET :show" do
+  context "GET :show" do
     render_views
 
     it "rescues from not found" do
@@ -16,7 +16,7 @@ describe UsersController do
     end
   end
 
-  describe "GET :edit" do
+  context "GET :edit" do
     it "should show alert for wrong user" do
       get :edit, id: user.id
       flash[:alert].should_not be_nil
@@ -24,7 +24,7 @@ describe UsersController do
     end
   end
 
-  describe "DELETE :destroy" do
+  context "DELETE :destroy" do
     context "removing" do
       let(:user) { create(:user, authorizations: [create(:authorization)]) }
       let(:event) { create(:event) }
@@ -53,7 +53,7 @@ describe UsersController do
     end
   end
 
-  describe "PUT :update" do
+  context "PUT :update" do
     before { set_referer }
 
     it "should update the github attribute of a user" do

@@ -7,7 +7,7 @@ describe "Topics" do
     TopicsController.any_instance.stubs(:current_user).returns(build(:user, id: 123))
   end
 
-  describe "GET /topics/new" do
+  context "GET /topics/new" do
     it "works!" do
       get new_topic_path
       response.status.should be(200)

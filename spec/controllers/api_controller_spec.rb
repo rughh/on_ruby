@@ -4,7 +4,7 @@ describe ApiController do
 
   before { set_subdomain }
 
-  describe "GET :index" do
+  context "GET :index" do
     before do
       request.env['x-api-key'] = ''
     end

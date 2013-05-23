@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SessionsController do
   before { set_subdomain }
 
-  describe "GET :create" do
+  context "GET :create" do
     before { request.env['omniauth.auth'] = TWITTER_AUTH_HASH }
 
     it "renders the :index template" do
@@ -13,7 +13,7 @@ describe SessionsController do
     end
   end
 
-  describe "GET :auth" do
+  context "GET :auth" do
     let(:key)     { 'kkk' }
     let(:secret)  { 'sss' }
 

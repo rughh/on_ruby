@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SitemapsController do
-  describe "GET :show" do
+  context "GET :show" do
     render_views
 
     before do

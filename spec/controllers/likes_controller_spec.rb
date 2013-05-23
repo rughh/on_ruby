@@ -6,7 +6,7 @@ describe LikesController do
 
   before { set_subdomain }
 
-  describe "POST :create" do
+  context "POST :create" do
     let(:topic) { create(:topic) }
     let(:data) { {:like => attributes_for(:like), :topic_id => topic.id} }
 
@@ -22,7 +22,7 @@ describe LikesController do
     end
   end
 
-  describe "POST :delete" do
+  context "POST :delete" do
     let!(:like) { create(:like, user: user) }
     let(:topic) { create(:topic, likes: [like]) }
 

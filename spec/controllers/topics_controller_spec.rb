@@ -4,7 +4,7 @@ describe TopicsController do
 
   before { set_subdomain }
 
-  describe "GET :show" do
+  context "GET :show" do
     let(:topic) { create(:topic) }
 
     it "should assign members" do
@@ -15,7 +15,7 @@ describe TopicsController do
     end
   end
 
-  describe "POST :create" do
+  context "POST :create" do
     let(:user) { create(:user) }
     let(:topic_data) { attributes_for(:topic) }
 
@@ -34,7 +34,7 @@ describe TopicsController do
     end
   end
 
-  describe "POST :update" do
+  context "POST :update" do
     let(:user) { create(:user) }
     let(:topic) { create(:topic, user: user) }
 

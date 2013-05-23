@@ -5,7 +5,7 @@ describe HomeController, type: :controller do
 
   before { set_subdomain }
 
-  describe "request format" do
+  context "request format" do
     it "should have a request type of text/html" do
       get :index
 
