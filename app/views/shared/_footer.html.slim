@@ -36,6 +36,6 @@ section.clearfix
       - Whitelabel.labels.each do |label|
         li
           - name = t("label.#{label.label_id}.name")
-          =' link_to name, root_url(subdomain: label.label_id, domain: TLD), title: name
+          =' link_to name, root_url(subdomain: label.label_id, domain: HOST), title: name
           = link_to_twitter(label.twitter, clung: true)
 
