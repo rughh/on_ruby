@@ -5,8 +5,6 @@ describe UsersController do
   let(:data) { {id: user.id, user: { github: 'testo', freelancer: true, available: true }} }
   let(:unallowed_data) { data.merge({:user => {:nickname => 'not_allowed_property'}}) }
 
-  before { set_subdomain }
-
   context "GET :show" do
     render_views
 
@@ -20,7 +18,7 @@ describe UsersController do
     it "should show alert for wrong user" do
       get :edit, id: user.id
       flash[:alert].should_not be_nil
-      response.should redirect_to(root_url)
+      response.should redirect_to(root_path)
     end
   end
 
@@ -38,7 +36,7 @@ describe UsersController do
         end.to change(Authorization, :count).by(-1)
 
         flash[:notice].should_not be_nil
-        response.should redirect_to(destroy_session_url)
+        response.should redirect_to(destroy_session_path)
       end
 
       it "should not delete an organizer" do
@@ -48,7 +46,7 @@ describe UsersController do
         end.to change(User, :count).by(0)
 
         flash[:alert].should_not be_nil
-        response.should redirect_to(edit_user_url(event.user))
+        response.should redirect_to(edit_user_path(event.user))
       end
     end
   end
@@ -76,7 +74,7 @@ describe UsersController do
     it "should update nothing for wrong user" do
       put :update, data
       flash[:alert].should_not be_nil
-      response.should redirect_to(root_url)
+      response.should redirect_to(root_path)
     end
   end
 end

@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe ParticipantsController do
-  before { set_subdomain }
-
   context "DELETE :destroy" do
     before do
       @participant = create(:participant)

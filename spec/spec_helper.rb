@@ -18,6 +18,10 @@ RSpec.configure do |config|
     Whitelabel.label = Whitelabel.labels.first
   end
 
+  config.before(:each, type: :controller) do
+    set_subdomain
+  end
+
   config.include RequestHelper, type: :controller
   config.include CachingHelper, type: :controller
   config.include KaminariHelper

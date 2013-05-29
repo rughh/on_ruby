@@ -1,10 +1,7 @@
 require 'spec_helper'
 
 describe LikesController do
-
   let(:user) { create(:user) }
-
-  before { set_subdomain }
 
   context "POST :create" do
     let(:topic) { create(:topic) }

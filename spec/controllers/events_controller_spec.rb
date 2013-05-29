@@ -1,11 +1,8 @@
 require 'spec_helper'
 
 describe EventsController do
-
   let(:event) { create(:event) }
   let(:user) { create(:user) }
-
-  before { set_subdomain }
 
   context "GET :index" do
     before { get :index, format: :xml }

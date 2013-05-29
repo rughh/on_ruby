@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe LocationsController do
-  before { set_subdomain }
-
   context "GET :index" do
     it "should render the :index template" do
       get :index

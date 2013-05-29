@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe SessionsController do
-  before { set_subdomain }
-
   context "GET :create" do
     before { request.env['omniauth.auth'] = TWITTER_AUTH_HASH }
 

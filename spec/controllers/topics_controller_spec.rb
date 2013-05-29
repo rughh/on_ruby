@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 describe TopicsController do
-
-  before { set_subdomain }
-
   context "GET :show" do
     let(:topic) { create(:topic) }
 
