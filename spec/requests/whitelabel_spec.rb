@@ -4,7 +4,7 @@ describe "Whitelabel" do
   context "GET label page with non existing subdomain" do
     it "does not do an endless redirect but halts" do
       host! 'www.onruby.dev'
-      get labels_url
+      get labels_path
       response.should be_success
     end
   end
@@ -24,11 +24,11 @@ describe "Whitelabel" do
   end
 
   context "GET page with custom domain" do
-    before { ActionDispatch::Request.any_instance.stubs(:host).returns("www.colognerb.de") }
-
     it "shows the label" do
+      host! 'www.colognerb.de'
       get root_url
       response.should be_success
+      Whitelabel[:label_id].should eql("cologne")
     end
   end
 end
