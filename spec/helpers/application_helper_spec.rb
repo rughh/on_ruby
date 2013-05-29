@@ -10,7 +10,7 @@ describe ApplicationHelper do
     end
 
     it "should have a page_title for default label" do
-      Whitelabel.label = nil
+      Whitelabel.reset!
       helper.page_title.should eql("Wir on Ruby - Ruby Communities Deutschland")
     end
   end
