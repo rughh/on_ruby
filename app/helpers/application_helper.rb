@@ -10,8 +10,9 @@ module ApplicationHelper
   end
 
   def canonical_url(mobile: false)
+    subdomain = Whitelabel.label ? Whitelabel[:label_id] : 'www'
     options = {
-      subdomain: Whitelabel[:label_id],
+      subdomain: subdomain,
       only_path: false
     }
     options[:mobile] = 1 if mobile
