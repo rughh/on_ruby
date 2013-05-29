@@ -1,7 +1,7 @@
 div data-role="header" data-position="fixed"
   h3= mobile_title
   - if Whitelabel.label
-    = link_to t('mobile.home'), root_url, data: {icon: :home, iconpos: :notext}
+    = link_to t('mobile.home'), root_path, data: {icon: :home, iconpos: :notext}
     = link_to t('mobile.settings'), settings_path, data: {icon: :gear, iconpos: :notext}
   = content_for :mobile_navigation
 
