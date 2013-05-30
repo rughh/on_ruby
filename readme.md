@@ -17,11 +17,17 @@ For working with the whitelabel functionality, you need to add all supported sub
 
     127.0.0.1    www.onruby.dev hamburg.onruby.dev cologne.onruby.dev bremen.onruby.dev saar.onruby.dev berlin.onruby.dev karlsruhe.onruby.dev leipzig.onruby.dev dresden.onruby.dev
 
-Access via [http://onruby.dev:5000](http://onruby.dev:5000)
+Access via [http://www.onruby.dev:5000](http://www.onruby.dev:5000)
 
 ### Test-Data
 
-You don't need any to setup a new project! If you are a heroku project admin, you can dump Data from Heroku via [Taps Gem](https://devcenter.heroku.com/articles/taps):
+You don't need any to setup a new project!
+
+If you want to have some kind of seed, than generate some test-data:
+
+    rake data:create
+
+If you are a heroku project admin, you can dump Data from Heroku via [Taps Gem](https://devcenter.heroku.com/articles/taps):
 
     heroku db:pull
 

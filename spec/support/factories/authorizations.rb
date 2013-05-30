@@ -1,5 +1,4 @@
 # encoding: UTF-8
-
 TWITTER_AUTH_HASH = {
   "provider"=>"twitter",
   "uid"=>"14339524",
@@ -12,7 +11,6 @@ TWITTER_AUTH_HASH = {
     "urls"=>{"Website"=>"http://nofail.de"}
   }
 }
-
 GITHUB_AUTH_HASH = {
   "provider"=>"github",
   "uid"=>"48745",
@@ -58,8 +56,8 @@ GITHUB_AUTH_HASH = {
 
 FactoryGirl.define do
   factory :authorization do
-    provider "provider"
-    uid "uid"
+    provider  "provider"
+    uid       "uid"
     association :user, :factory => :user
   end
 end
