@@ -10,19 +10,19 @@ class LikesController < ApplicationController
     like.topic = topic
     like.user = current_user
     if topic.already_liked?(current_user)
-      redirect_to(topic_url(topic), alert: t("flash.double_like"))
+      redirect_to(topic_path(topic), alert: t("flash.double_like"))
     elsif like.save
-      redirect_to(topic_url(topic), notice: t("flash.liked"))
+      redirect_to(topic_path(topic), notice: t("flash.liked"))
     else
-      redirect_to(topic_url(topic), alert: like.errors.full_messages.join(' '))
+      redirect_to(topic_path(topic), alert: like.errors.full_messages.join(' '))
     end
   end
 
   def destroy
     if topic.already_liked?(current_user) && like.destroy
-      redirect_to(topic_url(topic), notice: t("flash.unliked"))
+      redirect_to(topic_path(topic), notice: t("flash.unliked"))
     else
-      redirect_to(topic_url(topic), alert: like.errors.full_messages.join(' '))
+      redirect_to(topic_path(topic), alert: like.errors.full_messages.join(' '))
     end
   end
 end

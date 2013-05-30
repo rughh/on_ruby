@@ -106,6 +106,8 @@ GEM
       multi_json (~> 1.0)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
+    faker (1.1.2)
+      i18n (~> 0.5)
     faraday (0.8.7)
       multipart-post (~> 1.1)
     fastercsv (1.5.5)
@@ -293,6 +295,7 @@ DEPENDENCIES
   dalli (= 2.6.2)
   decent_exposure (= 2.1.0)
   factory_girl (= 4.2.0)
+  faker (= 1.1.2)
   foreman
   friendly_id (= 4.0.9)
   geocoder (= 1.1.8)

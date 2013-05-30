@@ -1,5 +1,4 @@
 class Highlight < ActiveRecord::Base
-
   validates :description, :url, :start_at, :end_at, presence: true
 
   attr_accessible :description, :url, :start_at, :end_at, as: :admin

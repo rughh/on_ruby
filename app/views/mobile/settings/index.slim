@@ -1,0 +1,12 @@
+= link_to t("mobile.disable"), root_path(mobile: 0), rel: :external, data: {role: :button, icon: :alert}
+
+-if signed_in?
+  = link_to t("login.logout"), destroy_session_path(current_user), rel: :external, data: {role: :button, icon: :alert}
+-else
+  = link_to_login
+
+div data-role="controlgroup" data-type="horizontal"
+  -[:de, :en].each do |locale|
+    - data = {role: "button"}
+    - data[:icon] = "check" if I18n.locale == locale
+    = link_to t("languages.#{locale}"), root_path(locale: locale), rel: :external, data: data

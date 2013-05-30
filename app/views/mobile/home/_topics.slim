@@ -1,0 +1,15 @@
+ul#topics data-role="listview"
+  - if undone_topics.present?
+    li.ui-body= button_to t("home.add_topic"), new_topic_path, method: :get, data: {icon: :plus}
+    li(data-role="list-divider")= t("home.new_topics")
+    - undone_topics.each do |topic|
+      li= link_to_topic(topic)
+  - else
+    li(data-role="list-divider")
+      == t("home.no_new_topics", new_topic_link: link_to(t('topic.topic'), new_topic_path))
+
+  - if done_topics.present?
+    li(data-role="list-divider")= t("home.old_topics")
+    - done_topics.each do |topic|
+      li= link_to_topic(topic)
+    li.ui-body= button_to t("topic.all_topics"), topics_path, method: :get, data: {icon: 'arrow-r'}

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Location do
 
   before(:each) do
-    @location       = create(:location)
+    @location       = create(:location, street: "Schanzenstr.", house_number: "85", zip: "20357", city: "Hamburg")
     @other_location = create(:location, label: "cologne")
   end
 
@@ -17,7 +17,7 @@ describe Location do
     end
   end
 
-  describe "#full_address" do
+  context "#full_address" do
     it 'should return a full address string with street, house_number, zip, city and internationalized country name' do
       @location.full_address.should eq('Schanzenstr. 85, 20357 Hamburg, Deutschland')
     end

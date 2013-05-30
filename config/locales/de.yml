@@ -53,6 +53,7 @@ de:
     old_topics: "Kürzlich vorgestellte Themen"
     company_workers: "Viele der Teilnehmer an der Ruby Usergroup arbeiten auch dort und wir freuen uns immer über neue Gesichter."
     company_missing: "Solltest du eine Firma vermissen, dann schicke uns einfach eine %{email_link} oder Direct-Message an %{twitter_link}"
+    next_possible_meetup_recurring: "Derzeit ist noch kein Termin festgelegt, die Usergroup trifft sich aber %{recurring}."
     next_possible_meetup: "Das nächste Ruby / Rails Treffen findet voraussichtlich am %{event_date} statt."
     next_meetup: "Das nächste Treffen"
     takes_place: "findet am %{event_date} bei %{location_link} statt!"
@@ -61,6 +62,7 @@ de:
     show_more: "mehr anzeigen"
     no_new_topics: "Es gibt im Moment keine Themenvorschläge, trage hier deinen %{new_topic_link} ein!"
     all_events: "Alle Events"
+    all_people: "Alle Leute"
   profile:
     edit: "Profil bearbeiten"
     freelancer: "Freiberufler"
@@ -92,6 +94,7 @@ de:
     twitter_message: "Neues Thema von @%{username} '%{name}' %{url}"
   event:
     twitter_message: "%{name} am %{date} %{url}"
+    recurring: "jeden %{number}. %{day} im Monat"
   flash:
     duplicate_nick: "Der Nickname '%{name}' ist bereits vergeben! Wenn Du Dich schon über einen anderen Provider angemeldet hast, dann trage bitte in Deinem Profil die entsprechenden Handles ein!"
     only_admins: "Hoppala, da dürfen nur Admins hin!"

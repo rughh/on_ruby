@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :setup
 
-  helper_method :current_user
-  helper_method :signed_in?, :mobile_device?
+  helper_method :signed_in?, :current_user
+  helper_method :mobile_device?
 
   # TODO rail4 https://github.com/rails/rails-observers/issues/4
   # cache_sweeper :index_sweeper

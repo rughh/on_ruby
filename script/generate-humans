@@ -2,19 +2,11 @@
 # encoding: UTF-8
 
 FORMAT = <<-OUTPUT
-/* CONTRIBUTORS */
+/* MAINTAINER */
 
   Peter Schröder (Señor Developer)
   Site: https://github.com/phoet
   Location: Hamburg, Germany
-
-  Daniel Harrington (Señor Developer)
-  Site: https://github.com/rubiii
-  Location: Hamburg, Germany
-
-  Dennis Reimann (Señor Developer)
-  Site: https://github.com/dennisreimann
-  Location: Bremen, Germany
 
 /* COMMITTERS */
 

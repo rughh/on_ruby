@@ -25,7 +25,7 @@ module ExternalLinkHelper
   def twitter_update_url(model)
     case model
     when Event
-      options = {name: model.name, date: l(model.date, locale: :de, format: :short), url: event_url(model)}
+      options = {name: model.name, date: l(model.date, locale: I18n.locale, format: :short), url: event_url(model)}
     when Topic
       options = {username: model.user.name, name: model.name.truncate(50), url: topic_url(model)}
     end

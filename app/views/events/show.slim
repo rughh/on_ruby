@@ -3,7 +3,7 @@ section
   h2= event.name
   .participation= participation_link(event)
   p.meta
-    span.calendar-icon=' link_to l(event.date), event_path(event, format: :ics), title: event.name, class: 'ical'
+    span.calendar-icon=' link_to l(event.date, format: :long), event_path(event, format: :ics), title: event.name, class: 'ical'
     =' t("show.hosted_by")
     = link_to_user event.user
   == link_to_route event.location
@@ -15,7 +15,7 @@ section
     p= render 'users/list', users: event.users
 
   = render "topics", topics: event.topics
-  = render "part", event: event, type: :materials
+  = render "materials", materials: event.materials
 
   h3#route= t("show.route")
   = map(event.location, lat: event.location.lat, long: event.location.long)

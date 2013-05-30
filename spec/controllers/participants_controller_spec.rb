@@ -1,10 +1,7 @@
 require 'spec_helper'
 
 describe ParticipantsController do
-
-  before { set_subdomain }
-
-  describe "DELETE :destroy" do
+  context "DELETE :destroy" do
     before do
       @participant = create(:participant)
       @event = @participant.event
@@ -23,6 +20,4 @@ describe ParticipantsController do
       response.should redirect_to(@event)
     end
   end
-
 end
-

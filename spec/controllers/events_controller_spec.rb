@@ -1,13 +1,10 @@
 require 'spec_helper'
 
 describe EventsController do
-
   let(:event) { create(:event) }
   let(:user) { create(:user) }
 
-  before { set_subdomain }
-
-  describe "GET :index" do
+  context "GET :index" do
     before { get :index, format: :xml }
 
     it "should assign the events to display" do
@@ -20,7 +17,7 @@ describe EventsController do
     end
   end
 
-  describe "GET :show" do
+  context "GET :show" do
     before do
       get :show, id: event.id
     end
@@ -34,7 +31,7 @@ describe EventsController do
     end
   end
 
-  describe "POST :add_user" do
+  context "POST :add_user" do
     before do
       controller.stubs(current_user: user)
     end

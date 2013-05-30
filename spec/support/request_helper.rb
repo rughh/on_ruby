@@ -4,6 +4,10 @@ module RequestHelper
   end
 
   def set_subdomain(subdomain = "hamburg")
-    @request.host = "#{subdomain}.example.com"
+    @request.host = "#{subdomain}.onruby.dev"
+  end
+
+  def set_custom_domain(domain = "www.rug-b.de")
+    @request.host = domain
   end
 end

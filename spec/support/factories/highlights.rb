@@ -1,10 +1,8 @@
 FactoryGirl.define do
   factory :highlight do
-    description "crazy highlight"
-    url         "/"
-    start_at    "2012-02-24 00:00:00"
-    end_at      "2012-02-25 00:00:00"
-    created_at  "2012-12-06 11:47:30"
-    updated_at  "2012-12-06 11:47:30"
+    description { Faker::Lorem.words(6).join }
+    url         { Faker::Internet.url }
+    start_at    { Date.tomorrow }
+    end_at      { rand(5).days.from_now }
   end
 end

@@ -4,7 +4,7 @@ describe "Dashboard" do
 
   before { ActionDispatch::Request.any_instance.stubs(:subdomains).returns(['hamburg']) }
 
-  describe "GET /admin" do
+  context "GET /admin" do
     context "admin user" do
       before { Admin::DashboardController.any_instance.stubs(:current_user).returns(build(:admin_user)) }
 

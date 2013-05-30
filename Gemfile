@@ -40,6 +40,7 @@ group :production do
 end
 
 group :development, :test do
+  gem "faker",              "1.1.2"
   gem "sqlite3",            "1.3.7"
   gem "pry",                "0.9.12.1"
   gem "pry-remote",         "0.1.7"

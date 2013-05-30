@@ -18,8 +18,16 @@ RSpec.configure do |config|
     Whitelabel.label = Whitelabel.labels.first
   end
 
+  config.before(:each, type: :request) do
+    host! "hamburg.onruby.dev"
+  end
+
+  config.before(:each, type: :controller) do
+    set_subdomain
+  end
+
   config.include RequestHelper, type: :controller
-  config.include CachingHelper, type: :controller
+  config.include CachingHelper, type: :request
   config.include KaminariHelper
   config.include FactoryGirl::Syntax::Methods
 end

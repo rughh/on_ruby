@@ -1,13 +1,9 @@
 require "spec_helper"
 
-describe HomeController, type: :controller do
-  render_views
-
-  before { set_subdomain }
-
+describe "Caching", type: :request do
   it "creates a cache-key based on the label" do
     with_caching do
-      get :index
+      get root_path
 
       Rails.cache.exist?("views/hamburg/home/index").should be_true
       IndexSweeper.expire_view_cache

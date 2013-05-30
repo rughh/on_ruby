@@ -18,21 +18,6 @@ HOR =
         $(this).attr "src", dataSrc  if src isnt dataSrc
     setTimeout func, 500
 
-  scrollPage: ->
-    $("a[href*=\"#\"]").click (event) ->
-      target = $(@hash)
-      if target.length
-        event.preventDefault()
-        top = target.offset().top - 80
-        $("html, body").animate
-          scrollTop: top
-        , 1200
-        if window.history and window.history.pushState
-          new_url = (if /\#/.test(location.href) then location.href.replace(/\#.+/, @hash) else "" + location.href + @hash)
-          window.history.pushState
-            count: HOR.historyCounter
-          , "page-" + HOR.historyCounter, new_url
-
   close: ->
     $(".close").click (event) ->
       event.preventDefault()
@@ -68,6 +53,5 @@ $ ->
   HOR.reload()
   HOR.close()
   HOR.showHide()
-  HOR.scrollPage()
   HOR.moreList()
   HOR.displayUsers()

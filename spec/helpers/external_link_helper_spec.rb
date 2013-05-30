@@ -4,7 +4,7 @@ require "spec_helper"
 describe ExternalLinkHelper do
   let(:user) { build(:user) }
 
-  describe "#link_to_github" do
+  context "#link_to_github" do
     it "should generate the link" do
       user = build(:user, github: "giddiup")
       helper.link_to_github(user).should eql('<a href="http://github.com/giddiup" title="giddiup">giddiup</a>')
@@ -16,22 +16,23 @@ describe ExternalLinkHelper do
     end
   end
 
-  describe "#link_to_twitter" do
+  context "#link_to_twitter" do
     it "should generate the link" do
       user = build(:user, twitter: "klaus")
       helper.link_to_twitter(user).should eql('@<a href="http://twitter.com/klaus" title="klaus">klaus</a>')
     end
   end
 
-  describe "#twitter_update_url" do
-    let(:topic) { create(:topic) }
-    let(:event) { create(:event) }
+  context "#twitter_update_url" do
+    let(:topic) { create(:topic, name: "bla") }
+    let(:event) { create(:event, name: "Weihnachtstreffen", date: "2010-12-06 11:47:30") }
 
     it "should generate a proper url for topics" do
+      topic.user.name = "Uschi"
+
       url = helper.twitter_update_url(topic)
       url.should match(Regexp.escape("http://twitter.com/home?status=Neues%20Thema%20von%20@Uschi"))
-      url.should match(Regexp.escape("The%20xing%20mobile%20website:%20touch.xing.com"))
-      url.should match(Regexp.escape("http://test.host/topics/the-xing-mobile-website-touch-xing-com"))
+      url.should match(Regexp.escape("http://test.host/topics/bla"))
     end
 
     it "should generate a proper url for events" do

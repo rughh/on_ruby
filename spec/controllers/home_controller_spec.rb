@@ -2,13 +2,36 @@ require 'spec_helper'
 
 describe HomeController do
 
-  before { set_subdomain }
+  context "subdomains" do
+    before { set_subdomain }
 
-  describe "GET :index" do
-    before { get :index }
+    context "GET :index" do
+      it "should render the :index template" do
+        get :index
+        response.should render_template(:index)
+      end
+    end
+  end
 
-    it "should render the :index template" do
-      response.should render_template(:index)
+  context "main domain" do
+    before { set_subdomain('www') }
+
+    context "GET :index" do
+      it "should render the :index template" do
+        get :index
+        response.should redirect_to("http://www.onruby.dev/")
+      end
+    end
+  end
+
+  context "custom domains" do
+    before { set_custom_domain }
+
+    context "GET :index" do
+      it "should render the :index template" do
+        get :index
+        response.should render_template(:index)
+      end
     end
   end
 end

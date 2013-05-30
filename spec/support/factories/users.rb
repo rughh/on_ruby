@@ -2,11 +2,11 @@
 
 FactoryGirl.define do
   factory :user do
-    name 'Uschi Müller'
-    sequence(:nickname){|n| "uschi #{n}"}
-    sequence(:github){|n| "github_#{n}"}
-    sequence(:twitter){|n| "twitter_#{n}"}
-    image 'http://onruby.de/logo.png'
+    name      { Faker::Name.name }
+    nickname  { Faker::Name.name.downcase.gsub(/ /, "_") }
+    github    { Faker::Name.name.gsub(/\W/, "-") }
+    twitter   { Faker::Name.name.gsub(/\W/, "-") }
+    image 'http://www.onruby.de/assets/labels/hamburg.png'
   end
 
   factory :admin_user, parent: :user do

@@ -1,7 +1,7 @@
 class ApiController < ApplicationController
   before_filter :api_sign_in
 
-  expose(:topics)     { [] } # TODO
+  expose(:topics)     { Topic.all }
   expose(:locations)  { Location.all }
   expose(:events)     { Event.ordered }
   expose(:users)      { User.ordered }
