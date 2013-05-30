@@ -63,7 +63,7 @@ On the admin-site we need to:
 
 ## Mobile Website
 
-![OnRuby Mobile](http://f.cl.ly/items/340F1y343N3H0S2k3c2F/iOS%20Simulator%20Bildschirmfoto%2026.09.2012%2019.26.49.png)
+![OnRuby Mobile](http://f.cl.ly/items/02203G1m3Y3X3p1O153g/mobile.png)
 
 ## Admin Interface
 
