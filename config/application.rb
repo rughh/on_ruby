@@ -53,9 +53,5 @@ module OnRuby
       g.fixture_replacement :factory_girl, :dir => "spec/support/factories"
       g.stylesheet_engine = :sass
     end
-
-    # Mass assignment settings
-    # TODO rails4
-    config.active_record.whitelist_attributes = false
   end
 end

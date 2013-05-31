@@ -4,8 +4,6 @@ class Authorization < ActiveRecord::Base
   validates :user_id, :uid, :provider, presence: true
   validates :uid, uniqueness: { scope: :provider }
 
-  attr_accessible :user, :uid, :provider
-
   def self.handle_authorization(auth)
     provider = auth['provider']
     uid      = auth['uid']

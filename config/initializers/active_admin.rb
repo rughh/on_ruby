@@ -1,10 +1,3 @@
-# allow attr_accessible with role admin
-module ActiveAdmin
-  class BaseController
-    with_role :admin
-  end
-end
-
 ActiveAdmin.setup do |config|
 
   # == Root

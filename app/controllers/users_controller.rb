@@ -1,15 +1,11 @@
 class UsersController < ApplicationController
-  expose(:users) { User.ordered }
-  expose(:user) { User.includes(participants: :event, topics: :event).find(params[:id]) }
-
   before_filter :authenticate_current_user!, only: [:edit, :update]
 
-  def index; end
-  def show; end
-  def edit; end
+  expose(:user, attributes: :user_params)
+  expose(:users) { User.ordered }
 
   def update
-    if user.update_attributes params[:user]
+    if user.save
       redirect_to :back, notice: t("user.saved_successful")
     else
       redirect_to :back, alert: user.errors.full_messages.join(' ')
@@ -23,5 +19,11 @@ class UsersController < ApplicationController
       current_user.destroy
       redirect_to destroy_session_path, notice: t("user.removed")
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:twitter, :github, :name, :freelancer, :available, :hide_jobs, :participants, :image, :url)
   end
 end

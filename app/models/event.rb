@@ -27,8 +27,6 @@ class Event < ActiveRecord::Base
   validates :location, :user, :name, :description, :date, presence: true
   validates :name, uniqueness: {scope: :label}
 
-  attr_accessible :location_id, :user_id, :published, :name, :description, :date, as: :admin
-
   accepts_nested_attributes_for :materials
   accepts_nested_attributes_for :topics
 

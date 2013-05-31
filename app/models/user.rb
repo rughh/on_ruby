@@ -30,9 +30,6 @@ class User < ActiveRecord::Base
 
   has_many :events
 
-  attr_accessible :twitter, :github, :name, :freelancer, :available, :hide_jobs, :participants, :image, :url
-  attr_accessible :twitter, :github, :name, :freelancer, :available, :hide_jobs, :participants, :image, :url, :nickname, :admin, as: :admin
-
   scope :organizers, -> { where(nickname: Whitelabel[:organizers]) }
   scope :ordered,    -> { order('created_at DESC') }
 

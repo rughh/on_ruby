@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   include LocaleDetection
   include UserHandling
 
+  decent_configuration do
+    strategy DecentExposure::StrongParametersStrategy
+  end
+
   protect_from_forgery
 
   before_filter :setup

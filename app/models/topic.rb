@@ -15,9 +15,6 @@ class Topic < ActiveRecord::Base
   validates :user, :name, :description, :label, presence: true
   validates :name, uniqueness: true
 
-  attr_accessible :label, :name, :user, :description
-  attr_accessible :label, :name, :event, :event_id, :user, :user_id, :description, as: :admin
-
   belongs_to :user
   belongs_to :event
 
