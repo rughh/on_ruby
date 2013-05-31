@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   end
 
   def participation(event)
-    participants.find(:first, conditions: [ "event_id = ?", event.id])
+    participants.where("event_id" => event.id).first
   end
 
   def url
@@ -107,7 +107,7 @@ class User < ActiveRecord::Base
     def find_or_create_from_hash!(hash)
       provider = hash['provider']
       nickname = hash['info']['nickname']
-      user = self.send "find_or_initialize_by_#{provider}", nickname
+      user = self.find_or_initialize_by(provider => nickname)
       if !user.persisted? && self.find_by_nickname(nickname)
         raise DuplicateNickname.new(nickname)
       end

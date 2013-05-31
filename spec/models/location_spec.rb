@@ -13,7 +13,7 @@ describe Location do
       hamburg_locations.should have(1).elements
       hamburg_locations.first.should eql(@location)
 
-      Location.unscoped.all.size.should be(2)
+      Location.unscoped.size.should be(2)
     end
   end
 

@@ -19,4 +19,4 @@ section
     br
     = f.action :submit
 
-  = button_to t("profile.remove_account"), current_user, method: :delete, confirm: t("profile.remove_confirm")
+  = button_to t("profile.remove_account"), current_user, method: :delete, data: { confirm: t("profile.remove_confirm") }
