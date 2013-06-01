@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   expose(:undone_topics) { Topic.ordered.undone }
   expose(:done_topics) { Topic.ordered.done.limit(10) }
   expose(:organizers) { User.organizers }
-  expose(:locations) { Location.all } # TODO (ps) rails4
+  expose(:locations)
 
   def index; end
 end
