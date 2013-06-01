@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_current_user!, only: [:edit, :update]
 
-  expose(:user, attributes: :user_params)
+  expose(:user) { User.find params[:id] }
   expose(:users) { User.peers }
 
   def index; end
@@ -9,10 +9,10 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if user.save
+    if current_user.update_attributes user_params
       redirect_to :back, notice: t("user.saved_successful")
     else
-      redirect_to :back, alert: user.errors.full_messages.join(' ')
+      redirect_to :back, alert: current_user.errors.full_messages.join(' ')
     end
   end
 
