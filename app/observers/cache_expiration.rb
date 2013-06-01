@@ -1,4 +1,4 @@
-class IndexSweeper < ActionController::Caching::Sweeper
+class CacheExpiration < ActiveRecord::Observer
   observe Event, Highlight, Job, Location, Material, Participant, Topic, User, Like
 
   def after_create(entitiy)
