@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/FriendlyId/friendly_id.git
+  revision: 78d639d67a17135fe5e3b9731fd4328c315c74b1
+  branch: rails4
+  specs:
+    friendly_id (4.1.0.beta.2)
+
+GIT
   remote: git://github.com/akashkamboj/active_admin.git
   revision: d9c593b13a6fadcf0eb8d5bcd14fc1a157954e93
   branch: rails4
@@ -25,6 +32,14 @@ GIT
       actionpack
       activerecord
       polyamorous
+
+GIT
+  remote: git://github.com/milgner/compass-rails.git
+  revision: 1749c06f15dc4b058427e7969810457213647fb8
+  ref: 1749c06f15dc4b058427e7969810457213647fb8
+  specs:
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
 
 GEM
   remote: http://rubygems.org/
@@ -88,8 +103,6 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    compass-rails (1.0.3)
-      compass (>= 0.12.2, < 0.14)
     daemons (1.1.9)
     dalli (2.6.2)
     debug_inspector (0.0.2)
@@ -116,7 +129,6 @@ GEM
       thor (>= 0.13.6)
     formtastic (2.2.1)
       actionpack (>= 3.0)
-    friendly_id (4.0.9)
     fssm (0.2.10)
     geocoder (1.1.8)
     has_scope (0.5.1)
@@ -180,8 +192,6 @@ GEM
     polyamorous (0.6.2)
       activerecord (>= 3.0)
     polyglot (0.3.3)
-    protected_attributes (1.0.1)
-      activemodel (>= 4.0.0.beta, < 5.0)
     pry (0.9.12.1)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -291,13 +301,13 @@ DEPENDENCIES
   binding_of_caller (= 0.7.1)
   chosen-rails (= 0.9.13)
   coffee-rails (= 4.0.0)
-  compass-rails (= 1.0.3)
+  compass-rails!
   dalli (= 2.6.2)
   decent_exposure (= 2.1.0)
   factory_girl (= 4.2.0)
   faker (= 1.1.2)
   foreman
-  friendly_id (= 4.0.9)
+  friendly_id!
   geocoder (= 1.1.8)
   icalendar (= 1.3.0)
   jquery-rails (= 2.2.1)
@@ -308,7 +318,6 @@ DEPENDENCIES
   omniauth-github (= 1.1.0)
   omniauth-twitter (= 0.0.16)
   pg (= 0.14.0)
-  protected_attributes (= 1.0.1)
   pry (= 0.9.12.1)
   pry-nav (= 0.2.3)
   pry-remote (= 0.1.7)
