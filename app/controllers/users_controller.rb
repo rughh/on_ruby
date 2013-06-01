@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   before_filter :authenticate_current_user!, only: [:edit, :update]
 
   expose(:user, attributes: :user_params)
-  expose(:users) { User.ordered }
+  expose(:users) { User.peers }
+
+  def index; end
+  def show; end
+  def edit; end
 
   def update
     if user.save
