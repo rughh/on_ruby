@@ -41,6 +41,14 @@ GIT
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
 
+GIT
+  remote: git://github.com/smartinez87/exception_notification.git
+  revision: 52d3b79f68cd4ec48d2b79e2478674c2256eddee
+  specs:
+    exception_notification (3.0.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -304,6 +312,7 @@ DEPENDENCIES
   compass-rails!
   dalli (= 2.6.2)
   decent_exposure (= 2.1.0)
+  exception_notification!
   factory_girl (= 4.2.0)
   faker (= 1.1.2)
   foreman
