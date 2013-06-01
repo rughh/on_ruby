@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_current_user!, only: [:edit, :update]
+  before_action :authenticate_current_user!, only: [:edit, :update]
 
   expose(:user, attributes: :user_params)
   expose(:users) { User.peers }

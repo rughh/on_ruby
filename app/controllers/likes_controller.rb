@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_filter :check_login
+  before_action :check_login
 
   respond_to :html
 

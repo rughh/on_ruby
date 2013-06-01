@@ -1,5 +1,5 @@
 class ApiController < ApplicationController
-  before_filter :api_sign_in
+  before_action :api_sign_in
 
   expose(:topics)     { Topic.all }
   expose(:locations)  { Location.all }

@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :check_login, only: :add_user
+  before_action :check_login, only: :add_user
 
   expose(:events) { Event.ordered.page(params[:page]).per(10) }
   expose(:event) { Event.includes(materials: :user, topics: :user, participants: :user).find(params[:id]) }

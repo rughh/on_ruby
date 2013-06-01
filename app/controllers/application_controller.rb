@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  before_filter :setup
+  before_action :setup
 
   helper_method :signed_in?, :current_user
   helper_method :mobile_device?

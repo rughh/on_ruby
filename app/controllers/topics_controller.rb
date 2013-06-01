@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_filter :check_login, only: [:new, :create, :edit, :update]
+  before_action :check_login, only: [:new, :create, :edit, :update]
 
   expose(:topic, attributes: :topic_params)
   expose(:events) { Event.with_topics.ordered.page(params[:page]).per(10) }
