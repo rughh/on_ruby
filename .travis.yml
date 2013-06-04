@@ -1,4 +1,4 @@
-script: "bundle exec rake travis:build"
+script: "bundle exec rake"
 bundler_args: "--without development production"
 language: ruby
 rvm:
