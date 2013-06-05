@@ -5,9 +5,9 @@ describe "Caching", type: :request do
     with_caching do
       get root_path
 
-      Rails.cache.exist?("views/hamburg/home/index").should be_true
+      Rails.cache.exist?("views/hamburg/de/home/index").should be_true
       IndexSweeper.expire_view_cache
-      Rails.cache.exist?("views/hamburg/home/index").should be_false
+      Rails.cache.exist?("views/hamburg/de/home/index").should be_false
     end
   end
 end

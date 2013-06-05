@@ -14,11 +14,8 @@ class IndexSweeper < ActionController::Caching::Sweeper
   end
 
   def self.expire_view_cache
-    cached_actions = [
-      [:home, :index]
-    ]
-    cached_actions.each do |action|
-      key = [:views, Whitelabel[:label_id]] + action
+    [:de, :en].each do |locale|
+      key = [:views, Whitelabel[:label_id], locale, :home, :index]
       key = key.join("/")
       Rails.logger.info "expire fragment '#{key}'"
       Rails.cache.delete key
