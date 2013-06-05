@@ -24,7 +24,6 @@ describe Event do
   context "current event" do
     it "should find a current event" do
       event_next = create(:event, date: 2.days.from_now)
-      event_after_next = create(:event, date: 4.days.from_now)
       Event.current.first.should_not be(event_next)
     end
   end
