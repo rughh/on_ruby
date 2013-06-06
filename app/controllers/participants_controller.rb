@@ -1,4 +1,24 @@
 class ParticipantsController < ApplicationController
+  before_filter :check_login
+  respond_to :html, :json
+
+  expose(:event)
+
+  def create
+    if current_user.participates?(event)
+      respond_with(event) do |format|
+        format.html { redirect_to event_path(event), alert: t("flash.already_participating") }
+        format.json { head(200) }
+      end
+    else
+      event.participants.create!(user: current_user)
+      respond_with(event) do |format|
+        format.html { redirect_to event_path(event), notice: t("flash.now_participating") }
+        format.json { head(201) }
+      end
+    end
+  end
+
   def destroy
     participant = Participant.find params[:id]
     if participant.owned_by? current_user

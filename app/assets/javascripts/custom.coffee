@@ -1,9 +1,4 @@
-HOR =
-  loginNote: ->
-    $('form').on 'click', 'input[data-disable]', (event) ->
-      event.preventDefault()
-      alert($(this).data('disable'))
-
+OnRuby =
   showHide: ->
     $(".toggle").click (event) ->
       event.preventDefault()
@@ -49,9 +44,8 @@ HOR =
             link.hide()
 
 $ ->
-  HOR.loginNote()
-  HOR.reload()
-  HOR.close()
-  HOR.showHide()
-  HOR.moreList()
-  HOR.displayUsers()
+  OnRuby.reload()
+  OnRuby.close()
+  OnRuby.showHide()
+  OnRuby.moreList()
+  OnRuby.displayUsers()

@@ -8,7 +8,6 @@ OnRuby::Application.routes.draw do
   resources :locations
 
   resources :events do
-    post 'add_user', on: :member
     resources :materials
     resources :topics
     resources :participants
