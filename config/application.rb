@@ -33,6 +33,12 @@ module OnRuby
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    config.log_tags = [
+      :host,
+      :remote_ip,
+      lambda { |request| "#{request.uuid}"[0..15] },
+      lambda { |request| "#{request.cookie_jar["_on_ruby_session"]}"[0..15] },
+    ]
 
     # Enable the asset pipeline
     config.assets.initialize_on_precompile = false

@@ -1,4 +1,4 @@
-class SitemapsController < ActionController::Base
+class SitemapsController < ApplicationController
   respond_to :xml
 
   def show

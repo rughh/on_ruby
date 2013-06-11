@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "Caching", type: :request do
-  let(:key) { "views/hamburg/home/index" }
+  let(:key) { "views/hamburg/de/home/index" }
 
   it "creates a cache-key based on the label" do
     with_caching do

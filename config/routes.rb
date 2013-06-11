@@ -1,14 +1,13 @@
 _404 = proc { |env| [404, {"Content-Type" => "text/html"}, ["404"]] }
 
 OnRuby::Application.routes.draw do
-  resources :sitemaps, only: :show
+  resource :sitemap
   resources :settings, only: :index
 
   resources :users
   resources :locations
 
   resources :events do
-    post 'add_user', on: :member
     resources :materials
     resources :topics
     resources :participants
