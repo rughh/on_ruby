@@ -168,7 +168,7 @@
     :address: "Adalbertstraße 8\n10999 Berlin"
     :contributors:
     - :name: "Ruby Berlin e.V."
-      :email: "thilo@upstre.am"
+      :email: "rug-b@rubyberlin.org"
 - !ruby/object:Usergroup
   label_id: "leipzig"
   default_locale: "de"
