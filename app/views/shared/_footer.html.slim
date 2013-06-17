@@ -1,28 +1,29 @@
 section.clearfix
-  .contact.block
-    h2= t("footer.contact")
-    ul
-      li
-        = link_to_twitter Whitelabel[:twitter] do
-          = "Twitter"
-      li= mail_to Whitelabel[:email], 'E-Mail', title: 'E-Mail'
+  .info.clearfix.hr
+    .contact.block
+      h2= t("footer.contact")
+      ul
+        li
+          = link_to_twitter Whitelabel[:twitter] do
+            = "Twitter"
+        li= mail_to Whitelabel[:email], 'E-Mail', title: 'E-Mail'
 
-  .links.block
-    h2= t("footer.links")
-    ul
-      li= link_to 'GitHub', 'http://github.com/phoet/on_ruby', title: 'Fork me on GitHub'
-      li= link_to 'Mailinglist', (Whitelabel[:mailing_list] || 'https://groups.google.com/forum/?fromgroups#!forum/rubyonrails-ug-germany'), title: 'Mailinglist'
-      li= link_to t("footer.to_mobile"), root_path(mobile: 1)
+    .links.block
+      h2= t("footer.links")
+      ul
+        li= link_to 'GitHub', 'http://github.com/phoet/on_ruby', title: 'Fork me on GitHub'
+        li= link_to 'Mailinglist', (Whitelabel[:mailing_list] || 'https://groups.google.com/forum/?fromgroups#!forum/rubyonrails-ug-germany'), title: 'Mailinglist'
+        li= link_to t("footer.to_mobile"), root_path(mobile: 1)
 
-  .imprint.block
-    h2= t("footer.imprint")
-    ul
-      li== imprint[:contributors].map { |c| mail_to c[:email], c[:name], title: c[:name] }.join(' ')
-      - if imprint[:address]
-        li== imprint[:address].gsub("\n", "<br/>")
+    .imprint.block
+      h2= t("footer.imprint")
+      ul
+        li== imprint[:contributors].map { |c| mail_to c[:email], c[:name], title: c[:name] }.join(' ')
+        - if imprint[:address]
+          li== imprint[:address].gsub("\n", "<br/>")
 
   - if other_usergroups.present?
-    .usergroups.block
+    .usergroups.block.hr
       h2= t("footer.other_usergroups")
       ol.clearfix
         - other_usergroups.each do |ug|

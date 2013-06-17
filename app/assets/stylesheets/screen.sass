@@ -1,34 +1,8 @@
-@import "compass"
-@import "compass/css3/"
-@import "compass/utilities/text/replacement"
-@import "normalize"
-
-@font-face
-  font-family: hero
-  src: url("/assets/hero_light.otf") format("opentype")
-
-@font-face
-  font-family: hero
-  font-weight: bold
-  src: url("/assets/hero.otf") format("opentype")
-
-@mixin list-icon($icon)
-  background: image-url($icon) left top no-repeat
-  padding-left: 20px
-
-@mixin meta-icon($icon)
-  @include list-icon($icon)
-  padding-top: 2px
-  padding-bottom: 2px
-
-// Primary styles
-
 html
-  background: image-url('whitey.png') left top repeat
+  background: $background
 
 body
   font: 13px/1.231 sans-serif
-
 
 h1, h2, h3, h4, h5, h6
   margin: 0
@@ -48,7 +22,7 @@ a
     color: #666
 
 .container
-  background: image-url('black-Linen.png') left top repeat
+  background: $container-background
 
 // For image replacement
 .ir
@@ -81,23 +55,25 @@ header
   margin: 0 auto
   margin-bottom: 3em
   width: 60em
-  color: white
+  color: $title-color
 
   #title, &:hover, &:active, &:visited
-    color: white
+    color: $title-color
     text-decoration: none
     h1, h2
       padding: 0 0 7px 120px
-      font: bold 4em hero,arial,verdana,sans-serif
+      font: bold $title-font-size $font
+      @include title-box
     h2
-      font: bold 1.5em hero,arial,verdana,sans-serif
+      font-size: $sub-title-font-size
+      @include title-box
   #login
     font-size: 10px
     float: right
     width: 140px
     padding: 1em
-    background: image-url('whitey.png') left top repeat
-    border: 1px solid white
+    background: $background
+    border: $border
     @include border-radius(0.5em, 0.5em)
     .user
       float: left
@@ -105,7 +81,7 @@ header
       img
         width: 48px
         height: 48px
-        border: 1px solid white
+        border: $border
         @include border-radius(0.5em, 0.5em)
     h3
       color: #444
@@ -124,15 +100,14 @@ header
     float: left
 
 nav#nav
-  background: image-url('whitey.png') left top repeat
+  background: $background
+  font: bold $title-font-size / 2 $font
+  border-bottom: $border
   text-align: center
   position: fixed
   top: 0
-  width: 100%
   z-index: 100
-  font: bold 1.5em hero,arial,verdana,sans-serif
-  border-bottom: 1px solid white
-  padding: 0.5em 0em 0.5em 0em
+  @include nav-box
 
   #locale
     float: right
@@ -141,8 +116,6 @@ nav#nav
       @include horizontal-list
       li
         margin: 0px
-      img
-        border: 1px solid lightgray
   ul
     margin: 0
     border: 0
@@ -150,8 +123,8 @@ nav#nav
     list-style: none outside
     overflow: hidden
   li
-    margin-left: 1em
-    margin-right: 1em
+    margin-left: 1.5em
+    margin-right: 1.5em
     padding-top: 2px
     float: left
 
@@ -240,7 +213,7 @@ nav#nav
       margin-right: 5px
       margin-bottom: 5px
       @include border-radius(5px)
-      border: 1px solid #bbb
+      border: $border
       display: inline-block
 
   #usergroups, #railsgroups
@@ -256,14 +229,14 @@ nav#nav
     margin-top: 0em
     margin-bottom: 3em
     width: 56em
-    background: image-url('whitey.png') left top repeat
-    border: 1px solid white
+    background: $background
+    border: $border
     @include border-radius(0.5em, 0.5em)
 
     h2
-      font: bold 1.4em hero,arial,verdana,sans-serif
+      font: bold 1.4em $font
     h3
-      font: bold 1.2em hero,arial,verdana,sans-serif
+      font: bold 1.2em $font
     ul
       margin: 0em
     li
@@ -281,7 +254,7 @@ nav#nav
     img
       width: 48px
       height: 48px
-      border: 1px solid white
+      border: $border
       @include border-radius(0.5em, 0.5em)
     ul
       list-style: none
@@ -292,7 +265,7 @@ nav#nav
   .map_canvas
     margin: 0 auto
     height: 40em
-    border: 1px solid white
+    border: $border
     @include border-radius(0.5em, 0.5em)
   .calendar-icon
     @include meta-icon('calendar.png')
@@ -317,7 +290,7 @@ nav#nav
       display: inline block
       background-color: white
       font-size: larger
-      border: 1px solid #999
+      border: $border
       @include border-radius(0.5em, 0.5em)
   .enumeration
     reset-counter:enumeration
@@ -374,11 +347,9 @@ nav#nav
     font-size: 1em
     padding: 10px 30px
     border-width: 1px
-    background: -webkit-gradient(linear, left top, left bottom, from(white), to(#D7D7D7), color-stop(10%, #F2F2F2), color-stop(50%, #C5C5C5), color-stop(50%, #BDBDBD))
-    background: -moz-linear-gradient(left top, left bottom, from(white), to(#D7D7D7), color-stop(10%, #F2F2F2), color-stop(50%, #C5C5C5), color-stop(50%, #BDBDBD))
-    border-color: #A6A6A6
     text-shadow: white 0px 1px 1px
     color: #222
+    @include button
 
   .participation
     float: left
@@ -397,15 +368,11 @@ nav#nav
 footer
   padding: 0
   margin: 0
-  border-top: 1px solid white
+  border-top: $border
+  @include footer-box
 
-  hr
-    margin: 0 auto
-    height: 3px
-    background-color: white
-    border-top: 1px solid #ccc
-    border-bottom: 1px solid #ccc
-
+  .hr
+    border-bottom: 1px dashed $border-color
   section
     margin: 0 auto
     margin-bottom: 1em
@@ -413,11 +380,11 @@ footer
     width: 60em
 
     h2
-      font: bold 1.4em hero,arial,verdana,sans-serif
+      font: bold 1.4em $font
       padding-bottom: 1em
     .block
       float: left
-      margin: 3em 0em 1em 8em
+      padding: 3em 0em 1em 8em
 
       ul
         padding: 0
@@ -425,7 +392,6 @@ footer
         list-style: none
       li
         padding-bottom: 1em
-
     .usergroups, .railsgroups
       ol
         list-style: lower-greek
@@ -440,7 +406,7 @@ footer
 
 .ribbon_wrap
   position: absolute
-  top: 46px
+  top: $top-position
   width: 150px
   height: 150px
   overflow: hidden
@@ -451,15 +417,14 @@ footer
     position: absolute
     top: 52px
     span
-      background: white
-      color: #444
-      font-size: 14px
+      border: $border
+      background: $background
+      color: $ribbon-color
+      font: 1.1em $font
       padding: 5px 0
       display: block
       text-align: center
       width: 250px
-      @include box-shadow(#888 0px 1px 10px)
-      @include text-shadow(#888 0px 1px 10px)
     &#senor_developer
       @include rotate(-45deg)
       left: -65px
@@ -478,7 +443,7 @@ footer
       a
         text-decoration: none
       li
-        font: bold 3em hero,arial,verdana,sans-serif
+        font: bold 3em $font
       img
         vertical-align: middle
       span.host

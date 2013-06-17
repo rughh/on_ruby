@@ -1,6 +1,7 @@
 ---
 - !ruby/object:Usergroup
   label_id: "hamburg"
+  theme: "light"
   default_locale: "de"
   recurring: "second wednesday"
   email: "hamburg@onruby.de"
