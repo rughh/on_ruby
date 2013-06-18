@@ -5,6 +5,7 @@ class Usergroup
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :mailing_list
   attr_accessor :host, :twitter, :usergroup_email, :organizers, :location, :imprint, :other_usergroups
+  attr_accessor :theme
 
   def parse_recurring_date(date)
     number, day, _ = recurring.split(DELIMITER_DATE)
