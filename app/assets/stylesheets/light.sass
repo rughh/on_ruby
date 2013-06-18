@@ -1,0 +1,44 @@
+$top-position: 0px
+$background: white
+$container-background: image-url('whitey.png') left top repeat
+$title-color: black
+$ribbon-color: $title-color
+$font: Alef, sans-serif
+$title-font-size: 3em
+$sub-title-font-size: $title-font-size / 2
+$border-color: lightgray
+$border: 1px solid $border-color
+
+@mixin title-box
+  @include text-shadow($background 1px 2px 3px)
+
+@mixin nav-box
+  left: 50%
+  margin-left: -21em
+  width: 42em
+  padding: 0.2em 0em 0.2em 0em
+  @include border-bottom-left-radius(0.5em)
+  @include border-bottom-right-radius(0.5em)
+  @include box-shadow($border-color 0px 1px 10px)
+
+@mixin footer-box
+  @include box-shadow($border-color 0px 1px 10px)
+
+@mixin button
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#D7D7D7), color-stop(30%, #F2F2F2), color-stop(90%, #C5C5C5), color-stop(90%, #BDBDBD))
+  background: -moz-linear-gradient(left top, left bottom, from(white), to(#D7D7D7), color-stop(30%, #F2F2F2), color-stop(90%, #C5C5C5), color-stop(90%, #BDBDBD))
+  border-color: $border-color
+
+@mixin ribbon
+  border: $border
+  background: $background
+  color: $ribbon-color
+  font: 1.1em $font
+
+@import "compass"
+@import "compass/css3/"
+@import "compass/utilities/text/replacement"
+@import "normalize"
+@import "font"
+@import "icons"
+@import "screen"
