@@ -1,5 +1,6 @@
 # OnRuby
 ![Status](https://secure.travis-ci.org/phoet/on_ruby.png "Status")
+[![Code Climate](https://codeclimate.com/github/phoet/on_ruby.png)](https://codeclimate.com/github/phoet/on_ruby)
 
 Source for the Sites of the Ruby Communities [Hamburg](http://hamburg.onruby.de), [Bremen](http://bremen.onruby.de), [Cologne](http://cologne.onruby.de), [Saarland](http://saar.onruby.de), [Berlin](http://berlin.onruby.de), [Leipzig](http://leipzig.onruby.de), [Karlsruhe](http://karlsruhe.onruby.de), [Dresden](http://dresden.onruby.de)
 

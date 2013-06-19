@@ -6,9 +6,10 @@ FactoryGirl.define do
     association :location
     association :user
     created_at  { Time.now }
+    updated_at  { Time.now }
   end
 
   factory :event_with_participants, parent: :event do |event|
-    after(:create) { |event| FactoryGirl.create(:participant, event: event) }
+    after(:create) { |e| FactoryGirl.create(:participant, event: e) }
   end
 end

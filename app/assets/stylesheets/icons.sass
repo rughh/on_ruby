@@ -1,0 +1,8 @@
+@mixin list-icon($icon)
+  background: image-url($icon) left top no-repeat
+  padding-left: 20px
+
+@mixin meta-icon($icon)
+  @include list-icon($icon)
+  padding-top: 2px
+  padding-bottom: 2px

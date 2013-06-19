@@ -42,26 +42,6 @@ class Event < ActiveRecord::Base
     date + 2.hours
   end
 
-  def to_ical(event_url)
-    ical_event = Icalendar::Event.new.tap do |e|
-      e.start = date.strftime("%Y%m%dT%H%M%S")
-      e.end = end_date.strftime("%Y%m%dT%H%M%S")
-      e.summary = name
-      e.description = "#{description} #{event_url}"
-      e.location = location.name
-      e.klass = "PUBLIC"
-      e.created = created_at.strftime("%Y%m%dT%H%M%S")
-      e.last_modified = updated_at.strftime("%Y%m%dT%H%M%S")
-      e.uid = e.url = event_url
-      e.add_comment("iCal Event by On Ruby!")
-    end
-
-    Icalendar::Calendar.new.tap do |cal|
-      cal.add_event(ical_event)
-      cal.publish
-    end.to_ical
-  end
-
   def publish_mailinglist(event_url)
     if Rails.env.production?
       UsergroupMailer.invitation_mail(self).deliver!
