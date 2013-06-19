@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  include IcalHelper
+
   expose(:events) { Event.ordered.page(params[:page]).per(10) }
   expose(:event) { Event.includes(materials: :user, topics: :user, participants: :user).find(params[:id]) }
 
@@ -22,7 +24,7 @@ class EventsController < ApplicationController
         render json: event.as_api_response(:ios_v1)
       end
       format.ics do
-        render text: event.to_ical(event_url(event))
+        render text: calendar(event)
       end
     end
   end
