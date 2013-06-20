@@ -1,8 +1,8 @@
-# Use the README file as a reference to customize settings.
-
 Event:
   fields:
-    default: to_label
-    form: 
-  relationships: participants, users, topics, materials
-  application: Application
+    default: id, name, date, user, published
+    form: user, location, name, date, description, published
+  order_by: -created_at
+  actions:
+    edit: publish
+  application: CRUD

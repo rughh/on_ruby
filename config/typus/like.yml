@@ -1,8 +1,0 @@
-# Use the README file as a reference to customize settings.
-
-Like:
-  fields:
-    default: to_label
-    form: 
-  relationships: 
-  application: Application

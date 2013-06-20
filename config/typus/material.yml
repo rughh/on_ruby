@@ -1,8 +1,5 @@
-# Use the README file as a reference to customize settings.
-
 Material:
   fields:
-    default: to_label
-    form: 
-  relationships: 
-  application: Application
+    default: id, name, url, user, event
+    form: name, url, user, event
+  application: CRUD

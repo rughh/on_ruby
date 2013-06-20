@@ -1,8 +1,5 @@
-# Use the README file as a reference to customize settings.
-
 User:
   fields:
-    default: to_label
-    form: 
-  relationships: authorizations, participants, participations, materials, topics, likes, events
-  application: Application
+    default: nickname, name, twitter, github, admin
+    form: name, twitter, github, url, location, description, freelancer, available, hide_jobs, admin
+  application: CRUD

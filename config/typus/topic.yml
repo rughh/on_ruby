@@ -1,7 +1,5 @@
-# Use the README file as a reference to customize settings.
-
 Topic:
   fields:
-    default: id, name, user
-    form: name, description, user
-  relationships: user
+    default: id, name, user, event
+    form: name, description, user, event
+  application: CRUD

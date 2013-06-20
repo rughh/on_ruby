@@ -1,8 +1,5 @@
-# Use the README file as a reference to customize settings.
-
 Location:
   fields:
-    default: to_label
-    form: 
-  relationships: events, jobs
-  application: Application
+    default: id, name, company
+    form: name, url, city, zip, street, house_number, company
+  application: CRUD

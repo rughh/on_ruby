@@ -1,8 +1,5 @@
-# Use the README file as a reference to customize settings.
-
 Highlight:
   fields:
-    default: to_label
-    form: 
-  relationships: 
-  application: Application
+    default: id, description, start_at, end_at
+    form: url, description, start_at, end_at
+  application: CRUD
