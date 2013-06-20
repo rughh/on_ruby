@@ -28,9 +28,8 @@ gem "typus",                  github: "fesplugas/typus"
 gem "jquery-rails",           "2.2.1"
 gem "jquery_mobile_rails",    "1.3.0"
 gem "sass-rails",             "4.0.0.rc2"
-gem 'compass-rails', github: 'milgner/compass-rails', ref: '1749c06f15dc4b058427e7969810457213647fb8'
+gem 'compass-rails',          github: 'milgner/compass-rails', ref: '1749c06f15dc4b058427e7969810457213647fb8'
 gem "coffee-rails",           "4.0.0"
-gem "chosen-rails",           "0.9.15"
 gem "uglifier",               "2.1.1"
 
 group :production do

@@ -70,10 +70,6 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.1.4)
-    chosen-rails (0.9.15)
-      coffee-rails (>= 3.2)
-      railties (>= 3.0)
-      sass-rails (>= 3.2)
     chunky_png (1.2.8)
     coderay (1.0.9)
     coffee-rails (4.0.0)
@@ -269,7 +265,6 @@ DEPENDENCIES
   acts_as_api (= 0.4.1)
   better_errors (= 0.9.0)
   binding_of_caller (= 0.7.2)
-  chosen-rails (= 0.9.15)
   coffee-rails (= 4.0.0)
   compass-rails!
   dalli (= 2.6.4)
