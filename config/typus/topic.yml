@@ -2,4 +2,6 @@ Topic:
   fields:
     default: id, name, user, event
     form: name, description, user, event
+  actions:
+    edit: add_to_latest_event
   application: CRUD

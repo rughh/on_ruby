@@ -2,6 +2,16 @@ h3 Event Actions
 
 = link_to 'Duplicate latest Event', '/admin/events/duplicate'
 
+ul
+  - Event.unpublished.each do |event|
+    li= event.name + ": " + link_to("tweet", twitter_update_url(event)) + " / " + link_to("publish", publish_admin_event_path(event))
+
 h3 Topic Actions
+ul
+  - Topic.undone.each do |topic|
+    li= topic.name + ": " + link_to("tweet", twitter_update_url(topic)) + " / " + link_to("for next Event", copy_admin_topic_path(topic))
 
 h3 Highlight Actions
+ul
+  - Highlight.active.each do |highlight|
+    li= link_to "Disable '#{highlight.description}'", disable_admin_highlight_path(highlight)

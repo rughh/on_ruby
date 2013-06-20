@@ -2,4 +2,6 @@ Highlight:
   fields:
     default: id, description, start_at, end_at
     form: url, description, start_at, end_at
+  actions:
+    edit: disable
   application: CRUD
