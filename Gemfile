@@ -21,8 +21,9 @@ gem "whitelabel",             "0.2.0"
 gem "dalli",                  "2.6.4"
 gem 'exception_notification', github: 'smartinez87/exception_notification'
 
-gem "ransack",                github: "avit/ransack",             branch: "rails4-dependencies"
-gem "activeadmin",            github: "akashkamboj/active_admin", branch: "rails4"
+gem "formtastic",             "2.2.1"
+gem "kaminari",               "0.14.1"
+gem "typus",                  github: "fesplugas/typus"
 
 gem "jquery-rails",           "2.2.1"
 gem "jquery_mobile_rails",    "1.3.0"

@@ -1,0 +1,58 @@
+# Models
+
+This is an example of a **Typus** enabled model with all available options.
+Use this example as reference to customize your YAML files.
+
+    Entry:
+      fields:
+        default: id, title, category_id, created_at, is_published?
+        list: id, title, category_id, created_at, is_published?
+        form: title, body, is_published?, created_at
+        show: title, category, is_published?
+        relationship: title, status
+        options:
+          booleans:
+            is_published: ["Yes, it is", "No, it isn't"]
+          date_formats:
+            created_at: post_long
+          selectors:
+          templates:
+            body: rich_text
+      actions:
+        index: cleanup
+        edit: send_as_newsletter
+        show: rebuild
+      order_by: created_at
+      relationships:
+      filters: is_published?, created_at, category_id
+      search: title, body
+      application: Application
+      description: Some text to describe the model
+      options:
+        default_action_on_item: show
+        end_year: 2015
+        form_rows: 25
+        minute_step: 15
+        only_user_items: true
+        per_page: 25
+        start_year: 1990
+
+# Roles
+
+This is an example of a roles file. Use this example as reference to customize
+your YAML files.
+
+    admin:
+      Entry: create, read, update, delete
+      Category: create, read, update, delete
+      AdminUser: all
+
+    editor:
+      Entry: create, read, update
+      Category: read, update
+
+You can also define `resources` which are not related to a model, for example
+to control `Redis`.
+
+    admin:
+      Redis: index, flush_all

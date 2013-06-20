@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :check_login, only: [:new, :create, :edit, :update]
+  before_action :authenticate!, except: :show
 
   expose(:topic, attributes: :topic_params)
   expose(:events) { Event.with_topics.ordered.page(params[:page]).per(10) }

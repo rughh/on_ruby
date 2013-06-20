@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Location:
+  fields:
+    default: to_label
+    form: 
+  relationships: events, jobs
+  application: Application

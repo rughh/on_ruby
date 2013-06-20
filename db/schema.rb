@@ -12,22 +12,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20130604012921) do
-
-  create_table "active_admin_comments", force: true do |t|
-    t.integer   "resource_id",   null: false
-    t.string    "resource_type", null: false
-    t.integer   "author_id"
-    t.string    "author_type"
-    t.text      "body"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "namespace"
-  end
-
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_admin_notes_on_resource_type_and_resource_id"
-
   create_table "authorizations", force: true do |t|
     t.string    "provider"
     t.string    "uid"

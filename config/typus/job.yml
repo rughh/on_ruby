@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Job:
+  fields:
+    default: to_label
+    form: 
+  relationships: 
+  application: Application

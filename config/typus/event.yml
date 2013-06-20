@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Event:
+  fields:
+    default: to_label
+    form: 
+  relationships: participants, users, topics, materials
+  application: Application
