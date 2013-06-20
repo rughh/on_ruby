@@ -2,7 +2,6 @@
 
 Topic:
   fields:
-    default: to_label
-    form: 
-  relationships: likes
-  application: Application
+    default: id, name, user
+    form: name, description, user
+  relationships: user
