@@ -32,16 +32,17 @@ OnRuby =
   moreList: ->
     for list in $("ul.more-list")
       do (list) ->
+        preview_size = $(list).data('preview-size') || 4
         elements = $(list).find "li"
-        if elements.size() > 5
-          elements.slice(5).hide()
+        if elements.size() > preview_size
+          elements.slice(preview_size).hide()
           link = $("<a class='more' href='#'>" + I18n.showMore + "</a>")
           container = $("<p></p>").append link
           container.insertAfter list
           link.click (event) ->
             event.preventDefault()
-            elements.filter(":hidden").fadeIn()
             link.hide()
+            elements.filter(":hidden").fadeIn()
 
 $ ->
   OnRuby.reload()
