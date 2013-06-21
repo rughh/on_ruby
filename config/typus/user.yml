@@ -2,4 +2,5 @@ User:
   fields:
     default: nickname, name, twitter, github, admin
     form: name, twitter, github, url, location, description, freelancer, available, hide_jobs, admin
+  order_by: -created_at
   application: CRUD

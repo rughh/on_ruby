@@ -2,4 +2,5 @@ Location:
   fields:
     default: id, name, company
     form: name, url, city, zip, street, house_number, company
+  order_by: -created_at
   application: CRUD
