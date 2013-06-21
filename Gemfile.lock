@@ -70,6 +70,7 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.1.4)
+    callsite (0.0.11)
     chunky_png (1.2.8)
     coderay (1.0.9)
     coffee-rails (4.0.0)
@@ -127,9 +128,10 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    meta_request (0.2.1)
+    meta_request (0.2.5)
+      callsite
       rack-contrib
-      rails
+      railties
     metaclass (0.0.1)
     method_source (0.8.1)
     mime-types (1.23)
@@ -280,7 +282,7 @@ DEPENDENCIES
   jquery-rails (= 2.2.1)
   jquery_mobile_rails (= 1.3.0)
   kaminari (= 0.14.1)
-  meta_request (= 0.2.1)
+  meta_request (= 0.2.5)
   mocha (= 0.14.0)
   omniauth (= 1.1.4)
   omniauth-github (= 1.1.0)

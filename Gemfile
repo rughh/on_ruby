@@ -45,7 +45,7 @@ group :development, :test do
   gem "mocha",              "0.14.0", require: "mocha/api"
   gem "rspec-rails",        "2.13.2"
   gem "factory_girl_rails", "4.2.1"
-  gem "meta_request",       "0.2.1"
+  gem "meta_request",       "0.2.5"
   gem "better_errors",      "0.9.0"
   gem "binding_of_caller",  "0.7.2"
   gem "taps",               require: false
