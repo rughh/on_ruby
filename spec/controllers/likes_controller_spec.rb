@@ -15,7 +15,7 @@ describe LikesController do
 
     it "should not create a like if not signed in" do
       expect { post(:create, data) }.to change(Like, :count).by(0)
-      response.should redirect_to(auth_path)
+      response.should redirect_to(root_path)
     end
   end
 

@@ -1,5 +1,5 @@
 class ParticipantsController < ApplicationController
-  before_filter :check_login
+  before_action :authenticate!
   respond_to :html, :json
 
   expose(:event)

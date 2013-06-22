@@ -1,4 +1,4 @@
-script: "bundle exec rake travis:build"
+script: "bundle exec rake"
 bundler_args: "--without development production"
 language: ruby
 rvm:
@@ -6,4 +6,3 @@ rvm:
 branches:
   only:
     - master
-before_install: gem install bundler --pre

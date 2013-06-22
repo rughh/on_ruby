@@ -27,8 +27,6 @@ class Event < ActiveRecord::Base
   validates :location, :user, :name, :description, :date, presence: true
   validates :name, uniqueness: {scope: :label}
 
-  attr_accessible :location_id, :user_id, :published, :name, :description, :date, as: :admin
-
   accepts_nested_attributes_for :materials
   accepts_nested_attributes_for :topics
 
@@ -37,8 +35,8 @@ class Event < ActiveRecord::Base
   scope :with_topics, -> { joins(:topics).uniq }
   scope :current, -> { where(date: Date.today.to_time..(Time.now + 8.weeks)).limit(1).order('date ASC') }
   scope :latest, -> { where('date < ?', Date.today.to_time).order('date DESC') }
-  scope :unpublished, where(published: nil)
-  scope :ordered, order("date DESC")
+  scope :unpublished, -> { where("published = ? OR published = ?", nil, false) }
+  scope :ordered, -> { order("date DESC") }
 
   def end_date
     date + 2.hours

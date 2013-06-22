@@ -9,8 +9,6 @@ class Participant < ActiveRecord::Base
 
   validates :user, :event, presence: true
 
-  attr_accessible :user, :event
-
   belongs_to :user
   belongs_to :event
 

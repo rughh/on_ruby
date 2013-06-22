@@ -1,0 +1,5 @@
+Material:
+  fields:
+    default: id, name, url, user, event
+    form: name, url, user, event
+  application: CRUD
