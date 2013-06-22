@@ -34,6 +34,7 @@ gem "uglifier",               "2.1.1"
 
 group :production do
   gem "pg",                   "0.14.0"
+  gem "rack-cache",           "1.2"
 end
 
 group :development, :test do
