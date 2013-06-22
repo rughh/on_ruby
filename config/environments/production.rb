@@ -81,10 +81,11 @@ OnRuby::Application.configure do
   config.default_host = 'onruby.de'
 
   config.middleware.use "CookieDomain", ".onruby.de"
-  config.middleware.use "ExceptionNotifier", {
+
+  config.middleware.use ExceptionNotification::Rack,
+  email: {
     :email_prefix         => "[ERROR] ",
     :sender_address       => %{"error-notifier" <onruby@googlemail.com>},
-    :exception_recipients => %w{onruby@googlemail.com},
-    :smtp_settings        => config.action_mailer.smtp_settings
+    :exception_recipients => %w{onruby@googlemail.com}
   }
 end
