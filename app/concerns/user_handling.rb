@@ -2,13 +2,19 @@ module UserHandling
   protected
 
   def authenticate_admin_user!
-    unless current_user.try(:admin?)
+    unless signed_in? && current_user.admin?
       redirect_to root_path, alert: t("flash.only_admins")
     end
   end
 
+  def authenticate!
+    unless signed_in?
+      redirect_to root_path, alert: t("flash.not_authenticated")
+    end
+  end
+
   def authenticate_current_user!
-    unless current_user and current_user == user
+    unless signed_in? && current_user == user
       redirect_to root_path, alert: t("flash.not_authenticated")
     end
   end

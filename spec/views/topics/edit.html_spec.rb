@@ -1,7 +1,6 @@
 require "spec_helper"
 
 describe "topics/edit" do
-
   let(:topic) { build(:topic) }
   let(:user) { build(:user) }
 

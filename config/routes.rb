@@ -1,5 +1,3 @@
-_404 = proc { |env| [404, {"Content-Type" => "text/html"}, ["404"]] }
-
 OnRuby::Application.routes.draw do
   resource :sitemap
   resources :settings, only: :index
@@ -22,19 +20,15 @@ OnRuby::Application.routes.draw do
     get '/failure',                  to: 'sessions#failure'
     get '/destroy_user_session',     to: 'sessions#destroy_user_session', as: :destroy_user_session
     get '/destroy_session',          to: 'sessions#destroy',              as: :destroy_session
-    get '/login/:provider',          to: 'sessions#auth',                 as: :auth,                 defaults: { provider: 'twitter' }
+    get '/login/:provider',          to: 'sessions#auth',                 as: :auth
     get '/offline_login/:nickname',  to: 'sessions#offline_login' if Rails.env.development?
   end
 
   constraints MainDomainConstraint.new do
-    match '/', to: 'labels#index', as: :labels
+    get '/', to: 'labels#index', as: :labels
   end
 
-  match '/api',             to: 'api#index'
+  get '/api', to: 'api#index'
 
   root to: "home#index"
-
-  ActiveAdmin.routes(self)
-
-  match '/*tail', to: _404
 end

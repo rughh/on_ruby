@@ -1,0 +1,28 @@
+h3 Event Actions
+
+- if unpublished = Event.unpublished
+  ul
+    - unpublished.each do |event|
+      li
+        = "#{event.name}: "
+        = link_to("tweet", twitter_update_url(event))
+        = " / "
+        = link_to("publish", url_for(controller: "/admin/events", action: :publish, id: event.id))
+
+p= link_to 'Duplicate latest Event', '/admin/events/duplicate'
+
+h3 Topic Actions
+- if undone = Topic.undone
+  ul
+    - undone.each do |topic|
+      li
+        = "#{topic.name}: "
+        = link_to("tweet", twitter_update_url(topic))
+        = " / "
+        = link_to("for next Event", url_for(controller: "/admin/topics", action: :add_to_latest_event, id: topic.id))
+
+h3 Highlight Actions
+- if active = Highlight.active
+  ul
+    - active.each do |highlight|
+      li= link_to "Disable '#{highlight.description}'", url_for(controller: "/admin/highlights", action: :disable, id: highlight.id)

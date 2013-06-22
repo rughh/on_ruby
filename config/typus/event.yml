@@ -1,0 +1,8 @@
+Event:
+  fields:
+    default: id, name, date, user, published
+    form: user, location, name, date, description, published
+  order_by: -created_at
+  actions:
+    edit: publish
+  application: CRUD

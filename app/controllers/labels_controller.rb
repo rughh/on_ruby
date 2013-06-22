@@ -1,7 +1,7 @@
 class LabelsController < ActionController::Base
   include MobileDetection
 
-  before_filter :setup
+  before_action :setup
 
   def index
     render layout: "#{mobile_device? ?  'application'  : 'labels'}"

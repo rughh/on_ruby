@@ -6,8 +6,7 @@ OnRuby::Application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  # Log error messages when you accidentally call methods on nil.
-  config.whiny_nils = true
+  config.eager_load = true
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
@@ -18,9 +17,6 @@ OnRuby::Application.configure do
   # config.serve_static_assets = false
   config.serve_static_assets = true
   config.static_cache_control = "public, max-age=2592000"
-
-  # Compress JavaScripts and CSS
-  config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   # config.assets.compile = false
@@ -61,7 +57,6 @@ OnRuby::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( active_admin.js active_admin.css )
 
   # Disable delivery errors, bad email addresses will be ignored
   config.action_mailer.raise_delivery_errors = true

@@ -2,7 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-Bundler.require(*Rails.groups(:assets)) if defined?(Bundler)
+Bundler.require(:default, Rails.env)
 
 module OnRuby
   class Application < Rails::Application
@@ -18,7 +18,7 @@ module OnRuby
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
     # Activate observers that should always be running.
-    # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
+    config.active_record.observers = :cache_expiration
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
@@ -41,14 +41,13 @@ module OnRuby
     ]
 
     # Enable the asset pipeline
-    config.assets.enabled = true
     config.assets.initialize_on_precompile = false
 
     # Version of your assets, change this if you want to expire all your assets.
     config.assets.version = '1.0'
 
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-    config.assets.precompile += %w( active_admin.js active_admin.css labels/* )
+    config.assets.precompile += %w(labels/*)
 
     config.middleware.insert_before "Rails::Rack::Logger", "DisableAssetsLogger"
 
@@ -60,8 +59,5 @@ module OnRuby
       g.fixture_replacement :factory_girl, :dir => "spec/support/factories"
       g.stylesheet_engine = :sass
     end
-
-    # Mass assignment settings
-    config.active_record.whitelist_attributes = true
   end
 end

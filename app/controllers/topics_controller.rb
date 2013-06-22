@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
-  before_filter :check_login, only: [:new, :create, :edit, :update]
+  before_action :authenticate!, except: :show
 
-  expose(:topic)
+  expose(:topic, attributes: :topic_params)
   expose(:events) { Event.with_topics.ordered.page(params[:page]).per(10) }
   expose(:undone_topics) { Topic.ordered.undone }
   expose(:done_topics) { Topic.ordered.done }
@@ -28,5 +28,11 @@ class TopicsController < ApplicationController
         redirect_to(edit_topic_path, alert: topic.errors.full_messages.join(', '))
       end
     end
+  end
+
+  private
+
+  def topic_params
+    params.require(:topic).permit(:label, :name, :user, :description)
   end
 end

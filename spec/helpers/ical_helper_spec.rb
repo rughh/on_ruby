@@ -5,7 +5,7 @@ describe IcalHelper do
 
   it "creates a valid icalendar event" do
     helper.calendar(event).to_s.tap do |it|
-      it.should match("BEGIN:VCALENDAR\r\nCALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\nPRODID:iCalendar-Ruby\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nCOMMENT:iCal Event by On Ruby!")
+      it.should match("BEGIN:VCALENDAR\r\nVERSION:2.0\r\nCALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\nPRODID:iCalendar-Ruby\r\nBEGIN:VEVENT\r\nCOMMENT:iCal Event by On Ruby!")
       it.should match('http://test.host/events/123')
       it.should match('SUMMARY:awesome ottawa')
     end

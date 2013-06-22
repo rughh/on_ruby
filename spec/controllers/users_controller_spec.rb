@@ -55,9 +55,9 @@ describe UsersController do
     before { set_referer }
 
     it "should update the github attribute of a user" do
-      @controller.stubs(current_user: user)
+      controller.stubs(current_user: user)
       put :update, data
-      controller.user.tap do |user|
+      controller.current_user.tap do |user|
         user.github.should eql('testo')
         user.freelancer.should be_true
         user.available.should be_true
@@ -66,9 +66,9 @@ describe UsersController do
     end
 
     it "should not update injected properties" do
-      @controller.stubs(current_user: user)
+      controller.stubs(current_user: user)
       put :update, data
-      controller.user.nickname.should eql(user.nickname)
+      controller.current_user.nickname.should eql(user.nickname)
     end
 
     it "should update nothing for wrong user" do
