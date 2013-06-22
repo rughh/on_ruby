@@ -38,6 +38,7 @@ group :production do
 end
 
 group :development, :test do
+  gem "letter_opener",      "1.1.1"
   gem "faker",              "1.1.2"
   gem "sqlite3",            "1.3.7"
   gem "pry-rails",          "0.3.1"

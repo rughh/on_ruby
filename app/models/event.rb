@@ -42,16 +42,6 @@ class Event < ActiveRecord::Base
     date + 2.hours
   end
 
-  def publish_mailinglist(event_url)
-    if Rails.env.production?
-      UsergroupMailer.invitation_mail(self).deliver!
-    else
-      logger.warn "publishing in test-modus with url #{event_url}"
-    end
-    self.published = true
-    self.save!
-  end
-
   class << self
     def duplicate!
       latest  = Event.last

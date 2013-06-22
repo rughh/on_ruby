@@ -14,16 +14,7 @@ OnRuby::Application.configure do
 
   # Configure Gmail for development-mails
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address              => 'smtp.gmail.com',
-    :port                 => 587,
-    :domain               => 'hamburg.onruby.de',
-    :user_name            => ENV['GMAIL_USER'],
-    :password             => ENV['GMAIL_PASSWORD'],
-    :authentication       => 'plain',
-    :enable_starttls_auto => true
-  }
+  config.action_mailer.delivery_method = :letter_opener
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
