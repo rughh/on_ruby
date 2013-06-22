@@ -1,4 +1,4 @@
-class Admin::HighlightsController < Admin::BaseAdminController
+class Admin::HighlightsController < Admin::ResourcesController
   def disable
     highlight = Highlight.find(params[:id])
     highlight.disable!

@@ -1,4 +1,4 @@
-class Admin::TopicsController < Admin::BaseAdminController
+class Admin::TopicsController < Admin::ResourcesController
   def add_to_latest_event
     topic = Topic.find(params[:id])
     topic.event = Event.current.first

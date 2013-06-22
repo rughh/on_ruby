@@ -1,2 +1,2 @@
-class Admin::MaterialsController < Admin::BaseAdminController
+class Admin::MaterialsController < Admin::ResourcesController
 end

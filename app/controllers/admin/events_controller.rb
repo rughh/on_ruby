@@ -1,4 +1,4 @@
-class Admin::EventsController < Admin::BaseAdminController
+class Admin::EventsController < Admin::ResourcesController
   def duplicate
     event = Event.duplicate!
     redirect_to url_for(controller: "/admin/events", action: :edit, id: event.id)
