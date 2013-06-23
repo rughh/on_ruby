@@ -29,7 +29,7 @@ describe ParticipantsController do
       it "should silently ignore the problem via json" do
         expect { post :create, format: :json, event_id: event.id }.to change(Participant, :count).by(0)
 
-        response.status.should be(200)
+        response.status.should be(201)
       end
 
       it "should should alert a duplicate flash" do

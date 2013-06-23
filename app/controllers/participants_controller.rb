@@ -6,17 +6,12 @@ class ParticipantsController < ApplicationController
 
   def create
     if current_user.participates?(event)
-      respond_with(event) do |format|
-        format.html { redirect_to event_path(event), alert: t("flash.already_participating") }
-        format.json { head(200) }
-      end
+      flash[:alert] = t("flash.already_participating")
     else
       event.participants.create!(user: current_user)
-      respond_with(event) do |format|
-        format.html { redirect_to event_path(event), notice: t("flash.now_participating") }
-        format.json { head(201) }
-      end
+      flash[:notice] = t("flash.now_participating")
     end
+    respond_with(event)
   end
 
   def destroy
