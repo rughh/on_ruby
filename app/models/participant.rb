@@ -1,11 +1,6 @@
 class Participant < ActiveRecord::Base
-  acts_as_api
-
-  api_accessible :ios_v1 do |template|
-    template.add :id
-    template.add :user_id
-    template.add :event_id
-  end
+  extend ApiHandling
+  expose_api :id, :user_id, :event_id
 
   validates :user, :event, presence: true
 

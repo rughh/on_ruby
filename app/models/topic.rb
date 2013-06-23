@@ -2,15 +2,8 @@ class Topic < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  acts_as_api
-
-  api_accessible :ios_v1 do |template|
-    template.add :id
-    template.add :event_id
-    template.add :user_id
-    template.add :name
-    template.add :description
-  end
+  extend ApiHandling
+  expose_api :id, :event_id, :user_id, :name, :description
 
   validates :user, :name, :description, :label, presence: true
   validates :name, uniqueness: true

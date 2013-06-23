@@ -2,19 +2,8 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :nickname, use: :slugged
 
-  acts_as_api
-
-  api_accessible :ios_v1 do |template|
-    template.add :id
-    template.add :nickname
-    template.add :name
-    template.add :image
-    template.add :url
-    template.add :github
-    template.add :twitter
-    template.add :freelancer
-    template.add :available
-  end
+  extend ApiHandling
+  expose_api :id, :nickname, :name, :image, :url, :github, :twitter, :freelancer, :available
 
   validates :nickname, :name, :image, presence: true
   validates :nickname, uniqueness: true

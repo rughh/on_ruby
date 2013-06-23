@@ -2,19 +2,8 @@ class Event < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  acts_as_api
-
-  api_accessible :ios_v1 do |template|
-    template.add :id
-    template.add :name
-    template.add :description
-    template.add :date
-    template.add :location_id
-    template.add :user_id
-    template.add :participants
-    template.add :topics
-    template.add :materials
-  end
+  extend ApiHandling
+  expose_api :id, :name, :description, :date, :location_id, :user_id, :participants, :topics, :materials
 
   belongs_to :location
   belongs_to :user

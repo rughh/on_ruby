@@ -2,17 +2,8 @@ class Location < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  acts_as_api
-
-  api_accessible :ios_v1 do |template|
-    template.add :id
-    template.add :name
-    template.add :url
-    template.add :city
-    template.add :street
-    template.add :house_number
-    template.add :zip
-  end
+  extend ApiHandling
+  expose_api :id, :name, :url, :city, :street, :house_number, :zip
 
   geocoded_by :full_address, latitude: :lat, longitude: :long
   after_validation :geocode unless Rails.env.test? # REM (ps) no geocoder for tests
