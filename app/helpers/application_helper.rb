@@ -84,8 +84,15 @@ module ApplicationHelper
     "#{url}?#{URI.escape(params.join('&'))}"
   end
 
+  def single_map(location, init = {zoom: 14})
+    data = {
+      map: Array(location).to_json,
+      init: location.attributes.merge(init).to_json,
+    }
+    content_tag :div, '', class: 'map_canvas', data: data
+  end
+
   def map(locations, init = {zoom: 12})
-    locations = Array(locations)
     init = Whitelabel[:location].merge(init)
     data = {
       map: locations.to_json,
