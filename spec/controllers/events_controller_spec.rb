@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe EventsController do
-  let(:event) { build(:event) }
-
   context "GET :index" do
+    let!(:event) { create(:event) }
+
     it "assign the events and renders the template" do
       get :index
-      controller.events.should_not be_nil
+      controller.events.first.should eql(event)
       response.should render_template(:index)
     end
 
@@ -29,9 +29,11 @@ describe EventsController do
   end
 
   context "GET :show" do
+    let!(:event) { create(:event) }
+
     it "assigns the event and renders the template" do
       get :show, id: event.id
-      controller.events.should_not be_nil
+      controller.event.should eql(event)
       response.should render_template(:show)
     end
 
