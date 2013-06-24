@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe HomeController, type: :request do
+describe "MobileDetection", type: :request do
   context "request format" do
     it "should have a request type of text/html" do
       get root_path
