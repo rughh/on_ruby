@@ -16,10 +16,6 @@ class SessionsController < ApplicationController
     redirect_to request.env['omniauth.origin'] || root_path, options
   end
 
-  def destroy_user_session
-    redirect_to destroy_session_path
-  end
-
   def destroy
     session[:user_id] = nil
     cookies.permanent.signed[:remember_me] = ['', '']
