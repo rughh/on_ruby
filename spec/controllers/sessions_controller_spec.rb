@@ -26,4 +26,28 @@ describe SessionsController do
       response.should redirect_to('/auth/twitter')
     end
   end
+
+  context "GET :failure" do
+    it "handles failure modes" do
+      get :failure
+      expect(response).to redirect_to(root_path)
+      flash[:alert].should_not be_nil
+    end
+  end
+
+  context "GET :auth" do
+    it "handles different providers" do
+      get :auth, provider: :twitter
+      expect(response).to redirect_to('/auth/twitter')
+      controller.session[:omniauth_keys].should_not be_nil
+    end
+  end
+
+  context "GET :destroy" do
+    it "destroys a user session" do
+      get :destroy
+      expect(response).to redirect_to(root_path)
+      flash[:notice].should_not be_nil
+    end
+  end
 end
