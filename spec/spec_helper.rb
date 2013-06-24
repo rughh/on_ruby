@@ -1,6 +1,9 @@
 ENV["RAILS_ENV"]    ||= 'test'
 ENV["SECRET_TOKEN"] ||= 'SECRET_TOKEN_TEST_b7c7374eb0285b87c0c1c61c2c5401b9f92dd59209713801743202c'
 
+require 'coveralls'
+Coveralls.wear!('rails')
+
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 

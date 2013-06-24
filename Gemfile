@@ -50,5 +50,6 @@ group :development, :test do
   gem "meta_request",       "0.2.5"
   gem "better_errors",      "0.9.0"
   gem "binding_of_caller",  "0.7.2"
+  gem "coveralls",          require: false
   gem "taps",               require: false
 end
