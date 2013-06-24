@@ -1,8 +1,10 @@
 OnRuby::Application.routes.draw do
-  resource :sitemap
+  resource :sitemap, only: :show
+
   resources :settings, only: :index
 
   resources :users
+
   resources :locations
 
   resources :events do
@@ -18,8 +20,8 @@ OnRuby::Application.routes.draw do
   scope '/auth' do
     get '/:provider/callback',       to: 'sessions#create'
     get '/failure',                  to: 'sessions#failure'
-    get '/destroy_session',          to: 'sessions#destroy',              as: :destroy_session
-    get '/login/:provider',          to: 'sessions#auth',                 as: :auth
+    get '/destroy_session',          to: 'sessions#destroy',  as: :destroy_session
+    get '/login/:provider',          to: 'sessions#auth',     as: :auth
     get '/offline_login/:nickname',  to: 'sessions#offline_login' if Rails.env.development?
   end
 
