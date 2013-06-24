@@ -14,9 +14,13 @@ module UserHandling
   end
 
   def authenticate_current_user!
-    unless signed_in? && current_user == user
+    unless signed_in? && current_user?
       redirect_to root_path, alert: t("flash.not_authenticated")
     end
+  end
+
+  def current_user?
+    current_user == user
   end
 
   def current_user
