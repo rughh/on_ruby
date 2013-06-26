@@ -15,8 +15,9 @@ class ApplicationController < ActionController::Base
   helper_method :signed_in?, :current_user
   helper_method :mobile_device?
 
-  rescue_from ActiveRecord::RecordNotFound, with: :_404
-  rescue_from ActionView::MissingTemplate,  with: :_404
+  rescue_from ActiveRecord::RecordNotFound,     with: :_404
+  rescue_from ActionView::MissingTemplate,      with: :_404
+  rescue_from ActionController::UnknownFormat,  with: :_404
 
   expose(:jobs)       { Job.shuffled }
   expose(:main_user)  { User.main }
