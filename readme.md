@@ -84,8 +84,6 @@ ActiveAdmin is mounted under */admin* of your label, so it's *hamburg.onruby.de/
 - Jobs (The Display on top of the Page)
 - Highlights (Special infos, that you want to display for a short period of time)
 
-![ActiveAdmin](http://f.cl.ly/items/2w3P211I0a032u2x1k3k/Bildschirmfoto%202012-07-23%20um%2023.09.59.png)
-
 ## License
 
 "THE BEER-WARE LICENSE" (Revision 42):
