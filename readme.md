@@ -70,9 +70,9 @@ On the admin-site we need to:
 
 ## Admin Interface
 
-The app comes with an [ActiveAdmin](https://github.com/gregbell/active_admin) interface to manage the model data.
+The app comes with an [Typus](https://github.com/fesplugas/typus) interface to manage the model data.
 In order to access the admin stuff, you need to be a registered user with the "admin role".
-ActiveAdmin is mounted under */admin* of your label, so it's *hamburg.onruby.de/admin* for Hamburg.
+Typus is mounted under */admin* of your label, so it's *http://hamburg.onruby.de/admin* for Hamburg.
 
 ### Stuff to manage (CRUD)
 
