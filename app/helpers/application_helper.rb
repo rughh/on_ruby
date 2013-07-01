@@ -86,7 +86,7 @@ module ApplicationHelper
 
   def single_map(location, init = {zoom: 14})
     data = {
-      map: Array(location).to_json,
+      map:  Array(location).to_json,
       init: location.attributes.merge(init).to_json,
     }
     content_tag :div, '', class: 'map_canvas', data: data
@@ -95,7 +95,7 @@ module ApplicationHelper
   def map(locations, init = {zoom: 12})
     init = Whitelabel[:location].merge(init)
     data = {
-      map: locations.to_json,
+      map:  locations.to_json,
       init: init.to_json,
     }
     content_tag :div, '', class: 'map_canvas', data: data

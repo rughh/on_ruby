@@ -18,4 +18,4 @@ section
   = render "materials", materials: event.materials
 
   h3#route= t("show.route")
-  = single_map(event.location, lat: event.location.lat, long: event.location.long)
+  = single_map(event.location)
