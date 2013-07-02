@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_current_user!, only: [:edit, :update]
 
-  expose(:user) { User.find params[:id] }
+  expose(:user)
   expose(:users) { User.peers }
 
   def index; end
