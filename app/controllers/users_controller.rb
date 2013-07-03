@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_current_user!, only: [:edit, :update]
+  before_action :check_peering, only: [:show]
 
-  expose(:user)
+  expose(:user)  { User.find params[:id] }
   expose(:users) { User.peers }
 
   def index; end
@@ -29,5 +30,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:twitter, :github, :name, :freelancer, :available, :hide_jobs, :participants, :image, :url)
+  end
+
+  def check_peering
+    head 404 unless user.peer?
   end
 end

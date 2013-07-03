@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
     participants.where("event_id" => event.id).first
   end
 
+  def peer?
+    events.present? || participations.present?
+  end
+
   def url
     return unless url = read_attribute(:url)
     url =~ /\Ahttps?:\/\/.+/ ? url : "http://#{url}"

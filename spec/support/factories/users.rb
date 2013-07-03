@@ -13,9 +13,11 @@ FactoryGirl.define do
     admin true
   end
 
+  factory :organizer_user, parent: :user do
+    after(:create) { |user| FactoryGirl.create(:event, user: user) }
+  end
+
   factory :participant_user, parent: :user do
-    after(:create) do |user, evaluator|
-      FactoryGirl.create_list(:participant, 1, user: user)
-    end
+    after(:create) { |user| FactoryGirl.create_list(:participant, 1, user: user) }
   end
 end

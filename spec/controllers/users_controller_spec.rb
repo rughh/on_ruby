@@ -2,15 +2,34 @@ require 'spec_helper'
 
 describe UsersController do
   let(:user) { create(:user) }
+  let(:user_with_events) { create(:organizer_user) }
+  let(:user_with_participations) { create(:participant_user) }
   let(:data) { {id: user.id, user: { github: 'testo', freelancer: true, available: true }} }
   let(:unallowed_data) { data.merge({:user => {:nickname => 'not_allowed_property'}}) }
 
   context "GET :show" do
-    render_views
+    context "unknown user" do
+      render_views
 
-    it "rescues from not found" do
-      get :show, id: "unknown"
+      it "rescues from not found" do
+        get :show, id: "unknown"
+        response.status.should eql(404)
+      end
+    end
+
+    it "hides users via 404 if they do not participate in any event on a usergroup" do
+      get :show, id: user.id
       response.status.should eql(404)
+    end
+
+    it "shows the user when organized an event" do
+      get :show, id: user_with_events.id
+      response.status.should eql(200)
+    end
+
+    it "shows the user participates an event" do
+      get :show, id: user_with_participations.id
+      response.status.should eql(200)
     end
   end
 
