@@ -1,5 +1,7 @@
 ul
-  - [:events, :topics, :people, :locations].each do |it|
+  - nav_entries = [:events, :topics, :people, :locations]
+  - nav_entries.insert(2, :mailing_list) if Whitelabel[:mailing_list_feed_url].present?
+  - nav_entries.each do |it|
     li= link_to t(it), root_path(anchor: it), title: t(it)
 
 #locale

@@ -11,7 +11,9 @@ module HomeHelper
     content_for :mobile_navigation do
       content_tag :div, data: {role: "navbar", iconpos: "right"} do
         content_tag :ul do
-          [:events, :topics, :people, :locations].each do |it|
+          nav_entries = [:events, :topics, :people, :locations]
+          nav_entries.insert(2, :mailing_list) if Whitelabel[:mailing_list_feed_url].present?
+          nav_entries.each do |it|
             concat(content_tag :li, link_to(t(it), root_path(anchor: it), class: it == :events ? "ui-btn-active" : ""))
           end
         end

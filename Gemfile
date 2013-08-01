@@ -20,6 +20,7 @@ gem "acts_as_api",            "0.4.1"
 gem "whitelabel",             "0.2.0"
 gem "dalli",                  "2.6.4"
 gem 'exception_notification', github: 'smartinez87/exception_notification'
+gem "feedzirra",              "0.2.0.rc2"
 
 gem "formtastic",             "2.2.1"
 gem "kaminari",               "0.14.1"

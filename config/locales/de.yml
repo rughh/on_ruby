@@ -12,6 +12,7 @@ de:
     en: "Englisch"
   usergroups: "Usergroups"
   events: "Treffen"
+  mailing_list: "Mailinglist"
   locations: "Orte"
   people: "Leute"
   topics: "Themen"
@@ -63,6 +64,9 @@ de:
     no_new_topics: "Es gibt im Moment keine Themenvorschläge, trage hier deinen %{new_topic_link} ein!"
     all_events: "Alle Events"
     all_people: "Alle Leute"
+    top_maling_entries: "Top Diskussionen"
+    goto_maling_list: "Zur Mailinglist"
+    mailing_list: "Die Mailinglist ist eine Möglichkeit stets auf dem Laufenden zu bleiben oder sich an Diskussionsthemen zu beteiligen. Sie wird dafür verwendet jeden über Neuigkeiten per E-Mail zu informieren, der sich dafür eingeschrieben hat. Organisatorische, fachliche und andere interessante Dinge werden hier diskutiert und abgestimmt. Keine Werbung - keine Scheu."
   profile:
     edit: "Profil bearbeiten"
     freelancer: "Freiberufler"

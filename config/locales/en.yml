@@ -12,6 +12,7 @@ en:
     en: "English"
   usergroups: "Usergroups"
   events: "Events"
+  mailing_list: "Mailinglist"
   locations: "Locations"
   people: "People"
   topics: "Topics"
@@ -63,6 +64,9 @@ en:
     no_new_topics: "Currently no proposals, add your %{new_topic_link} here!"
     all_events: "All Events"
     all_people: "All People"
+    top_maling_entries: "Top discussions"
+    goto_maling_list: "To the Mailinglist"
+    mailing_list: "The Mailinglist is a tool to just stay up-to-date or to even get involved in discussions. It is used to inform everyone about News via e-mail who signed up for it. Organizational, technical and other interesting topics are discussed and coordinated here. No ads - no dread."
   profile:
     edit: "Edit profile"
     freelancer: "Freelancer"
