@@ -64,8 +64,13 @@ describe User do
       tu.id.should eql(gu.id)
     end
 
+    it "adds email addresses for github users" do
+      user = User.find_or_create_from_hash!(GITHUB_AUTH_HASH)
+      expect(user.email).to eql("phoetmail@googlemail.com")
+    end
+
     it "should raise an error for same nickname but different auths" do
-      tu = User.find_or_create_from_hash!(TWITTER_AUTH_HASH)
+      User.find_or_create_from_hash!(TWITTER_AUTH_HASH)
       expect do
         User.find_or_create_from_hash!(GITHUB_AUTH_HASH)
       end.to raise_error(User::DuplicateNickname)
