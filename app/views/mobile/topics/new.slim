@@ -3,5 +3,6 @@ p.info== t("topic.markdown")
 
 = form_for topic do |f|
   = f.text_field :name, placeholder: t('formtastic.labels.topic.name'), data: {mini: true}
+  = f.select :proposal_type, proposal_type_selection, {include_blank: false}, data: {mini: true}
   = f.text_area :description, placeholder: t('formtastic.labels.topic.description'), data: {mini: true}
   = f.submit t('formtastic.actions.topic.create')

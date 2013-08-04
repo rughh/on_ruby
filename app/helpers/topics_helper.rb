@@ -12,4 +12,8 @@ module TopicsHelper
       button_to t('topic.like'), '', data: { disable: t('show.login_before_attend') }
     end
   end
+
+  def proposal_type_selection
+    Hash[Topic::PROPOSAL_TYPES.map { |type| [I18n.t("topic.proposal_types.#{type}"), type] }]
+  end
 end

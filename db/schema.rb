@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130804141702) do
+ActiveRecord::Schema.define(version: 20130804145438) do
 
   create_table "active_admin_comments", force: true do |t|
     t.integer   "resource_id",   null: false
@@ -147,8 +147,9 @@ ActiveRecord::Schema.define(version: 20130804141702) do
     t.integer   "event_id"
     t.timestamp "created_at"
     t.timestamp "updated_at"
-    t.string    "label",       default: "hamburg"
+    t.string    "label",         default: "hamburg"
     t.string    "slug"
+    t.string    "proposal_type", default: "proposal"
   end
 
   add_index "topics", ["event_id"], name: "index_topics_on_event_id"

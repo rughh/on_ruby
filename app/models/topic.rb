@@ -1,4 +1,6 @@
 class Topic < ActiveRecord::Base
+  PROPOSAL_TYPES = %w(proposal enquiry)
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 
@@ -6,6 +8,7 @@ class Topic < ActiveRecord::Base
   expose_api :id, :event_id, :user_id, :name, :description
 
   validates :user, :name, :description, :label, presence: true
+  validates :proposal_type, inclusion: { in: PROPOSAL_TYPES }
   validates :name, uniqueness: true
 
   belongs_to :user

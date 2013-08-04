@@ -1,4 +1,5 @@
 = semantic_form_for topic do |f|
   = f.input :name
+  = f.input :proposal_type, as: :select, include_blank: false, collection: proposal_type_selection
   = f.input :description
   = f.action :submit
