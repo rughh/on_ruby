@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  helper MailingListHelper
+
   expose(:current_event) { Event.current.first }
   expose(:events) { Event.latest.limit(10) }
   expose(:people) { User.peers }

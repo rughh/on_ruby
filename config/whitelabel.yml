@@ -177,6 +177,7 @@
   recurring: "third thursday 19:00"
   email: "leipzigonrails@googlegroups.com"
   mailing_list: "https://groups.google.com/group/leipzigonrails"
+  mailing_list_feed_url: "https://groups.google.com/forum/feed/leipzigonrails/topics/rss.xml?num=15"
   host: "leipzig.onruby.de"
   twitter: "LeipzigOnRails"
   organizers: ['cpetschnig', 'knugie', 'tmetzmac']

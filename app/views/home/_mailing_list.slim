@@ -1,0 +1,9 @@
+= section_box :mailing_list do
+  p
+    == t("home.mailing_list")
+  = button_to t("home.goto_maling_list"), Whitelabel[:mailing_list], method: :get
+  #done
+    h3= t('home.top_maling_entries')
+    ul.more-list.clearfix
+      - mailing_list_entries.each do |entry|
+        li.mailing_entry= link_to(entry.title, entry.url)

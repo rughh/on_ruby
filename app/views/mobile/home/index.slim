@@ -1,5 +1,6 @@
 - mobile_navigation
 = render 'events', current_event: current_event, events: events
 = render 'topics', undone_topics: undone_topics, done_topics: done_topics
+= render 'mailing_list' if Whitelabel[:mailing_list_feed_url].present?
 = render 'people', people: people[0..9]
 = render 'locations', locations: locations
