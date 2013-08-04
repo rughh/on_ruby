@@ -110,6 +110,7 @@ en:
     unliked: "You don't like the Topic."
     topic_added: "Added new Topic."
     topic_updated: "Updated the Topic."
+    add_email: "Please add an email address, so that we can get in contact!"
   mobile:
     settings: "Settings"
     back: "Back"

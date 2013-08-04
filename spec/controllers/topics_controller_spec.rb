@@ -39,6 +39,7 @@ describe TopicsController do
 
   context "POST :create" do
     let(:user) { create(:user) }
+    let(:user_without_email) { create(:user, email: nil) }
     let(:topic_data) { attributes_for(:topic) }
 
     it "should create a topic for logged-in user" do
@@ -46,6 +47,12 @@ describe TopicsController do
       expect { post(:create, topic: topic_data) }.to change(Topic, :count).by(1)
       controller.topic.user.should eql(user)
       flash[:notice].should_not be_nil
+    end
+
+    it "creates a topic and sends user add an email if not present" do
+      controller.stubs(current_user: user_without_email)
+      expect { post(:create, topic: topic_data) }.to change(Topic, :count).by(1)
+      expect(response).to redirect_to(edit_user_path(user_without_email))
     end
 
     it "should not create a topic if not signed in" do

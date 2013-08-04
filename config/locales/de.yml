@@ -111,6 +111,7 @@ de:
     unliked: "Das Thema gefällt dir nicht mehr."
     topic_added: "Dein Thema wurde gespeichert."
     topic_updated: "Dein Thema wurde aktualisiert."
+    add_email: "Bitte trage eine E-Mail Adresse ein, damit wir dich erreichen können!"
   mobile:
     settings: "Einstellungen"
     back: "Zurück"
