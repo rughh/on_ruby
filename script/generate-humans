@@ -2,6 +2,15 @@
 # encoding: UTF-8
 
 FORMAT = <<-OUTPUT
+ ________
+< ONRUBY >
+ --------
+        \\   ^__^
+         \\  (oo)\_______
+            (__)\       )\\/\\
+                ||----w |
+                ||     ||
+
 /* MAINTAINER */
 
   Peter Schröder (Señor Developer)

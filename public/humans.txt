@@ -1,3 +1,12 @@
+ ________
+< ONRUBY >
+ --------
+        \   ^__^
+         \  (oo)_______
+            (__)       )\/\
+                ||----w |
+                ||     ||
+
 /* MAINTAINER */
 
   Peter Schröder (Señor Developer)
@@ -29,6 +38,8 @@
   Peter Schröder
 
   Ralph von der Heyden
+
+  Simon Zöllner
 
   Stefan Botzenhart
 
