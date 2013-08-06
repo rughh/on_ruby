@@ -92,6 +92,12 @@ de:
     no_event: "noch kein Event-Termin, ist aber in der Mache"
     markdown: "Du kannst <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> in deiner Beschreibung verwenden, URLs werden automatisch verlinkt."
     twitter_message: "Neues Thema von @%{username} '%{name}' %{url}"
+    proposal_types:
+      proposal: "Ich stelle das Thema vor"
+      enquiry: "Ich würde gerne mehr zu diesem Thema erfahren"
+    proposal_type_descriptions:
+      proposal: "%{user} stellt das Thema vor"
+      enquiry: "%{user} würde gerne mehr zu diesem Thema erfahren"
   event:
     twitter_message: "%{name} am %{date} %{url}"
     recurring: "jeden %{number}. %{day} im Monat"

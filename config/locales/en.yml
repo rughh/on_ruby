@@ -89,9 +89,15 @@ en:
     edit: "edit Topic"
     hosted_by: "at %{event}, hosted by %{host}"
     created_by_user: "this Topic will be presented by %{user}"
-    no_event: "no event date yet"
+    no_event: "No event date yet"
     markdown: "You can use <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> in your description, URLs will get auto-linked."
     twitter_message: "New Topic by @%{username} '%{name}' %{url}"
+    proposal_types:
+      proposal: "I want to give this talk"
+      enquiry: "I would love to hear somebody talking about this topic"
+    proposal_type_descriptions:
+      proposal: "%{user} wants to give this talk"
+      enquiry: "%{user} would love to hear somebody talking about this topic"
   event:
     twitter_message: "%{name} at %{date} %{url}"
     recurring: "every %{number}. %{day} a Month"
