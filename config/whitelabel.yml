@@ -69,7 +69,7 @@
   domains: ["colognerb.de", "koelschrb.de"]
   recurring: "third wednesday"
   email: "colognerb@googlegroups.com"
-  mailing_list: "https://groups.google.com/group/colognerb"
+  google_group: "colognerb"
   host: "cologne.onruby.de"
   twitter: "colognerb"
   organizers: ['jkwebs']
@@ -129,7 +129,7 @@
   domains: ["karlsruherb.de"]
   recurring: "third wednesday"
   email: "karlsruherb@googlegroups.com"
-  mailing_list: "https://groups.google.com/group/karlsruherb"
+  google_group: "karlsruherb"
   host: "karlsruhe.onruby.de"
   twitter: "rug_ka"
   organizers: ['basiszwo']
@@ -157,7 +157,7 @@
   domains: ["rug-b.de"]
   recurring: "first thursday 19:30"
   email: "rug-b@googlegroups.com"
-  mailing_list: "https://groups.google.com/group/rug-b"
+  google_group: "rug-b"
   host: "berlin.onruby.de"
   twitter: "rug_b"
   organizers: ['freaklikeme', 'Hagenburger', 'PragTob']
@@ -176,8 +176,7 @@
   domains: ["leipzigonrails.de"]
   recurring: "third thursday 19:00"
   email: "leipzigonrails@googlegroups.com"
-  mailing_list: "https://groups.google.com/group/leipzigonrails"
-  mailing_list_feed_url: "https://groups.google.com/forum/feed/leipzigonrails/topics/rss.xml?num=15"
+  google_group: "leipzigonrails"
   host: "leipzig.onruby.de"
   twitter: "LeipzigOnRails"
   organizers: ['cpetschnig', 'knugie', 'tmetzmac']

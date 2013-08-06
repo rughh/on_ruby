@@ -12,7 +12,7 @@ section.clearfix
       h2= t("footer.links")
       ul
         li= link_to 'GitHub', 'http://github.com/phoet/on_ruby', title: 'Fork me on GitHub'
-        li= link_to 'Mailinglist', (Whitelabel[:mailing_list] || 'https://groups.google.com/forum/?fromgroups#!forum/rubyonrails-ug-germany'), title: 'Mailinglist'
+        li= link_to 'Mailinglist', mailing_list_url, title: 'Mailinglist'
         li= link_to t("footer.to_mobile"), root_path(mobile: 1)
 
     .imprint.block

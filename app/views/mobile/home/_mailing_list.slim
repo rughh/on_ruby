@@ -2,4 +2,4 @@ ul#mailing_list data-role="listview"
   li(data-role="list-divider")
   - mailing_list_entries(5).each do |entry|
     li= link_to(entry.title, entry.url)
-  li.ui-body= button_to t("home.goto_maling_list"), Whitelabel[:mailing_list], method: :get, data: {icon: 'arrow-r'}
+  li.ui-body= button_to t("home.goto_maling_list"), mailing_list_url, method: :get, data: {icon: 'arrow-r'}

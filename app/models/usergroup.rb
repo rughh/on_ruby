@@ -3,7 +3,7 @@ class Usergroup
   DELIMITER_DATE = ' '
   NUMBERS        = %w(first second third)
 
-  attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :mailing_list, :mailing_list_feed_url
+  attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :google_group
   attr_accessor :host, :twitter, :usergroup_email, :organizers, :location, :imprint, :other_usergroups
   attr_accessor :theme
 
