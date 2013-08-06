@@ -22,6 +22,21 @@ module ExternalLinkHelper
     end
   end
 
+  def mailing_list_url
+    group = Whitelabel[:google_group] || 'rubyonrails-ug-germany'
+    "https://groups.google.com/group/#{group}"
+  end
+
+  def mailing_list_entries(count = 15)
+    feed_url = "https://groups.google.com/forum/feed/#{Whitelabel[:google_group] || 'rubyonrails-ug-germany'}/topics/rss.xml?num=#{count}"
+    Rails.logger.debug "fetching feed from #{feed_url}"
+    if feed = Feedzirra::Feed.fetch_and_parse(feed_url)
+      feed.entries.first(count)
+    else
+      []
+    end
+  end
+
   def twitter_update_url(model)
     case model
     when Event
