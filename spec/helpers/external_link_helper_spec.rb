@@ -16,6 +16,23 @@ describe ExternalLinkHelper do
     end
   end
 
+  context "#mailing_list_entries" do
+    it "fetches and parses a feed" do
+      # TODO (ps) feedzirra is not handled with webmock, so do a real call here
+      # stub_request(:get, "groups.google.com").to_return(:body => "abc")
+      expect(mailing_list_entries).to have(15).items
+    end
+  end
+
+  context "#mailing_list_url" do
+    it "creates an url" do
+      helper.mailing_list_url.should eql("https://groups.google.com/group/rubyonrails-ug-germany")
+      Whitelabel.with_label(Whitelabel.label_for('cologne')) do
+        helper.mailing_list_url.should eql("https://groups.google.com/group/colognerb")
+      end
+    end
+  end
+
   context "#link_to_twitter" do
     it "should generate the link" do
       user = build(:user, twitter: "klaus")
