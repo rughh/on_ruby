@@ -1,61 +1,62 @@
+---
 en:
   label:
     default:
-      name: "onruby"
-      title: "We on Ruby"
-      subtitle: "Ruby Communities Germany"
-      meta_desc: "Ruby Communities Germany"
+      name: onruby
+      title: We on Ruby
+      subtitle: Ruby Communities Germany
+      meta_desc: Ruby Communities Germany
     hamburg:
-      city: "Hamburg"
-      name: "Ruby Usergroup Hamburg"
-      title: "Hamburg on Ruby"
-      subtitle: "Harbor of Hamburg's Ruby Community"
-      meta_desc: "Ruby / Rails Usergroup Hamburg"
+      city: Hamburg
+      name: Ruby Usergroup Hamburg
+      title: Hamburg on Ruby
+      subtitle: Harbor of Hamburg's Ruby Community
+      meta_desc: Ruby / Rails Usergroup Hamburg
     berlin:
-      city: "Berlin"
-      name: "Ruby Usergroup Berlin"
-      title: "RUG::B"
-      subtitle: "Ruby User Group Berlin"
-      meta_desc: "RUG::B—Ruby User Group Berlin"
+      city: Berlin
+      name: Ruby Usergroup Berlin
+      title: RUG::B
+      subtitle: Ruby User Group Berlin
+      meta_desc: RUG::B—Ruby User Group Berlin
     bremen:
-      city: "Bremen"
-      name: "HackHB"
-      title: "HackHB"
-      subtitle: "Hack and Snack"
-      meta_desc: "Hacking Usergroup Bremen: Ruby / Rails / JavaScript / HTML5 / Objective-C"
+      city: Bremen
+      name: HackHB
+      title: HackHB
+      subtitle: Hack and Snack
+      meta_desc: 'Hacking Usergroup Bremen: Ruby / Rails / JavaScript / HTML5 / Objective-C'
     cologne:
-      city: "Köln"
-      name: "Kölsch.rb"
-      title: "Cologne.rb"
-      subtitle: "Ruby User Group Cologne"
-      meta_desc: "Ruby / Rails User Group Cologne"
+      city: Köln
+      name: Kölsch.rb
+      title: Cologne.rb
+      subtitle: Ruby User Group Cologne
+      meta_desc: Ruby / Rails User Group Cologne
     saar:
-      city: "Saarland"
-      name: "RUGSaar"
-      title: "RUGSaar"
-      subtitle: "Ruby User Group Saar"
-      meta_desc: "Ruby User Group Saarland"
+      city: Saarland
+      name: RUGSaar
+      title: RUGSaar
+      subtitle: Ruby User Group Saar
+      meta_desc: Ruby User Group Saarland
     munich:
-      city: "Munich"
-      name: "Munich Ruby User Group"
-      title: "Munich Ruby"
-      subtitle: "Munich Ruby User Group"
-      meta_desc: "Munich Ruby User Group"
+      city: Munich
+      name: Munich Ruby User Group
+      title: Munich Ruby
+      subtitle: Munich Ruby User Group
+      meta_desc: Munich Ruby User Group
     karlsruhe:
-      city: "Karlsruhe"
-      name: "Ruby Usergroup Karlsruhe"
-      title: "Karlsruhe.rb"
-      subtitle: "Ruby User Group Karlsruhe"
-      meta_desc: "Ruby / Rails User Group Karlsruhe"
+      city: Karlsruhe
+      name: Ruby Usergroup Karlsruhe
+      title: Karlsruhe.rb
+      subtitle: Ruby User Group Karlsruhe
+      meta_desc: Ruby / Rails User Group Karlsruhe
     leipzig:
-      city: "Leipzig"
-      name: "LoR"
-      title: "Leipzig on Rails"
-      subtitle: "Ruby / Rails User Group Leipzig"
-      meta_desc: "Ruby / Rails User Group Leipzig"
+      city: Leipzig
+      name: LoR
+      title: Leipzig on Rails
+      subtitle: Ruby / Rails User Group Leipzig
+      meta_desc: Ruby / Rails User Group Leipzig
     dresden:
-      city: "Dresden"
-      name: "Ruby Usergroup Dresden"
-      title: "Dresden on Ruby"
-      subtitle: "Ruby User Group Dresden"
-      meta_desc: "Ruby / Rails User Group Dresden"
+      city: Dresden
+      name: Ruby Usergroup Dresden
+      title: Dresden on Ruby
+      subtitle: Ruby User Group Dresden
+      meta_desc: Ruby / Rails User Group Dresden

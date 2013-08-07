@@ -1,212 +1,252 @@
 ---
 - !ruby/object:Usergroup
-  label_id: "hamburg"
-  theme: "light"
-  default_locale: "de"
-  recurring: "second wednesday"
-  email: "hamburg@onruby.de"
-  twitter: "hamburgsync"
-  organizers: ['halfbyte', 'ralph', 'phoet', 'rubiii']
+  label_id: hamburg
+  theme: light
+  default_locale: de
+  recurring: second wednesday
+  email: hamburg@onruby.de
+  twitter: hamburgsync
+  organizers:
+  - halfbyte
+  - ralph
+  - phoet
+  - rubiii
   location:
     :zoom: 14
     :lat: 53.56544
     :long: 9.95947
   imprint:
-    :address: "Schanzenstr. 85\n20357 Hamburg"
+    :address: |-
+      Schanzenstr. 85
+      20357 Hamburg
     :contributors:
-    - :name: "Peter Schröder"
-      :email: "phoetmail@googlemail.com"
+    - :name: Peter Schröder
+      :email: phoetmail@googlemail.com
   other_usergroups:
-  - :name: "HH.js"
-    :url: "http://www.meetup.com/hamburg-js/"
-    :twitter: "hhjs"
-  - :name: "Scrumtisch"
-    :url: "http://sug-hh.wikispaces.com/"
-    :twitter: "hhscrum"
-  - :name: "Kanban Usergroup"
-    :url: "http://limited-wip-society-hamburg.mixxt.de/"
-    :twitter: "LimitedWIPSocHH"
-  - :name: "Cocoaheads"
-    :url: "http://groups.google.com/group/cocoaheads-hh/"
-    :twitter: "hh_cocoaheads"
-  - :name: "AWS Usergroup"
-    :url: "http://awsug.wordpress.com/"
-    :twitter: "awsug"
-  - :name: "Android Usergroup"
-    :url: "https://groups.google.com/group/android-user-group-hamburg"
-  - :name: "Java Usergroup"
-    :url: "http://www.jughh.org/"
-    :twitter: "jughh"
-  - :name: "DJANGO Usergroup"
-    :url: "http://www.dughh.de/"
+  - :name: HH.js
+    :url: http://www.meetup.com/hamburg-js/
+    :twitter: hhjs
+  - :name: Scrumtisch
+    :url: http://sug-hh.wikispaces.com/
+    :twitter: hhscrum
+  - :name: Kanban Usergroup
+    :url: http://limited-wip-society-hamburg.mixxt.de/
+    :twitter: LimitedWIPSocHH
+  - :name: Cocoaheads
+    :url: http://groups.google.com/group/cocoaheads-hh/
+    :twitter: hh_cocoaheads
+  - :name: AWS Usergroup
+    :url: http://awsug.wordpress.com/
+    :twitter: awsug
+  - :name: Android Usergroup
+    :url: https://groups.google.com/group/android-user-group-hamburg
+  - :name: Java Usergroup
+    :url: http://www.jughh.org/
+    :twitter: jughh
+  - :name: DJANGO Usergroup
+    :url: http://www.dughh.de/
 - !ruby/object:Usergroup
-  label_id: "bremen"
-  default_locale: "de"
-  recurring: "first wednesday"
-  email: "awesome-bremen@googlegroups.com"
-  twitter: "hackhb"
-  organizers: ['dennisreimann', 'erotte']
+  label_id: bremen
+  default_locale: de
+  recurring: first wednesday
+  email: awesome-bremen@googlegroups.com
+  twitter: hackhb
+  organizers:
+  - dennisreimann
+  - erotte
   location:
     :zoom: 14
     :lat: 53.079296
     :long: 8.801694
   imprint:
-    :address: "Hansator 1\n28217 Bremen"
+    :address: |-
+      Hansator 1
+      28217 Bremen
     :contributors:
-    - :name: "Dennis Reimann"
-      :email: "mail@dennisreimann.de"
+    - :name: Dennis Reimann
+      :email: mail@dennisreimann.de
   other_usergroups:
-  - :name: "Agile Gruppe Bremen"
-    :url: "http://agb.wikispaces.com/"
-  - :name: "CocoaHeads Bremen"
-    :url: "http://cocoaheads.org/de/Bremen/index.html"
-    :twitter: "CocoaHeadsHB"
+  - :name: Agile Gruppe Bremen
+    :url: http://agb.wikispaces.com/
+  - :name: CocoaHeads Bremen
+    :url: http://cocoaheads.org/de/Bremen/index.html
+    :twitter: CocoaHeadsHB
 - !ruby/object:Usergroup
-  label_id: "cologne"
-  default_locale: "de"
-  domains: ["colognerb.de", "koelschrb.de"]
-  recurring: "third wednesday"
-  email: "colognerb@googlegroups.com"
-  google_group: "colognerb"
-  twitter: "colognerb"
-  organizers: ['jkwebs']
+  label_id: cologne
+  default_locale: de
+  recurring: third wednesday
+  email: colognerb@googlegroups.com
+  twitter: colognerb
+  organizers:
+  - jkwebs
   location:
     :zoom: 13
     :lat: 50.941231
     :long: 6.957092
   imprint:
-    :address: "Deutz-Mülheimer Straße 129\n51063 Köln"
+    :address: |-
+      Deutz-Mülheimer Straße 129
+      51063 Köln
     :contributors:
-    - :name: "Jakob Hilden"
-      :email: "jakob@railslove.com"
-    - :name: "Marco Schaden"
-      :email: "hello@donschado.de"
-    - :name: "Railslove GmbH"
-      :email: "http://railslove.com"
+    - :name: Jakob Hilden
+      :email: jakob@railslove.com
+    - :name: Marco Schaden
+      :email: hello@donschado.de
+    - :name: Railslove GmbH
+      :email: http://railslove.com
   other_usergroups:
-  - :name: "Cologne.js"
-    :url: "http://colognejs.de/"
-    :twitter: "cgnjs"
-  - :name: "DevHouse Friday"
-    :url: "http://devhousefriday.org/"
-    :twitter: "devhousefriday"
-  - :name: "NoSQL User Group Cologne"
-    :url: "http://www.nosql-cologne.org/"
-    :twitter: "nosqlcgn"
-  - :name: "pyCologne"
-    :url: "http://wiki.python.de/pycologne/"
-    :twitter: "pycologne"
-  - :name: "Hcking.de"
-    :url: "http://hcking.de/"
+  - :name: Cologne.js
+    :url: http://colognejs.de/
+    :twitter: cgnjs
+  - :name: DevHouse Friday
+    :url: http://devhousefriday.org/
+    :twitter: devhousefriday
+  - :name: NoSQL User Group Cologne
+    :url: http://www.nosql-cologne.org/
+    :twitter: nosqlcgn
+  - :name: pyCologne
+    :url: http://wiki.python.de/pycologne/
+    :twitter: pycologne
+  - :name: Hcking.de
+    :url: http://hcking.de/
+  domains:
+  - colognerb.de
+  - koelschrb.de
+  google_group: colognerb
 - !ruby/object:Usergroup
-  label_id: "saar"
-  default_locale: "de"
-  domains: ["rugsaar.de"]
-  recurring: "third friday 19:30"
-  email: "rug.saar@gmail.com"
-  twitter: "RUGSaar"
-  organizers: ['markusschwed', 'gogolok']
+  label_id: saar
+  default_locale: de
+  recurring: third friday 19:30
+  email: rug.saar@gmail.com
+  twitter: RUGSaar
+  organizers:
+  - markusschwed
+  - gogolok
   location:
     :zoom: 13
-    :lat: 49.238560
+    :lat: 49.23856
     :long: 6.996574
   imprint:
-    :address: "Science Park 2\n66123 Saarbrücken"
+    :address: |-
+      Science Park 2
+      66123 Saarbrücken
     :contributors:
-    - :name: "Markus Schwed"
-      :email: "ma.schwed@googlemail.com"
-    - :name: "Robert Gogolok"
-      :email: "gogolok@gmail.com"
-    - :name: "Avarteq GmbH"
-      :email: "http://avarteq.de"
+    - :name: Markus Schwed
+      :email: ma.schwed@googlemail.com
+    - :name: Robert Gogolok
+      :email: gogolok@gmail.com
+    - :name: Avarteq GmbH
+      :email: http://avarteq.de
+  domains:
+  - rugsaar.de
 - !ruby/object:Usergroup
-  label_id: "karlsruhe"
-  default_locale: "de"
-  domains: ["karlsruherb.de"]
-  recurring: "third wednesday"
-  email: "karlsruherb@googlegroups.com"
-  google_group: "karlsruherb"
-  twitter: "rug_ka"
-  organizers: ['basiszwo']
+  label_id: karlsruhe
+  default_locale: de
+  recurring: third wednesday
+  email: karlsruherb@googlegroups.com
+  twitter: rug_ka
+  organizers:
+  - basiszwo
   location:
     :zoom: 14
     :lat: 49.006292
     :long: 8.398361
   imprint:
-    :address: "Amalienstraße 44\n76133 Karlsruhe"
+    :address: |-
+      Amalienstraße 44
+      76133 Karlsruhe
     :contributors:
-    - :name: "Stefan Botzenhart"
-      :email: "sb@ninjaconcept.com"
-    - :name: "NinjaConcept GmbH"
-      :email: "http://www.ninjaconcept.com/"
+    - :name: Stefan Botzenhart
+      :email: sb@ninjaconcept.com
+    - :name: NinjaConcept GmbH
+      :email: http://www.ninjaconcept.com/
   other_usergroups:
-  - :name: "KarlsruheJS"
-    :url: "http://www.karlsruhejs.org/"
-    :twitter: 'kajs'
-  - :name: "Google Technology User Group"
-    :url: "https://plus.google.com/109775289623271731783/posts"
-    :twitter: 'karlsruhegtug'
+  - :name: KarlsruheJS
+    :url: http://www.karlsruhejs.org/
+    :twitter: kajs
+  - :name: Google Technology User Group
+    :url: https://plus.google.com/109775289623271731783/posts
+    :twitter: karlsruhegtug
+  domains:
+  - karlsruherb.de
+  google_group: karlsruherb
 - !ruby/object:Usergroup
-  label_id: "berlin"
-  default_locale: "en"
-  domains: ["rug-b.de"]
-  recurring: "first thursday 19:30"
-  email: "rug-b@googlegroups.com"
-  google_group: "rug-b"
-  twitter: "rug_b"
-  organizers: ['freaklikeme', 'Hagenburger', 'PragTob']
+  label_id: berlin
+  default_locale: en
+  recurring: first thursday 19:30
+  email: rug-b@googlegroups.com
+  twitter: rug_b
+  organizers:
+  - freaklikeme
+  - Hagenburger
+  - PragTob
   location:
     :zoom: 14
     :lat: 52.52
     :long: 13.4
   imprint:
-    :address: "Adalbertstraße 8\n10999 Berlin"
+    :address: |-
+      Adalbertstraße 8
+      10999 Berlin
     :contributors:
-    - :name: "Ruby Berlin e.V."
-      :email: "rug-b@rubyberlin.org"
+    - :name: Ruby Berlin e.V.
+      :email: rug-b@rubyberlin.org
+  domains:
+  - rug-b.de
+  google_group: rug-b
 - !ruby/object:Usergroup
-  label_id: "leipzig"
-  default_locale: "de"
-  domains: ["leipzigonrails.de"]
-  recurring: "third thursday 19:00"
-  email: "leipzigonrails@googlegroups.com"
-  google_group: "leipzigonrails"
-  twitter: "LeipzigOnRails"
-  organizers: ['cpetschnig', 'knugie', 'tmetzmac']
+  label_id: leipzig
+  default_locale: de
+  recurring: third thursday 19:00
+  email: leipzigonrails@googlegroups.com
+  twitter: LeipzigOnRails
+  organizers:
+  - cpetschnig
+  - knugie
+  - tmetzmac
   location:
     :zoom: 14
-    :lat: 51.32870
+    :lat: 51.3287
     :long: 12.32329
   imprint:
     :contributors:
-    - :name: "Christoph Petschnig"
-      :email: "leipzigonrails@googlegroups.com"
-    - :name: "Wolfgang Teuber"
-      :email: "leipzigonrails@googlegroups.com"
-    - :name: "Thomas Metzmacher"
-      :email: "leipzigonrails@googlegroups.com"
+    - :name: Christoph Petschnig
+      :email: leipzigonrails@googlegroups.com
+    - :name: Wolfgang Teuber
+      :email: leipzigonrails@googlegroups.com
+    - :name: Thomas Metzmacher
+      :email: leipzigonrails@googlegroups.com
+  domains:
+  - leipzigonrails.de
+  google_group: leipzigonrails
 - !ruby/object:Usergroup
-  label_id: "dresden"
-  default_locale: "de"
-  domains: ["ruby-dresden.de"]
-  recurring: "first thursday 19:00"
-  email: "admin@ruby-dresden.de"
-  twitter: "ruby_dresden"
-  organizers: ['_sonnendeck','sgemkow']
+  label_id: dresden
+  default_locale: de
+  recurring: first thursday 19:00
+  email: admin@ruby-dresden.de
+  twitter: ruby_dresden
+  organizers:
+  - _sonnendeck
+  - sgemkow
   location:
     :zoom: 14
     :lat: 51.049013
     :long: 13.798582
   imprint:
-    :address: "ObjectFab GmbH\nPohlandstraße 19\n01309 Dresden"
+    :address: |-
+      ObjectFab GmbH
+      Pohlandstraße 19
+      01309 Dresden
     :contributors:
-    - :name: "Martin Schrader"
-      :email: "sonnendeck2000@gmail.com"
-    - :name: "Steffen Gemkow"
-      :email: "info@objectfab.de"
+    - :name: Martin Schrader
+      :email: sonnendeck2000@gmail.com
+    - :name: Steffen Gemkow
+      :email: info@objectfab.de
   other_usergroups:
-  - :name: "Dresden Perl Mongers"
-    :url: "http://renormalist.net/PM/WebHome"
-  - :name: "WDCM Dresden - Web Developer Conference Meeting"
-    :url: "http://wdcmdresden.com/"
-    :twitter: "wdcmdresden"
+  - :name: Dresden Perl Mongers
+    :url: http://renormalist.net/PM/WebHome
+  - :name: WDCM Dresden - Web Developer Conference Meeting
+    :url: http://wdcmdresden.com/
+    :twitter: wdcmdresden
+  domains:
+  - ruby-dresden.de
