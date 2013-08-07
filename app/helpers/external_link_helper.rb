@@ -1,4 +1,3 @@
-# encoding: UTF-8
 module ExternalLinkHelper
   def link_to_twitter(thing, params={clung: false}, &block)
     nick = thing.respond_to?(:twitter) ? thing.twitter : thing

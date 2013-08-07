@@ -1,4 +1,3 @@
-# encoding: UTF-8
 TWITTER_AUTH_HASH = {
   "provider"=>"twitter",
   "uid"=>"14339524",

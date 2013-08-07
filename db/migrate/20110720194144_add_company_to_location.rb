@@ -1,4 +1,3 @@
-# encoding: UTF-8
 class AddCompanyToLocation < ActiveRecord::Migration
   def self.up
     add_column :locations, :company, :boolean
