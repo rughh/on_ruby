@@ -1,22 +1,33 @@
 require 'spec_helper'
 
 describe Admin::EventsController do
-  context "GET :index" do
-    it "handles authentication" do
-      get :index
-      expect(response).to redirect_to(root_path)
+  it "handles authentication" do
+    get :index
+    expect(response).to redirect_to(root_path)
+    expect(flash[:alert]).to eql("Hoppala, da dürfen nur Admins hin!")
+  end
+
+  context "as admin" do
+    before do
+      controller.stubs(current_user: build(:admin_user))
     end
 
-    context "with logged-in user" do
-      let(:user) { build(:admin_user) }
+    it "renders the index template" do
+      get :index
+      expect(response).to render_template(:index)
+    end
 
-      before do
-        controller.stubs(current_user: user)
+    context "GET :duplicate" do
+      it "duplicates the last event" do
+        create(:event)
+        expect { get :duplicate }.to change(Event, :count).by(1)
       end
+    end
 
-      it "renders the index template" do
-        get :index
-        response.should render_template(:index)
+    context "GET :publish" do
+      it "duplicates the last event" do
+        event = create(:event)
+        expect { get :publish, id: event.id }.to change { ActionMailer::Base.deliveries.size }.by(1)
       end
     end
   end

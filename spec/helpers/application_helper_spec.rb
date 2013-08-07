@@ -1,21 +1,13 @@
 require "spec_helper"
 
 describe ApplicationHelper do
-  let(:user) { build(:user) }
-
-  context "#page_title" do
-    it "should generate a page_title" do
-      helper.page_title.should eql("Hamburg on Ruby - Heimathafen der Hamburger Ruby Community")
-    end
-
-    it "should have a page_title for default label" do
-      Whitelabel.reset!
-      helper.page_title.should eql("Wir on Ruby - Ruby Communities Deutschland")
-    end
-  end
-
   context "markdown" do
-    it { markdown("*underline*").should match("<em>underline</em>") }
-    it { markdown("auto http://href.org").should match("auto <a href=\"http://href.org\">http://href.org</a>") }
+    it "underlines" do
+      expect(helper.markdown("*underline*")).to match("<em>underline</em>")
+    end
+
+    it "autolinks" do
+      expect(helper.markdown("auto http://href.org")).to match("auto <a href=\"http://href.org\">http://href.org</a>")
+    end
   end
 end
