@@ -39,15 +39,7 @@ If you are a heroku project admin, you can dump Data from Heroku via [Taps Gem](
 There are just a couple of steps for your Ruby Usergroup Site to get alive:
 
 - fork this repo
-- create a new branch
-- provide mandatory changes to the following files:
-    - config/whitelabel.yml
-    - config/locales/*.label.yml
-    - app/assets/images/labels/your_label.png
-- add optional custom files to:
-    - app/assets/images/labels
-    - app/assets/stylesheets/labels
-    - app/assets/javascripts/labels
+- run `bundle && bundle exec rake fork:usergroup[MyUsergroup]`
 - create pull request
 - *lean back and wait :)*
 

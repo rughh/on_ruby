@@ -5,6 +5,6 @@ ul
 
 #locale
   ul
-    -[:de, :en].each do |locale|
+    - Usergroup::SUPPORTED_LOCALES.each do |locale|
       - title = t("switch_languages", language: t("languages.#{locale}"))
       li= link_to image_tag("flags/#{locale}.png", alt: title), url_for(locale: locale), title: title

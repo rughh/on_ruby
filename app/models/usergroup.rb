@@ -1,11 +1,30 @@
 class Usergroup
-  DELIMITER_TIME = ':'
-  DELIMITER_DATE = ' '
-  NUMBERS        = %w(first second third)
+  DELIMITER_TIME    = ':'
+  DELIMITER_DATE    = ' '
+  NUMBERS           = %w(first second third)
+  SUPPORTED_LOCALES = [:de, :en]
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :google_group
-  attr_accessor :host, :twitter, :usergroup_email, :organizers, :location, :imprint, :other_usergroups
-  attr_accessor :theme
+  attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups, :theme
+
+  def host
+    "#{label_id}.#{HOST}"
+  end
+
+  def self.from_name(name)
+    new.tap do |it|
+      it.label_id = it.google_group = it.twitter = name.underscore
+      it.default_locale   = 'de'
+      it.domains          = ["#{name.parameterize}.de"]
+      it.recurring        = 'second wednesday'
+      it.email            = "info@#{name.parameterize}.de"
+      it.organizers       = ['your_twitter_handle']
+      it.location         = {zoom: 14, lat: 53.079296, long: 8.801694}
+      it.imprint          = {address: "YourStreet 1\n0815 YourTown", contributors: [{name: "Your Name", email: "your@mail.de"}]}
+      it.other_usergroups = [{name: "OtherUsergroupName", url: "http://some-domain.de/", twitter: "some_handle"}]
+      it.theme            = 'light'
+    end
+  end
 
   def parse_recurring_date(date)
     number, day, _ = recurring.split(DELIMITER_DATE)
@@ -43,6 +62,10 @@ class Usergroup
     I18n.t("event.recurring", number: number, day: day)
   end
 
+  def to_s
+    label_id
+  end
+
   def self.omniauth_keys(provider, request)
     tokens = ["omniauth", provider] + request.domain.gsub(/-/, '').split(".")
     name   = tokens.join("_").upcase
@@ -56,9 +79,5 @@ class Usergroup
         request.host =~ /#{custom_domain}/
       end
     end
-  end
-
-  def to_s
-    label_id
   end
 end
