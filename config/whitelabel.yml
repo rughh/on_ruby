@@ -5,7 +5,6 @@
   default_locale: "de"
   recurring: "second wednesday"
   email: "hamburg@onruby.de"
-  host: "hamburg.onruby.de"
   twitter: "hamburgsync"
   organizers: ['halfbyte', 'ralph', 'phoet', 'rubiii']
   location:
@@ -45,7 +44,6 @@
   default_locale: "de"
   recurring: "first wednesday"
   email: "awesome-bremen@googlegroups.com"
-  host: "bremen.onruby.de"
   twitter: "hackhb"
   organizers: ['dennisreimann', 'erotte']
   location:
@@ -70,7 +68,6 @@
   recurring: "third wednesday"
   email: "colognerb@googlegroups.com"
   google_group: "colognerb"
-  host: "cologne.onruby.de"
   twitter: "colognerb"
   organizers: ['jkwebs']
   location:
@@ -107,7 +104,6 @@
   domains: ["rugsaar.de"]
   recurring: "third friday 19:30"
   email: "rug.saar@gmail.com"
-  host: "saar.onruby.de"
   twitter: "RUGSaar"
   organizers: ['markusschwed', 'gogolok']
   location:
@@ -130,7 +126,6 @@
   recurring: "third wednesday"
   email: "karlsruherb@googlegroups.com"
   google_group: "karlsruherb"
-  host: "karlsruhe.onruby.de"
   twitter: "rug_ka"
   organizers: ['basiszwo']
   location:
@@ -158,7 +153,6 @@
   recurring: "first thursday 19:30"
   email: "rug-b@googlegroups.com"
   google_group: "rug-b"
-  host: "berlin.onruby.de"
   twitter: "rug_b"
   organizers: ['freaklikeme', 'Hagenburger', 'PragTob']
   location:
@@ -177,7 +171,6 @@
   recurring: "third thursday 19:00"
   email: "leipzigonrails@googlegroups.com"
   google_group: "leipzigonrails"
-  host: "leipzig.onruby.de"
   twitter: "LeipzigOnRails"
   organizers: ['cpetschnig', 'knugie', 'tmetzmac']
   location:
@@ -198,7 +191,6 @@
   domains: ["ruby-dresden.de"]
   recurring: "first thursday 19:00"
   email: "admin@ruby-dresden.de"
-  host: "dresden.onruby.de"
   twitter: "ruby_dresden"
   organizers: ['_sonnendeck','sgemkow']
   location:
