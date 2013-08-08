@@ -5,11 +5,10 @@ class ParticipantsController < ApplicationController
   expose(:event)
 
   def create
-    if current_user.participates?(event)
-      flash[:alert] = t("flash.already_participating")
-    else
-      event.participants.create!(user: current_user)
+    if event.particpate(current_user)
       flash[:notice] = t("flash.now_participating")
+    else
+      flash[:alert] = t("flash.already_participating")
     end
     respond_with(event)
   end

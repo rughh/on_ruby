@@ -23,7 +23,7 @@ describe ParticipantsController do
 
     context "with an already participating user" do
       before do
-        user.participants.create(event: event)
+        event.particpate(user)
       end
 
       it "should silently ignore the problem via json" do

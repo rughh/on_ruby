@@ -19,16 +19,21 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :materials
   accepts_nested_attributes_for :topics
 
-  default_scope -> { where(label: Whitelabel[:label_id]) }
+  default_scope       -> { where(label: Whitelabel[:label_id]) }
 
   scope :with_topics, -> { joins(:topics).uniq }
-  scope :current, -> { where(date: Date.today.to_time..(Time.now + 8.weeks)).limit(1).order('date ASC') }
-  scope :latest, -> { where('date < ?', Date.today.to_time).order('date DESC') }
+  scope :current,     -> { where(date: Date.today.to_time..(Time.now + 8.weeks)).limit(1).order('date ASC') }
+  scope :latest,      -> { where('date < ?', Date.today.to_time).order('date DESC') }
   scope :unpublished, -> { where("published = ? OR published = ?", nil, false) }
-  scope :ordered, -> { order("date DESC") }
+  scope :ordered,     -> { order("date DESC") }
 
   def end_date
     date + 2.hours
+  end
+
+  def particpate(user)
+    return false if users.include? user
+    !!participants.create!(user: user)
   end
 
   class << self

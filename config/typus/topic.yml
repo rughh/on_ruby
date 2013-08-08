@@ -4,5 +4,5 @@ Topic:
     form: name, description, user, event
   order_by: -created_at
   actions:
-    edit: add_to_latest_event
+    edit: add_to_next_event
   application: CRUD

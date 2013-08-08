@@ -19,7 +19,7 @@ h3 Topic Actions
         = "#{topic.name}: "
         = link_to("tweet", twitter_update_url(topic))
         = " / "
-        = link_to("for next Event", url_for(controller: "/admin/topics", action: :add_to_latest_event, id: topic.id))
+        = link_to("for next Event", url_for(controller: "/admin/topics", action: :add_to_next_event, id: topic.id))
 
 h3 Highlight Actions
 - if active = Highlight.active

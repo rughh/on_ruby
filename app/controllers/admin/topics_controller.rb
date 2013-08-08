@@ -1,8 +1,15 @@
 class Admin::TopicsController < Admin::ResourcesController
-  def add_to_latest_event
-    topic = Topic.find(params[:id])
-    topic.event = Event.current.first
-    topic.save!
-    redirect_to url_for(controller: "/admin/topics", action: :edit, id: topic.id), notice: "Added to latest Event!"
+  def add_to_next_event
+    @topic = Topic.find(params[:id])
+    @user  = @topic.user
+
+    if @event = Event.current.first
+      @topic.event = @event
+      @event.particpate(@user)
+      @topic.save!
+      redirect_to url_for(controller: "/admin/topics", action: :edit, id: @topic.id), notice: "Added to latest Event!"
+    else
+      redirect_to(url_for(controller: "/admin/topics", action: :index), alert: "no next event found")
+    end
   end
 end
