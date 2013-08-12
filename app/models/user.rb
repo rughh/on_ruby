@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   extend FriendlyId
+  extend FriendlyId::Finders
   friendly_id :nickname, use: :slugged
 
   extend ApiHandling

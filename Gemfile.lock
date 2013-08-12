@@ -7,6 +7,13 @@ GIT
       jquery-rails
       rails (~> 4.0.0)
 
+GIT
+  remote: git://github.com/norman/friendly_id.git
+  revision: 9a2086d8f2e3260318470674104be3b1254c8b2d
+  branch: master
+  specs:
+    friendly_id (5.0.0.beta1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -105,7 +112,6 @@ GEM
       thor (>= 0.13.6)
     formtastic (2.2.1)
       actionpack (>= 3.0)
-    friendly_id (5.0.0.beta1)
     fssm (0.2.10)
     geocoder (1.1.8)
     gorillib (0.1.11)
@@ -294,7 +300,7 @@ DEPENDENCIES
   feedzirra (= 0.2.0.rc2)
   foreman
   formtastic (= 2.2.1)
-  friendly_id (= 5.0.0.beta1)
+  friendly_id!
   geocoder (= 1.1.8)
   icalendar (= 1.4.1)
   jquery-rails (= 2.2.1)

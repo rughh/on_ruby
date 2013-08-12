@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
   extend FriendlyId
+  extend FriendlyId::Finders
   friendly_id :name, use: :slugged
 
   extend ApiHandling
