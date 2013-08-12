@@ -12,6 +12,7 @@ class Location < ActiveRecord::Base
   has_many :jobs
 
   validates :name, :url, :city, :street, :house_number, :zip, presence: true
+  validates :url, length: {maximum: 255}
 
   default_scope -> { where(label: Whitelabel[:label_id]) }
 
