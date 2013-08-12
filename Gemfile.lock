@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/FriendlyId/friendly_id.git
-  revision: c49ce30ff2b370669ccf1708e99fb08ab51435d9
-  branch: rails4
-  specs:
-    friendly_id (4.1.0.beta.2)
-
-GIT
   remote: git://github.com/fesplugas/typus.git
   revision: 8da0798237ced99289966ff53684bcea33adc44a
   specs:
@@ -112,6 +105,7 @@ GEM
       thor (>= 0.13.6)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    friendly_id (5.0.0.beta1)
     fssm (0.2.10)
     geocoder (1.1.8)
     gorillib (0.1.11)
@@ -300,7 +294,7 @@ DEPENDENCIES
   feedzirra (= 0.2.0.rc2)
   foreman
   formtastic (= 2.2.1)
-  friendly_id!
+  friendly_id (= 5.0.0.beta1)
   geocoder (= 1.1.8)
   icalendar (= 1.4.1)
   jquery-rails (= 2.2.1)
