@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   include IcalHelper
 
   expose(:events) { Event.ordered.page(params[:page]).per(10) }
-  expose(:event) { Event.includes(materials: :user, topics: :user, participants: :user).find(params[:id]) }
+  expose(:event) { Event.includes(materials: :user, topics: :user, participants: :user).friendly.find(params[:id]) }
 
   respond_to :json, :xml, only: :index
   respond_to :json, :ics, only: :show
