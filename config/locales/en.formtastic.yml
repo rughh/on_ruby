@@ -3,6 +3,7 @@ en:
     labels:
       topic:
         name: 'Your Topic'
+        proposal_type: 'Type of proposal'
         description: 'Description'
       user:
         hide_jobs: 'hide Jobs'

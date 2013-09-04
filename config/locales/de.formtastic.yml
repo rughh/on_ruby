@@ -4,6 +4,7 @@ de:
       topic:
         name: 'Dein Vorschlag'
         description: 'Genauere Beschreibung'
+        proposal_type: 'Art des Vorschlags'
       user:
         hide_jobs: 'Jobs ausblenden'
         available: 'auf Job-/Projektsuche'
