@@ -57,7 +57,6 @@ module ExternalLinkHelper
     types = {
       github:           ["Fork me on GitHub!", "https://github.com/phoet/on_ruby"],
       senor_developer:  ["Señor Developer!",   "http://senordevelopershop.spreadshirt.de"],
-      so_coded:         ["so coded",           "http://socoded.com"],
     }
     text, url = types[type]
     content_tag :div, id: "#{type}_ribbon", class: 'ribbon_wrap' do
