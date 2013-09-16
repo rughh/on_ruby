@@ -6,19 +6,23 @@ section
       = user.freelancer? ? " / #{t("profile.freelancer")}" : ''
       = user.available? ? " / #{t("profile.available")}" : ''
 
-    div.info.small
+    div.badges.small
       - if user.twitter?
         span
-          strong Twitter: #{link_to_twitter user}
+          em' Twitter:
+          = link_to_twitter user
       - if user.github?
         span
-          strong Github: #{link_to_github user}
+          em' Github:
+          = link_to_github user
       - if user.url?
         span
-          strong Homepage: #{link_to user.url, user.url}
+          em' Homepage:
+          = link_to user.url, user.url
       - if user.location?
         span
-          strong Location: #{user.location}
+          em' Location:
+          = user.location
 
   = markdown user.description if user.description
 
