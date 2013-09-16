@@ -40,67 +40,6 @@ module ApplicationHelper
     tag :link, rel: type, href: path
   end
 
-  def link_to_user(user)
-    link_to user.name, user, title: user.name
-  end
-
-  def link_to_job(job)
-    link_to job.name, job.url, title: job.name
-  end
-
-  def link_to_event(event)
-    link_to event.name, event, title: event.name
-  end
-
-  def link_to_topic(topic)
-    link_to topic.name, topic, title: topic.name
-  end
-
-  def job_description(job)
-    t("hint.job_description", city: I18n.tw("city"), job_link: content_tag(:strong, link_to(job.name, job.url, title: job.name)), company_link: link_to_location(job.location))
-  end
-
-  def link_to_location(location)
-    "#{link_to location.name, location, title: location.name} (#{link_to location.nice_url, location.url, title: location.name})".html_safe
-  end
-
-  def link_to_route(location)
-    content_tag :p, class: :meta do
-      content_tag(:span, link_to(location.address, "#route", title: "#{location.name}, #{location.address}"), class: 'map-icon') +
-      " #{t("show.at")} " +
-      content_tag(:span, link_to_location(location), class: 'open-icon')
-    end
-  end
-
-  def static_map(*locations)
-    options = {
-      zoom:     12,
-      sensor:   false,
-      key:      "AIzaSyBskJCTxAU9UbH3qijy46oNtZ1-4ad14PM",
-    }
-    params =  options.collect{ |k,v| "#{k}=#{v}" }
-    params += locations.map { |l| "markers=#{l.lat},#{l.long}" }
-    url = "http://maps.googleapis.com/maps/api/staticmap"
-    "#{url}?#{URI.escape(params.join('&'))}"
-  end
-
-  def single_map(location, init = {zoom: 14})
-    data = {
-      map:  Array(location).to_json,
-      init: location.attributes.merge(init).to_json,
-    }
-    content_tag :div, '', class: 'map_canvas', data: data
-  end
-
-  def map(locations, init = {zoom: 12})
-    init = Whitelabel[:location].merge(init)
-    data = {
-      map:  locations.to_json,
-      init: init.to_json,
-    }
-    content_tag :div, '', class: 'map_canvas', data: data
-  end
-
   def markdown(content)
     return nil unless content
     content = markdown_parser.render(content).html_safe
