@@ -25,9 +25,9 @@ class Map
     jQuery.each @data, ->
       position = new google.maps.LatLng(@lat, @long)
       marker = new google.maps.Marker(position: position, map: map, title: @name)
-      content = "<span class='marker'><strong><a href='/locations/#{@slug}'>#{@name}</a></strong></br>#{@street} #{@house_number}</br>#{@zip} #{@city}</span>"
+      content = "<p><strong><a href='/locations/#{@slug}'>#{@name}</a></strong></br>#{@street} #{@house_number}</br>#{@zip} #{@city}</p>"
       if contents[position]
-        contents[position] += "</br></br>#{content}"
+        contents[position] += content
       else
         contents[position] = content
       google.maps.event.addListener marker, 'click', ->
