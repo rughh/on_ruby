@@ -24,7 +24,7 @@ class EventsController < ApplicationController
         render json: event.as_api_response(:ios_v1)
       end
       format.ics do
-        render text: calendar(event)
+        render text: icalendar(event)
       end
     end
   end

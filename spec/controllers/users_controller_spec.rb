@@ -35,9 +35,16 @@ describe UsersController do
 
   context "GET :edit" do
     it "should show alert for wrong user" do
-      get :edit, id: user.id
+      get :edit, id: user
       flash[:alert].should_not be_nil
       response.should redirect_to(root_path)
+    end
+  end
+
+  context "GET :calendar" do
+    it "should show alert for wrong user" do
+      get :calendar, id: user_with_participations, format: :ics
+      expect(response.body).to match(/BEGIN:VCALENDAR/)
     end
   end
 

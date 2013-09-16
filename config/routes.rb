@@ -3,7 +3,9 @@ OnRuby::Application.routes.draw do
 
   resources :settings, only: :index
 
-  resources :users
+  resources :users do
+    get :calendar, on: :member
+  end
 
   resources :locations
 

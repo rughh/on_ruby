@@ -1,21 +1,20 @@
 module IcalHelper
-  def calendar(event)
-    ical_event = Icalendar::Event.new.tap do |e|
-      e.start         = event.date.strftime("%Y%m%dT%H%M%S")
-      e.end           = event.end_date.strftime("%Y%m%dT%H%M%S")
-      e.summary       = event.name
-      e.description   = "#{event.description} #{event_url(event)}"
-      e.location      = event.location.name
-      e.created       = event.created_at.strftime("%Y%m%dT%H%M%S")
-      e.last_modified = event.updated_at.strftime("%Y%m%dT%H%M%S")
-      e.uid = e.url   = event_url(event)
-      e.klass         = "PUBLIC"
-      e.add_comment "iCal Event by On Ruby!"
-    end
+  def icalendar(*events)
+    RiCal.Calendar do |cal|
+      events.each do |event|
+        cal.event do |item|
+          item.summary     = event.name
+          item.description = "#{event.description} #{event_url(event)}"
+          item.dtstart     = event.date
+          item.dtend       = event.end_date
+          item.location    = event.location.name
+          item.url         = event_url(event)
+        end
+      end
+    end.to_s
+  end
 
-    cal = Icalendar::Calendar.new
-    cal.add_event(ical_event)
-    cal.publish
-    cal.to_ical
+  def calendar_link
+    link_to t('event.subscribe'), calendar_user_url(id: current_user, :format => :ics, :only_path => false, :protocol => "webcal")
   end
 end

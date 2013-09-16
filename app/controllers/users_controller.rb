@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+  include IcalHelper
   before_action :authenticate_current_user!, only: [:edit, :update]
   before_action :check_peering, only: [:show]
+
+  respond_to :xml, only: :calendar
 
   expose(:user)  { User.find params[:id] }
   expose(:users) { User.peers }
@@ -8,6 +11,14 @@ class UsersController < ApplicationController
   def index; end
   def show; end
   def edit; end
+
+  def calendar
+    respond_to do |format|
+      format.ics do
+        render text: icalendar(*user.participations)
+      end
+    end
+  end
 
   def update
     if current_user.update_attributes user_params

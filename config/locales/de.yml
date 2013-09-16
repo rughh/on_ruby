@@ -106,6 +106,7 @@ de:
   event:
     twitter_message: "%{name} am %{date} %{url}"
     recurring: "jeden %{number}. %{day} im Monat"
+    subscribe: "meine Events abonieren"
   flash:
     duplicate_nick: "Der Nickname '%{name}' ist bereits vergeben! Wenn Du Dich schon über einen anderen Provider angemeldet hast, dann trage bitte in Deinem Profil die entsprechenden Handles ein!"
     only_admins: "Hoppala, da dürfen nur Admins hin!"

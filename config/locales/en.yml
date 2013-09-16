@@ -106,6 +106,7 @@ en:
   event:
     twitter_message: "%{name} at %{date} %{url}"
     recurring: "every %{number}. %{day} a Month"
+    subscribe: "subscribe my Events"
   flash:
     only_admins: "Ups, only admins allowed!"
     not_authenticated: "Ups, you are not allowed to visit this page!"

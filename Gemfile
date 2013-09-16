@@ -13,7 +13,7 @@ gem "friendly_id",            github: 'norman/friendly_id', branch: 'master'
 gem "omniauth",               "1.1.4"
 gem "omniauth-twitter",       "1.0.0"
 gem "omniauth-github",        "1.1.1"
-gem "icalendar",              "1.4.1"
+gem "ri_cal",                 "0.8.8"
 gem "decent_exposure",        "2.2.1"
 gem "geocoder",               "1.1.8"
 gem "acts_as_api",            "0.4.1"

@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "events/show" do
-  let(:user)  { build(:user) }
+  let(:user)  { build(:user, id: 456) }
   let(:event) { build(:event, id: 123) }
 
   it "should render successfully" do
