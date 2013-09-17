@@ -5,7 +5,8 @@ section
   p.meta
     span.calendar-icon
       =' link_to l(event.date, format: :long), event_path(event, format: :ics), title: event.name, class: 'ical'
-      ==' "(#{calendar_link})"
+      - if signed_in?
+        ==' "(#{calendar_link})"
     =' t("show.hosted_by")
     = link_to_user event.user
   == link_to_route event.location
