@@ -7,7 +7,7 @@ describe TitleHelper do
     end
 
     it "generates a page_title for a user page" do
-      helper.stubs(controller_name: 'users', action_name: 'show', user: build(:user, name: 'uschi'))
+      helper.stub(controller_name: 'users', action_name: 'show', user: build(:user, name: 'uschi'))
       expect(helper.page_title).to eql("Hamburg on Ruby - uschi")
     end
 

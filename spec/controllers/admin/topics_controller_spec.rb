@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Admin::TopicsController do
   context "as admin" do
     before do
-      controller.stubs(current_user: build(:admin_user))
+      controller.stub(current_user: build(:admin_user))
     end
 
     context "GET :add_to_next_event" do

@@ -5,7 +5,7 @@ describe "mobile/events/show", type: :view do
   let(:event) { build(:event, id: 123) }
 
   it "should render successfully" do
-    view.stubs(signed_in?: true, current_user: user, event: event)
+    view.stub(signed_in?: true, current_user: user, event: event)
     render
   end
 end

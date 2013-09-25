@@ -16,7 +16,7 @@ describe TopicsController do
     let(:user) { build(:user) }
 
     it "renders the action" do
-      controller.stubs(current_user: user)
+      controller.stub(current_user: user)
       get :new
 
       controller.topic.should_not be_persisted
@@ -29,7 +29,7 @@ describe TopicsController do
     let(:topic) { create(:topic, user: user) }
 
     it "renders the action" do
-      controller.stubs(current_user: user)
+      controller.stub(current_user: user)
       get :edit, id: topic.id
 
       controller.topic.should be_persisted
@@ -43,14 +43,14 @@ describe TopicsController do
     let(:topic_data) { attributes_for(:topic) }
 
     it "should create a topic for logged-in user" do
-      controller.stubs(current_user: user)
+      controller.stub(current_user: user)
       expect { post(:create, topic: topic_data) }.to change(Topic, :count).by(1)
       controller.topic.user.should eql(user)
       flash[:notice].should_not be_nil
     end
 
     it "creates a topic and sends user add an email if not present" do
-      controller.stubs(current_user: user_without_email)
+      controller.stub(current_user: user_without_email)
       expect { post(:create, topic: topic_data) }.to change(Topic, :count).by(1)
       expect(response).to redirect_to(edit_user_path(user_without_email))
     end
@@ -74,7 +74,7 @@ describe TopicsController do
       let(:topic) { create(:topic, user: user) }
 
       before do
-        controller.stubs(current_user: user)
+        controller.stub(current_user: user)
       end
 
       it "updates a topic" do
@@ -85,7 +85,7 @@ describe TopicsController do
       end
 
       it "does not update a topic for a different user" do
-        controller.stubs(current_user: other_user)
+        controller.stub(current_user: other_user)
         put(:update, id: topic, topic: {name: 'blupp'})
 
         expect(response).to redirect_to(root_path)

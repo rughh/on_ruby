@@ -9,7 +9,7 @@ describe Admin::EventsController do
 
   context "as admin" do
     before do
-      controller.stubs(current_user: build(:admin_user))
+      controller.stub(current_user: build(:admin_user))
     end
 
     it "renders the index template" do

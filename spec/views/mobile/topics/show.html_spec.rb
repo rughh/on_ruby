@@ -4,7 +4,7 @@ describe "mobile/topics/show" do
   let(:topic) { build(:topic) }
 
   it "should render successfully" do
-    view.stubs(topic: topic)
+    view.stub(topic: topic)
     render
   end
 end

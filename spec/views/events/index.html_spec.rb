@@ -5,7 +5,7 @@ describe "events/index" do
   let(:event) { build(:event, id: 123) }
 
   it "should render successfully" do
-    view.stubs(events: paged(event))
+    view.stub(events: paged(event))
     render
   end
 end

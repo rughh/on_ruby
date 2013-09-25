@@ -4,7 +4,7 @@ describe "mobile/users/index" do
   let(:users) { [build(:user)] }
 
   it "should render successfully" do
-    view.stubs(users: users)
+    view.stub(users: users)
     render
   end
 end

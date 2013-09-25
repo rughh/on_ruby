@@ -71,7 +71,7 @@ GEM
       sass (~> 3.1)
     compass-rails (2.0.alpha.0)
       compass (>= 0.12.2, < 0.14)
-    coveralls (0.6.9)
+    coveralls (0.7.0)
       multi_json (~> 1.3)
       rest-client
       simplecov (>= 0.7)
@@ -142,12 +142,9 @@ GEM
       callsite
       rack-contrib
       railties
-    metaclass (0.0.1)
     method_source (0.8.2)
     mime-types (1.25)
     minitest (4.7.5)
-    mocha (0.14.0)
-      metaclass (~> 0.0.1)
     multi_json (1.8.0)
     multipart-post (1.2.0)
     nokogiri (1.5.10)
@@ -214,7 +211,7 @@ GEM
       mime-types (>= 1.16)
     ri_cal (0.8.8)
     rspec-core (2.14.5)
-    rspec-expectations (2.14.2)
+    rspec-expectations (2.14.3)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.3)
     rspec-rails (2.14.0)
@@ -273,7 +270,7 @@ GEM
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
-    tins (0.9.0)
+    tins (0.10.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -308,7 +305,6 @@ DEPENDENCIES
   kaminari (= 0.14.1)
   letter_opener (= 1.1.2)
   meta_request (= 0.2.8)
-  mocha (= 0.14.0)
   omniauth (= 1.1.4)
   omniauth-github (= 1.1.1)
   omniauth-twitter (= 1.0.0)

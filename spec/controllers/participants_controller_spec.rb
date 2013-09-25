@@ -6,7 +6,7 @@ describe ParticipantsController do
 
   context "POST :create" do
     before do
-      controller.stubs(current_user: user)
+      controller.stub(current_user: user)
     end
 
     it "should add a user via json post" do
@@ -49,13 +49,13 @@ describe ParticipantsController do
     end
 
     it "should delete a participant for current user" do
-      @controller.stubs(:current_user => @user)
+      @controller.stub(:current_user => @user)
       expect { delete(:destroy, :id => @participant.id, :event_id => @event.id) }.to change(Participant, :count).by(-1)
       response.should redirect_to(@event)
     end
 
     it "should delete a participant for another user" do
-      @controller.stubs(:current_user => create(:user))
+      @controller.stub(:current_user => create(:user))
       expect { delete(:destroy, :id => @participant.id, :event_id => @event.id) }.to change(Participant, :count).by(0)
       response.should redirect_to(@event)
     end

@@ -9,7 +9,7 @@ describe "Locale" do
   end
 
   context "GET page with a different default locale" do
-    before { Whitelabel.labels.first.stubs(default_locale: :en) }
+    before { Whitelabel.labels.first.stub(default_locale: :en) }
 
     it "should have a different default locale" do
       get root_url(subdomain: "hamburg")

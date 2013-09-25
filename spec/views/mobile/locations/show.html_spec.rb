@@ -4,7 +4,7 @@ describe "mobile/locations/show" do
   let(:location) { build(:location) }
 
   it "should render successfully" do
-    view.stubs(current_location: location)
+    view.stub(current_location: location)
     render
   end
 end

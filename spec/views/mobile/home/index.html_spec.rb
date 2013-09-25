@@ -15,7 +15,7 @@ describe "mobile/home/index" do
       people: [user],
       locations: [location],
     }
-    view.stubs(locals)
+    view.stub(locals)
     render
   end
 end

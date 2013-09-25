@@ -45,7 +45,6 @@ group :development, :test do
   gem "pry-rails",          "0.3.2"
   gem "pry-remote",         "0.1.7"
   gem "pry-nav",            "0.2.3"
-  gem "mocha",              "0.14.0", require: "mocha/api"
   gem "rspec-rails",        "2.14.0"
   gem "factory_girl_rails", "4.2.1"
   gem "meta_request",       "0.2.8"
