@@ -1,5 +1,5 @@
 class MainDomainConstraint
   def matches?(request)
-    request.host =~ /www.onruby.de/
+    request.host =~ /www\.onruby\.\w+/
   end
 end
