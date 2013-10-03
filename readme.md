@@ -6,6 +6,8 @@
 
 Source for the Sites of the Ruby Communities [Hamburg](http://hamburg.onruby.de), [Bremen](http://bremen.onruby.de), [Cologne](http://cologne.onruby.de), [Saarland](http://saar.onruby.de), [Berlin](http://berlin.onruby.de), [Leipzig](http://leipzig.onruby.de), [Karlsruhe](http://karlsruhe.onruby.de), [Dresden](http://dresden.onruby.de)
 
+[![I Love Open Source](http://www.iloveopensource.io/images/logo-lightbg.png)](http://www.iloveopensource.io/projects/524c41bdca7964c61700044d)
+
 ## Setup
 
 Use *foreman* to start the server, otherwise you need to export the options of the *.env* file manually:
