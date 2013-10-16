@@ -84,8 +84,8 @@
     :long: 6.957092
   imprint:
     :address: |-
-      Deutz-Mülheimer Straße 129
-      51063 Köln
+      An der Bottmühle 5 
+      50678 Köln 
     :contributors:
     - :name: Jakob Hilden
       :email: jakob@railslove.com
@@ -106,8 +106,8 @@
   - :name: pyCologne
     :url: http://wiki.python.de/pycologne/
     :twitter: pycologne
-  - :name: Hcking.de
-    :url: http://hcking.de/
+  - :name: hacken.in
+    :url: http://hacken.in/
   domains:
   - colognerb.de
   - koelschrb.de
