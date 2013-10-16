@@ -33,3 +33,5 @@ RSpec.configure do |config|
   config.include KaminariHelper
   config.include FactoryGirl::Syntax::Methods
 end
+
+include OnlineHelper
