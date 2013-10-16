@@ -10,6 +10,13 @@ require 'rspec/rails'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
+  config.include RequestHelper, type: :controller
+  config.include RequestHelper, type: :request
+  config.include CachingHelper, type: :request
+  config.include KaminariHelper
+  config.include GeocoderHelper
+  config.include FactoryGirl::Syntax::Methods
+
   config.use_transactional_fixtures = true
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.filter_run focus: true
@@ -18,20 +25,18 @@ RSpec.configure do |config|
   config.before do
     I18n.locale = :de
     Whitelabel.label = Whitelabel.labels.first
+    stub_geocoder
   end
 
   config.before(:each, type: :request) do
     host! "hamburg.onruby.dev"
+    stub_feedzirra
   end
 
   config.before(:each, type: :controller) do
     set_subdomain
+    stub_feedzirra
   end
-
-  config.include RequestHelper, type: :controller
-  config.include CachingHelper, type: :request
-  config.include KaminariHelper
-  config.include FactoryGirl::Syntax::Methods
 end
 
 include OnlineHelper

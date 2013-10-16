@@ -29,11 +29,11 @@ module ExternalLinkHelper
   def mailing_list_entries(count = 15)
     feed_url = "https://groups.google.com/forum/feed/#{Whitelabel[:google_group] || 'rubyonrails-ug-germany'}/topics/rss.xml?num=#{count}"
     Rails.logger.debug "fetching feed from #{feed_url}"
-    if feed = Feedzirra::Feed.fetch_and_parse(feed_url)
-      feed.entries.first(count)
-    else
-      []
-    end
+    feed = Feedzirra::Feed.fetch_and_parse(feed_url)
+    feed.entries.first(count)
+  rescue
+    Rails.logger.warn "error fetching feed from #{feed_url}: #{$!}"
+    []
   end
 
   def twitter_update_url(model)

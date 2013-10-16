@@ -10,4 +10,9 @@ module RequestHelper
   def set_custom_domain(domain = "www.rug-b.de")
     @request.host = domain
   end
+
+  def stub_feedzirra
+    result = OpenStruct.new(entries: [])
+    Feedzirra::Feed.stub(fetch_and_parse: result)
+  end
 end
