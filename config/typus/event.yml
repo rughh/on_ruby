@@ -1,7 +1,7 @@
 Event:
   fields:
-    default: id, name, date, user, published
-    form: user, location, name, date, description, published
+    default: id, name, date, user
+    form: user, location, name, date, description
   order_by: -created_at
   search: name, description
   actions:
