@@ -3,4 +3,5 @@ User:
     default: nickname, name, twitter, github, email, admin
     form: name, twitter, github, email, url, location, description, freelancer, available, hide_jobs, admin
   order_by: -created_at
+  search: nickname, name, twitter, github, email
   application: CRUD

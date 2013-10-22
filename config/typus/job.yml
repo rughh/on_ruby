@@ -3,4 +3,5 @@ Job:
     default: id, name, location
     form: name, url, location
   order_by: -created_at
+  search: name
   application: CRUD

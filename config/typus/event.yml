@@ -3,6 +3,7 @@ Event:
     default: id, name, date, user, published
     form: user, location, name, date, description, published
   order_by: -created_at
+  search: name, description
   actions:
     edit: publish
   application: CRUD
