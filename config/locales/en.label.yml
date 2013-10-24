@@ -60,3 +60,9 @@ en:
       title: Dresden on Ruby
       subtitle: Ruby User Group Dresden
       meta_desc: Ruby / Rails User Group Dresden
+    railsgirlshh:
+      :city: City
+      :name: Name
+      :title: Title
+      :subtitle: SubTitle
+      :meta_desc: MetaDesc
