@@ -1,7 +1,7 @@
 class Usergroup
   DELIMITER_TIME    = ':'
   DELIMITER_DATE    = ' '
-  NUMBERS           = %w(first second third)
+  NUMBERS           = %w(first second third fourth)
   SUPPORTED_LOCALES = [:de, :en]
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :google_group
