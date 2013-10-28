@@ -61,8 +61,9 @@ en:
       subtitle: Ruby User Group Dresden
       meta_desc: Ruby / Rails User Group Dresden
     railsgirlshh:
-      :city: City
-      :name: Name
-      :title: Title
-      :subtitle: SubTitle
-      :meta_desc: MetaDesc
+      :city: Hamburg
+      :name: Railsgirls Hamburg
+      :title: Railsgirls Hamburg
+      :subtitle: Meetup
+      :meta_desc: Railsgirls Hamburg Meetup
+
