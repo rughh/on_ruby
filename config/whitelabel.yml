@@ -249,3 +249,28 @@
     :twitter: wdcmdresden
   domains:
   - ruby-dresden.de
+- !ruby/object:Usergroup
+  label_id: railsgirlshh
+  theme: light
+  default_locale: de
+  recurring: fourth wednesday
+  email: railsgirlshh@gmail.com
+  twitter: railsgirlshh
+  organizers:
+  - titanoboa42
+  location:
+    :zoom: 14
+    :lat: 53.56544
+    :long: 9.95947
+  imprint:
+    :address: |-
+      YourStreet 1
+      0815 YourTown
+    :contributors:
+    - :name: Your Name
+      :email: your@mail.de
+  other_usergroups:
+  - :name: OtherUsergroupName
+    :url: http://some-domain.de/
+    :twitter: some_handle
+  google_group: rails-girls-hamburg
