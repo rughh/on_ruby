@@ -7,6 +7,7 @@ class Location < ActiveRecord::Base
   expose_api :id, :name, :url, :city, :street, :house_number, :zip
 
   geocoded_by :full_address, latitude: :lat, longitude: :long
+  after_validation :geocode
 
   has_many :events
   has_many :jobs
