@@ -278,7 +278,7 @@
     - :name: Your Name
       :email: your@mail.de
   other_usergroups:
-  - :name: OtherUsergroupName
-    :url: http://some-domain.de/
-    :twitter: some_handle
+  - :name: Rails Girls Berlin
+    :url: http://railsgirlsberlin.de/
+    :twitter: railsgirls_bln
   google_group: rails-girls-hamburg
