@@ -17,11 +17,6 @@ describe UsersController do
       end
     end
 
-    it "hides users via 404 if they do not participate in any event on a usergroup" do
-      get :show, id: user.id
-      response.status.should eql(404)
-    end
-
     it "shows the user when organized an event" do
       get :show, id: user_with_events.id
       response.status.should eql(200)

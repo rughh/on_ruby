@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   include IcalHelper
   before_action :authenticate_current_user!, only: [:edit, :update]
-  before_action :check_peering, only: [:show]
 
   respond_to :xml, only: :calendar
 
@@ -41,9 +40,5 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:twitter, :github, :email, :name, :freelancer, :available, :hide_jobs, :participants, :image, :url)
-  end
-
-  def check_peering
-    head 404 unless user.peer?
   end
 end

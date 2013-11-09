@@ -34,4 +34,19 @@ describe Location do
       @location.full_address.should eq('Schanzenstr. 85, 20357 Hamburg, Deutschland')
     end
   end
+
+  context "#geocoding" do
+    it 'should geocode once a location is saved' do
+      Location.all.each do |locn|
+        locn.lat.should_not be_nil
+        locn.long.should_not be_nil
+      end
+    end
+
+    it 'should geocode with expected data once a location is saved' do
+      @location.lat.should be(Geocoder.coordinates(@location.full_address)[0])
+      @location.long.should be(Geocoder.coordinates(@location.full_address)[1])
+    end
+  end
+
 end
