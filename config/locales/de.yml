@@ -81,7 +81,7 @@ de:
     remove_confirm: "wirklich löschen?"
   user:
     saved_successful: "Deine Daten wurden gespeichert."
-    removed: "Deine Profil wurde gelöscht!"
+    removed: "Dein Profil wurde gelöscht!"
     not_removed_organizer: "Event-Organizer können nicht gelöscht werden!"
   location:
     job_offers: "Jobangebote"
