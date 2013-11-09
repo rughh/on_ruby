@@ -8,8 +8,8 @@
           - current_event.topics.each do |topic|
             li.topic= link_to_topic topic
   - else
-    p== t("home.next_possible_meetup_recurring", recurring: content_tag(:em, localized_recurring_event_date))
-    p== t("home.next_possible_meetup", event_date: content_tag(:em, next_event_date))
+    p== I18n.tw("home.next_possible_meetup_recurring", recurring: content_tag(:em, localized_recurring_event_date))
+    p== I18n.tw("home.next_possible_meetup", event_date: content_tag(:em, next_event_date))
   - if events.any?
     h3= t("home.past_events")
     ul.more-list.clearfix

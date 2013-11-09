@@ -24,7 +24,7 @@ section.clearfix
 
   - if other_usergroups.present?
     .usergroups.block.hr
-      h2= t("footer.other_usergroups")
+      h2= I18n.tw("footer.other_usergroups")
       ol.clearfix
         - other_usergroups.each do |ug|
           li
