@@ -1,7 +1,8 @@
 = section_box :mailing_list do
   p= I18n.tw("home.mailing_list")
   #done
-    h3= t('home.top_maling_entries')
+    - unless mailing_list_entries.empty?
+        h3= t('home.top_maling_entries')
     ul.more-list.clearfix
       - mailing_list_entries.each do |entry|
         li.mailing_entry= link_to(entry.title, entry.url, title: entry.title)
