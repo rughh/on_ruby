@@ -271,12 +271,10 @@
     :lat: 53.56544
     :long: 9.95947
   imprint:
-    :address: |-
-      YourStreet 1
-      0815 YourTown
+    :address:
     :contributors:
-    - :name: Your Name
-      :email: your@mail.de
+    - :name: Railsgirls Hamburg
+      :email: railsgirlshh@gmail.com
   other_usergroups:
   - :name: Rails Girls Berlin
     :url: http://railsgirlsberlin.de/
