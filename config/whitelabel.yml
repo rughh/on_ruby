@@ -249,3 +249,55 @@
     :twitter: wdcmdresden
   domains:
   - ruby-dresden.de
+- !ruby/object:Usergroup
+  label_id: railsgirlshh
+  theme: light
+  default_locale: de
+  recurring: fourth wednesday 19:30
+  email: railsgirlshh@gmail.com
+  twitter: railsgirlshh
+  organizers:
+  - titanoboa42
+  - weidenfreak
+  - halfbyte
+  - birtona
+  - catrinmsj
+  - uygar_soenmez
+  - sssggr
+  - huldala
+  - dianaknodel
+  - AndreCedik
+  location:
+    :zoom: 14
+    :lat: 53.56544
+    :long: 9.95947
+  imprint:
+    :address:
+    :contributors:
+    - :name: Railsgirls Hamburg
+      :email: railsgirlshh@gmail.com
+  other_usergroups:
+  - :name: Rails Girls Berlin
+    :url: http://railsgirlsberlin.de/
+    :twitter: railsgirls_bln
+  - :name: Rails Girls Cologne
+    :url: http://railsgirls.com/cologne
+    :twitter: railsgirls_cgn
+  - :name: Rails Girls Rheinland
+    :url: http://railsgirls.com/rheinland
+    :twitter: railsgirls_rhl
+  - :name: Rails Girls Frankfurt a.M.
+    :url: http://railsgirls.com/frankfurt
+    :twitter: RailsGirls_FFM
+  - :name: Rails Girls Dresden
+    :url: http://railsgirlsdresden.de
+    :twitter: RailsGirls_DD
+  - :name: Rails Girls Munich
+    :url: http://railsgirls.com/munich
+    :twitter: RailsGirls_MUC
+  - :name: Rails Girls Osnabrück
+    :url: http://railsgirls-os.de
+    :twitter: railsgirls_os
+  - :name: Rails Girls Leipzig
+    :url: http://railsgirls.com/leipzig
+  google_group: rails-girls-hamburg
