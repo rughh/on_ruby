@@ -3,6 +3,8 @@ h5= link_to l(event.date, format: :long), event_path(event, format: :ics), rel: 
 h5== "#{t("show.hosted_by")} #{link_to event.user.name, event.user}"
 h5= event.location.address
 
+== markdown event.description
+
 p= participation_link(event)
 
 div data-role="collapsible-set"
