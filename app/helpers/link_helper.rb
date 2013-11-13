@@ -25,7 +25,8 @@ module LinkHelper
 
   def link_to_route(location)
     content_tag :p, class: :meta do
-      content_tag(:span, link_to(location.address, "#route", title: "#{location.name}, #{location.address}"), class: 'map-icon') +
+      fa_icon('map-marker') +
+      content_tag(:span, link_to(location.address, "#route", title: "#{location.name}, #{location.address}")) +
       " #{t("show.at")} " +
       content_tag(:span, link_to_location(location), class: 'open-icon')
     end

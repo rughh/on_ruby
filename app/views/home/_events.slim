@@ -15,4 +15,6 @@
     ul.more-list.clearfix
       - events.each do |event|
         li= link_to "#{l(event.date, format: :date)} - #{event.name}", event_path(event), title: event.name
-      li.all= link_to(t('home.all_events'), events_path)
+      li.all
+        = fa_icon 'mail-forward'
+        = link_to(t('home.all_events'), events_path)

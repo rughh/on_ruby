@@ -108,7 +108,6 @@ header
     .provider
       margin-left: 0px
       padding-left: 20px
-      background: image-url('login.png') left top no-repeat
   #logo
     float: left
 
@@ -155,18 +154,6 @@ nav#nav
 
   li.topic
     margin-left: 5px
-    @include list-icon('topic.png')
-
-  li.all
-    @include list-icon('all.png')
-
-  .like
-    background: image-url('thumb-up.png') left top no-repeat
-    padding-top: 9px
-    padding-left: 30px
-
-  .info
-    @include list-icon('information.png')
 
   .markdown
     ul
@@ -202,13 +189,14 @@ nav#nav
     list-style: none
 
   .reload
-    @include replace-text(image-path('reload.png'), 16, 16)
     float: left
     height: 16px
     width: 16px
     position: relative
     padding-right: 1em
     cursor: pointer
+    a
+      text-decoration: none
   .close
     @include replace-text(image-path('close.png'), 28, 28)
     float: right
@@ -219,8 +207,6 @@ nav#nav
     right: -3em
     cursor: pointer
   .more
-    background: image-url('more.png') 6px top no-repeat
-    padding-left: 30px
     font-style: italic
   .badges
     span
@@ -287,10 +273,6 @@ nav#nav
     height: 30em
     border: $border
     @include border-radius(0.5em, 0.5em)
-  .calendar-icon
-    @include meta-icon('calendar.png')
-  .map-icon
-    @include meta-icon('map.png')
   .meta
     font-size: smaller
     font-style: italic

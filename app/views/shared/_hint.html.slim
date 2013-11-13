@@ -13,6 +13,6 @@
   - unless current_user && current_user.hide_jobs?
     #jobs
       = hint(false) do
-        .reload= link_to t("hint.other_job"), '#'
+        span.reload= link_to fa_icon("refresh"), '#'
         - jobs.each do |job|
           .jobs== job_description(job)
