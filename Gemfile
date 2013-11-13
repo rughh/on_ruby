@@ -27,10 +27,10 @@ gem "kaminari",               "0.14.1"
 gem "typus",                  github: "fesplugas/typus"
 
 gem "jquery-rails",           "2.2.1"
-gem "jquery_mobile_rails",    "1.3.2"
 gem "sass-rails",             "4.0.0"
 gem "compass-rails",          "2.0.alpha.0"
 gem "coffee-rails",           "4.0.0"
+gem "font-awesome-rails"
 gem "uglifier",               "2.2.1"
 
 group :production do

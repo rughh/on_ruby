@@ -1,7 +1,10 @@
 ul
   - nav_entries = [:events, :topics, :people, :mailing_list, :locations]
   - nav_entries.each do |it|
-    li= link_to t(it), root_path(anchor: it), title: t(it)
+    li
+      = link_to root_path(anchor: it), title: t(it) do
+        i class="icon icon-#{it}"
+        span.hide-phone= t(it)
 
 #locale
   ul
