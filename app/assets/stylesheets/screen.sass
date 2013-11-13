@@ -50,13 +50,14 @@ a
   zoom: 1
 
 header
-  padding: 7em 1em 0em 1em
+  padding: 8em 1em 0em 1em
   display: block
   margin: 0 auto
   margin-bottom: 3em
   width: 60em
   +phone
     width: inherit
+
   color: $title-color
 
   #title, &:hover, &:active, &:visited
@@ -69,14 +70,16 @@ header
       font-size: $sub-title-font-size
       @include title-box
   #login
-    font-size: 10px
+    font-size: 0.7rem
     float: right
     width: 140px
     padding: 1em
     background: $background
     border: $border
+    text-align: right
     @include border-radius(0.5em, 0.5em)
     +phone
+      margin-bottom: 14px
       display: block
       float: none
       width: auto
@@ -110,6 +113,7 @@ header
   #logo
     float: left
     margin-right: 20px
+    margin-bottom: 30px
 
 nav#nav
   background: $background
