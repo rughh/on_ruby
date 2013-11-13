@@ -120,7 +120,10 @@ nav#nav
   top: 0
   z-index: 100
   @include nav-box
-
+  +phone
+    left: 0
+    margin-left: 0
+    width: 100%
   #locale
     float: right
     margin-right: 1em
@@ -135,16 +138,20 @@ nav#nav
     list-style: none outside
     overflow: hidden
   li
-    margin-left: 1.5em
-    margin-right: 1.5em
+    margin: 0 1.5em
+    +phone
+      margin: 0 0.6em
     padding-top: 2px
     float: left
 
     a, a:hover, a:active, a:visited
       text-decoration: none
       color: black
+    &.label
+      width: 1.2em
   .icon
     margin-right: 0.6em
+
 .main
   padding: 0em 2em 2em 2em
   +phone
