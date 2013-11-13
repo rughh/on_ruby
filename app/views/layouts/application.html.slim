@@ -23,11 +23,11 @@ html
     = ribbon(:github)
     = ribbon(:senor_developer)
     .container
+      nav#nav
+        = render 'shared/nav'
       header#on_ruby.clearfix
         = render 'shared/login'
         = render 'shared/headline'
-      nav#nav
-        = render 'shared/nav'
       .main
         = render 'shared/hint'
         = yield

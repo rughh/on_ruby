@@ -7,9 +7,3 @@ ul
       = link_to root_path(anchor: it), title: t(it) do
         i class="icon icon-#{it}"
         span.hide-phone= t(it)
-
-#locale
-  ul
-    - Usergroup::SUPPORTED_LOCALES.each do |locale|
-      - title = t("switch_languages", language: t("languages.#{locale}"))
-      li= link_to image_tag("flags/#{locale}.png", alt: title), url_for(locale: locale), title: title
