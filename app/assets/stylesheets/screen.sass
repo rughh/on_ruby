@@ -56,14 +56,13 @@ header
   margin-bottom: 3em
   width: 60em
   +phone
-    width: 100%
+    width: inherit
   color: $title-color
 
   #title, &:hover, &:active, &:visited
     color: $title-color
     text-decoration: none
     h1, h2
-      padding: 0 0 7px 120px
       font: bold $title-font-size $font
       @include title-box
     h2
@@ -110,6 +109,7 @@ header
       padding-left: 20px
   #logo
     float: left
+    margin-right: 20px
 
 nav#nav
   background: $background
