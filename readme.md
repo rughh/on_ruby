@@ -60,10 +60,6 @@ On the admin-site we need to:
 
 ![OnRuby Website](http://f.cl.ly/items/3o0v3c2d1X3A0o3s0O11/Bildschirmfoto%202012-09-26%20um%2019.23.17.png)
 
-## Mobile Website
-
-![OnRuby Mobile](http://f.cl.ly/items/02203G1m3Y3X3p1O153g/mobile.png)
-
 ## Admin Interface
 
 The app comes with an [Typus](https://github.com/fesplugas/typus) interface to manage the model data.

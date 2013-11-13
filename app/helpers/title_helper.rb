@@ -3,10 +3,6 @@ module TitleHelper
     "#{title} - #{title_mapping ? title_mapping.call : subtitle}"
   end
 
-  def mobile_title
-    title_mapping ? title_mapping.call : title
-  end
-
   def meta_desc
     "#{page_title} - #{I18n.tw("meta_desc")}"
   end
@@ -27,7 +23,6 @@ module TitleHelper
       'topics/show'     => -> { topic.name },
       'locations/show'  => -> { current_location.name },
       'events/show'     => -> { event.name },
-      'mobile/settings' => -> { t('mobile.settings') }
    }["#{controller_name}/#{action_name}"]
   end
 end
