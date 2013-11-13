@@ -55,8 +55,6 @@ header
   margin: 0 auto
   margin-bottom: 3em
   width: 60em
-  +phone
-    width: 100%
   color: $title-color
 
   #title, &:hover, &:active, &:visited
@@ -77,6 +75,17 @@ header
     background: $background
     border: $border
     @include border-radius(0.5em, 0.5em)
+    +phone
+      display: block
+      float: none
+      width: auto
+      font-size: 100%
+      background: none
+      border: none
+      ul
+        margion: 0 auto
+        li
+          display: inline
     .user
       float: left
       padding-right: 5px
@@ -137,8 +146,6 @@ nav#nav
     margin-right: 0.6em
 .main
   padding: 0em 2em 2em 2em
-  +phone
-    padding: 0
   margin: 0em
   height: 100%
 
@@ -236,8 +243,6 @@ nav#nav
     margin-top: 0em
     margin-bottom: 3em
     width: 56em
-    +phone
-      width: auto
     background: $background
     border: $border
     @include border-radius(0.5em, 0.5em)
@@ -386,8 +391,7 @@ footer
     margin-bottom: 1em
     display: block
     width: 60em
-    +phone
-      width: 100%
+
     h2
       font: bold 1.4em $font
       padding-bottom: 1em
