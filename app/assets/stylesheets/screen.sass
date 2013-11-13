@@ -77,6 +77,17 @@ header
     background: $background
     border: $border
     @include border-radius(0.5em, 0.5em)
+    +phone
+      display: block
+      float: none
+      width: auto
+      font-size: 100%
+      background: none
+      border: none
+      ul
+        margion: 0 auto
+        li
+          display: inline
     .user
       float: left
       padding-right: 5px
