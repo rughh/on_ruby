@@ -1,0 +1,29 @@
+.nav-toggle
+  $size: 8px
+  $dark-color: #ccc
+  $spot-color: #C81B47
+
+  display: none
+  +phone
+    display: block
+
+  width: $base-font-size*1.5
+  height: $base-font-size*1.5
+  padding: 0
+  +border-radius(4px)
+  +background-image(linear-gradient(lighten($dark-color, 6%), lighten($dark-color, 12%)))
+  +box-shadow( lighten($dark-color, 18%) 0 0 2px 1px inset)
+  float: right
+  text-align: center
+  margin:
+    right: $size
+    top: $size/2
+    bottom: $size
+  > .line
+    display: block
+    width: 70%
+    height: 2px
+    +border-radius(2px)
+    overflow: hidden
+    margin: 3px auto
+    background: $spot-color

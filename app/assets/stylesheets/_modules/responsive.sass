@@ -1,13 +1,9 @@
-
-$phone-breakpoint: 'max-width: 767px'
-
-=responsive($breakpoint, $media: all)
-  @media only #{$media} and( #{$breakpoint} )
-    @content
-
-=phone
-  +responsive($phone-breakpoint)
-    @content
+img
+  max-width: 100%
+  height: auto
+  width:auto\9
+  vertical-align: middle
+  -ms-interpolation-mode: bicubic
 
 .hide-phone
   +responsive($phone-breakpoint)

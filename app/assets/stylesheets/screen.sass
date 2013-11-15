@@ -79,16 +79,7 @@ header
     text-align: right
     @include border-radius(0.5em, 0.5em)
     +phone
-      margin-bottom: 14px
-      display: block
-      float: none
-      width: auto
-      font-size: 100%
-      background: none
-      border: none
-      ul
-        li
-          display: inline
+      display: none
     .user
       float: left
       padding-right: 5px
@@ -128,22 +119,24 @@ nav#nav
     left: 0
     margin-left: 0
     width: 100%
-  ul
+  .nav
     margin: 0
     border: 0
     display: inline-block
     list-style: none outside
     overflow: hidden
   li
-    margin: 0 1.5em
+    margin: 0 1.2em
     +phone
-      margin: 0 0.6em
+      margin: 0 0.3em
     padding-top: 2px
     float: left
 
     a, a:hover, a:active, a:visited
       text-decoration: none
       color: black
+      +phone
+        padding: 0 0.3em
     &.label
       width: 1.1em
       margin-top: -0.2em
