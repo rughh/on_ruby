@@ -106,7 +106,7 @@ header
     margin-bottom: 30px
 
 
-nav#nav
+#nav
   background: $background
   font: bold $title-font-size / 2 $font
   border-bottom: $border
@@ -128,18 +128,16 @@ nav#nav
   li
     margin: 0 1.2em
     +phone
-      margin: 0 0.3em
+      margin: 0 0.5em
     padding-top: 2px
     float: left
-
     a, a:hover, a:active, a:visited
       text-decoration: none
-      color: black
-      +phone
-        padding: 0 0.3em
+      &:hover
+        color: $ruby-red
     &.label
       width: 1.1em
-      margin-top: -0.2em
+      margin-top: -0.1em
   .icon
     margin-right: 0.6em
 
@@ -293,7 +291,7 @@ nav#nav
       border: $border
       @include border-radius(0.5em, 0.5em)
   .enumeration
-    reset-counter:enumeration
+    reset-counter: enumeration
     >li:nth-child(-n+9)
       counter-increment: enumeration
       &:before
@@ -319,6 +317,13 @@ nav#nav
 
     input[type=text]
       width: 40em
+      +phone
+        width: 95%
+        font-size: 1.3em
+    select
+      +phone
+        width: 95%
+        font-size: 1.3em
 
     input[type=checkbox], input[type=radio]
       margin-right: 0.5em
@@ -326,6 +331,8 @@ nav#nav
     textarea
       width: 40em
       height: 10em
+      +phone
+        width: 90%
 
     label
       display: block
@@ -363,7 +370,7 @@ nav#nav
   dt, dd
     float: left
   dt
-    font-weight:bold
+    font-weight: bold
 
 footer
   padding: 0
@@ -385,6 +392,8 @@ footer
     .block
       float: left
       padding: 3em 0em 1em 8em
+      +phone
+        padding: 2em 0em 1em 2em
 
       ul
         padding: 0

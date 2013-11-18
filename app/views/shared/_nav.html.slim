@@ -22,8 +22,12 @@ ul.nav-sub
   - else
     - [:twitter, :github].each do |provider|
       - title = t("login.#{provider}_login")
-      li.provider= link_to title, auth_path(provider: provider), title: title
+      li.provider
+        = link_to auth_path(provider: provider), title: title do
+          = fa_stacked_icon provider, base: "square-o"
+          =' title
+
 
   - Usergroup::SUPPORTED_LOCALES.each do |locale|
     - title = t("switch_languages", language: t("languages.#{locale}"))
-    li= link_to image_tag("flags/#{locale}.png", alt: title), url_for(locale: locale), title: title
+    li.locale= link_to image_tag("flags/#{locale}.png", alt: title), url_for(locale: locale), title: title
