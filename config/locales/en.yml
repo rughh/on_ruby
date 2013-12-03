@@ -85,6 +85,8 @@ en:
     not_removed_organizer: "Event-Organizer can't be removed!"
   location:
     job_offers: "Job offers"
+    open_in: "Open in"
+    google_maps: "Google Maps"
   topic:
     topic: "Topic"
     all_topics: "All Topics"
