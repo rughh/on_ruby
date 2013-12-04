@@ -20,5 +20,4 @@ section
   = render "topics", topics: event.topics
   = render "materials", materials: event.materials
 
-  h3#route= t("show.route")
-  = single_map(event.location)
+  = render 'shared/route', location: event.location

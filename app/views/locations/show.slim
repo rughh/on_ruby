@@ -17,5 +17,4 @@ section
         - location.events.each do |e|
           li= link_to_event e
 
-  h3#route= t("show.route")
-  = single_map(location)
+  = render 'shared/route', location: location
