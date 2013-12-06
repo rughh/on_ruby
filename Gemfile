@@ -4,7 +4,7 @@ ruby "2.0.0"
 gem "thin",         require: false
 gem "foreman",      require: false
 
-gem "rails",                  "4.0.0"
+gem "rails",                  "4.0.2"
 gem "rails-observers",        "0.1.2"
 
 gem "slim-rails",             "2.0.1"
