@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe TopicsHelper do
-  let(:topic) { build(:topic) }
+  let(:topic) { build(:topic, id: 123) }
 
   context "#like_link" do
     it "disables the button if not signed-in" do
