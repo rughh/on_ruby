@@ -119,7 +119,7 @@ de:
     forbidden: "Hoppala, das darfst du nicht tun!"
     logged_in: "Hi %{name}, du bist erfolgreich eingeloggt!"
     logged_out: "Du bist erfolgreich ausgeloggt!"
-    login_error: "Fehler beim Einloggen mit Twitter, bist du dort vielleicht nicht eingeloggt?"
+    login_error: "Fehler beim Einloggen, bist du dort vielleicht nicht eingeloggt?"
     double_liked: "Bitte nicht mehrfach bewerten!"
     liked: "Das Thema gefällt dir."
     unliked: "Das Thema gefällt dir nicht mehr."

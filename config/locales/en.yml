@@ -118,7 +118,7 @@ en:
     forbidden: "Ups, not allowed to do this!"
     logged_in: "Hi %{name}, you logged in succesfully!"
     logged_out: "Logout complete!"
-    login_error: "Login to Twitter failed, logged into Twitter?"
+    login_error: "Login failed, are you logged into your OAuth Account?"
     double_liked: "Don't like twice, please!"
     liked: "You like the Topic."
     unliked: "You don't like the Topic."
