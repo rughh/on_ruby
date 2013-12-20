@@ -2,8 +2,7 @@ class Topic < ActiveRecord::Base
   PROPOSAL_TYPES = %w(proposal enquiry)
 
   extend FriendlyId
-  extend FriendlyId::Finders
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: [:slugged, :finders]
 
   extend ApiHandling
   expose_api :id, :event_id, :user_id, :name, :description
