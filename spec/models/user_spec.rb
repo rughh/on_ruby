@@ -111,11 +111,13 @@ describe User do
 
     it "should find and transform usernames for semanticform" do
       %w(uschi klaus mauro).each { |name| create(:user, name: name, nickname: "nick_#{name}") }
-      User.all_for_selections.should eql([
-        ["klaus (nick_klaus)", 2],
-        ["mauro (nick_mauro)", 3],
-        ["uschi (nick_uschi)", 1]
-      ])
+      User.all_for_selections.map(&:first).should eql(
+        [
+          "klaus (nick_klaus)",
+          "mauro (nick_mauro)",
+          "uschi (nick_uschi)"
+        ]
+      )
     end
 
     it "should find peers" do

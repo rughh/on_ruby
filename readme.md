@@ -10,10 +10,18 @@ Source for the Sites of the Ruby Communities [Hamburg](http://hamburg.onruby.de)
 
 ## Setup
 
+### Postgresql
+
+    brew install postgresql
+    # check if it's running
+    psql postgres # exit with \q
+    # create user and database
+    createuser -Ps postgres
+    rake db:setup
+
 Use *foreman* to start the server, otherwise you need to export the options of the *.env* file manually:
 
     bundle --without=production
-    rake db:setup
     foreman start
 
 ### Hosts
@@ -36,7 +44,7 @@ If you want to have some kind of seed, than generate some test-data:
 
 If you are a heroku project admin, you can dump Data from Heroku via [Taps Gem](https://devcenter.heroku.com/articles/taps):
 
-    heroku db:pull
+    heroku pg:pull HEROKU_POSTGRESQL_MAROON_URL onruby_development
 
 ## THE GUIDE TO YOUR RUG
 

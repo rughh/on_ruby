@@ -33,10 +33,8 @@ gem "compass-rails",          "1.1.2"
 gem "coffee-rails",           "4.0.1"
 gem "uglifier",               "2.2.1"
 
-group :production do
-  gem "pg",                   "0.17.1"
-  gem "rack-cache",           "1.2"
-end
+gem "pg",                     "0.17.1"
+gem "rack-cache",             "1.2"
 
 group :development, :test do
   gem "letter_opener",      "1.1.2"
