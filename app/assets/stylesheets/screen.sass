@@ -147,11 +147,12 @@ header
     margin-top: 0em
     margin-bottom: 3em
     width: 56em
-    +phone
-      width: auto
     background: $background
     border: $border
-    @include border-radius(0.5em, 0.5em)
+    +border-radius(0.5em, 0.5em)
+    +phone
+      width: auto
+      +border-radius(0)
 
     h2
       font: bold 1.4em $font
