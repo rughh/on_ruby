@@ -13,14 +13,19 @@ $ruby-red: #C81B47
 @mixin title-box
   @include text-shadow($background 1px 2px 3px)
 
+@mixin nav-bar
+  background: none
+
 @mixin nav-box
-  left: 50%
-  margin-left: -21em
-  width: 42em
-  padding: 0.2em 0em 0.2em 0em
-  @include border-bottom-left-radius(0.5em)
-  @include border-bottom-right-radius(0.5em)
-  @include box-shadow($border-color 0px 1px 10px)
+  padding: 0.3em 1em
+  width: 40em
+  background: $background
+  border: $border
+  +border-bottom-left-radius(0.5em)
+  +border-bottom-right-radius(0.5em)
+  +box-shadow($border-color 0px 1px 10px)
+  +phone
+    +border-radius(0)
 
 @mixin button
   background: -webkit-gradient(linear, left top, left bottom, from(white), to(#D7D7D7), color-stop(30%, #F2F2F2), color-stop(90%, #C5C5C5), color-stop(90%, #BDBDBD))
@@ -38,6 +43,7 @@ $ruby-red: #C81B47
 @import "normalize"
 @import "font"
 @import "_lib/**/*"
+@import "_base/elements"
 @import "_modules/**/*"
 @import "screen"
 

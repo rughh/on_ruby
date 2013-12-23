@@ -13,10 +13,12 @@ $ruby-red: #C81B47
 @mixin title-box
   // empty
 
+@mixin nav-bar
+  background: $background
+  border: $border
+
 @mixin nav-box
-  width: 100%
   font: bold 1.5em hero,arial,verdana,sans-serif
-  border-bottom: 1px solid white
   padding: 0.5em 0em 0.5em 0em
 
 @mixin button
@@ -36,6 +38,7 @@ $ruby-red: #C81B47
 @import "normalize"
 @import "font"
 @import "_lib/**/*"
+@import "_base/elements"
 @import "_modules/**/*"
 @import "screen"
 

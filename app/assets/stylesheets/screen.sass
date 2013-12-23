@@ -1,53 +1,3 @@
-html
-  background: $background
-
-body
-  font: 13px/1.231 sans-serif
-
-h1, h2, h3, h4, h5, h6
-  margin: 0
-
-h3
-  font-size: 100%
-
-ul, ol
-  margin: 0 0 0 2em
-  padding: 0
-
-a
-  color: #555
-  &:focus,
-  &:hover,
-  &:active
-    color: #666
-
-.container
-  background: $container-background
-
-// For image replacement
-.ir
-  display: block
-  text-indent: -999em
-  overflow: hidden
-  background-repeat: no-repeat
-  text-align: left
-  direction: ltr
-
-.hidden
-  display: none
-.invisible
-  visibility: hidden
-
-// The Magnificent Clearfix
-.clearfix:before, .clearfix:after
-  content: "\0020"
-  display: block
-  height: 0
-  overflow: hidden
-.clearfix:after
-  clear: both
-.clearfix
-  zoom: 1
 
 header
   padding: 8em 1em 0em 1em
@@ -88,6 +38,10 @@ header
         height: 48px
         border: $border
         @include border-radius(0.5em, 0.5em)
+    .switch-locale
+      +horizontal-list
+      float: right
+      margin-top: 0.5em
     h3
       color: #444
       padding-bottom: 0.5em
@@ -104,42 +58,6 @@ header
     float: left
     margin-right: 20px
     margin-bottom: 30px
-
-
-#nav
-  background: $background
-  font: bold $title-font-size / 2 $font
-  border-bottom: $border
-  text-align: center
-  position: fixed
-  top: 0
-  z-index: 100
-  @include nav-box
-  +phone
-    left: 0
-    margin-left: 0
-    width: 100%
-  .nav
-    margin: 0
-    border: 0
-    display: inline-block
-    list-style: none outside
-    overflow: hidden
-  li
-    margin: 0 1em
-    +phone
-      margin: 0 0.5em
-    padding-top: 2px
-    float: left
-    a, a:hover, a:active, a:visited
-      text-decoration: none
-      &:hover
-        color: $ruby-red
-    &.label
-      width: 1.1em
-      margin-top: -0.1em
-  .icon
-    margin-right: 0.6em
 
 .main
   padding: 0em 2em 2em 2em
