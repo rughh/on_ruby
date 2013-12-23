@@ -30,6 +30,8 @@ gem "jquery-rails",           "2.2.1"
 gem "sass-rails",             "4.0.1"
 gem "compass-rails",          "1.1.2"
 gem "coffee-rails",           "4.0.1"
+gem "font-awesome-rails"
+
 gem "uglifier",               "2.2.1"
 
 gem "pg",                     "0.17.1"
