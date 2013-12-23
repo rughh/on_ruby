@@ -40,7 +40,7 @@ describe EventsController do
     context "json" do
       it "renders json" do
         controller.stub(event: event)
-        get :show, format: :json
+        get :show, id: event, format: :json
         response.headers["Content-Type"].should eql("application/json; charset=utf-8")
         JSON.parse(response.body).keys.should include("id", "name")
       end
@@ -49,7 +49,7 @@ describe EventsController do
     context "ics" do
       it "renders json" do
         controller.stub(event: event)
-        get :show, format: :ics
+        get :show, id: event, format: :ics
         response.headers["Content-Type"].should eql("text/calendar; charset=utf-8")
         response.body.should match("VCALENDAR")
       end

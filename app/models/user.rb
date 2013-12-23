@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   extend FriendlyId
-  extend FriendlyId::Finders
-  friendly_id :nickname, use: :slugged
+  friendly_id :nickname, use: [:slugged, :finders]
 
   extend ApiHandling
   expose_api :id, :nickname, :name, :image, :url, :github, :twitter, :freelancer, :available
@@ -10,7 +9,7 @@ class User < ActiveRecord::Base
   validates :nickname, uniqueness: true
   validates :twitter, :github, uniqueness: true, allow_nil: true, allow_blank: true
   validates :twitter, :github, format: { with: /\A(\w|-)+\z/, allow_nil: true, allow_blank: true }
-  validates :email, format: { with: /\A.*@.*\..*\z/, allow_nil: true, allow_blank: true }
+  validates :email, format: { with: /\A.*@.*\..*\z/, allow_nil: true, allow_blank: true, on: :update }
 
   has_many :authorizations, dependent: :destroy
   has_many :participants, dependent: :destroy

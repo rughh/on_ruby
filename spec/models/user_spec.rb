@@ -6,9 +6,15 @@ describe User do
     let(:user) { build(:user) }
     let(:admin_user) { build(:admin_user) }
 
-    it "allows empty and nil emails" do
+    it "allows broken, empty and nil emails" do
       create(:user, email: "")
       expect { create(:user, email: "") }.not_to raise_error
+      expect { create(:user, email: "broken email") }.not_to raise_error
+    end
+
+    it "fail update on broken emails" do
+      user = create(:user, email: "broken email")
+      expect { user.save! }.to raise_error
     end
 
     it "allows empty and nil github and twitter keys for all" do
@@ -105,11 +111,13 @@ describe User do
 
     it "should find and transform usernames for semanticform" do
       %w(uschi klaus mauro).each { |name| create(:user, name: name, nickname: "nick_#{name}") }
-      User.all_for_selections.should eql([
-        ["klaus (nick_klaus)", 2],
-        ["mauro (nick_mauro)", 3],
-        ["uschi (nick_uschi)", 1]
-      ])
+      User.all_for_selections.map(&:first).should eql(
+        [
+          "klaus (nick_klaus)",
+          "mauro (nick_mauro)",
+          "uschi (nick_uschi)"
+        ]
+      )
     end
 
     it "should find peers" do
