@@ -4,7 +4,7 @@ section
   .participation= participation_link(event)
   p.meta
     span
-      = fa_icon('calendar')
+      = fa_icon('calendar', class: 'fa-fw')
       =' link_to l(event.date, format: :long), event_path(event, format: :ics), title: event.name, class: 'ical'
       - if signed_in?
         ==' "(#{calendar_link})"
