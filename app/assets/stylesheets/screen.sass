@@ -1,13 +1,14 @@
 
 header
   padding: 8em 1em 0em 1em
+  +phone
+    padding-top: 6em
   display: block
   margin: 0 auto
   margin-bottom: 3em
   width: 60em
   +phone
     width: inherit
-
   color: $title-color
 
   #title, &:hover, &:active, &:visited
@@ -16,6 +17,8 @@ header
     h1, h2
       font: bold $title-font-size $font
       @include title-box
+    h1
+      line-height: 1.1em
     h2
       font-size: $sub-title-font-size
       @include title-box
@@ -57,7 +60,10 @@ header
   #logo
     float: left
     margin-right: 20px
-    margin-bottom: 30px
+
+  .headline
+    +phone
+      margin-left: 85px
 
 .main
   padding: 0em 2em 2em 2em
@@ -280,9 +286,14 @@ header
   .participation
     float: left
     margin-right: 15px
+    +phone
+      width: 100%
+      float: none
+      margin: 15px 0
     input
       padding: 13px 25px
-
+      +phone
+        width: 100%
   dt
     clear: left
     padding-right: 1em
