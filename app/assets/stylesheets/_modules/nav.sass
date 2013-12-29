@@ -49,17 +49,19 @@
       height: auto
     .nav-text
       margin-left: 0.4em
-  ul.nav-sub
+  .sub-nav-box
     display: none
-    margin: 0
-    display: inline-block
-    +clearfix
+    ul.nav-sub
+      display: inline-block
+      margin: 0
+      +clearfix
 
 .menu-button
   +phone
     position: absolute
     top: 4px
     right: 0
+
 .nav-toggle
   $size: 8px
   float: right

@@ -50,6 +50,3 @@ $ ->
   OnRuby.showHide()
   OnRuby.moreList()
   OnRuby.displayUsers()
-
-  $('.nav-toggle').click ->
-    $('.nav-sub').slideToggle 300

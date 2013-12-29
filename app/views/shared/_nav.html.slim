@@ -10,31 +10,32 @@ nav#nav.navbar
             i class="icon icon-#{it}"
             span.nav-text.hide-phone= t(it)
       li.menu-button
-        .nav-toggle
+        .nav-toggle.toggle(name="sub-nav-box")
           i class="icon icon-bars"
 
-    ul.nav-sub
-      - if signed_in?
-        li.label.user= link_to image_tag(current_user.image, alt: current_user.name), user_path(current_user), title: current_user.name
-        li
-          = link_to edit_user_path(current_user), title: t("login.edit_profile") do
-            = fa_stacked_icon 'edit', base: "square-o"
-            =' t("login.edit_profile")
-        li
-          = link_to destroy_session_path(current_user), title: t("login.logout") do
-            = fa_stacked_icon 'times', base: "square-o"
-            =' t("login.logout")
-      - else
-        - [:twitter, :github].each do |provider|
-          - title = t("login.#{provider}_login")
-          li.provider
-            = link_to auth_path(provider: provider), title: title do
-              = fa_stacked_icon provider, base: "square-o"
-              =' title
+    .sub-nav-box.toggle_sub-nav-box
+      ul.nav-sub
+        - if signed_in?
+          li.label.user= link_to image_tag(current_user.image, alt: current_user.name), user_path(current_user), title: current_user.name
+          li
+            = link_to edit_user_path(current_user), title: t("login.edit_profile") do
+              = fa_stacked_icon 'edit', base: "square-o"
+              =' t("login.edit_profile")
+          li
+            = link_to destroy_session_path(current_user), title: t("login.logout") do
+              = fa_stacked_icon 'times', base: "square-o"
+              =' t("login.logout")
+        - else
+          - [:twitter, :github].each do |provider|
+            - title = t("login.#{provider}_login")
+            li.provider
+              = link_to auth_path(provider: provider), title: title do
+                = fa_stacked_icon provider, base: "square-o"
+                =' title
 
-      - locale = I18n.locale == :de ? :en : :de
-      - title = t("languages.#{locale}")
-      li.locale
-        = link_to url_for(locale: locale), title: t("switch_languages", language: title) do
-          = fa_stacked_icon 'comment', base: "square-o"
-          =' title
+        - locale = I18n.locale == :de ? :en : :de
+        - title = t("languages.#{locale}")
+        li.locale
+          = link_to url_for(locale: locale), title: t("switch_languages", language: title) do
+            = fa_stacked_icon 'comment', base: "square-o"
+            =' title
