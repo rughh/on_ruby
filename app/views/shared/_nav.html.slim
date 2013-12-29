@@ -1,31 +1,32 @@
-.nav-inner
-  ul
-    - nav_entries = [:events, :topics, :people, :mailing_list, :locations]
-    li.label
-      = link_to image_tag("labels/#{Whitelabel[:label_id]}.png", class: 'label-img', alt: title), '#on_ruby', class: 'label-link'
-    - nav_entries.each do |it|
-      li
-        = link_to root_path(anchor: it), title: t(it) do
-          i class="icon icon-#{it}"
-          span.nav-text.hide-phone= t(it)
-    li.menu-button
-      .nav-toggle
-        i class="icon icon-bars"
+nav#nav.navbar
+  .nav-box
+    ul.nav-inner
+      - nav_entries = [:events, :topics, :people, :mailing_list, :locations]
+      li.label
+        = link_to image_tag("labels/#{Whitelabel[:label_id]}.png", class: 'label-img', alt: title), '#on_ruby', class: 'label-link'
+      - nav_entries.each do |it|
+        li
+          = link_to root_path(anchor: it), title: t(it) do
+            i class="icon icon-#{it}"
+            span.nav-text.hide-phone= t(it)
+      li.menu-button
+        .nav-toggle
+          i class="icon icon-bars"
 
-ul.nav-sub
-  - if signed_in?
-    li.user= link_to image_tag(current_user.image, alt: current_user.name), user_path(current_user), title: current_user.name
-    li= link_to t("login.profile"), user_path(current_user), title: t("login.profile")
-    li= link_to t("login.edit_profile"), edit_user_path(current_user), title: t("login.edit_profile")
-    li= link_to t("login.logout"), destroy_session_path(current_user), title: t("login.logout")
-  - else
-    - [:twitter, :github].each do |provider|
-      - title = t("login.#{provider}_login")
-      li.provider
-        = link_to auth_path(provider: provider), title: title do
-          = fa_stacked_icon provider, base: "square-o"
-          =' title
+    ul.nav-sub
+      - if signed_in?
+        li.user= link_to image_tag(current_user.image, alt: current_user.name), user_path(current_user), title: current_user.name
+        li= link_to t("login.profile"), user_path(current_user), title: t("login.profile")
+        li= link_to t("login.edit_profile"), edit_user_path(current_user), title: t("login.edit_profile")
+        li= link_to t("login.logout"), destroy_session_path(current_user), title: t("login.logout")
+      - else
+        - [:twitter, :github].each do |provider|
+          - title = t("login.#{provider}_login")
+          li.provider
+            = link_to auth_path(provider: provider), title: title do
+              = fa_stacked_icon provider, base: "square-o"
+              =' title
 
-  - Usergroup::SUPPORTED_LOCALES.each do |locale|
-    - title = t("switch_languages", language: t("languages.#{locale}"))
-    li.locale= link_to image_tag("flags/#{locale}.png", alt: title), url_for(locale: locale), title: title
+      - Usergroup::SUPPORTED_LOCALES.each do |locale|
+        - title = t("switch_languages", language: t("languages.#{locale}"))
+        li.locale= link_to image_tag("flags/#{locale}.png", alt: title), url_for(locale: locale), title: title

@@ -1,24 +1,33 @@
+@mixin nav-box
+  padding: 0.3em 1em
+  background: $background
+  border: $border
+  +border-bottom-left-radius(0.5em)
+  +border-bottom-right-radius(0.5em)
+  +box-shadow($border-color 0px 1px 10px)
+  +phone
+    +border-radius(0)
+
 .navbar
   text-align: center
   position: fixed
   top: 0
   z-index: 100
   width: 100%
-  +nav-bar
   +phone
     left: 0
     margin-left: 0
 
-  .nav-inner
-    font: bold $title-font-size / 2 $font
-    display: inline-block
+  .nav-box
+    margin: 0 auto
     +nav-box
+    width: 60em
     +phone
       width: 100%
-    ul
-      margin: 0 auto
-      +phone
-        width: 300px
+  ul.nav-inner
+    margin: 0
+    font: bold $title-font-size / 2 $font
+    display: inline-block
   li
     margin: 0 0.8em
     +phone
