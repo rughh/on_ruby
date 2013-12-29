@@ -2,7 +2,7 @@ script: "bundle exec rake"
 bundler_args: "--without development production"
 language: ruby
 rvm:
-  - 2.0.0-p247
+  - 2.0.0
 branches:
   only:
     - master
