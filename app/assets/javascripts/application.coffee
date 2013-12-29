@@ -5,7 +5,7 @@
 //= require custom
 //= require map
 
+
 $ ->
-  new Navi().scroll()
   Utility.disable()
   Map.init()

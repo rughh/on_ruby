@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   include WhitelabelDetection
-  include MobileDetection
   include LocaleDetection
   include UserHandling
 
@@ -13,7 +12,6 @@ class ApplicationController < ActionController::Base
   before_action :setup
 
   helper_method :signed_in?, :current_user
-  helper_method :mobile_device?
 
   rescue_from ActiveRecord::RecordNotFound,     with: :_404
   rescue_from ActionView::MissingTemplate,      with: :_404
@@ -28,7 +26,6 @@ class ApplicationController < ActionController::Base
   def setup
     switch_label
     switch_locale
-    check_for_mobile
   end
 
   def _404(exception)

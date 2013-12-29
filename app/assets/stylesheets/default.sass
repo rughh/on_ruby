@@ -4,18 +4,21 @@ $container-background: image-url('black-Linen.png') left top repeat
 $title-color: white
 $ribbon-color: #444
 $font: hero, arial, verdana, sans-serif
+$base-font-size: 13px
 $title-font-size: 4em
 $sub-title-font-size: 1.5em
 $border-color: white
 $border: 1px solid $border-color
-
+$ruby-red: #C81B47
 @mixin title-box
   // empty
 
+@mixin nav-bar
+  background: $background
+  border: $border
+
 @mixin nav-box
-  width: 100%
   font: bold 1.5em hero,arial,verdana,sans-serif
-  border-bottom: 1px solid white
   padding: 0.5em 0em 0.5em 0em
 
 @mixin button
@@ -31,9 +34,11 @@ $border: 1px solid $border-color
   @include text-shadow(#888 0px 1px 10px)
 
 @import "compass"
-@import "compass/css3/"
-@import "compass/utilities/text/replacement"
+@import "font-awesome"
 @import "normalize"
 @import "font"
-@import "icons"
+@import "_lib/**/*"
+@import "_base/elements"
+@import "_modules/**/*"
 @import "screen"
+

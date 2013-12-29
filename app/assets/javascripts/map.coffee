@@ -1,8 +1,4 @@
 class Map
-  @initMobile: ->
-    $(".map-link").bind 'click', ->
-      new Map($(".map_canvas")).show()
-
   @init: ->
     canvas = $(".map_canvas")
     if canvas.length

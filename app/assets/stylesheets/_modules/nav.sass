@@ -1,0 +1,55 @@
+.navbar
+  text-align: center
+  position: fixed
+  top: 0
+  z-index: 100
+  width: 100%
+  +nav-bar
+  +phone
+    left: 0
+    margin-left: 0
+
+  .nav-inner
+    font: bold $title-font-size / 2 $font
+    margin: 0 auto
+    display: inline-block
+    list-style: none
+    overflow: hidden
+    +nav-box
+  li
+    margin: 0 0.8em
+    +phone
+      margin: 0 0.4em
+    padding-top: 2px
+    float: left
+    a, a:hover, a:active, a:visited
+      text-decoration: none
+      &:hover
+        color: $ruby-red
+    &.label
+      width: 2em
+      margin-top: -0.1em
+    .label-link
+      display: inline-block
+      max-height: 1.3em
+    .label-img
+      max-height: 100%
+      height: auto
+  .icon
+    margin-right: 0.6em
+
+ul.nav-sub
+  display: none
+  margin: 0 0.5em 1em 0.2em
+  background: white
+  +clearfix
+  +nav-box
+
+  > li.provider
+    // fuck specifity wars
+    float: none!important
+    a
+      display: block
+  > li.locale
+    text-align: right
+    float: right!important

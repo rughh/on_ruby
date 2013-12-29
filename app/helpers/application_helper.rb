@@ -13,13 +13,12 @@ module ApplicationHelper
     javascript_include_tag link if File.exists? Rails.root.join("app/assets/javascripts/#{link}.coffee")
   end
 
-  def canonical_url(mobile: false)
+  def canonical_url
     subdomain = Whitelabel.label ? Whitelabel[:label_id] : 'www'
     options = {
       subdomain: subdomain,
       only_path: false
     }
-    options[:mobile] = 1 if mobile
     tag :link, rel: :canonical, href: url_for(options)
   end
 

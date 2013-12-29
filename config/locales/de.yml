@@ -29,7 +29,6 @@ de:
     other_job: "Anderer Job"
     job_description: "Ruby / Rails Jobs in %{city}: %{job_link} bei %{company_link}"
   footer:
-    to_mobile: "mobile Version"
     imprint: "Impressum"
     contact: "Kontakt"
     links: "Links"
@@ -126,11 +125,6 @@ de:
     topic_added: "Dein Thema wurde gespeichert."
     topic_updated: "Dein Thema wurde aktualisiert."
     add_email: "Bitte trage eine E-Mail Adresse ein, damit wir dich erreichen können!"
-  mobile:
-    settings: "Einstellungen"
-    back: "Zurück"
-    home: "Home"
-    disable: "Mobile Ansicht deaktivieren"
   views:
     pagination:
       first: "<<"

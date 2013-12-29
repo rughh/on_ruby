@@ -1,12 +1,18 @@
-#login
+#login.hide-phone
   - if signed_in?
     .user= link_to image_tag(current_user.image, alt: current_user.name), user_path(current_user), title: current_user.name
-    ul
+
+  ul
+    - if signed_in?
       li= link_to t("login.profile"), user_path(current_user), title: t("login.profile")
       li= link_to t("login.edit_profile"), edit_user_path(current_user), title: t("login.edit_profile")
       li= link_to t("login.logout"), destroy_session_path(current_user), title: t("login.logout")
-  - else
-    ul
+    - else
       - [:twitter, :github].each do |provider|
         - title = t("login.#{provider}_login")
         li.provider= link_to title, auth_path(provider: provider), title: title
+
+  ul.switch-locale
+    - Usergroup::SUPPORTED_LOCALES.each do |locale|
+      - title = t("switch_languages", language: t("languages.#{locale}"))
+      li= link_to image_tag("flags/#{locale}.png", alt: title), url_for(locale: locale), title: title

@@ -1,80 +1,38 @@
-html
-  background: $background
-
-body
-  font: 13px/1.231 sans-serif
-
-h1, h2, h3, h4, h5, h6
-  margin: 0
-
-h3
-  font-size: 100%
-
-ul, ol
-  margin: 0 0 0 2em
-  padding: 0
-
-a
-  color: #555
-  &:focus,
-  &:hover,
-  &:active
-    color: #666
-
-.container
-  background: $container-background
-
-// For image replacement
-.ir
-  display: block
-  text-indent: -999em
-  overflow: hidden
-  background-repeat: no-repeat
-  text-align: left
-  direction: ltr
-
-.hidden
-  display: none
-.invisible
-  visibility: hidden
-
-// The Magnificent Clearfix
-.clearfix:before, .clearfix:after
-  content: "\0020"
-  display: block
-  height: 0
-  overflow: hidden
-.clearfix:after
-  clear: both
-.clearfix
-  zoom: 1
 
 header
-  padding: 7em 1em 0em 1em
+  padding: 8em 1em 0em 1em
+  +phone
+    padding-top: 6em
   display: block
   margin: 0 auto
   margin-bottom: 3em
   width: 60em
+  +phone
+    width: inherit
   color: $title-color
 
   #title, &:hover, &:active, &:visited
     color: $title-color
     text-decoration: none
     h1, h2
-      padding: 0 0 7px 120px
       font: bold $title-font-size $font
       @include title-box
+    h1
+      line-height: 1.1em
     h2
       font-size: $sub-title-font-size
       @include title-box
   #login
-    font-size: 10px
+    font-size: 0.7rem
     float: right
     width: 140px
     padding: 1em
     background: $background
     border: $border
+    text-align: right
     @include border-radius(0.5em, 0.5em)
+    +phone
+      display: none
     .user
       float: left
       padding-right: 5px
@@ -83,6 +41,10 @@ header
         height: 48px
         border: $border
         @include border-radius(0.5em, 0.5em)
+    .switch-locale
+      +horizontal-list
+      float: right
+      margin-top: 0.5em
     h3
       color: #444
       padding-bottom: 0.5em
@@ -95,62 +57,23 @@ header
     .provider
       margin-left: 0px
       padding-left: 20px
-      background: image-url('login.png') left top no-repeat
   #logo
     float: left
+    margin-right: 20px
 
-nav#nav
-  background: $background
-  font: bold $title-font-size / 2 $font
-  border-bottom: $border
-  text-align: center
-  position: fixed
-  top: 0
-  z-index: 100
-  @include nav-box
-
-  #locale
-    float: right
-    margin-right: 1em
-    ul
-      @include horizontal-list
-      li
-        margin: 0px
-  ul
-    margin: 0
-    border: 0
-    display: inline-block
-    list-style: none outside
-    overflow: hidden
-  li
-    margin-left: 1.5em
-    margin-right: 1.5em
-    padding-top: 2px
-    float: left
-
-    a, a:hover, a:active, a:visited
-      text-decoration: none
-      color: black
+  .headline
+    +phone
+      margin-left: 85px
 
 .main
   padding: 0em 2em 2em 2em
+  +phone
+    padding: 0
   margin: 0em
   height: 100%
 
   li.topic
     margin-left: 5px
-    @include list-icon('topic.png')
-
-  li.all
-    @include list-icon('all.png')
-
-  .like
-    background: image-url('thumb-up.png') left top no-repeat
-    padding-top: 9px
-    padding-left: 30px
-
-  .info
-    @include list-icon('information.png')
 
   .markdown
     ul
@@ -186,13 +109,14 @@ nav#nav
     list-style: none
 
   .reload
-    @include replace-text(image-path('reload.png'), 16, 16)
     float: left
     height: 16px
     width: 16px
     position: relative
     padding-right: 1em
     cursor: pointer
+    a
+      text-decoration: none
   .close
     @include replace-text(image-path('close.png'), 28, 28)
     float: right
@@ -203,8 +127,6 @@ nav#nav
     right: -3em
     cursor: pointer
   .more
-    background: image-url('more.png') 6px top no-repeat
-    padding-left: 30px
     font-style: italic
   .badges
     span
@@ -233,7 +155,10 @@ nav#nav
     width: 56em
     background: $background
     border: $border
-    @include border-radius(0.5em, 0.5em)
+    +border-radius(0.5em, 0.5em)
+    +phone
+      width: auto
+      +border-radius(0)
 
     h2
       font: bold 1.4em $font
@@ -269,10 +194,6 @@ nav#nav
     height: 30em
     border: $border
     @include border-radius(0.5em, 0.5em)
-  .calendar-icon
-    @include meta-icon('calendar.png')
-  .map-icon
-    @include meta-icon('map.png')
   .meta
     font-size: smaller
     font-style: italic
@@ -295,7 +216,7 @@ nav#nav
       border: $border
       @include border-radius(0.5em, 0.5em)
   .enumeration
-    reset-counter:enumeration
+    reset-counter: enumeration
     >li:nth-child(-n+9)
       counter-increment: enumeration
       &:before
@@ -321,6 +242,13 @@ nav#nav
 
     input[type=text]
       width: 40em
+      +phone
+        width: 95%
+        font-size: 1.3em
+    select
+      +phone
+        width: 95%
+        font-size: 1.3em
 
     input[type=checkbox], input[type=radio]
       margin-right: 0.5em
@@ -328,6 +256,8 @@ nav#nav
     textarea
       width: 40em
       height: 10em
+      +phone
+        width: 90%
 
     label
       display: block
@@ -356,16 +286,21 @@ nav#nav
   .participation
     float: left
     margin-right: 15px
+    +phone
+      width: 100%
+      float: none
+      margin: 15px 0
     input
       padding: 13px 25px
-
+      +phone
+        width: 100%
   dt
     clear: left
     padding-right: 1em
   dt, dd
     float: left
   dt
-    font-weight:bold
+    font-weight: bold
 
 footer
   padding: 0
@@ -379,13 +314,16 @@ footer
     margin-bottom: 1em
     display: block
     width: 60em
-
+    +phone
+      width: 100%
     h2
       font: bold 1.4em $font
       padding-bottom: 1em
     .block
       float: left
       padding: 3em 0em 1em 8em
+      +phone
+        padding: 2em 0em 1em 2em
 
       ul
         padding: 0
@@ -411,6 +349,8 @@ footer
   width: 150px
   height: 150px
   overflow: hidden
+  +phone
+    display: none
   a
     height: 30px
     text-decoration: none

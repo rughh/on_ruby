@@ -36,7 +36,7 @@ OnRuby =
         elements = $(list).find "li"
         if elements.size() > preview_size
           elements.slice(preview_size).hide()
-          link = $("<a class='more' href='#'>" + I18n.showMore + "</a>")
+          link = $("<a class='more' href='#'><i class='icon-arrow-down'></i>" + I18n.showMore + "</a>")
           container = $("<p></p>").append link
           container.insertAfter list
           link.click (event) ->
@@ -50,3 +50,6 @@ $ ->
   OnRuby.showHide()
   OnRuby.moreList()
   OnRuby.displayUsers()
+
+  $('.nav-toggle').click ->
+    $('.nav-sub').slideToggle 300
