@@ -6,12 +6,10 @@ ul.nav-inner
     li
       = link_to root_path(anchor: it), title: t(it) do
         i class="icon icon-#{it}"
-        span.hide-phone= t(it)
+        span.nav-text.hide-phone= t(it)
   li.menu-button
-    button.nav-toggle
-      span.line
-      span.line
-      span.line
+    .nav-toggle
+      i class="icon icon-bars"
 
 ul.nav-sub
   - if signed_in?
