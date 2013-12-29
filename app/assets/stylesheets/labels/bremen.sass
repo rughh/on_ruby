@@ -1,5 +1,4 @@
-body
-  color: #151515
+@import "compass"
 
 h1, h2, h3, h4, h5, h6
   color: #c10000
@@ -9,11 +8,10 @@ header
     h1
       margin-top: .125em
       font-size: 4.5em
+      +single-text-shadow(#c10000, 1px, 1px, 2px)
       a, a:link, a:visited, a:focus, a:hover, a:active
         color: #ce0c14
     h2
+      +single-text-shadow(#c10000, 1px, 1px, 2px)
       a, a:link, a:visited, a:focus, a:hover, a:active
         color: #FFF
-
-.container
-  background: #036

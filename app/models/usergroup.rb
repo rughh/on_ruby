@@ -5,7 +5,7 @@ class Usergroup
   SUPPORTED_LOCALES = [:de, :en]
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :google_group
-  attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups, :theme
+  attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups
 
   def host
     "#{label_id}.#{HOST}"
@@ -22,7 +22,6 @@ class Usergroup
       it.location         = {zoom: 14, lat: 53.079296, long: 8.801694}
       it.imprint          = {address: "YourStreet 1\n0815 YourTown", contributors: [{name: "Your Name", email: "your@mail.de"}]}
       it.other_usergroups = [{name: "OtherUsergroupName", url: "http://some-domain.de/", twitter: "some_handle"}]
-      it.theme            = 'light'
     end
   end
 

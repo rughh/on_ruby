@@ -4,10 +4,6 @@ module ApplicationHelper
     stylesheet_link_tag link if File.exists? Rails.root.join("app/assets/stylesheets/#{link}.sass")
   end
 
-  def theme_stylesheet_link_tag
-    stylesheet_link_tag Whitelabel[:theme] || "default"
-  end
-
   def whitelabel_javascript_include_tag
     link = "labels/#{Whitelabel[:label_id]}"
     javascript_include_tag link if File.exists? Rails.root.join("app/assets/javascripts/#{link}.coffee")

@@ -1,37 +1,42 @@
-$top-position: 46px
-$background: image-url('whitey.png') left top repeat
-$container-background: image-url('black-Linen.png') left top repeat
-$title-color: white
-$ribbon-color: #444
-$font: hero, arial, verdana, sans-serif
-$base-font-size: 13px
-$title-font-size: 4em
-$sub-title-font-size: 1.5em
-$border-color: white
+$top-position: 0px
+$background: white
+$container-background: image-url('whitey.png') left top repeat
+$title-color: black
+$ribbon-color: $title-color
+$font: Alef, sans-serif
+$title-font-size: 3em
+$sub-title-font-size: $title-font-size / 2
+$border-color: lightgray
 $border: 1px solid $border-color
 $ruby-red: #C81B47
+
 @mixin title-box
-  // empty
+  @include text-shadow($background 1px 2px 3px)
 
 @mixin nav-bar
-  background: $background
-  border: $border
+  background: none
 
 @mixin nav-box
-  font: bold 1.5em hero,arial,verdana,sans-serif
-  padding: 0.5em 0em 0.5em 0em
+  padding: 0.3em 1em
+  width: 40em
+  background: $background
+  border: $border
+  +border-bottom-left-radius(0.5em)
+  +border-bottom-right-radius(0.5em)
+  +box-shadow($border-color 0px 1px 10px)
+  +phone
+    +border-radius(0)
 
 @mixin button
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#D7D7D7), color-stop(10%, #F2F2F2), color-stop(50%, #C5C5C5), color-stop(50%, #BDBDBD))
-  background: -moz-linear-gradient(left top, left bottom, from(white), to(#D7D7D7), color-stop(10%, #F2F2F2), color-stop(50%, #C5C5C5), color-stop(50%, #BDBDBD))
-  border-color: #A6A6A6
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#D7D7D7), color-stop(30%, #F2F2F2), color-stop(90%, #C5C5C5), color-stop(90%, #BDBDBD))
+  background: -moz-linear-gradient(left top, left bottom, from(white), to(#D7D7D7), color-stop(30%, #F2F2F2), color-stop(90%, #C5C5C5), color-stop(90%, #BDBDBD))
+  border-color: $border-color
 
 @mixin ribbon
-  background: white
-  color: #444
-  font-size: 14px
-  @include box-shadow(#888 0px 1px 10px)
-  @include text-shadow(#888 0px 1px 10px)
+  border: $border
+  background: $background
+  color: $ribbon-color
+  font: 1.1em $font
 
 @import "compass"
 @import "font-awesome"

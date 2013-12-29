@@ -4,26 +4,12 @@
 
 @import "_lib/responsive"
 
-
 @import "cologne/colors"
 @import "cologne/dimensions"
 @import "cologne/typography"
 
 header
   #title
-    color: $dark-text-color
-    +single-text-shadow($light-text-color, 1px, 1px, 2px)
-    +transition-duration(0.2s)
-    +transition-timing-function(ease-in-out)
-    width: 350px
-    +phone
-      width: auto
-    margin-left: $padding
-    +phone
-      margin-left: 0
-      margin-top: $padding
-
-    display: inline-block
     &:hover
       color: $red !important
       +single-text-shadow($dark-text-color, 1px, 1px, 2px)
@@ -45,17 +31,6 @@ a:hover
 
 .container
   background-image: image-url("whitey.png")
-
-nav#nav
-  +background(linear-gradient(color-stops(lighten($dark-grey, 20%), $dark-grey)))
-  border-color: $light-grey
-  color: $light-text-color
-  li
-    color: $light-text-color
-    a, a:active, a:visited
-      color: $light-text-color
-      &:hover
-        color: $light-gold
 
 .main section, header #login
   background: $white
