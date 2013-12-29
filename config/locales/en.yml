@@ -113,6 +113,7 @@ en:
     only_admins: "Ups, only admins allowed!"
     not_authenticated: "Ups, you are not allowed to visit this page!"
     already_participating: "You're already in."
+    already_closed: "The event is already maxed out."
     now_participating: "You're in."
     dont_participate: "You're out."
     forbidden: "Ups, not allowed to do this!"

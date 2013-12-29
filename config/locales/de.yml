@@ -40,7 +40,9 @@ de:
     attend: "Teilnehmen"
     not_attend: "Absagen"
     login_before_attend: "Bitte logge dich zuerst ein!"
-    attendees: "Teilnehmer"
+    attendees:
+      zero: "Teilnehmerinnen und Teilnehmer (%{participant_count})"
+      other: "Teilnehmerinnen und Teilnehmer (%{participant_count} von %{count})"
     route: "Anfahrt"
     material: "Material"
   home:
@@ -113,6 +115,7 @@ de:
     only_admins: "Hoppala, da dürfen nur Admins hin!"
     not_authenticated: "Hoppala, diese Seite ist nicht für dich bestimmt!"
     already_participating: "Du bist schon angemeldet."
+    already_closed: "Die maximale Anzahl an Teilnehmern ist schon erreicht."
     now_participating: "Du bist am Event angemeldet."
     dont_participate: "Du bist vom Event abgemeldet."
     forbidden: "Hoppala, das darfst du nicht tun!"

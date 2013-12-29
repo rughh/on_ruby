@@ -352,6 +352,17 @@ figure {
    ========================================================================== */
 
 /*
+ * Remove the outline from input elements
+ */
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+/*
  * Corrects margin displayed oddly in IE6/7
  */
 
@@ -502,3 +513,4 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+

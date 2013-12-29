@@ -31,6 +31,10 @@ class Event < ActiveRecord::Base
     date + 2.hours
   end
 
+  def closed?
+    limit.present? && participants.count >= limit
+  end
+
   def particpate(user)
     return false if users.include? user
     !!participants.create!(user: user)

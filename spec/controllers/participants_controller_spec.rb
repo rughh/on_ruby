@@ -39,6 +39,17 @@ describe ParticipantsController do
         response.should redirect_to(event)
       end
     end
+
+    context "with a closed event" do
+      let(:event) { create(:closed_event) }
+
+      it "should should alert a closed flash" do
+        expect { post :create, event_id: event.id }.to change(Participant, :count).by(0)
+
+        flash[:alert].should_not be_nil
+        response.should redirect_to(event)
+      end
+    end
   end
 
   context "DELETE :destroy" do

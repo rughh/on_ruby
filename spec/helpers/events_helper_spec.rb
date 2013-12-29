@@ -27,6 +27,11 @@ describe EventsHelper do
         helper.participation_link(event).should match("Teilnehmen")
       end
 
+      it "disbales the button on closed events" do
+        event = build(:closed_event)
+        expect(helper.participation_link(event)).to match("data-disable")
+      end
+
       it "should render a cancel button" do
         helper.participation_link(participation_event).should match("Absagen")
       end

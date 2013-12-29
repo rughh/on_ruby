@@ -15,7 +15,7 @@ section
   == markdown event.description
 
   - if event.participants.present?
-    h3= "#{I18n.tw("show.attendees")} (#{event.participants.count})"
+    h3= t("show.attendees", count: event.limit || 0, participant_count: event.participants.count)
     p= render 'users/list', users: event.users
 
   = render "topics", topics: event.topics

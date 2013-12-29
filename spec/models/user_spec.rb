@@ -122,7 +122,7 @@ describe User do
 
     it "should find peers" do
       3.times { create(:event_with_participants) }
-      User.peers.should have(3).elements
+      expect(User).to have(9).peers
     end
 
     it "should not find peers from different labels" do
@@ -130,7 +130,7 @@ describe User do
       Whitelabel.with_label(Whitelabel.labels.last) do
         create(:event_with_participants)
       end
-      User.peers.should have(1).elements
+      expect(User).to have(3).peers
     end
 
     it "should participate?" do

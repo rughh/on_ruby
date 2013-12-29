@@ -38,6 +38,18 @@ describe Event do
     end
   end
 
+  context "#closed?" do
+    let(:event) { create(:event_with_participants) }
+
+    it "calculates closed" do
+      expect(event).to have(3).participants
+      expect(event).to_not be_closed
+
+      event.limit = 3
+      expect(event).to be_closed
+    end
+  end
+
   it "should find latest events" do
     10.times{|i| create(:event, :name => "Event #{i}", :date => (Time.now - i.weeks)) }
     Event.latest.map(&:name).should == ["Event 1", "Event 2", "Event 3", "Event 4", "Event 5", "Event 6", "Event 7", "Event 8", "Event 9"]
