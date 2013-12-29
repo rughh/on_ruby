@@ -17,11 +17,15 @@ header
     h1, h2
       font: bold $title-font-size $font
       @include title-box
+      +phone
+        font: bold $title-font-size/2 $font
     h1
       line-height: 1.1em
     h2
       font-size: $sub-title-font-size
       @include title-box
+      +phone
+        font-size: $sub-title-font-size/2
   #login
     font-size: 0.7rem
     float: right
@@ -57,10 +61,6 @@ header
     .provider
       margin-left: 0px
       padding-left: 20px
-
-  .headline
-    +phone
-      margin-left: 85px
 
 .main
   padding: 0em 2em 2em 2em

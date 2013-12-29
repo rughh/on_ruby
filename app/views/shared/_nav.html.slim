@@ -1,15 +1,16 @@
-ul.nav-inner
-  - nav_entries = [:events, :topics, :people, :mailing_list, :locations]
-  li.label
-    = link_to image_tag("labels/#{Whitelabel[:label_id]}.png", class: 'label-img', alt: title), '#on_ruby', class: 'label-link'
-  - nav_entries.each do |it|
-    li
-      = link_to root_path(anchor: it), title: t(it) do
-        i class="icon icon-#{it}"
-        span.nav-text.hide-phone= t(it)
-  li.menu-button
-    .nav-toggle
-      i class="icon icon-bars"
+.nav-inner
+  ul
+    - nav_entries = [:events, :topics, :people, :mailing_list, :locations]
+    li.label
+      = link_to image_tag("labels/#{Whitelabel[:label_id]}.png", class: 'label-img', alt: title), '#on_ruby', class: 'label-link'
+    - nav_entries.each do |it|
+      li
+        = link_to root_path(anchor: it), title: t(it) do
+          i class="icon icon-#{it}"
+          span.nav-text.hide-phone= t(it)
+    li.menu-button
+      .nav-toggle
+        i class="icon icon-bars"
 
 ul.nav-sub
   - if signed_in?
