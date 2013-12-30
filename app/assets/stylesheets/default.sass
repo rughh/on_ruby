@@ -90,6 +90,8 @@ header
     padding-bottom: 1em
     margin-top: 0em
     margin-bottom: 3em
+    +phone
+      margin: 0 1em 3em 1em
     .jobs
       display: none
   em
@@ -244,14 +246,14 @@ header
       label
         margin: 0em
 
-    input[type=text]
+    input[type=text], input[type=email]
       width: 40em
       +phone
-        width: 95%
+        width: 90%
         font-size: 1.3em
     select
       +phone
-        width: 95%
+        width: 90%
         font-size: 1.3em
 
     input[type=checkbox], input[type=radio]
