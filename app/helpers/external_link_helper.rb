@@ -27,6 +27,7 @@ module ExternalLinkHelper
   end
 
   def mailing_list_entries(count = 15)
+    return [] if Rails.env.development?
     feed_url = "https://groups.google.com/forum/feed/#{Whitelabel[:google_group] || 'rubyonrails-ug-germany'}/topics/rss.xml?num=#{count}"
     Rails.logger.debug "fetching feed from #{feed_url}"
     feed = Feedzirra::Feed.fetch_and_parse(feed_url)
