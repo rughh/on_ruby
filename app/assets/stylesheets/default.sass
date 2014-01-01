@@ -34,40 +34,37 @@ $ruby-red: #C81B47
 
 
 header
-  padding: 6em 1em 0em 2em
-  +phone
-    padding-top: 6em
   display: block
   margin: 0 auto
   margin-bottom: 3em
-  width: 60em
   +phone
-    width: inherit
+    margin-bottom: 0em
+  width: 60em
+  padding: 6em 1em 0em 2em
   color: $title-color
 
   #title, &:hover, &:active, &:visited
+    +phone
+      display: none
     color: $title-color
     text-decoration: none
     h1, h2
       font: bold $title-font-size $font
       @include title-box
-      +phone
-        font: bold $title-font-size/2 $font
     h1
-      line-height: 1.1em
+      line-height: 1.5em
+      letter-spacing: 0.3em
     h2
       font-size: $sub-title-font-size
+      letter-spacing: 0.1em
       @include title-box
-      +phone
-        font-size: $sub-title-font-size/2
   #logo
     float: left
+    margin-left: 20px
     margin-right: 20px
-    width: 70px
+    width: 80px
     +phone
-      width: 40px
-      margin-right: 15px
-
+      display: none
 
 .main
   padding: 0em 2em 2em 2em
@@ -90,10 +87,9 @@ header
     padding-bottom: 1em
     margin-top: 0em
     margin-bottom: 3em
-    +phone
-      margin: 0 1em 3em 1em
     .jobs
       display: none
+
   em
     font-style: italic
     font-weight: bolder
@@ -131,6 +127,8 @@ header
     position: relative
     top: -2em
     right: -3em
+    +phone
+      right: -2em
     cursor: pointer
   .more
     font-style: italic
@@ -168,6 +166,8 @@ header
 
     h2
       font: bold 1.4em $font
+      i
+        margin-right: 5px
     h3
       font: bold 1.2em $font
     ul

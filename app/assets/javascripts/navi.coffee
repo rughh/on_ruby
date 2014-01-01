@@ -3,10 +3,8 @@ class Scroll
   @historyCounter = 0
   @duration = 1000
 
-  # Die position:fixed navbar flackert im Mobile Webkit beim
-  # animierten Scrollen total fies!
-  # quickfix: keine Animation unter iOS/Android:
-  @uglyFlickeringBrowser = (/android|ipod|iphone|ipad/gi).test(navigator.appVersion)
+  @possibleTouchDevice: ->
+   (/android|ipod|iphone|ipad/gi).test(navigator.appVersion)
 
   @animatePage: ->
     $('a[href*="#"]').click (event) =>
@@ -16,7 +14,10 @@ class Scroll
       if $target.length
         top = $target.offset().top - topOffset
         event.preventDefault()
-        if @uglyFlickeringBrowser
+        # Die position:fixed navbar flackert im Mobile Webkit beim
+        # animierten Scrollen total fies!
+        # quickfix: keine Animation unter iOS/Android:
+        if Scroll.possibleTouchDevice()
           window.scrollTo(0, top)
         else
           $('html,body,document').animate(scrollTop: top, @duration)
@@ -27,11 +28,12 @@ class Scroll
           "page-#{@historyCounter}", url
 
   @animateLabel: ->
-    t = $(document).scrollTop()
-    opacity = (Math.pow(t,3) / 1e8)
-    opacity = 0 if (opacity < 0)
-    opacity = 1 if (opacity > 1)
-    $('#nav .label').css('opacity', opacity)
+    unless Scroll.possibleTouchDevice()
+      t = $(document).scrollTop()
+      opacity = (Math.pow(t,3) / 1e8)
+      opacity = 0 if (opacity < 0)
+      opacity = 1 if (opacity > 1)
+      $('#nav .label').css('opacity', opacity)
 
 $ ->
   Scroll.animatePage()
