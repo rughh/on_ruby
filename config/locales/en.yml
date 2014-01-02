@@ -35,6 +35,7 @@ en:
     links: "Links"
     other_usergroups: "Other Usergroups"
     ruby_usergroups: "Other Ruby Groups"
+    ruby_supporters: "Ruby Supporters"
   show:
     hosted_by: "hosted by"
     at: "by"

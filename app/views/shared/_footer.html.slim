@@ -30,7 +30,7 @@ section.clearfix
             =' link_to ug[:name], ug[:url], title: ug[:name]
             = link_to_twitter(ug[:twitter], clung: true) if ug[:twitter]
 
-  .railsgroups.block
+  .railsgroups.block.hr
     h2= t("footer.ruby_usergroups")
     ol.clearfix
       - Whitelabel.labels.each do |label|
@@ -39,3 +39,7 @@ section.clearfix
           =' link_to name, root_url(subdomain: label.label_id, domain: HOST), title: name
           = link_to_twitter(label.twitter, clung: true)
 
+  .railssupporters.block
+    h2= t("footer.ruby_supporters")
+    ol.clearfix
+      li= link_to "Ruby Berlin e.V.", "http://rubyberlin.org/"
