@@ -1,5 +1,5 @@
 source "http://rubygems.org"
-ruby "2.0.0"
+ruby "2.1.0"
 
 gem "thin",         require: false
 gem "foreman",      require: false
