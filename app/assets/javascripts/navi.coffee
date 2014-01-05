@@ -30,7 +30,7 @@ class Scroll
   @animateLabel: ->
     unless Scroll.possibleTouchDevice()
       t = $(document).scrollTop()
-      opacity = (Math.pow(t,3) / 1e8)
+      opacity = (Math.pow(t, 3) / 1e7)
       opacity = 0 if (opacity < 0)
       opacity = 1 if (opacity > 1)
       $('#nav .label').css('opacity', opacity)
