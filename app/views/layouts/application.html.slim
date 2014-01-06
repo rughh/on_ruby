@@ -1,12 +1,7 @@
 doctype 5
 html
   head
-    title= page_title
-    meta charset="utf-8"
-    meta name="description" content="#{meta_desc}"
-    link type="text/plain" rel="author" href="/humans.txt"
-    meta content='width=device-width, height=device-height, initial-scale=1.0' name='viewport'
-
+    = render 'shared/meta'
     = canonical_url
     = browser_icon
     = touch_icon
