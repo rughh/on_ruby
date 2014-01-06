@@ -24,7 +24,8 @@ gem "feedzirra",              "0.7.0"
 
 gem "formtastic",             "2.2.1"
 gem "kaminari",               "0.15.0"
-gem "typus",                  github: "fesplugas/typus"
+# gem "typus",                  github: "phoet/typus", branch: "custom_css"
+gem "typus",                  github: "phoet/typus", branch: "custom_css"
 
 gem "jquery-rails",           "2.2.1"
 gem "sass-rails",             "4.0.1"

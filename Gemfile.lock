@@ -1,6 +1,7 @@
 GIT
-  remote: git://github.com/fesplugas/typus.git
-  revision: 0ee9441369597de9722462778ec972a652de71c4
+  remote: git://github.com/phoet/typus.git
+  revision: 213bc525d8fd9a6617557901d9ec30b7f39dcd2e
+  branch: custom_css
   specs:
     typus (4.0.0.beta1)
       bcrypt-ruby (~> 3.1.2)
