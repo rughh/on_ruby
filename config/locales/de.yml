@@ -100,6 +100,7 @@ de:
     created_by_user: "dieses Thema wird vorgestellt von %{user}"
     no_event: "noch kein Event-Termin, ist aber in der Mache"
     markdown: "Du kannst <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> in deiner Beschreibung verwenden, URLs werden automatisch verlinkt."
+    please_login: "Bitte melde dich an, bevor du ein Thema einträgst!"
     twitter_message: "Neues Thema von @%{username} '%{name}' %{url}"
     proposal_types:
       proposal: "Ich stelle das Thema vor"

@@ -99,6 +99,7 @@ en:
     created_by_user: "this Topic will be presented by %{user}"
     no_event: "No event date yet"
     markdown: "You can use <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> in your description, URLs will get auto-linked."
+    please_login: "Please sign in before adding a Topic!"
     twitter_message: "New Topic by @%{username} '%{name}' %{url}"
     proposal_types:
       proposal: "I want to give this talk"

@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :authenticate!, except: [:index, :show]
+  before_action :authenticate!, only: [:edit, :update, :create]
   before_action :validate_topic_ownership!, only: [:edit, :update]
 
   expose(:topic, attributes: :topic_params)
