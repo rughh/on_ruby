@@ -15,13 +15,21 @@
 
 /* COMMITTERS */
 
+  Andreas Haller
+
   André Cedik
 
+  Ben Zimmer
+
   Bodo Tasche
+
+  Christoph Olszowka
 
   Daniel Harrington
 
   Dennis Reimann
+
+  Eckhard Rotte
 
   Jakob Hilden
 
