@@ -66,7 +66,7 @@ On the admin-site we need to:
 
 ## Website
 
-![OnRuby Website](http://f.cl.ly/items/3o0v3c2d1X3A0o3s0O11/Bildschirmfoto%202012-09-26%20um%2019.23.17.png)
+![OnRuby Website](http://cl.ly/image/3U0S3b0T0F0x/Screen%20Shot%202014-01-07%20at%2014.16.44.png)
 
 ## Admin Interface
 
