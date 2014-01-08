@@ -6,17 +6,12 @@
 
 @import "cologne/colors"
 @import "cologne/dimensions"
-@import "cologne/typography"
 
 header
   #title
     &:hover
       color: $red !important
       +single-text-shadow($dark-text-color, 1px, 1px, 2px)
-    h1, h2
-      font-family: UbuntuBold, arial, verdana, sans-serif
-      font-weight: normal
-      padding-left: 0
 
 a:hover
   color: $red
@@ -54,9 +49,9 @@ a:hover
 #refill
   position: fixed !important
   bottom: 10px
-  left: 54px
+  left: 70px
   text-decoration: none
-  font: normal 2em UbuntuBold,arial,verdana,sans-serif
+  font-size: 2em
   z-index: 90
   opacity: 0
   +phone
