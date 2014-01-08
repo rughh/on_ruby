@@ -50,7 +50,10 @@ module ExternalLinkHelper
 
   def likes
     content_tag :span, class: 'likes' do
-      raw %Q(<g:plusone size="medium"></g:plusone><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="#{Whitelabel[:twitter]}" data-lang="de">Tweet</a>)
+      raw %Q(
+        <g:plusone size="medium"></g:plusone>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="#{url_for(only_path: false)}" data-count="horizontal" data-via="#{Whitelabel[:twitter]}" data-lang="#{I18n.locale.downcase}">Tweet</a>
+      )
     end
   end
 
