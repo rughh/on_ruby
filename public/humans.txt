@@ -17,6 +17,8 @@
 
   Andreas Haller
 
+  Andreas Reischuck
+
   André Cedik
 
   Ben Zimmer
@@ -68,5 +70,7 @@
   Thilo Utke
 
   Thomas Metzmacher
+
+  Thorsten Böttger
 
   Tobias Pfeiffer
