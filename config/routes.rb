@@ -32,6 +32,6 @@ OnRuby::Application.routes.draw do
   end
 
   get '/api', to: 'api#index'
-
+  get '/styleguide(/:action)', controller: 'styleguide'
   root to: "home#index"
 end
