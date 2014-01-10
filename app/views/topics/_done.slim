@@ -3,5 +3,6 @@
     h3= t('home.old_topics')
     ul.more-list.clearfix
       - topics.each do |topic|
-        li.topic= link_to_topic topic
+        li.topic
+          = link_to_topic topic
       li.all= link_to(t('topic.all_topics'), topics_path)

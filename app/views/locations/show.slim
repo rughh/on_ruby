@@ -13,7 +13,7 @@ section
   - if location.events.present?
     #organized_events
       h3= t("profile.organized_events")
-      ul.enumeration.more-list
+      ul.more-list
         - location.events.each do |e|
           li= link_to_event e
 

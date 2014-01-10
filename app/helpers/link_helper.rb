@@ -7,12 +7,24 @@ module LinkHelper
     link_to job.name, job.url, title: job.name
   end
 
-  def link_to_event(event)
-    link_to event.name, event, title: event.name
+  def link_to_event(event, title = event.name)
+    fa_icon('calendar-o', class: 'pull-left') +
+    link_to(title, event, title: title)
   end
 
   def link_to_topic(topic)
-    link_to topic.name, topic, title: topic.name
+    fa_icon('comment-o', class: 'pull-left') +
+    link_to(topic.name, topic, title: topic.name)
+  end
+
+  def link_to_material(material)
+    fa_icon('list-ul', class: 'pull-left') +
+    link_to(material.name, material.url, title: material.name)
+  end
+
+  def link_to_mailing_list(entry)
+    fa_icon('envelope-o', class: 'pull-left') +
+    link_to(entry.title, entry.url, title: entry.title)
   end
 
   def job_description(job)

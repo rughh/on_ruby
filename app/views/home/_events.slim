@@ -6,7 +6,8 @@
       - if current_event.topics.present?
         ul.undone
           - current_event.topics.each do |topic|
-            li.topic= link_to_topic topic
+            li.topic
+              = link_to_topic topic
   - else
     p== I18n.tw("home.next_possible_meetup_recurring", recurring: content_tag(:em, localized_recurring_event_date))
     p== I18n.tw("home.next_possible_meetup", event_date: content_tag(:em, next_event_date))
@@ -14,7 +15,8 @@
     h3= t("home.past_events")
     ul.more-list.clearfix
       - events.each do |event|
-        li= link_to "#{l(event.date, format: :date)} - #{event.name}", event_path(event), title: event.name
+        li.event
+          = link_to_event event, "#{l(event.date, format: :date)} - #{event.name}"
       li.all
-        = fa_icon 'mail-forward'
-        = link_to(t('home.all_events'), events_path)
+        = fa_icon 'mail-forward', class: 'pull-left'
+        = link_to t('home.all_events'), events_path
