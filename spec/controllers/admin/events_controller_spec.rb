@@ -27,7 +27,11 @@ describe Admin::EventsController do
     context "GET :publish" do
       it "duplicates the last event" do
         event = create(:event)
-        expect { get :publish, id: event.id }.to change { ActionMailer::Base.deliveries.size }.by(1)
+        expect {
+          get :publish, id: event.id
+        }.to change {
+          ActionMailer::Base.deliveries.size
+        }.by(1)
       end
     end
   end

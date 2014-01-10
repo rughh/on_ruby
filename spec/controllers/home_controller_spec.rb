@@ -1,14 +1,13 @@
 require 'spec_helper'
 
 describe HomeController do
-
   context "subdomains" do
     before { set_subdomain }
 
     context "GET :index" do
       it "should render the :index template" do
         get :index
-        response.should render_template(:index)
+        expect(response).to render_template(:index)
       end
     end
   end
@@ -19,7 +18,7 @@ describe HomeController do
     context "GET :index" do
       it "should render the :index template" do
         get :index
-        response.should redirect_to("http://www.onruby.dev/")
+        expect(response).to redirect_to("http://www.onruby.dev/")
       end
     end
   end
@@ -30,7 +29,7 @@ describe HomeController do
     context "GET :index" do
       it "should render the :index template" do
         get :index
-        response.should render_template(:index)
+        expect(response).to render_template(:index)
       end
     end
   end

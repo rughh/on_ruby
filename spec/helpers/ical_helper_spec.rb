@@ -5,9 +5,9 @@ describe IcalHelper do
 
   it "creates a valid icalendar event" do
     helper.icalendar(event).to_s.tap do |it|
-      it.should match("BEGIN:VCALENDAR")
-      it.should match('http://test.host/events/123')
-      it.should match('SUMMARY:awesome ottawa')
+      expect(it).to match("BEGIN:VCALENDAR")
+      expect(it).to match('http://test.host/events/123')
+      expect(it).to match('SUMMARY:awesome ottawa')
     end
   end
 end

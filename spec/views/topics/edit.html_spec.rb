@@ -6,7 +6,7 @@ describe "topics/edit" do
 
   it "should render successfully" do
     view.stub(current_user: user, topic: topic, undone_topics: [topic])
+
     render
   end
-
 end

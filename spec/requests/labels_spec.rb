@@ -8,12 +8,12 @@ describe "Labels" do
 
     it "works!" do
       get "/"
-      response.status.should be(200)
+      expect(response).to be_ok
     end
 
     it "also works for mobile devices" do
       get "/?mobile=1"
-      response.status.should be(200)
+      expect(response).to be_ok
     end
   end
 end

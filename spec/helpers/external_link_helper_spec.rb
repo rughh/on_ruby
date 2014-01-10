@@ -6,12 +6,12 @@ describe ExternalLinkHelper do
   context "#link_to_github" do
     it "should generate the link" do
       user = build(:user, github: "giddiup")
-      helper.link_to_github(user).should eql('<a href="http://github.com/giddiup" title="giddiup">giddiup</a>')
+      expect(helper.link_to_github(user)).to eql('<a href="http://github.com/giddiup" title="giddiup">giddiup</a>')
     end
 
     it "should render nothing for no github" do
       user.github = nil
-      helper.link_to_github(user).should be_nil
+      expect(helper.link_to_github(user)).to be_nil
     end
   end
 
@@ -25,9 +25,9 @@ describe ExternalLinkHelper do
 
   context "#mailing_list_url" do
     it "creates an url" do
-      helper.mailing_list_url.should eql("https://groups.google.com/group/rubyonrails-ug-germany")
+      expect(helper.mailing_list_url).to eql("https://groups.google.com/group/rubyonrails-ug-germany")
       Whitelabel.with_label(Whitelabel.label_for('cologne')) do
-        helper.mailing_list_url.should eql("https://groups.google.com/group/colognerb")
+        expect(helper.mailing_list_url).to eql("https://groups.google.com/group/colognerb")
       end
     end
   end
@@ -35,7 +35,7 @@ describe ExternalLinkHelper do
   context "#link_to_twitter" do
     it "should generate the link" do
       user = build(:user, twitter: "klaus")
-      helper.link_to_twitter(user).should eql('@<a href="http://twitter.com/klaus" title="klaus">klaus</a>')
+      expect(helper.link_to_twitter(user)).to eql('@<a href="http://twitter.com/klaus" title="klaus">klaus</a>')
     end
   end
 
@@ -47,15 +47,15 @@ describe ExternalLinkHelper do
       topic.user.name = "Uschi"
 
       url = helper.twitter_update_url(topic)
-      url.should match(Regexp.escape("http://twitter.com/home?status=Neues%20Thema%20von%20@Uschi"))
-      url.should match(Regexp.escape("http://test.host/topics/bla"))
+      expect(url).to match(Regexp.escape("http://twitter.com/home?status=Neues%20Thema%20von%20@Uschi"))
+      expect(url).to match(Regexp.escape("http://test.host/topics/bla"))
     end
 
     it "should generate a proper url for events" do
       url = helper.twitter_update_url(event)
-      url.should match(Regexp.escape("http://twitter.com/home?status=Weihnachtstreffen"))
-      url.should match(Regexp.escape("am%2006.%20Dezember,%2011:47%20Uhr"))
-      url.should match(Regexp.escape("http://test.host/events/weihnachtstreffen"))
+      expect(url).to match(Regexp.escape("http://twitter.com/home?status=Weihnachtstreffen"))
+      expect(url).to match(Regexp.escape("am%2006.%20Dezember,%2011:47%20Uhr"))
+      expect(url).to match(Regexp.escape("http://test.host/events/weihnachtstreffen"))
     end
   end
 end

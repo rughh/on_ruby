@@ -6,9 +6,8 @@ describe TopicsController do
 
     it "renders the action" do
       get :show, id: topic.id
-
-      controller.topic.should eql(topic)
-      response.should render_template(:show)
+      expect(controller.topic).to eql(topic)
+      expect(response).to render_template(:show)
     end
   end
 
@@ -17,10 +16,10 @@ describe TopicsController do
 
     it "renders the action" do
       controller.stub(current_user: user)
-      get :new
 
-      controller.topic.should_not be_persisted
-      response.should render_template(:new)
+      get :new
+      expect(controller.topic).to_not be_persisted
+      expect(response).to render_template(:new)
     end
   end
 
@@ -30,10 +29,10 @@ describe TopicsController do
 
     it "renders the action" do
       controller.stub(current_user: user)
-      get :edit, id: topic.id
 
-      controller.topic.should be_persisted
-      response.should render_template(:edit)
+      get :edit, id: topic.id
+      expect(controller.topic).to be_persisted
+      expect(response).to render_template(:edit)
     end
   end
 
@@ -44,28 +43,36 @@ describe TopicsController do
 
     it "should create a topic for logged-in user" do
       controller.stub(current_user: user)
-      expect { post(:create, topic: topic_data) }.to change(Topic, :count).by(1)
-      controller.topic.user.should eql(user)
-      flash[:notice].should_not be_nil
+
+      expect {
+        post(:create, topic: topic_data)
+      }.to change(Topic, :count).by(1)
+      expect(controller.topic.user).to eql(user)
+      expect(flash[:notice]).to_not be_nil
     end
 
     it "creates a topic and sends user add an email if not present" do
       controller.stub(current_user: user_without_email)
-      expect { post(:create, topic: topic_data) }.to change(Topic, :count).by(1)
+
+      expect {
+        post(:create, topic: topic_data)
+      }.to change(Topic, :count).by(1)
       expect(response).to redirect_to(edit_user_path(user_without_email))
     end
 
     it "should not create a topic if not signed in" do
-      expect { post(:create, topic: topic_data) }.to change(Topic, :count).by(0)
-      response.should redirect_to(root_path)
+      expect {
+        post(:create, topic: topic_data)
+      }.to change(Topic, :count).by(0)
+      expect(response).to redirect_to(root_path)
     end
   end
 
   context "POST :update" do
     it "authenticates the action" do
       put(:update, id: 123, topic: attributes_for(:topic))
-      response.should redirect_to(root_path)
-      flash[:alert].should_not be_nil
+      expect(response).to redirect_to(root_path)
+      expect(flash[:alert]).to_not be_nil
     end
 
     context "with logged-in user" do
@@ -79,17 +86,16 @@ describe TopicsController do
 
       it "updates a topic" do
         put(:update, id: topic, topic: {name: 'blupp'})
-
-        controller.topic.name.should eql('blupp')
-        flash[:notice].should_not be_nil
+        expect(controller.topic.name).to eql('blupp')
+        expect(flash[:notice]).to_not be_nil
       end
 
       it "does not update a topic for a different user" do
         controller.stub(current_user: other_user)
-        put(:update, id: topic, topic: {name: 'blupp'})
 
+        put(:update, id: topic, topic: {name: 'blupp'})
         expect(response).to redirect_to(root_path)
-        flash[:alert].should_not be_nil
+        expect(flash[:alert]).to_not be_nil
       end
     end
   end

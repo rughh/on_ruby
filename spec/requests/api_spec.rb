@@ -8,14 +8,14 @@ describe "Api" do
 
     it "should redirect and have status not_authorized" do
       get api_path(format: :json), nil, 'x-api-key' => ''
-      response.status.should eql(401)
-      response.body.should eql(' ')
+      expect(response.status).to eql(401)
+      expect(response.body).to eql(' ')
     end
 
     it "should render json with valid api-key" do
       get api_path(format: :json), nil, 'x-api-key' => ENV["HOR_API_KEY"]
-      response.status.should eql(200)
-      JSON.parse(response.body).keys.should eql(["topics", "locations", "events", "users"])
+      expect(response).to be_ok
+      expect(JSON.parse(response.body).keys).to eql(["topics", "locations", "events", "users"])
     end
   end
 end

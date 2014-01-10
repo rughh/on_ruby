@@ -5,6 +5,7 @@ describe "users/show" do
 
   it "should render successfully" do
     view.stub(current_user: user, user: user)
+
     render
   end
 end

@@ -9,13 +9,14 @@ describe "UserHandling", type: :controller do
     it "authenticates an action" do
       get :index
       expect(response).to redirect_to(root_path)
-      flash[:alert].should match("Admins")
+      expect(flash[:alert]).to match("Admins")
     end
 
     it "accepts admin users" do
       controller.stub(current_user: build(:admin_user))
+
       get :index
-      expect(response).to be_success
+      expect(response).to be_a_success
     end
   end
 
@@ -27,7 +28,7 @@ describe "UserHandling", type: :controller do
     it "authenticates an action" do
       get :index
       expect(response).to redirect_to(root_path)
-      flash[:alert].should match("diese Seite")
+      expect(flash[:alert]).to match("diese Seite")
     end
   end
 
@@ -39,19 +40,21 @@ describe "UserHandling", type: :controller do
     it "authenticates an action" do
       get :index
       expect(response).to redirect_to(root_path)
-      flash[:alert].should match("diese Seite")
+      expect(flash[:alert]).to match("diese Seite")
     end
 
     it "redirects_if the user differs" do
       controller.stub(signed_in?: true, current_user?: false)
+
       get :index
       expect(response).to redirect_to(root_path)
     end
 
     it "accepts only for the same user" do
       controller.stub(signed_in?: true, current_user?: true)
+
       get :index
-      expect(response).to be_success
+      expect(response).to be_a_success
     end
   end
 end

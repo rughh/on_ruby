@@ -6,8 +6,8 @@ describe SessionsController do
 
     it "renders the :index template" do
       get :create, provider: :twitter
-      controller.should be_signed_in
-      response.should redirect_to(root_path)
+      expect(controller).to be_signed_in
+      expect(response).to redirect_to(root_path)
     end
   end
 
@@ -22,8 +22,8 @@ describe SessionsController do
 
     it "sets omniauth session options in the :auth action" do
       get :auth, provider: :twitter
-      controller.session[:omniauth_keys].should eql([key, secret])
-      response.should redirect_to('/auth/twitter')
+      expect(controller.session[:omniauth_keys]).to eql([key, secret])
+      expect(response).to redirect_to('/auth/twitter')
     end
   end
 
@@ -31,7 +31,7 @@ describe SessionsController do
     it "handles failure modes" do
       get :failure
       expect(response).to redirect_to(root_path)
-      flash[:alert].should_not be_nil
+      expect(flash[:alert]).to_not be_nil
     end
   end
 
@@ -39,7 +39,7 @@ describe SessionsController do
     it "handles different providers" do
       get :auth, provider: :twitter
       expect(response).to redirect_to('/auth/twitter')
-      controller.session[:omniauth_keys].should_not be_nil
+      expect(controller.session[:omniauth_keys]).to_not be_nil
     end
   end
 
@@ -47,7 +47,7 @@ describe SessionsController do
     it "destroys a user session" do
       get :destroy
       expect(response).to redirect_to(root_path)
-      flash[:notice].should_not be_nil
+      expect(flash[:notice]).to_not be_nil
     end
   end
 end

@@ -8,6 +8,7 @@ describe Admin::HighlightsController do
 
     context "GET :duplicate" do
       let(:highlight) { create(:highlight) }
+
       it "duplicates the last event" do
         get :disable, id: highlight
         expect(assigns[:highlight]).to be_disabled

@@ -13,26 +13,26 @@ describe UsersController do
 
       it "rescues from not found" do
         get :show, id: "unknown"
-        response.status.should eql(404)
+        expect(response).to be_not_found
       end
     end
 
     it "shows the user when organized an event" do
       get :show, id: user_with_events.id
-      response.status.should eql(200)
+      expect(response).to be_ok
     end
 
     it "shows the user participates an event" do
       get :show, id: user_with_participations.id
-      response.status.should eql(200)
+      expect(response).to be_ok
     end
   end
 
   context "GET :edit" do
     it "should show alert for wrong user" do
       get :edit, id: user
-      flash[:alert].should_not be_nil
-      response.should redirect_to(root_path)
+      expect(flash[:alert]).to_not be_nil
+      expect(response).to redirect_to(root_path)
     end
   end
 
@@ -50,14 +50,14 @@ describe UsersController do
 
       it "should delete a user and logout" do
         @controller.stub(current_user: user)
-        expect do
-          expect do
-            delete :destroy, id: user.id
-          end.to change(User, :count).by(-1)
-        end.to change(Authorization, :count).by(-1)
 
-        flash[:notice].should_not be_nil
-        response.should redirect_to(destroy_session_path)
+        expect {
+          expect {
+            delete :destroy, id: user.id
+          }.to change(User, :count).by(-1)
+        }.to change(Authorization, :count).by(-1)
+        expect(flash[:notice]).to_not be_nil
+        expect(response).to redirect_to(destroy_session_path)
       end
 
       it "should not delete an organizer" do
@@ -66,8 +66,8 @@ describe UsersController do
           delete :destroy, id: event.user.id
         end.to change(User, :count).by(0)
 
-        flash[:alert].should_not be_nil
-        response.should redirect_to(edit_user_path(event.user))
+        expect(flash[:alert]).to_not be_nil
+        expect(response).to redirect_to(edit_user_path(event.user))
       end
     end
   end
@@ -77,23 +77,25 @@ describe UsersController do
 
     it "should update the github attribute of a user" do
       controller.stub(current_user: user)
+
       put :update, data
-      user.github.should eql('testo')
-      user.freelancer.should be_true
-      user.available.should be_true
-      response.should redirect_to(:back)
+      expect(user.github).to eql('testo')
+      expect(user.freelancer).to be_true
+      expect(user.available).to be_true
+      expect(response).to redirect_to(:back)
     end
 
     it "should not update injected properties" do
       controller.stub(current_user: user)
+
       put :update, data
-      user.nickname.should eql(user.nickname)
+      expect(user.nickname).to eql(user.nickname)
     end
 
     it "should update nothing for wrong user" do
       put :update, data
-      flash[:alert].should_not be_nil
-      response.should redirect_to(root_path)
+      expect(flash[:alert]).to_not be_nil
+      expect(response).to redirect_to(root_path)
     end
   end
 end

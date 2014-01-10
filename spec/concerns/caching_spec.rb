@@ -7,9 +7,11 @@ describe "Caching", type: :request do
     with_caching do
       get root_path
 
-      Rails.cache.exist?(key).should be_true
-      CacheExpiration.expire_view_cache
-      Rails.cache.exist?(key).should be_false
+      expect {
+        CacheExpiration.expire_view_cache
+      }.to change {
+        Rails.cache.exist?(key)
+      }.from(true).to(nil)
     end
   end
 
@@ -17,9 +19,11 @@ describe "Caching", type: :request do
     with_caching do
       get root_path
 
-      Rails.cache.exist?(key).should be_true
-      create(:user)
-      Rails.cache.exist?(key).should be_false
+      expect {
+        create(:user)
+      }.to change {
+        Rails.cache.exist?(key)
+      }.from(true).to(nil)
     end
   end
 end

@@ -8,8 +8,8 @@ describe SitemapsController do
 
     it "renders a sitemap" do
       get sitemap_path(id: 'hamburg', format: :xml)
-      response.body.should match("<loc>http://hamburg.onruby.dev/")
-      response.body.should match("<loc>http://hamburg.onruby.dev/users/uschi123")
+      expect(response.body).to match("<loc>http://hamburg.onruby.dev/")
+      expect(response.body).to match("<loc>http://hamburg.onruby.dev/users/uschi123")
     end
   end
 end

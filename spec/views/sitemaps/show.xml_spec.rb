@@ -5,6 +5,7 @@ describe "sitemaps/show" do
 
   it "should render successfully" do
     view.stub(urls: example_urls)
+
     render
   end
 end

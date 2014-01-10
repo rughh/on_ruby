@@ -10,15 +10,18 @@ describe ParticipantsController do
     end
 
     it "should add a user via json post" do
-      expect { post :create, format: :json, event_id: event.id }.to change(Participant, :count).by(1)
-      response.status.should be(201)
+      expect {
+        post :create, format: :json, event_id: event.id
+      }.to change(Participant, :count).by(1)
+      expect(response).to be_a_success
     end
 
     it "should add a prticipant for current user" do
-      expect { post :create, event_id: event.id }.to change(Participant, :count).by(1)
-
-      flash[:notice].should_not be_nil
-      response.should redirect_to(event)
+      expect {
+        post :create, event_id: event.id
+      }.to change(Participant, :count).by(1)
+      expect(flash[:notice]).to_not be_nil
+      expect(response).to redirect_to(event)
     end
 
     context "with an already participating user" do
@@ -27,16 +30,18 @@ describe ParticipantsController do
       end
 
       it "should silently ignore the problem via json" do
-        expect { post :create, format: :json, event_id: event.id }.to change(Participant, :count).by(0)
-
-        response.status.should be(201)
+        expect {
+          post :create, format: :json, event_id: event.id
+        }.to change(Participant, :count).by(0)
+        expect(response).to be_a_success
       end
 
       it "should should alert a duplicate flash" do
-        expect { post :create, event_id: event.id }.to change(Participant, :count).by(0)
-
-        flash[:alert].should_not be_nil
-        response.should redirect_to(event)
+        expect {
+          post :create, event_id: event.id
+        }.to change(Participant, :count).by(0)
+        expect(flash[:alert]).to_not be_nil
+        expect(response).to redirect_to(event)
       end
     end
 
@@ -44,31 +49,38 @@ describe ParticipantsController do
       let(:event) { create(:closed_event) }
 
       it "should should alert a closed flash" do
-        expect { post :create, event_id: event.id }.to change(Participant, :count).by(0)
-
-        flash[:alert].should_not be_nil
-        response.should redirect_to(event)
+        expect {
+          post :create, event_id: event.id
+        }.to change(Participant, :count).by(0)
+        expect(flash[:alert]).to_not be_nil
+        expect(response).to redirect_to(event)
       end
     end
   end
 
   context "DELETE :destroy" do
     before do
-      @participant = create(:participant)
-      @event = @participant.event
-      @user = @participant.user
+      @participant  = create(:participant)
+      @event        = @participant.event
+      @user         = @participant.user
     end
 
     it "should delete a participant for current user" do
-      @controller.stub(:current_user => @user)
-      expect { delete(:destroy, :id => @participant.id, :event_id => @event.id) }.to change(Participant, :count).by(-1)
-      response.should redirect_to(@event)
+      @controller.stub(current_user: @user)
+
+      expect {
+        delete(:destroy, id: @participant.id, event_id: @event.id)
+      }.to change(Participant, :count).by(-1)
+      expect(response).to redirect_to(@event)
     end
 
     it "should delete a participant for another user" do
-      @controller.stub(:current_user => create(:user))
-      expect { delete(:destroy, :id => @participant.id, :event_id => @event.id) }.to change(Participant, :count).by(0)
-      response.should redirect_to(@event)
+      @controller.stub(current_user: create(:user))
+
+      expect {
+        delete(:destroy, id: @participant.id, event_id: @event.id)
+      }.to change(Participant, :count).by(0)
+      expect(response).to redirect_to(@event)
     end
   end
 end

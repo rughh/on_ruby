@@ -22,30 +22,29 @@ describe Location do
   context "finder" do
     it "should find users within the default scope" do
       hamburg_locations = Location.all
-      hamburg_locations.should have(1).elements
-      hamburg_locations.first.should eql(@location)
-
-      Location.unscoped.size.should be(2)
+      expect(hamburg_locations).to have(1).elements
+      expect(hamburg_locations.first).to eql(@location)
+      expect(Location.unscoped.size).to be(2)
     end
   end
 
   context "#full_address" do
     it 'should return a full address string with street, house_number, zip, city and internationalized country name' do
-      @location.full_address.should eq('Schanzenstr. 85, 20357 Hamburg, Deutschland')
+      expect(@location.full_address).to eq('Schanzenstr. 85, 20357 Hamburg, Deutschland')
     end
   end
 
   context "#geocoding" do
     it 'should geocode once a location is saved' do
       Location.all.each do |locn|
-        locn.lat.should_not be_nil
-        locn.long.should_not be_nil
+        expect(locn.lat).to_not be_nil
+        expect(locn.long).to_not be_nil
       end
     end
 
     it 'should geocode with expected data once a location is saved' do
-      @location.lat.should be(Geocoder.coordinates(@location.full_address)[0])
-      @location.long.should be(Geocoder.coordinates(@location.full_address)[1])
+      expect(@location.lat).to be(Geocoder.coordinates(@location.full_address)[0])
+      expect(@location.long).to be(Geocoder.coordinates(@location.full_address)[1])
     end
   end
 

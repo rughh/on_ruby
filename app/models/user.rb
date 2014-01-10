@@ -80,10 +80,6 @@ class User < ActiveRecord::Base
   end
 
   class << self
-    def all_for_selections
-      order("name").map { |user| ["#{user.name} (#{user.nickname})", user.id] }
-    end
-
     def peers
       joins(participants: :event).where("events.label" => Whitelabel[:label_id]).order("created_at DESC").uniq
     end
@@ -103,8 +99,8 @@ class User < ActiveRecord::Base
     end
 
     def authenticated_with_token(id, stored_salt)
-      u = find_by_id(id)
-      u && u.salt == stored_salt ? u : nil
+      user = find_by_id(id)
+      user && user.salt == stored_salt ? user : nil
     end
 
     def find_by_session_or_cookies(session, cookies)

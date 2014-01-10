@@ -6,7 +6,8 @@ describe TopicsHelper do
   context "#like_link" do
     it "disables the button if not signed-in" do
       helper.stub(signed_in?: false)
-      helper.like_link(topic).should match('disable')
+
+      expect(helper.like_link(topic)).to match('disable')
     end
 
     context "with logged-in user" do
@@ -17,7 +18,7 @@ describe TopicsHelper do
       end
 
       it "shows a button for liking a topic" do
-        helper.like_link(topic).should match('gefällt mir')
+        expect(helper.like_link(topic)).to match('gefällt mir')
       end
     end
   end

@@ -6,6 +6,7 @@ describe "events/show" do
 
   it "should render successfully" do
     view.stub(signed_in?: true, current_user: user, event: event, likes: '</>')
+
     render
   end
 

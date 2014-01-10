@@ -5,6 +5,7 @@ describe "topics/new" do
 
   it "should render successfully" do
     view.stub(signed_in?: true, topic: topic, undone_topics: [topic])
+
     render
   end
 end

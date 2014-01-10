@@ -15,7 +15,7 @@ describe Admin::TopicsController do
 
         expect(assigns[:topic].event).to eql(event)
         expect(assigns[:topic].event.users).to include(proposal.user)
-        expect(response.status).to be(302)
+        expect(response).to be_a_redirect
       end
     end
   end

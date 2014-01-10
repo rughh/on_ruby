@@ -5,11 +5,11 @@ describe LikesController do
 
   context "POST :create" do
     let!(:topic) { create(:topic) }
-    let!(:data) { {:like => attributes_for(:like), :topic_id => topic.id} }
+    let!(:data) { {like: attributes_for(:like), topic_id: topic.id} }
 
     it "authenticates the action" do
       post(:create, data)
-      response.should redirect_to(root_path)
+      expect(response).to redirect_to(root_path)
     end
 
     context "with logged-in user" do
@@ -18,19 +18,25 @@ describe LikesController do
       end
 
       it "creates a like for logged-in user" do
-        expect { post(:create, data) }.to change(Like, :count).by(1)
-        controller.like.user.should eql(user)
+        expect {
+          post(:create, data)
+        }.to change(Like, :count).by(1)
+        expect(controller.like.user).to eql(user)
       end
 
       it "does not create a like twice" do
         Topic.any_instance.stub(already_liked?: true)
-        expect { post(:create, data) }.to change(Like, :count).by(0)
+
+        expect {
+          post(:create, data)
+        }.to change(Like, :count).by(0)
       end
 
       it "validetes likes" do
         Like.any_instance.stub(save: false)
+
         post(:create, data)
-        flash[:alert].should_not be_nil
+        expect(flash[:alert]).to be_blank
       end
     end
   end
@@ -41,7 +47,7 @@ describe LikesController do
 
     it "authenticates the action" do
       delete(:destroy, topic_id: topic.id, id: like.id)
-      response.should redirect_to(root_path)
+      expect(response).to redirect_to(root_path)
     end
 
     context "with logged-in user" do
@@ -51,14 +57,20 @@ describe LikesController do
 
       it "deletes a like for logged-in user" do
         topic.likes << like
-        expect { delete(:destroy, topic_id: topic.id, id: like.id) }.to change(Like, :count).by(-1)
-        response.should redirect_to(topic_path(topic))
+
+        expect {
+          delete(:destroy, topic_id: topic.id, id: like.id)
+        }.to change(Like, :count).by(-1)
+        expect(response).to redirect_to(topic_path(topic))
       end
 
       it "does not delete likes for other users" do
         Topic.any_instance.stub(already_liked?: false)
-        expect { delete(:destroy, topic_id: topic.id, id: like.id) }.to change(Like, :count).by(0)
-        flash[:alert].should_not be_nil
+
+        expect {
+          delete(:destroy, topic_id: topic.id, id: like.id)
+        }.to change(Like, :count).by(0)
+        expect(flash[:alert]).to be_blank
       end
     end
   end

@@ -6,7 +6,7 @@ describe Usergroup do
   context "parsing of recurring" do
     context "as string" do
       it "parses recurring and translates it" do
-        every_second_wednesday.localized_recurring.should eql('jeden 2. Mittwoch im Monat')
+        expect(every_second_wednesday.localized_recurring).to eql('jeden 2. Mittwoch im Monat')
       end
     end
 
@@ -25,37 +25,37 @@ describe Usergroup do
       context "#next_event_date" do
         it "should always be in the future on wednesday" do
           [rughh, hackhb, colognerb, karlsruhe].each do |usergroup|
-            usergroup.next_event_date.should be_wednesday
-            usergroup.next_event_date.should be > Date.today
+            expect(usergroup.next_event_date).to be_wednesday
+            expect(usergroup.next_event_date).to be > Date.today
           end
         end
 
         it 'should include the parsed time, also' do
-          _1830.next_event_date.hour.should eq(18)
-          _1830.next_event_date.min.should eq(30)
+          expect(_1830.next_event_date.hour).to eq(18)
+          expect(_1830.next_event_date.min).to eq(30)
         end
       end
 
       context '#parse_recurring_date' do
         it "should find the right wednesday" do
-          hackhb.parse_recurring_date(some_date).should eql(first_wednesday)
-          rughh.parse_recurring_date(some_date).should eql(second_wednesday)
-          colognerb.parse_recurring_date(some_date).should eql(third_wednesday)
+          expect(hackhb.parse_recurring_date(some_date)).to eql(first_wednesday)
+          expect(rughh.parse_recurring_date(some_date)).to eql(second_wednesday)
+          expect(colognerb.parse_recurring_date(some_date)).to eql(third_wednesday)
         end
       end
 
       context '#parse_recurring_time' do
         it "should return a time with 19:00 as default" do
           parsed_time = hackhb.parse_recurring_time
-          parsed_time.hour.should eql(19)
-          parsed_time.min.should eql(0)
+          expect(parsed_time.hour).to eql(19)
+          expect(parsed_time.min).to eql(0)
         end
 
         it "should parse the recurring time" do
           rughh.recurring = 'second wednesday 18:30'
           parsed_time = rughh.parse_recurring_time
-          parsed_time.hour.should eql(18)
-          parsed_time.min.should eql(30)
+          expect(parsed_time.hour).to eql(18)
+          expect(parsed_time.min).to eql(30)
         end
       end
     end

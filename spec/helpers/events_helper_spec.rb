@@ -12,7 +12,7 @@ describe EventsHelper do
 
     context "#participation_link" do
       it "should have a login message attached" do
-        helper.participation_link(event).should match("Bitte logge dich zuerst ein")
+        expect(helper.participation_link(event)).to match("Bitte logge dich zuerst ein")
       end
     end
   end
@@ -24,7 +24,7 @@ describe EventsHelper do
 
     context "#participation_link" do
       it "should render a paritcipate button" do
-        helper.participation_link(event).should match("Teilnehmen")
+        expect(helper.participation_link(event)).to match("Teilnehmen")
       end
 
       it "disbales the button on closed events" do
@@ -33,7 +33,7 @@ describe EventsHelper do
       end
 
       it "should render a cancel button" do
-        helper.participation_link(participation_event).should match("Absagen")
+        expect(helper.participation_link(participation_event)).to match("Absagen")
       end
     end
   end

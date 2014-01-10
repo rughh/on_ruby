@@ -6,6 +6,6 @@ describe SitemapsHelper do
   it "returns the right urls" do
     location = create(:location, name: 'blau mobilfunk gmbh')
     create(:event, name: 'tesssstooo', label: 'hamburg', location: location)
-    helper.urls.should eql(sitemap_urls)
+    expect(helper.urls).to eql(sitemap_urls)
   end
 end
