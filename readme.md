@@ -12,12 +12,14 @@ Source for the Sites of the Ruby Communities [Hamburg](http://hamburg.onruby.de)
 
 ### Postgresql
 
-    brew install postgresql
-    # check if it's running
-    psql postgres # exit with \q
-    # create user and database
-    createuser -Ps postgres
-    rake db:setup
+```
+brew install postgresql
+# check if it's running
+psql postgres # exit with \q
+# create user and database
+createuser -Ps postgres
+rake db:setup
+```
 
 Use *foreman* to start the server, otherwise you need to export the options of the *.env* file manually:
 
