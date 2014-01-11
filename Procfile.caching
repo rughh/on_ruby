@@ -1,2 +1,2 @@
-web: bundle exec thin start -p $PORT -e caching
+web: bundle exec unicorn -p $PORT -c ./config/unicorn/$RACK_ENV.rb
 cache: memcached

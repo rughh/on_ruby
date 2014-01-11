@@ -13,8 +13,7 @@ OnRuby::Application.configure do
   # Disable Rails's static asset server (Apache or nginx will already do this)
   # config.serve_static_assets = false
   config.serve_static_assets = true
-  config.static_cache_control = "public, max-age=2592000"
-
+  config.static_cache_control = "public, max-age=31536000"
   # Don't fallback to assets pipeline if a precompiled asset is missed
   # config.assets.compile = false
 
@@ -43,11 +42,12 @@ OnRuby::Application.configure do
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
-  config.cache_store = :dalli_store, ENV["MEMCACHIER_SERVERS"], {:username => ENV["MEMCACHIER_USERNAME"], :password => ENV["MEMCACHIER_PASSWORD"]}
+  config.cache_store = :dalli_store, ENV["MEMCACHIER_SERVERS"], {username: ENV["MEMCACHIER_USERNAME"], password: ENV["MEMCACHIER_PASSWORD"]}
+
+  client = Dalli::Client.new(ENV["MEMCACHIER_SERVERS"], value_max_bytes: 10485760, expires_in: 1.day)
   config.action_dispatch.rack_cache = {
-    :metastore    => Dalli::Client.new(ENV["MEMCACHIER_SERVERS"], {:username => ENV["MEMCACHIER_USERNAME"], :password => ENV["MEMCACHIER_PASSWORD"]}),
-    :entitystore  => 'file:tmp/cache/rack/body',
-    :allow_reload => false
+    :metastore    => client,
+    :entitystore  => client
   }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
@@ -59,12 +59,13 @@ OnRuby::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com'
+    :address              => 'smtp.sendgrid.net',
+    :port                 => '587',
+    :authentication       => :plain,
+    :user_name            => ENV['SENDGRID_USERNAME'],
+    :password             => ENV['SENDGRID_PASSWORD'],
+    :domain               => 'heroku.com',
+    :enable_starttls_auto => true
   }
 
   # Enable threaded mode
@@ -82,10 +83,11 @@ OnRuby::Application.configure do
 
   config.middleware.use "CookieDomain", ".onruby.de"
 
-  config.middleware.use ExceptionNotification::Rack,
-  email: {
-    :email_prefix         => "[ERROR] ",
-    :sender_address       => %{"error-notifier" <onruby@googlemail.com>},
-    :exception_recipients => %w{onruby@googlemail.com}
+  config.middleware.use ExceptionNotification::Rack, {
+    email: {
+      :email_prefix         => "[ERROR] ",
+      :sender_address       => %{"error-notifier" <onruby@googlemail.com>},
+      :exception_recipients => %w{onruby@googlemail.com}
+    }
   }
 end
