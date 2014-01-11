@@ -40,7 +40,6 @@ gem "rack-cache",             "1.2"
 group :development, :test do
   gem "letter_opener",      "1.2.0"
   gem "faker",              "1.2.0"
-  gem "sqlite3",            "1.3.8"
   gem "pry-rails",          "0.3.2"
   gem "pry-remote",         "0.1.7"
   gem "pry-nav",            "0.2.3"

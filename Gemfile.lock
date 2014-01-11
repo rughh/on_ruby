@@ -250,7 +250,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.8)
     taps (0.3.24)
       rack (>= 1.0.1)
       rest-client (>= 1.4.0, < 1.7.0)
@@ -317,7 +316,6 @@ DEPENDENCIES
   rspec-rails (= 2.14.1)
   sass-rails (= 4.0.1)
   slim-rails (= 2.0.4)
-  sqlite3 (= 1.3.8)
   taps
   thin
   typus!
