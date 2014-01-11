@@ -7,9 +7,10 @@ module LinkHelper
     link_to job.name, job.url, title: job.name
   end
 
-  def link_to_event(event, title = event.name)
-    fa_icon('calendar-o', class: 'pull-left') +
-    link_to(title, event, title: title)
+  def link_to_event(event, options = {})
+    options = {title: event.name, icon: true}.merge(options)
+    (options[:icon] ? fa_icon('calendar-o', class: 'pull-left') : '') +
+    link_to(options[:title], event, title: options[:title])
   end
 
   def link_to_topic(topic)
