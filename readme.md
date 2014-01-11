@@ -12,7 +12,7 @@ Source for the Sites of the Ruby Communities [Hamburg](http://hamburg.onruby.de)
 
 ### Postgresql
 
-```
+```sh
 brew install postgresql
 # check if it's running
 psql postgres # exit with \q
