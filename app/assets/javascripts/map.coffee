@@ -21,7 +21,9 @@ class Map
     jQuery.each @data, ->
       position = new google.maps.LatLng(@lat, @long)
       marker = new google.maps.Marker(position: position, map: map, title: @name)
-      content = "<p><strong><a href='/locations/#{@slug}'>#{@name}</a></strong></br>#{@street} #{@house_number}</br>#{@zip} #{@city}</p>"
+      content = "<div class='info-window'><p><strong><a href='/locations/#{@slug}'>#{@name}</a></strong></br>"
+      content += "#{@street} #{@house_number}</br>"
+      content += "#{@zip} #{@city}</p></div>"
       if contents[position]
         contents[position] += content
       else

@@ -514,3 +514,16 @@ table {
     border-spacing: 0;
 }
 
+
+/* =============================================================================
+   Maps
+   ========================================================================== */
+
+/*
+ * Fixes google maps images
+ * http://stackoverflow.com/questions/16708324/google-maps-infowindow-close-button-hidden
+ */
+
+img[src*="gstatic.com/"], img[src*="googleapis.com/"] {
+    max-width: none;
+}
