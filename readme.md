@@ -13,9 +13,14 @@ Source for the Sites of the Ruby Communities [Hamburg](http://hamburg.onruby.de)
 ### Postgresql
 
 ```sh
+# install Postgres on Mac OS X
 brew install postgresql
+# or on Ubuntu
+sudo apt-get install postgresql postgresql-contrib
+
 # check if it's running
 psql postgres # exit with \q
+
 # create user and database
 createuser -Ps postgres
 rake db:setup
