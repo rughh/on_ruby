@@ -3,5 +3,5 @@
   ul
     - topic.likes.each do |like|
       li
-        = fa_icon 'thumbs-up'
+        = fa_icon 'thumbs-up', class: 'pull-left'
         = link_to_user like.user
