@@ -127,6 +127,10 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.2.0)
       launchy (~> 2.2)
+    lograge (0.2.2)
+      actionpack (>= 3)
+      activesupport (>= 3)
+      railties (>= 3)
     loofah (1.2.1)
       nokogiri (>= 1.4.4)
     mail (2.5.4)
@@ -301,6 +305,7 @@ DEPENDENCIES
   kaminari (= 0.15.0)
   kgio (= 2.8.1)
   letter_opener
+  lograge (= 0.2.2)
   meta_request
   omniauth (= 1.1.4)
   omniauth-github (= 1.1.1)

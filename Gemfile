@@ -36,6 +36,7 @@ group :production, :caching do
   gem "rails_12factor",   "0.0.2"
   gem "dalli",            "2.7.0"
   gem "kgio",             "2.8.1"
+  gem "lograge",          "0.2.2"
 end
 
 group :development, :test do
