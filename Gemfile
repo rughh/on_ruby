@@ -29,7 +29,7 @@ gem "compass-rails",          "1.1.3"
 gem "coffee-rails",           "4.0.1"
 gem "font-awesome-rails",     "4.0.3.1"
 gem "uglifier",               "2.4.0"
-
+gem "newrelic_rpm",           "3.7.1.188"
 
 group :production, :caching do
   gem "heroku-deflater",  "0.5.3"

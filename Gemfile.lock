@@ -146,6 +146,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.4)
     multipart-post (1.2.0)
+    newrelic_rpm (3.7.1.188)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     oauth (0.4.7)
@@ -307,6 +308,7 @@ DEPENDENCIES
   letter_opener
   lograge (= 0.2.2)
   meta_request
+  newrelic_rpm (= 3.7.1.188)
   omniauth (= 1.1.4)
   omniauth-github (= 1.1.1)
   omniauth-twitter (= 1.0.1)
