@@ -55,8 +55,10 @@ module ApplicationHelper
     end
   end
 
-  def render_cached
-    key = [Whitelabel[:label_id], I18n.locale, controller_name, action_name].join("/")
+  def render_cached(*keys)
+    defaults  = [Whitelabel[:label_id], I18n.locale, controller_name, action_name]
+    key       = defaults.concat(keys || []).join("/")
+
     Rails.logger.info "cache fragment '#{key}'"
     cache(key, expires_in: 4.hours, skip_digest: true) { yield }
   end

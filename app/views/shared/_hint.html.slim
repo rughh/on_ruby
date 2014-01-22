@@ -2,17 +2,20 @@
   = hint do
     - flash.each do |key, value|
       strong(class=key)= value
-- elsif highlights.present?
-  #highlights
-    = hint(false) do
-      - highlights.each do |highlight|
-        .highlights
-          strong=' t("hint.attention")
-          = link_to highlight.description, highlight.url, title: highlight.description
-- elsif jobs.present?
-  - unless current_user && current_user.hide_jobs?
-    #jobs
-      = hint(false) do
-        span.reload= link_to fa_icon("refresh"), '#', title: 'click me to refresh!'
-        - jobs.each do |job|
-          .jobs== job_description(job)
+- else
+  - if highlights.present?
+    - render_cached(:highlights) do
+      #highlights
+        = hint(false) do
+          - highlights.each do |highlight|
+            .highlights
+              strong=' t("hint.attention")
+              = link_to highlight.description, highlight.url, title: highlight.description
+  - elsif jobs.present?
+    - unless current_user && current_user.hide_jobs?
+      - render_cached(:jobs) do
+        #jobs
+          = hint(false) do
+            span.reload= link_to fa_icon("refresh"), '#', title: 'click me to refresh!'
+            - jobs.each do |job|
+              .jobs== job_description(job)
