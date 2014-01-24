@@ -30,12 +30,10 @@ RSpec.configure do |config|
 
   config.before(:each, type: :request) do
     host! "hamburg.onruby.dev"
-    stub_feedzirra
   end
 
   config.before(:each, type: :controller) do
     set_subdomain
-    stub_feedzirra
   end
 end
 

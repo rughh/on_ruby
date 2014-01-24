@@ -17,8 +17,6 @@ describe ExternalLinkHelper do
 
   context "#mailing_list_entries" do
     it "fetches and parses a feed", if: online? do
-      # TODO (ps) feedzirra is not handled with webmock, so do a real call here
-      # stub_request(:get, "groups.google.com").to_return(:body => "abc")
       expect(mailing_list_entries).to have(15).items
     end
   end

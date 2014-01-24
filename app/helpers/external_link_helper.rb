@@ -27,14 +27,20 @@ module ExternalLinkHelper
   end
 
   def mailing_list_entries(count = 15)
-    return [] if Rails.env.development?
-    feed_url = "https://groups.google.com/forum/feed/#{Whitelabel[:google_group] || 'rubyonrails-ug-germany'}/topics/rss.xml?num=#{count}"
-    Rails.logger.debug "fetching feed from #{feed_url}"
-    feed = Feedzirra::Feed.fetch_and_parse(feed_url)
+    url   = mailing_list_feed_url(count)
+    feed  = Feedzirra::Feed.fetch_and_parse(url)
     feed.entries.first(count)
   rescue
-    Rails.logger.warn "error fetching feed from #{feed_url}: #{$!}"
+    Rails.logger.warn "error fetching feed from #{url}: #{$!}"
     []
+  end
+
+  def mailing_list_feed_url(count)
+    if Rails.env.production? || params[:live]
+      "https://groups.google.com/forum/feed/#{Whitelabel[:google_group] || 'rubyonrails-ug-germany'}/topics/rss.xml?num=#{count}"
+    else
+      "file:///#{Rails.root.join('spec/support/data/mailinglist_rss_feed.xml')}"
+    end
   end
 
   def twitter_update_url(model)
