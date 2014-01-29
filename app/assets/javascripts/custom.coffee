@@ -10,7 +10,9 @@ OnRuby =
       jQuery.each $(".imagelist img"), ->
         src = $(this).attr("src")
         dataSrc = $(this).attr("data-src")
-        $(this).attr "src", dataSrc  if src isnt dataSrc
+        img = new Image()
+        img.onload = => $(this).attr "src", dataSrc if src isnt dataSrc
+        img.src = dataSrc
     setTimeout func, 500
 
   close: ->
