@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
   has_many :topics
   has_many :materials
 
-  validates :location, :user, :name, :description, :date, presence: true
+  validates :user, :name, :description, :date, presence: true
   validates :name, uniqueness: {scope: :label}
 
   accepts_nested_attributes_for :materials
