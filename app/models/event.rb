@@ -53,5 +53,13 @@ class Event < ActiveRecord::Base
         it.save!
       end
     end
+
+    def stats
+      stats = Event.limit(10).map { |event| [event.participants.count, event.topics.count] }
+      {
+        participants: stats.map(&:first).sum / stats.size,
+        topics: stats.map(&:last).sum / stats.size,
+      }
+    end
   end
 end
