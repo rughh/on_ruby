@@ -15,10 +15,12 @@ class CacheExpiration < ActiveRecord::Observer
 
   def self.expire_view_cache
     [:de, :en].each do |locale|
-      key = [:views, Whitelabel[:label_id], locale, :home, :index]
-      key = key.join("/")
-      Rails.logger.info "expire fragment '#{key}'"
-      Rails.cache.delete key
+      [[:home, :index], [:highlights], [:jobs]].each do |segment|
+        key = [:views, Whitelabel[:label_id], locale]
+        key = key.concat(segment).join("/")
+        Rails.logger.info "expire fragment '#{key}'"
+        Rails.cache.delete key
+      end
     end
   end
 end
