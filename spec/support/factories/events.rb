@@ -13,6 +13,14 @@ FactoryGirl.define do
     after(:create) { |e| 3.times { FactoryGirl.create(:participant, event: e) } }
   end
 
+  factory :full_event, parent: :event_with_participants do |event|
+    after(:create) {|e|
+      e.participants  << FactoryGirl.create(:participant)
+      e.materials     << FactoryGirl.create(:material)
+      e.topics        << FactoryGirl.create(:topic)
+    }
+  end
+
   factory :closed_event, parent: :event do |event|
     limit 0
   end

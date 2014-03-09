@@ -5,7 +5,7 @@ class Topic < ActiveRecord::Base
   friendly_id :name, use: [:slugged, :finders]
 
   extend ApiHandling
-  expose_api :id, :event_id, :user_id, :name, :description
+  expose_api :id, :event_id, :user_id, :name, :description, :user
 
   validates :user, :name, :description, :label, presence: true
   validates :proposal_type, inclusion: { in: PROPOSAL_TYPES }
