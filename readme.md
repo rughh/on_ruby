@@ -1,12 +1,16 @@
 # OnRuby
-[![Build Status](https://secure.travis-ci.org/phoet/on_ruby.png)](https://travis-ci.org/phoet/on_ruby)
-[![Code Climate](https://codeclimate.com/github/phoet/on_ruby.png)](https://codeclimate.com/github/phoet/on_ruby)
-[![Coverage Status](https://coveralls.io/repos/phoet/on_ruby/badge.png?branch=master)](https://coveralls.io/r/phoet/on_ruby?branch=master)
-
+[![Build Status](https://img.shields.io/travis/phoet/on_ruby/master.svg)](https://travis-ci.org/phoet/on_ruby)
+[![Code Climate](https://img.shields.io/codeclimate/github/phoet/on_ruby.svg)](https://codeclimate.com/github/phoet/on_ruby)
+[![Coverage Status](https://img.shields.io/coveralls/phoet/on_ruby/master.svg)](https://coveralls.io/r/phoet/on_ruby?branch=master)
 
 Source for the Sites of the Ruby Communities [Hamburg](http://hamburg.onruby.de), [Bremen](http://bremen.onruby.de), [Cologne](http://cologne.onruby.de), [Saarland](http://saar.onruby.de), [Berlin](http://berlin.onruby.de), [Leipzig](http://leipzig.onruby.de), [Karlsruhe](http://karlsruhe.onruby.de), [Dresden](http://dresden.onruby.de), [Railsgirls Hamburg](http://railsgirlshh.onruby.de)
 
 [![I Love Open Source](http://www.iloveopensource.io/images/logo-lightbg.png)](http://www.iloveopensource.io/projects/524c41bdca7964c61700044d)
+
+## Status
+
+[![Up-time](https://share.pingdom.com/banners/9a5fa346)](http://stats.pingdom.com/rt22wr280x9j/616285)
+[![Response-time](https://share.pingdom.com/banners/eb9be8df)](http://stats.pingdom.com/rt22wr280x9j/616285)
 
 ## Setup
 

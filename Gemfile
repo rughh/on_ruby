@@ -40,6 +40,8 @@ group :production, :caching do
 end
 
 group :development, :test do
+  gem "spring"
+  gem "spring-commands-rspec"
   gem "letter_opener"
   gem "faker"
   gem "pry-rails"

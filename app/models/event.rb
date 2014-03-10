@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   friendly_id :name, use: [:slugged, :finders]
 
   extend ApiHandling
-  expose_api :id, :name, :description, :date, :location_id, :user_id, :participants, :topics, :materials
+  expose_api :id, :name, :description, :date, :location_id, :user_id, :participants, :topics, :materials, :location
 
   belongs_to :location
   belongs_to :user

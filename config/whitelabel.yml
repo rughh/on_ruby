@@ -270,9 +270,11 @@
     :lat: 53.56544
     :long: 9.95947
   imprint:
-    :address:
+    :address: |-
+      Adalbertstr. 7
+      10999 Berlin
     :contributors:
-    - :name: Railsgirls Hamburg
+    - :name: Ruby Berlin e.V. (Railsgirls Hamburg)
       :email: railsgirlshh@gmail.com
   other_usergroups:
   - :name: Rails Girls Berlin

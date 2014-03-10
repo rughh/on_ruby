@@ -250,6 +250,9 @@ GEM
       railties (>= 3.0, < 4.1)
       slim (~> 2.0)
     slop (3.4.7)
+    spring (1.1.0)
+    spring-commands-rspec (1.0.1)
+      spring (>= 0.9.1)
     sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -325,6 +328,8 @@ DEPENDENCIES
   rspec-rails
   sass-rails (= 4.0.1)
   slim-rails (= 2.0.4)
+  spring
+  spring-commands-rspec
   typus!
   uglifier (= 2.4.0)
   unicorn (= 4.8.0)
