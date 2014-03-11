@@ -45,6 +45,7 @@ en:
     attendees: "Attendees"
     route: "Route"
     material: "Material"
+    no_location: "Still looking for a location!"
   home:
     the_usergroup: "The <strong>%{usergroup}</strong> is a usergroup, group of interest or just a bunch of people loving Ruby. Get in contact with us at our next meetup! Newbees are always welcome."
     like_to_talk: "Do you want to give a Talk at the Ruby Usergroup or do you have additional Topics to talk about?"
@@ -59,6 +60,7 @@ en:
     next_possible_meetup: "The next Ruby / Rails Meeting is supposed to be on %{event_date}."
     next_meetup: "The next meetup"
     takes_place: "is taking place on %{event_date} at %{location_link}!"
+    takes_place_no_location: "is taking place on %{event_date} and still <a href='%{none_url}'>looking for a location!</a>!"
     past_events: "Past events"
     usergroup_locations: "This are the %{location_link} our usergroup takes place usually."
     show_more: "show more"

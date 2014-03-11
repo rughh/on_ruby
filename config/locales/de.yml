@@ -46,6 +46,7 @@ de:
       other: "Teilnehmerinnen und Teilnehmer (%{participant_count} von %{count})"
     route: "Anfahrt"
     material: "Material"
+    no_location: "Es wird noch nach einer Location gesucht!"
   home:
     the_usergroup: "Die <strong>%{usergroup}</strong> ist eine Benutzergruppe, Anwendergruppe, Interessengemeinschaft oder auch einfach nur ein Haufen Leute, die Spaß an der Programmiersprache Ruby haben. Tausch dich mit uns aus und komm zu unserem nächsten Treffen! Neue Gesichter sind immer gerne gesehen."
     like_to_talk: "Möchtest du einen Vortrag auf der Ruby Usergroup halten oder hast du zusätzliche Themenvorschläge?"
@@ -60,6 +61,7 @@ de:
     next_possible_meetup: "Das nächste Ruby / Rails Treffen findet voraussichtlich am %{event_date} statt."
     next_meetup: "Das nächste Treffen"
     takes_place: "findet am %{event_date} bei %{location_link} statt!"
+    takes_place_no_location: "findet am %{event_date} statt, es wird <a href='%{none_url}'>noch eine Location gesucht!</a>"
     past_events: "Vergangene Treffen"
     usergroup_locations: "Dies sind die %{location_link} an denen unsere Ruby Usergroups in der Regel stattfinden."
     show_more: "mehr anzeigen"

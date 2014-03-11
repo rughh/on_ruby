@@ -6,7 +6,7 @@ section.clearfix
         li
           = link_to_twitter Whitelabel[:twitter] do
             = "Twitter"
-        li= mail_to Whitelabel[:email], 'E-Mail', title: 'E-Mail'
+        li= mail_to Whitelabel[:email], 'E-Mail', title: "#{Whitelabel[:twitter]} E-Mail"
 
     .links.block
       h2= t("footer.links")
@@ -19,7 +19,7 @@ section.clearfix
       ul
         li== imprint[:contributors].map { |c| mail_to c[:email], c[:name], title: c[:name] }.join(' ')
         - if imprint[:address]
-          li== imprint[:address].gsub("\n", "<br/>")
+          li== simple_format imprint[:address]
 
   - if other_usergroups.present?
     .usergroups.block.hr

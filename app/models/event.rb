@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
   has_many :topics
   has_many :materials
 
-  validates :location, :user, :name, :description, :date, presence: true
+  validates :user, :name, :description, :date, presence: true
   validates :name, uniqueness: {scope: :label}
 
   accepts_nested_attributes_for :materials
@@ -52,6 +52,14 @@ class Event < ActiveRecord::Base
         it.description  = latest.description
         it.save!
       end
+    end
+
+    def stats
+      stats = Event.limit(10).map { |event| [event.participants.count, event.topics.count] }
+      {
+        participants: stats.map(&:first).sum / stats.size,
+        topics: stats.map(&:last).sum / stats.size,
+      }
     end
   end
 end

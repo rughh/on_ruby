@@ -7,7 +7,9 @@ OnRuby::Application.routes.draw do
     get :calendar, on: :member
   end
 
-  resources :locations
+  resources :locations do
+    get :none, on: :collection
+  end
 
   resources :events do
     resources :materials

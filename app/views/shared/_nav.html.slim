@@ -14,11 +14,9 @@ nav#nav.navbar
           i class="icon icon-bars"
 
     .sub-nav-box.toggle_sub-nav-box
-      - if signed_in?
-        .user
-          = link_to image_tag(current_user.image, alt: current_user.name), user_path(current_user), title: current_user.name
       ul.nav-sub
         - if signed_in?
+          li.userimage= link_to image_tag(current_user.image, alt: current_user.name), user_path(current_user), title: current_user.name
           li
             = link_to edit_user_path(current_user), title: t("login.edit_profile") do
               = fa_stacked_icon 'edit', base: "square-o"
@@ -34,7 +32,6 @@ nav#nav.navbar
               = link_to auth_path(provider: provider), title: title do
                 = fa_stacked_icon provider, base: "square-o"
                 =' title
-
         - locale = I18n.locale == :de ? :en : :de
         - title = t("languages.#{locale}")
         li.locale
