@@ -5,23 +5,6 @@ describe User do
     let(:user) { build(:user) }
     let(:admin_user) { build(:admin_user) }
 
-    it "allows broken, empty and nil emails" do
-      create(:user, email: "")
-      expect {
-        create(:user, email: "")
-      }.not_to raise_error
-      expect {
-        create(:user, email: "broken email")
-      }.not_to raise_error
-    end
-
-    it "fail update on broken emails" do
-      user = create(:user, email: "broken email")
-      expect {
-        user.save!
-      }.to raise_error
-    end
-
     it "allows empty and nil github and twitter keys for all" do
       create(:user, github: "", twitter: "")
       expect {
