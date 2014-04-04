@@ -42,7 +42,7 @@ en:
     attend: "Attend"
     not_attend: "Cancel"
     login_before_attend: "Please login first!"
-    attendees: "Attendees"
+    attendees: "Attendees (%{participant_count})"
     route: "Route"
     material: "Material"
     no_location: "Still looking for a location!"
