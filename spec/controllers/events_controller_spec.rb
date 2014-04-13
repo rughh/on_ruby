@@ -21,10 +21,14 @@ describe EventsController do
     end
 
     context "xml" do
+      render_views
+
       it "renders xml" do
+        controller.stub(events: [event])
+
         get :index, format: :xml
         expect(response.headers["Content-Type"]).to eql("application/xml; charset=utf-8")
-        expect(response).to render_template(:index)
+        expect(response.body).to match(/rss/)
       end
     end
   end

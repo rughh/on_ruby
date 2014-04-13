@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   include IcalHelper
 
   expose(:events) { Event.ordered.page(params[:page]).per(10) }
-  expose(:event) { Event.includes(materials: :user, topics: :user, participants: :user).friendly.find(params[:id]) }
+  expose(:event)  { Event.includes(materials: :user, topics: :user, participants: :user).friendly.find(params[:id]) }
 
   respond_to :ics, :json, :xml, only: :index
   respond_to :ics, :json,       only: :show
@@ -10,13 +10,9 @@ class EventsController < ApplicationController
   def index
     respond_to do |format|
       format.html
-      format.xml
-      format.json do
-        render json: events.as_api_response(:ios_v1)
-      end
-      format.ics do
-        render text: icalendar(*events)
-      end
+      format.xml  { render layout: false }
+      format.json { render json: events.as_api_response(:ios_v1) }
+      format.ics  { render text: icalendar(*events) }
     end
   end
 
