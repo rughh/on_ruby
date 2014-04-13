@@ -188,6 +188,8 @@ GEM
     pry-remote (0.1.8)
       pry (~> 0.9)
       slop (~> 3.0)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -323,6 +325,7 @@ DEPENDENCIES
   pry-nav
   pry-rails
   pry-remote
+  quiet_assets
   rack-cache (= 1.2)
   rails (= 4.0.2)
   rails-observers (= 0.1.2)

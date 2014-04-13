@@ -46,8 +46,6 @@ module OnRuby
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
     config.assets.precompile += %w(labels/*)
 
-    config.middleware.insert_before "Rails::Rack::Logger", "DisableAssetsLogger"
-
     # Configure generators.
     config.generators do |g|
       g.template_engine :slim
