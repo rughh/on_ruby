@@ -11,23 +11,24 @@ class User < ActiveRecord::Base
   validates :twitter, :github, format: { with: /\A(\w|-)+\z/, allow_nil: true, allow_blank: true }
 
   has_many :authorizations, dependent: :destroy
-  has_many :participants, dependent: :destroy
+  has_many :participants,   dependent: :destroy
+  has_many :materials,      dependent: :destroy
+  has_many :topics,         dependent: :destroy
+  has_many :likes,          dependent: :destroy
   has_many :participations, through: :participants, source: :event
-  has_many :materials, dependent: :destroy
-  has_many :topics, dependent: :destroy
-  has_many :likes, dependent: :destroy
-
   has_many :events
 
   scope :organizers, -> { where(nickname: Whitelabel[:organizers]) }
-  scope :ordered,    -> { order('created_at DESC') }
+  scope :ordered,    -> { order('updated_at DESC') }
+  scope :peers,      -> { ordered.joins(participants: :event).where("events.label" => Whitelabel[:label_id]).uniq }
+  scope :main,       -> { where(nickname: Whitelabel[:twitter]) }
 
   def participates?(event)
     participants.any? { |participant| participant.event_id == event.id }
   end
 
   def participation(event)
-    participants.where("event_id" => event.id).first
+    participants.where(event_id: event.id).first
   end
 
   def url
@@ -79,14 +80,6 @@ class User < ActiveRecord::Base
   end
 
   class << self
-    def peers
-      joins(participants: :event).where("events.label" => Whitelabel[:label_id]).order("created_at DESC").uniq
-    end
-
-    def main
-      User.find_by_nickname(Whitelabel[:twitter])
-    end
-
     def find_or_create_from_hash!(hash)
       provider = hash['provider']
       nickname = hash['info']['nickname']
