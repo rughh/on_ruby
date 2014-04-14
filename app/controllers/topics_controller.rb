@@ -3,9 +3,9 @@ class TopicsController < ApplicationController
   before_action :validate_topic_ownership!, only: [:edit, :update]
 
   expose(:topic, attributes: :topic_params)
-  expose(:events) { Event.with_topics.ordered.page(params[:page]).per(10) }
-  expose(:undone_topics) { Topic.ordered.undone }
-  expose(:done_topics) { Topic.ordered.done }
+  expose(:events)         { Event.with_topics.ordered.page(params[:page]).per(10) }
+  expose(:undone_topics)  { Topic.ordered.undone }
+  expose(:done_topics)    { Topic.ordered.done }
 
   def index; end
   def show; end

@@ -11,20 +11,6 @@ class Usergroup
     "#{label_id}.#{HOST}"
   end
 
-  def self.from_name(name)
-    new.tap do |it|
-      it.label_id = it.google_group = it.twitter = name.underscore
-      it.default_locale   = 'de'
-      it.domains          = ["#{name.parameterize}.de"]
-      it.recurring        = 'second wednesday'
-      it.email            = "info@#{name.parameterize}.de"
-      it.organizers       = ['your_twitter_handle']
-      it.location         = {zoom: 14, lat: 53.079296, long: 8.801694}
-      it.imprint          = {address: "YourStreet 1\n0815 YourTown", contributors: [{name: "Your Name", email: "your@mail.de"}]}
-      it.other_usergroups = [{name: "OtherUsergroupName", url: "http://some-domain.de/", twitter: "some_handle"}]
-    end
-  end
-
   def parse_recurring_date(date)
     number, day, _ = recurring.split(DELIMITER_DATE)
     day = Date::DAYS_INTO_WEEK[day.to_sym] + 1
@@ -78,5 +64,27 @@ class Usergroup
         request.host =~ /#{custom_domain}/
       end
     end
+  end
+
+  def self.from_name(name)
+    new.tap do |it|
+      it.label_id = it.google_group = it.twitter = name.underscore
+      it.default_locale   = 'de'
+      it.domains          = ["#{name.parameterize}.de"]
+      it.recurring        = 'second wednesday'
+      it.email            = "info@#{name.parameterize}.de"
+      it.organizers       = ['your_twitter_handle']
+      it.location         = {zoom: 14, lat: 53.079296, long: 8.801694}
+      it.imprint          = {address: "YourStreet 1\n0815 YourTown", contributors: [{name: "Your Name", email: "your@mail.de"}]}
+      it.other_usergroups = [{name: "OtherUsergroupName", url: "http://some-domain.de/", twitter: "some_handle"}]
+    end
+  end
+
+  def self.initialize!
+    Whitelabel.from_file Rails.root.join("config/whitelabel.yml")
+  end
+
+  def self.host
+    Rails.env.development? ? 'onruby.dev' : 'onruby.de'
   end
 end
