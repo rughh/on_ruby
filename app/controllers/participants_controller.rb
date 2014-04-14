@@ -1,6 +1,5 @@
 class ParticipantsController < ApplicationController
   before_action :authenticate!
-  respond_to :html, :json
 
   expose(:event)
 
@@ -12,7 +11,7 @@ class ParticipantsController < ApplicationController
     else
       flash[:alert] = t("flash.already_participating")
     end
-    respond_with(event)
+    redirect_to event_path(event)
   end
 
   def destroy

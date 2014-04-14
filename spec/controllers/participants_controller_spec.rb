@@ -9,13 +9,6 @@ describe ParticipantsController do
       controller.stub(current_user: user)
     end
 
-    it "should add a user via json post" do
-      expect {
-        post :create, format: :json, event_id: event.id
-      }.to change(Participant, :count).by(1)
-      expect(response).to be_a_success
-    end
-
     it "should add a prticipant for current user" do
       expect {
         post :create, event_id: event.id
@@ -27,13 +20,6 @@ describe ParticipantsController do
     context "with an already participating user" do
       before do
         event.particpate(user)
-      end
-
-      it "should silently ignore the problem via json" do
-        expect {
-          post :create, format: :json, event_id: event.id
-        }.to change(Participant, :count).by(0)
-        expect(response).to be_a_success
       end
 
       it "should should alert a duplicate flash" do
