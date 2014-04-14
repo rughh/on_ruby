@@ -1,8 +1,6 @@
 OnRuby::Application.routes.draw do
   resource :sitemap, only: :show
 
-  resources :settings, only: :index
-
   resources :users do
     get :calendar, on: :member
   end
