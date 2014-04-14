@@ -12,6 +12,8 @@ Source for the Sites of the Ruby Communities [Hamburg](http://hamburg.onruby.de)
 [![Up-time](https://share.pingdom.com/banners/9a5fa346)](http://stats.pingdom.com/rt22wr280x9j/616285)
 [![Response-time](https://share.pingdom.com/banners/eb9be8df)](http://stats.pingdom.com/rt22wr280x9j/616285)
 
+<iframe src="https://rpm.newrelic.com/public/charts/cPAAdGOU4ye" width="500" height="300" scrolling="no" frameborder="no"></iframe>
+
 ## Setup
 
 ### Postgresql
