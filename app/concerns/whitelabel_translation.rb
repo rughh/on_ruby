@@ -5,7 +5,3 @@ module WhitelabelTranslation
   end
   alias :tw :translate_whitelabel
 end
-
-module I18n
-  extend WhitelabelTranslation
-end
