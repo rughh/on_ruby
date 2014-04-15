@@ -30,6 +30,7 @@ gem "coffee-rails",           "4.0.1"
 gem "font-awesome-rails",     "4.0.3.1"
 gem "uglifier",               "2.5.0"
 gem "newrelic_rpm",           "3.7.3.204"
+gem "rack-mini-profiler",     "0.9.1"
 
 group :production, :caching do
   gem "heroku-deflater",  "0.5.3"
