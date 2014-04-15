@@ -40,6 +40,13 @@ section
         - user.materials.each do |material|
           li= link_to_material material
 
+  - if user.liked_topics.present?
+    #likes_given
+      h3= t("profile.likes_given")
+      ul.more-list
+        - user.liked_topics.each do |topic|
+          li= link_to_topic topic
+
   - if user.participations.present?
     #events_participated
       h3= t("profile.events_participated")
