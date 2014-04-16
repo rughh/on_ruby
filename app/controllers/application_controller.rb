@@ -24,13 +24,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def setup
-    enable_profiling
     switch_label
     switch_locale
-  end
-
-  def enable_profiling
-    Rack::MiniProfiler.authorize_request if signed_in? && current_user.admin?
   end
 
   def _404(exception)
