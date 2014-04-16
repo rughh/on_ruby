@@ -53,6 +53,6 @@ group :development, :test do
   gem "meta_request"
   gem "better_errors"
   gem "binding_of_caller"
-  gem "coveralls"
   gem "quiet_assets"
+  gem "codeclimate-test-reporter", require: false
 end
