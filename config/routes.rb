@@ -35,8 +35,5 @@ OnRuby::Application.routes.draw do
   get '/styleguide(/:action)', controller: 'styleguide'
   root to: "home#index"
 
-  if Rails.env.production?
-    # silence all those bad requests
-    match '*path', via: :all, to: -> (env) { [404, {"Content-Type" => "text/html"}, ["not found"]] }
-  end
+  match '*path', via: :all, constraints: -> (request) { request.url !~ /admin/ }, to: -> (env) { [404, {"Content-Type" => "text/html"}, ["not found"]] }
 end
