@@ -34,4 +34,9 @@ OnRuby::Application.routes.draw do
   get '/api', to: 'api#index'
   get '/styleguide(/:action)', controller: 'styleguide'
   root to: "home#index"
+
+  if Rails.env.production?
+    # silence all those bad requests
+    match '*path', via: :all, to: -> (env) { [404, {"Content-Type" => "text/html"}, ["not found"]] }
+  end
 end
