@@ -35,5 +35,7 @@ OnRuby::Application.routes.draw do
   get '/styleguide(/:action)', controller: 'styleguide'
   root to: "home#index"
 
+  mount Peek::Railtie => '/peek'
+
   match '*path', via: :all, constraints: -> (request) { request.url !~ /admin/ }, to: -> (env) { [404, {"Content-Type" => "text/html"}, ["not found"]] }
 end

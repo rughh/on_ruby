@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def peek_enabled?
+    signed_in? && current_user.admin?
+  end
+
   def setup
     switch_label
     switch_locale
