@@ -7,11 +7,8 @@ html
     = touch_icon
     = rss_feed
     = csrf_meta_tag
-    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Alef"
-    = stylesheet_link_tag :default
+    = stylesheet_link_tag :application, "http://fonts.googleapis.com/css?family=Alef"
     = whitelabel_stylesheet_link_tag
-    = javascript_include_tag "application", "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"
-    = whitelabel_javascript_include_tag
     = render 'shared/i18njs'
     = render 'shared/script'
   body
@@ -28,3 +25,5 @@ html
       = render 'shared/footer', imprint: Whitelabel[:imprint], other_usergroups: Whitelabel[:other_usergroups]
   = render 'shared/info'
   = javascript_include_tag "https://apis.google.com/js/plusone.js", "https://platform.twitter.com/widgets.js"
+  = javascript_include_tag :application, "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"
+  = whitelabel_javascript_include_tag
