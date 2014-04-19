@@ -5,5 +5,8 @@ Peek.into Peek::Views::PG
 Peek.into Peek::Views::GC
 
 OnRuby::Application.configure do
-  config.peek.adapter = :memcache
+  config.peek.adapter = :memcache, {
+    client: Dalli::Client.new(ENV["MEMCACHIER_SERVERS"], username: ENV["MEMCACHIER_USERNAME"], password: ENV["MEMCACHIER_PASSWORD"]),
+    expires_in: 60 * 30
+  }
 end

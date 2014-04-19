@@ -45,7 +45,7 @@ OnRuby::Application.configure do
   # config.cache_store = :mem_cache_store
   config.cache_store = :dalli_store, ENV["MEMCACHIER_SERVERS"], {username: ENV["MEMCACHIER_USERNAME"], password: ENV["MEMCACHIER_PASSWORD"]}
 
-  client = Dalli::Client.new(ENV["MEMCACHIER_SERVERS"], username: ENV["MEMCACHIER_USERNAME"], password: ENV["MEMCACHIER_PASSWORD"], value_max_bytes: 10485760, expires_in: 1.day)
+  client = Dalli::Client.new(ENV["MEMCACHIER_SERVERS"], username: ENV["MEMCACHIER_USERNAME"], password: ENV["MEMCACHIER_PASSWORD"], expires_in: 1.day)
   config.action_dispatch.rack_cache = {
     :metastore    => client,
     :entitystore  => client
