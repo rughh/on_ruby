@@ -37,5 +37,5 @@ OnRuby::Application.routes.draw do
 
   mount Peek::Railtie => '/peek'
 
-  match '*path', via: :all, constraints: -> (request) { request.url !~ /admin/ }, to: -> (env) { [404, {"Content-Type" => "text/html"}, ["not found"]] }
+  match '*path', via: :all, constraints: -> (request) { request.path !~ %r[\A/admin] }, to: -> (env) { [404, {"Content-Type" => "text/html"}, ["not found"]] }
 end
