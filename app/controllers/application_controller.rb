@@ -24,7 +24,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def peek_enabled?
-    signed_in? && current_user.admin?
+    return false if Rails.env.test?
+    signed_in? && current_user.super_admin?
   end
 
   def setup

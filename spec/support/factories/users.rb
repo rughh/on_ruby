@@ -10,6 +10,7 @@ FactoryGirl.define do
 
   factory :admin_user, parent: :user do
     admin true
+    super_admin true
   end
 
   factory :organizer_user, parent: :user do
