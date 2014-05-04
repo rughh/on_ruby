@@ -7,13 +7,15 @@ OnRuby =
 
   displayUsers: ->
     func = ->
-      jQuery.each $(".imagelist img"), ->
+      jQuery.each $(".imagelist img[data-src]:visible"), ->
         src = $(this).attr("src")
         dataSrc = $(this).attr("data-src")
-        img = new Image()
-        img.onload = => $(this).attr "src", dataSrc if src isnt dataSrc
-        img.src = dataSrc
-    setTimeout func, 500
+        $(this).removeAttr("data-src")
+        if src isnt dataSrc
+          img = new Image()
+          img.onload = => $(this).attr("src", dataSrc)
+          img.src = dataSrc
+    setInterval func, 500
 
   close: ->
     $(".close").click (event) ->
