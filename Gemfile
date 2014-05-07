@@ -3,7 +3,7 @@ ruby "2.1.1"
 
 gem "foreman",                "0.63.0"
 gem "unicorn",                "4.8.0"
-gem "rails",                  "4.0.2"
+gem "rails",                  "4.0.5"
 gem "rails-observers",        "0.1.2"
 gem "pg",                     "0.17.1"
 gem "rack-cache",             "1.2"
