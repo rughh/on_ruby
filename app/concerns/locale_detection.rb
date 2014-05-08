@@ -3,8 +3,13 @@ module LocaleDetection
 
   def switch_locale
     locale = params[:locale] || cookies[:locale]
-    locale ||= Whitelabel[:default_locale] if Whitelabel.label
-    locale ||= I18n.default_locale
+    if locale.blank?
+      if Whitelabel.label
+        locale = Whitelabel[:default_locale]
+      else
+        locale = I18n.default_locale
+      end
+    end
     I18n.locale = locale
     cookies[:locale] = {
       value:   locale,
