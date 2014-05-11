@@ -45,6 +45,10 @@ group :production, :caching do
   gem "lograge",          "0.2.2"
 end
 
+group :development do
+  gem "partially_useful"
+end
+
 group :development, :test do
   gem "spring"
   gem "spring-commands-rspec"

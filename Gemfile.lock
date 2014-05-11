@@ -172,6 +172,8 @@ GEM
     omniauth-twitter (1.0.1)
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
+    partially_useful (0.0.1)
+      railties (~> 4.0)
     peek (0.1.8)
       atomic (>= 1.0.0)
       rails (>= 3.0.0)
@@ -330,6 +332,7 @@ DEPENDENCIES
   omniauth (= 1.2.1)
   omniauth-github (= 1.1.2)
   omniauth-twitter (= 1.0.1)
+  partially_useful
   peek (= 0.1.8)
   peek-dalli (= 1.1.2)
   peek-gc (= 0.0.2)
