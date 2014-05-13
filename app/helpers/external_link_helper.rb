@@ -27,9 +27,13 @@ module ExternalLinkHelper
   end
 
   def mailing_list_entries(count = 15)
-    url   = mailing_list_feed_url(count)
-    feed  = Feedjira::Feed.fetch_and_parse(url)
-    feed.entries.first(count)
+    url = mailing_list_feed_url(count)
+    response = Feedjira::Feed.fetch_and_parse(url)
+    if response.respond_to?(:entries)
+      response.entries.first(count)
+    else
+      []
+    end
   rescue
     Rails.logger.warn "error fetching feed from #{url}: #{$!}"
     []
