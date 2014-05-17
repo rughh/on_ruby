@@ -10,4 +10,11 @@ describe IcalHelper do
       expect(it).to match('SUMMARY:awesome ottawa')
     end
   end
+
+  it "handles events with no location" do
+    event.location = nil
+    helper.icalendar(event).to_s.tap do |it|
+      expect(it).to match("BEGIN:VCALENDAR")
+    end
+  end
 end
