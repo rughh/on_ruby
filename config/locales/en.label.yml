@@ -78,3 +78,10 @@ en:
         :next_possible_meetup: The next meetup is supposed to be on %{event_date}.
         :usergroup_locations: The %{location_link} where our meetup usually takes place.
         :mailing_list: Stay up to date about upcoming events and learning groups or join a discussion about programming and Ruby on Rails
+    bonn:
+      # TODO improve
+      :city: Bonn
+      :name: bonn.rb
+      :title: bonn.rb
+      :subtitle: Ruby User Group Bonn
+      :meta_desc: Ruby User Group Bonn

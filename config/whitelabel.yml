@@ -301,3 +301,28 @@
   - :name: Rails Girls Leipzig
     :url: http://railsgirls.com/leipzig
   google_group: rails-girls-hamburg
+- !ruby/object:Usergroup
+  label_id: bonn
+  default_locale: de
+  recurring: second monday
+  email: bonnrb@googlegroups.com
+  twitter: bonnrb
+  organizers:
+  - 1st8
+  # TODO add your twitter handle here
+  location:
+    :zoom: 14
+    :lat: 50.724000
+    :long: 7.112488
+  imprint:
+#  TODO is this required? Adenauerallee = mixxt GmbH ok?
+#    :address: |-
+#      Adenauerallee 134
+#      53175 Bonn
+    :contributors:
+    - :name: Christoph Geschwind
+      :email: christophgeschwind@gmail.com
+    # TODO add your data here
+  domains:
+  - bonnrb.de
+  google_group: bonnrb
