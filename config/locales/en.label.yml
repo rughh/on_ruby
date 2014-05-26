@@ -79,7 +79,6 @@ en:
         :usergroup_locations: The %{location_link} where our meetup usually takes place.
         :mailing_list: Stay up to date about upcoming events and learning groups or join a discussion about programming and Ruby on Rails
     bonn:
-      # TODO improve
       :city: Bonn
       :name: bonn.rb
       :title: bonn.rb

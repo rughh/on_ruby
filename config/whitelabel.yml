@@ -310,23 +310,20 @@
   organizers:
   - 1st8
   - m20io
-  # TODO add your twitter handle here
   location:
     :zoom: 14
     :lat: 50.724000
     :long: 7.112488
   imprint:
-#  TODO is this required? Adenauerallee = mixxt GmbH ok?
-#  okey for me - m20io
-#    :address: |-
-#      Adenauerallee 134
-#      53175 Bonn
+    :address: |-
+      mixxt GmbH
+      Adenauerallee 134
+      53175 Bonn
     :contributors:
     - :name: Christoph Geschwind
       :email: christophgeschwind@gmail.com
     - :name: Martin Frank
       :email: martin.frank.ts@gmail.com
-    # TODO add your data here
   domains:
   - bonnrb.de
   google_group: bonnrb

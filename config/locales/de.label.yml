@@ -79,7 +79,6 @@ de:
         :usergroup_locations: Dies sind die %{location_link} an denen unsere Treffen in der Regel stattfinden.
         :mailing_list: Über die Mailingliste werden Termine angekündigt, Lerngruppen gebildet oder Fragen rund ums Programmieren mit Ruby on Rails besprochen.
     bonn:
-      # TODO improve
       :city: Bonn
       :name: bonn.rb
       :title: bonn.rb
