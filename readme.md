@@ -3,7 +3,7 @@
 [![Code Climate](https://img.shields.io/codeclimate/github/phoet/on_ruby.svg)](https://codeclimate.com/github/phoet/on_ruby)
 [![Coverage Status](http://img.shields.io/codeclimate/coverage/github/phoet/on_ruby.svg)](https://codeclimate.com/github/phoet/on_ruby)
 
-Source for the Sites of the Ruby Communities [Hamburg](http://hamburg.onruby.de), [Bremen](http://bremen.onruby.de), [Cologne](http://cologne.onruby.de), [Saarland](http://saar.onruby.de), [Berlin](http://berlin.onruby.de), [Leipzig](http://leipzig.onruby.de), [Karlsruhe](http://karlsruhe.onruby.de), [Dresden](http://dresden.onruby.de), [Railsgirls Hamburg](http://railsgirlshh.onruby.de)
+Source for the Sites of the Ruby Communities [Hamburg](http://hamburg.onruby.de), [Bremen](http://bremen.onruby.de), [Cologne](http://cologne.onruby.de), [Saarland](http://saar.onruby.de), [Berlin](http://berlin.onruby.de), [Leipzig](http://leipzig.onruby.de), [Karlsruhe](http://karlsruhe.onruby.de), [Dresden](http://dresden.onruby.de), [Railsgirls Hamburg](http://railsgirlshh.onruby.de), [Bonn](http://bonn.onruby.de)
 
 [![I Love Open Source](http://www.iloveopensource.io/images/logo-lightbg.png)](http://www.iloveopensource.io/projects/524c41bdca7964c61700044d)
 
