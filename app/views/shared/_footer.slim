@@ -13,6 +13,8 @@ section.clearfix
       ul
         li= link_to 'GitHub', 'http://github.com/phoet/on_ruby', title: 'Fork me on GitHub'
         li= link_to 'Mailinglist', mailing_list_url, title: 'Mailinglist'
+        - if Whitelabel[:coc].present?
+          li= link_to 'Code of Conduct', Whitelabel[:coc], title: 'Code of Conduct'
 
     .imprint.block
       h2= t("footer.imprint")
