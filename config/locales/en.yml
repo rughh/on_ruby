@@ -16,7 +16,6 @@ en:
   locations: "Locations"
   people: "People"
   topics: "Topics"
-  coc: "Code of Conduct"
   materials: "Additional Material"
   login:
     profile: "View Profile"
@@ -72,7 +71,6 @@ en:
     top_maling_entries: "Top discussions"
     goto_maling_list: "To the Mailinglist"
     mailing_list: "The Mailinglist is a tool to just stay up-to-date or to even get involved in discussions. It is used to inform everyone about News via e-mail who signed up for it. Organizational, technical and other interesting topics are discussed and coordinated here. No ads - no dread."
-    the_coc: ""
   profile:
     edit: "Edit profile"
     freelancer: "Freelancer"
