@@ -3,9 +3,9 @@ de:
   label:
     default:
       name: onruby
-      title: Wir on Ruby
-      subtitle: Ruby Communities Deutschland
-      meta_desc: Ruby Communities Deutschland
+      title: OnRuby - Die Ruby und Rails Usergroup Plattform
+      subtitle: Ruby / Rails Communities Deutschland
+      meta_desc: Ruby / Rails Communities Deutschland
     hamburg:
       city: Hamburg
       name: Ruby Usergroup Hamburg
@@ -69,15 +69,15 @@ de:
       :footer:
         :other_usergroups: Weitere Railsgirls Gruppen in Deutschland
       :home:
-        :the_usergroup: Die <strong>Railsgirls Hamburg</strong> veranstalten ein monatliches Meetup für ehemalige und zukünftige Teilnehmerinnen, Coaches und Interessierte. Tausch dich mit uns aus und komm zu unserem nächsten Treffen! Neue Gesichter sind immer gerne gesehen. Mehr Infos über uns und unsere sonstigen Veranstaltungen gibt es auf der  <a href="http://railsgirls.com/hamburg">Webseite der Railsgirls Hamburg</a>.
+        :the_usergroup: "Die <strong>Railsgirls Hamburg</strong> veranstalten ein monatliches Meetup für ehemalige und zukünftige Teilnehmerinnen, Coaches und Interessierte. Tausch dich mit uns aus und komm zu unserem nächsten Treffen! Neue Gesichter sind immer gerne gesehen. Mehr Infos über uns und unsere sonstigen Veranstaltungen gibt es auf der <a href='http://railsgirls.com/hamburg'>Webseite der Railsgirls Hamburg</a>."
         :like_to_talk: "Möchtest du ein Thema auf dem Meetup vorstellen oder hast du zusätzliche Themenvorschläge?"
         :engage: "Wenn du ein Thema vermisst, über das Du gern mehr wissen möchtest, dann <strong>kannst du hier gerne etwas in die Wunschliste eintragen</strong>."
         :company_workers: ""
         :company_missing: ""
-        :next_possible_meetup_recurring: Derzeit ist noch kein Termin festgelegt, wir treffen uns aber normalerweise %{recurring}.
-        :next_possible_meetup: Das nächste Treffen findet voraussichtlich am %{event_date} statt.
-        :usergroup_locations: Dies sind die %{location_link} an denen unsere Treffen in der Regel stattfinden.
-        :mailing_list: Über die Mailingliste werden Termine angekündigt, Lerngruppen gebildet oder Fragen rund ums Programmieren mit Ruby on Rails besprochen.
+        :next_possible_meetup_recurring: "Derzeit ist noch kein Termin festgelegt, wir treffen uns aber normalerweise %{recurring}."
+        :next_possible_meetup: "Das nächste Treffen findet voraussichtlich am %{event_date} statt."
+        :usergroup_locations: "Dies sind die %{location_link} an denen unsere Treffen in der Regel stattfinden."
+        :mailing_list: "Über die Mailingliste werden Termine angekündigt, Lerngruppen gebildet oder Fragen rund ums Programmieren mit Ruby on Rails besprochen."
     bonn:
       :city: Bonn
       :name: bonn.rb

@@ -1,4 +1,5 @@
 class LabelsController < ActionController::Base
+  include LocaleDetection
   before_action :setup
 
   def index
@@ -9,5 +10,6 @@ class LabelsController < ActionController::Base
 
   def setup
     Whitelabel.reset!
+    switch_locale
   end
 end
