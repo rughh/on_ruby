@@ -15,7 +15,7 @@ describe TitleHelper do
     it "has a page_title for default label" do
       Whitelabel.reset!
 
-      expect(helper.page_title).to eql("OnRuby - Die Ruby und Rails Usergroup Platform - Ruby / Rails Communities Deutschland")
+      expect(helper.page_title).to eql("OnRuby - Die Ruby und Rails Usergroup Plattform - Ruby / Rails Communities Deutschland")
     end
   end
 end
