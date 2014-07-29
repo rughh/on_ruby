@@ -76,7 +76,6 @@
   recurring: third wednesday
   email: colognerb@googlegroups.com
   twitter: colognerb
-  coc: http://rubyberlin.github.io/code-of-conduct
   organizers:
   - jkwebs
   location:
@@ -84,9 +83,7 @@
     :lat: 50.941231
     :long: 6.957092
   imprint:
-    :address: |-
-      An der Bottmühle 5 
-      50678 Köln 
+    :address: "An der Bottmühle 5 \n50678 Köln "
     :contributors:
     - :name: Jakob Hilden
       :email: jakob@railslove.com
@@ -109,6 +106,7 @@
     :twitter: pycologne
   - :name: hacken.in
     :url: http://hacken.in/
+  coc: http://rubyberlin.github.io/code-of-conduct
   domains:
   - colognerb.de
   - koelschrb.de
@@ -176,7 +174,6 @@
   recurring: first thursday 19:30
   email: rug-b@googlegroups.com
   twitter: rug_b
-  coc: http://rubyberlin.github.io/code-of-conduct/
   organizers:
   - freaklikeme
   - Hagenburger
@@ -192,6 +189,7 @@
     :contributors:
     - :name: Ruby Berlin e.V.
       :email: rug-b@rubyberlin.org
+  coc: http://rubyberlin.github.io/code-of-conduct/
   domains:
   - rug-b.de
   google_group: rug-b
@@ -257,7 +255,6 @@
   recurring: fourth wednesday 19:30
   email: railsgirlshh@gmail.com
   twitter: railsgirlshh
-  coc: http://railsgirls.com/hamburg-coc.html
   organizers:
   - titanoboa42
   - weidenfreak
@@ -304,6 +301,7 @@
     :twitter: railsgirls_os
   - :name: Rails Girls Leipzig
     :url: http://railsgirls.com/leipzig
+  coc: http://railsgirls.com/hamburg-coc.html
   google_group: rails-girls-hamburg
 - !ruby/object:Usergroup
   label_id: bonn
@@ -311,13 +309,12 @@
   recurring: second monday
   email: bonnrb@googlegroups.com
   twitter: bonnrb
-  coc: http://rubyberlin.github.io/code-of-conduct/
   organizers:
   - 1st8
   - m20io
   location:
     :zoom: 14
-    :lat: 50.724000
+    :lat: 50.724
     :long: 7.112488
   imprint:
     :address: |-
@@ -329,6 +326,34 @@
       :email: christophgeschwind@gmail.com
     - :name: Martin Frank
       :email: martin.frank.ts@gmail.com
+  coc: http://rubyberlin.github.io/code-of-conduct/
   domains:
   - bonnrb.de
   google_group: bonnrb
+- !ruby/object:Usergroup
+  label_id: innsbruck.rb
+  default_locale: de
+  recurring: second wednesday
+  email: info@innsbruck-rb.de
+  twitter: innsbruck.rb
+  organizers:
+  - your_twitter_handle
+  location:
+    :zoom: 14
+    :lat: 53.079296
+    :long: 8.801694
+  imprint:
+    :address: |-
+      YourStreet 1
+      0815 YourTown
+    :contributors:
+    - :name: Your Name
+      :email: your@mail.de
+  other_usergroups:
+  - :name: OtherUsergroupName
+    :url: http://some-domain.de/
+    :twitter: some_handle
+  coc: http://example.com
+  domains:
+  - innsbruck-rb.de
+  google_group: innsbruck.rb

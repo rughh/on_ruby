@@ -69,18 +69,32 @@ en:
       :footer:
         :other_usergroups: Railsgirls in Germany
       :home:
-        :the_usergroup: "Join us for our monthly meetup open to former and future participants, coaches and everyon interested in <strong>Railsgirls Hamburg</strong>. You can learn more about our events on our <a href='http://railsgirls.com/hamburg'>Railsgirls Hamburg website</a>."
-        :like_to_talk: "Do you want to give a talk at the meetup, or would you like to suggest a topic?"
-        :engage: "If you would like to suggest a topic for our meetup, <strong>add it to our wishlist</strong>."
-        :company_workers: ""
-        :company_missing: ""
-        :next_possible_meetup_recurring: "There is no meetup scheduleed right now, but we usually meet on %{recurring}."
-        :next_possible_meetup: "The next meetup is supposed to be on %{event_date}."
-        :usergroup_locations: "The %{location_link} where our meetup usually takes place."
-        :mailing_list: Stay up to date about upcoming events and learning groups or join a discussion about programming and Ruby on Rails
+        :the_usergroup: Join us for our monthly meetup open to former and future participants,
+          coaches and everyon interested in <strong>Railsgirls Hamburg</strong>. You
+          can learn more about our events on our <a href='http://railsgirls.com/hamburg'>Railsgirls
+          Hamburg website</a>.
+        :like_to_talk: Do you want to give a talk at the meetup, or would you like
+          to suggest a topic?
+        :engage: If you would like to suggest a topic for our meetup, <strong>add
+          it to our wishlist</strong>.
+        :company_workers: ''
+        :company_missing: ''
+        :next_possible_meetup_recurring: There is no meetup scheduleed right now,
+          but we usually meet on %{recurring}.
+        :next_possible_meetup: The next meetup is supposed to be on %{event_date}.
+        :usergroup_locations: The %{location_link} where our meetup usually takes
+          place.
+        :mailing_list: Stay up to date about upcoming events and learning groups or
+          join a discussion about programming and Ruby on Rails
     bonn:
       :city: Bonn
       :name: bonn.rb
       :title: bonn.rb
       :subtitle: Ruby User Group Bonn
       :meta_desc: Ruby User Group Bonn
+    innsbruck.rb:
+      :city: City
+      :name: Name
+      :title: Title
+      :subtitle: SubTitle
+      :meta_desc: MetaDesc
