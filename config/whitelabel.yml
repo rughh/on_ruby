@@ -332,28 +332,29 @@
   google_group: bonnrb
 - !ruby/object:Usergroup
   label_id: innsbruck.rb
-  default_locale: de
+  default_locale: en
   recurring: second wednesday
-  email: info@innsbruck-rb.de
-  twitter: innsbruck.rb
+  email: innsbruck.rb@gmail.com
+  twitter: innsbruckrb
   organizers:
   - your_twitter_handle
   location:
     :zoom: 14
-    :lat: 53.079296
-    :long: 8.801694
+    :lat: 47.2578
+    :long: 11.3961
   imprint:
     :address: |-
-      YourStreet 1
-      0815 YourTown
+      Tschamlerstraße 3
+      6020 Innsbruck
     :contributors:
-    - :name: Your Name
-      :email: your@mail.de
+    - :name: Benny Klotz
+      :email: r3qnbenni@gmail.com
   other_usergroups:
-  - :name: OtherUsergroupName
-    :url: http://some-domain.de/
-    :twitter: some_handle
+    # - :name: OtherUsergroupName
+    # :url: http://some-domain.de/
+    # :twitter: some_handle
   coc: http://example.com
   domains:
-  - innsbruck-rb.de
+  - innsbruck-rb.at
+  - innsbruck-ruby.at
   google_group: innsbruck.rb
