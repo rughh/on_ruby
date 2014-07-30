@@ -331,7 +331,7 @@
   - bonnrb.de
   google_group: bonnrb
 - !ruby/object:Usergroup
-  label_id: innsbruck.rb
+  label_id: innsbruck
   default_locale: en
   recurring: second wednesday
   email: innsbruck.rb@gmail.com
@@ -349,10 +349,6 @@
     :contributors:
     - :name: Benny Klotz
       :email: r3qnbenni@gmail.com
-  other_usergroups:
-    # - :name: OtherUsergroupName
-    # :url: http://some-domain.de/
-    # :twitter: some_handle
   coc: http://example.com
   domains:
   - innsbruck-rb.at
