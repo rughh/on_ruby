@@ -337,11 +337,11 @@
   email: innsbruck.rb@gmail.com
   twitter: innsbruckrb
   organizers:
-  - your_twitter_handle
+  - BennyKlotz
   location:
     :zoom: 14
-    :lat: 47.2578
-    :long: 11.3961
+    :lat: 47.2578229
+    :long: 11.3961853
   imprint:
     :address: |-
       Tschamlerstraße 3
@@ -353,4 +353,4 @@
   domains:
   - innsbruck-rb.at
   - innsbruck-ruby.at
-  google_group: innsbruck.rb
+  google_group: innsbruck-rb
