@@ -135,8 +135,6 @@
       :email: gogolok@gmail.com
     - :name: Avarteq GmbH
       :email: http://avarteq.de
-  domains:
-  - rugsaar.de
 - !ruby/object:Usergroup
   label_id: karlsruhe
   default_locale: de
@@ -165,8 +163,6 @@
   - :name: Google Technology User Group
     :url: https://plus.google.com/109775289623271731783/posts
     :twitter: karlsruhegtug
-  domains:
-  - karlsruherb.de
   google_group: karlsruherb
 - !ruby/object:Usergroup
   label_id: berlin
@@ -215,8 +211,6 @@
       :email: leipzigonrails@googlegroups.com
     - :name: Thomas Metzmacher
       :email: leipzigonrails@googlegroups.com
-  domains:
-  - leipzigonrails.de
   google_group: leipzigonrails
 - !ruby/object:Usergroup
   label_id: dresden
@@ -247,8 +241,6 @@
   - :name: WDCM Dresden - Web Developer Conference Meeting
     :url: http://wdcmdresden.com/
     :twitter: wdcmdresden
-  domains:
-  - ruby-dresden.de
 - !ruby/object:Usergroup
   label_id: railsgirlshh
   default_locale: de
