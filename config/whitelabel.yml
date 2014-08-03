@@ -349,7 +349,6 @@
     :contributors:
     - :name: Benny Klotz
       :email: r3qnbenni@gmail.com
-  coc: http://example.com
   domains:
   - innsbruck-rb.at
   - innsbruck-ruby.at
