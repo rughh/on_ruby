@@ -83,6 +83,7 @@ If you have a custom domain, you need to setup the [CNAME of your domain to poin
 On the admin-site we need to:
 
 - heroku domains:add xyz.onruby.de [custom.de]
+- create new GitHub app for that domain and add keys via heroku config:add
 - merge the pull
 - deploy to heroku
 - add admin privileges to someone for the new RUG
