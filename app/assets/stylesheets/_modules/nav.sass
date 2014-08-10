@@ -34,30 +34,30 @@
     +phone
       +flex-box
       margin-right: 60px
-  li
-    margin: 0 0.6em
-    +phone
-      margin: 0 0.4em
-      +flex-item
-    padding-top: 2px
-    float: left
-    a, a:hover, a:active, a:visited
-      text-decoration: none
-      &:hover
-        color: $ruby-red
-    &.label
-      width: 2em
-      margin-top: -0.1em
-    .label-link
-      display: inline-block
-      height: 1.3em
-    .label-img
-      max-height: 100%
-      height: auto
-    .nav-text
-      margin-left: 0.4em
+    > li
+      margin: 0 0.6em
+      +phone
+        margin: 0 0.4em
+        +flex-item
+      padding-top: 2px
+      float: left
+      a, a:hover, a:active, a:visited
+        text-decoration: none
+        &:hover
+          color: $ruby-red
+      &.label
+        width: 2em
+        margin-top: -0.1em
+      .label-link
+        display: inline-block
+        height: 1.3em
+      .label-img
+        max-height: 100%
+        height: auto
+      .nav-text
+        margin-left: 0.4em
   .sub-nav-box
-    display: none
+    //display: none
     ul.nav-sub
       display: inline-block
       margin: 1em 0 0.5em 0
@@ -78,5 +78,3 @@
     margin-right: 10px
     margin-left: 10px
 
-.userimage
-  @include userimage(24px)

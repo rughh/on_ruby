@@ -1,0 +1,62 @@
+.dropdown
+  position: relative
+  padding-right: 30px
+
+  &.open > .dropdown-menu
+    display: block
+
+.dropdown-caret
+  +triangle-down(#555, 8px)
+  margin-top: 4px
+  margin-left: 8px
+
+.dropdown-toggle
+  display: inline-block
+  white-space: nowrap
+
+.dropdown-userimage
+  +userimage(24px)
+
+.dropdown-list-icon
+  margin-right: 0.4em
+
+.dropdown-menu
+  display: none
+  position: absolute
+  left: auto
+  right: 18px
+  margin-top: 4px
+  border: 1px solid lightgrey
+  border-radius: 6px
+  box-shadow: 0 5px 10px lightgrey
+  min-width: 160px
+  padding: 0.7em 0
+  background-color: white
+  text-align: left
+  font-size: 14px
+  &:before
+    position: absolute
+    display: inline-block
+    content: ''
+    top: -8px
+    left: auto
+    right: 12px
+    +triangle-up(#ccc, 7px)
+  &:after
+    position: absolute
+    display: inline-block
+    top: -7px
+    content: ''
+    left: auto
+    right: 13px
+    +triangle-up(white, 6px)
+
+  > li
+    a
+      display: block
+      padding: 0.5em 0.8em
+      white-space: nowrap
+      +transition(all 0.2s ease)
+
+      &:hover
+        background-color: lighten(lightgrey, 12%)

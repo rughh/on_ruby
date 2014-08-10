@@ -4,6 +4,7 @@
 #= require utility
 #= require custom
 #= require map
+#= require dropdown
 #= require peek
 #= require peek/views/performance_bar
 
