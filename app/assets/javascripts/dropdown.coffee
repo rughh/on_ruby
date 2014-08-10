@@ -1,12 +1,13 @@
 class Dropdown
 
   constructor: (rootElement) ->
-    @$rootElement = $(rootElement).on('click.dropdown', @toggle)
+    @$rootElement = $(rootElement)
+    $('.dropdown-toggle', @$rootElement).on('click.dropdown', @toggle)
     @registerClose()
 
-  toggle: (event) ->
+  toggle: (event) =>
     event.preventDefault()
-    $(@).toggleClass('open')
+    @$rootElement.toggleClass('open')
 
   close: (event) ->
     unless $(event.target).parents('.dropdown').length
