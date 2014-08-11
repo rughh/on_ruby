@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20140504162938) do
     t.string   "url"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "label",       default: "hamburg"
   end
 
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 20140504162938) do
     t.string   "name"
     t.string   "url"
     t.integer  "location_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "label",       default: "hamburg"
   end
 
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20140504162938) do
   create_table "likes", force: true do |t|
     t.integer  "user_id"
     t.integer  "topic_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "locations", force: true do |t|
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20140504162938) do
     t.string   "slug"
   end
 
+  add_index "locations", ["id"], name: "index_locations_on_id", using: :btree
   add_index "locations", ["slug"], name: "index_locations_on_slug", unique: true, using: :btree
 
   create_table "materials", force: true do |t|
@@ -114,19 +115,6 @@ ActiveRecord::Schema.define(version: 20140504162938) do
 
   add_index "participants", ["event_id"], name: "index_participants_on_event_id", using: :btree
   add_index "participants", ["user_id"], name: "index_participants_on_user_id", using: :btree
-
-  create_table "slugs", force: true do |t|
-    t.string   "name"
-    t.integer  "sluggable_id"
-    t.integer  "sequence",                  default: 1, null: false
-    t.string   "sluggable_type", limit: 40
-    t.string   "scope"
-    t.datetime "created_at"
-  end
-
-  add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], name: "index_slugs_on_n_s_s_and_s", unique: true, using: :btree
-  add_index "slugs", ["sluggable_id", "sluggable_type"], name: "index_slugs_on_sluggable_id_and_sluggable_type", using: :btree
-  add_index "slugs", ["sluggable_id"], name: "index_slugs_on_sluggable_id", using: :btree
 
   create_table "topics", force: true do |t|
     t.string   "name"
