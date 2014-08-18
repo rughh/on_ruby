@@ -293,7 +293,7 @@
     :twitter: railsgirls_os
   - :name: Rails Girls Leipzig
     :url: http://railsgirls.com/leipzig
-  coc: http://railsgirls.com/hamburg-coc.html
+  coc: http://rubyberlin.github.io/code-of-conduct/
   google_group: rails-girls-hamburg
 - !ruby/object:Usergroup
   label_id: bonn
