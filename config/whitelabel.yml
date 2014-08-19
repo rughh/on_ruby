@@ -325,7 +325,7 @@
 - !ruby/object:Usergroup
   label_id: innsbruck
   default_locale: en
-  recurring: second wednesday
+  recurring: second saturday
   email: innsbruck.rb@gmail.com
   twitter: innsbruckrb
   organizers:
