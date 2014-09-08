@@ -6,7 +6,7 @@ describe SessionsController do
 
     it "renders the :index template" do
       get :create, provider: :twitter
-      expect(controller).to be_signed_in
+      expect(controller.send :signed_in?).to be_truthy
       expect(response).to redirect_to(root_path)
     end
   end

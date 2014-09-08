@@ -80,8 +80,8 @@ describe UsersController do
 
       put :update, data
       expect(user.github).to eql('testo')
-      expect(user.freelancer).to be_true
-      expect(user.available).to be_true
+      expect(user.freelancer).to be_truthy
+      expect(user.available).to be_truthy
       expect(response).to redirect_to(:back)
     end
 

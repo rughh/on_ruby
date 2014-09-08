@@ -25,7 +25,7 @@ describe Topic do
 
     it "indicates already_liked?" do
       topic.likes << like
-      expect(topic.already_liked?(like.user)).to be_true
+      expect(topic.already_liked?(like.user)).to be_truthy
     end
   end
 end
