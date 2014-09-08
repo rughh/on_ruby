@@ -1,12 +1,10 @@
 GIT
-  remote: git://github.com/phoet/typus.git
-  revision: 213bc525d8fd9a6617557901d9ec30b7f39dcd2e
-  branch: custom_css
+  remote: git://github.com/typus/typus.git
+  revision: eaac27106a6e9b688c742020103c442a32c8a469
   specs:
     typus (4.0.0.beta1)
-      bcrypt-ruby (~> 3.1.2)
-      jquery-rails
-      rails (~> 4.0.1)
+      bcrypt (~> 3.1.5)
+      rails (~> 4.0)
 
 GEM
   remote: http://rubygems.org/
@@ -43,8 +41,6 @@ GEM
     arel (4.0.2)
     atomic (1.1.16)
     bcrypt (3.1.7)
-    bcrypt-ruby (3.1.5)
-      bcrypt (>= 3.1.3)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
