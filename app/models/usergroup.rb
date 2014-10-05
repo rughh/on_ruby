@@ -3,13 +3,10 @@ class Usergroup
   DELIMITER_DATE    = ' '
   NUMBERS           = %w(first second third fourth)
   SUPPORTED_LOCALES = [:de, :en]
+  SUPPORTED_TLDS    = [:de, :at]
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :google_group, :coc
-  attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups
-
-  def host
-    "#{label_id}.#{HOST}"
-  end
+  attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups, :tld
 
   def parse_recurring_date(date)
     number, day, _ = recurring.split(DELIMITER_DATE)
@@ -67,9 +64,12 @@ class Usergroup
   end
 
   def self.from_name(name)
+    raise "you need to provide a name that contains only word characters" unless name =~ /\A\w+\z/
+
     new.tap do |it|
       it.label_id = it.google_group = it.twitter = name.underscore
       it.default_locale   = 'de'
+      it.tld              = 'de'
       it.domains          = ["#{name.parameterize}.de"]
       it.recurring        = 'second wednesday'
       it.email            = "info@#{name.parameterize}.de"
@@ -77,15 +77,11 @@ class Usergroup
       it.location         = {zoom: 14, lat: 53.079296, long: 8.801694}
       it.imprint          = {address: "YourStreet 1\n0815 YourTown", contributors: [{name: "Your Name", email: "your@mail.de"}]}
       it.other_usergroups = [{name: "OtherUsergroupName", url: "http://some-domain.de/", twitter: "some_handle"}]
-      it.coc = 'http://example.com'
+      it.coc              = 'http://example.com'
     end
   end
 
   def self.initialize!
     Whitelabel.from_file Rails.root.join("config/whitelabel.yml")
-  end
-
-  def self.host
-    Rails.env.development? ? 'onruby.dev' : 'onruby.de'
   end
 end

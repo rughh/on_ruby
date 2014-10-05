@@ -9,6 +9,11 @@ module ApplicationHelper
     javascript_include_tag link if File.exists? Rails.root.join("app/assets/javascripts/#{link}.coffee")
   end
 
+  def label_url(label)
+    host = Rails.env.development? ? 'onruby.dev' : "onruby.#{label.tld}"
+    root_url(subdomain: label.label_id, domain: host)
+  end
+
   def canonical_url
     subdomain = Whitelabel.label ? Whitelabel[:label_id] : 'www'
     options = {

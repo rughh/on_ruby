@@ -44,6 +44,7 @@
     :twitter: jughh
   - :name: DJANGO Usergroup
     :url: http://www.dughh.de/
+  tld: de
 - !ruby/object:Usergroup
   label_id: bremen
   default_locale: de
@@ -70,6 +71,7 @@
   - :name: CocoaHeads Bremen
     :url: http://cocoaheads.org/de/Bremen/index.html
     :twitter: CocoaHeadsHB
+  tld: de
 - !ruby/object:Usergroup
   label_id: cologne
   default_locale: de
@@ -111,6 +113,7 @@
   - colognerb.de
   - koelschrb.de
   google_group: colognerb
+  tld: de
 - !ruby/object:Usergroup
   label_id: saar
   default_locale: de
@@ -135,6 +138,7 @@
       :email: gogolok@gmail.com
     - :name: Avarteq GmbH
       :email: http://avarteq.de
+  tld: de
 - !ruby/object:Usergroup
   label_id: karlsruhe
   default_locale: de
@@ -164,6 +168,7 @@
     :url: https://plus.google.com/109775289623271731783/posts
     :twitter: karlsruhegtug
   google_group: karlsruherb
+  tld: de
 - !ruby/object:Usergroup
   label_id: berlin
   default_locale: en
@@ -189,6 +194,7 @@
   domains:
   - rug-b.de
   google_group: rug-b
+  tld: de
 - !ruby/object:Usergroup
   label_id: leipzig
   default_locale: de
@@ -212,6 +218,7 @@
     - :name: Thomas Metzmacher
       :email: leipzigonrails@googlegroups.com
   google_group: leipzigonrails
+  tld: de
 - !ruby/object:Usergroup
   label_id: dresden
   default_locale: de
@@ -241,6 +248,7 @@
   - :name: WDCM Dresden - Web Developer Conference Meeting
     :url: http://wdcmdresden.com/
     :twitter: wdcmdresden
+  tld: de
 - !ruby/object:Usergroup
   label_id: railsgirlshh
   default_locale: de
@@ -295,6 +303,7 @@
     :url: http://railsgirls.com/leipzig
   coc: http://rubyberlin.github.io/code-of-conduct/
   google_group: rails-girls-hamburg
+  tld: de
 - !ruby/object:Usergroup
   label_id: bonn
   default_locale: de
@@ -322,6 +331,7 @@
   domains:
   - bonnrb.de
   google_group: bonnrb
+  tld: de
 - !ruby/object:Usergroup
   label_id: innsbruck
   default_locale: en
@@ -345,3 +355,4 @@
   - innsbruck-rb.at
   - innsbruck-ruby.at
   google_group: innsbruck-rb
+  tld: at

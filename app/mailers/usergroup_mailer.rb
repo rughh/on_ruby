@@ -6,7 +6,7 @@ class UsergroupMailer < ActionMailer::Base
       to: "rubyonrails-ug-germany@googlegroups.com",
       subject: "#{Whitelabel[:label_id].upcase} Info: #{event.name}",
     }
-    default_url_options[:host] = Whitelabel[:host]
+    default_url_options[:host] = "#{Whitelabel[:label_id]}.onruby.#{Whitelabel[:tld]}"
     mail(options)
   end
 end
