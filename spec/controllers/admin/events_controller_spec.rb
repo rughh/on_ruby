@@ -28,7 +28,7 @@ describe Admin::EventsController do
       it "duplicates the last event" do
         event = create(:event)
 
-        allow(ZeroPush).to recieve(:brodacast).with({
+        allow(ZeroPush).to receive(:brodacast).with({
           channel: 'hamburg',
           alert: "[Hamburg]: new event at #{I18n.l(event.date)}",
           content_available: true
