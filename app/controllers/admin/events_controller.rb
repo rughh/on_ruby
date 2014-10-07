@@ -17,8 +17,8 @@ class Admin::EventsController < Admin::ResourcesController
 
   def push_app_notification(event)
     options = {
-      channel:           Usergroup.name.parameterize,
-      alert:             "[#{Usergroup.name}]: new event at #{I18n.l(event.date)}",
+      channel:           Whitelabel[:label_id],
+      alert:             "#{I18n.tw('name')}: new event at #{I18n.l(event.date)}",
       content_available: true
     }
 
