@@ -25,8 +25,15 @@ describe Admin::EventsController do
     end
 
     context "GET :publish" do
-      it "duplicates the last event" do
+      it "publish the event" do
         event = create(:event)
+
+        expect(ZeroPush).to receive(:broadcast).with({
+          channel:           Whitelabel[:label_id],
+          alert:             "#{I18n.tw("name")}: new event at #{I18n.l(event.date)}",
+          content_available: true
+        })
+
         expect {
           get :publish, id: event.id
         }.to change {
