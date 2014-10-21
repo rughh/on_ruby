@@ -1,7 +1,7 @@
 Location:
   fields:
     default: id, name, company
-    form: name, url, city, zip, street, house_number, company
+    form: name, url, city, zip, street, house_number, wheelmap_id, company
   order_by: -created_at
   search: name
   application: CRUD

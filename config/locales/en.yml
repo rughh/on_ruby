@@ -91,6 +91,11 @@ en:
     job_offers: "Job offers"
     open_in: "Open in"
     google_maps: "Google Maps"
+    wheelchair_status:
+      "yes": "Accessible for wheelchairs"
+      limited: "Accessible for wheelchairs to a limited extent"
+      "no": "Not accessible for wheelchairs"
+      unknown: ""
   topic:
     topic: "Topic"
     all_topics: "All Topics"

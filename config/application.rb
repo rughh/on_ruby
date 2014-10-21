@@ -54,5 +54,7 @@ module OnRuby
       g.fixture_replacement :factory_girl, :dir => "spec/support/factories"
       g.stylesheet_engine = :sass
     end
+
+    config.autoload_paths << Rails.root.join('lib/wheelmap_api')
   end
 end

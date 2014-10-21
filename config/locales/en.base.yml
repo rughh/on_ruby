@@ -201,5 +201,8 @@ en-US:
     errors:
       <<: *errors
   activerecord:
+    attributes:
+        location:
+          wheelmap_id: "Wheelmap.org-ID"
     errors:
       <<: *errors
