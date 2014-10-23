@@ -67,6 +67,8 @@ GEM
       sass (~> 3.2.19)
     compass-rails (2.0.0)
       compass (>= 0.12.2)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     curb (0.8.6)
     dalli (2.7.2)
     debug_inspector (0.0.2)
@@ -258,6 +260,7 @@ GEM
       rspec-core (~> 2.99.0)
       rspec-expectations (~> 2.99.0)
       rspec-mocks (~> 2.99.0)
+    safe_yaml (1.0.4)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -295,6 +298,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    timecop (0.7.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -306,6 +310,9 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    webmock (1.20.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
     whitelabel (0.2.0)
     zero_push (2.4.1)
       faraday (~> 0.9.0)
@@ -368,8 +375,10 @@ DEPENDENCIES
   slim-rails (~> 2.0)
   spring
   spring-commands-rspec
+  timecop
   typus!
   uglifier (~> 2.5.0)
   unicorn (~> 4.8.0)
+  webmock
   whitelabel (~> 0.2.0)
   zero_push (~> 2.4.1)

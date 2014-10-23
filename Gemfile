@@ -67,4 +67,6 @@ group :development, :test do
   gem "binding_of_caller"
   gem "quiet_assets"
   gem "codeclimate-test-reporter", require: false
+  gem "webmock"
+  gem "timecop"
 end

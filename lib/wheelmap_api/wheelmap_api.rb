@@ -8,7 +8,7 @@ class WheelmapApi
       faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
     end
 
-  	response = conn.get "/api/nodes/#{node_id}", { api_key: WHEELMAP_API_KEY }
+    response = conn.get "/api/nodes/#{node_id}", { api_key: WHEELMAP_API_KEY }
     
     if response.status == 200
       return JSON.parse(response.body)["node"]["wheelchair"] # can be one of [yes, no, limited, unknown]
