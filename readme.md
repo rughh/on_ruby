@@ -9,7 +9,7 @@ Source for the Sites of the Ruby Communities
 * [Bremen](http://bremen.onruby.de)
 * [Cologne](http://cologne.onruby.de)
 * [Saarland](http://saar.onruby.de)
-* [Berlin](http://berlin.onruby.de)
+* [Berlin](http://www.rug-b.de)
 * [Leipzig](http://leipzig.onruby.de)
 * [Karlsruhe](http://karlsruhe.onruby.de)
 * [Dresden](http://dresden.onruby.de)
