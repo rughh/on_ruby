@@ -1,0 +1,16 @@
+header
+  padding-left: 1em
+
+.headline
+  $supported-by-height: 50px
+  background: image-url("labels/berlin/fyber.svg") 100% 100%/auto $supported-by-height no-repeat
+  margin-right: 20px
+  position: relative
+
+  &:before
+    bottom: $supported-by-height
+    color: #848484
+    content: "supported by"
+    font-size: smaller
+    position: absolute
+    right: 0
