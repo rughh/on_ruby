@@ -48,6 +48,7 @@ end
 
 group :development do
   gem "partially_useful"
+  gem "debugger"
 end
 
 group :development, :test do
@@ -66,4 +67,6 @@ group :development, :test do
   gem "binding_of_caller"
   gem "quiet_assets"
   gem "codeclimate-test-reporter", require: false
+  gem "webmock"
+  gem "timecop"
 end

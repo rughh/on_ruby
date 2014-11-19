@@ -28,4 +28,21 @@ class Location < ActiveRecord::Base
   def nice_url
     URI.parse(url).host
   end
+
+  def as_json(options = {})
+    super(options.reverse_merge(:methods => :wheelchair_status))
+  end
+
+  # returns "yes", "no", "limited" or "unknown"
+  def wheelchair_status
+    if self.wheelmap_id
+      raw = Rails.cache.fetch( "cached_wheelmap_status_#{self.wheelmap_id}", expires_in: 1.hour ) do
+        WheelmapApi.wheelbase_wheelchair_status( self.wheelmap_id )
+      end
+      return I18n.t("location.wheelchair_status.#{raw}")
+    else
+      I18n.t("location.wheelchair_status.unknown")
+    end
+  end
+
 end
