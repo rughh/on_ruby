@@ -11,7 +11,7 @@ describe "Caching", type: :request do
         CacheExpiration.expire_view_cache
       }.to change {
         Rails.cache.exist?(key)
-      }.from(true).to(nil)
+      }.from(true).to(false)
     end
   end
 
@@ -23,7 +23,7 @@ describe "Caching", type: :request do
         create(:user)
       }.to change {
         Rails.cache.exist?(key)
-      }.from(true).to(nil)
+      }.from(true).to(false)
     end
   end
 end
