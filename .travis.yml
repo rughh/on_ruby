@@ -8,4 +8,4 @@ branches:
     - master
 before_script:
   - psql -c 'create database onruby_test;' -U postgres
-  - RAILS_ENV=test bundle exec rake db:prepare
+  - RAILS_ENV=test bundle exec rake db:test:prepare
