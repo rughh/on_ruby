@@ -5,7 +5,7 @@ describe "events/show" do
   let(:event) { build(:event, id: 123) }
 
   it "should render successfully" do
-    view.stub(signed_in?: true, current_user: user, event: event, likes: '</>')
+    allow(view).to receive_messages(signed_in?: true, current_user: user, event: event, likes: '</>')
 
     render
   end

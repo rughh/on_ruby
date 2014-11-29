@@ -58,7 +58,7 @@ group :development, :test do
   gem "pry-rails"
   gem "pry-remote"
   gem "pry-nav"
-  gem "rspec-rails",  "~> 2.14"
+  gem "rspec-rails"
   gem "rspec-collection_matchers"
   gem "factory_girl_rails"
   gem "meta_request"

@@ -4,7 +4,7 @@ describe "topics/index" do
   let(:event) { build(:event) }
 
   it "should render successfully" do
-    view.stub(events: paged(event))
+    allow(view).to receive_messages(events: paged(event))
 
     render
   end

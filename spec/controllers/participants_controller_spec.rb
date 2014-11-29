@@ -6,7 +6,7 @@ describe ParticipantsController do
 
   context "POST :create" do
     before do
-      controller.stub(current_user: user)
+      allow(controller).to receive_messages(current_user: user)
     end
 
     it "should add a prticipant for current user" do
@@ -52,7 +52,7 @@ describe ParticipantsController do
     end
 
     it "should delete a participant for current user" do
-      @controller.stub(current_user: @user)
+      allow(@controller).to receive_messages(current_user: @user)
 
       expect {
         delete(:destroy, id: @participant.id, event_id: @event.id)
@@ -61,7 +61,7 @@ describe ParticipantsController do
     end
 
     it "should delete a participant for another user" do
-      @controller.stub(current_user: create(:user))
+      allow(@controller).to receive_messages(current_user: create(:user))
 
       expect {
         delete(:destroy, id: @participant.id, event_id: @event.id)

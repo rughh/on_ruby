@@ -7,7 +7,7 @@ describe EventsHelper do
 
   context "signed_out user" do
     before(:each) do
-      helper.stub(signed_in?: false, current_user: nil)
+      allow(helper).to receive_messages(signed_in?: false, current_user: nil)
     end
 
     context "#participation_link" do
@@ -19,7 +19,7 @@ describe EventsHelper do
 
   context "signed_in user" do
     before(:each) do
-      helper.stub(signed_in?: true, current_user: event.user)
+      allow(helper).to receive_messages(signed_in?: true, current_user: event.user)
     end
 
     context "#participation_link" do

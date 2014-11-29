@@ -12,7 +12,7 @@ describe EventsController do
 
     context "json" do
       it "renders json" do
-        controller.stub(events: [event])
+        allow(controller).to receive_messages(events: [event])
 
         get :index, format: :json
         expect(response.headers["Content-Type"]).to eql("application/json; charset=utf-8")
@@ -24,7 +24,7 @@ describe EventsController do
       render_views
 
       it "renders xml" do
-        controller.stub(events: [event])
+        allow(controller).to receive_messages(events: [event])
 
         get :index, format: :xml
         expect(response.headers["Content-Type"]).to eql("application/xml; charset=utf-8")
@@ -44,7 +44,7 @@ describe EventsController do
 
     context "json" do
       it "renders json" do
-        controller.stub(event: event)
+        allow(controller).to receive_messages(event: event)
         get :show, id: event, format: :json
         expect(response.headers["Content-Type"]).to eql("application/json; charset=utf-8")
         json = JSON.parse(response.body)
@@ -111,7 +111,7 @@ describe EventsController do
 
     context "ics" do
       it "renders ical" do
-        controller.stub(event: event)
+        allow(controller).to receive_messages(event: event)
         get :show, id: event, format: :ics
         expect(response.headers["Content-Type"]).to eql("text/calendar; charset=utf-8")
         expect(response.body).to match("VCALENDAR")

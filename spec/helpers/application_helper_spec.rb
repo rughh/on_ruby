@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe ApplicationHelper do
   context "render_cached" do
-    before { helper.stub(action_name: 'test') }
+    before { allow(helper).to receive_messages(action_name: 'test') }
 
     it "caches a scoped key" do
       allow(helper).to receive(:cache).with("hamburg/de/test/test", {expires_in: 14400, skip_digest: true})

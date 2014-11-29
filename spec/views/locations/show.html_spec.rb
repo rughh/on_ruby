@@ -4,7 +4,7 @@ describe "locations/show" do
   let(:location) { build(:location) }
 
   it "should render successfully" do
-    view.stub(current_location: location)
+    allow(view).to receive_messages(current_location: location)
 
     render
   end

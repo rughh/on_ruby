@@ -8,10 +8,10 @@ describe "home/index" do
   let(:company)   { build(:location, company: true) }
 
   it "should render successfully" do
-    view.stub(events: [event], current_event: event, people: [user])
-    view.stub(locations: [location], done_topics: [topic])
-    view.stub(undone_topics: [topic], organizers: [user])
-    view.stub(companies: [company], main_user: user, signed_in?: false)
+    allow(view).to receive_messages(events: [event], current_event: event, people: [user])
+    allow(view).to receive_messages(locations: [location], done_topics: [topic])
+    allow(view).to receive_messages(undone_topics: [topic], organizers: [user])
+    allow(view).to receive_messages(companies: [company], main_user: user, signed_in?: false)
 
     render
   end

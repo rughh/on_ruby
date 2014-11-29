@@ -14,7 +14,7 @@ describe LikesController do
 
     context "with logged-in user" do
       before do
-        controller.stub(:current_user => user)
+        allow(controller).to receive_messages(:current_user => user)
       end
 
       it "creates a like for logged-in user" do
@@ -25,7 +25,7 @@ describe LikesController do
       end
 
       it "does not create a like twice" do
-        Topic.any_instance.stub(already_liked?: true)
+        allow_any_instance_of(Topic).to receive_messages(already_liked?: true)
 
         expect {
           post(:create, data)
@@ -33,7 +33,7 @@ describe LikesController do
       end
 
       it "validetes likes" do
-        Like.any_instance.stub(save: false)
+        allow_any_instance_of(Like).to receive_messages(save: false)
 
         post(:create, data)
         expect(flash[:alert]).to be_blank
@@ -52,7 +52,7 @@ describe LikesController do
 
     context "with logged-in user" do
       before do
-        controller.stub(:current_user => user)
+        allow(controller).to receive_messages(:current_user => user)
       end
 
       it "deletes a like for logged-in user" do
@@ -65,7 +65,7 @@ describe LikesController do
       end
 
       it "does not delete likes for other users" do
-        Topic.any_instance.stub(already_liked?: false)
+        allow_any_instance_of(Topic).to receive_messages(already_liked?: false)
 
         expect {
           delete(:destroy, topic_id: topic.id, id: like.id)

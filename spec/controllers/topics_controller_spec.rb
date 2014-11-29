@@ -15,7 +15,7 @@ describe TopicsController do
     let(:user) { build(:user) }
 
     it "renders the action" do
-      controller.stub(current_user: user)
+      allow(controller).to receive_messages(current_user: user)
 
       get :new
       expect(controller.topic).to_not be_persisted
@@ -28,7 +28,7 @@ describe TopicsController do
     let(:topic) { create(:topic, user: user) }
 
     it "renders the action" do
-      controller.stub(current_user: user)
+      allow(controller).to receive_messages(current_user: user)
 
       get :edit, id: topic.id
       expect(controller.topic).to be_persisted
@@ -42,7 +42,7 @@ describe TopicsController do
     let(:topic_data) { attributes_for(:topic) }
 
     it "should create a topic for logged-in user" do
-      controller.stub(current_user: user)
+      allow(controller).to receive_messages(current_user: user)
 
       expect {
         post(:create, topic: topic_data)
@@ -52,7 +52,7 @@ describe TopicsController do
     end
 
     it "creates a topic and sends user add an email if not present" do
-      controller.stub(current_user: user_without_email)
+      allow(controller).to receive_messages(current_user: user_without_email)
 
       expect {
         post(:create, topic: topic_data)
@@ -81,7 +81,7 @@ describe TopicsController do
       let(:topic) { create(:topic, user: user) }
 
       before do
-        controller.stub(current_user: user)
+        allow(controller).to receive_messages(current_user: user)
       end
 
       it "updates a topic" do
@@ -91,7 +91,7 @@ describe TopicsController do
       end
 
       it "does not update a topic for a different user" do
-        controller.stub(current_user: other_user)
+        allow(controller).to receive_messages(current_user: other_user)
 
         put(:update, id: topic, topic: {name: 'blupp'})
         expect(response).to redirect_to(root_path)

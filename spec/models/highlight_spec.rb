@@ -9,7 +9,7 @@ describe Highlight do
   end
 
   it "should be active" do
-    active_highlight.should_not be_disabled
+    expect(active_highlight).to_not be_disabled
   end
 
   it "should disable a highlight" do

@@ -6,7 +6,7 @@ describe "locations/none" do
   it "should render successfully" do
     %w(en de).each do |locale|
       I18n.with_locale(locale) do
-        view.stub(organizers: organizers, stats: stats)
+        allow(view).to receive_messages(organizers: organizers, stats: stats)
         render
       end
     end

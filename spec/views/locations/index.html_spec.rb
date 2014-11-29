@@ -4,7 +4,7 @@ describe "locations/index" do
   let(:locations) { [build(:location)] }
 
   it "should render successfully" do
-    view.stub(locations: locations)
+    allow(view).to receive_messages(locations: locations)
 
     render
   end

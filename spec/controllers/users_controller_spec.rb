@@ -49,7 +49,7 @@ describe UsersController do
       let(:event) { create(:event) }
 
       it "should delete a user and logout" do
-        @controller.stub(current_user: user)
+        allow(@controller).to receive_messages(current_user: user)
 
         expect {
           expect {
@@ -61,7 +61,7 @@ describe UsersController do
       end
 
       it "should not delete an organizer" do
-        @controller.stub(current_user: event.user)
+        allow(@controller).to receive_messages(current_user: event.user)
         expect do
           delete :destroy, id: event.user.id
         end.to change(User, :count).by(0)
@@ -76,7 +76,7 @@ describe UsersController do
     before { set_referer }
 
     it "should update the github attribute of a user" do
-      controller.stub(current_user: user)
+      allow(controller).to receive_messages(current_user: user)
 
       put :update, data
       expect(user.github).to eql('testo')
@@ -86,7 +86,7 @@ describe UsersController do
     end
 
     it "should not update injected properties" do
-      controller.stub(current_user: user)
+      allow(controller).to receive_messages(current_user: user)
 
       put :update, data
       expect(user.nickname).to eql(user.nickname)

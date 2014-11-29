@@ -13,7 +13,7 @@ describe "UserHandling", type: :controller do
     end
 
     it "accepts admin users" do
-      controller.stub(current_user: build(:admin_user))
+      allow(controller).to receive_messages(current_user: build(:admin_user))
 
       get :index
       expect(response).to be_a_success
@@ -44,14 +44,14 @@ describe "UserHandling", type: :controller do
     end
 
     it "redirects_if the user differs" do
-      controller.stub(signed_in?: true, current_user?: false)
+      allow(controller).to receive_messages(signed_in?: true, current_user?: false)
 
       get :index
       expect(response).to redirect_to(root_path)
     end
 
     it "accepts only for the same user" do
-      controller.stub(signed_in?: true, current_user?: true)
+      allow(controller).to receive_messages(signed_in?: true, current_user?: true)
 
       get :index
       expect(response).to be_a_success
