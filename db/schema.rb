@@ -26,11 +26,6 @@ ActiveRecord::Schema.define(version: 20141129191015) do
 
   add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id", using: :btree
 
-  create_table "comments", force: true do |t|
-    t.integer "post_id"
-    t.string  "name",    limit: nil
-  end
-
   create_table "events", force: true do |t|
     t.string   "name"
     t.datetime "date"
@@ -121,10 +116,6 @@ ActiveRecord::Schema.define(version: 20141129191015) do
 
   add_index "participants", ["event_id"], name: "index_participants_on_event_id", using: :btree
   add_index "participants", ["user_id"], name: "index_participants_on_user_id", using: :btree
-
-  create_table "posts", force: true do |t|
-    t.string "name", limit: nil
-  end
 
   create_table "topics", force: true do |t|
     t.string   "name"

@@ -103,7 +103,8 @@ describe EventsController do
             "city" => event.location.city,
             "street" => event.location.street,
             "house_number" => event.location.house_number,
-            "zip" => event.location.zip
+            "zip" => event.location.zip,
+            "wheelmap_id" => event.location.wheelmap_id,
           }
         })
       end
