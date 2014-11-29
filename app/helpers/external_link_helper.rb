@@ -1,4 +1,9 @@
 module ExternalLinkHelper
+  def wheelmap_badge(location)
+    return unless location.wheelmap_id
+    image_tag "https://img.shields.io/wheelmap/a/#{location.wheelmap_id}.svg", class: "wheelmap-status"
+  end
+
   def link_to_twitter(thing, params={clung: false}, &block)
     nick = thing.respond_to?(:twitter) ? thing.twitter : thing
     url = "http://twitter.com/#{nick}"

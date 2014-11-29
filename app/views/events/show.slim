@@ -19,8 +19,7 @@ section
 
   == markdown event.description
 
-  - if event.location
-    = render 'shared/wheelmap_status', location: event.location
+  = wheelmap_badge(event.location) if event.location.present?
 
   - if event.participants.present?
     h3= t("show.attendees", count: event.limit || 0, participant_count: event.participants.count)
