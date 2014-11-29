@@ -1,6 +1,5 @@
 module ExternalLinkHelper
   def wheelmap_badge(location)
-    return unless location.wheelmap_id
     image_tag "https://img.shields.io/wheelmap/a/#{location.wheelmap_id}.svg", class: "wheelmap-status"
   end
 

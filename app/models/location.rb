@@ -3,7 +3,7 @@ class Location < ActiveRecord::Base
   friendly_id :name, use: [:slugged, :finders]
 
   extend ApiHandling
-  expose_api :id, :name, :url, :city, :street, :house_number, :zip
+  expose_api :id, :name, :url, :city, :street, :house_number, :zip, :wheelmap_id
 
   geocoded_by :full_address, latitude: :lat, longitude: :long
   after_validation :geocode
