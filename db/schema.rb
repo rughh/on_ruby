@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504162938) do
+ActiveRecord::Schema.define(version: 20141129191015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20140504162938) do
     t.boolean  "company"
     t.string   "label",        default: "hamburg"
     t.string   "slug"
+    t.integer  "wheelmap_id"
   end
 
   add_index "locations", ["id"], name: "index_locations_on_id", using: :btree

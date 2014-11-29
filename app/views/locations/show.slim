@@ -1,7 +1,9 @@
 - location = current_location
 section
   h2== "#{location.name} (#{link_to location.nice_url, location.url, title: location.name})"
-  == link_to_route(location)
+  p== link_to_route(location)
+
+  = render 'shared/wheelmap_status', location: location
 
   - if location.jobs.present?
     #jobs_present
