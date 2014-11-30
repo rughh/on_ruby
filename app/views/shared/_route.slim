@@ -1,3 +1,5 @@
-h3#route= t("show.route")
+.badges= wheelmap_badge location
+h3#route
+  = t("show.route")
 = single_map(location)
 = link_to_external_route(location)

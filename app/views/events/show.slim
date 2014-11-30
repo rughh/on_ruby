@@ -14,12 +14,12 @@ section
     = fa_icon('map-marker', class: 'fa-fw')
     - if event.location.present?
       == link_to_route event.location
+      = wheelmap_badge event.location, klass: 'inline-wheelmap-status'
     - else
       = link_to t('show.no_location'), none_locations_path
 
   == markdown event.description
 
-  = wheelmap_badge(event.location) if event.location.present?
 
   - if event.participants.present?
     h3= t("show.attendees", count: event.limit || 0, participant_count: event.participants.count)

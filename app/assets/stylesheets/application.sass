@@ -217,9 +217,9 @@ header
     font-size: smaller
     font-style: italic
     padding-top: 0.2em
-  .likes
+  .likes, .badges
     float: right
-    margin-top: -5px
+    margin-top: 2px
   .pagination
     margin-top: 2em
     a
@@ -244,6 +244,9 @@ header
       counter-increment: enumeration
       &:before
         content: counter(enumeration) ". "
+  .inline-wheelmap-status
+    height: 12px
+    padding-left: 7px
   .wheelmap-status
     display: block
   form

@@ -1,9 +1,9 @@
 - location = current_location
 section
   h2== "#{location.name} (#{link_to location.nice_url, location.url, title: location.name})"
-  p== link_to_route(location)
-
-  = wheelmap_badge(location)
+  p
+    == link_to_route location
+    = wheelmap_badge location, klass: 'inline-wheelmap-status'
 
   - if location.jobs.present?
     #jobs_present
