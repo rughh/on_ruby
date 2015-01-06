@@ -1,0 +1,17 @@
+es:
+  formtastic:
+    labels:
+      topic:
+        name: 'Tu tema'
+        proposal_type: 'Tipo de propuesta'
+        description: 'Descripción'
+      user:
+        hide_jobs: 'Ocultar trabajos'
+        available: 'Actualmente estoy buscando trabajos/proyectos'
+    placeholders:
+      github: 'Nombre de usuario en GitHub'
+    actions:
+      topic:
+        create: 'Añadir'
+      user:
+        update: 'Actualizar'
