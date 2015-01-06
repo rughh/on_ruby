@@ -2,19 +2,20 @@ es:
   time:
     formats:
       time: "%H:%M"
+      long: "%d de %B de %Y, a las %H:%M"
       date: "%A %d de %B, %H:%M"
       month: "%B %Y"
   countries:
     DE: "Alemania"
     ES: "España"
-  switch_languages: "Switch to %{language}"
+  switch_languages: "Cambiar idioma a %{language}"
   languages:
     de: "Alemán"
     en: "Inglés"
     es: "Español"
   usergroups: "Grupos de usuarios"
   events: "Eventos"
-  mailing_list: "Listas de correo"
+  mailing_list: "Mailing list"
   locations: "Lugares"
   people: "Gente"
   topics: "Temas"
@@ -52,7 +53,7 @@ es:
     the_usergroup: "<strong>%{usergroup}</strong> es un grupo de usuarios, grupo de interés o simplemente de personas interesadas en Ruby. Contacta con nosotros en la siguiente reunión! Todo el mundo es bienvenido, incluso si no tienes mucha experiencia con Ruby."
     like_to_talk: "Quieres dar una charla en el grupo, o quieres proponer un tema para una?"
     send_us_an_email: "Envíanos un %{mail_to} o un tweet:"
-    engage: "Los grupos de usuarios necesitan interacción. Si crees que estaría bien dar una charla sobre un Tema, o quieres profundizar sobre alguno, <strong>por favor añádelo en nuestra Wishlist</strong>. Si tienes una idea para una charla o actividad <strong>añádela aquí</strong> para obtener feedback de la comunidad de Ruby/Rails."
+    engage: "Los grupos de usuarios necesitan interacción. Si crees que estaría bien dar una charla sobre un Tema, o quieres profundizar sobre alguno, <strong>por favor añádelo en nuestra Wishlist</strong>. Si tienes una idea para una charla o actividad <strong>proponla aquí</strong> para obtener feedback de la comunidad de Ruby/Rails."
     add_topic: "Proponer un Tema"
     new_topics: "Propuestas"
     old_topics: "Temas recientes"
@@ -66,7 +67,7 @@ es:
     past_events: "Reuniones anteriores"
     usergroup_locations: "Estos son los sitios %{location_link} donde nuestro grupo se ha reunido con anterioridad."
     show_more: "ver más"
-    no_new_topics: "Actualmente no hay propuestas, añade la tuya %{new_topic_link} aquí!"
+    no_new_topics: "Actualmente no hay propuestas, ¡añade tu %{new_topic_link}!"
     all_events: "Todos los eventos"
     all_people: "Toda la gente"
     to_mailinglist: "A la lista de correo "
@@ -115,7 +116,7 @@ es:
       enquiry: "%{user} propuso este tema para que otra persona hablara de él."
   event:
     twitter_message: "%{name} - %{date} %{url}"
-    recurring: "Todos los %{number}. %{day} del mes"
+    recurring: "cada %{number}er %{day} del mes"
     subscribe: "Subscribirse a todos los eventos"
   flash:
     only_admins: "Solamente los administradores pueden entrar ahí"
