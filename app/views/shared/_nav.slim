@@ -36,9 +36,10 @@ nav#nav.navbar
                 = link_to auth_path(provider: provider) do
                   = fa_icon provider, class: 'fa-fw dropdown-list-icon'
                   =' title
-          - locale = I18n.locale == :de ? :en : :de
-          - title = t("languages.#{locale}")
-          li.locale
-            = link_to url_for(locale: locale), title: t("switch_languages", language: title) do
-              = fa_icon 'comment', class: 'fa-fw dropdown-list-icon'
-              =' title
+
+          - (I18n.available_locales - [I18n.locale]).each do |locale|
+            - title = t("languages.#{locale}")
+            li.locale
+              = link_to url_for(locale: locale), title: t("switch_languages", language: title) do
+                = fa_icon 'comment', class: 'fa-fw dropdown-list-icon'
+                =' title
