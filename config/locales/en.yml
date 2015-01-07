@@ -6,10 +6,12 @@ en:
       month: "%B %Y"
   countries:
     DE: "Germany"
+    ES: "Spain"
   switch_languages: "Switch to %{language}"
   languages:
     de: "German"
     en: "English"
+    es: "Spanish"
   usergroups: "Usergroups"
   events: "Events"
   mailing_list: "Mailinglist"

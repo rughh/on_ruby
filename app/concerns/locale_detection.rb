@@ -16,7 +16,7 @@ module LocaleDetection
   end
 
   def allowed_locale?(locale)
-    OnRuby::Application.config.available_locales.include?(:"#{locale}")
+    I18n.available_locales.include?(:"#{locale}")
   end
 
   def default_locale
