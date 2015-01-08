@@ -7,7 +7,7 @@ namespace :fork do
     usergroups = Whitelabel.labels + [usergroup]
     File.open(Rails.root.join("config/whitelabel.yml"), 'w') { |file| file.write usergroups.to_yaml }
 
-    Usergroup::SUPPORTED_LOCALES.each do |locale|
+    I18n.available_locales.each do |locale|
       file_name   = Rails.root.join("config/locales/#{locale}.label.yml")
       translation = File.open(file_name) { |file| YAML.load(file) }
       translation["#{locale}"]["label"][usergroup.label_id] = {
