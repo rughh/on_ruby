@@ -24,22 +24,22 @@ nav#nav.navbar
             li
               = link_to edit_user_path(current_user) do
                 = fa_icon 'edit', class: 'fa-fw dropdown-list-icon'
-                =' t("login.edit_profile")
+                => t("login.edit_profile")
             li
               = link_to destroy_session_path(current_user) do
                 = fa_icon 'times', class: 'fa-fw dropdown-list-icon'
-                =' t("login.logout")
+                => t("login.logout")
           - else
             - [:twitter, :github].each do |provider|
               - title = t("login.#{provider}_login")
               li.provider
                 = link_to auth_path(provider: provider) do
                   = fa_icon provider, class: 'fa-fw dropdown-list-icon'
-                  =' title
+                  => title
 
           - (I18n.available_locales - [I18n.locale]).each do |locale|
             - title = t("languages.#{locale}")
             li.locale
               = link_to url_for(locale: locale), title: t("switch_languages", language: title) do
                 = fa_icon 'comment', class: 'fa-fw dropdown-list-icon'
-                =' title
+                => title

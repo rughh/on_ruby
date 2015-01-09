@@ -1,6 +1,6 @@
 = section_box :topics do
   p
-    strong=' I18n.tw("home.like_to_talk")
+    strong=> I18n.tw("home.like_to_talk")
     == t("home.send_us_an_email", mail_to: mail_to(Whitelabel[:email], "E-Mail", title: "E-Mail"))
   = render 'users/list', users: organizers
   p== I18n.tw("home.engage")

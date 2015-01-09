@@ -6,7 +6,7 @@ section
   p
     ' Usergroups suchen immer nach einem zu Hause für ihre Treffen.
     ' Wenn du oder deine Firma ein Treffen ausrichten möchte, dann
-    =' mail_to Whitelabel[:email], "schicke uns einfach eine E-Mail", title: "#{Whitelabel[:twitter]} E-Mail"
+    => mail_to Whitelabel[:email], "schicke uns einfach eine E-Mail", title: "#{Whitelabel[:twitter]} E-Mail"
     ' oder erwähne uns unter #{link_to_twitter Whitelabel[:twitter]}
     ' oder wende dich an unsere Ansprechpartner:
   = render 'users/list', users: organizers
@@ -14,9 +14,9 @@ section
   h3 Wie viele Plätze werden gebraucht?
   p
     ' Bei den letzten Treffen haben sich im
-    em' Durchschnitt #{stats[:participants]} Teilnehmer
+    em> Durchschnitt #{stats[:participants]} Teilnehmer
     ' angemeldet und es wurden ungefähr
-    em' #{stats[:topics]} bis #{stats[:topics] + 1} Themen
+    em> #{stats[:topics]} bis #{stats[:topics] + 1} Themen
     ' vorgestellt.
     ' Die Tatsächliche Anzahl der Teilnehmer ist kann allerdings stark abweichen,
     ' deshalb am besten immer Rücksprache mit den Organisatoren halten.

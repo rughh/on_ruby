@@ -9,7 +9,7 @@
         = hint(false) do
           - highlights.each do |highlight|
             .highlights
-              strong=' t("hint.attention")
+              strong=> t("hint.attention")
               = link_to highlight.description, highlight.url, title: highlight.description
   - elsif jobs.present?
     - unless current_user && current_user.hide_jobs?
