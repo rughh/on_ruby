@@ -6,7 +6,7 @@ class Admin::EventsController < Admin::ResourcesController
 
   def publish
     event = Event.find(params[:id])
-    UsergroupMailer.invitation_mail(event).deliver!
+    UsergroupMailer.invitation_mail(event).deliver_now!
     push_app_notification(event)
     event.update_attributes! published: true
 

@@ -6,7 +6,7 @@ describe ExternalLinkHelper do
   context "#link_to_github" do
     it "should generate the link" do
       user = build(:user, github: "giddiup")
-      expect(helper.link_to_github(user)).to eql('<a href="http://github.com/giddiup" title="giddiup">giddiup</a>')
+      expect(helper.link_to_github(user)).to eql('<a title="giddiup" href="http://github.com/giddiup">giddiup</a>')
     end
 
     it "should render nothing for no github" do
@@ -33,7 +33,7 @@ describe ExternalLinkHelper do
   context "#link_to_twitter" do
     it "should generate the link" do
       user = build(:user, twitter: "klaus")
-      expect(helper.link_to_twitter(user)).to eql('@<a href="http://twitter.com/klaus" title="klaus">klaus</a>')
+      expect(helper.link_to_twitter(user)).to eql('@<a title="klaus" href="http://twitter.com/klaus">klaus</a>')
     end
   end
 

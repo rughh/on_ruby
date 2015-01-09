@@ -6,7 +6,7 @@ section
   p
     ' We are always looking for new locations for our Meetups.
     ' If you want to host one of the events at your company
-    =' mail_to Whitelabel[:email], "drop us a line", title: "#{Whitelabel[:twitter]} E-Mail"
+    => mail_to Whitelabel[:email], "drop us a line", title: "#{Whitelabel[:twitter]} E-Mail"
     ' or mention us on twitter #{link_to_twitter Whitelabel[:twitter]}
     ' or contact one of the organizers:
   = render 'users/list', users: organizers
