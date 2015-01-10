@@ -58,7 +58,7 @@ en:
     old_topics: "Recent Topics"
     company_workers: "A lot of the Members of the Ruby Usergroup are working there too and we love to see new faces around."
     company_missing: "If you think that a Company is missing, send us an %{email_link} or Direct-Message to %{twitter_link}"
-    next_possible_meetup_recurring: "There is no Event planned right now, the Usergroup usually meets on %{recurring}."
+    next_possible_meetup_recurring: "There is no Event planned right now, the Usergroup usually meets %{recurring}."
     next_possible_meetup: "The next Ruby / Rails Meeting is supposed to be on %{event_date}."
     next_meetup: "The next meetup"
     takes_place: "is taking place on %{event_date} at %{location_link}!"
