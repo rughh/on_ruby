@@ -10,12 +10,17 @@ class Usergroup
   def parse_recurring_date(date)
     number, day, _ = recurring.split(DELIMITER_DATE)
     day = Date::DAYS_INTO_WEEK[day.to_sym] + 1
-    num = NUMBERS.index(number)
-    d = date.at_beginning_of_month
-    if d.wday > day
-      d + ((num + 1) * 7 + day - d.wday).days
+    if number == 'last' then
+      d = date.at_end_of_month.change(hour: 0, minute: 0, second: 0)
+      d - ((d.wday - day) % 7).days
     else
-      d + (num * 7 + day - d.wday)
+      d = date.at_beginning_of_month
+      num = NUMBERS.index(number)
+      if d.wday > day
+        d + ((num + 1) * 7 + day - d.wday).days
+      else
+        d + (num * 7 + day - d.wday)
+      end
     end
   end
 
@@ -38,9 +43,11 @@ class Usergroup
 
   def localized_recurring
     number, day, _ = recurring.split(DELIMITER_DATE)
-    number  = NUMBERS.index(number) + 1
+
+    ordinal = I18n.t("event.#{number}")
     day     = I18n.t('date.day_names')[Date::DAYS_INTO_WEEK[day.to_sym] + 1]
-    I18n.t("event.recurring", number: number, day: day)
+
+    I18n.t("event.recurring", ordinal: ordinal, day: day)
   end
 
   def to_s

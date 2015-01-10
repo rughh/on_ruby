@@ -116,8 +116,13 @@ es:
       enquiry: "%{user} propuso este tema para que otra persona hablara de él."
   event:
     twitter_message: "%{name} - %{date} %{url}"
-    recurring: "cada %{number}er %{day} del mes"
+    recurring: "el %{ordinal} %{day} del mes"
     subscribe: "Subscribirse a todos los eventos"
+    first:  "primer"
+    second: "segundo"
+    third:  "tercer"
+    fourth: "cuarto"
+    last:   "último"
   flash:
     only_admins: "Solamente los administradores pueden entrar ahí"
     not_authenticated: "Por favor autentifícate antes de entrar"

@@ -114,8 +114,13 @@ en:
       enquiry: "%{user} would love to hear somebody talking about this topic"
   event:
     twitter_message: "%{name} at %{date} %{url}"
-    recurring: "every %{number}. %{day} a Month"
+    recurring: "every %{ordinal} %{day} of the month"
     subscribe: "subscribe my Events"
+    first: "first"
+    second: "second"
+    third: "third"
+    fourth: "fourth"
+    last: "last"
   flash:
     only_admins: "Ups, only admins allowed!"
     not_authenticated: "Ups, you are not allowed to visit this page!"
