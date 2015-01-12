@@ -9,6 +9,11 @@ describe ExternalLinkHelper do
       expect(helper.link_to_github(user)).to eql('<a title="giddiup" href="http://github.com/giddiup">giddiup</a>')
     end
 
+    it "should generate the link with a block" do
+      user = build(:user, github: "giddiup")
+      expect(helper.link_to_github(user) { 'uschi' }).to eql('<a title="giddiup" href="http://github.com/giddiup">uschi</a>')
+    end
+
     it "should render nothing for no github" do
       user.github = nil
       expect(helper.link_to_github(user)).to be_nil

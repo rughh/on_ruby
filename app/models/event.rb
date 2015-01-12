@@ -54,11 +54,11 @@ class Event < ActiveRecord::Base
       end
     end
 
-    def stats
-      stats = Event.limit(10).map { |event| [event.participants.count, event.topics.count] }
+    def stats(size: 10)
+      stats = Event.limit(size).map { |event| [event.participants.count, event.topics.count] }
       {
-        participants: stats.map(&:first).sum / stats.size,
-        topics: stats.map(&:last).sum / stats.size,
+        participants: stats.size == 0 ? 0 : stats.map(&:first).sum / stats.size,
+        topics: stats.size == 0 ? 0 : stats.map(&:last).sum / stats.size,
       }
     end
   end
