@@ -38,7 +38,7 @@ describe TopicsController do
 
   context "POST :create" do
     let(:user) { create(:user) }
-    let(:user_without_email) { create(:user, email: nil) }
+    let(:user_without_email) { create(:user, email: '') }
     let(:topic_data) { attributes_for(:topic) }
 
     it "should create a topic for logged-in user" do
