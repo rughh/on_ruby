@@ -1,62 +1,73 @@
-OnRuby::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb
+Rails.application.configure do
+  # Settings specified here will take precedence over those in config/application.rb.
 
-  # Code is not reloaded between requests
+  # Code is not reloaded between requests.
   config.cache_classes = true
 
+  # Eager load code on boot. This eager loads most of Rails and
+  # your application in memory, allowing both threaded web servers
+  # and those relying on copy on write to perform better.
+  # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
-  # Full error reports are disabled and caching is turned on
+  # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  # Enable Rack::Cache to put a simple HTTP cache in front of your application
+  # Add `rack-cache` to your Gemfile before enabling this.
+  # For large-scale production use, consider using a caching reverse proxy like
+  # NGINX, varnish or squid.
   # Disable Rails's static asset server (Apache or nginx will already do this)
   # config.serve_static_assets = false
-  config.serve_static_assets = true
+  config.serve_static_files = true
   config.static_cache_control = "public, max-age=31536000"
-  # Don't fallback to assets pipeline if a precompiled asset is missed
-  # config.assets.compile = false
+  # config.action_dispatch.rack_cache = true
 
-  # Generate digests for assets URLs
+  # Compress JavaScripts and CSS.
+  config.assets.js_compressor = :uglifier
+  # config.assets.css_compressor = :sass
+
+  # Do not fallback to assets pipeline if a precompiled asset is missed.
+  config.assets.compile = false
+
+  # Asset digests allow you to set far-future HTTP expiration dates on all assets,
+  # yet still be able to expire them through the digest params.
   config.assets.digest = true
 
-  # Compress both stylesheets and JavaScripts
-  config.assets.js_compressor  = :uglifier
+  # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
-  # Defaults to Rails.root.join("public/assets")
-  # config.assets.manifest = YOUR_PATH
-
-  # Specifies the header that your server uses for sending files
-  # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
-  config.action_dispatch.x_sendfile_header = nil # http://devcenter.heroku.com/articles/rails31_heroku_cedar#the_asset_pipeline
+  # Specifies the header that your server uses for sending files.
+  # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
+  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 
-  # See everything in the log (default is :info)
-  # config.log_level = :debug
-
-  # Use a different logger for distributed setups
-  # config.logger = SyslogLogger.new
+  # Use the lowest log level to ensure availability of diagnostic information
+  # when problems arise.
+  config.log_level = :warn
   config.lograge.enabled = true
 
-  # Use a different cache store in production
-  # config.cache_store = :mem_cache_store
+  # Prepend all log lines with the following tags.
+  # config.log_tags = [ :subdomain, :uuid ]
+
+  # Use a different logger for distributed setups.
+  # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
+
+  # Use a different cache store in production.
   config.cache_store = :dalli_store, ENV["MEMCACHIER_SERVERS"], {username: ENV["MEMCACHIER_USERNAME"], password: ENV["MEMCACHIER_PASSWORD"]}
 
-  client = Dalli::Client.new(ENV["MEMCACHIER_SERVERS"], username: ENV["MEMCACHIER_USERNAME"], password: ENV["MEMCACHIER_PASSWORD"], expires_in: 1.day)
   config.action_dispatch.rack_cache = {
-    :metastore    => client,
-    :entitystore  => client
+    metastore:   Dalli::Client.new(ENV["MEMCACHIER_SERVERS"], username: ENV["MEMCACHIER_USERNAME"], password: ENV["MEMCACHIER_PASSWORD"], expires_in: 1.day),
+    entitystore: Dalli::Client.new(ENV["MEMCACHIER_SERVERS"], username: ENV["MEMCACHIER_USERNAME"], password: ENV["MEMCACHIER_PASSWORD"], expires_in: 1.day),
   }
 
-  # Enable serving of images, stylesheets, and JavaScripts from an asset server
-  # config.action_controller.asset_host = "http://assets.example.com"
+  # Enable serving of images, stylesheets, and JavaScripts from an asset server.
+  # config.action_controller.asset_host = 'http://assets.example.com'
 
-  # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-
-  # Disable delivery errors, bad email addresses will be ignored
+  # Ignore bad email addresses and do not raise email delivery errors.
+  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -69,21 +80,22 @@ OnRuby::Application.configure do
     :enable_starttls_auto => true
   }
 
-  # Enable threaded mode
-  # config.threadsafe!
-
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
-  # the I18n.default_locale when a translation can not be found)
+  # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
 
-  # Send deprecation notices to registered listeners
+  # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
+
+  # Use default logging formatter so that PID and timestamp are not suppressed.
+  # config.log_formatter = ::Logger::Formatter.new
+
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
 
   # Set the default host for production
   config.default_host = 'onruby.de'
-
   config.middleware.use "CookieDomain", ".onruby.de"
-
   config.middleware.use ExceptionNotification::Rack, {
     email: {
       :email_prefix         => "[ERROR] ",

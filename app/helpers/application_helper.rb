@@ -6,7 +6,7 @@ module ApplicationHelper
 
   def whitelabel_javascript_include_tag
     link = "labels/#{Whitelabel[:label_id]}"
-    javascript_include_tag link if File.exists? Rails.root.join("app/assets/javascripts/#{link}.coffee")
+    javascript_include_tag link if Rails.root.join("app/assets/javascripts/labels").entries.map(&:to_s).any? { |path| path.to_s =~ /#{Whitelabel[:label_id]}/ }
   end
 
   def label_url(label)

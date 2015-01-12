@@ -51,6 +51,25 @@ describe Event do
     end
   end
 
+  context "stats" do
+    it "has empty stats" do
+      stats = {
+        participants: 0,
+        topics: 0,
+      }
+      expect(Event.stats).to eql(stats)
+    end
+
+    it "calculates stats" do
+      create(:full_event)
+      stats = {
+        participants: 1,
+        topics: 0,
+      }
+      expect(Event.stats).to eql(stats)
+    end
+  end
+
   it "should find latest events" do
     10.times{|i| create(:event, :name => "Event #{i}", :date => (Time.now - i.weeks)) }
     expect(Event.latest.map(&:name)).to eql(["Event 1", "Event 2", "Event 3", "Event 4", "Event 5", "Event 6", "Event 7", "Event 8", "Event 9"])

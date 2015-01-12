@@ -9,6 +9,15 @@ describe SessionsController do
       expect(controller.send :signed_in?).to be_truthy
       expect(response).to redirect_to(root_path)
     end
+
+    it "rescues from duplicate nicknames" do
+      create(:user, nickname: 'phoet')
+
+      get :create, provider: :twitter
+      expect(controller.send :signed_in?).to be_falsy
+      expect(response).to redirect_to(root_path)
+      expect(flash[:alert]).to match('bereits vergeben')
+    end
   end
 
   context "GET :auth" do
