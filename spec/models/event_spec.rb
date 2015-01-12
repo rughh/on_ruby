@@ -63,10 +63,10 @@ describe Event do
     it "calculates stats" do
       create(:full_event)
       stats = {
-        participants: 4,
-        topics: 1,
+        participants: 1,
+        topics: 0,
       }
-      expect(Event.stats(size: 1)).to eql(stats)
+      expect(Event.stats).to eql(stats)
     end
   end
 

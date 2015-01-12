@@ -20,6 +20,18 @@ describe TopicsHelper do
       it "shows a button for liking a topic" do
         expect(helper.like_link(topic)).to match('gefällt mir')
       end
+
+      it "shows a button for un-liking a topic" do
+        create(:like, user: user, topic: topic)
+
+        expect(helper.like_link(topic)).to match('gefällt nicht')
+      end
+
+      it "shows an eidt button for the owner" do
+        topic.update! user: user
+
+        expect(helper.like_link(topic)).to match('bearbeiten')
+      end
     end
   end
 end
