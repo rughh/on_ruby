@@ -1,7 +1,6 @@
 source "http://rubygems.org"
 ruby File.read('.ruby-version').chomp
 
-gem "foreman",                "~> 0.63"
 gem "unicorn",                "~> 4.8.0"
 gem "rails",                  "~> 4.2.0"
 gem "responders",             "~> 2.0"

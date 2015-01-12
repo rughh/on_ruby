@@ -42,10 +42,10 @@ createuser -Ps postgres
 rake db:setup
 ```
 
-Use *foreman* to start the server, otherwise you need to export the options of the *.env* file manually:
+Use `script/server` to run rails locally, otherwise you need to export the environment options yourself:
 
     bundle --without=production
-    foreman start
+    script/server
 
 ### Hosts
 
