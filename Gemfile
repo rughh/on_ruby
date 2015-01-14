@@ -1,7 +1,7 @@
 source "http://rubygems.org"
-ruby File.read('.ruby-version').chomp
+ruby File.read("#{File.dirname(__FILE__)}/.ruby-version").chomp
 
-gem "unicorn",                "~> 4.8.0"
+gem "passenger",              "~> 5.0.0.beta2"
 gem "rails",                  "~> 4.2.0"
 gem "responders",             "~> 2.0"
 gem "rails-observers",        "~> 0.1.2"
@@ -24,7 +24,7 @@ gem "formtastic",             "~> 2.2.1"
 gem "kaminari",               "~> 0.15.0"
 gem "typus",                  github: "typus/typus"
 gem "jquery-rails",           "~> 3.0"
-gem "chosen-rails"
+gem "chosen-rails",           "~> 1.3"
 gem "sass-rails",             github: "rails/sass-rails"
 gem "compass-rails",          github: "Compass/compass-rails"
 gem "coffee-rails",           "~> 4.0.1"
