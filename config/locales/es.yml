@@ -52,7 +52,7 @@ es:
   home:
     the_usergroup: "<strong>%{usergroup}</strong> es un grupo de usuarios, grupo de interés o simplemente de personas interesadas en Ruby. Contacta con nosotros en la siguiente reunión! Todo el mundo es bienvenido, incluso si no tienes mucha experiencia con Ruby."
     like_to_talk: "Quieres dar una charla en el grupo, o quieres proponer un tema para una?"
-    send_us_an_email: "Envíanos un %{mail_to} o un tweet:"
+    send_us_an_email: "Envíanos un %{mail_to} o un tweet: %{twitter_link}"
     engage: "Los grupos de usuarios necesitan interacción. Si crees que estaría bien dar una charla sobre un Tema, o quieres profundizar sobre alguno, <strong>por favor añádelo en nuestra Wishlist</strong>. Si tienes una idea para una charla o actividad <strong>proponla aquí</strong> para obtener feedback de la comunidad de Ruby/Rails."
     add_topic: "Proponer un Tema"
     new_topics: "Propuestas"
