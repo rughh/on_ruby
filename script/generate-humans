@@ -30,6 +30,7 @@ FALLBACKS = {
   "weidenfreak" => "Meike Wiemann",
   "Marco" => "Marco Schaden",
   "rocky-jaiswal" => "Rocky Jaiswal",
+  "kikito" => "Enrique García",
 }
 commiters = `git log --format='%aN' | sort -u`
 commiters = commiters.split("\n").map { |c| "  #{FALLBACKS[c] || c}"}.uniq.sort.join("\n\n")

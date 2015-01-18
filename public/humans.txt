@@ -21,7 +21,11 @@
 
   André Cedik
 
+  Arthur Neves
+
   Ben Zimmer
+
+  Benny
 
   Bodo Tasche
 
@@ -36,6 +40,8 @@
   Dennis Reimann
 
   Eckhard Rotte
+
+  Enrique García
 
   Jakob Hilden
 
@@ -53,9 +59,13 @@
 
   Martin Schrader
 
+  Martin Wilhelmi
+
   Marv Cool
 
   Meike Wiemann
+
+  Nico Hagenburger
 
   Nikolay Sturm
 
