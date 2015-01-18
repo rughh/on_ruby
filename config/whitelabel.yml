@@ -108,12 +108,12 @@
     :twitter: pycologne
   - :name: hacken.in
     :url: http://hacken.in/
+  tld: de
   coc: http://rubyberlin.github.io/code-of-conduct
   domains:
   - colognerb.de
   - koelschrb.de
   google_group: colognerb
-  tld: de
 - !ruby/object:Usergroup
   label_id: saar
   default_locale: de
@@ -167,8 +167,8 @@
   - :name: Google Technology User Group
     :url: https://plus.google.com/109775289623271731783/posts
     :twitter: karlsruhegtug
-  google_group: karlsruherb
   tld: de
+  google_group: karlsruherb
 - !ruby/object:Usergroup
   label_id: berlin
   default_locale: en
@@ -190,11 +190,11 @@
     :contributors:
     - :name: Ruby Berlin e.V.
       :email: rug-b@rubyberlin.org
+  tld: de
   coc: http://rubyberlin.github.io/code-of-conduct/
   domains:
   - rug-b.de
   google_group: rug-b
-  tld: de
 - !ruby/object:Usergroup
   label_id: leipzig
   default_locale: de
@@ -217,8 +217,8 @@
       :email: leipzigonrails@googlegroups.com
     - :name: Thomas Metzmacher
       :email: leipzigonrails@googlegroups.com
-  google_group: leipzigonrails
   tld: de
+  google_group: leipzigonrails
 - !ruby/object:Usergroup
   label_id: dresden
   default_locale: de
@@ -301,9 +301,9 @@
     :twitter: railsgirls_os
   - :name: Rails Girls Leipzig
     :url: http://railsgirls.com/leipzig
+  tld: de
   coc: http://rubyberlin.github.io/code-of-conduct/
   google_group: rails-girls-hamburg
-  tld: de
 - !ruby/object:Usergroup
   label_id: bonn
   default_locale: de
@@ -327,11 +327,11 @@
       :email: christophgeschwind@gmail.com
     - :name: Martin Frank
       :email: martin.frank.ts@gmail.com
+  tld: de
   coc: http://rubyberlin.github.io/code-of-conduct/
   domains:
   - bonnrb.de
   google_group: bonnrb
-  tld: de
 - !ruby/object:Usergroup
   label_id: innsbruck
   default_locale: en
@@ -351,8 +351,58 @@
     :contributors:
     - :name: Benny Klotz
       :email: r3qnbenni@gmail.com
+  tld: at
   domains:
   - innsbruck-rb.at
   - innsbruck-ruby.at
   google_group: innsbruck-rb
-  tld: at
+- !ruby/object:Usergroup
+  label_id: madridrb
+  default_locale: es
+  recurring: last thursday 19:30
+  email: hello@madridrb.com
+  twitter: madridrb
+  organizers:
+  - otikik
+  location:
+    :zoom: 14
+    :lat: 40.454843
+    :long: -3.693945
+  imprint:
+    :address: |-
+      Av del Brasil, 7 (The Irish Rover)
+      28020 Madrid, Spain 1
+    :contributors:
+    - :name: Enrique García Cota
+      :email: kikito@gmail.com
+  other_usergroups:
+  - :name: Betabeers
+    :url: https://betabeers.com/
+    :twitter: betabeers
+  - :name: MadridJS
+    :url: http://www.meetup.com/madridjs/
+    :twitter: madridjs
+  sponsors:
+  - :name: Bebanjo
+    :url: http://bebanjo.com/
+    :banner: bebanjo.png
+  - :name: ProRuby team
+    :url: http://www.prorubyteam.com/
+    :banner: proruby.png
+  - :name: ASP Gems
+    :url: http://aspgems.com
+    :banner: aspgems.png
+  - :name: The Cocktail
+    :url: http://www.the-cocktail.com
+    :banner: tck.png
+  - :name: Lextrend
+    :url: http://www.lextrend.com
+    :banner: lextrend.png
+  - :name: Codecantor
+    :url: http://codecantor.com
+    :banner: codecantor.png
+  tld: org
+  coc: http://madridrb.com
+  domains:
+  - madridrb.com
+  :google_group: madridrb
