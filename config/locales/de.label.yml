@@ -101,5 +101,9 @@ de:
       :title: Innsbruck.rb
       :subtitle: Ruby User Group Innsbruck
       :meta_desc: Ruby User Group Innsbruck
-  profile:
-    freelancer: Freelancer
+    madridrb:
+      :city: Madrid
+      :name: Madrid.rb
+      :title: Madrid.rb
+      :subtitle: Madrid Ruby User Group
+      :meta_desc: Madrid Ruby User Group

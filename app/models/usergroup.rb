@@ -2,21 +2,25 @@ class Usergroup
   DELIMITER_TIME    = ':'
   DELIMITER_DATE    = ' '
   NUMBERS           = %w(first second third fourth)
-  SUPPORTED_LOCALES = [:de, :en]
   SUPPORTED_TLDS    = [:de, :at]
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :google_group, :coc
-  attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups, :tld
+  attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups, :tld, :sponsors
 
   def parse_recurring_date(date)
     number, day, _ = recurring.split(DELIMITER_DATE)
     day = Date::DAYS_INTO_WEEK[day.to_sym] + 1
-    num = NUMBERS.index(number)
-    d = date.at_beginning_of_month
-    if d.wday > day
-      d + ((num + 1) * 7 + day - d.wday).days
+    if number == 'last' then
+      d = date.at_end_of_month.change(hour: 0, minute: 0, second: 0)
+      d - ((d.wday - day) % 7).days
     else
-      d + (num * 7 + day - d.wday)
+      d = date.at_beginning_of_month
+      num = NUMBERS.index(number)
+      if d.wday > day
+        d + ((num + 1) * 7 + day - d.wday).days
+      else
+        d + (num * 7 + day - d.wday)
+      end
     end
   end
 
@@ -39,9 +43,11 @@ class Usergroup
 
   def localized_recurring
     number, day, _ = recurring.split(DELIMITER_DATE)
-    number  = NUMBERS.index(number) + 1
+
+    ordinal = I18n.t("event.#{number}")
     day     = I18n.t('date.day_names')[Date::DAYS_INTO_WEEK[day.to_sym] + 1]
-    I18n.t("event.recurring", number: number, day: day)
+
+    I18n.t("event.recurring", ordinal: ordinal, day: day)
   end
 
   def to_s
@@ -78,6 +84,7 @@ class Usergroup
       it.imprint          = {address: "YourStreet 1\n0815 YourTown", contributors: [{name: "Your Name", email: "your@mail.de"}]}
       it.other_usergroups = [{name: "OtherUsergroupName", url: "http://some-domain.de/", twitter: "some_handle"}]
       it.coc              = 'http://example.com'
+      it.sponsors         = []
     end
   end
 
