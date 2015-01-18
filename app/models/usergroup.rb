@@ -5,7 +5,7 @@ class Usergroup
   SUPPORTED_TLDS    = [:de, :at]
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :google_group, :coc
-  attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups, :tld
+  attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups, :tld, :sponsors
 
   def parse_recurring_date(date)
     number, day, _ = recurring.split(DELIMITER_DATE)
@@ -84,6 +84,7 @@ class Usergroup
       it.imprint          = {address: "YourStreet 1\n0815 YourTown", contributors: [{name: "Your Name", email: "your@mail.de"}]}
       it.other_usergroups = [{name: "OtherUsergroupName", url: "http://some-domain.de/", twitter: "some_handle"}]
       it.coc              = 'http://example.com'
+      it.sponsors         = []
     end
   end
 
