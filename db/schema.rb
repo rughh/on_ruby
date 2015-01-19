@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20141129191015) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "authorizations", force: true do |t|
+  create_table "authorizations", force: :cascade do |t|
     t.string   "provider"
     t.string   "uid"
     t.integer  "user_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20141129191015) do
 
   add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id", using: :btree
 
-  create_table "events", force: true do |t|
+  create_table "events", force: :cascade do |t|
     t.string   "name"
     t.datetime "date"
     t.text     "description"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20141129191015) do
   add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
-  create_table "highlights", force: true do |t|
+  create_table "highlights", force: :cascade do |t|
     t.string   "description"
     t.string   "url"
     t.datetime "start_at"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20141129191015) do
     t.string   "label",       default: "hamburg"
   end
 
-  create_table "jobs", force: true do |t|
+  create_table "jobs", force: :cascade do |t|
     t.string   "name"
     t.string   "url"
     t.integer  "location_id"
@@ -65,14 +65,14 @@ ActiveRecord::Schema.define(version: 20141129191015) do
 
   add_index "jobs", ["location_id"], name: "index_jobs_on_location_id", using: :btree
 
-  create_table "likes", force: true do |t|
+  create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "topic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "locations", force: true do |t|
+  create_table "locations", force: :cascade do |t|
     t.string   "name"
     t.string   "url"
     t.string   "street"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20141129191015) do
   add_index "locations", ["id"], name: "index_locations_on_id", using: :btree
   add_index "locations", ["slug"], name: "index_locations_on_slug", unique: true, using: :btree
 
-  create_table "materials", force: true do |t|
+  create_table "materials", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.string   "url"
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20141129191015) do
   add_index "materials", ["event_id"], name: "index_materials_on_event_id", using: :btree
   add_index "materials", ["user_id"], name: "index_materials_on_user_id", using: :btree
 
-  create_table "participants", force: true do |t|
+  create_table "participants", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "event_id"
     t.boolean  "maybe"
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 20141129191015) do
   add_index "participants", ["event_id"], name: "index_participants_on_event_id", using: :btree
   add_index "participants", ["user_id"], name: "index_participants_on_user_id", using: :btree
 
-  create_table "topics", force: true do |t|
+  create_table "topics", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
@@ -132,7 +132,7 @@ ActiveRecord::Schema.define(version: 20141129191015) do
   add_index "topics", ["event_id"], name: "index_topics_on_event_id", using: :btree
   add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "nickname"
     t.string   "name"
     t.string   "image"
