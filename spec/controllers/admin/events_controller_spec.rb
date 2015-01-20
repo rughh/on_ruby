@@ -28,17 +28,25 @@ describe Admin::EventsController do
       it "publish the event" do
         event = create(:event)
 
+        expect {
+          get :publish, id: event.id
+        }.to change {
+          ActionMailer::Base.deliveries.size
+        }.by(1)
+      end
+    end
+
+    context "GET :send_ios_push_notification" do
+      it "send notification with zeropush" do
+        event = create(:event)
+
         expect(ZeroPush).to receive(:broadcast).with({
           channel:           Whitelabel[:label_id],
           alert:             "#{I18n.tw("name")}: new event at #{I18n.l(event.date)}",
           content_available: true
         })
 
-        expect {
-          get :publish, id: event.id
-        }.to change {
-          ActionMailer::Base.deliveries.size
-        }.by(1)
+        get :send_ios_push_notification, id: event.id
       end
     end
   end
