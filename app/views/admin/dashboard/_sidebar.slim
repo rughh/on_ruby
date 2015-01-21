@@ -1,6 +1,17 @@
 h3 Event Actions
 
-- if unpublished = Event.unpublished
+- if events = Event.latest.limit(5)
+  h4 Latest 5 Events
+  ul
+    - events.each do |event|
+      li
+        = "#{event.name}: "
+        = link_to("tweet", twitter_update_url(event))
+        = " / "
+        = link_to("send ios push notification", url_for(controller: "/admin/events", action: :send_ios_push_notification, id: event.id))
+
+- unless (unpublished = Event.unpublished).empty?
+  h4 Unpublished
   ul
     - unpublished.each do |event|
       li
