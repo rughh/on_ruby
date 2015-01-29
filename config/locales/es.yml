@@ -31,6 +31,7 @@ es:
     attention: "Atención:"
     other_job: "Otro trabajo"
     job_description: "Trabajos de Ruby o Rails en %{city}: %{job_link} para %{company_link}"
+    click_to_refresh: "Haga clic para actualizar!"
   footer:
     to_mobile: "Versión móvil"
     imprint: "Responsable"
