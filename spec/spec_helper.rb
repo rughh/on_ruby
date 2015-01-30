@@ -6,6 +6,7 @@ CodeClimate::TestReporter.start
 
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'sucker_punch/testing/inline'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file }
 
@@ -17,15 +18,11 @@ RSpec.configure do |config|
   config.include GeocoderHelper
   config.include FactoryGirl::Syntax::Methods
 
-  # config.raise_errors_for_deprecations!
   config.infer_spec_type_from_file_location!
-  config.use_transactional_fixtures = true
   config.filter_run focus: true
   config.run_all_when_everything_filtered = true
 
-  config.before do
-    I18n.locale = :de
-    Whitelabel.label = Whitelabel.labels.first
+  config.before(:all) do
     stub_geocoder
   end
 
@@ -35,6 +32,24 @@ RSpec.configure do |config|
 
   config.before(:each, type: :controller) do
     set_subdomain
+  end
+
+  config.before(:each) do
+    I18n.locale = :de
+    Whitelabel.label = Whitelabel.labels.first
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each, job: true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
   end
 end
 

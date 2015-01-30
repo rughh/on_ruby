@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Location do
-
   before(:each) do
     @location       = create(:location, street: "Schanzenstr.", house_number: "85", zip: "20357", city: "Hamburg")
     @other_location = create(:location, label: "cologne")
@@ -33,19 +32,4 @@ describe Location do
       expect(@location.full_address).to eq('Schanzenstr. 85, 20357 Hamburg, Deutschland')
     end
   end
-
-  context "#geocoding" do
-    it 'should geocode once a location is saved' do
-      Location.all.each do |locn|
-        expect(locn.lat).to_not be_nil
-        expect(locn.long).to_not be_nil
-      end
-    end
-
-    it 'should geocode with expected data once a location is saved' do
-      expect(@location.lat).to be(Geocoder.coordinates(@location.full_address)[0])
-      expect(@location.long).to be(Geocoder.coordinates(@location.full_address)[1])
-    end
-  end
-
 end
