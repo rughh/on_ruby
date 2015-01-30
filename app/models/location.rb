@@ -6,7 +6,7 @@ class Location < ActiveRecord::Base
   expose_api :id, :name, :url, :city, :street, :house_number, :zip, :wheelmap_id
 
   geocoded_by :full_address, latitude: :lat, longitude: :long
-  after_validation :geocode
+  after_commit :perform_geocoding
 
   has_many :events
   has_many :jobs
@@ -27,5 +27,11 @@ class Location < ActiveRecord::Base
 
   def nice_url
     URI.parse(url).host
+  end
+
+  private
+
+  def perform_geocoding
+    GeoJob.perform_later(self) unless geocoded?
   end
 end
