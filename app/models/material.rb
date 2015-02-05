@@ -8,4 +8,13 @@ class Material < ActiveRecord::Base
   belongs_to :event
 
   default_scope -> { joins(:event).where("events.label" => Whitelabel[:label_id]).readonly(false) }
+
+  def generate_preview
+    generator = PreviewGenerator.new(self.url)
+    generator.generate_preview
+    self.preview_type = generator.type
+    self.preview_code = generator.code
+    save
+  end
+
 end
