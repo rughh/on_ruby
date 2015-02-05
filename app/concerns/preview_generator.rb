@@ -11,9 +11,9 @@ class PreviewGenerator
   def generate_preview()
     website = LinkThumbnailer.generate(uri)
 
-    video = website.videos.find { |v| v.embedded_code.present? }
+    video = website.videos.find { |v| v.embed_code.present? }
     if video then
-      self.code = video.embedded_code
+      self.code = video.embed_code
       self.type = :video
     else
       image = website.images.first

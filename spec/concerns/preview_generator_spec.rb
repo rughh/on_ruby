@@ -17,8 +17,8 @@ describe "PreviewGenerator" do
 
     it "detects the first embeddable video code" do
 
-      embeddable     = double(embedded_code: "code")
-      non_embeddable = double(embedded_code: nil)
+      embeddable     = double(embed_code: "code")
+      non_embeddable = double(embed_code: nil)
       website        = double(videos: [non_embeddable, embeddable], images: [])
 
       expect(LinkThumbnailer).to receive(:generate).with('http://hey.com').and_return(website)
