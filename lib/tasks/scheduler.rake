@@ -13,6 +13,18 @@ namespace :scheduler do
     end
   end
 
+  task update_preview: :environment do
+    with_tracking do
+      puts "updating previews"
+      Whitelabel.each_label do
+        Material.naked.each do |material|
+          material.generate_preview
+          sleep(1) # rate limiting
+        end
+      end
+    end
+  end
+
   private
 
   def with_tracking

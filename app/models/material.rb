@@ -7,6 +7,8 @@ class Material < ActiveRecord::Base
   belongs_to :user
   belongs_to :event
 
+  scope :naked, -> { where("preview_type IS NULL AND preview_code is NULL") }
+
   default_scope -> { joins(:event).where("events.label" => Whitelabel[:label_id]).readonly(false) }
 
   def generate_preview
