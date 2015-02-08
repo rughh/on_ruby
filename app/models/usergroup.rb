@@ -2,7 +2,6 @@ class Usergroup
   DELIMITER_TIME    = ':'
   DELIMITER_DATE    = ' '
   NUMBERS           = %w(first second third fourth)
-  SUPPORTED_TLDS    = [:de, :at]
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :google_group, :coc
   attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups, :tld, :sponsors
