@@ -357,7 +357,7 @@ GEM
       addressable
       htmlentities
       multi_json
-    whitelabel (0.2.0)
+    whitelabel (0.3.0)
     zero_push (2.4.1)
       faraday (~> 0.9.0)
       faraday_middleware (~> 0.9.0)
@@ -423,5 +423,5 @@ DEPENDENCIES
   typus!
   uglifier (~> 2.5.0)
   unicorn (~> 4.8.0)
-  whitelabel (~> 0.2.0)
+  whitelabel (~> 0.3)
   zero_push (~> 2.4.1)
