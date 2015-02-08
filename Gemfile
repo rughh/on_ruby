@@ -38,6 +38,7 @@ gem "peek-gc",                "~> 0.0.2"
 gem "peek-git",               "~> 1.0.2"
 gem "peek-performance_bar",   "~> 1.1.3"
 gem "zero_push",              "~> 2.4.1"
+gem 'link_thumbnailer',       "~> 2.4.0"
 
 group :production, :caching do
   gem "heroku-deflater",  "~> 0.5.3"
