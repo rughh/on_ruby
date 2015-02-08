@@ -1,7 +1,7 @@
 h3 Event Actions
 
-- if events = Event.latest.limit(5)
-  h4 Latest 5 Events
+- if events = Event.ordered.limit(5)
+  h4 Latest Events
   ul
     - events.each do |event|
       li
