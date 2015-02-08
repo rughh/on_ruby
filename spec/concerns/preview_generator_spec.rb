@@ -12,7 +12,14 @@ describe "PreviewGenerator" do
     it "invokes LinkThumbnailer" do
       website = double(videos: [], images: [])
       expect(LinkThumbnailer).to receive(:generate).with('http://hey.com').and_return(website)
+
       PreviewGenerator.new('http://hey.com').generate_preview
+    end
+
+    it "handles bad URIs" do
+      expect(LinkThumbnailer).to receive(:generate).and_raise(Net::HTTPServerException.new("", ""))
+
+      expect { PreviewGenerator.new('http://hey.com').generate_preview }.not_to raise_error      
     end
 
     it "detects the first embeddable video code" do

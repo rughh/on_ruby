@@ -8,7 +8,7 @@ class PreviewGenerator
     @uri = uri
   end
 
-  def generate_preview()
+  def generate_preview
     website = LinkThumbnailer.generate(uri)
 
     video = website.videos.find { |v| v.embed_code.present? }
@@ -24,7 +24,8 @@ class PreviewGenerator
         self.type = :none
       end
     end
-
+  rescue Net::HTTPServerException => e
+    Rails.logger.warn("Could not generate preview for url #{uri}: #{e}")
   end
 
   def video?
