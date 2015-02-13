@@ -7,15 +7,14 @@ class Admin::EventsController < Admin::ResourcesController
   def publish
     event = Event.find(params[:id])
     UsergroupMailer.invitation_mail(event).deliver_now!
-    push_app_notification(event)
     event.update_attributes! published: true
 
     redirect_to url_for(controller: "/admin/events", action: :edit, id: event.id), notice: "Published!"
   end
 
-  private
+  def send_ios_push_notification
+    event = Event.find(params[:id])
 
-  def push_app_notification(event)
     options = {
       channel:           Whitelabel[:label_id],
       alert:             "#{I18n.tw('name')}: new event at #{I18n.l(event.date)}",
@@ -23,5 +22,7 @@ class Admin::EventsController < Admin::ResourcesController
     }
 
     ZeroPush.broadcast(options)
+
+    redirect_to url_for(controller: "/admin/events", action: :show, id: event.id), alert: "iOS Push Notification sent!"
   end
 end

@@ -384,6 +384,8 @@ footer
         display: inline-block
         margin-right: 1em
         padding-bottom: 1em
+        img
+          height: 60px
         +phone
           padding-left: 0
           padding-right: 0
@@ -441,3 +443,28 @@ footer
         text-align: center
         img
           max-width: 120px
+
+.preview
+  margin-top: 1em
+  margin-bottom: 1em
+
+  &.video
+    height: 29em
+    iframe
+      height: 100%
+      width: 100%
+
+  &.image
+    height: 10em
+    overflow: hidden
+    a
+      height: 100%
+      width: 100%
+      display: block
+      img
+        max-height: 100%
+        max-width: 100%
+        display: block
+        margin: auto
+
+

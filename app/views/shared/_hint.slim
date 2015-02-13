@@ -16,6 +16,6 @@
       - render_cached(:jobs) do
         #jobs
           = hint(false) do
-            span.reload= link_to fa_icon("refresh"), '#', title: 'click me to refresh!'
+            span.reload= link_to fa_icon("refresh"), '#', title: t("hint.click_to_refresh")
             - jobs.each do |job|
               .jobs== job_description(job)

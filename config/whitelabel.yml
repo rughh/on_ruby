@@ -21,6 +21,16 @@
     :contributors:
     - :name: Peter Schröder
       :email: phoetmail@googlemail.com
+  sponsors:
+  - :name: GitHub
+    :url: https://www.github.com/
+    :banner: github.png
+  - :name: Engine Yard
+    :url: https://www.engineyard.com/
+    :banner: engineyard.png
+  - :name: JetBrains
+    :url: https://www.jetbrains.com/
+    :banner: jetbrains.png
   other_usergroups:
   - :name: HH.js
     :url: http://www.meetup.com/hamburg-js/
@@ -401,8 +411,8 @@
   - :name: Codecantor
     :url: http://codecantor.com
     :banner: codecantor.png
-  tld: de
+  tld: eu
   coc: http://madridrb.com
   domains:
   - madridrb.com
-  :google_group: madridrb
+  :google_group: madrid-rb

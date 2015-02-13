@@ -16,6 +16,7 @@ Source for the Sites of the Ruby Communities
 * [Railsgirls Hamburg](http://railsgirlshh.onruby.de)
 * [Bonn](http://bonn.onruby.de)
 * [Innsbruck](http://innsbruck.onruby.at)
+* [Madrid](http://madridrb.onruby.eu)
 
 [![I Love Open Source](http://www.iloveopensource.io/images/logo-lightbg.png)](http://www.iloveopensource.io/projects/524c41bdca7964c61700044d)
 
@@ -53,7 +54,7 @@ For working with the whitelabel functionality, you need to add all supported sub
 
     127.0.0.1    www.onruby.dev hamburg.onruby.dev cologne.onruby.dev bremen.onruby.dev saar.onruby.dev
     127.0.0.1    berlin.onruby.dev karlsruhe.onruby.dev leipzig.onruby.dev dresden.onruby.dev
-    127.0.0.1    railsgirlshh.onruby.dev bonn.onruby.dev
+    127.0.0.1    railsgirlshh.onruby.dev bonn.onruby.dev madridrb.onruby.dev
 
 Access via [http://www.onruby.dev:5000](http://www.onruby.dev:5000)
 

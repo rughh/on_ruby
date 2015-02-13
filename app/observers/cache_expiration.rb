@@ -14,7 +14,7 @@ class CacheExpiration < ActiveRecord::Observer
   end
 
   def self.expire_view_cache
-    [:de, :en].each do |locale|
+    I18n.available_locales.each do |locale|
       [[:home, :index], [:highlights], [:jobs]].each do |segment|
         key = [:views, Whitelabel[:label_id], locale]
         key = key.concat(segment).join("/")

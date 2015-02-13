@@ -30,6 +30,7 @@ en:
     attention: "Attention:"
     other_job: "Other Job"
     job_description: "Ruby / Rails Jobs in %{city}: %{job_link} at %{company_link}"
+    click_to_refresh: "click me to refresh!"
   footer:
     to_mobile: "mobile Version"
     imprint: "Imprint"
