@@ -1,22 +1,4 @@
 GIT
-  remote: git://github.com/norman/friendly_id.git
-  revision: 8813cb94583d4ddaef1343af614b920a22dfff6d
-  specs:
-    friendly_id (5.1.0.beta.1)
-      activerecord (>= 4.0.0)
-
-GIT
-  remote: git://github.com/rails/sass-rails.git
-  revision: 4ec13b1e10c86695b4a094ff9c5049c28567c7d2
-  specs:
-    sass-rails (5.0.1)
-      railties (>= 4.0.0, < 5.0)
-      sass (~> 3.1)
-      sprockets (>= 2.8, < 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
-      tilt (~> 1.1)
-
-GIT
   remote: git://github.com/typus/typus.git
   revision: dff5f5a496b2e6b6e25d963bb984bf583aff305d
   specs:
@@ -145,6 +127,8 @@ GEM
       railties (>= 3.2, < 5.0)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     geocoder (1.2.6)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
@@ -314,6 +298,12 @@ GEM
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
     sass (3.4.9)
+    sass-rails (5.0.1)
+      railties (>= 4.0.0, < 5.0)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (~> 1.1)
     sax-machine (1.2.0)
     simplecov (0.9.1)
       docile (~> 1.1.0)
@@ -375,7 +365,7 @@ DEPENDENCIES
   feedjira (~> 1.2)
   font-awesome-rails (~> 4.0)
   formtastic (~> 2.2.1)
-  friendly_id!
+  friendly_id (~> 5.1.0)
   geocoder (~> 1.1)
   heroku-deflater (~> 0.5.3)
   jquery-rails (~> 3.0)
@@ -410,7 +400,7 @@ DEPENDENCIES
   ri_cal (~> 0.8.8)
   rspec-collection_matchers
   rspec-rails
-  sass-rails!
+  sass-rails (~> 5.0.1)
   slim-rails (~> 3.0)
   spring
   spring-commands-rspec
