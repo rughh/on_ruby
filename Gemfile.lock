@@ -214,7 +214,7 @@ GEM
       omniauth-oauth (~> 1.0)
     partially_useful (0.2.1)
       railties (~> 4.0)
-    passenger (5.0.0.beta2)
+    passenger (5.0.0.beta3)
       daemon_controller (>= 1.2.0)
       rack
       rake (>= 0.8.1)
@@ -389,7 +389,7 @@ DEPENDENCIES
   omniauth-github (~> 1.1.2)
   omniauth-twitter (~> 1.0.1)
   partially_useful
-  passenger (~> 5.0.0.beta2)
+  passenger (~> 5.0.0.beta3)
   peek (~> 0.1.8)
   peek-dalli (~> 1.1.2)
   peek-gc (~> 0.0.2)
