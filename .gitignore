@@ -21,3 +21,4 @@ spec/reports/
 .vagrant
 Vagrantfile
 .ruby-gemset
+passenger.*

@@ -1,7 +1,7 @@
 source "http://rubygems.org"
-ruby File.read('.ruby-version').chomp
+ruby File.read("#{File.dirname(__FILE__)}/.ruby-version").chomp
 
-gem "unicorn",                "~> 4.8.0"
+gem "passenger",              "~> 5.0.0.beta3"
 gem "rails",                  "~> 4.2.0"
 gem "responders",             "~> 2.0"
 gem "rails-observers",        "~> 0.1.2"
