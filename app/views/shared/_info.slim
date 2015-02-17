@@ -1,4 +1,4 @@
 - if ENV['MY_SHA_REVISION'].present?
-  | <!-- git-#{ENV['MY_SHA_REVISION']} -->
+  | <!-- git-#{{ENV['MY_SHA_REVISION']}} -->
 - if defined?(PhusionPassenger)
   | <!-- ruby-#{RUBY_VERSION}-#{RUBY_PATCHLEVEL} on rails-#{Rails.version} served by PhusionPassenger-#{PhusionPassenger::VERSION_STRING} -->

@@ -8,5 +8,6 @@ export OMNIAUTH_GITHUB_RUGB_DEV_SECRET=93d2f12e662e79f23d8aa9cf8bd271bfd1462db7
 export OMNIAUTH_GITHUB_ONRUBY_DEV_KEY=40476a2d1961166b313d
 export OMNIAUTH_GITHUB_ONRUBY_DEV_SECRET=631246927040210ff8d21f7d734c291f7b8b8dcf
 export ZEROPUSH_KEY=ZEROPUSH_TEST_KEY
+export MY_SHA_REVISION='{"app":"onruby","user":"phoetmail@googlemail.com","url":"http://onruby.herokuapp.com","head":"480d46b","prev_head":"","head_long":"480d46b","git_log":"","release":"v221"}'
 
 bundle exec passenger start -p 5000 --environment development
