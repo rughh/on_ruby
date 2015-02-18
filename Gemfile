@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 ruby File.read("#{File.dirname(__FILE__)}/.ruby-version").chomp
 
-gem "passenger",              "~> 5.0.0.beta3"
+gem "puma",                   "~> 2.11"
 gem "rails",                  "~> 4.2.0"
 gem "responders",             "~> 2.0"
 gem "rails-observers",        "~> 0.1.2"
