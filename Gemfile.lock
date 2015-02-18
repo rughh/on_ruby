@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/burn-notice/peek-git.git
+  revision: 9315fc512c650c3412ea0583546af7d5fdc3bd5e
+  specs:
+    peek-git (1.0.2)
+      peek
+
+GIT
   remote: git://github.com/typus/typus.git
   revision: dff5f5a496b2e6b6e25d963bb984bf583aff305d
   specs:
@@ -223,8 +230,6 @@ GEM
       peek
     peek-gc (0.0.2)
       peek
-    peek-git (1.0.2)
-      peek
     peek-performance_bar (1.1.6)
       peek (>= 0.1.0)
     peek-pg (1.1.0)
@@ -400,7 +405,7 @@ DEPENDENCIES
   peek (~> 0.1.8)
   peek-dalli (~> 1.1.2)
   peek-gc (~> 0.0.2)
-  peek-git (~> 1.0.2)
+  peek-git!
   peek-performance_bar (~> 1.1.3)
   peek-pg (~> 1.1.0)
   pg (~> 0.17.1)
