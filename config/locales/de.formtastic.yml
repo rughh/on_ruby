@@ -3,11 +3,12 @@ de:
     labels:
       topic:
         name: 'Dein Vorschlag'
-        description: 'Genauere Beschreibung'
         proposal_type: 'Art des Vorschlags'
+        description: 'Genauere Beschreibung'
       user:
         hide_jobs: 'Jobs ausblenden'
         available: 'auf Job-/Projektsuche'
+        description: 'Beschreibung'
     placeholders:
       github: 'GitHub-Username'
     actions:

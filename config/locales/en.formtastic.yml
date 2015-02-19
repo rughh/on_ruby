@@ -8,6 +8,7 @@ en:
       user:
         hide_jobs: 'hide Jobs'
         available: 'looking for Jobs/Projects'
+        description: 'Description'
     placeholders:
       github: 'GitHub-Username'
     actions:
