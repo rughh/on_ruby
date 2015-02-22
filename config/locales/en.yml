@@ -117,7 +117,6 @@ en:
   event:
     twitter_message: "%{name} at %{date} %{url}"
     recurring: "every %{ordinal} %{day} of the month"
-    subscribe: "subscribe my Events"
     first: "first"
     second: "second"
     third: "third"
@@ -125,6 +124,7 @@ en:
     last: "last"
   events:
     calendar_html: "Calendar: %{webcal_link} - %{rss_link}"
+    im_attending_html: "Events I'm attending: %{events_im_attending_link}"
     webcal: 'Webcal'
     rss: 'RSS'
   flash:
