@@ -2,9 +2,9 @@ xml.instruct!
 
 xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
  xml.channel do
-   xml.title       "#{I18n.tw('title')} Feed"
+   xml.title       I18n.tw('title')
    xml.link        url_for only_path: false, controller: 'events'
-   xml.description "Aktuelle #{I18n.tw('name')} Events"
+   xml.description I18n.tw('name')
 
    events.each do |event|
      xml.item do

@@ -1,4 +1,11 @@
 de:
+  main:
+    events: "Treffen"
+    mailing_list: "Mailinglist"
+    locations: "Orte"
+    people: "Leute"
+    topics: "Themen"
+    materials: "Zusätzliches Material"
   time:
     formats:
       time: "%H:%M"
@@ -12,13 +19,6 @@ de:
     de: "Deutsch"
     en: "Englisch"
     es: "Spanisch"
-  usergroups: "Usergroups"
-  events: "Treffen"
-  mailing_list: "Mailinglist"
-  locations: "Orte"
-  people: "Leute"
-  topics: "Themen"
-  materials: "Zusätzliches Material"
   login:
     profile: "Profil ansehen"
     edit_profile: "Profil bearbeiten"
@@ -118,12 +118,16 @@ de:
   event:
     twitter_message: "%{name} am %{date} %{url}"
     recurring: "jeden %{ordinal} %{day} im Monat"
-    subscribe: "meine Events abonieren"
     first: "1."
     second: "2."
     third: "3."
     fourth: "4."
     last: "letzten"
+  events:
+    calendar_html: "Kalender: %{webcal_link} - %{rss_link}"
+    im_attending_html: "Meine Events abonieren: %{events_im_attending_link}"
+    webcal: 'Webcal'
+    rss: 'RSS'
   flash:
     duplicate_nick: "Der Nickname '%{name}' ist bereits vergeben! Wenn Du Dich schon über einen anderen Provider angemeldet hast, dann trage bitte in Deinem Profil die entsprechenden Handles ein!"
     only_admins: "Hoppala, da dürfen nur Admins hin!"

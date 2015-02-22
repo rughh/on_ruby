@@ -6,10 +6,10 @@ section
     span
       = fa_icon('calendar', class: 'fa-fw')
       => link_to l(event.date, format: :long), event_path(event, format: :ics), title: event.name, class: 'ical'
-      - if signed_in?
-        ==> "(#{calendar_link})"
+
     => t("show.hosted_by")
     = link_to_user event.user
+
   p.meta
     = fa_icon('map-marker', class: 'fa-fw')
     - if event.location.present?
@@ -20,7 +20,6 @@ section
 
   == markdown event.description
 
-
   - if event.participants.present?
     h3= t("show.attendees", count: event.limit || 0, participant_count: event.participants.count)
     p= render 'users/list', users: event.users
@@ -29,3 +28,7 @@ section
   = render "materials", materials: event.materials
   - if event.location.present?
     = render 'shared/route', location: event.location
+
+  p= link_to t('home.all_events'), events_path
+
+

@@ -48,7 +48,7 @@ module ApplicationHelper
 
   def section_box(name)
     content_tag :section, class: name, id: name do
-      concat content_tag(:h2, content_tag(:i, '', class: "icon icon-#{name}") + t(name))
+      concat content_tag(:h2, content_tag(:i, '', class: "icon icon-#{name}") + t("main.#{name}"))
       yield
     end
   end
