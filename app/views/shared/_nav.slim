@@ -6,9 +6,9 @@ nav#nav.navbar
         = link_to image_tag("labels/#{Whitelabel[:label_id]}.png", class: 'label-img', alt: title), '#on_ruby', class: 'label-link'
       - nav_entries.each do |it|
         li
-          = link_to root_path(anchor: it), title: t(it) do
+          = link_to root_path(anchor: it), title: t("main.#{it}") do
             i class="icon icon-#{it}"
-            span.nav-text.hide-phone= t(it)
+            span.nav-text.hide-phone= t("main.#{it}")
       li.dropdown
         - if signed_in?
           = link_to user_path(current_user), {class: 'dropdown-toggle', title: current_user.name} do

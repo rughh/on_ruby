@@ -1,4 +1,11 @@
 de:
+  main:
+    events: "Treffen"
+    mailing_list: "Mailinglist"
+    locations: "Orte"
+    people: "Leute"
+    topics: "Themen"
+    materials: "Zusätzliches Material"
   time:
     formats:
       time: "%H:%M"
@@ -12,13 +19,6 @@ de:
     de: "Deutsch"
     en: "Englisch"
     es: "Spanisch"
-  usergroups: "Usergroups"
-  events: "Treffen"
-  mailing_list: "Mailinglist"
-  locations: "Orte"
-  people: "Leute"
-  topics: "Themen"
-  materials: "Zusätzliches Material"
   login:
     profile: "Profil ansehen"
     edit_profile: "Profil bearbeiten"
