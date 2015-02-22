@@ -125,6 +125,10 @@ es:
     third:  "tercer"
     fourth: "cuarto"
     last:   "último"
+  events:
+    calendar_html: "Calendario: %{webcal_link} - %{rss_link}"
+    webcal: 'Webcal'
+    rss: 'RSS'
   flash:
     only_admins: "Solamente los administradores pueden entrar ahí"
     not_authenticated: "Por favor autentifícate antes de entrar"

@@ -7,3 +7,10 @@
     - event.topics.each do |topic|
       li.topic= link_to_topic topic
   = paginate events
+
+  p
+    = t 'events.calendar_html',
+      webcal_link: all_events_webcal_link,
+      rss_link:    all_events_rss_link
+
+

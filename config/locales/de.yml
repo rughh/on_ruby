@@ -124,6 +124,10 @@ de:
     third: "3."
     fourth: "4."
     last: "letzten"
+  events:
+    calendar_html: "Kalender: %{webcal_link} - %{rss_link}"
+    webcal: 'Webcal'
+    rss: 'RSS'
   flash:
     duplicate_nick: "Der Nickname '%{name}' ist bereits vergeben! Wenn Du Dich schon über einen anderen Provider angemeldet hast, dann trage bitte in Deinem Profil die entsprechenden Handles ein!"
     only_admins: "Hoppala, da dürfen nur Admins hin!"
