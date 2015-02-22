@@ -70,7 +70,7 @@ es:
     usergroup_locations: "Estos son los sitios %{location_link} donde nuestro grupo se ha reunido con anterioridad."
     show_more: "ver más"
     no_new_topics: "Actualmente no hay propuestas, ¡añade tu %{new_topic_link}!"
-    all_events: "Todos los eventos"
+    all_events: "Ver todos los eventos"
     all_people: "Toda la gente"
     to_mailinglist: "A la lista de correo "
     top_maling_entries: "Mensajes recientes"
