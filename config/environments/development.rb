@@ -28,6 +28,8 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.cache_store = :dalli_store, 'cache:11211', {expires_in: 1.day, compress: true}
+
   config.middleware.use "CookieDomain", ".onruby.dev"
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
