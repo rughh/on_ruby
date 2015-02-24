@@ -4,8 +4,8 @@ development: &default
   min_messages: WARNING
   pool: 5
   username: postgres
-  host: <%= ENV['ONRUBY_DB_1_PORT_5432_TCP_ADDR'] %>
-  port: <%= ENV['ONRUBY_DB_1_PORT_5432_TCP_PORT'] %>
+  host: db
+  port: 5432
 
 test:
   <<: *default
