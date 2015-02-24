@@ -1,3 +1,8 @@
+cache:
+  image: memcached:1.4.22
+  ports:
+    - "11211:11211"
+
 db:
   image: postgres:9.4.1
   ports:
@@ -9,6 +14,7 @@ web:
   ports:
     - "5000:5000"
   links:
+    - cache
     - db
   volumes:
     - .:/myapp

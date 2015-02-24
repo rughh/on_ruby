@@ -41,12 +41,13 @@ gem "peek-performance_bar",   "~> 1.1.3"
 gem "zero_push",              "~> 2.4.1"
 gem 'link_thumbnailer',       "~> 2.4.0"
 
-group :production, :caching do
+gem "dalli",            "~> 2.7.0"
+gem "kgio",             "~> 2.9.2"
+gem "lograge",          "~> 0.3.0"
+
+group :production do
   gem "heroku-deflater",  "~> 0.5.3"
   gem "rails_12factor",   "~> 0.0.2"
-  gem "dalli",            "~> 2.7.0"
-  gem "kgio",             "~> 2.9.2"
-  gem "lograge",          "~> 0.3.0"
 end
 
 group :development do
