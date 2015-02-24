@@ -1,5 +1,5 @@
 source "http://rubygems.org"
-ruby File.read("#{File.dirname(__FILE__)}/.ruby-version").chomp
+ruby "2.2.0"
 
 gem "puma",                   "~> 2.11"
 gem "rails",                  "~> 4.2.0"

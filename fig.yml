@@ -1,0 +1,14 @@
+db:
+  image: postgres:9.4.1
+  ports:
+    - "5432:5432"
+
+web:
+  build: .
+  command: "script/server"
+  ports:
+    - "5000:5000"
+  links:
+    - db
+  volumes:
+    - .:/myapp

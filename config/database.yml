@@ -1,13 +1,12 @@
-development:
+development: &default
   adapter: postgresql
   database: onruby_development
+  min_messages: WARNING
+  pool: 5
   username: postgres
-  host: localhost
-  encoding: utf8
+  host: <%= ENV['ONRUBY_DB_1_PORT_5432_TCP_ADDR'] %>
+  port: <%= ENV['ONRUBY_DB_1_PORT_5432_TCP_PORT'] %>
 
 test:
-  adapter: postgresql
+  <<: *default
   database: onruby_test
-  username: postgres
-  host: localhost
-  encoding: utf8
