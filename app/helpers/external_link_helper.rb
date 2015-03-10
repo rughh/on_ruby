@@ -76,8 +76,9 @@ module ExternalLinkHelper
 
   def ribbon(type)
     types = {
-      github:                 ["Fork me on GitHub!",      "https://github.com/phoet/on_ruby"],
-      senor_developer:        ["Señor Developer!",        "http://senordevelopershop.spreadshirt.de"],
+      github:                 ["Fork me on GitHub!",  "https://github.com/phoet/on_ruby"],
+      senor_developer:        ["Señor Developer!",    "http://senordevelopershop.spreadshirt.de"],
+      rgsoc:                  ["SUMMER OF CODE",      "http://railsgirlssummerofcode.org/campaign/"],
     }
     text, url = types[type]
     content_tag :div, id: "#{type}_ribbon", class: 'ribbon_wrap' do
