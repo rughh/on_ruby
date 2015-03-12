@@ -14,6 +14,8 @@
     :zoom: 14
     :lat: 53.56544
     :long: 9.95947
+  timezone:
+    "Europe/Berlin"
   imprint:
     :address: |-
       Schanzenstr. 85
@@ -68,6 +70,8 @@
     :zoom: 14
     :lat: 53.079296
     :long: 8.801694
+  timezone:
+    "Europe/Berlin"
   imprint:
     :address: |-
       Hansator 1
@@ -94,6 +98,8 @@
     :zoom: 13
     :lat: 50.941231
     :long: 6.957092
+  timezone:
+    "Europe/Berlin"
   imprint:
     :address: "An der Bottmühle 5 \n50678 Köln "
     :contributors:
@@ -137,6 +143,8 @@
     :zoom: 13
     :lat: 49.23856
     :long: 6.996574
+  timezone:
+    "Europe/Berlin"
   imprint:
     :address: |-
       Science Park 2
@@ -161,6 +169,8 @@
     :zoom: 14
     :lat: 49.006292
     :long: 8.398361
+  timezone:
+    "Europe/Berlin"
   imprint:
     :address: |-
       Amalienstraße 44
@@ -193,6 +203,8 @@
     :zoom: 14
     :lat: 52.52
     :long: 13.4
+  timezone:
+    "Europe/Berlin"
   imprint:
     :address: |-
       Adalbertstraße 8
@@ -219,6 +231,8 @@
     :zoom: 14
     :lat: 51.3287
     :long: 12.32329
+  timezone:
+    "Europe/Berlin"
   imprint:
     :contributors:
     - :name: Christoph Petschnig
@@ -242,6 +256,8 @@
     :zoom: 14
     :lat: 51.049013
     :long: 13.798582
+  timezone:
+    "Europe/Berlin"
   imprint:
     :address: |-
       ObjectFab GmbH
@@ -280,6 +296,8 @@
     :zoom: 14
     :lat: 53.56544
     :long: 9.95947
+  timezone:
+    "Europe/Berlin"
   imprint:
     :address: |-
       Adalbertstr. 7
@@ -327,6 +345,8 @@
     :zoom: 14
     :lat: 50.724
     :long: 7.112488
+  timezone:
+    "Europe/Berlin"
   imprint:
     :address: |-
       mixxt GmbH
@@ -354,6 +374,8 @@
     :zoom: 14
     :lat: 47.2578229
     :long: 11.3961853
+  timezone:
+    "Europe/Vienna"
   imprint:
     :address: |-
       Tschamlerstraße 3
@@ -378,6 +400,8 @@
     :zoom: 14
     :lat: 40.454843
     :long: -3.693945
+  timezone:
+    "Europe/Madrid"
   imprint:
     :address: |-
       Av del Brasil, 7 (The Irish Rover)
