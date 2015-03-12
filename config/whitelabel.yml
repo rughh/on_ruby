@@ -54,6 +54,7 @@
   - :name: DJANGO Usergroup
     :url: http://www.dughh.de/
   tld: de
+  coc: http://rubyberlin.github.io/code-of-conduct
 - !ruby/object:Usergroup
   label_id: bremen
   default_locale: de
