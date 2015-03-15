@@ -13,7 +13,7 @@
     :zoom: 14
     :lat: 53.56544
     :long: 9.95947
-  timezone:
+  default_time_zone:
     "Europe/Berlin"
   imprint:
     :address: |-
@@ -70,7 +70,7 @@
     :zoom: 14
     :lat: 53.079296
     :long: 8.801694
-  timezone:
+  default_time_zone:
     "Europe/Berlin"
   imprint:
     :address: |-
@@ -98,7 +98,7 @@
     :zoom: 13
     :lat: 50.941231
     :long: 6.957092
-  timezone:
+  default_time_zone:
     "Europe/Berlin"
   imprint:
     :address: "An der Bottmühle 5 \n50678 Köln "
@@ -143,7 +143,7 @@
     :zoom: 13
     :lat: 49.23856
     :long: 6.996574
-  timezone:
+  default_time_zone:
     "Europe/Berlin"
   imprint:
     :address: |-
@@ -169,7 +169,7 @@
     :zoom: 14
     :lat: 49.006292
     :long: 8.398361
-  timezone:
+  default_time_zone:
     "Europe/Berlin"
   imprint:
     :address: |-
@@ -203,7 +203,7 @@
     :zoom: 14
     :lat: 52.52
     :long: 13.4
-  timezone:
+  default_time_zone:
     "Europe/Berlin"
   imprint:
     :address: |-
@@ -231,7 +231,7 @@
     :zoom: 14
     :lat: 51.3287
     :long: 12.32329
-  timezone:
+  default_time_zone:
     "Europe/Berlin"
   imprint:
     :contributors:
@@ -256,7 +256,7 @@
     :zoom: 14
     :lat: 51.049013
     :long: 13.798582
-  timezone:
+  default_time_zone:
     "Europe/Berlin"
   imprint:
     :address: |-
@@ -296,7 +296,7 @@
     :zoom: 14
     :lat: 53.56544
     :long: 9.95947
-  timezone:
+  default_time_zone:
     "Europe/Berlin"
   imprint:
     :address: |-
@@ -345,7 +345,7 @@
     :zoom: 14
     :lat: 50.724
     :long: 7.112488
-  timezone:
+  default_time_zone:
     "Europe/Berlin"
   imprint:
     :address: |-
@@ -374,7 +374,7 @@
     :zoom: 14
     :lat: 47.2578229
     :long: 11.3961853
-  timezone:
+  default_time_zone:
     "Europe/Vienna"
   imprint:
     :address: |-
@@ -400,7 +400,7 @@
     :zoom: 14
     :lat: 40.454843
     :long: -3.693945
-  timezone:
+  default_time_zone:
     "Europe/Madrid"
   imprint:
     :address: |-
