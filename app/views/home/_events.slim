@@ -24,3 +24,5 @@
       li.all
         = fa_icon 'mail-forward', class: 'pull-left'
         = link_to t('home.all_events'), events_path
+  - else
+    = link_to t('home.all_events'), events_path
