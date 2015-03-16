@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include WhitelabelDetection
   include LocaleDetection
+  include TimeZoneDetection
   include UserHandling
 
   decent_configuration do
@@ -31,6 +32,7 @@ class ApplicationController < ActionController::Base
   def setup
     switch_label
     switch_locale
+    switch_time_zone
   end
 
   def _404(exception)

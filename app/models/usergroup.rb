@@ -3,7 +3,7 @@ class Usergroup
   DELIMITER_DATE    = ' '
   NUMBERS           = %w(first second third fourth)
 
-  attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :google_group, :coc
+  attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :google_group, :coc, :default_time_zone
   attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups, :tld, :sponsors
 
   def parse_recurring_date(date)
