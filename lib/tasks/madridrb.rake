@@ -15,40 +15,57 @@ namespace :madridrb do
     "Utopic_US US3 (c/ Colegiata 9)" => "Utopic_US US3",
   }
 
-  def get_location(location_name)
+  def find_location(location_name)
     location_name = LOCATION_ALIASES[location_name] || location_name
-    # Todo: find location by name or error
+    Location.where(name: location_name).first!
   end
 
-  def import_event(event_info)
-    date_string = "#{event_info['meeting_date']}T#{event_info['meeting_time']}"
-    date = DateTime.iso8601(date_string).in_time_zone
-    month_name = I18n.t('date.month_names')[date.month].capitalize
-    event = Event.new(
-      name: "#{month_name} #{date.year}",
-      description: "Reunión de Madrid.rb de #{month_name} #{date.year}",
-      date: date
-    )
-    puts event.attributes
-  end
-
-
-
-
-  desc "imports data from ./data/madridrb.yml"
-  task import: :environment do
-
-    locations = YAML.load_file File.join(File.dirname(__FILE__), 'data','madridrb-locations.yml')
-    # todo: create locations if not existing
-    meetings = YAML.load_file File.join(File.dirname(__FILE__), 'data', 'madridrb-meetings.yml')
-
+  desc "sets the label to madrid"
+  task set_label: :environment do
     Whitelabel.label = Whitelabel.label_for(:madridrb)
 
     Time.zone = Whitelabel[:default_time_zone]
     I18n.locale = Whitelabel[:default_locale]
+  end
 
-    puts(meetings.collect do |x|
-      LOCATION_ALIASES[x['venue']] || x['venue']
-    end.uniq.compact.sort)
+  namespace :import do
+
+    desc "imports locations from ./data/madridrb-locations.yml"
+    task locations: 'madridrb:set_label' do
+      locations_attrs = YAML.load_file File.join(File.dirname(__FILE__), 'data','madridrb-locations.yml')
+
+      locations_attrs.each do |attrs|
+        Location.find_or_create_by(name: attrs[:name]) do |loc|
+          puts "Creating #{attrs[:name]}"
+          loc.assign_attributes(attrs)
+        end
+      end
+    end
+
+
+    desc "imports data from ./data/madridrb-meetings.yml"
+    task meetings: 'madridrb:import:locations' do
+
+      event_attrs = YAML.load_file File.join(File.dirname(__FILE__), 'data', 'madridrb-meetings.yml')
+
+      event_attrs.each do |attrs|
+        location = find_location(attrs['venue'] || "Utopic_US US1")
+
+        time_string = attrs['meeting_time'] || '19:30'
+        date_string = "#{attrs['meeting_date']}T#{time_string}"
+        date = DateTime.iso8601(date_string).in_time_zone
+        month_name = I18n.t('date.month_names')[date.month].capitalize
+        event_name = "#{month_name} #{date.year}"
+        Event.find_or_create_by(name: event_name) do |e|
+          puts "Creating #{event_name}"
+          e.assign_attributes({
+            name: event_name,
+            description: "Reunión de Madrid.rb de #{month_name} #{date.year}",
+            date: date,
+            location_id: location.id
+          })
+        end
+      end
+    end
   end
 end
