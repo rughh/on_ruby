@@ -48,6 +48,8 @@ namespace :madridrb do
 
       event_attrs = YAML.load_file File.join(File.dirname(__FILE__), 'data', 'madridrb-meetings.yml')
 
+      admin_user = User.where(email: 'kikito@gmail.com').first!
+
       event_attrs.each do |attrs|
         location = find_location(attrs['venue'] || "Utopic_US US1")
 
@@ -56,15 +58,17 @@ namespace :madridrb do
         date = DateTime.iso8601(date_string).in_time_zone
         month_name = I18n.t('date.month_names')[date.month].capitalize
         event_name = "#{month_name} #{date.year}"
-        Event.find_or_create_by(name: event_name) do |e|
+        ev = Event.find_or_create_by(name: event_name) do |e|
           puts "Creating #{event_name}"
           e.assign_attributes({
             name: event_name,
             description: "Reunión de Madrid.rb de #{month_name} #{date.year}",
             date: date,
-            location_id: location.id
+            location_id: location.id,
+            user_id: admin_user.id
           })
         end
+        puts ev.errors.inspect unless ev.valid?
       end
     end
   end
