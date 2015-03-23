@@ -1515,7 +1515,7 @@
   - ! '@ciscou'
   - ! '@jfvaldesg'
   - ! '@fesotovi'
-  - arctarus
+  - ! '@arctarus'
   map_url: http://maps.google.es/maps?f=q&source=embed&hl=es&geocode=&q=Calle+de+la+Concepci%C3%B3n+Jer%C3%B3nima,+22,+28012+Madrid&sll=40.396764,-3.713379&sspn=10.504732,23.269043&ie=UTF8&hq=&hnear=Calle+de+la+Concepci%C3%B3n+Jer%C3%B3nima,+22,+28012+Madrid,+Comunidad+de+Madrid&ll=40.413867,-3.706683&spn=0.036727,0.076818&z=14
   original_url: http://madridrb.jottit.com/enero_2013
   topics:
@@ -1595,7 +1595,7 @@
   - joseluis
   - djtachu
   - ! '@arctarus'
-  - mroguzman
+  - ! '@mroguzman'
   - ! '@argami_'
   - ! '@cesc_vilanova'
   - ! '@ereslibre'
@@ -2569,7 +2569,7 @@
   - ! '@cavalle'
   - ! '@christos'
   - ! '@hylian'
-  - ! '@ferflafe'
+  - ! '@ferblape'
   - ! '@ferdev'
   - ! '@lparedesdev (a esta sí que sí)'
   - ! '@izgaka'
@@ -2911,7 +2911,7 @@
     <a href="http://www.lextrend.com/" rel="nofollow"><img width="150px" src="http://madridrb.github.com/images/sponsors/lextrend.png"
     alt="Lextrend"></a>     </p>'
   attendees:
-  - (@MarkVillacampa)
+  - ! '@MarkVillacampa'
   - ! '@otikik'
   - ! '@Serabe'
   - ! '@carlossanchezp'
@@ -3455,7 +3455,7 @@
   - ! '@martafonda'
   - ! '@oinak'
   - ! '@dtorrado'
-  - ! '@lpareredesdev'
+  - ! '@lparedesdev'
   - joseluis
   - ! '@jacklondon84'
   - ! '@cesc_vilanova'
@@ -3872,7 +3872,7 @@
   - ! '@vianasw'
   - ! '@Rosapolis'
   - ! '@christos'
-  - rnaveiras
+  - ! '@rnaveiras'
   - ! '@amaiac'
   - ! '@arctarus'
   - ! '@satrapa'
@@ -3950,7 +3950,7 @@
     alt="Lextrend"></a>     </p>'
   attendees:
   - ! '@otikik'
-  - Gerardo Barcia
+  - ! '@gerardobarciap'
   - ! '@apradillap'
   - ! '@martincabrera'
   - ! '@eduard_io'
@@ -4012,8 +4012,9 @@
 '
     video_url: http://vimeo.com/99116904
     speakers:
-    - speaker_name: Gerardo Barcia (gerardobarcia.com)
-      speaker_handle: http://www.gerardobarcia.com
+    - speaker_name: Gerardo Barcia
+      speaker_handle: "@gerardobarciap"
+      speaker_url: http://www.gerardobarcia.com
       speaker_bio: <p>Gerardo Barcia es  ingeniero en informática, gerente de proyectos,
         orador, instructor, emprendedor, escritor, desarrollador, bloguero, lector,
         soñador, líder y libre pensador. Le apasionan los negocios, el desarrollo
@@ -4075,6 +4076,7 @@
 '
     speakers:
     - speaker_name: Murray Steele
+      speaker_handle: '@hlame'
       speaker_bio: ! '<p>Murray Steele has been using ruby for almost 7 years, and
         getting paid to do so for the last 5. In that time he''s become a passionate
         rubyist and this has led him to become the current organiser of the London
@@ -4200,7 +4202,7 @@
   - ! '@dparracatalan'
   - ! '@carlossanchezp'
   - ! '@africajam'
-  - ! '@eamoderubio'
+  - ! '@eamodeorubio'
   - ! '@mcberros'
   - ! '@amaiac'
   - ! '@laura_morillo'
@@ -4386,7 +4388,8 @@
 '
     speakers:
     - speaker_name: Mathias Biilmann
-      speaker_handle: http://mathias-biilmann.net/
+      speaker_handle: "@biilmann"
+      speaker_url: http://mathias-biilmann.net/
       speaker_bio: <p><a href="http://mathias-biilmann.net/" rel="nofollow">Mathias</a>
         es un desarrollador "full-stack", feliz trasteando con cualquier cosa - desde
         automatización de infraestructuras a transiciones CSS, con todo lo que hay
@@ -4739,7 +4742,8 @@
 '
     speakers:
     - speaker_name: Raimond García
-      speaker_handle: http://raimondgarcia.com
+      speaker_handle: "@voodoorai2000"
+      speaker_url: http://raimondgarcia.com
       speaker_bio: ! "<p><a href=\"http://raimondgarcia.com\" rel=\"nofollow\">Rai</a>
         es un desarrollador web Freelance,\napasionado del testing, Kanban y de la
         democracia líquida,\nactualmente da cursos de Ruby on Rails cuando no está
