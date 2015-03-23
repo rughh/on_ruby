@@ -96,7 +96,7 @@ namespace :madridrb do
         date = DateTime.iso8601(date_string).in_time_zone
         month_name = I18n.t('date.month_names')[date.month].capitalize
         event_name = "#{month_name} #{date.year}"
-        ev = Event.find_or_create_by(name: event_name) do |e|
+        event = Event.find_or_create_by(name: event_name) do |e|
           puts "Creating #{event_name}"
           e.assign_attributes({
             name: event_name,
@@ -106,7 +106,7 @@ namespace :madridrb do
             user_id: admin_user.id
           })
         end
-        puts ev.errors.inspect unless ev.valid?
+        puts event.errors.inspect unless event.valid?
 
         (attrs['topics'] or []).each do |topic_attrs|
           topic_attrs['speakers'].each do |speaker_attrs|
@@ -115,7 +115,10 @@ namespace :madridrb do
         end
 
         (attrs['attendees'] or []).each do |handle|
-          unless find_user_by_twitter(handle)
+          attendee = find_user_by_twitter(handle)
+          if attendee
+            Participant.create(user: attendee, event: event)
+          else
             lost_attendees << handle
           end
         end
