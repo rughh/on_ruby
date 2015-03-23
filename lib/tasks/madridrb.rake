@@ -21,6 +21,27 @@ namespace :madridrb do
     Location.where(name: location_name).first!
   end
 
+  def find_user_by_twitter(handle)
+    handle = handle.split.first.strip
+    handle = handle[1..-1] if handle[0] == '@'
+    User.where('lower(twitter) = ?', handle.downcase).first
+  end
+
+  def handle_speaker(speaker_attrs)
+    description = speaker_attrs['speaker_bio_md']
+    twitter     = speaker_attrs['speaker_handle']
+    url         = speaker_attrs['speaker_url']
+
+    speaker = find_user_by_twitter(twitter)
+    raise "Could not find speaker #{twitter}!" unless speaker
+
+    speaker.url         = url         unless speaker.url.present?
+    speaker.description = description unless speaker.description.present?
+    speaker.save
+    speaker
+  end
+
+
   desc "sets the label to madrid"
   task set_label: :environment do
     Whitelabel.label = Whitelabel.label_for(:madridrb)
@@ -30,6 +51,20 @@ namespace :madridrb do
   end
 
   namespace :import do
+
+    desc "imports users from ./data/madridrb-users.yml"
+    task users: 'madridrb:set_label' do
+      users_attrs = YAML.load_file File.join(File.dirname(__FILE__), 'data','madridrb-users.yml')
+
+      users_attrs.each do |attrs|
+        user = find_user_by_twitter(attrs[:twitter])
+        unless user
+          puts "Creating #{attrs[:name]}"
+          user = User.create(attrs)
+        end
+        puts user.errors.inspect unless user.valid?
+      end
+    end
 
     desc "imports locations from ./data/madridrb-locations.yml"
     task locations: 'madridrb:set_label' do
@@ -45,11 +80,13 @@ namespace :madridrb do
 
 
     desc "imports data from ./data/madridrb-meetings.yml"
-    task meetings: 'madridrb:import:locations' do
+    task meetings: ['madridrb:import:locations', 'madridrb:import:users'] do
+
+      admin_user = find_user_by_twitter('otikik')
 
       event_attrs = YAML.load_file File.join(File.dirname(__FILE__), 'data', 'madridrb-meetings.yml')
 
-      admin_user = User.where(email: 'kikito@gmail.com').first!
+      lost_attendees = []
 
       event_attrs.each do |attrs|
         location = find_location(attrs['venue'] || "Utopic_US US1")
@@ -70,7 +107,22 @@ namespace :madridrb do
           })
         end
         puts ev.errors.inspect unless ev.valid?
+
+        (attrs['topics'] or []).each do |topic_attrs|
+          topic_attrs['speakers'].each do |speaker_attrs|
+            handle_speaker(speaker_attrs)
+          end
+        end
+
+        (attrs['attendees'] or []).each do |handle|
+          unless find_user_by_twitter(handle)
+            lost_attendees << handle
+          end
+        end
       end
+
+      puts "Lost members: #{lost_attendees.compact.uniq.sort.join ','}"
+
     end
   end
 end
