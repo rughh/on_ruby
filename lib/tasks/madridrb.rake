@@ -27,7 +27,7 @@ namespace :madridrb do
     User.where('lower(twitter) = ?', handle.downcase).first
   end
 
-  def handle_speaker(speaker_attrs)
+  def update_speaker(speaker_attrs)
     description = speaker_attrs['speaker_bio_md']
     twitter     = speaker_attrs['speaker_handle']
     url         = speaker_attrs['speaker_url']
@@ -109,10 +109,31 @@ namespace :madridrb do
         puts event.errors.inspect unless event.valid?
 
         (attrs['topics'] or []).each do |topic_attrs|
-          topic_attrs['speakers'].each do |speaker_attrs|
-            handle_speaker(speaker_attrs)
+          speakers = topic_attrs['speakers'].collect do |speaker_attrs|
+            update_speaker(speaker_attrs)
+          end
+
+          speaker     = speakers.first || admin_user
+          name        = topic_attrs['title']
+          description = topic_attrs['details_md']
+          video_url   = topic_attrs['video_url']
+
+          topic = Topic.find_or_create_by(name: name, event_id: event.id) do |t|
+            puts "Creating #{name}"
+            t.assign_attributes(
+              user_id: speaker.id,
+              description: description,
+              proposal_type: "proposal"
+            )
+          end
+          puts topic.errors.inspect unless topic.valid?
+
+          if video_url.present? then
+            m = Material.find_or_create_by(url: video_url, name: "Vídeo", event_id: event.id, user_id: admin_user.id)
+            puts m.errors.inspect unless m.valid?
           end
         end
+
 
         (attrs['attendees'] or []).each do |handle|
           attendee = find_user_by_twitter(handle)
