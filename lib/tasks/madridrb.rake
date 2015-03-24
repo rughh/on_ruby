@@ -93,7 +93,7 @@ namespace :madridrb do
 
         time_string = attrs['meeting_time'] || '19:30'
         date_string = "#{attrs['meeting_date']}T#{time_string}"
-        date = DateTime.iso8601(date_string).in_time_zone
+        date = Time.zone.parse(date_string)
         month_name = I18n.t('date.month_names')[date.month].capitalize
         event_name = "#{month_name} #{date.year}"
         event = Event.find_or_create_by(name: event_name) do |e|
