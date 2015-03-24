@@ -82,7 +82,9 @@ namespace :madridrb do
     desc "imports data from ./data/madridrb-meetings.yml"
     task meetings: ['madridrb:import:locations', 'madridrb:import:users'] do
 
-      admin_user = find_user_by_twitter('otikik')
+      otikik  = find_user_by_twitter('otikik')
+      cavalle = find_user_by_twitter('cavalle')
+      otikik_start_date = Time.zone.parse('2011-10-01')
 
       event_attrs = YAML.load_file File.join(File.dirname(__FILE__), 'data', 'madridrb-meetings.yml')
 
@@ -94,6 +96,7 @@ namespace :madridrb do
         time_string = attrs['meeting_time'] || '19:30'
         date_string = "#{attrs['meeting_date']}T#{time_string}"
         date = Time.zone.parse(date_string)
+        admin_user = date >= otikik_start_date ? otikik : cavalle
         month_name = I18n.t('date.month_names')[date.month].capitalize
         event_name = "#{month_name} #{date.year}"
         event = Event.find_or_create_by(name: event_name) do |e|
