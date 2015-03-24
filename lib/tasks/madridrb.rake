@@ -22,9 +22,9 @@ namespace :madridrb do
   end
 
   def find_user_by_twitter(handle)
-    handle = handle.split.first.strip
+    handle = handle.split.first.strip.downcase
     handle = handle[1..-1] if handle[0] == '@'
-    User.where('lower(twitter) = ?', handle.downcase).first
+    User.where('lower(twitter) = ? or lower(github) = ?', handle, handle).first
   end
 
   def update_speaker(speaker_attrs)
