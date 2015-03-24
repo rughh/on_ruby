@@ -132,7 +132,7 @@ namespace :madridrb do
           puts topic.errors.inspect unless topic.valid?
 
           if video_url.present? then
-            m = Material.find_or_create_by(url: video_url, name: "Vídeo", event_id: event.id, user_id: admin_user.id)
+            m = Material.find_or_create_by(url: video_url, name: "#{topic.name} (Vídeo)", event_id: event.id, user_id: speaker.id)
             puts m.errors.inspect unless m.valid?
           end
         end
