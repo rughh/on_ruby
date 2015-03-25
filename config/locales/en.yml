@@ -155,3 +155,4 @@ en:
       last: ">>"
       previous: "<"
       next: ">"
+      truncate: "..."

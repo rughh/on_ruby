@@ -157,3 +157,4 @@ es:
       last: ">>"
       previous: "<"
       next: ">"
+      truncate: "..."

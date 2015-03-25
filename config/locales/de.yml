@@ -152,3 +152,4 @@ de:
       last: ">>"
       previous: "<"
       next: ">"
+      truncate: "..."

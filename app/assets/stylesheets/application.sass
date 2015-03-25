@@ -224,16 +224,19 @@ header
     margin-top: 2em
     a
       text-decoration: none
+    a, span.current, span.gap
+      font-size: larger
+      padding: 0.2em 0.5em 0.2em 0.6em
     .current
       font-weight: bold
     .page, .next, .last, .first, .prev
       margin: 0.2em
-      padding: 0.2em 0.5em 0.2em 0.6em
       display: inline block
+    .page a, .next a, .last a, .first a, .prev a
       background-color: white
-      font-size: larger
       border: $border
       @include border-radius(0.5em, 0.5em)
+
   .enumeration
     reset-counter: enumeration
     >li:nth-child(-n+9)
