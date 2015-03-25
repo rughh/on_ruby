@@ -11,7 +11,7 @@
             .highlights
               strong=> t("hint.attention")
               = link_to highlight.description, highlight.url, title: highlight.description
-  - elsif jobs.present?
+  - elsif jobs.present? && (request.original_fullpath != root_path)
     - unless current_user && current_user.hide_jobs?
       - render_cached(:jobs) do
         #jobs
