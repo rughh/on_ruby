@@ -229,8 +229,8 @@
   - tmetzmac
   location:
     :zoom: 14
-    :lat: 51.3287
-    :long: 12.32329
+    :lat: 51.3417825
+    :long: 12.3936349
   default_time_zone:
     "Europe/Berlin"
   imprint:
