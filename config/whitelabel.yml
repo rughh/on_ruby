@@ -397,9 +397,9 @@
   organizers:
   - otikik
   location:
-    :zoom: 14
-    :lat: 40.454843
-    :long: -3.693945
+    :zoom: 10
+    :lat: 40.42
+    :long: -3.68
   default_time_zone:
     "Europe/Madrid"
   imprint:
