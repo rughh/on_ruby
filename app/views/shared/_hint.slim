@@ -14,8 +14,13 @@
   - elsif jobs.present?
     - unless current_user && current_user.hide_jobs?
       - render_cached(:jobs) do
-        #jobs
-          = hint(false) do
-            span.reload= link_to fa_icon("refresh"), '#', title: t("hint.click_to_refresh")
-            - jobs.each do |job|
-              .jobs== job_description(job)
+        = hint(false) do
+          #job-teaser
+            span.job-toggle= link_to fa_icon("chevron-down"), '#', title: t("hint.click_to_refresh")
+            .job== job_description(jobs.first)
+          #job-list.hidden
+            ul
+              - jobs.each_with_index do |job, index|
+                li
+                  span.job-toggle= link_to fa_icon("chevron-up"), '#', title: t("hint.click_to_refresh") if index == 0
+                  .job== job_description(job)

@@ -11,3 +11,6 @@
 $ ->
   Utility.disable()
   Map.init()
+
+$.fn.random = ->
+  this.eq(Math.floor(Math.random() * this.length))

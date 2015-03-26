@@ -22,16 +22,17 @@ OnRuby =
       event.preventDefault()
       $(this).parent().fadeOut()
 
-  reload: ->
-    $(".jobs").filter(":hidden").first().show()  if $(".jobs").filter(":visible").size() is 0
-    $(".reload").click (event) ->
-      event.preventDefault()
-      first = $(".jobs").filter(":visible")
-      first.hide()
-      if first.next().length > 0
-        first.next().fadeIn()
-      else
-        $(".jobs").filter(":hidden").first().fadeIn()
+  jobs: ->
+    if $('#job-list .job').size() > 1
+      $('#job-teaser,#job-list .job-toggle a').on 'click', (event) ->
+        event.preventDefault()
+        $("#job-teaser").toggle()
+        $("#job-list").toggle()
+
+      func = ->
+        $('#job-teaser .job').animate {opacity: 0.5}, 1500, ->
+          $('#job-teaser .job').replaceWith $('#job-list .job').random().clone()
+      setInterval func, 5000
 
   moreList: ->
     for list in $("ul.more-list")
@@ -49,7 +50,7 @@ OnRuby =
             elements.filter(":hidden").fadeIn()
 
 $ ->
-  OnRuby.reload()
+  OnRuby.jobs()
   OnRuby.close()
   OnRuby.showHide()
   OnRuby.moreList()
