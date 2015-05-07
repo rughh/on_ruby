@@ -37,6 +37,7 @@ OnRuby::Application.routes.draw do
 
   mount Peek::Railtie => '/peek'
 
+  match '/redirect-image.png', via: :all, to: -> (env) { [302, {"Location" => "https://jimdo-pilbox.herokuapp.com/?w=400&h=200&mode=clip&op=rotate&deg=90&url=http://hamburg.onruby.de/assets/labels/hamburg-a3d99018039599ae66a26b530adbbf2d.png"}, []] }
   match '*path.php', via: :all, to: -> (env) { [302, {"Location" => "http://www.youporn.com/"}, ["fuck yourself!"]] }
   match '*path', via: :all, constraints: -> (request) { request.path !~ %r[\A/admin] }, to: -> (env) { [404, {"Content-Type" => "text/html"}, ["not found"]] }
 end
