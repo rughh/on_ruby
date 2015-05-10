@@ -24,13 +24,13 @@ OnRuby =
 
   jobs: ->
     if $('#job-list .job').size() > 1
-      $('#job-teaser,#job-list .job-toggle a').on 'click', (event) ->
+      $('.job-toggle a').on 'click', (event) ->
         event.preventDefault()
         $("#job-teaser").toggle()
         $("#job-list").toggle()
 
       func = ->
-        $('#job-teaser .job').animate {opacity: 0.5}, 1500, ->
+        $('#job-teaser .job').animate {opacity: 0.5}, 1000, ->
           $('#job-teaser .job').replaceWith $('#job-list .job').random().clone()
       setInterval func, 5000
 
