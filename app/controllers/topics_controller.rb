@@ -37,7 +37,9 @@ class TopicsController < ApplicationController
   private
 
   def validate_topic_ownership!
-    redirect_to(root_path, alert: t("flash.not_authenticated")) unless topic.user == current_user
+    if topic.user != current_user && !current_user.admin?
+      redirect_to(root_path, alert: t("flash.not_authenticated"))
+    end
   end
 
   def topic_params

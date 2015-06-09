@@ -78,6 +78,7 @@ describe TopicsController do
     context "with logged-in user" do
       let(:user) { create(:user) }
       let(:other_user) { create(:user) }
+      let(:admin_user) { create(:admin_user) }
       let(:topic) { create(:topic, user: user) }
 
       before do
@@ -86,8 +87,15 @@ describe TopicsController do
 
       it "updates a topic" do
         put(:update, id: topic, topic: {name: 'blupp'})
-        expect(controller.topic.name).to eql('blupp')
+        expect(controller.topic.reload.name).to eql('blupp')
         expect(flash[:notice]).to_not be_nil
+      end
+
+      it "updates a topic for admin" do
+        allow(controller).to receive_messages(current_user: admin_user)
+
+        put(:update, id: topic, topic: {name: 'zapp'})
+        expect(controller.topic.reload.name).to eql('zapp')
       end
 
       it "does not update a topic for a different user" do
