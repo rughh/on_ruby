@@ -90,9 +90,7 @@
   label_id: cologne
   default_locale: de
   recurring: third wednesday
-  custom_recurring:
-    :de: "jeweils am 3. Mittwoch in jedem 2. Monat (Januar, März, Mai, Juli, September, November) um 19:00 Uhr"
-    :en: "every 3rd Wednesday in every second month (January, March, May, July, September, November)"
+  custom_recurring: true
   email: colognerb@googlegroups.com
   twitter: colognerb
   organizers:

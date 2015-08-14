@@ -6,6 +6,7 @@ de:
       title: OnRuby - Die Ruby und Rails Usergroup Plattform
       subtitle: Ruby / Rails Communities Deutschland
       meta_desc: Ruby / Rails Communities Deutschland
+      custom_recurrence: n/a
     hamburg:
       city: Hamburg
       name: Ruby Usergroup Hamburg
@@ -30,6 +31,7 @@ de:
       title: Cologne.rb
       subtitle: Ruby User Group Cologne
       meta_desc: Ruby / Rails User Group Cologne
+      custom_recurrence: "jeweils am 3. Mittwoch in jedem 2. Monat (Januar, März, Mai, Juli, September, November) um 19:00 Uhr"
     saar:
       city: Saarland
       name: RUGSaar

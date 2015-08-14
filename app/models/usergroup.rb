@@ -41,7 +41,7 @@ class Usergroup
   end
 
   def localized_recurring
-    return localized_custom_recurring if custom_recurring?
+    return localized_custom_recurrence if custom_recurring
 
     number, day, _ = recurring.split(DELIMITER_DATE)
 
@@ -51,14 +51,10 @@ class Usergroup
     I18n.t("event.recurring", ordinal: ordinal, day: day)
   end
 
-  def custom_recurring?
-    custom_recurring.present?
-  end
-
-  def localized_custom_recurring
-    if custom_recurring?
-      custom_recurring[I18n.locale] || custom_recurring[default_locale.to_sym]
-    end
+  def localized_custom_recurrence
+    recurrence_text = I18n.tw('custom_recurrence')
+    recurrence_text = I18n.tw('custom_recurrence', locale: default_locale) if recurrence_text == 'n/a' # fall back to default locale
+    recurrence_text == 'n/a' ? nil : recurrence_text
   end
 
   def to_s
