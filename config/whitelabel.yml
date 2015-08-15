@@ -90,6 +90,7 @@
   label_id: cologne
   default_locale: de
   recurring: third wednesday
+  custom_recurring: true
   email: colognerb@googlegroups.com
   twitter: colognerb
   organizers:

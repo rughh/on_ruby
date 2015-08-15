@@ -3,7 +3,7 @@ class Usergroup
   DELIMITER_DATE    = ' '
   NUMBERS           = %w(first second third fourth)
 
-  attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :google_group, :coc, :default_time_zone
+  attr_accessor :label_id, :default_locale, :domains, :recurring, :custom_recurring, :email, :google_group, :coc, :default_time_zone
   attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups, :tld, :sponsors
 
   def parse_recurring_date(date)
@@ -41,12 +41,20 @@ class Usergroup
   end
 
   def localized_recurring
+    return localized_custom_recurrence if custom_recurring
+
     number, day, _ = recurring.split(DELIMITER_DATE)
 
     ordinal = I18n.t("event.#{number}")
     day     = I18n.t('date.day_names')[Date::DAYS_INTO_WEEK[day.to_sym] + 1]
 
     I18n.t("event.recurring", ordinal: ordinal, day: day)
+  end
+
+  def localized_custom_recurrence
+    recurrence_text = I18n.tw('custom_recurrence')
+    recurrence_text = I18n.tw('custom_recurrence', locale: default_locale) if recurrence_text == 'n/a' # fall back to default locale
+    recurrence_text == 'n/a' ? nil : recurrence_text
   end
 
   def to_s

@@ -3,6 +3,8 @@ require 'spec_helper'
 describe Usergroup do
   let(:every_second_wednesday) { Usergroup.new.tap { |it| it.recurring = 'second wednesday 18:30' } }
   let(:every_last_wednesday)   { Usergroup.new.tap { |it| it.recurring = 'last wednesday 18:30' } }
+  let(:rughh) { Whitelabel.label_for("hamburg") }
+  let(:colognerb) { Whitelabel.label_for("cologne") }
 
   context "parsing of recurring" do
     context "as string" do
@@ -13,8 +15,6 @@ describe Usergroup do
     end
 
     context "as date/time" do
-      let(:rughh) { Whitelabel.label_for("hamburg") }
-      let(:colognerb) { Whitelabel.label_for("cologne") }
       let(:hackhb) { Whitelabel.label_for("bremen") }
       let(:karlsruhe) { Whitelabel.label_for("karlsruhe")}
       let(:_1830) { Usergroup.new.tap { |it| it.recurring = 'second wednesday 18:30' } }
@@ -61,6 +61,43 @@ describe Usergroup do
           parsed_time = rughh.parse_recurring_time
           expect(parsed_time.hour).to eql(18)
           expect(parsed_time.min).to eql(30)
+        end
+      end
+    end
+  end
+
+  context '#custom_recurring' do
+    specify do
+      expect(colognerb.custom_recurring).to eql true
+      expect(rughh.custom_recurring).to eql nil
+    end
+  end
+
+  context '#localized_custom_recurrence' do
+    context 'no custom recurring' do
+      it 'should return nil' do
+        expect(rughh.localized_custom_recurrence).to eql nil
+      end
+    end
+
+    context 'with custom recurring' do
+      specify 'de' do
+        I18n.with_locale(:de) do
+          expect(colognerb.localized_custom_recurrence).to eql "jeweils am 3. Mittwoch in jedem 2. Monat (Januar, März, Mai, Juli, September, November) um 19:00 Uhr"
+        end
+      end
+
+      specify 'en' do
+        I18n.with_locale(:en) do
+          expect(colognerb.localized_custom_recurrence).to eql "every 3rd Wednesday in every second month (January, March, May, July, September, November)"
+        end
+      end
+
+      context 'translation for locale is missing (> es)' do
+        it 'should fall back to default_locale of Whitelabel (> de)' do
+          I18n.with_locale(:es) do
+            expect(colognerb.localized_custom_recurrence).to eql "jeweils am 3. Mittwoch in jedem 2. Monat (Januar, März, Mai, Juli, September, November) um 19:00 Uhr"
+          end
         end
       end
     end
