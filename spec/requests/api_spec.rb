@@ -9,7 +9,7 @@ describe "Api" do
     it "should redirect and have status not_authorized" do
       get api_path(format: :json), nil, 'x-api-key' => ''
       expect(response.status).to eql(401)
-      expect(response.body).to eql(' ')
+      expect(response.body).to be_empty
     end
 
     it "should render json with valid api-key" do

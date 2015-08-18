@@ -2,7 +2,7 @@ source "http://rubygems.org"
 ruby File.read("#{File.dirname(__FILE__)}/.ruby-version").chomp
 
 gem "puma",                   "~> 2.11"
-gem "rails",                  "~> 4.2.0"
+gem "rails",                  "~> 4.2.4.rc1"
 gem "responders",             "~> 2.0"
 gem "rails-observers",        "~> 0.1.2"
 gem "pg",                     "~> 0.17.1"
