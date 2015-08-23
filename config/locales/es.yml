@@ -67,7 +67,7 @@ es:
     takes_place: "será el %{event_date} en %{location_link}!"
     takes_place_no_location: "será el %{event_date}, ¡pero <a href='%{none_url}'>todavía no tenemos sitio!</a>!"
     past_events: "Reuniones anteriores"
-    usergroup_locations: "Estos son los sitios %{location_link} donde nuestro grupo se ha reunido con anterioridad."
+    usergroup_locations: "Estos son los %{location_link} donde nuestro grupo se ha reunido con anterioridad."
     show_more: "ver más"
     no_new_topics: "Actualmente no hay propuestas, ¡añade tu %{new_topic_link}!"
     all_events: "Ver todos los eventos"
