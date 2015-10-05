@@ -1,0 +1,12 @@
+sudo: false
+script: "CODECLIMATE_REPO_TOKEN=1c9dbc1183347accbd5a2d7ec1323ab4b0b9dea31e762940b0209bc1c7a07cdd bundle exec rake"
+bundler_args: "--without development production"
+language: ruby
+rvm:
+  - 2.2.1
+branches:
+  only:
+    - master
+before_script:
+  - psql -c 'create database onruby_test;' -U postgres
+  - RAILS_ENV=test bundle exec rake db:test:prepare

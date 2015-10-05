@@ -1,0 +1,62 @@
+section
+  .user
+    .image= image_tag user.image, size: '48x48', alt: user.name
+    h3
+      = user.name
+      = user.freelancer? ? " / #{I18n.tw("profile.freelancer")}" : ''
+      = user.available? ? " / #{t("profile.available")}" : ''
+
+    div.badges.small
+      - if user.twitter?
+        span
+          = fa_icon 'twitter', class: 'pull-left'
+          = link_to_twitter user
+      - if user.github?
+        span
+          = fa_icon 'github', class: 'pull-left'
+          = link_to_github user
+      - if user.url?
+        span
+          = fa_icon 'bookmark', class: 'pull-left'
+          = link_to user.url, user.url
+      - if user.location?
+        span
+          = fa_icon 'map-marker', class: 'pull-left'
+          = user.location
+
+  = markdown user.description if user.description
+
+  - if user.topics.present?
+    #talks_done
+      h3= t("profile.talks_done")
+      ul.more-list
+        - user.topics.each do |topic|
+          li= link_to_topic topic
+
+  - if user.materials.present?
+    #provided_material
+      h3= t("profile.provided_material")
+      ul.more-list
+        - user.materials.each do |material|
+          li= link_to_material material
+
+  - if user.liked_topics.present?
+    #likes_given
+      h3= t("profile.likes_given")
+      ul.more-list
+        - user.liked_topics.each do |topic|
+          li= link_to_topic topic
+
+  - if user.participations.present?
+    #events_participated
+      h3= t("profile.events_participated")
+      ul.more-list
+        - user.participations.each do |event|
+          li= link_to_event event
+
+  - if user.events.present?
+    #organized_events
+      h3= t("profile.organized_events")
+      ul.more-list
+        - user.events.each do |event|
+          li= link_to_event event

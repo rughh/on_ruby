@@ -1,0 +1,34 @@
+section
+  = likes
+  h2#event= event.name
+  .participation= participation_link(event)
+  p.meta
+    span
+      = fa_icon('calendar', class: 'fa-fw')
+      => link_to l(event.date, format: :long), event_path(event, format: :ics), title: event.name, class: 'ical'
+
+    => t("show.hosted_by")
+    = link_to_user event.user
+
+  p.meta
+    = fa_icon('map-marker', class: 'fa-fw')
+    - if event.location.present?
+      == link_to_route event.location
+      = wheelmap_badge event.location, klass: 'inline-wheelmap-status'
+    - else
+      = link_to t('show.no_location'), none_locations_path
+
+  == markdown event.description
+
+  - if event.participants.present?
+    h3= t("show.attendees", count: event.limit || 0, participant_count: event.participants.count)
+    p= render 'users/list', users: event.users
+
+  = render "topics", topics: event.topics
+  = render "materials", materials: event.materials
+  - if event.location.present?
+    = render 'shared/route', location: event.location
+
+  p= link_to t('home.all_events'), events_path
+
+

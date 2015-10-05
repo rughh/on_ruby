@@ -1,0 +1,21 @@
+= section_box :events do
+  - events.each do |event|
+    p
+      strong= link_to_event event
+      = " (#{l(event.date, format: :date)})"
+    ul.more-list.undone.clearfix
+    - event.topics.each do |topic|
+      li.topic= link_to_topic topic
+  = paginate events
+
+  p.meta
+    - if signed_in?
+      span.pull-right
+        = t('events.im_attending_html', events_im_attending_link: events_im_attending_link)
+
+    = t 'events.calendar_html',
+      webcal_link: all_events_webcal_link,
+      rss_link:    all_events_rss_link
+
+
+

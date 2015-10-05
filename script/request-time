@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+FORMAT = <<-FORMAT
+    time_namelookup:  %{time_namelookup}
+       time_connect:  %{time_connect}
+    time_appconnect:  %{time_appconnect}
+   time_pretransfer:  %{time_pretransfer}
+      time_redirect:  %{time_redirect}
+ time_starttransfer:  %{time_starttransfer}
+                    ----------
+         time_total:  %{time_total}
+FORMAT
+
+url = ARGV[0] || "http://hamburg.onruby.de"
+
+puts "request-time of '#{url}'"
+puts `curl -w "#{FORMAT}" -s -o /dev/null "#{url}"`

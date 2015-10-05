@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+FORMAT = <<-OUTPUT
+ ________
+< ONRUBY >
+ --------
+        \\   ^__^
+         \\  (oo)\_______
+            (__)\       )\\/\\
+                ||----w |
+                ||     ||
+
+/* MAINTAINER */
+
+  Peter Schröder (Señor Developer)
+  Site: https://github.com/phoet
+  Location: Hamburg, Germany
+
+/* COMMITTERS */
+
+%{commiters}
+OUTPUT
+
+FALLBACKS = {
+  "phoet" => "Peter Schröder",
+  "Peter Schröder" => "Peter Schröder",
+  "ralph" => "Ralph von der Heyden",
+  "rubiii" => "Daniel Harrington",
+  "titanoboa" => "Kerstin Puschke",
+  "weidenfreak" => "Meike Wiemann",
+  "Marco" => "Marco Schaden",
+  "rocky-jaiswal" => "Rocky Jaiswal",
+  "kikito" => "Enrique García",
+}
+commiters = `git log --format='%aN' | sort -u`
+commiters = commiters.split("\n").map { |c| "  #{FALLBACKS[c] || c}"}.uniq.sort.join("\n\n")
+
+output = FORMAT % {commiters: commiters}
+path = File.expand_path("../public/humans.txt", File.dirname(__FILE__))
+File.open(path, "w") { |file| file.write(output) }

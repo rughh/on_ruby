@@ -1,0 +1,13 @@
+doctype 5
+html
+  head
+    = render 'shared/meta'
+    = browser_icon
+    = touch_icon
+    = stylesheet_link_tag :application
+    = render 'shared/script'
+  body#labels
+    .container
+      .main
+        = yield
+  = render 'shared/info'

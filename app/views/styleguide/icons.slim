@@ -1,0 +1,6 @@
+section
+  ul.clearfix
+    - @icons.each do |icon|
+      li(style="float:left; padding-right: 10px; font-size: larger;")
+        = fa_icon icon
+        span.text(style="padding-left: 5px")= icon

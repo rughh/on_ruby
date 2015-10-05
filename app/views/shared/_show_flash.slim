@@ -1,0 +1,4 @@
+- if flash.present?
+  = hint do
+    - flash.each do |key, value|
+      strong(class=key)= value

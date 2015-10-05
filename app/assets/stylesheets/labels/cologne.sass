@@ -1,0 +1,64 @@
+@import "compass"
+@import "compass/css3"
+@import "compass/utilities/text/replacement"
+
+@import "_lib/responsive"
+
+@import "cologne/colors"
+@import "cologne/dimensions"
+
+header
+  #title
+    &:hover
+      color: $red !important
+      +single-text-shadow($dark-text-color, 1px, 1px, 2px)
+
+a:hover
+  color: $red
+
+.container
+  background-image: image-url("whitey.png")
+
+.main section, header #login
+  background: $white
+  border: none
+  color: $dark-text-color
+  +single-box-shadow($light-grey, 1px, 1px, 3px, false, true)
+
+#gem
+  width: 149px
+  height: 449px
+  position: fixed !important
+  bottom: 40px
+  left: 20px
+  z-index: 90
+  img
+    z-index: 95
+  #beer
+    position: absolute
+    bottom: 0px
+    width: 149px
+    height: 449px
+    background: image-url("labels/cologne/gem-glas-full.png") left bottom no-repeat
+    z-index: 96
+  +phone
+    left: initial
+    right: 50px
+    bottom: 80px
+    zoom: 0.3
+#refill
+  position: fixed !important
+  bottom: 10px
+  left: 70px
+  text-decoration: none
+  font-size: 2em
+  z-index: 90
+  opacity: 0
+  +phone
+    left: initial
+    right: 10px
+    bottom: 0
+    zoom: 0.8
+  a:hover
+    @include text-shadow(0px 0px 1px $dark-grey)
+    color: $red

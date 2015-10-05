@@ -1,0 +1,13 @@
+<%= @event.name %>
+
+<%= @event.description %>
+
+Folgende Themen sind vorgesehen:
+
+<% @event.topics.each do |topic| %>
+<%= topic.name %>
+<% end %>
+
+Mehr Informationen findet ihr auf <%= event_url(@event) %>.
+
+Bis bald!

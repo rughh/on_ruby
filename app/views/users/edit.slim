@@ -1,0 +1,19 @@
+section
+  h3= t "profile.edit"
+  ul= render 'users/list', users: [user]
+
+  = semantic_form_for user do |f|
+    = f.input :name
+    - unless user.with_provider? :twitter
+        = f.input :twitter, input_html: { placeholder: 'Twitter handle' }
+    - unless user.with_provider? :github
+        = f.input :github, input_html: { placeholder: 'GitHub handle' }
+    = f.input :email
+    = f.input :description, type: :text_area
+    .info== t("topic.markdown")
+    br
+    = f.input :freelancer
+    = f.input :available
+    = f.input :hide_jobs
+    = f.action :submit
+  p= button_to t("profile.remove_account"), current_user, method: :delete, class: :warn, data: { confirm: t("profile.remove_confirm") }

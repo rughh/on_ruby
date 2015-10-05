@@ -1,0 +1,479 @@
+$top-position: 0px
+$background: white
+$container-background: image-url('whitey.png') left top repeat
+$title-color: black
+$ribbon-color: $title-color
+$font: Alef, sans-serif
+$base-font-size: 14px
+$title-font-size: 3em
+$sub-title-font-size: $title-font-size / 2
+$border-color: lightgray
+$border: 1px solid $border-color
+$ruby-red: #C81B47
+
+@mixin title-box
+  @include text-shadow($background 1px 2px 3px)
+
+@mixin userimage($size)
+  width: $size
+  height: $size
+  border: $border
+  @include border-radius(10%)
+
+@mixin button
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#D7D7D7), color-stop(30%, #F2F2F2), color-stop(90%, #C5C5C5), color-stop(90%, #BDBDBD))
+  background: -moz-linear-gradient(left top, left bottom, from(white), to(#D7D7D7), color-stop(30%, #F2F2F2), color-stop(90%, #C5C5C5), color-stop(90%, #BDBDBD))
+  border-color: $border-color
+
+@mixin ribbon
+  border: $border
+  background: $background
+  color: $ribbon-color
+  font: 1.1em $font
+
+@import "compass"
+@import "font-awesome"
+@import "normalize"
+@import "font"
+@import "_lib/**/*"
+@import "_base/elements"
+@import "_modules/**/*"
+@import "peek"
+@import "peek/views/performance_bar"
+
+#peek
+  position: fixed
+  bottom: 0
+  width: 100%
+
+header
+  display: block
+  +phone
+    display: none
+  margin: 0 auto
+  margin-bottom: 3em
+  width: 60em
+  padding: 6em 1em 0em 2em
+  color: $title-color
+
+  #title, &:hover, &:active, &:visited
+    color: $title-color
+    text-decoration: none
+    h1, h2
+      font: bold $title-font-size $font
+      @include title-box
+    h1
+      line-height: 1.5em
+      letter-spacing: 0.3em
+    h2
+      font-size: $sub-title-font-size
+      letter-spacing: 0.1em
+      @include title-box
+  #logo
+    float: left
+    margin-left: 20px
+    margin-right: 20px
+    width: 80px
+
+.main
+  padding: 0em 2em 2em 2em
+  +phone
+    padding: 6em 0em 0em 0em
+  margin: 0
+  height: 100%
+
+  li.topic, li.event
+    margin-left: 5px
+
+  .info-window
+    min-width: 150px
+    min-height: 50px
+
+  .markdown
+    ul
+      padding-left: 20px
+      li
+        list-style: disc
+
+  .hint
+    padding-top: 1em
+    padding-bottom: 1em
+    margin-top: 0em
+    margin-bottom: 3em
+
+  em
+    font-style: italic
+    font-weight: bolder
+
+  h2, h3
+    margin-bottom: 1em
+
+  h3
+    margin-top: 1em
+
+  hr
+    border: none
+    padding: 1.5em
+
+  p
+    margin-bottom: 1em
+
+  li
+    list-style: none
+
+  .job-toggle
+    float: left
+    height: 16px
+    width: 16px
+    position: relative
+    padding-right: 5px
+    cursor: pointer
+    a
+      text-decoration: none
+  .close
+    @include replace-text(image-path('close.png'), 28, 28)
+    float: right
+    height: 28px
+    width: 28px
+    position: relative
+    top: -2em
+    right: -3em
+    +phone
+      right: -2em
+    cursor: pointer
+  .more
+    font-style: italic
+  .badges
+    span
+      font-size: smaller
+      background-color: white
+      padding: 5px
+      margin-right: 5px
+      margin-bottom: 5px
+      @include border-radius(5px)
+      border: $border
+      display: inline-block
+      white-space: nowrap
+
+  #usergroups, #railsgroups
+    a
+      text-decoration: none
+    li
+      padding-bottom: 1em
+
+  section
+    padding: 2em
+    display: block
+    margin: 0 auto
+    margin-top: 0em
+    margin-bottom: 3em
+    width: 56em
+    background: $background
+    border: $border
+    +border-radius(0.5em, 0.5em)
+    +phone
+      width: auto
+      padding: 1em
+      +border-radius(0)
+
+    h2
+      font: bold 1.4em $font
+      i
+        margin-right: 5px
+    h3
+      font: bold 1.2em $font
+    ul
+      margin: 0em
+    li
+      margin: 0em
+      margin-bottom: 1em
+  .user
+    .image
+      float: left
+      margin-right: 1em
+      margin-bottom: 1em
+      img
+        @include userimage(52px)
+    h3
+      margin: 0.2em
+    @include clearfix
+  .imagelist
+    img
+      @include userimage(48px)
+    ul
+      list-style: none
+      li
+        float: left
+        margin: 0 1em 1em 0
+      @include clearfix
+  .map_canvas
+    margin: 0 auto
+    height: 30em
+    border: $border
+    @include border-radius(0.5em, 0.5em)
+  .meta
+    font-size: smaller
+    font-style: italic
+    padding-top: 0.2em
+  .likes, .banner
+    float: right
+    margin-top: 2px
+  .pagination
+    margin-top: 2em
+    a
+      text-decoration: none
+    a, span.current, span.gap
+      font-size: larger
+      padding: 0.2em 0.5em 0.2em 0.6em
+    .current
+      font-weight: bold
+    .page, .next, .last, .first, .prev
+      margin: 0.2em
+      display: inline block
+    .page a, .next a, .last a, .first a, .prev a
+      background-color: white
+      border: $border
+      @include border-radius(0.5em, 0.5em)
+
+  .enumeration
+    reset-counter: enumeration
+    >li:nth-child(-n+9)
+      counter-increment: enumeration
+      &:before
+        content: "0" counter(enumeration) ". "
+    >li:nth-child(n+10)
+      counter-increment: enumeration
+      &:before
+        content: counter(enumeration) ". "
+  .inline-wheelmap-status
+    height: 12px
+    padding-left: 7px
+  .wheelmap-status
+    display: block
+  form
+    ol
+      margin: 0em
+    li
+      list-style: none
+      margin: 0em
+      margin-bottom: 1em
+    fieldset
+      li
+        float: left
+        padding-right: 1em
+        margin: 0em
+      label
+        margin: 0em
+
+    input[type=text], input[type=email]
+      width: 40em
+      +phone
+        width: 90%
+        font-size: 1.3em
+    select
+      +phone
+        width: 90%
+        font-size: 1.3em
+
+    input[type=checkbox], input[type=radio]
+      margin-right: 0.5em
+
+    textarea
+      width: 40em
+      height: 10em
+      +phone
+        width: 90%
+
+    label
+      display: block
+      font-weight: bold
+      margin-bottom: 1em
+
+  input[type=button], input[type=submit]
+    margin: 0
+    width: auto
+    overflow: visible
+    display: inline-block
+    cursor: pointer
+    text-decoration: none
+    border-style: solid
+    font-weight: bold
+    border-radius: 6px
+    -moz-border-radius: 6px
+    -webkit-border-radius: 6px
+    font-size: 1em
+    padding: 10px 30px
+    border-width: 1px
+    text-shadow: white 0px 1px 1px
+    color: #222
+    @include button
+
+  input.warn
+    color: red
+    font-style: italic
+    font-weight: normal
+
+  .participation
+    float: left
+    margin-right: 15px
+    +phone
+      width: 100%
+      float: none
+      margin: 15px 0
+    input
+      padding: 13px 25px
+      +phone
+        width: 100%
+  dt
+    clear: left
+    padding-right: 1em
+  dt, dd
+    float: left
+  dt
+    font-weight: bold
+
+footer
+  padding: 0
+  margin: 0
+  border-top: $border
+
+  p
+    margin: 0
+
+  .hr
+    border-bottom: 1px dashed $border-color
+  section
+    margin: 0 auto
+    margin-bottom: 1em
+    display: block
+    width: 60em
+    +phone
+      width: 100%
+    h2
+      font: bold 1.4em $font
+      padding-bottom: 1em
+    .block
+      float: left
+      padding: 3em 0em 1em 8em
+      +phone
+        padding: 2em 0em 1em 2em
+
+      ul
+        padding: 0
+        margin: 0
+        list-style: none
+      li
+        padding-bottom: 1em
+    .usergroups, .railsgroups, .railssupporters
+      ol
+        list-style: lower-greek
+      li
+        float: left
+        padding-right: 1em
+        margin-right: 1em
+        padding-bottom: 1em
+    .railsgroups
+      ol
+        list-style: armenian
+    .railssupporters
+      ol
+        list-style: katakana
+    .sponsors
+      +phone
+        width: 90%
+      ol
+        list-style: none
+        margin-left: -3em
+        +phone
+          margin-left: 0
+      li
+        display: inline-block
+        margin-right: 1em
+        padding-bottom: 1em
+        img
+          height: 60px
+        +phone
+          padding-left: 0
+          padding-right: 0
+          margin-left: 0
+          margin-right: 0
+          display: block
+          text-align: center
+
+.ribbon_wrap
+  position: absolute
+  top: $top-position
+  width: 150px
+  height: 150px
+  overflow: hidden
+  +phone
+    display: none
+  a
+    height: 30px
+    text-decoration: none
+    width: 250px
+    position: absolute
+    top: 52px
+    span
+      padding: 5px 0
+      display: block
+      text-align: center
+      width: 250px
+      @include ribbon
+    &#senor_developer
+      @include rotate(-45deg)
+      left: -65px
+    &#rgsoc
+      @include rotate(-45deg)
+      left: -65px
+    &#github
+      @include rotate(45deg)
+      right: -65px
+  &#senor_developer_ribbon
+    left: 0px
+  &#github_ribbon
+    right: 0px
+
+#labels
+  .main
+    padding-top: 3em
+    section
+      a
+        text-decoration: none
+      li
+        font: bold 3em $font
+      img
+        vertical-align: middle
+      span.host
+        margin-left: 0.5em
+      span.image
+        display: inline-block
+        width: 140px
+        text-align: center
+        img
+          max-width: 120px
+
+.preview
+  margin-top: 1em
+  margin-bottom: 1em
+
+  &.video
+    height: 29em
+    iframe
+      height: 100%
+      width: 100%
+
+  &.image
+    height: 10em
+    overflow: hidden
+    a
+      height: 100%
+      width: 100%
+      display: block
+      img
+        max-height: 100%
+        max-width: 100%
+        display: block
+        margin: auto
+
+

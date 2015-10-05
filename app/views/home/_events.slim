@@ -1,0 +1,37 @@
+= section_box :events do
+  - if current_event
+    p
+      => link_to t("home.next_meetup"), current_event, title: current_event.name
+      - if current_event.location.present?
+        == t("home.takes_place", event_date: content_tag(:em, l(current_event.date)), location_link: link_to(current_event.location.name, current_event.location, title: current_event.location.name))
+      - else
+        == t("home.takes_place_no_location", event_date: content_tag(:em, l(current_event.date)), none_url: none_locations_path)
+      - if current_event.topics.present?
+        ul.undone
+          - current_event.topics.each do |topic|
+            li.topic
+              = link_to_topic topic
+  - else
+    p== I18n.tw("home.next_possible_meetup_recurring", recurring: content_tag(:em, localized_recurring_event_date))
+    - unless Whitelabel[:custom_recurring]
+      p== I18n.tw("home.next_possible_meetup", event_date: content_tag(:em, next_event_date))
+
+  - if events.any?
+    h3= t("home.past_events")
+    ul.more-list.clearfix
+      - events.each do |event|
+        li.event
+          = link_to_event event, title: "#{l(event.date, format: :date)} - #{event.name}"
+      li.all
+        = fa_icon 'mail-forward', class: 'pull-left'
+        = link_to t('home.all_events'), events_path
+  - else
+    = link_to t('home.all_events'), events_path
+
+  br
+  br
+  br
+  br
+
+  h2 "Recently Established Website"
+  = "We've created this new Ruby on Rails site for Czech Republic. There isn't much yet, but we're planning to add content and events in time. If you have any questions or proposition for an event, don't hesitate to mail us."

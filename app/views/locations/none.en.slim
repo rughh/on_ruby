@@ -1,0 +1,36 @@
+section
+  = likes
+  h2 Still looking for a location!
+
+  h3 How can you help?
+  p
+    ' We are always looking for new locations for our Meetups.
+    ' If you want to host one of the events at your company
+    => mail_to Whitelabel[:email], "drop us a line", title: "#{Whitelabel[:twitter]} E-Mail"
+    ' or mention us on twitter #{link_to_twitter Whitelabel[:twitter]}
+    ' or contact one of the organizers:
+  = render 'users/list', users: organizers
+
+  h3 How much space do we need?
+  p
+    ' There have been
+    em' #{stats[:participants]} Rubyists
+    ' signed up on average for the latest events and there were about
+    em' #{stats[:topics]} to #{stats[:topics] + 1} presentations
+    ' held.
+    ' Those numbers are just guidelines, make sure to talk to one of the organizers
+    ' when preparing the hosting.
+  p
+    | If you don't have a lot of space, it's also possible to limit the number of participants.
+
+  h3 What's needed for a Usergroup?
+  p
+    ' The location, of course, but there is more to it:
+    ul.enumeration
+      li alcohol free beverages
+      li beamer and adapters
+      li beer (optional)
+      li snacks/pizza (optional)
+    ' You don't need to make a fuss, we are cool with the bare minimum!
+
+  h2 Thanks for your help!

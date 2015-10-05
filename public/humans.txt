@@ -1,0 +1,96 @@
+ ________
+< ONRUBY >
+ --------
+        \   ^__^
+         \  (oo)_______
+            (__)       )\/\
+                ||----w |
+                ||     ||
+
+/* MAINTAINER */
+
+  Peter Schröder (Señor Developer)
+  Site: https://github.com/phoet
+  Location: Hamburg, Germany
+
+/* COMMITTERS */
+
+  Andreas Haller
+
+  Andreas Reischuck
+
+  André Cedik
+
+  Arthur Neves
+
+  Ben Zimmer
+
+  Benny
+
+  Bodo Tasche
+
+  Christoph
+
+  Christoph Geschwind
+
+  Christoph Olszowka
+
+  Daniel Harrington
+
+  Dennis Reimann
+
+  Eckhard Rotte
+
+  Enrique García
+
+  Jakob Hilden
+
+  Kerstin Puschke
+
+  Klaus Zanders
+
+  Lucas Dohmen
+
+  Marco Schaden
+
+  Markus Schwed
+
+  Martin Frank
+
+  Martin Schrader
+
+  Martin Wilhelmi
+
+  Marv Cool
+
+  Meike Wiemann
+
+  Nico Hagenburger
+
+  Nikolay Sturm
+
+  Parker Moore
+
+  Peter Schröder
+
+  Ralph von der Heyden
+
+  Rocky Jaiswal
+
+  Sean Linsley
+
+  Simon Zöllner
+
+  Stefan Botzenhart
+
+  Stefan Wienert
+
+  Sébastien Jelsch
+
+  Thilo Utke
+
+  Thomas Metzmacher
+
+  Thorsten Böttger
+
+  Tobias Pfeiffer

@@ -1,0 +1,11 @@
+= section_box :topics do
+  p
+    strong=> I18n.tw("home.like_to_talk")
+    == t("home.send_us_an_email",
+          mail_to: mail_to(Whitelabel[:email], "E-Mail", title: "E-Mail"),
+          twitter_link: link_to_twitter(Whitelabel[:twitter]))
+  = render 'users/list', users: organizers
+  p== I18n.tw("home.engage")
+  = button_to t("home.add_topic"), new_topic_path, method: :get
+  = render 'topics/undone', topics: undone_topics
+  = render 'topics/done', topics: done_topics

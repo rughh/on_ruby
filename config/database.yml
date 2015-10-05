@@ -1,0 +1,20 @@
+development:
+  adapter: postgresql
+  database: onruby_development
+  username: admin
+  password: 123456
+  host: localhost
+  encoding: utf8
+
+test:
+  adapter: postgresql
+  database: onruby_test
+  username: admin
+  password: 123456
+  host: localhost
+  encoding: utf8
+
+production:
+  url:  <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV["DB_POOL"] || ENV["MAX_THREADS"] || 5 %>
+  encoding: utf8

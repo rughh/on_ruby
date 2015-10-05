@@ -1,0 +1,5 @@
+| <!-- Ruby-#{RUBY_VERSION}-#{RUBY_PATCHLEVEL} on Rails-#{Rails.version} -->
+- if ENV['MY_SHA_REVISION'].present?
+  | <!-- Git-#{{ENV['MY_SHA_REVISION']}} -->
+- if defined?(Puma)
+  | <!-- served by Puma-#{Puma::Const::PUMA_VERSION} #{Puma::Const::CODE_NAME} -->

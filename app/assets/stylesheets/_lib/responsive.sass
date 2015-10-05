@@ -1,0 +1,10 @@
+
+$phone-breakpoint: 'max-width: 767px'
+
+=responsive($breakpoint, $media: all)
+  @media only #{$media} and( #{$breakpoint} )
+    @content
+
+=phone
+  +responsive($phone-breakpoint)
+    @content

@@ -1,0 +1,80 @@
+@import '_lib/flexbox'
+
+@mixin nav-box
+  padding: 0.4em 1em
+  background: $background
+  border: $border
+  +border-bottom-left-radius(0.5em)
+  +border-bottom-right-radius(0.5em)
+  +box-shadow($border-color 0px 1px 10px)
+  +phone
+    +border-radius(0)
+
+
+.navbar
+  text-align: center
+  position: fixed
+  top: 0
+  z-index: 100
+  width: 100%
+  +phone
+    left: 0
+    margin-left: 0
+
+  .nav-box
+    margin: 0 auto
+    +nav-box
+    width: 60em
+    +phone
+      width: 100%
+  ul.nav-inner
+    margin: 0
+    font: bold 1.4em/1.5  $font
+    display: inline-block
+    +phone
+      +flex-box
+      margin-right: 60px
+    > li
+      margin: 0 0.8em
+      +phone
+        margin: 0 0.5em
+        +flex-item
+      padding-top: 2px
+      float: left
+      a, a:hover, a:active, a:visited
+        text-decoration: none
+        &:hover
+          color: $ruby-red
+      &.label
+        width: 2em
+        margin-top: -0.2em
+      .label-link
+        display: inline-block
+        height: 1.3em
+      .label-img
+        max-height: 100%
+        height: auto
+      .nav-text
+        margin-left: 0.4em
+  .sub-nav-box
+    //display: none
+    ul.nav-sub
+      display: inline-block
+      margin: 1em 0 0.5em 0
+      +clearfix
+
+.menu-button
+  +phone
+    position: absolute
+    top: 4px
+    right: 0
+
+.nav-toggle
+  $size: 8px
+  float: right
+  border: 1px solid $border-color
+  +border-radius(2px)
+  i
+    margin-right: 10px
+    margin-left: 10px
+
