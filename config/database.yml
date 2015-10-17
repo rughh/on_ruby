@@ -1,14 +1,16 @@
 development:
   adapter: postgresql
   database: onruby_development
-  username: postgres
+  username: admin
+  password: 123456
   host: localhost
   encoding: utf8
 
 test:
   adapter: postgresql
   database: onruby_test
-  username: postgres
+  username: admin
+  password: 123456
   host: localhost
   encoding: utf8
 

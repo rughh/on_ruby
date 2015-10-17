@@ -105,3 +105,9 @@ es:
       title: Madrid.rb
       subtitle: Grupo de usuarios de Ruby de Madrid
       meta_desc: Grupo de usuarios de Ruby de Madrid
+    prague:
+      :city: City
+      :name: Name
+      :title: Title
+      :subtitle: SubTitle
+      :meta_desc: MetaDesc

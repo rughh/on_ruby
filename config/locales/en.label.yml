@@ -31,7 +31,8 @@ en:
       title: Cologne.rb
       subtitle: Ruby User Group Cologne
       meta_desc: Ruby / Rails User Group Cologne
-      custom_recurrence: "every 3rd Wednesday in every second month (January, March, May, July, September, November)"
+      custom_recurrence: every 3rd Wednesday in every second month (January, March,
+        May, July, September, November)
     saar:
       city: Saarland
       name: RUGSaar
@@ -106,3 +107,9 @@ en:
       :title: Madrid.rb
       :subtitle: Madrid Ruby User Group
       :meta_desc: Madrid Ruby User Group
+    prague:
+      :city: Czech Republic
+      :name: Czech Republic
+      :title: Czech Republic
+      :subtitle: Ruby on Rails in Czech
+      :meta_desc: MetaDesc
