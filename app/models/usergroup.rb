@@ -69,6 +69,7 @@ class Usergroup
 
   def self.switch_by_request(request)
     return true if Whitelabel.label_for(request.subdomains.first)
+
     Whitelabel.label = Whitelabel.labels.find do |label|
       label.domains && label.domains.any? do |custom_domain|
         request.host =~ /#{custom_domain}/
