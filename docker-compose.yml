@@ -1,0 +1,16 @@
+db:
+  image: postgres:9.4.1
+box:
+  image: busybox
+  volumes:
+    - /box
+web:
+  build: .
+  ports:
+    - "5000:5000"
+  links:
+    - db
+  volumes:
+    - .:/app
+  volumes_from:
+    - box

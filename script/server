@@ -11,4 +11,6 @@ export OMNIAUTH_GITHUB_ONRUBY_DEV_KEY=40476a2d1961166b313d
 export OMNIAUTH_GITHUB_ONRUBY_DEV_SECRET=631246927040210ff8d21f7d734c291f7b8b8dcf
 export ZEROPUSH_KEY=ZEROPUSH_TEST_KEY
 
-bundle exec puma -C config/puma.rb
+bundle check || bundle install
+
+bundle exec puma --config config/puma.rb
