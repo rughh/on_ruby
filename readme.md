@@ -27,7 +27,8 @@ Source for the Sites of the Ruby Communities
 
 ## Setup
 
-### Postgresql
+### On your machine
+#### Install Postgresql
 
 ```sh
 # install Postgres on Mac OS X
@@ -47,6 +48,16 @@ Use `script/server` to run rails locally, otherwise you need to export the envir
 
     bundle --without=production
     script/server
+
+### Using Docker
+
+Install the [https://www.docker.com/toolbox](Docker Toolbox), or if
+you're on Linux, install
+[https://github.com/docker/compose/releases](Docker Compose).
+
+Fire up:
+
+    docker-compose up
 
 ### Hosts
 
