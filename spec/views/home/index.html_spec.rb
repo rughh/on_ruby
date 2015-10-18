@@ -10,7 +10,7 @@ describe "home/index" do
   it "should render successfully" do
     allow(view).to receive_messages(events: [event], current_event: event, people: [user])
     allow(view).to receive_messages(locations: [location], done_topics: [topic])
-    allow(view).to receive_messages(undone_topics: [topic], organizers: [user])
+    allow(view).to receive_messages(undone_topics: [topic], organizers: [user], upcoming_topics: [topic])
     allow(view).to receive_messages(companies: [company], main_user: user, signed_in?: false)
 
     render

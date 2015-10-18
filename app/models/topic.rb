@@ -16,9 +16,10 @@ class Topic < ActiveRecord::Base
 
   has_many :likes, dependent: :destroy
 
-  scope :ordered, -> { order('created_at DESC') }
-  scope :undone,  -> { where('event_id IS NULL') }
-  scope :done,    -> { where('event_id IS NOT NULL') }
+  scope :ordered,  -> { order('created_at DESC') }
+  scope :undone,   -> { where('event_id IS NULL') }
+  scope :done,     -> { joins(:event).where('date <= ?', Time.now - 2.hour) }
+  scope :upcoming, -> { joins(:event).where('date > ?', Time.now - 2.hour) }
 
   default_scope -> { where(label: Whitelabel[:label_id]) }
 
