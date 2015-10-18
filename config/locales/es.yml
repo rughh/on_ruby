@@ -58,6 +58,7 @@ es:
     engage: "Los grupos de usuarios necesitan interacción. Si crees que estaría bien dar una charla sobre un Tema, o quieres profundizar sobre alguno, <strong>por favor añádelo en nuestra Wishlist</strong>. Si tienes una idea para una charla o actividad <strong>proponla aquí</strong> para obtener feedback de la comunidad de Ruby/Rails."
     add_topic: "Proponer un Tema"
     new_topics: "Propuestas"
+    upcoming_topics: "Próximos temas"
     old_topics: "Temas recientes"
     company_workers: "En ocasiones serán lugares de trabajo de los miembros del Grupo de Usuarios; esto es normal, y les encanta ver caras nuevas."
     company_missing: "Si crees que falta una compañía, envíanos un %{email_link} o un tweet a %{twitter_link}"
