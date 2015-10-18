@@ -1,0 +1,21 @@
+{
+  "name": "OnRuby",
+  "description": "A whitelabel Usergroup Application",
+  "repository": "https://github.com/phoet/on_ruby",
+  "keywords": [
+    "ruby",
+    "rails",
+    "usergroup"
+  ],
+  "image": "heroku/ruby",
+  "addons": [
+    "deployhooks:http",
+    "heroku-postgresql:hobby-basic",
+    "memcachier:dev",
+    "my-sha:test",
+    "newrelic:wayne",
+    "papertrail:choklad",
+    "scheduler:standard",
+    "sendgrid:starter"
+  ]
+}

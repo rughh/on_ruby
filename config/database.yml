@@ -6,15 +6,15 @@ development: &default
   username: postgres
   host: db
   port: 5432
+  encoding: utf8
 
 test:
   <<: *default
   database: onruby_test
   username: postgres
   host: localhost
-  encoding: utf8
 
 production:
+  <<: *default
   url:  <%= ENV["DATABASE_URL"] %>
   pool: <%= ENV["DB_POOL"] || ENV["MAX_THREADS"] || 5 %>
-  encoding: utf8
