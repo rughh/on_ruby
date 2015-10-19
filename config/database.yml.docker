@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  database: onruby_development
+  username: postgres
+  host: db
+  encoding: utf8
+
+test:
+  adapter: postgresql
+  database: onruby_test
+  username: postgres
+  host: db
+  encoding: utf8

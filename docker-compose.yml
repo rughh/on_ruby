@@ -1,0 +1,11 @@
+web:
+  build: .
+  dockerfile: Dockerfile.dev
+  links:
+    - db
+  volumes:
+    - .:/opt/on_ruby
+  ports:
+    - 5000:5000
+db:
+  image: postgres
