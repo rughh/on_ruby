@@ -29,7 +29,42 @@ Source for the Sites of the Ruby Communities
 
 ## Setup
 
-### Postgresql
+### Hosts
+
+For working with the whitelabel functionality, you need to add all supported subdomains to your */etc/hosts* :
+
+    127.0.0.1    www.onruby.dev hamburg.onruby.dev cologne.onruby.dev bremen.onruby.dev saar.onruby.dev
+    127.0.0.1    berlin.onruby.dev karlsruhe.onruby.dev leipzig.onruby.dev dresden.onruby.dev
+    127.0.0.1    railsgirlshh.onruby.dev bonn.onruby.dev madridrb.onruby.dev
+
+### Using Docker
+
+Install [Docker and Docker Compose](https://docs.docker.com/compose/install/) if you haven't already. Then:
+
+```sh
+cp config/database.yml{.docker,}
+sudo docker-compose build
+sudo docker-compose up
+./bin/in_docker rake db:setup
+```
+This creates two Docker containers: `web` for the application and `db` for the database. `sudo` for `docker-compose` is just required, if you run Docker local on Linux.
+
+The `./bin/in_docker` allows you to run commands inside the Docker container. Examples:
+```sh
+./bin/in_docker rails c
+./bin/in_docker rspec spec/requests/labels_spec.rb
+```
+
+Gems are bundled in the build step. This makes changes to the Gemfile a bit complicated:
+
+```sh
+./bin/in_docker bundle install # Updates the Gemfile.lock
+sudo docker-compose build
+```
+
+Access via [http://www.onruby.dev:5000](http://www.onruby.dev:5000)
+
+### Local installation
 
 ```sh
 # install Postgres on Mac OS X
@@ -49,14 +84,6 @@ Use `script/server` to run rails locally, otherwise you need to export the envir
 
     bundle --without=production
     script/server
-
-### Hosts
-
-For working with the whitelabel functionality, you need to add all supported subdomains to your */etc/hosts* :
-
-    127.0.0.1    www.onruby.dev hamburg.onruby.dev cologne.onruby.dev bremen.onruby.dev saar.onruby.dev
-    127.0.0.1    berlin.onruby.dev karlsruhe.onruby.dev leipzig.onruby.dev dresden.onruby.dev
-    127.0.0.1    railsgirlshh.onruby.dev bonn.onruby.dev madridrb.onruby.dev
 
 Access via [http://www.onruby.dev:5000](http://www.onruby.dev:5000)
 

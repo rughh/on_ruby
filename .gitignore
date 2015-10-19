@@ -22,3 +22,4 @@ spec/reports/
 Vagrantfile
 .ruby-gemset
 passenger.*
+config/database.yml
