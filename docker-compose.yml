@@ -1,0 +1,40 @@
+web:
+  build: .
+  command: 'bash -c ''bundle exec puma --config config/puma.rb --environment development'''
+  working_dir: /app/user
+  environment:
+    PORT: 5000
+    DATABASE_URL: 'postgres://postgres:@herokuPostgresql:5432/postgres'
+    MEMCACHIER_SERVERS: 'herokuMemcached:11211'
+    HOR_API_KEY: 'HOR_API_KEY_TEST'
+    SECRET_TOKEN: 'SECRET_TOKEN_TEST_b7c7374eb0285b87c0c1c61c2c5401b9f92dd59209713801743202c'
+    RACK_ENV: 'development'
+    RAILS_ENV: 'development'
+    TWITTER_CONSUMER_KEY: 'oJ2y2wLAcoQdIMyWGJxusA'
+    TWITTER_CONSUMER_SECRET: 'kscsfZrdkqqv8KZQ0HFiDOiTDFGJbqerb5i9oIVa6s'
+    OMNIAUTH_GITHUB_RUGB_DEV_KEY: 'f859969acc060c3f1e41'
+    OMNIAUTH_GITHUB_RUGB_DEV_SECRET: '93d2f12e662e79f23d8aa9cf8bd271bfd1462db7'
+    OMNIAUTH_GITHUB_ONRUBY_DEV_KEY: '40476a2d1961166b313d'
+    OMNIAUTH_GITHUB_ONRUBY_DEV_SECRET: '631246927040210ff8d21f7d734c291f7b8b8dcf'
+    ZEROPUSH_KEY: 'ZEROPUSH_TEST_KEY'
+  ports:
+    - '5000:5000'
+  links:
+    - herokuPostgresql
+    - herokuMemcached
+shell:
+  build: .
+  command: bash
+  working_dir: /app/user
+  environment:
+    DATABASE_URL: 'postgres://postgres:@herokuPostgresql:5432/postgres'
+    MEMCACHIER_SERVERS: 'tcp://herokuMemcached:11211'
+  links:
+    - herokuPostgresql
+    - herokuMemcached
+  volumes:
+    - '.:/app/user'
+herokuPostgresql:
+  image: postgres
+herokuMemcached:
+  image: memcached

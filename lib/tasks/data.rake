@@ -1,7 +1,7 @@
 namespace :data do
   desc "creates test-data"
   task create: :setup do
-    Whitelabel.with_label(Whitelabel.labels.first) do
+    Whitelabel.each_label do
       5.times { FactoryGirl.create(:location) }
       5.times { FactoryGirl.create(:topic) }
       5.times { FactoryGirl.create(:event, date: rand(100).days.ago) }
@@ -12,6 +12,7 @@ namespace :data do
 
   task setup: ["environment", "db:migrate"] do
     require "factory_girl"
+    require "faker"
     Dir[Rails.root.join("spec/support/factories/*.rb")].each {|f| require f}
   end
 end
