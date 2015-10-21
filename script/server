@@ -13,4 +13,4 @@ export ZEROPUSH_KEY=ZEROPUSH_TEST_KEY
 
 bundle check || bundle install
 
-bundle exec puma -C config/puma.rb
+bundle exec puma --config config/puma.rb

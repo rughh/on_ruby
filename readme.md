@@ -27,7 +27,29 @@ Source for the Sites of the Ruby Communities
 [![Up-time](https://share.pingdom.com/banners/9a5fa346)](http://stats.pingdom.com/rt22wr280x9j/616285)
 [![Response-time](https://share.pingdom.com/banners/eb9be8df)](http://stats.pingdom.com/rt22wr280x9j/616285)
 
-## Setup
+### Using Docker
+
+Install [Docker and Docker Compose](https://docs.docker.com/compose/install/) if you haven't already. Then:
+
+```sh
+docker-compose build
+docker-compose up
+
+script/in_docker bundle exec rake db:setup
+```
+
+> `sudo` might be required for `docker-compose` if you run Docker local on Linux.
+
+This creates three Docker containers: `web` for the application, `box` for storing rubygems installations and `db` for the postgres database.
+
+The `script/in_docker` allows you to run commands inside the Docker container. Examples:
+```sh
+script/in_docker bundle exec rspec spec/requests/labels_spec.rb
+```
+
+Access via [http://www.onruby.dev:5000](http://www.onruby.dev:5000)
+
+### Local installation
 
 ### On your machine
 #### Install Postgresql
@@ -50,16 +72,6 @@ Use `script/server` to run rails locally, otherwise you need to export the envir
 
     bundle --without=production
     script/server
-
-### Using Docker
-
-Install the [https://www.docker.com/toolbox](Docker Toolbox), or if
-you're on Linux, install
-[https://github.com/docker/compose/releases](Docker Compose).
-
-Fire up:
-
-    docker-compose up
 
 ### Hosts
 
