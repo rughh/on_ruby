@@ -1,5 +1,5 @@
 source "http://rubygems.org"
-ruby "2.2.0"
+ruby "2.2.3"
 
 gem "puma",                   "~> 2.11"
 gem "rails",                  "~> 4.2.4.rc1"
@@ -41,11 +41,10 @@ gem "peek-performance_bar",   "~> 1.1.3"
 gem "zero_push",              "~> 2.4.1"
 gem 'link_thumbnailer',       "~> 2.4.0"
 
-gem "dalli",            "~> 2.7.0"
-gem "kgio",             "~> 2.9.2"
-gem "lograge",          "~> 0.3.0"
-
 group :production do
+  gem "dalli",            "~> 2.7.0"
+  gem "kgio",             "~> 2.9.2"
+  gem "lograge",          "~> 0.3.0"
   gem "heroku-deflater",  "~> 0.5.3"
   gem "rails_12factor",   "~> 0.0.2"
 end
