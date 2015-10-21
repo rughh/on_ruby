@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$DOCKER_HOST" ]; then
+  docker-compose run web $@
+else
+  sudo docker-compose run web $@
+fi

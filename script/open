@@ -1,0 +1,1 @@
+open "http://hamburg.$(docker-machine active | docker-machine ip dev).xip.io:5000"
