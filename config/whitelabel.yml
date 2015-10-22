@@ -241,6 +241,7 @@
       :email: leipzigonrails@googlegroups.com
   tld: de
   google_group: leipzigonrails
+  slackin_url: http://slack-onruby.herokuapp.com/
 - !ruby/object:Usergroup
   label_id: dresden
   default_locale: de
