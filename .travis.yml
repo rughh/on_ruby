@@ -7,6 +7,7 @@ branches:
 before_install:
   - docker-compose build
   - docker-compose up -d db
+  - docker-compose run web sh -c 'RAILS_ENV=test bundle check || bundle install'
   - docker-compose run web sh -c 'RAILS_ENV=test bundle exec rake db:create'
   - docker-compose run web sh -c 'RAILS_ENV=test bundle exec rake db:test:prepare'
 script:
