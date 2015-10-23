@@ -5,7 +5,7 @@ development: &default
   pool: 5
   username: postgres
   host: db
-  port: 5433
+  port: 5432
 
 test:
   <<: *default
