@@ -7,9 +7,7 @@ branches:
 before_install:
   - docker-compose build
   - docker-compose up -d db
-  - docker-compose ps
-  - docker-compose run web sh -c 'RAILS_ENV=test bundle check || bundle install'
-  - docker-compose run web sh -c 'RAILS_ENV=test bundle exec rake db:create'
-  - docker-compose run web sh -c 'RAILS_ENV=test bundle exec rake db:test:prepare'
+  - docker-compose run web sh -c 'RAILS_ENV=test bundle install'
+  - docker-compose run web sh -c 'RAILS_ENV=test bundle exec rake db:create db:test:prepare'
 script:
   - docker-compose run web sh -c 'CODECLIMATE_REPO_TOKEN=1c9dbc1183347accbd5a2d7ec1323ab4b0b9dea31e762940b0209bc1c7a07cdd bundle exec rake'
