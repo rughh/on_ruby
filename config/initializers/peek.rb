@@ -3,7 +3,7 @@ Peek.into Peek::Views::PerformanceBar
 Peek.into Peek::Views::PG
 Peek.into Peek::Views::GC
 
-if defined? Dalli
+if Rails.env.production?
   Peek.into Peek::Views::Dalli
   OnRuby::Application.configure do
     config.peek.adapter = :memcache, {
