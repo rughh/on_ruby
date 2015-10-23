@@ -1,7 +1,5 @@
 db:
   image: postgres:9.4.1
-  ports:
-    - "5433:5432"
 box:
   image: busybox
   volumes:
