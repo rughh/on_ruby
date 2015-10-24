@@ -67,11 +67,6 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     callsite (0.0.11)
-    chosen-rails (1.3.0)
-      coffee-rails (>= 3.2)
-      compass-rails (>= 1.1.2)
-      railties (>= 3.0)
-      sass-rails (>= 3.2)
     chunky_png (1.3.3)
     codeclimate-test-reporter (0.4.5)
       simplecov (>= 0.7.1, < 1.0.0)
@@ -368,7 +363,6 @@ DEPENDENCIES
   acts_as_api (~> 0.4.2)
   better_errors
   binding_of_caller
-  chosen-rails (~> 1.3)
   codeclimate-test-reporter
   coffee-rails (~> 4.0.1)
   compass-rails (~> 2.0.4)
@@ -424,3 +418,6 @@ DEPENDENCIES
   uglifier (~> 2.5.0)
   whitelabel (~> 0.3)
   zero_push (~> 2.4.1)
+
+BUNDLED WITH
+   1.10.6

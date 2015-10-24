@@ -1,5 +1,3 @@
-//= require chosen-jquery
-
 jQuery ->
   $('select#event_user_id').chosen(search_contains: true, allow_single_deselect: true)
   $('select#event_location_id').chosen(search_contains: true, allow_single_deselect: true)
