@@ -6,7 +6,7 @@ branches:
     - master
 before_install:
   - docker-compose build
-  - docker-compose up -d db
+  - docker-compose up -d postgres
   - docker-compose run web sh -c 'RAILS_ENV=test bundle install'
   - docker-compose run web sh -c 'RAILS_ENV=test bundle exec rake db:create db:test:prepare'
 script:

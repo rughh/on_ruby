@@ -1,4 +1,4 @@
-db:
+postgres:
   image: postgres:9.4.1
 box:
   image: busybox
@@ -9,7 +9,7 @@ web:
   ports:
     - "5000:5000"
   links:
-    - db
+    - postgres
   volumes:
     - .:/app
   volumes_from:

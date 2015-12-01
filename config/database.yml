@@ -4,8 +4,8 @@ development: &default
   min_messages: WARNING
   pool: 5
   username: postgres
-  host: db
-  port: 5432
+  host: <%= ENV["POSTGRES_PORT_5432_TCP_ADDR"] || 'localhost' %>
+  port: <%= ENV["POSTGRES_PORT_5432_TCP_PORT"] || 5432 %>
 
 test:
   <<: *default
