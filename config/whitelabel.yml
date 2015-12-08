@@ -436,6 +436,9 @@
   - :name: Codecantor
     :url: http://codecantor.com
     :banner: codecantor.png
+  - :name: jobandtalent
+    :url: http://www.jobandtalent.com/
+    :banner: jobandtalent.png
   tld: eu
   coc: http://madridrb.com
   domains:
