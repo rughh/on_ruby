@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/burn-notice/peek-git.git
-  revision: 9315fc512c650c3412ea0583546af7d5fdc3bd5e
-  specs:
-    peek-git (1.0.2)
-      peek
-
-GIT
   remote: git://github.com/typus/typus.git
   revision: 45defe6bae6e4085bb218b40353718e26f1c6392
   specs:
@@ -57,7 +50,6 @@ GEM
       rack (>= 1.1.0)
     addressable (2.3.6)
     arel (6.0.3)
-    atomic (1.1.16)
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -208,21 +200,6 @@ GEM
       omniauth-oauth (~> 1.0)
     partially_useful (0.2.2)
       railties (~> 4.1)
-    peek (0.1.9)
-      atomic (>= 1.0.0)
-      railties (>= 3.0.0)
-    peek-dalli (1.1.2)
-      atomic (>= 1.0.0)
-      dalli
-      peek
-    peek-gc (0.0.2)
-      peek
-    peek-performance_bar (1.1.6)
-      peek (>= 0.1.0)
-    peek-pg (1.1.0)
-      atomic (>= 1.0.0)
-      peek
-      pg
     pg (0.17.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -389,12 +366,6 @@ DEPENDENCIES
   omniauth-github (~> 1.1.2)
   omniauth-twitter (~> 1.0.1)
   partially_useful
-  peek (~> 0.1.8)
-  peek-dalli (~> 1.1.2)
-  peek-gc (~> 0.0.2)
-  peek-git!
-  peek-performance_bar (~> 1.1.3)
-  peek-pg (~> 1.1.0)
   pg (~> 0.17.1)
   pry-nav
   pry-rails
@@ -420,4 +391,4 @@ DEPENDENCIES
   zero_push (~> 2.4.1)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

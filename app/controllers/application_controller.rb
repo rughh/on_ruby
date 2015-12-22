@@ -24,11 +24,6 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def peek_enabled?
-    return false if Rails.env.test?
-    signed_in? && current_user.super_admin?
-  end
-
   def setup
     switch_label
     switch_locale
