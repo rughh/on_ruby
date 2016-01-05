@@ -67,7 +67,7 @@ en:
     takes_place: "is taking place on %{event_date} at %{location_link}!"
     takes_place_no_location: "is taking place on %{event_date} and still <a href='%{none_url}'>looking for a location!</a>!"
     past_events: "Past events"
-    usergroup_locations: "This are the %{location_link} our usergroup takes place usually."
+    usergroup_locations: "This is the %{location_link} our usergroup takes place usually."
     show_more: "show more"
     no_new_topics: "Currently no proposals, add your %{new_topic_link} here!"
     all_events: "All Events"
