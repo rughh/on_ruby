@@ -156,6 +156,8 @@
     - :name: Avarteq GmbH
       :email: info@avarteq.de
   tld: de
+  domains:
+  - rugsaar.de
 - !ruby/object:Usergroup
   label_id: karlsruhe
   default_locale: de
