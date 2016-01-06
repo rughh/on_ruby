@@ -134,7 +134,7 @@
 - !ruby/object:Usergroup
   label_id: saar
   default_locale: de
-  recurring: third friday 19:30
+  recurring: second friday 18:30
   email: rug.saar@gmail.com
   twitter: RUGSaar
   organizers:
@@ -142,21 +142,23 @@
   - gogolok
   location:
     :zoom: 13
-    :lat: 49.23856
-    :long: 6.996574
+    :lat: 49.2429927
+    :long: 6.9897586
   default_time_zone:
     "Europe/Berlin"
   imprint:
     :address: |-
-      Science Park 2
-      66123 Saarbrücken
+      Europaallee 27
+      66113 Saarbrücken
     :contributors:
     - :name: Markus Schwed
       :email: ma.schwed@googlemail.com
     - :name: Robert Gogolok
       :email: gogolok@gmail.com
+    - :name: CompanyMood
+      :email: hello@company-mood.de
     - :name: Avarteq GmbH
-      :email: http://avarteq.de
+      :email: info@avarteq.de
   tld: de
 - !ruby/object:Usergroup
   label_id: karlsruhe
