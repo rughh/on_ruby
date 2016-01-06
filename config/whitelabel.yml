@@ -13,8 +13,7 @@
     :zoom: 14
     :lat: 53.56544
     :long: 9.95947
-  default_time_zone:
-    "Europe/Berlin"
+  default_time_zone: Europe/Berlin
   imprint:
     :address: |-
       Schanzenstr. 85
@@ -70,8 +69,7 @@
     :zoom: 14
     :lat: 53.079296
     :long: 8.801694
-  default_time_zone:
-    "Europe/Berlin"
+  default_time_zone: Europe/Berlin
   imprint:
     :address: |-
       Hansator 1
@@ -90,7 +88,6 @@
   label_id: cologne
   default_locale: de
   recurring: third wednesday
-  custom_recurring: true
   email: colognerb@googlegroups.com
   twitter: colognerb
   organizers:
@@ -99,8 +96,7 @@
     :zoom: 13
     :lat: 50.941231
     :long: 6.957092
-  default_time_zone:
-    "Europe/Berlin"
+  default_time_zone: Europe/Berlin
   imprint:
     :address: "An der Bottmühle 5 \n50678 Köln "
     :contributors:
@@ -127,6 +123,7 @@
     :url: http://hacken.in/
   tld: de
   coc: http://rubyberlin.github.io/code-of-conduct
+  custom_recurring: true
   domains:
   - colognerb.de
   - koelschrb.de
@@ -144,8 +141,7 @@
     :zoom: 13
     :lat: 49.2429927
     :long: 6.9897586
-  default_time_zone:
-    "Europe/Berlin"
+  default_time_zone: Europe/Berlin
   imprint:
     :address: |-
       Europaallee 27
@@ -172,8 +168,7 @@
     :zoom: 14
     :lat: 49.006292
     :long: 8.398361
-  default_time_zone:
-    "Europe/Berlin"
+  default_time_zone: Europe/Berlin
   imprint:
     :address: |-
       Amalienstraße 44
@@ -206,8 +201,7 @@
     :zoom: 14
     :lat: 52.52
     :long: 13.4
-  default_time_zone:
-    "Europe/Berlin"
+  default_time_zone: Europe/Berlin
   imprint:
     :address: |-
       Adalbertstraße 8
@@ -234,8 +228,7 @@
     :zoom: 14
     :lat: 51.3417825
     :long: 12.3936349
-  default_time_zone:
-    "Europe/Berlin"
+  default_time_zone: Europe/Berlin
   imprint:
     :contributors:
     - :name: Christoph Petschnig
@@ -259,8 +252,7 @@
     :zoom: 14
     :lat: 51.049013
     :long: 13.798582
-  default_time_zone:
-    "Europe/Berlin"
+  default_time_zone: Europe/Berlin
   imprint:
     :address: |-
       ObjectFab GmbH
@@ -299,8 +291,7 @@
     :zoom: 14
     :lat: 53.56544
     :long: 9.95947
-  default_time_zone:
-    "Europe/Berlin"
+  default_time_zone: Europe/Berlin
   imprint:
     :address: |-
       Adalbertstr. 7
@@ -348,8 +339,7 @@
     :zoom: 14
     :lat: 50.724
     :long: 7.112488
-  default_time_zone:
-    "Europe/Berlin"
+  default_time_zone: Europe/Berlin
   imprint:
     :address: |-
       mixxt GmbH
@@ -377,8 +367,7 @@
     :zoom: 14
     :lat: 47.2578229
     :long: 11.3961853
-  default_time_zone:
-    "Europe/Vienna"
+  default_time_zone: Europe/Vienna
   imprint:
     :address: |-
       Tschamlerstraße 3
@@ -403,8 +392,7 @@
     :zoom: 10
     :lat: 40.42
     :long: -3.68
-  default_time_zone:
-    "Europe/Madrid"
+  default_time_zone: Europe/Madrid
   imprint:
     :address: |-
       Av del Brasil, 7 (The Irish Rover)
@@ -412,13 +400,6 @@
     :contributors:
     - :name: Enrique García Cota
       :email: kikito@gmail.com
-  other_usergroups:
-  - :name: Betabeers
-    :url: https://betabeers.com/
-    :twitter: betabeers
-  - :name: MadridJS
-    :url: http://www.meetup.com/madridjs/
-    :twitter: madridjs
   sponsors:
   - :name: Bebanjo
     :url: http://bebanjo.com/
@@ -441,8 +422,15 @@
   - :name: jobandtalent
     :url: http://www.jobandtalent.com/
     :banner: jobandtalent.png
+  other_usergroups:
+  - :name: Betabeers
+    :url: https://betabeers.com/
+    :twitter: betabeers
+  - :name: MadridJS
+    :url: http://www.meetup.com/madridjs/
+    :twitter: madridjs
   tld: eu
   coc: http://madridrb.com
   domains:
   - madridrb.com
-  :google_group: madrid-rb
+  google_group: madrid-rb
