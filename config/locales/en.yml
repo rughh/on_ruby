@@ -129,13 +129,13 @@ en:
     webcal: 'Webcal'
     rss: 'RSS'
   flash:
-    only_admins: "Ups, only admins allowed!"
-    not_authenticated: "Ups, you are not allowed to visit this page!"
+    only_admins: "Oops, only admins allowed!"
+    not_authenticated: "Oops, you are not allowed to visit this page!"
     already_participating: "You're already in."
     already_closed: "The event is already maxed out."
     now_participating: "You're in."
     dont_participate: "You're out."
-    forbidden: "Ups, not allowed to do this!"
+    forbidden: "Oops, not allowed to do this!"
     logged_in: "Hi %{name}, you logged in succesfully!"
     logged_out: "Logout complete!"
     login_error: "Login failed, are you logged into your OAuth Account?"
