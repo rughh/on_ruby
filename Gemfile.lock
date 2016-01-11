@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/typus/typus.git
-  revision: 45defe6bae6e4085bb218b40353718e26f1c6392
+  revision: 29665b42e2709a82921177aea0773f640f4c0831
   specs:
     typus (4.0.0.beta1)
       bcrypt (~> 3.1.10)
@@ -172,7 +172,7 @@ GEM
     multipart-post (2.0.0)
     net-http-persistent (2.9.4)
     newrelic_rpm (3.14.0.305)
-    nokogiri (1.6.7)
+    nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     oauth (0.4.7)
     oauth2 (1.0.0)
