@@ -4,7 +4,7 @@ class Usergroup
   NUMBERS           = %w(first second third fourth)
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :custom_recurring, :email, :google_group, :coc, :default_time_zone
-  attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups, :tld, :sponsors
+  attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups, :tld, :sponsors, :slackin_url
 
   def parse_recurring_date(date)
     number, day, _ = recurring.split(DELIMITER_DATE)

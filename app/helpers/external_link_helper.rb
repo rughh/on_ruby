@@ -87,4 +87,8 @@ module ExternalLinkHelper
       end
     end
   end
+
+  def slackin_js_url
+    "#{Whitelabel[:slackin_url]}/slackin.js" if Whitelabel[:slackin_url]
+  end
 end
