@@ -5,6 +5,7 @@ branches:
 language: ruby
 rvm:
   - 2.3.0
+cache: bundler
 bundler_args: "--without development production"
 before_script: "script/ci/setup"
 script: "script/ci/run"
