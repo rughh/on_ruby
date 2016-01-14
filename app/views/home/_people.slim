@@ -1,5 +1,5 @@
 = section_box :people do
   p== I18n.tw("home.the_usergroup", usergroup: I18n.tw("name"))
   = render 'users/list', users: people
-  - if slackin_js_url
-    script src=slackin_js_url async defer
+  = slackin_js
+
