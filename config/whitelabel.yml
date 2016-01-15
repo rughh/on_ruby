@@ -217,7 +217,7 @@
   domains:
   - rug-b.de
   google_group: rug-b
-  slackin_url: http://slack.rubyberlin.org/
+  slackin_url: http://slack.rubyberlin.org/slackin.js
 - !ruby/object:Usergroup
   label_id: leipzig
   default_locale: de
