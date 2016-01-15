@@ -128,6 +128,7 @@
   - colognerb.de
   - koelschrb.de
   google_group: colognerb
+  slackin_url: http://colognerb.sangyye.net/slackin.js
 - !ruby/object:Usergroup
   label_id: saar
   default_locale: de
