@@ -22,10 +22,7 @@ Source for the Sites of the Ruby Communities
 
 [![I Love Open Source](http://www.iloveopensource.io/images/logo-lightbg.png)](http://www.iloveopensource.io/projects/524c41bdca7964c61700044d)
 
-## Status
-
-[![Up-time](https://share.pingdom.com/banners/9a5fa346)](http://stats.pingdom.com/rt22wr280x9j/616285)
-[![Response-time](https://share.pingdom.com/banners/eb9be8df)](http://stats.pingdom.com/rt22wr280x9j/616285)
+## Installation
 
 ### Using Docker
 
