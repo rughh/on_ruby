@@ -1,1 +1,1 @@
-ZeroPush.auth_token = ENV['ZEROPUSH_KEY']
+OneSignal::OneSignal.api_key = ENV['ONE_SIGNAL_KEY']
