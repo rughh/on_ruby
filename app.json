@@ -1,0 +1,165 @@
+{
+  "name": "on_ruby",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
+  "env": {
+    "ASIN_KEY": {
+      "required": true
+    },
+    "ASIN_SECRET": {
+      "required": true
+    },
+    "BITLY_API_KEY": {
+      "required": true
+    },
+    "BITLY_LOGIN": {
+      "required": true
+    },
+    "BUNDLE_WITHOUT": {
+      "required": true
+    },
+    "CROND_URL": {
+      "required": true
+    },
+    "GEM_PATH": {
+      "required": true
+    },
+    "GITHUB_COLOGNERB_CONSUMER_KEY": {
+      "required": true
+    },
+    "GITHUB_COLOGNERB_CONSUMER_SECRET": {
+      "required": true
+    },
+    "GITHUB_CONSUMER_KEY": {
+      "required": true
+    },
+    "GITHUB_CONSUMER_SECRET": {
+      "required": true
+    },
+    "GITHUB_RUGB_CONSUMER_KEY": {
+      "required": true
+    },
+    "GITHUB_RUGB_CONSUMER_SECRET": {
+      "required": true
+    },
+    "HOR_API_KEY": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "NEW_RELIC_APP_NAME": {
+      "required": true
+    },
+    "NEW_RELIC_ID": {
+      "required": true
+    },
+    "NEW_RELIC_LOG_LEVEL": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_BONNRB_DE_KEY": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_BONNRB_DE_SECRET": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_COLOGNERB_DE_KEY": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_COLOGNERB_DE_SECRET": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_INNSBRUCKRB_AT_KEY": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_INNSBRUCKRB_AT_SECRET": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_INNSBRUCKRUBY_AT_KEY": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_INNSBRUCKRUBY_AT_SECRET": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_KOELSCHRB_DE_KEY": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_KOELSCHRB_DE_SECRET": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_MADRIDRB_COM_KEY": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_MADRIDRB_COM_SECRET": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_ONRUBY_AT_KEY": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_ONRUBY_AT_SECRET": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_ONRUBY_DE_KEY": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_ONRUBY_DE_SECRET": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_ONRUBY_EU_KEY": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_ONRUBY_EU_SECRET": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_RUGB_DE_KEY": {
+      "required": true
+    },
+    "OMNIAUTH_GITHUB_RUGB_DE_SECRET": {
+      "required": true
+    },
+    "PATH": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "SECRET_TOKEN": {
+      "required": true
+    },
+    "SENDGRID_DOMAIN": {
+      "required": true
+    },
+    "TWITTER_CONSUMER_KEY": {
+      "required": true
+    },
+    "TWITTER_CONSUMER_SECRET": {
+      "required": true
+    },
+    "TWITTER_OAUTH_TOKEN": {
+      "required": true
+    },
+    "TWITTER_OAUTH_TOKEN_SECRET": {
+      "required": true
+    },
+    "ZEROPUSH_KEY": {
+      "required": true
+    }
+  },
+  "addons": [
+    "newrelic",
+    "sendgrid",
+    "heroku-postgresql",
+    "memcachier",
+    "papertrail",
+    "scheduler"
+  ],
+  "buildpacks": [
+    {
+      "url": "urn:buildpack:heroku/ruby"
+    }
+  ]
+}
