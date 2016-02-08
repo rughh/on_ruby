@@ -436,3 +436,25 @@
   domains:
   - madridrb.com
   google_group: madrid-rb
+- !ruby/object:Usergroup
+  label_id: munich
+  default_locale: de
+  recurring: second wednesday
+  email: Munich-Rubyshift-Ruby-User-Group-list@meetup.com
+  twitter: muc_rubyshift
+  organizers:
+  - pschrammel
+  - bascht
+  location:
+    :zoom: 13.5
+    :lat: 48.136694
+    :long: 11.5701035
+  imprint:
+    :address: |-
+      Bayerstraße 69
+      80335 München
+    :contributors:
+    - :name: Peter Schrammel
+      :email: Munich-Rubyshift-Ruby-User-Group-list@meetup.com
+  sponsors: []
+  tld: de
