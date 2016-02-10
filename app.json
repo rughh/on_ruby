@@ -1,8 +1,5 @@
 {
   "name": "on_ruby",
-  "scripts": {
-    "postdeploy": "bundle exec rake db:migrate"
-  },
   "env": {
     "ASIN_KEY": {
       "required": true
