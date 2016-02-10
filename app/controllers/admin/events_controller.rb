@@ -16,13 +16,22 @@ class Admin::EventsController < Admin::ResourcesController
     event = Event.find(params[:id])
 
     options = {
-      channel:           Whitelabel[:label_id],
-      alert:             "#{I18n.tw('name')}: new event at #{I18n.l(event.date)}",
+      app_id: ENV['ONE_SIGNAL_APP_ID'],
+      included_segments: [Whitelabel[:label_id]],
+      contents: {
+        en: "#{I18n.tw('name')}: new event at #{I18n.l(event.date)}"
+      },
       content_available: true
     }
 
-    ZeroPush.broadcast(options)
+    notification_call = OneSignal::Notification.create(params: options)
 
-    redirect_to url_for(controller: "/admin/events", action: :show, id: event.id), alert: "iOS Push Notification sent!"
+    message = if notification_call.code == '200'
+      { notice: "iOS Push Notification sent!" }
+    else
+      { alert: "iOS Push Notification could not be sent!" }
+    end
+
+    redirect_to url_for(controller: "/admin/events", action: :show, id: event.id), message
   end
 end

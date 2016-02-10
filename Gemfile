@@ -30,7 +30,7 @@ gem "coffee-rails",           "~> 4.0.1"
 gem "font-awesome-rails",     "~> 4.0"
 gem "uglifier",               "~> 2.5.0"
 gem "newrelic_rpm",           "~> 3.14"
-gem "zero_push",              "~> 2.4.1"
+gem "one_signal",             "~> 0.0.10"
 gem 'link_thumbnailer',       "~> 2.4.0"
 
 group :production do

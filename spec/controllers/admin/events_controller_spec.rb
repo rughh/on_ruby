@@ -40,11 +40,16 @@ describe Admin::EventsController do
       it "send notification with zeropush" do
         event = create(:event)
 
-        expect(ZeroPush).to receive(:broadcast).with({
-          channel:           Whitelabel[:label_id],
-          alert:             "#{I18n.tw("name")}: new event at #{I18n.l(event.date)}",
-          content_available: true
-        })
+        expect(OneSignal::Notification).to receive(:create).with({
+          params: {
+            app_id: nil,
+            included_segments: [Whitelabel[:label_id]],
+            contents: {
+              en: "#{I18n.tw("name")}: new event at #{I18n.l(event.date)}"
+            },
+            content_available: true
+          }
+        }).and_return(OpenStruct.new(code: '200'))
 
         get :send_ios_push_notification, id: event.id
       end
