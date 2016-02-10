@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
     self.twitter      = hash['info']['nickname']
     self.name         = hash['info']['name']
     self.image        = hash['info']['image']
-    self.url          = hash['info']['urls']['Website']
+    self.url          = hash['info']['urls']['Website'] unless self.url
     self.description  = hash['info']['description'] unless self.description
     self.location     = hash['info']['location']
   end
@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
     self.email        = hash['info']['email'] unless self.email
     self.name         = hash['info']['name'].blank? ? hash['info']['nickname'] : hash['info']['name']
     self.image        = hash['info']['image']
-    self.url          = hash['info']['urls']['Blog'] || hash['info']['urls']['GitHub']
+    self.url          = hash['info']['urls']['Blog'] || hash['info']['urls']['GitHub'] unless self.url
     self.description  = hash['extra']['raw_info']['bio'] unless self.description
     self.location     = hash['extra']['raw_info']['location']
   end

@@ -9,6 +9,7 @@ section
     - unless user.with_provider? :github
         = f.input :github, input_html: { placeholder: 'GitHub handle' }
     = f.input :email
+    = f.input :url
     = f.input :description, type: :text_area
     .info== t("topic.markdown")
     br
