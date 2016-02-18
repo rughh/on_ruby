@@ -8,4 +8,12 @@ describe "topics/show" do
 
     render
   end
+
+  context "materials" do
+    let(:materials) { [build(:material)] }
+
+    it "renders without an error" do
+      render partial: 'materials', locals: {materials: materials}
+    end
+  end
 end
