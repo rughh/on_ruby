@@ -31,7 +31,10 @@ OnRuby::Application.routes.draw do
     get '/', to: 'labels#index', as: :labels
   end
 
-  get '/api', to: 'api#index'
+  scope '/api' do
+    get '/', to: 'api#index', as: :api
+    get '/flush', to: 'api#flush'
+  end
   get '/styleguide(/:action)', controller: 'styleguide'
   root to: "home#index"
 

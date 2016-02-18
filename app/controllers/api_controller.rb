@@ -18,11 +18,18 @@ class ApiController < ApplicationController
     respond_with(hash)
   end
 
+  def flush
+    Rails.cache.clear
+
+    respond_with({result: :ok})
+  end
+
   private
 
   def api_sign_in
     if request.format.json?
-      if request.headers["x-api-key"] != ENV["HOR_API_KEY"]
+      key = request.headers["x-api-key"] || params["x-api-key"]
+      if key != ENV["HOR_API_KEY"]
         head :unauthorized
       end
     end
