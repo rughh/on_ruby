@@ -1,0 +1,8 @@
+- if materials.present?
+  h3#materials= t("main.materials")
+  ul
+    - materials.each do |material|
+      li
+        = link_to_material(material)
+        == " (#{link_to_user(material.user)})" if material.user
+        = material_preview(material)

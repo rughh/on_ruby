@@ -1,6 +1,6 @@
 Material:
   fields:
-    default: id, name, url, user, event
-    form: name, url, user, event
+    default: id, name, url, user, event, topic
+    form: name, url, user, event, topic
   search: name
   application: CRUD

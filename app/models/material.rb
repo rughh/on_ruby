@@ -6,6 +6,7 @@ class Material < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :event
+  belongs_to :topic
 
   scope :naked, -> { where("preview_type IS NULL AND preview_code is NULL") }
 

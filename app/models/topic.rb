@@ -15,6 +15,7 @@ class Topic < ActiveRecord::Base
   belongs_to :event
 
   has_many :likes, dependent: :destroy
+  has_many :materials
 
   scope :ordered,  -> { order('created_at DESC') }
   scope :undone,   -> { where('event_id IS NULL') }
