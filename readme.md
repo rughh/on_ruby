@@ -19,6 +19,7 @@ Source for the Sites of the Ruby Communities
 * [Bonn](http://bonn.onruby.de)
 * [Innsbruck](http://innsbruck.onruby.at)
 * [Madrid](http://madridrb.onruby.eu)
+* [Munich](http://munich.onruby.de)
 
 [![I Love Open Source](http://www.iloveopensource.io/images/logo-lightbg.png)](http://www.iloveopensource.io/projects/524c41bdca7964c61700044d)
 
