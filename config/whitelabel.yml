@@ -22,6 +22,9 @@
     - :name: Peter Schröder
       :email: phoetmail@googlemail.com
   sponsors:
+  - :name: Heroku
+    :url: https://www.heroku.com/
+    :banner: heroku.svg
   - :name: GitHub
     :url: https://www.github.com/
     :banner: github.png
