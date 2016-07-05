@@ -15,7 +15,6 @@ describe Usergroup do
     end
 
     context "as date/time" do
-      let(:hackhb) { Whitelabel.label_for("bremen") }
       let(:karlsruhe) { Whitelabel.label_for("karlsruhe")}
       let(:_1830) { Usergroup.new.tap { |it| it.recurring = 'second wednesday 18:30' } }
       let(:parisrb) { Usergroup.new.tap { |it| it.recurring = 'last wednesday 20:00' } }
@@ -28,7 +27,7 @@ describe Usergroup do
 
       context "#next_event_date" do
         it "should always be in the future on wednesday" do
-          [rughh, hackhb, colognerb, karlsruhe, _1830, parisrb].each do |usergroup|
+          [rughh, colognerb, karlsruhe, _1830, parisrb].each do |usergroup|
             expect(usergroup.next_event_date).to be_wednesday
             expect(usergroup.next_event_date).to be > Date.today
           end
@@ -42,7 +41,6 @@ describe Usergroup do
 
       context '#parse_recurring_date' do
         it "should find the right wednesday" do
-          expect(hackhb.parse_recurring_date(some_date)).to eql(first_wednesday)
           expect(rughh.parse_recurring_date(some_date)).to eql(second_wednesday)
           expect(colognerb.parse_recurring_date(some_date)).to eql(third_wednesday)
           expect(parisrb.parse_recurring_date(some_date)).to eql(fourth_wednesday)
@@ -51,7 +49,7 @@ describe Usergroup do
 
       context '#parse_recurring_time' do
         it "should return a time with 19:00 as default" do
-          parsed_time = hackhb.parse_recurring_time
+          parsed_time = karlsruhe.parse_recurring_time
           expect(parsed_time.hour).to eql(19)
           expect(parsed_time.min).to eql(0)
         end
