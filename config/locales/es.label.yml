@@ -19,12 +19,6 @@ es:
       title: RUG::B
       subtitle: Ruby User Group Berlin
       meta_desc: RUG::B—Ruby User Group Berlin
-    bremen:
-      city: Bremen
-      name: HackHB
-      title: HackHB
-      subtitle: Hack and Snack
-      meta_desc: 'Hacking Usergroup Bremen: Ruby / Rails / JavaScript / HTML5 / Objective-C'
     cologne:
       city: Colonia
       name: Kölsch.rb

@@ -57,34 +57,6 @@
   tld: de
   coc: http://rubyberlin.github.io/code-of-conduct
 - !ruby/object:Usergroup
-  label_id: bremen
-  default_locale: de
-  recurring: first wednesday
-  email: awesome-bremen@googlegroups.com
-  twitter: hackhb
-  organizers:
-  - dennisreimann
-  - erotte
-  location:
-    :zoom: 14
-    :lat: 53.079296
-    :long: 8.801694
-  default_time_zone: Europe/Berlin
-  imprint:
-    :address: |-
-      Hansator 1
-      28217 Bremen
-    :contributors:
-    - :name: Dennis Reimann
-      :email: mail@dennisreimann.de
-  other_usergroups:
-  - :name: Agile Gruppe Bremen
-    :url: http://agb.wikispaces.com/
-  - :name: CocoaHeads Bremen
-    :url: http://cocoaheads.org/de/Bremen/index.html
-    :twitter: CocoaHeadsHB
-  tld: de
-- !ruby/object:Usergroup
   label_id: cologne
   default_locale: de
   recurring: third wednesday
