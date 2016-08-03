@@ -6,6 +6,7 @@ es:
     people: "Gente"
     topics: "Temas"
     materials: "Materiales complementarios"
+    jobs: "Trabajos de Ruby o Rails"
   time:
     formats:
       time: "%H:%M"
@@ -77,6 +78,7 @@ es:
     top_maling_entries: "Mensajes recientes"
     goto_maling_list: "A la lista de correo"
     mailing_list: "La lista de correo es una herramienta para estar al tanto de lo que ocurre en el grupo, pero se pueden iniciar conversaciones sobre otros temas. Se utiliza para informar por e-mail a las personas que se registran en ella. Los temas principales que se discuten son de organización, técnicos, o simplemente interesantes. No enviamos anuncios."
+    job_description: "%{job_link} para %{company_link} en %{city}"
 
   profile:
     edit: "Editar perfil"

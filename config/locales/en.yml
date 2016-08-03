@@ -6,6 +6,7 @@ en:
     people: "People"
     topics: "Topics"
     materials: "Additional Material"
+    jobs: "Ruby / Rails Jobs"
   time:
     formats:
       time: "%H:%M"
@@ -76,6 +77,7 @@ en:
     top_maling_entries: "Top discussions"
     goto_maling_list: "To the Mailinglist"
     mailing_list: "The Mailinglist is a tool to just stay up-to-date or to even get involved in discussions. It is used to inform everyone about News via e-mail who signed up for it. Organizational, technical and other interesting topics are discussed and coordinated here. No ads - no dread."
+    job_description: "%{job_link} at %{company_link} in %{city}"
   profile:
     edit: "Edit profile"
     freelancer: "Freelancer"

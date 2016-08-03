@@ -29,7 +29,8 @@ module LinkHelper
   end
 
   def job_description(job)
-    t("hint.job_description", city: I18n.tw("city"), job_link: content_tag(:strong, link_to(job.name, job.url, title: job.name)), company_link: link_to_location(job.location))
+    job_description = current_page?(root_url) ? "home.job_description" : "hint.job_description"
+    t(job_description, city: I18n.tw("city"), job_link: content_tag(:strong, link_to(job.name, job.url, title: job.name)), company_link: link_to_location(job.location))
   end
 
   def link_to_location(location)

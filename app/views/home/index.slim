@@ -1,4 +1,5 @@
 - render_cached do
+  = render 'jobs', jobs: jobs if jobs.any?
   = render 'events', events: events, current_event: current_event
   = render 'topics', undone_topics: undone_topics, done_topics: done_topics, upcoming_topics: upcoming_topics, organizers: organizers
   = render 'people', people: people

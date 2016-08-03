@@ -1,0 +1,5 @@
+= section_box :jobs do
+  ul.more-list.clearfix
+    - jobs.each do |job|
+      li
+        == job_description(job)
