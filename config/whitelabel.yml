@@ -146,11 +146,11 @@
   default_time_zone: Europe/Berlin
   imprint:
     :address: |-
-      Amalienstraße 44
-      76133 Karlsruhe
+      Haid-und-Neu-Str. 18
+      76131 Karlsruhe
     :contributors:
-    - :name: Stefan Botzenhart
-      :email: sb@ninjaconcept.com
+    - :name: Marco Sehrer
+      :email: ms@ninjaconcept.com
     - :name: NinjaConcept GmbH
       :email: http://www.ninjaconcept.com/
   other_usergroups:
