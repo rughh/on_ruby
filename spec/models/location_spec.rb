@@ -30,7 +30,7 @@ describe Location do
 
   context "#geo_coder_address" do
     it 'should return a full address string with street, house_number, zip, city and internationalized country name' do
-      expect(@location.geo_coder_address).to eq('Schanzenstr. 85, Test-Location, 20357 Hamburg, Deutschland')
+      expect(@location.geo_coder_address).to eq('Schanzenstr. 85, 20357 Hamburg, Deutschland')
     end
   end
 
