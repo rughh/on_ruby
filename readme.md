@@ -4,6 +4,7 @@
 [![Coverage Status](http://img.shields.io/codeclimate/coverage/github/phoet/on_ruby.svg)](https://codeclimate.com/github/phoet/on_ruby)
 
 [Status & Uptime](http://status.onruby.eu/)
+
 [Get in touch in our Slack-Channel](https://slack-onruby.herokuapp.com/)
 
 Source for the Sites of the Ruby Communities
