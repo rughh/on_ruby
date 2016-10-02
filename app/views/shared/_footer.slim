@@ -5,7 +5,7 @@ section.clearfix
         h2= I18n.tw("footer.sponsored_by")
         ol
           - sponsors.each do |sp|
-            li
+            li(class="sponsor-#{sp[:name].downcase}")
               => link_to sp[:url], title: sp[:name] do
                 => image_tag("labels/#{Whitelabel[:label_id]}/sponsors/#{sp[:banner]}", alt: sp[:name])
 
