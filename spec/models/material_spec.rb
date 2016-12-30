@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Material do
-
   context '#generate_preview' do
     it 'uses the PreviewGenerator' do
       material = create(:material, url: 'http://hey.com')
