@@ -1,6 +1,9 @@
 inherit_from:
   - ../.rubocop.yml
 
+Style/AccessorMethodName:
+  Enabled: false
+
 Metrics/LineLength:
   Max: 200
 
