@@ -1,15 +1,15 @@
 class CacheExpiration < ActiveRecord::Observer
   observe Event, Highlight, Job, Location, Material, Participant, Topic, User, Like
 
-  def after_create(entitiy)
+  def after_create(_entitiy)
     self.class.expire_view_cache
   end
 
-  def after_update(entitiy)
+  def after_update(_entitiy)
     self.class.expire_view_cache
   end
 
-  def after_destroy(entitiy)
+  def after_destroy(_entitiy)
     self.class.expire_view_cache
   end
 
@@ -17,7 +17,7 @@ class CacheExpiration < ActiveRecord::Observer
     I18n.available_locales.each do |locale|
       [[:home, :index], [:highlights], [:jobs]].each do |segment|
         key = [:views, Whitelabel[:label_id], locale]
-        key = key.concat(segment).join("/")
+        key = key.concat(segment).join('/')
         Rails.logger.info "expire fragment '#{key}'"
         Rails.cache.delete key
       end
