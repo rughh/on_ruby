@@ -1,9 +1,9 @@
-require "spec_helper"
+require 'spec_helper'
 
-describe "users/show" do
+describe 'users/show' do
   let(:user) { build(:user) }
 
-  it "should render successfully" do
+  it 'should render successfully' do
     allow(view).to receive_messages(current_user: user, user: user)
 
     render
