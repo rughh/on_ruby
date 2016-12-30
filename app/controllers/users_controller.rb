@@ -8,7 +8,9 @@ class UsersController < ApplicationController
   expose(:users) { User.peers }
 
   def index; end
+
   def show; end
+
   def edit; end
 
   def calendar
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update_attributes user_params
-      redirect_to :back, notice: t("user.saved_successful")
+      redirect_to :back, notice: t('user.saved_successful')
     else
       redirect_to :back, alert: current_user.errors.full_messages.join(' ')
     end
@@ -29,10 +31,10 @@ class UsersController < ApplicationController
 
   def destroy
     if current_user.events.present?
-      redirect_to edit_user_path(current_user), alert: t("user.not_removed_organizer")
+      redirect_to edit_user_path(current_user), alert: t('user.not_removed_organizer')
     else
       current_user.destroy
-      redirect_to destroy_session_path, notice: t("user.removed")
+      redirect_to destroy_session_path, notice: t('user.removed')
     end
   end
 

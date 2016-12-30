@@ -5,11 +5,11 @@ class ParticipantsController < ApplicationController
 
   def create
     if event.closed?
-      flash[:alert] = t("flash.already_closed")
+      flash[:alert] = t('flash.already_closed')
     elsif event.particpate(current_user)
-      flash[:notice] = t("flash.now_participating")
+      flash[:notice] = t('flash.now_participating')
     else
-      flash[:alert] = t("flash.already_participating")
+      flash[:alert] = t('flash.already_participating')
     end
     redirect_to event_path(event)
   end
@@ -18,9 +18,9 @@ class ParticipantsController < ApplicationController
     participant = Participant.find params[:id]
     if participant.owned_by? current_user
       participant.destroy
-      redirect_to event_path(participant.event), notice: t("flash.dont_participate")
+      redirect_to event_path(participant.event), notice: t('flash.dont_participate')
     else
-      redirect_to event_path(participant.event), alert: t("flash.forbidden")
+      redirect_to event_path(participant.event), alert: t('flash.forbidden')
     end
   end
 end

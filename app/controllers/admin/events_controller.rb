@@ -1,7 +1,7 @@
 class Admin::EventsController < Admin::ResourcesController
   def duplicate
     event = Event.duplicate!
-    redirect_to url_for(controller: "/admin/events", action: :edit, id: event.id)
+    redirect_to url_for(controller: '/admin/events', action: :edit, id: event.id)
   end
 
   def publish
@@ -9,7 +9,7 @@ class Admin::EventsController < Admin::ResourcesController
     UsergroupMailer.invitation_mail(event).deliver_now!
     event.update_attributes! published: true
 
-    redirect_to url_for(controller: "/admin/events", action: :edit, id: event.id), notice: "Published!"
+    redirect_to url_for(controller: '/admin/events', action: :edit, id: event.id), notice: 'Published!'
   end
 
   def send_ios_push_notification
@@ -26,12 +26,12 @@ class Admin::EventsController < Admin::ResourcesController
 
     notification_call = OneSignal::Notification.create(params: options)
 
-    message = if notification_call.code == '200'
-      { notice: "iOS Push Notification sent!" }
+    if notification_call.code == '200'
+      message = { notice: 'iOS Push Notification sent!' }
     else
-      { alert: "iOS Push Notification could not be sent!" }
+      message = { alert: 'iOS Push Notification could not be sent!' }
     end
 
-    redirect_to url_for(controller: "/admin/events", action: :show, id: event.id), message
+    redirect_to url_for(controller: '/admin/events', action: :show, id: event.id), message
   end
 end

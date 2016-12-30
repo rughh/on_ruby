@@ -1,9 +1,9 @@
-require "spec_helper"
+require 'spec_helper'
 
-describe "Caching", type: :request do
-  let(:key) { "views/hamburg/de/home/index" }
+describe 'Caching', type: :request do
+  let(:key) { 'views/hamburg/de/home/index' }
 
-  it "creates a cache-key based on the label" do
+  it 'creates a cache-key based on the label' do
     with_caching do
       get root_path
 
@@ -15,7 +15,7 @@ describe "Caching", type: :request do
     end
   end
 
-  it "expires when a model updates" do
+  it 'expires when a model updates' do
     with_caching do
       get root_path
 

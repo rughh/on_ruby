@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 ruby "2.3.1"
 
-gem "puma",                   "~> 2.11"
+gem "puma",                   "~> 3.6"
 gem "rails",                  "~> 4.2.5"
 gem "responders",             "~> 2.0"
 gem "rails-observers",        "~> 0.1.2"

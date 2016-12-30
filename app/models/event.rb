@@ -14,7 +14,7 @@ class Event < ActiveRecord::Base
   has_many :materials
 
   validates :user, :name, :description, :date, presence: true
-  validates :name, uniqueness: {scope: :label}
+  validates :name, uniqueness: { scope: :label }
 
   accepts_nested_attributes_for :materials
   accepts_nested_attributes_for :topics
@@ -24,8 +24,8 @@ class Event < ActiveRecord::Base
   scope :with_topics, -> { joins(:topics).uniq }
   scope :current,     -> { where(date: Date.today.to_time..(Time.now + 9.weeks)).limit(1).order('date ASC') }
   scope :latest,      -> { where('date < ?', Date.today.to_time).order('date DESC') }
-  scope :unpublished, -> { where("published = ? OR published = ?", nil, false) }
-  scope :ordered,     -> { order("date DESC") }
+  scope :unpublished, -> { where('published = ? OR published = ?', nil, false) }
+  scope :ordered,     -> { order('date DESC') }
 
   def end_date
     date + 2.hours
@@ -57,8 +57,8 @@ class Event < ActiveRecord::Base
     def stats(size: 10)
       stats = Event.limit(size).map { |event| [event.participants.count, event.topics.count] }
       {
-        participants: stats.size == 0 ? 0 : stats.map(&:first).sum / stats.size,
-        topics: stats.size == 0 ? 0 : stats.map(&:last).sum / stats.size,
+        participants: stats.empty? ? 0 : stats.map(&:first).sum / stats.size,
+        topics: stats.empty? ? 0 : stats.map(&:last).sum / stats.size,
       }
     end
   end

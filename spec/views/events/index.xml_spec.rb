@@ -1,12 +1,10 @@
-require "spec_helper"
+require 'spec_helper'
 
-describe "events/index" do
+describe 'events/index' do
+  let(:events) { Array.new(3) { build(:event, id: 123) } }
 
-  let(:events) { 3.times.map { build(:event, id: 123) } }
-
-  it "should render successfully" do
+  it 'should render successfully' do
     allow(view).to receive_messages(events: events)
     render
   end
-
 end

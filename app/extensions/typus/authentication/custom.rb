@@ -2,6 +2,7 @@ module Typus
   module Authentication
     module Custom
       protected
+
       include Base
       include UserHandling
 

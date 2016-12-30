@@ -7,12 +7,12 @@ module MobileDetection
   end
 
   def prepare_for_mobile
-    prepend_view_path Rails.root.join("app/views/mobile")
+    prepend_view_path Rails.root.join('app/views/mobile')
   end
 
   def mobile_device?
     if session[:mobile_override]
-      session[:mobile_override] == "1"
+      session[:mobile_override] == '1'
     else
       request.user_agent =~ /Mobile|webOS/
     end

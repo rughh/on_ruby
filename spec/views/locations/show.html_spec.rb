@@ -1,9 +1,9 @@
-require "spec_helper"
+require 'spec_helper'
 
-describe "locations/show" do
+describe 'locations/show' do
   let(:location) { build(:location) }
 
-  it "should render successfully" do
+  it 'should render successfully' do
     allow(view).to receive_messages(current_location: location)
 
     render

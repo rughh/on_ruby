@@ -1,12 +1,13 @@
 module ApplicationHelper
   def whitelabel_stylesheet_link_tag
     link = "labels/#{Whitelabel[:label_id]}"
-    stylesheet_link_tag link if File.exists? Rails.root.join("app/assets/stylesheets/#{link}.sass")
+    stylesheet_link_tag link if File.exist? Rails.root.join("app/assets/stylesheets/#{link}.sass")
   end
 
   def whitelabel_javascript_include_tag
     link = "labels/#{Whitelabel[:label_id]}"
-    javascript_include_tag link if Rails.root.join("app/assets/javascripts/labels").entries.map(&:to_s).any? { |path| path.to_s =~ /#{Whitelabel[:label_id]}/ }
+    labels = Rails.root.join('app/assets/javascripts/labels').entries.map(&:to_s)
+    javascript_include_tag link if labels.any? { |path| path.to_s =~ /#{Whitelabel[:label_id]}/ }
   end
 
   def label_url(label)
@@ -32,11 +33,11 @@ module ApplicationHelper
   end
 
   def rss_feed
-    auto_discovery_link_tag :rss, events_path(format: :xml), title: "Event-Feed"
+    auto_discovery_link_tag :rss, events_path(format: :xml), title: 'Event-Feed'
   end
 
   def icon(type)
-    path = image_path Whitelabel.label ? "labels/#{Whitelabel[:label_id]}.ico" : "favicon.ico"
+    path = image_path Whitelabel.label ? "labels/#{Whitelabel[:label_id]}.ico" : 'favicon.ico'
     tag :link, rel: type, href: path
   end
 
@@ -53,16 +54,16 @@ module ApplicationHelper
     end
   end
 
-  def hint(close=true)
+  def hint(close = true)
     content_tag(:section, class: :hint) do
-      concat content_tag(:div, link_to(t("hint.close"), '#'), class: :close) if close
+      concat content_tag(:div, link_to(t('hint.close'), '#'), class: :close) if close
       yield
     end
   end
 
   def render_cached(*keys)
     defaults  = [Whitelabel[:label_id], I18n.locale]
-    key       = defaults.concat(keys.present? ? keys : [controller_name, action_name]).join("/")
+    key       = defaults.concat(keys.present? ? keys : [controller_name, action_name]).join('/')
 
     Rails.logger.info "cache fragment '#{key}'"
     cache(key, expires_in: 4.hours, skip_digest: true) { yield }
@@ -71,6 +72,6 @@ module ApplicationHelper
   private
 
   def markdown_parser
-    @@_markdown_parser ||= Redcarpet::Markdown.new Redcarpet::Render::HTML, autolink: true, space_after_headers: true
+    @markdown_parser ||= Redcarpet::Markdown.new Redcarpet::Render::HTML, autolink: true, space_after_headers: true
   end
 end

@@ -1,9 +1,9 @@
-require "spec_helper"
+require 'spec_helper'
 
-describe "topics/index" do
+describe 'topics/index' do
   let(:event) { build(:event) }
 
-  it "should render successfully" do
+  it 'should render successfully' do
     allow(view).to receive_messages(events: paged(event))
 
     render

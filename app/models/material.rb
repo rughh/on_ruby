@@ -8,16 +8,15 @@ class Material < ActiveRecord::Base
   belongs_to :event
   belongs_to :topic
 
-  scope :naked, -> { where("preview_type IS NULL AND preview_code is NULL") }
+  scope :naked, -> { where('preview_type IS NULL AND preview_code is NULL') }
 
-  default_scope -> { joins(:event).where("events.label" => Whitelabel[:label_id]).readonly(false) }
+  default_scope -> { joins(:event).where('events.label' => Whitelabel[:label_id]).readonly(false) }
 
   def generate_preview
-    generator = PreviewGenerator.new(self.url)
+    generator = PreviewGenerator.new(url)
     generator.generate_preview
     self.preview_type = generator.type
     self.preview_code = generator.code
     save
   end
-
 end

@@ -9,19 +9,19 @@ FactoryGirl.define do
     updated_at  { Time.now }
   end
 
-  factory :event_with_participants, parent: :event do |event|
+  factory :event_with_participants, parent: :event do |_event|
     after(:create) { |e| 3.times { FactoryGirl.create(:participant, event: e) } }
   end
 
-  factory :full_event, parent: :event_with_participants do |event|
-    after(:create) {|e|
+  factory :full_event, parent: :event_with_participants do |_event|
+    after(:create) { |e|
       e.participants  << FactoryGirl.create(:participant)
       e.materials     << FactoryGirl.create(:material)
       e.topics        << FactoryGirl.create(:topic)
     }
   end
 
-  factory :closed_event, parent: :event do |event|
+  factory :closed_event, parent: :event do |_event|
     limit 0
   end
 end

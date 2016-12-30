@@ -1,7 +1,6 @@
 module PreviewHelper
-
   def material_preview(material)
-    return "" if material.preview_type.nil? or material.preview_type == 'none'
+    return '' if material.preview_type.nil? || (material.preview_type == 'none')
 
     if material.preview_type == 'video'
       content_tag :div, class: 'preview video' do
@@ -15,5 +14,4 @@ module PreviewHelper
       end
     end
   end
-
 end
