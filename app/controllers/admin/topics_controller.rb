@@ -7,9 +7,9 @@ class Admin::TopicsController < Admin::ResourcesController
       @topic.event = @event
       @event.particpate(@user)
       @topic.save!
-      redirect_to url_for(controller: "/admin/topics", action: :edit, id: @topic.id), notice: "Added to latest Event!"
+      redirect_to url_for(controller: '/admin/topics', action: :edit, id: @topic.id), notice: 'Added to latest Event!'
     else
-      redirect_to(url_for(controller: "/admin/topics", action: :index), alert: "no next event found")
+      redirect_to(url_for(controller: '/admin/topics', action: :index), alert: 'no next event found')
     end
   end
 end
