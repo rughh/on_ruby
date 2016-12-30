@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :user do
     name      { Faker::Name.name }
-    nickname  { Faker::Name.name.downcase.gsub(/ /, "_") }
-    github    { Faker::Name.name.gsub(/\W/, "-") }
-    twitter   { Faker::Name.name.gsub(/\W/, "-") }
+    nickname  { Faker::Name.name.downcase.tr(' ', '_') }
+    github    { Faker::Name.name.gsub(/\W/, '-') }
+    twitter   { Faker::Name.name.gsub(/\W/, '-') }
     email     { Faker::Internet.email }
     image 'http://www.onruby.de/assets/labels/hamburg.png'
   end
