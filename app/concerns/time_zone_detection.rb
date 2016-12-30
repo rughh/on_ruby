@@ -18,5 +18,4 @@ module TimeZoneDetection
   def default_time_zone
     Whitelabel.label ? Whitelabel[:default_time_zone] : Rails.configuration.time_zone
   end
-
 end
