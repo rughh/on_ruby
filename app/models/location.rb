@@ -12,9 +12,9 @@ class Location < ActiveRecord::Base
   has_many :jobs
 
   validates :name, :url, :city, :street, :house_number, :zip, presence: true
-  validates :url, length: {maximum: 255}
+  validates :url, length: { maximum: 255 }
 
-  scope :ordered, -> { order("name ASC") }
+  scope :ordered, -> { order('name ASC') }
   default_scope   -> { where(label: Whitelabel[:label_id]) }
 
   def geo_coder_address
