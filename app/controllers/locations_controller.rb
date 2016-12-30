@@ -6,6 +6,8 @@ class LocationsController < ApplicationController
   expose(:stats)            { Event.stats }
 
   def index; end
+
   def show; end
+
   def none; end
 end
