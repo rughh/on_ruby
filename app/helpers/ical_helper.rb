@@ -15,6 +15,6 @@ module IcalHelper
   end
 
   def calendar_link
-    link_to t('event.subscribe'), calendar_user_url(id: current_user, :format => :ics, :only_path => false, :protocol => "webcal")
+    link_to t('event.subscribe'), calendar_user_url(id: current_user, format: :ics, only_path: false, protocol: 'webcal')
   end
 end

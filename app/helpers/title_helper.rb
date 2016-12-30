@@ -4,15 +4,15 @@ module TitleHelper
   end
 
   def meta_desc
-    "#{page_title} - #{I18n.tw("meta_desc")}"
+    "#{page_title} - #{I18n.tw('meta_desc')}"
   end
 
   def title
-    I18n.tw("title")
+    I18n.tw('title')
   end
 
   def subtitle
-    I18n.tw("subtitle")
+    I18n.tw('subtitle')
   end
 
   private
@@ -24,6 +24,6 @@ module TitleHelper
       'locations/show'  => -> { current_location.name },
       'locations/none'  => -> { I18n.t('show.no_location') },
       'events/show'     => -> { event.name },
-   }["#{controller_name}/#{action_name}"]
+    }["#{controller_name}/#{action_name}"]
   end
 end
