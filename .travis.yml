@@ -1,7 +1,4 @@
 sudo: false
-branches:
-  only:
-    - master
 language: ruby
 rvm:
   - 2.3.1
