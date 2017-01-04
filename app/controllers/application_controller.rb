@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     strategy DecentExposure::StrongParametersStrategy
   end
 
-  protect_from_forgery
+  protect_from_forgery with: :exception
 
   before_action :setup
 
