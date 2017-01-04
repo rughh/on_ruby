@@ -96,7 +96,7 @@ GEM
     exception_notification (4.0.1)
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
-    execjs (2.2.2)
+    execjs (2.7.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.5.0)
@@ -259,7 +259,7 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    redcarpet (3.2.2)
+    redcarpet (3.4.0)
     responders (2.0.2)
       railties (>= 4.2.0.alpha, < 5)
     ri_cal (0.8.8)
@@ -320,7 +320,7 @@ GEM
     tilt (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.5.3)
+    uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     video_info (2.4.0)
@@ -381,7 +381,7 @@ DEPENDENCIES
   sass-rails (~> 5.0.1)
   slim-rails (~> 3.0)
   typus!
-  uglifier (~> 2.5.0)
+  uglifier (~> 2.5)
   whitelabel (~> 0.3)
 
 RUBY VERSION

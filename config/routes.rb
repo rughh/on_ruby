@@ -35,7 +35,7 @@ OnRuby::Application.routes.draw do
     get '/', to: 'api#index', as: :api
     get '/flush', to: 'api#flush'
   end
-  get '/styleguide(/:action)', controller: 'styleguide'
+
   root to: "home#index"
 
   match '*path.php', via: :all, to: -> (env) { [302, {"Location" => "http://www.youporn.com/"}, ["fuck yourself!"]] }
