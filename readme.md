@@ -1,7 +1,5 @@
 # OnRuby
 [![Build Status](https://img.shields.io/travis/phoet/on_ruby/master.svg)](https://travis-ci.org/phoet/on_ruby)
-[![Code Climate](https://img.shields.io/codeclimate/github/phoet/on_ruby.svg)](https://codeclimate.com/github/phoet/on_ruby)
-[![Coverage Status](http://img.shields.io/codeclimate/coverage/github/phoet/on_ruby.svg)](https://codeclimate.com/github/phoet/on_ruby)
 
 [Status & Uptime](http://status.onruby.eu/)
 
