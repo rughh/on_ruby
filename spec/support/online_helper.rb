@@ -7,7 +7,7 @@ module OnlineHelper
   private
 
   def ping
-    timeout(5) do
+    Timeout.timeout(5) do
       s = TCPSocket.new('www.google.com', 80)
       s.close
     end
