@@ -168,7 +168,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     net-http-persistent (2.9.4)
-    newrelic_rpm (3.14.0.305)
+    newrelic_rpm (3.18.1.330)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     oauth (0.5.1)
