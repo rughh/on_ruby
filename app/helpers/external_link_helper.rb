@@ -8,6 +8,7 @@ module ExternalLinkHelper
 
   def link_to_twitter(thing, params = { clung: false }, &block)
     nick = thing.respond_to?(:twitter) ? thing.twitter : thing
+    return "none given" if nick.empty?
     url = "http://twitter.com/#{nick}"
     if block_given?
       link_to url, title: nick, &block
