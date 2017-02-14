@@ -48,14 +48,11 @@ end
 group :development, :test do
   gem "letter_opener"
   gem "faker"
-  gem "pry-rails"
-  gem "pry-remote"
-  gem "pry-nav"
+  gem "byebug"
   gem "rspec-rails"
   gem "rspec-collection_matchers"
   gem "factory_girl_rails"
   gem "meta_request"
   gem "better_errors"
   gem "binding_of_caller"
-  gem "quiet_assets"
 end
