@@ -1,16 +1,7 @@
 {
   "name": "on_ruby",
   "env": {
-    "ASIN_KEY": {
-      "required": true
-    },
-    "ASIN_SECRET": {
-      "required": true
-    },
-    "BITLY_API_KEY": {
-      "required": true
-    },
-    "BITLY_LOGIN": {
+    "REDIS_URL": {
       "required": true
     },
     "BUNDLE_WITHOUT": {
@@ -44,15 +35,6 @@
       "required": true
     },
     "LANG": {
-      "required": true
-    },
-    "NEW_RELIC_APP_NAME": {
-      "required": true
-    },
-    "NEW_RELIC_ID": {
-      "required": true
-    },
-    "NEW_RELIC_LOG_LEVEL": {
       "required": true
     },
     "OMNIAUTH_GITHUB_BONNRB_DE_KEY": {
@@ -152,6 +134,7 @@
   "addons": [
     "sendgrid",
     "heroku-postgresql",
+    "heroku-redis",
     "memcachier",
     "papertrail",
     "scheduler"
