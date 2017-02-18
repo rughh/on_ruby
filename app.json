@@ -150,7 +150,6 @@
     }
   },
   "addons": [
-    "newrelic",
     "sendgrid",
     "heroku-postgresql",
     "memcachier",
