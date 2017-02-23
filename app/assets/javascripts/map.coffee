@@ -24,7 +24,9 @@ class Map
       content = "<div class='info-window'><p><strong><a href='/locations/#{@slug}'>#{@name}</a></strong></br>"
       content += "#{@street} #{@house_number}</br>"
       content += "#{@zip} #{@city}</p>"
-      content += "<p><img src='https://img.shields.io/wheelmap/a/#{@wheelmap_id}.svg'></p></div>"
+      if @wheelmap_id
+        content += "<p><img src='https://img.shields.io/wheelmap/a/#{@wheelmap_id}.svg'></p></div>"
+
       if contents[position]
         contents[position] += content
       else

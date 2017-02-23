@@ -1,6 +1,8 @@
 module ExternalLinkHelper
   def wheelmap_badge(location, klass: 'wheelmap-status')
-    url   = location.wheelmap_id.present? ? "http://wheelmap.org/nodes/#{location.wheelmap_id}" : 'http://wheelmap.org/nodes/new'
+    return unless location.wheelmap_id.present?
+
+    url   =  "http://wheelmap.org/nodes/#{location.wheelmap_id}"
     image = image_tag "https://img.shields.io/wheelmap/a/#{location.wheelmap_id}.svg", class: klass
 
     link_to image, url
