@@ -312,9 +312,8 @@ GEM
     tilt (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.7.2)
-      execjs (>= 0.3.0)
-      json (>= 1.8.0)
+    uglifier (3.1.0)
+      execjs (>= 0.3.0, < 3)
     video_info (2.4.0)
       addressable
       htmlentities
@@ -369,7 +368,7 @@ DEPENDENCIES
   sass-rails (~> 5.0.1)
   slim-rails (~> 3.0)
   typus!
-  uglifier (~> 2.5)
+  uglifier (~> 3.1)
   whitelabel (~> 0.3)
 
 RUBY VERSION
