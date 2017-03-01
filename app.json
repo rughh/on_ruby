@@ -115,9 +115,6 @@
     "SECRET_TOKEN": {
       "required": true
     },
-    "SENDGRID_DOMAIN": {
-      "required": true
-    },
     "TWITTER_CONSUMER_KEY": {
       "required": true
     },
@@ -132,7 +129,7 @@
     }
   },
   "addons": [
-    "sendgrid",
+    "mailgun",
     "heroku-postgresql",
     "heroku-redis",
     "memcachier",
