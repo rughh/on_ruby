@@ -21,7 +21,7 @@ Rails.application.configure do
   # Disable Rails's static asset server (Apache or nginx will already do this)
   # config.serve_static_assets = false
   config.serve_static_files = true
-  config.static_cache_control = "public, max-age=31536000"
+  config.static_cache_control = 'public, max-age=31536000'
   # config.action_dispatch.rack_cache = true
 
   # Compress JavaScripts and CSS.
@@ -56,11 +56,11 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production.
-  config.cache_store = :dalli_store, ENV["MEMCACHIER_SERVERS"], {username: ENV["MEMCACHIER_USERNAME"], password: ENV["MEMCACHIER_PASSWORD"]}
+  config.cache_store = :dalli_store, ENV['MEMCACHIER_SERVERS'], { username: ENV['MEMCACHIER_USERNAME'], password: ENV['MEMCACHIER_PASSWORD'] }
 
   config.action_dispatch.rack_cache = {
-    metastore:   Dalli::Client.new(ENV["MEMCACHIER_SERVERS"], username: ENV["MEMCACHIER_USERNAME"], password: ENV["MEMCACHIER_PASSWORD"], expires_in: 1.day),
-    entitystore: Dalli::Client.new(ENV["MEMCACHIER_SERVERS"], username: ENV["MEMCACHIER_USERNAME"], password: ENV["MEMCACHIER_PASSWORD"], expires_in: 1.day),
+    metastore:   Dalli::Client.new(ENV['MEMCACHIER_SERVERS'], username: ENV['MEMCACHIER_USERNAME'], password: ENV['MEMCACHIER_PASSWORD'], expires_in: 1.day),
+    entitystore: Dalli::Client.new(ENV['MEMCACHIER_SERVERS'], username: ENV['MEMCACHIER_USERNAME'], password: ENV['MEMCACHIER_PASSWORD'], expires_in: 1.day),
   }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
@@ -71,13 +71,12 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address              => 'smtp.sendgrid.net',
-    :port                 => '587',
-    :authentication       => :plain,
-    :user_name            => ENV['SENDGRID_USERNAME'],
-    :password             => ENV['SENDGRID_PASSWORD'],
-    :domain               => 'heroku.com',
-    :enable_starttls_auto => true
+    port:           ENV['MAILGUN_SMTP_PORT'],
+    address:        ENV['MAILGUN_SMTP_SERVER'],
+    user_name:      ENV['MAILGUN_SMTP_LOGIN'],
+    password:       ENV['MAILGUN_SMTP_PASSWORD'],
+    domain:         'heroku.com',
+    authentication: :plain,
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
@@ -95,12 +94,10 @@ Rails.application.configure do
 
   # Set the default host for production
   config.default_host = 'onruby.de'
-  config.middleware.use "CookieDomain", ".onruby.de"
-  config.middleware.use ExceptionNotification::Rack, {
-    email: {
-      :email_prefix         => "[ERROR] ",
-      :sender_address       => %{"error-notifier" <onruby@googlemail.com>},
-      :exception_recipients => %w{onruby@googlemail.com}
-    }
+  config.middleware.use 'CookieDomain', '.onruby.de'
+  config.middleware.use ExceptionNotification::Rack, email: {
+    email_prefix: '[ERROR] ',
+    sender_address: %("error-notifier" <onruby@googlemail.com>),
+    exception_recipients: %w(onruby@googlemail.com)
   }
 end

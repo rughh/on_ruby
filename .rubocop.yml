@@ -39,3 +39,6 @@ Metrics/MethodLength:
 
 Metrics/AbcSize:
   Max: 30
+
+Bundler/OrderedGems:
+  Enabled: false

@@ -1,9 +1,6 @@
 {
   "name": "on_ruby",
   "env": {
-    "REDIS_URL": {
-      "required": true
-    },
     "BUNDLE_WITHOUT": {
       "required": true
     },
@@ -115,9 +112,6 @@
     "SECRET_TOKEN": {
       "required": true
     },
-    "SENDGRID_DOMAIN": {
-      "required": true
-    },
     "TWITTER_CONSUMER_KEY": {
       "required": true
     },
@@ -132,9 +126,8 @@
     }
   },
   "addons": [
-    "sendgrid",
+    "mailgun",
     "heroku-postgresql",
-    "heroku-redis",
     "memcachier",
     "papertrail",
     "scheduler"
