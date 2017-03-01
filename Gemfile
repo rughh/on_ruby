@@ -33,7 +33,6 @@ gem 'one_signal',             '~> 0.0.10'
 gem 'link_thumbnailer',       '~> 2.4.0'
 
 group :production do
-  gem 'redis-rails',      '~> 5.0'
   gem 'dalli',            '~> 2.7.0'
   gem 'kgio',             '~> 2.9.2'
   gem 'lograge',          '~> 0.3.0'

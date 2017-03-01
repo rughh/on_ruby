@@ -1,9 +1,6 @@
 {
   "name": "on_ruby",
   "env": {
-    "REDIS_URL": {
-      "required": true
-    },
     "BUNDLE_WITHOUT": {
       "required": true
     },
@@ -131,7 +128,6 @@
   "addons": [
     "mailgun",
     "heroku-postgresql",
-    "heroku-redis",
     "memcachier",
     "papertrail",
     "scheduler"
