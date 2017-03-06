@@ -107,7 +107,7 @@ GEM
       faraday (>= 0.7.4, < 1.0)
     fastimage (1.6.6)
       addressable (~> 2.3, >= 2.3.5)
-    feedjira (2.1.1)
+    feedjira (2.1.2)
       faraday (>= 0.9)
       faraday_middleware (>= 0.9)
       loofah (>= 2.0)
