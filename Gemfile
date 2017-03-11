@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
-ruby '~> 2.3.0'
+ruby '2.4.0'
 
-gem 'puma',                   '~> 3.6'
-gem 'rails',                  '~> 4.2.7'
+gem 'puma',                   '~> 3.8'
+gem 'rails',                  '~> 4.2'
 gem 'responders',             '~> 2.0'
 gem 'rails-observers',        '~> 0.1.2'
 gem 'pg',                     '~> 0.20.0'
@@ -54,4 +54,5 @@ group :development, :test do
   gem 'meta_request'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'vcr'
 end

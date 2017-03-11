@@ -49,12 +49,10 @@ module ExternalLinkHelper
   end
 
   def mailing_list_feed_url(count)
-    if Rails.env.production? || params[:live]
+    #if Rails.env.production? || params[:live]
       group_name = Whitelabel[:google_group] || 'rubyonrails-ug-germany'
       "https://groups.google.com/forum/feed/#{group_name}/topics/rss.xml?num=#{count}"
-    else
-      'https://raw.githubusercontent.com/phoet/on_ruby/master/spec/support/data/mailinglist_rss_feed.xml'
-    end
+    #end
   end
 
   def twitter_update_url(model)

@@ -3,6 +3,7 @@ ENV["SECRET_TOKEN"] ||= 'SECRET_TOKEN_TEST_b7c7374eb0285b87c0c1c61c2c5401b9f92dd
 
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'vcr'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file }
 
@@ -33,6 +34,12 @@ RSpec.configure do |config|
   config.before(:each, type: :controller) do
     set_subdomain
   end
+end
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/support/cassettes'
+  c.hook_into :faraday
+  c.configure_rspec_metadata!
 end
 
 include OnlineHelper

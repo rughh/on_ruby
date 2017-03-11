@@ -22,7 +22,9 @@ describe ExternalLinkHelper do
 
   context '#mailing_list_entries' do
     it 'fetches and parses a feed', if: online? do
-      expect(mailing_list_entries).to have(15).items
+      VCR.use_cassette("mailing_list") do
+        expect(mailing_list_entries).to have(15).items
+      end
     end
   end
 
