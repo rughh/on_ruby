@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 ruby '~> 2.3.0'
 
 gem 'puma',                   '~> 3.6'
-gem 'rails',                  '~> 4.2.7'
+gem 'rails',                  '~> 4.2'
 gem 'responders',             '~> 2.0'
 gem 'rails-observers',        '~> 0.1.2'
 gem 'pg',                     '~> 0.20.0'
