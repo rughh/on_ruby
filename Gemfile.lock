@@ -294,7 +294,7 @@ GEM
     tilt (1.4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.1.6)
+    uglifier (3.1.7)
       execjs (>= 0.3.0, < 3)
     video_info (2.4.0)
       addressable
