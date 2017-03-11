@@ -131,6 +131,7 @@ es:
     webcal: 'Webcal'
     rss: 'RSS'
   flash:
+    duplicate_nick: "'%{name}' ya está registrado. Es posible que iniciaras sesión con otro proveedor."
     only_admins: "Solamente los administradores pueden entrar ahí"
     not_authenticated: "Por favor autentifícate antes de entrar"
     already_participating: "Ya estás apuntado"
