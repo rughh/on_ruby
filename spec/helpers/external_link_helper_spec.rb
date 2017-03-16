@@ -21,7 +21,7 @@ describe ExternalLinkHelper do
   end
 
   context '#mailing_list_entries' do
-    it 'fetches and parses a feed', if: online? do
+    it 'fetches and parses a feed' do
       expect(mailing_list_entries).to have(15).items
     end
   end

@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/skade/feedjira.git
-  revision: 5115cbc3564950015c40023a5cb3cc7db64304bd
+  remote: git://github.com/feedjira/feedjira.git
+  revision: a44637aeb29654ddd3ff1acc0856701918e29e6f
   specs:
     feedjira (2.1.2)
       faraday (>= 0.9)
