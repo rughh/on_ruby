@@ -154,10 +154,10 @@ GEM
       nokogiri (~> 1.6)
       rake (>= 0.9)
       video_info (~> 2.3)
-    lograge (0.3.0)
-      actionpack (>= 3)
-      activesupport (>= 3)
-      railties (>= 3)
+    lograge (0.5.0)
+      actionpack (>= 4, <= 5.1.0)
+      activesupport (>= 4, <= 5.1.0)
+      railties (>= 4, <= 5.1.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -334,7 +334,7 @@ DEPENDENCIES
   kgio (~> 2.9.2)
   letter_opener
   link_thumbnailer (~> 2.4.0)
-  lograge (~> 0.3.0)
+  lograge (~> 0.5.0)
   meta_request
   omniauth (~> 1.6.0)
   omniauth-github (~> 1.2.3)

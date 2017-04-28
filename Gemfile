@@ -35,7 +35,7 @@ gem 'link_thumbnailer',       '~> 2.4.0'
 group :production do
   gem 'dalli',            '~> 2.7.0'
   gem 'kgio',             '~> 2.9.2'
-  gem 'lograge',          '~> 0.3.0'
+  gem 'lograge',          '~> 0.5.0'
   gem 'heroku-deflater',  '~> 0.5.3'
   gem 'rails_12factor',   '~> 0.0.2'
 end
