@@ -6,9 +6,10 @@
   email: hamburg@onruby.de
   twitter: hamburgsync
   organizers:
-  - halfbyte
-  - phoet
+  - lindtdev
   - janz93
+  - phoet
+  - halfbyte
   location:
     :zoom: 14
     :lat: 53.56544
