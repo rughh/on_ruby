@@ -123,7 +123,7 @@ GEM
       actionpack (>= 3.2.13)
     friendly_id (5.2.1)
       activerecord (>= 4.0.0)
-    geocoder (1.2.6)
+    geocoder (1.4.4)
     git-version-bump (0.15.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
