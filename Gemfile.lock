@@ -71,13 +71,13 @@ GEM
     callsite (0.0.11)
     chunky_png (1.3.3)
     coderay (1.1.0)
-    coffee-rails (4.0.1)
+    coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
-    coffee-script (2.3.0)
+      railties (>= 4.0.0)
+    coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.8.0)
+    coffee-script-source (1.12.2)
     compass (1.0.3)
       chunky_png (~> 1.2)
       compass-core (~> 1.0.2)
@@ -319,7 +319,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   byebug
-  coffee-rails (~> 4.0.1)
+  coffee-rails (~> 4.2.2)
   compass-rails (~> 2.0.4)
   dalli (~> 2.7.0)
   decent_exposure (~> 2.3.1)
