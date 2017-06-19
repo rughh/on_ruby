@@ -9,7 +9,6 @@ class Topic < ActiveRecord::Base
 
   validates :user, :name, :description, :label, presence: true
   validates :proposal_type, inclusion: { in: PROPOSAL_TYPES }
-  validates :name, uniqueness: true
 
   belongs_to :user
   belongs_to :event

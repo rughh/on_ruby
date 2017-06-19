@@ -14,10 +14,6 @@ describe Topic do
         expect(it).to have(1).errors_on(:description)
       end
     end
-
-    it 'should validate uniqueness' do
-      expect(build(:topic, name: topic.name)).to have(1).errors_on(:name)
-    end
   end
 
   context 'likes' do
@@ -26,6 +22,17 @@ describe Topic do
     it 'indicates already_liked?' do
       topic.likes << like
       expect(topic.already_liked?(like.user)).to be_truthy
+    end
+  end
+
+  context 'name' do
+    it 'allows two topics with the same name' do
+      expect(build(:topic, name: topic.name)).to be_valid
+    end
+
+    it 'gives unique slugs to two topics with the same name' do
+      second_topic = create(:topic, name: topic.name)
+      expect(topic.slug).not_to eq(second_topic.slug)
     end
   end
 end
