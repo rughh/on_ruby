@@ -20,5 +20,6 @@ cache
 spec/reports/
 .vagrant
 Vagrantfile
+.ruby-version
 .ruby-gemset
 passenger.*
