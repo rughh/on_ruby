@@ -53,7 +53,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    acts_as_api (0.4.2)
+    acts_as_api (1.0.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       rack (>= 1.1.0)
@@ -318,7 +318,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_api (~> 0.4.2)
+  acts_as_api (~> 1.0.1)
   better_errors
   binding_of_caller
   byebug
