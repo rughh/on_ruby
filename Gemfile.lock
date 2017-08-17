@@ -207,7 +207,7 @@ GEM
     partially_useful (5.1.0)
       railties (>= 4.1)
     pg (0.21.0)
-    puma (3.9.1)
+    puma (3.10.0)
     rack (1.6.8)
     rack-cache (1.2)
       rack (>= 0.4)
