@@ -209,7 +209,7 @@ GEM
     pg (0.21.0)
     puma (3.10.0)
     rack (1.6.8)
-    rack-cache (1.2)
+    rack-cache (1.7.1)
       rack (>= 0.4)
     rack-contrib (1.4.0)
       git-version-bump (~> 0.15)
