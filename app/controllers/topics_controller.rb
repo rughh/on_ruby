@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_action :authenticate!, only: [:edit, :update, :create]
   before_action :validate_topic_ownership!, only: [:edit, :update]
 
-  expose(:topic, attributes: :topic_params)
+  expose(:topic, attributes: :topic_params, finder: :find_by_slug)
   expose(:events)           { Event.with_topics.ordered.page(params[:page]).per(10) }
   expose(:undone_topics)    { Topic.ordered.undone }
   expose(:done_topics)      { Topic.ordered.done }

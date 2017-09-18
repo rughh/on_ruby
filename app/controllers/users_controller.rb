@@ -4,10 +4,7 @@ class UsersController < ApplicationController
 
   respond_to :xml, only: :calendar
 
-  expose(:user)  { User.find params[:id] }
-  expose(:users) { User.peers }
-
-  def index; end
+  expose(:user, finder: :find_by_slug)
 
   def show; end
 

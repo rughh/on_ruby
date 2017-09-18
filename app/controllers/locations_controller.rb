@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   # REM (ps): location is a reserved method!
-  expose(:current_location) { Location.find params[:id] }
+  expose(:current_location, finder: :find_by_slug)
   expose(:locations)        { Location.ordered }
   expose(:organizers)       { User.organizers }
   expose(:stats)            { Event.stats }

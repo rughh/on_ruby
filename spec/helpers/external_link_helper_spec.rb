@@ -43,7 +43,7 @@ describe ExternalLinkHelper do
   end
 
   context '#twitter_update_url' do
-    let(:topic) { create(:topic, name: 'bla') }
+    let(:topic) { create(:topic, id: 999, name: 'bla') }
     let(:event) { create(:event, name: 'Weihnachtstreffen', date: '2010-12-06 11:47:30') }
 
     it 'should generate a proper url for topics' do
@@ -51,7 +51,7 @@ describe ExternalLinkHelper do
 
       url = helper.twitter_update_url(topic)
       expect(url).to match(Regexp.escape('http://twitter.com/home?status=Neues%20Thema%20von%20@Uschi'))
-      expect(url).to match(Regexp.escape('http://test.host/topics/bla'))
+      expect(url).to match(Regexp.escape('http://test.host/topics/bla-999'))
     end
 
     it 'should generate a proper url for events' do

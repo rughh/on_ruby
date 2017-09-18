@@ -4,7 +4,7 @@ describe UsersController do
   let(:user) { create(:user) }
   let(:user_with_events) { create(:organizer_user) }
   let(:user_with_participations) { create(:participant_user) }
-  let(:data) { { id: user.id, user: { github: 'testo', freelancer: true, available: true } } }
+  let(:data) { { id: user.to_param, user: { github: 'testo', freelancer: true, available: true } } }
   let(:unallowed_data) { data.merge(user: { nickname: 'not_allowed_property' }) }
 
   context 'GET :show' do
@@ -79,10 +79,11 @@ describe UsersController do
       allow(controller).to receive_messages(current_user: user)
 
       put :update, data
+      expect(response).to redirect_to(:back)
+
       expect(user.github).to eql('testo')
       expect(user.freelancer).to be_truthy
       expect(user.available).to be_truthy
-      expect(response).to redirect_to(:back)
     end
 
     it 'should not update injected properties' do

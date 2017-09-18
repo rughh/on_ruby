@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
-  extend FriendlyId
-  friendly_id :nickname, use: [:slugged, :finders]
-
+  include Slug
+  slugged_by(:nickname)
   extend ApiHandling
   expose_api :id, :nickname, :name, :image, :url, :github, :twitter, :freelancer, :available
 

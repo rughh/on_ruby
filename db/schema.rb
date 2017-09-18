@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217231126) do
+ActiveRecord::Schema.define(version: 20170918091427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,13 +35,11 @@ ActiveRecord::Schema.define(version: 20160217231126) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "published"
-    t.string   "slug"
     t.string   "label",       default: "hamburg"
     t.integer  "limit"
   end
 
   add_index "events", ["location_id"], name: "index_events_on_location_id", using: :btree
-  add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "highlights", force: :cascade do |t|
@@ -85,12 +83,10 @@ ActiveRecord::Schema.define(version: 20160217231126) do
     t.datetime "updated_at"
     t.boolean  "company"
     t.string   "label",        default: "hamburg"
-    t.string   "slug"
     t.string   "wheelmap_id"
   end
 
   add_index "locations", ["id"], name: "index_locations_on_id", using: :btree
-  add_index "locations", ["slug"], name: "index_locations_on_slug", unique: true, using: :btree
 
   create_table "materials", force: :cascade do |t|
     t.string   "name"
@@ -128,7 +124,6 @@ ActiveRecord::Schema.define(version: 20160217231126) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "label",         default: "hamburg"
-    t.string   "slug"
     t.string   "proposal_type", default: "proposal"
   end
 
@@ -148,7 +143,6 @@ ActiveRecord::Schema.define(version: 20160217231126) do
     t.boolean  "admin"
     t.boolean  "freelancer"
     t.boolean  "available"
-    t.string   "slug"
     t.boolean  "hide_jobs",   default: false
     t.string   "twitter"
     t.string   "email"
@@ -156,6 +150,5 @@ ActiveRecord::Schema.define(version: 20160217231126) do
   end
 
   add_index "users", ["nickname"], name: "index_users_on_nickname", unique: true, using: :btree
-  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
 end

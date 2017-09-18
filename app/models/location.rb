@@ -1,7 +1,5 @@
 class Location < ActiveRecord::Base
-  extend FriendlyId
-  friendly_id :name, use: [:slugged, :finders]
-
+  include Slug
   extend ApiHandling
   expose_api :id, :name, :url, :city, :street, :house_number, :zip, :wheelmap_id
 
