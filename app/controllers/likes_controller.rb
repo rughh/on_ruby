@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   before_action :authenticate!
 
-  expose(:topic)
+  expose(:topic, finder: :find_by_slug)
   expose(:like)
 
   def create

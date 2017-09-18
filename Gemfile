@@ -41,6 +41,7 @@ end
 
 group :development do
   gem 'partially_useful'
+  gem 'quiet_assets'
 end
 
 group :development, :test do

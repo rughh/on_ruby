@@ -206,6 +206,8 @@ GEM
       railties (>= 4.1)
     pg (0.21.0)
     puma (3.10.0)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.8)
     rack-cache (1.7.1)
       rack (>= 0.4)
@@ -346,6 +348,7 @@ DEPENDENCIES
   partially_useful
   pg (~> 0.21.0)
   puma (~> 3.6)
+  quiet_assets
   rack-cache (~> 1.2)
   rails (~> 4.2)
   rails-observers (~> 0.1.2)
