@@ -1,7 +1,7 @@
 sudo: false
 language: ruby
 rvm:
-  - 2.4.0
+  - 2.4.2
 cache: bundler
 bundler_args: "--without development production"
 before_script: "script/ci/setup"

@@ -1,7 +1,5 @@
 class Event < ActiveRecord::Base
-  extend FriendlyId
-  friendly_id :name, use: [:slugged, :finders]
-
+  include Slug
   extend ApiHandling
   expose_api :id, :name, :description, :date, :location_id, :user_id, :participants, :topics, :materials, :location
 

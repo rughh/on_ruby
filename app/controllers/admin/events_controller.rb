@@ -5,7 +5,7 @@ class Admin::EventsController < Admin::ResourcesController
   end
 
   def publish
-    event = Event.find(params[:id])
+    event = Event.find_by_slug(params[:id])
     UsergroupMailer.invitation_mail(event).deliver_now!
     event.update_attributes! published: true
 
@@ -13,7 +13,7 @@ class Admin::EventsController < Admin::ResourcesController
   end
 
   def send_ios_push_notification
-    event = Event.find(params[:id])
+    event = Event.find_by_slug(params[:id])
 
     options = {
       app_id: ENV['ONE_SIGNAL_APP_ID'],

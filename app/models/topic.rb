@@ -1,12 +1,9 @@
 class Topic < ActiveRecord::Base
-  PROPOSAL_TYPES = %w(proposal enquiry)
-
-  extend FriendlyId
-  friendly_id :name, use: [:slugged, :finders]
-
+  include Slug
   extend ApiHandling
   expose_api :id, :event_id, :user_id, :name, :description, :user
 
+  PROPOSAL_TYPES = %w(proposal enquiry)
   validates :user, :name, :description, :label, presence: true
   validates :proposal_type, inclusion: { in: PROPOSAL_TYPES }
 

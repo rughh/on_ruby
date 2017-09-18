@@ -1,6 +1,6 @@
 class Admin::TopicsController < Admin::ResourcesController
   def add_to_next_event
-    @topic = Topic.find(params[:id])
+    @topic = Topic.find_by_slug(params[:id])
     @user  = @topic.user
 
     if @event = Event.current.first

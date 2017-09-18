@@ -32,7 +32,7 @@ describe Topic do
 
     it 'gives unique slugs to two topics with the same name' do
       second_topic = create(:topic, name: topic.name)
-      expect(topic.slug).not_to eq(second_topic.slug)
+      expect(topic.to_param).not_to eq(second_topic.to_param)
     end
   end
 end

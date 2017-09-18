@@ -122,8 +122,6 @@ GEM
       railties (>= 3.2, < 5.2)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
-    friendly_id (5.2.2)
-      activerecord (>= 4.0.0)
     geocoder (1.4.4)
     git-version-bump (0.15.1)
     globalid (0.4.0)
@@ -332,7 +330,6 @@ DEPENDENCIES
   feedjira!
   font-awesome-rails (~> 4.0)
   formtastic (~> 3.1.5)
-  friendly_id (~> 5.2.1)
   geocoder (~> 1.1)
   heroku-deflater (~> 0.5.3)
   jquery-rails (~> 4.3)
@@ -365,7 +362,7 @@ DEPENDENCIES
   whitelabel (~> 0.3)
 
 RUBY VERSION
-   ruby 2.4.0p0
+   ruby 2.4.2p198
 
 BUNDLED WITH
-   1.14.6
+   1.15.4
