@@ -122,7 +122,7 @@ GEM
       railties (>= 3.2, < 5.2)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
-    friendly_id (5.2.1)
+    friendly_id (5.2.2)
       activerecord (>= 4.0.0)
     geocoder (1.4.4)
     git-version-bump (0.15.1)
