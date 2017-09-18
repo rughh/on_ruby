@@ -8,7 +8,7 @@
 
 $ ->
   Utility.disable()
-  Map.init()
+  GMap.init()
 
 $.fn.random = ->
   this.eq(Math.floor(Math.random() * this.length))

@@ -36,4 +36,4 @@ class Map
         recentWindow = infoWindow = new google.maps.InfoWindow(content: contents[marker.position])
         infoWindow.open map, marker
 
-window.Map = Map
+window.GMap = Map
