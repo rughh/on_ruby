@@ -1,7 +1,7 @@
 class ParticipantsController < ApplicationController
   before_action :authenticate!
 
-  expose(:event)
+  expose(:event) { Event.from_param(params[:event_id]) }
 
   def create
     if event.closed?
