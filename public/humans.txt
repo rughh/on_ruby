@@ -15,6 +15,8 @@
 
 /* COMMITTERS */
 
+  Adam Niedzielski
+
   Andreas Haller
 
   Andreas Reischuck
@@ -29,11 +31,15 @@
 
   Bodo Tasche
 
+  Christian Vervoorts
+
   Christoph
 
   Christoph Geschwind
 
   Christoph Olszowka
+
+  Daniel Carral
 
   Daniel Harrington
 
@@ -43,7 +49,13 @@
 
   Enrique García
 
+  Florian Gilcher
+
   Jakob Hilden
+
+  Jan Zaydowicz
+
+  Javier Honduvilla Coto
 
   Kerstin Puschke
 
@@ -63,7 +75,11 @@
 
   Marv Cool
 
+  Maxim Küpper
+
   Meike Wiemann
+
+  Moritz Breit
 
   Nico Hagenburger
 
@@ -73,17 +89,23 @@
 
   Peter Schröder
 
+  Rafael Jung
+
   Ralph von der Heyden
 
   Rocky Jaiswal
 
   Sean Linsley
 
+  Sebastian Schulze
+
   Simon Zöllner
 
   Stefan Botzenhart
 
   Stefan Wienert
+
+  Sylvain Abélard
 
   Sébastien Jelsch
 

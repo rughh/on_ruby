@@ -29,11 +29,18 @@ FALLBACKS = {
   "titanoboa" => "Kerstin Puschke",
   "weidenfreak" => "Meike Wiemann",
   "Marco" => "Marco Schaden",
+  "Maxim" => "Maxim Küpper",
+  "Bascht" => "Sebastian Schulze",
   "rocky-jaiswal" => "Rocky Jaiswal",
   "kikito" => "Enrique García",
 }
+IGNORES = [
+  /depfu/,
+]
 commiters = `git log --format='%aN' | sort -u`
-commiters = commiters.split("\n").map { |c| "  #{FALLBACKS[c] || c}"}.uniq.sort.join("\n\n")
+commiters = commiters.split("\n")
+commiters = commiters.reject { |c| IGNORES.any? { |pattern| c =~ pattern } }
+commiters = commiters.map { |c| "  #{FALLBACKS[c] || c}"}.uniq.sort.join("\n\n")
 
 output = FORMAT % {commiters: commiters}
 path = File.expand_path("../public/humans.txt", File.dirname(__FILE__))
