@@ -7,7 +7,9 @@ module Slug
         token
       end
 
-      find(id)
+      found = where("id = ? OR #{slugger} ILIKE ?", id.to_i, token.tr('-', '%')).first
+      raise ActiveRecord::RecordNotFound.new("Could not find by slug #{token}") unless found
+      found
     end
 
     def clazz.find_by_slug(token)
