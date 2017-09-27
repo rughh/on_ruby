@@ -2,6 +2,7 @@
 - !ruby/object:Usergroup
   label_id: hamburg
   default_locale: de
+  country: Deutschland
   recurring: second wednesday
   email: hamburg@onruby.de
   twitter: hamburgsync
@@ -60,6 +61,7 @@
 - !ruby/object:Usergroup
   label_id: cologne
   default_locale: de
+  country: Deutschland
   recurring: third wednesday
   email: colognerb@googlegroups.com
   twitter: colognerb
@@ -105,6 +107,7 @@
 - !ruby/object:Usergroup
   label_id: saar
   default_locale: de
+  country: Deutschland
   recurring: second friday 18:30
   email: rug.saar@gmail.com
   twitter: RUGSaar
@@ -135,6 +138,7 @@
 - !ruby/object:Usergroup
   label_id: karlsruhe
   default_locale: de
+  country: Deutschland
   recurring: third wednesday
   email: karlsruherb@googlegroups.com
   twitter: rug_ka
@@ -166,6 +170,7 @@
 - !ruby/object:Usergroup
   label_id: berlin
   default_locale: en
+  country: Deutschland
   recurring: first thursday 19:30
   email: rug-b@googlegroups.com
   twitter: rug_b
@@ -194,6 +199,7 @@
 - !ruby/object:Usergroup
   label_id: leipzig
   default_locale: de
+  country: Deutschland
   recurring: third thursday 19:00
   email: leipzigonrails@googlegroups.com
   twitter: LeipzigOnRails
@@ -220,6 +226,7 @@
 - !ruby/object:Usergroup
   label_id: dresden
   default_locale: de
+  country: Deutschland
   recurring: first thursday 19:00
   email: admin@ruby-dresden.de
   twitter: ruby_dresden
@@ -251,6 +258,7 @@
 - !ruby/object:Usergroup
   label_id: railsgirlshh
   default_locale: de
+  country: Deutschland
   recurring: fourth wednesday 19:30
   email: railsgirlshh@gmail.com
   twitter: railsgirlshh
@@ -307,6 +315,7 @@
 - !ruby/object:Usergroup
   label_id: bonn
   default_locale: de
+  country: Deutschland
   recurring: second monday
   email: bonnrb@googlegroups.com
   twitter: bonnrb
@@ -336,6 +345,7 @@
 - !ruby/object:Usergroup
   label_id: innsbruck
   default_locale: en
+  country: Österreich
   recurring: second saturday
   email: innsbruck.rb@gmail.com
   twitter: innsbruckrb
@@ -361,6 +371,7 @@
 - !ruby/object:Usergroup
   label_id: madridrb
   default_locale: es
+  country: Espania
   recurring: last thursday 19:30
   email: hello@madridrb.com
   twitter: madridrb
@@ -412,6 +423,7 @@
 - !ruby/object:Usergroup
   label_id: munich
   default_locale: de
+  country: Deutschland
   recurring: second wednesday
   email: Munich-Rubyshift-Ruby-User-Group-list@meetup.com
   twitter: muc_rubyshift

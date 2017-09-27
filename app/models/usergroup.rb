@@ -5,7 +5,7 @@ class Usergroup
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :custom_recurring, :email, :google_group, :coc
   attr_accessor :default_time_zone, :twitter, :organizers, :location, :imprint, :other_usergroups, :tld
-  attr_accessor :sponsors, :slackin_url
+  attr_accessor :sponsors, :slackin_url, :country
 
   def parse_recurring_date(date)
     number, day, = recurring.split(DELIMITER_DATE)
@@ -86,6 +86,7 @@ class Usergroup
       it.label_id = it.google_group = it.twitter = name.underscore
       it.default_locale   = 'de'
       it.tld              = 'de'
+      it.country          = 'Deutschland'
       it.domains          = ["#{name.parameterize}.de"]
       it.recurring        = 'second wednesday'
       it.email            = "info@#{name.parameterize}.de"

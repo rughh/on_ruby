@@ -16,7 +16,11 @@ class Location < ActiveRecord::Base
   default_scope   -> { where(label: Whitelabel[:label_id]) }
 
   def geo_coder_address
-    "#{street} #{house_number}, #{zip} #{city}, #{I18n.t('countries.DE')}"
+    "#{street} #{house_number}, #{zip} #{city}, #{country}"
+  end
+
+  def country
+    Whitelabel.find_label(self.label).country
   end
 
   def address
