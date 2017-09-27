@@ -4,6 +4,7 @@ describe Location do
   before(:each) do
     @location       = create(:location, name: 'Test-Location', street: 'Schanzenstr.', house_number: '85', zip: '20357', city: 'Hamburg')
     @other_location = create(:location, label: 'cologne')
+    @es_location    = create(:location, label: 'madridrb')
   end
 
   context 'validation' do
@@ -23,13 +24,17 @@ describe Location do
       hamburg_locations = Location.all
       expect(hamburg_locations).to have(1).elements
       expect(hamburg_locations.first).to eql(@location)
-      expect(Location.unscoped.size).to be(2)
+      expect(Location.unscoped.size).to be(3)
     end
   end
 
   context '#geo_coder_address' do
     it 'should return a full address string with street, house_number, zip, city and internationalized country name' do
       expect(@location.geo_coder_address).to eq('Schanzenstr. 85, 20357 Hamburg, Deutschland')
+    end
+
+    it 'fetches country names by label' do
+      expect(@es_location.country).to eq('Espania')
     end
   end
 

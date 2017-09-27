@@ -11,9 +11,6 @@ de:
       time: "%H:%M"
       date: "%d.%m. %H:%M"
       month: "%B %Y"
-  countries:
-    DE: "Deutschland"
-    ES: "Spanien"
   switch_languages: "Umschalten auf %{language}"
   languages:
     de: "Deutsch"

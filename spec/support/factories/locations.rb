@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :location do
+    label           { 'hamburg' }
     name            { Faker::Name.name }
     url             { Faker::Internet.url }
     street          { Faker::Address.street_name }
