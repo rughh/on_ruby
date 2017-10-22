@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/feedjira/feedjira.git
+  remote: https://github.com/feedjira/feedjira.git
   revision: a44637aeb29654ddd3ff1acc0856701918e29e6f
   specs:
     feedjira (2.1.2)
@@ -9,7 +9,7 @@ GIT
       sax-machine (>= 1.0)
 
 GIT
-  remote: git://github.com/typus/typus.git
+  remote: https://github.com/typus/typus.git
   revision: 29665b42e2709a82921177aea0773f640f4c0831
   specs:
     typus (4.0.0.beta1)
