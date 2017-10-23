@@ -30,6 +30,7 @@ gem 'font-awesome-rails',     '~> 4.0'
 gem 'uglifier',               '~> 3.1'
 gem 'one_signal',             '~> 0.0.10'
 gem 'link_thumbnailer',       '~> 2.4.0'
+gem 'validate_url',           '~> 1.0.2'
 
 group :production do
   gem 'dalli',            '~> 2.7.0'

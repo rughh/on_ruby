@@ -310,6 +310,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    validate_url (1.0.2)
+      activemodel (>= 3.0.0)
+      addressable
     video_info (2.4.0)
       addressable
       htmlentities
@@ -364,6 +367,7 @@ DEPENDENCIES
   slim-rails (~> 3.0)
   typus!
   uglifier (~> 3.1)
+  validate_url (~> 1.0.2)
   whitelabel (~> 0.3)
 
 RUBY VERSION
