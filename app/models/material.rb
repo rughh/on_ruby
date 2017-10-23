@@ -3,6 +3,7 @@ class Material < ActiveRecord::Base
   expose_api :id, :name, :url, :event_id, :user_id
 
   validates :name, :url, :event, presence: true
+  validates_url :url, url: true, message: 'not a valid URL'
 
   belongs_to :user
   belongs_to :event
