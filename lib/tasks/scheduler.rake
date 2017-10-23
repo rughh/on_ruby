@@ -1,5 +1,5 @@
-desc "update geocoding"
 namespace :scheduler do
+  desc "update geocoding"
   task update_geocoding: :environment do
     with_tracking do
       puts "updating all geocoding"
@@ -13,6 +13,7 @@ namespace :scheduler do
     end
   end
 
+  desc "update previews"
   task update_preview: :environment do
     with_tracking do
       puts "updating previews"
