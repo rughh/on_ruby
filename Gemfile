@@ -51,7 +51,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'meta_request'
   gem 'better_errors'
   gem 'binding_of_caller'

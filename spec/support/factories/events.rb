@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :event do
     name        { Faker::Lorem.words(6).join }
     date        { rand(3).days.from_now }
@@ -10,14 +10,14 @@ FactoryGirl.define do
   end
 
   factory :event_with_participants, parent: :event do |_event|
-    after(:create) { |e| 3.times { FactoryGirl.create(:participant, event: e) } }
+    after(:create) { |e| 3.times { FactoryBot.create(:participant, event: e) } }
   end
 
   factory :full_event, parent: :event_with_participants do |_event|
     after(:create) { |e|
-      e.participants  << FactoryGirl.create(:participant)
-      e.materials     << FactoryGirl.create(:material)
-      e.topics        << FactoryGirl.create(:topic)
+      e.participants  << FactoryBot.create(:participant)
+      e.materials     << FactoryBot.create(:material)
+      e.topics        << FactoryBot.create(:topic)
     }
   end
 
