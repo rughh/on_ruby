@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :proposal, class: :topic do
     name            { Faker::Lorem.words(5).join }
     description     { Faker::Lorem.sentences(3).join }

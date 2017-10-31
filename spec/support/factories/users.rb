@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     name      { Faker::Name.name }
     nickname  { Faker::Name.name.downcase.tr(' ', '_') }
@@ -14,10 +14,10 @@ FactoryGirl.define do
   end
 
   factory :organizer_user, parent: :user do
-    after(:create) { |user| FactoryGirl.create(:event, user: user) }
+    after(:create) { |user| FactoryBot.create(:event, user: user) }
   end
 
   factory :participant_user, parent: :user do
-    after(:create) { |user| FactoryGirl.create_list(:participant, 1, user: user) }
+    after(:create) { |user| FactoryBot.create_list(:participant, 1, user: user) }
   end
 end

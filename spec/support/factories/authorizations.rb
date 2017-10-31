@@ -53,7 +53,7 @@ GITHUB_AUTH_HASH = {
   }
 }
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :authorization do
     provider  'provider'
     uid       'uid'

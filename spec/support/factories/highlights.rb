@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :highlight do
     description { Faker::Lorem.words(6).join }
     url         { Faker::Internet.url }
