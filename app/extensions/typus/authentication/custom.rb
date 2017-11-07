@@ -8,6 +8,11 @@ module Typus
 
       def authenticate
         @admin_user = FakeUser.new
+        def @admin_user.can?(*args)
+          action, type, _ = args
+          return false if action == 'create' && type == 'User'
+          return true
+        end
         authenticate_admin_user!
       end
     end
