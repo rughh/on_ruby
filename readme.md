@@ -1,11 +1,12 @@
 # OnRuby
+
 [![Build Status](https://img.shields.io/travis/phoet/on_ruby/master.svg)](https://travis-ci.org/phoet/on_ruby)
 
 [Status & Uptime](http://status.onruby.eu/)
 
-[Get in touch in our Slack-Channel](https://slack-onruby.herokuapp.com/)
+[Get in touch in our Slack Channel](https://slack-onruby.herokuapp.com/)
 
-Source for the Sites of the Ruby Communities
+Source for the Sites of the Ruby Communities:
 
 * [Hamburg](http://hamburg.onruby.de)
 * [Cologne](http://cologne.onruby.de)
@@ -22,9 +23,12 @@ Source for the Sites of the Ruby Communities
 
 ## Installation
 
-### Using Docker
+You can install OnRuby using Docker or a local installation.
 
-Install [Docker and Docker Compose](https://docs.docker.com/compose/install/) if you haven't already. Then:
+### Install using Docker
+
+Install [Docker and Docker Compose](https://docs.docker.com/compose/install/)
+if you haven't already. Then:
 
 ```sh
 docker-compose build
@@ -33,44 +37,55 @@ docker-compose up
 script/in_docker bundle exec rake db:setup
 ```
 
-> `sudo` might be required for `docker-compose` if you run Docker local on Linux.
+> `sudo` might be required for `docker-compose` if you run Docker locally on Linux.
 
-This creates three Docker containers: `web` for the application, `box` for storing rubygems installations and `db` for the postgres database.
+This creates three Docker containers:
 
-The `script/in_docker` allows you to run commands inside the Docker container. Examples:
+- `web` for the application
+- `box` for storing rubygems installations
+- `db` for the PostgreSQL database
+
+The `script/in_docker` allows you to run commands inside the Docker
+container.
+
+*Example*: Running a spec inside the Docker container
+
 ```sh
 script/in_docker bundle exec rspec spec/requests/labels_spec.rb
 ```
 
 Access via [http://www.onruby.dev:5000](http://www.onruby.dev:5000)
 
-### Local installation
+### Install locally
 
 ### On your machine
-#### Install Postgresql
+
+#### Install PostgreSQL
 
 ```sh
-# install Postgres on Mac OS X
+# Install PostgreSQL on macOS
 brew install postgresql
 # or on Ubuntu
 sudo apt-get install postgresql postgresql-contrib
 
-# check if it's running
+# Check if it's running
 psql postgres # exit with \q
 
-# create user and database
+# Create user and database
 createuser -Ps postgres
 rake db:setup
 ```
 
-Use `script/server` to run rails locally, otherwise you need to export the environment options yourself:
+Use `script/server` to run Rails locally, otherwise you need to export the
+environment options yourself:
 
     bundle --without=production
     script/server
 
-### Hosts
+### Add hosts to `/etc/hosts`
 
-For working with the whitelabel functionality, you need to add all supported subdomains to your */etc/hosts* :
+For working with the whitelabel functionality, you need to add all supported
+subdomains to your `/etc/hosts`:
 
 ```
 127.0.0.1    www.onruby.dev hamburg.onruby.dev cologne.onruby.dev saar.onruby.dev
@@ -80,35 +95,38 @@ For working with the whitelabel functionality, you need to add all supported sub
 
 Access via [http://www.onruby.dev:5000](http://www.onruby.dev:5000)
 
-### Test-Data
+### Test Data
 
-You don't need any to setup a new project!
+You don't need any test data to set up a new project!
 
-If you want to have some kind of seed, than generate some test-data:
+If you want to have some kind of seed, use this Rake task, to generate some
+test data:
 
     rake data:create
 
-If you are a heroku project admin, you can dump Data from Heroku via [Taps Gem](https://devcenter.heroku.com/articles/taps):
+If you are a Heroku project admin, you can dump Data from Heroku via [Taps
+Gem](https://devcenter.heroku.com/articles/taps):
 
     heroku pg:pull HEROKU_POSTGRESQL_MAROON_URL onruby_development
 
 ## THE GUIDE TO YOUR RUG
 
-There are just a couple of steps for your Ruby Usergroup Site to get alive:
+These are the steps to get your Ruby Usergroup Site:
 
-- fork this repo
-- run `bundle && bundle exec rake fork:usergroup[MyUsergroup]`
-- create pull request
-- *lean back and wait :)*
+- Fork this repo
+- Run `bundle && bundle exec rake fork:usergroup[MyUsergroup]`
+- Create a GitHub Pull Request
+- *Lean back and wait :)*
 
-If you have a custom domain, you need to setup the [CNAME of your domain to point to heroku](https://devcenter.heroku.com/articles/custom-domains#dns_setup).
+If you have a custom domain, you need to set up the [CNAME of your domain to
+point to Heroku](https://devcenter.heroku.com/articles/custom-domains#dns_setup).
 
-On the admin-site we need to:
+On the admin site we need to:
 
-- heroku domains:add xyz.onruby.de [custom.de]
-- create new GitHub app for that domain and add keys via heroku config:add
-- merge the pull
-- deploy to heroku
+- `heroku domains:add xyz.onruby.de [custom.de]`
+- create a new GitHub app for that domain and add keys via `heroku config:add`
+- merge the Pull Request
+- deploy to Heroku
 - add admin privileges to someone for the new RUG
 
 ## Website
@@ -117,19 +135,24 @@ On the admin-site we need to:
 
 ## Admin Interface
 
-The app comes with an [Typus](https://github.com/fesplugas/typus) interface to manage the model data.
-In order to access the admin stuff, you need to be a registered user with the "admin role".
-Typus is mounted under */admin* of your label, so it's *http://hamburg.onruby.de/admin* for Hamburg.
+The app comes with a [Typus](https://github.com/fesplugas/typus) interface to
+manage the model data.
+
+In order to access the admin stuff, you need to be a registered user with the
+"admin role".
+
+Typus is mounted under `/admin` of your label, so it's
+`http://hamburg.onruby.de/admin` for Hamburg.
 
 ### Stuff to manage (CRUD)
 
-- Users
-- Events
-    - Materials
-- Locations / Companies (Companies are just special Locations)
-- Topics (Stuff that user can demand/propose)
-- Jobs (The Display on top of the Page)
-- Highlights (Special infos, that you want to display for a short period of time)
+- **Users**
+- **Events**
+    - **Materials**
+- **Locations** and **Companies** (Companies are just special Locations)
+- **Topics** (Subjects for activities that users can request or propose)
+- **Jobs** (These are displayed at top of the page)
+- **Highlights** (Special information that you want to display for a short period of time)
 
 ## License
 
