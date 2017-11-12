@@ -4,7 +4,7 @@
 
 [Status & Uptime](http://status.onruby.eu/)
 
-[Get in touch in our Slack Channel](https://slack-onruby.herokuapp.com/)
+[Get in touch in our Slack Channel - join #on_ruby](https://ruby-berlin.herokuapp.com/)
 
 Source for the Sites of the Ruby Communities:
 
