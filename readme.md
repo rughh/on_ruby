@@ -27,14 +27,14 @@ You can install OnRuby using Docker or a local installation.
 
 ### Install using Docker
 
+#### Get containers
+
 Install [Docker and Docker Compose](https://docs.docker.com/compose/install/)
 if you haven't already. Then:
 
 ```sh
 docker-compose build
 docker-compose up
-
-script/in_docker bundle exec rake db:setup
 ```
 
 > `sudo` might be required for `docker-compose` if you run Docker locally on Linux.
@@ -45,6 +45,14 @@ This creates three Docker containers:
 - `box` for storing rubygems installations
 - `db` for the PostgreSQL database
 
+#### Prepare the database
+
+In another terminal, run the Rake task to set up the database structure.
+
+```sh
+script/in_docker bundle exec rake db:setup
+```
+
 The `script/in_docker` allows you to run commands inside the Docker
 container.
 
@@ -54,7 +62,22 @@ container.
 script/in_docker bundle exec rspec spec/requests/labels_spec.rb
 ```
 
-Access via [http://www.onruby.dev:5000](http://www.onruby.dev:5000)
+#### Add usergroup hostnames to `/etc/hosts`
+
+Add all supported subdomains to your `/etc/hosts` file:
+
+```
+127.0.0.1    www.onruby.dev hamburg.onruby.dev cologne.onruby.dev saar.onruby.dev
+127.0.0.1    berlin.onruby.dev karlsruhe.onruby.dev leipzig.onruby.dev dresden.onruby.dev
+127.0.0.1    railsgirlshh.onruby.dev bonn.onruby.dev madridrb.onruby.dev munich.onruby.dev
+```
+
+#### Visit the site
+
+Navigate to the start page for the OnRuby platform at
+[http://www.onruby.dev:5000](http://www.onruby.dev:5000).
+
+This will list links and logos to all the usergroups.
 
 ### Install locally
 
