@@ -402,12 +402,16 @@
   - :name: The Cocktail
     :url: http://www.the-cocktail.com
     :banner: tck.png
+  - :name: Cabify
+    :url: http://cabify.com
+    :banner: cabify.png
   - :name: Lextrend
     :url: http://www.lextrend.com
     :banner: lextrend.png
   - :name: jobandtalent
     :url: http://www.jobandtalent.com/
     :banner: jobandtalent.png
+
   other_usergroups:
   - :name: Betabeers
     :url: https://betabeers.com/
