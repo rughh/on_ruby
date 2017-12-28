@@ -5,7 +5,7 @@ class Usergroup
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :custom_recurring, :email, :google_group, :coc
   attr_accessor :default_time_zone, :twitter, :organizers, :location, :imprint, :other_usergroups, :tld
-  attr_accessor :sponsors, :slackin_url, :country
+  attr_accessor :sponsors, :slackin_url, :country, :status
 
   def parse_recurring_date(date)
     number, day, = recurring.split(DELIMITER_DATE)
@@ -57,6 +57,10 @@ class Usergroup
     # fall back to default locale
     recurrence_text = I18n.tw('custom_recurrence', locale: default_locale) if recurrence_text == 'n/a'
     recurrence_text == 'n/a' ? nil : recurrence_text
+  end
+
+  def enabled?
+    status == 'enabled'
   end
 
   def to_s
