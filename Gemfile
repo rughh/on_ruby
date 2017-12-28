@@ -34,7 +34,7 @@ gem 'validate_url',           '~> 1.0.2'
 
 group :production do
   gem 'dalli',            '~> 2.7.0'
-  gem 'kgio',             '~> 2.9.2'
+  gem 'kgio',             '~> 2.11.1'
   gem 'lograge',          '~> 0.7.0'
   gem 'heroku-deflater',  '~> 0.5.3'
   gem 'rails_12factor',   '~> 0.0.2'
