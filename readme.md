@@ -10,16 +10,8 @@ Source for the Sites of the Ruby Communities:
 
 * [Hamburg](http://hamburg.onruby.de)
 * [Cologne](http://cologne.onruby.de)
-* [Saarland](http://saar.onruby.de)
 * [Berlin](http://www.rug-b.de)
-* [Leipzig](http://leipzig.onruby.de)
-* [Karlsruhe](http://karlsruhe.onruby.de)
-* [Dresden](http://dresden.onruby.de)
-* [Railsgirls Hamburg](http://railsgirlshh.onruby.de)
-* [Bonn](http://bonn.onruby.de)
-* [Innsbruck](http://innsbruck.onruby.at)
 * [Madrid](http://madridrb.onruby.eu)
-* [Munich](http://munich.onruby.de)
 
 ## Installation
 
@@ -67,9 +59,7 @@ script/in_docker bundle exec rspec spec/requests/labels_spec.rb
 Add all supported subdomains to your `/etc/hosts` file:
 
 ```
-127.0.0.1    www.onruby.dev hamburg.onruby.dev cologne.onruby.dev saar.onruby.dev
-127.0.0.1    berlin.onruby.dev karlsruhe.onruby.dev leipzig.onruby.dev dresden.onruby.dev
-127.0.0.1    railsgirlshh.onruby.dev bonn.onruby.dev madridrb.onruby.dev munich.onruby.dev
+127.0.0.1    www.onruby.dev hamburg.onruby.dev cologne.onruby.dev berlin.onruby.dev madridrb.onruby.dev
 ```
 
 #### Visit the site
@@ -111,9 +101,7 @@ For working with the whitelabel functionality, you need to add all supported
 subdomains to your `/etc/hosts`:
 
 ```
-127.0.0.1    www.onruby.dev hamburg.onruby.dev cologne.onruby.dev saar.onruby.dev
-127.0.0.1    berlin.onruby.dev karlsruhe.onruby.dev leipzig.onruby.dev dresden.onruby.dev
-127.0.0.1    railsgirlshh.onruby.dev bonn.onruby.dev madridrb.onruby.dev munich.onruby.dev
+127.0.0.1    www.onruby.dev hamburg.onruby.dev cologne.onruby.dev berlin.onruby.dev madridrb.onruby.dev
 ```
 
 Access via [http://www.onruby.dev:5000](http://www.onruby.dev:5000)
