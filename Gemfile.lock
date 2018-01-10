@@ -156,7 +156,7 @@ GEM
     kgio (2.11.1)
     launchy (2.4.3)
       addressable (~> 2.3)
-    letter_opener (1.5.0)
+    letter_opener (1.6.0)
       launchy (~> 2.2)
     link_thumbnailer (2.4.0)
       activesupport (>= 3.0)
