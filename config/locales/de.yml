@@ -59,7 +59,7 @@ de:
     old_topics: "Kürzlich vorgestellte Themen"
     company_workers: "Viele der Teilnehmer an der Ruby Usergroup arbeiten auch dort und wir freuen uns immer über neue Gesichter."
     company_missing: "Solltest du eine Firma vermissen, dann schicke uns einfach eine %{email_link} oder Direct-Message an %{twitter_link}"
-    next_possible_meetup_recurring: "Derzeit ist noch kein Termin festgelegt, die Usergroup trifft sich aber %{recurring}."
+    next_possible_meetup_recurring: "Derzeit ist noch kein Termin festgelegt, die Usergroup trifft sich aber %{recurring} und es wird <a href='%{none_url}'>noch eine Location gesucht</a>."
     next_possible_meetup: "Das nächste Ruby / Rails Treffen findet voraussichtlich am %{event_date} statt."
     next_meetup: "Das nächste Treffen"
     takes_place: "findet am %{event_date} bei %{location_link} statt!"
