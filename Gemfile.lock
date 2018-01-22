@@ -320,7 +320,7 @@ GEM
     tilt (1.4.1)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
-    uglifier (3.2.0)
+    uglifier (4.1.4)
       execjs (>= 0.3.0, < 3)
     validate_url (1.0.2)
       activemodel (>= 3.0.0)
@@ -378,7 +378,7 @@ DEPENDENCIES
   sass-rails (~> 5.0.1)
   slim-rails (~> 3.0)
   typus!
-  uglifier (~> 3.1)
+  uglifier (~> 4.1)
   validate_url (~> 1.0.2)
   whitelabel (~> 0.3)
 
