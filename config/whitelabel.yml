@@ -404,18 +404,21 @@
   - :name: ASP Gems
     :url: http://www.aspgems.com/?utm_source=Madrid%20RB&utm_medium=banner&utm_term=patrocinio%20Madrid%20RB&utm_campaign=Patrocinio%20Madrid%20RB
     :banner: aspgems.png
-  - :name: The Cocktail
-    :url: http://www.the-cocktail.com
-    :banner: tck.png
+  - :name: B4Motion
+    :url: http://www.b4Motion.com/
+    :banner: b4motion.png
   - :name: Cabify
     :url: http://cabify.com
     :banner: cabify.png
   - :name: Lextrend
     :url: http://www.lextrend.com
     :banner: lextrend.png
-  - :name: jobandtalent
-    :url: http://www.jobandtalent.com/
-    :banner: jobandtalent.png
+  - :name: The Cocktail
+    :url: http://www.the-cocktail.com
+    :banner: tck.png
+  - :name: Trive
+    :url: http://gotrive.com/
+    :banner: trive.png
   other_usergroups:
   - :name: Betabeers
     :url: https://betabeers.com/
