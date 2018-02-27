@@ -5,7 +5,7 @@ gem 'puma',                   '~> 3.6'
 gem 'rails',                  '~> 4.2'
 gem 'responders',             '~> 2.0'
 gem 'rails-observers',        '~> 0.1.2' # 0.1.4 is broken https://github.com/rails/rails-observers/issues/60
-gem 'pg',                     '~> 0.21.0'
+gem 'pg',                     '~> 1.0.0'
 gem 'rack-cache',             '~> 1.2'
 gem 'slim-rails',             '~> 3.0'
 gem 'redcarpet',              '~> 3.0'
