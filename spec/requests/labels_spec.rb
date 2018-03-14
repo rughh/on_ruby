@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Labels' do
   context 'GET /' do
     before do
-      host! 'www.onruby.dev'
+      host! 'www.onruby.test'
     end
 
     it 'works!' do

@@ -66,7 +66,8 @@ module ExternalLinkHelper
 
   def likes
     content_tag :span, class: 'likes' do
-      raw %(
+      javascript_include_tag("//apis.google.com/js/plusone.js", "//platform.twitter.com/widgets.js", async: true) +
+      raw(%(
         <g:plusone size="medium"></g:plusone>
         <a href="https://twitter.com/share"
            class="twitter-share-button"
@@ -74,7 +75,7 @@ module ExternalLinkHelper
            data-count="horizontal"
            data-via="#{Whitelabel[:twitter]}"
            data-lang="#{I18n.locale.downcase}">Tweet</a>
-      )
+      ))
     end
   end
 

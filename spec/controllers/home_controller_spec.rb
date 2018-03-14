@@ -18,7 +18,7 @@ describe HomeController do
     context 'GET :index' do
       it 'should render the :index template' do
         get :index
-        expect(response).to redirect_to('http://www.onruby.dev/')
+        expect(response).to redirect_to('http://www.onruby.test/')
       end
     end
   end

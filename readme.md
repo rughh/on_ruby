@@ -59,13 +59,13 @@ script/in_docker bundle exec rspec spec/requests/labels_spec.rb
 Add all supported subdomains to your `/etc/hosts` file:
 
 ```
-127.0.0.1    www.onruby.dev hamburg.onruby.dev cologne.onruby.dev berlin.onruby.dev madridrb.onruby.dev
+127.0.0.1    www.onruby.test hamburg.onruby.test cologne.onruby.test berlin.onruby.test madridrb.onruby.test
 ```
 
 #### Visit the site
 
 Navigate to the start page for the OnRuby platform at
-[http://www.onruby.dev:5000](http://www.onruby.dev:5000).
+[http://www.onruby.test:5000](http://www.onruby.test:5000).
 
 This will list links and logos to all the usergroups.
 
@@ -101,10 +101,10 @@ For working with the whitelabel functionality, you need to add all supported
 subdomains to your `/etc/hosts`:
 
 ```
-127.0.0.1    www.onruby.dev hamburg.onruby.dev cologne.onruby.dev berlin.onruby.dev madridrb.onruby.dev
+127.0.0.1    www.onruby.test hamburg.onruby.test cologne.onruby.test berlin.onruby.test madridrb.onruby.test
 ```
 
-Access via [http://www.onruby.dev:5000](http://www.onruby.dev:5000)
+Access via [http://www.onruby.test:5000](http://www.onruby.test:5000)
 
 ### Test Data
 

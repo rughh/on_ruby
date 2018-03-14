@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def label_url(label)
-    host = Rails.env.development? ? 'onruby.dev' : "onruby.#{label.tld}"
+    host = Rails.env.development? ? 'onruby.test' : "onruby.#{label.tld}"
     root_url(subdomain: label.label_id, domain: host)
   end
 

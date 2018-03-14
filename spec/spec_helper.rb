@@ -27,7 +27,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :request) do
-    host! "hamburg.onruby.dev"
+    host! "hamburg.onruby.test"
   end
 
   config.before(:each, type: :controller) do
