@@ -38,23 +38,11 @@
   - :name: HH.js
     :url: http://www.meetup.com/hamburg-js/
     :twitter: hhjs
-  - :name: Scrumtisch
-    :url: http://sug-hh.wikispaces.com/
-    :twitter: hhscrum
-  - :name: Kanban Usergroup
-    :url: http://limited-wip-society-hamburg.mixxt.de/
-    :twitter: LimitedWIPSocHH
   - :name: Cocoaheads
     :url: http://groups.google.com/group/cocoaheads-hh/
     :twitter: hh_cocoaheads
-  - :name: AWS Usergroup
-    :url: http://awsug.wordpress.com/
-    :twitter: awsug
   - :name: Android Usergroup
     :url: https://groups.google.com/group/android-user-group-hamburg
-  - :name: Java Usergroup
-    :url: http://www.jughh.org/
-    :twitter: jughh
   - :name: DJANGO Usergroup
     :url: http://www.dughh.de/
   tld: de
