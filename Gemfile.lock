@@ -320,7 +320,7 @@ GEM
     tilt (1.4.1)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
-    uglifier (4.1.7)
+    uglifier (4.1.8)
       execjs (>= 0.3.0, < 3)
     validate_url (1.0.2)
       activemodel (>= 3.0.0)
