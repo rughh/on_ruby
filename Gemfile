@@ -29,7 +29,7 @@ gem 'coffee-rails',           '~> 4.2.2'
 gem 'font-awesome-rails',     '~> 4.0'
 gem 'uglifier',               '~> 4.1'
 gem 'one_signal',             '~> 0.0.10'
-gem 'link_thumbnailer',       '~> 2.4.0'
+gem 'link_thumbnailer',       '~> 3.3.2'
 gem 'validate_url',           '~> 1.0.2'
 
 group :production do
