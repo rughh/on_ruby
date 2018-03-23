@@ -19,6 +19,10 @@ OnRuby::Application.routes.draw do
     resources :likes
   end
 
+  scope 'admin', {module: :admin, as: 'admin'} do
+    post '/events/duplicate', to: 'events#duplicate'
+  end
+
   scope '/auth' do
     get '/:provider/callback',       to: 'sessions#create'
     get '/failure',                  to: 'sessions#failure'

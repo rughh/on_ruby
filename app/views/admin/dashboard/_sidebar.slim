@@ -8,7 +8,7 @@ h3 Event Actions
         = "#{event.name}: "
         = link_to("tweet", twitter_update_url(event))
         = " / "
-        = link_to("send ios push notification", url_for(controller: "/admin/events", action: :send_ios_push_notification, id: event.id))
+        / = link_to("send ios push notification", url_for(controller: "/admin/events", action: :send_ios_push_notification, id: event.id))
 
 - unless (unpublished = Event.unpublished).empty?
   h4 Unpublished
@@ -20,7 +20,7 @@ h3 Event Actions
         = " / "
         = link_to("publish", url_for(controller: "/admin/events", action: :publish, id: event.id))
 
-p= link_to 'Duplicate latest Event', '/admin/events/duplicate'
+p= button_to 'Duplicate latest Event', '/admin/events/duplicate', method: :post
 
 h3 Topic Actions
 - if undone = Topic.undone
@@ -30,10 +30,10 @@ h3 Topic Actions
         = "#{topic.name}: "
         = link_to("tweet", twitter_update_url(topic))
         = " / "
-        = link_to("for next Event", url_for(controller: "/admin/topics", action: :add_to_next_event, id: topic.id))
+        / = link_to("for next Event", url_for(controller: "/admin/topics", action: :add_to_next_event, id: topic.id))
 
 h3 Highlight Actions
 - if active = Highlight.active
   ul
     - active.each do |highlight|
-      li= link_to "Disable '#{highlight.description}'", url_for(controller: "/admin/highlights", action: :disable, id: highlight.id)
+      / li= link_to "Disable '#{highlight.description}'", url_for(controller: "/admin/highlights", action: :disable, id: highlight.id)
