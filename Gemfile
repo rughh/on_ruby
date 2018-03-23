@@ -23,7 +23,7 @@ gem 'formtastic',             '~> 3.1.5'
 gem 'kaminari',               '~> 1.1.1'
 gem 'typus',                  git: 'https://github.com/typus/typus.git', branch: '5-0-unstable'
 gem 'one_signal',             '~> 0.0.10'
-gem 'link_thumbnailer',       '~> 2.4.0'
+gem 'link_thumbnailer',       '~> 3.3.2'
 gem 'validate_url',           '~> 1.0.2'
 # assets
 gem 'jquery-rails'

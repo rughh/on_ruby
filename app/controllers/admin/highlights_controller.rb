@@ -1,4 +1,4 @@
-class Admin::HighlightsController < Admin::ResourcesController
+class Admin::HighlightsController < Admin::ApplicationController
   before_action :set_highlight_defaults, only: :new
 
   def disable
