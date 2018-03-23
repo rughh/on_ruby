@@ -35,11 +35,13 @@ module ExternalLinkHelper
     "https://groups.google.com/group/#{group}"
   end
 
+  FeedEntry = Struct.new(:title, :url)
+
   def mailing_list_entries(count = 15)
     url = mailing_list_feed_url(count)
     response = Feedjira::Feed.fetch_and_parse(url)
     if response.respond_to?(:entries)
-      response.entries.first(count)
+      response.entries.first(count).map { |entry| FeedEntry.new(entry.title.force_encoding('UTF-8'), entry.url.force_encoding('UTF-8'))}
     else
       []
     end

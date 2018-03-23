@@ -1,4 +1,4 @@
-class Admin::TopicsController < Admin::ResourcesController
+class Admin::TopicsController < Admin::ApplicationController
   def add_to_next_event
     @topic = Topic.find_by_slug(params[:id])
     @user  = @topic.user

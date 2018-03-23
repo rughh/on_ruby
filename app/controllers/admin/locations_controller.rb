@@ -1,2 +1,2 @@
-class Admin::LocationsController < Admin::ResourcesController
+class Admin::LocationsController < Admin::ApplicationController
 end
