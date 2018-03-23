@@ -4,6 +4,4 @@ Event:
     form: user, location, name, date, limit, description
   order_by: -created_at
   search: name, description
-  actions:
-    edit: publish
   application: CRUD
