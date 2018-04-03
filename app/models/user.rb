@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   scope :organizers, -> { where(nickname: Whitelabel[:organizers]) }
   scope :ordered,    -> { order('updated_at DESC') }
-  scope :peers,      -> { ordered.joins(participants: :event).where('events.label' => Whitelabel[:label_id]).uniq }
+  scope :peers,      -> { ordered.joins(participants: :event).where('events.label' => Whitelabel[:label_id]).distinct }
   scope :main,       -> { where(nickname: Whitelabel[:twitter]) }
 
   def participates?(event)

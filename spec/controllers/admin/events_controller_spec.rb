@@ -29,7 +29,7 @@ describe Admin::EventsController do
         event = create(:event)
 
         expect {
-          get :publish, id: event.id
+          get :publish, params: { id: event.id }
         }.to change {
           ActionMailer::Base.deliveries.size
         }.by(1)
@@ -51,7 +51,7 @@ describe Admin::EventsController do
           }
         ).and_return(OpenStruct.new(code: '200'))
 
-        get :send_ios_push_notification, id: event.id
+        get :send_ios_push_notification, params: { id: event.id }
       end
     end
   end

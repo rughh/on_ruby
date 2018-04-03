@@ -10,7 +10,7 @@ describe Admin::HighlightsController do
       let(:highlight) { create(:highlight) }
 
       it 'duplicates the last event' do
-        get :disable, id: highlight
+        get :disable, params: { id: highlight }
         expect(assigns[:highlight]).to be_disabled
       end
     end

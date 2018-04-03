@@ -12,7 +12,7 @@ class EventsController < ApplicationController
       format.html
       format.xml  { render layout: false }
       format.json { render json: events.as_api_response(:ios_v1) }
-      format.ics  { render text: icalendar(*events) }
+      format.ics  { render plain: icalendar(*events) }
     end
   end
 
@@ -23,7 +23,7 @@ class EventsController < ApplicationController
         render json: event.as_api_response(:ios_v1)
       end
       format.ics do
-        render text: icalendar(event)
+        render plain: icalendar(event)
       end
     end
   end

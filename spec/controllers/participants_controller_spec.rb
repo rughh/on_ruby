@@ -11,7 +11,7 @@ describe ParticipantsController do
 
     it 'should add a prticipant for current user' do
       expect {
-        post :create, event_id: event.to_param
+        post :create, params: { event_id: event.to_param }
       }.to change(Participant, :count).by(1)
       expect(flash[:notice]).to_not be_nil
       expect(response).to redirect_to(event)
@@ -24,7 +24,7 @@ describe ParticipantsController do
 
       it 'should should alert a duplicate flash' do
         expect {
-          post :create, event_id: event.to_param
+          post :create, params: { event_id: event.to_param }
         }.to change(Participant, :count).by(0)
         expect(flash[:alert]).to_not be_nil
         expect(response).to redirect_to(event)
@@ -36,7 +36,7 @@ describe ParticipantsController do
 
       it 'should should alert a closed flash' do
         expect {
-          post :create, event_id: event.to_param
+          post :create, params: { event_id: event.to_param }
         }.to change(Participant, :count).by(0)
         expect(flash[:alert]).to_not be_nil
         expect(response).to redirect_to(event)
@@ -55,7 +55,7 @@ describe ParticipantsController do
       allow(@controller).to receive_messages(current_user: @user)
 
       expect {
-        delete(:destroy, id: @participant.to_param, event_id: @event.to_param)
+        delete(:destroy, params: { id: @participant.to_param, event_id: @event.to_param })
       }.to change(Participant, :count).by(-1)
       expect(response).to redirect_to(@event)
     end
@@ -64,7 +64,7 @@ describe ParticipantsController do
       allow(@controller).to receive_messages(current_user: create(:user))
 
       expect {
-        delete(:destroy, id: @participant.to_param, event_id: @event.to_param)
+        delete(:destroy, params: { id: @participant.to_param, event_id: @event.to_param })
       }.to change(Participant, :count).by(0)
       expect(response).to redirect_to(@event)
     end

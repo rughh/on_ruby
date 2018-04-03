@@ -54,7 +54,7 @@ describe User do
 
     it 'should create not create a new user for same nickname' do
       tu = User.find_or_create_from_hash!(TWITTER_AUTH_HASH)
-      tu.update_attributes! github: 'phoet'
+      tu.update! github: 'phoet'
       gu = User.find_or_create_from_hash!(GITHUB_AUTH_HASH)
       expect(tu.id).to eql(gu.id)
     end

@@ -39,7 +39,8 @@ module ExternalLinkHelper
 
   def mailing_list_entries(count = 15)
     url = mailing_list_feed_url(count)
-    response = Feedjira::Feed.fetch_and_parse(url)
+    response = load_feed(url)
+    response = Feedjira::Feed.parse(response.body)
     if response.respond_to?(:entries)
       response.entries.first(count).map { |entry| FeedEntry.new(entry.title.force_encoding('UTF-8'), entry.url.force_encoding('UTF-8'))}
     else
@@ -48,6 +49,17 @@ module ExternalLinkHelper
   rescue
     Rails.logger.warn "error fetching feed from #{url}: #{$!}"
     []
+  end
+
+  def load_feed(url, loader: Faraday)
+    unless Rails.env.production?
+      loader = Struct.new(:body) do
+        def self.get(args)
+          new(File.read("./spec/support/data/mailinglist_rss_feed.xml"))
+        end
+      end
+    end
+    loader.get(url)
   end
 
   def mailing_list_feed_url(count)

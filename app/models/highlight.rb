@@ -10,6 +10,6 @@ class Highlight < ActiveRecord::Base
   end
 
   def disable!
-    update_attributes! start_at: Time.now, end_at: Time.now
+    update! start_at: Time.now, end_at: Time.now
   end
 end
