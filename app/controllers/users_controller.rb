@@ -4,8 +4,6 @@ class UsersController < ApplicationController
 
   respond_to :xml, only: :calendar
 
-  # find_by: :slug, id: :slug
-  # expose(:user, find_by: :slug)
   expose(:user, find: ->(id, scope) { scope.find_by_slug(id) })
 
   def show; end

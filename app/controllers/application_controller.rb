@@ -4,10 +4,6 @@ class ApplicationController < ActionController::Base
   include TimeZoneDetection
   include UserHandling
 
-  # decent_configuration do
-  #   strategy DecentExposure::StrongParametersStrategy
-  # end
-
   protect_from_forgery with: :exception
 
   before_action :setup
