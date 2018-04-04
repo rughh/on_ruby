@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   expose(:upcoming_topics)  { Topic.ordered.upcoming }
   expose(:done_topics)      { Topic.ordered.done.limit(10) }
   expose(:organizers)       { User.organizers }
-  expose(:locations)        { User.all }
+  expose(:locations)        { Location.all }
 
   def index; end
 end
