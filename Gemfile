@@ -42,6 +42,7 @@ end
 
 group :development do
   gem 'partially_useful'
+  gem 'listen'
 end
 
 group :development, :test do
