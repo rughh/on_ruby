@@ -1,4 +1,4 @@
-class Highlight < ActiveRecord::Base
+class Highlight < ApplicationRecord
   validates :description, :url, :start_at, :end_at, presence: true
 
   default_scope -> { where(label: Whitelabel[:label_id]) }

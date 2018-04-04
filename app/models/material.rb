@@ -1,4 +1,5 @@
-class Material < ActiveRecord::Base
+class Material < ApplicationRecord
+  include Slug
   extend ApiHandling
   expose_api :id, :name, :url, :event_id, :user_id
 
