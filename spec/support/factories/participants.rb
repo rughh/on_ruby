@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :participant do
-    association :user
-    association :event
+    association :user, strategy: :build
+    association :event, strategy: :build
   end
 end

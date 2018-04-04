@@ -47,6 +47,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'active_record_query_trace'
   gem 'letter_opener'
   gem 'faker'
   gem 'byebug'
