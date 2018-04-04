@@ -12,7 +12,7 @@ describe LocationsController do
     let(:location) { create(:location) }
 
     it 'should render the :show template' do
-      get :show, id: location
+      get :show, params: { id: location }
       expect(response).to render_template(:show)
     end
   end

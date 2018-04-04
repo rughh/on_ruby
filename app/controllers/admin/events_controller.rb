@@ -7,7 +7,7 @@ class Admin::EventsController < Admin::ApplicationController
   def publish
     event = Event.find_by_slug(params[:id])
     UsergroupMailer.invitation_mail(event).deliver_now!
-    event.update_attributes! published: true
+    event.update! published: true
 
     redirect_to url_for(controller: '/admin/events', action: :edit, id: event.id), notice: 'Published!'
   end

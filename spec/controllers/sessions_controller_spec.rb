@@ -5,7 +5,7 @@ describe SessionsController do
     before { request.env['omniauth.auth'] = TWITTER_AUTH_HASH }
 
     it 'renders the :index template' do
-      get :create, provider: :twitter
+      get :create, params: { provider: :twitter }
       expect(controller.send(:signed_in?)).to be_truthy
       expect(response).to redirect_to(root_path)
     end
@@ -13,7 +13,7 @@ describe SessionsController do
     it 'rescues from duplicate nicknames' do
       create(:user, nickname: 'phoet')
 
-      get :create, provider: :twitter
+      get :create, params: { provider: :twitter }
       expect(controller.send(:signed_in?)).to be_falsy
       expect(response).to redirect_to(root_path)
       expect(flash[:alert]).to match('bereits vergeben')
@@ -30,7 +30,7 @@ describe SessionsController do
     end
 
     it 'sets omniauth session options in the :auth action' do
-      get :auth, provider: :twitter
+      get :auth, params: { provider: :twitter }
       expect(controller.session[:omniauth_keys]).to eql([key, secret])
       expect(response).to redirect_to('/auth/twitter')
     end
@@ -46,7 +46,7 @@ describe SessionsController do
 
   context 'GET :auth' do
     it 'handles different providers' do
-      get :auth, provider: :twitter
+      get :auth, params: { provider: :twitter }
       expect(response).to redirect_to('/auth/twitter')
       expect(controller.session[:omniauth_keys]).to_not be_nil
     end

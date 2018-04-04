@@ -11,7 +11,7 @@ describe Admin::TopicsController do
     context 'GET :add_to_next_event' do
       it 'attaches a proposal to the next event' do
         event = create(:event)
-        get :add_to_next_event, id: @proposal
+        get :add_to_next_event, params: { id: @proposal }
 
         expect(assigns[:topic].event).to eql(event)
         expect(assigns[:topic].event.users).to include(@proposal.user)
@@ -19,7 +19,7 @@ describe Admin::TopicsController do
       end
 
       it 'does redirects back if there is no relevant event' do
-        get :add_to_next_event, id: @proposal
+        get :add_to_next_event, params: { id: @proposal }
 
         expect(response).to redirect_to(controller: '/admin/topics', action: :index)
       end

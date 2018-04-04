@@ -14,7 +14,7 @@ describe EventsController do
       it 'renders json' do
         allow(controller).to receive_messages(events: [event])
 
-        get :index, format: :json
+        get :index, params: { format: :json }
         expect(response.headers['Content-Type']).to eql('application/json; charset=utf-8')
         expect(JSON.parse(response.body)).to have(1).elements
       end
@@ -26,7 +26,7 @@ describe EventsController do
       it 'renders xml' do
         allow(controller).to receive_messages(events: [event])
 
-        get :index, format: :xml
+        get :index, params: { format: :xml }
         expect(response.headers['Content-Type']).to eql('application/xml; charset=utf-8')
         expect(response.body).to match(/rss/)
       end
@@ -37,7 +37,7 @@ describe EventsController do
     let!(:event) { create(:full_event) }
 
     it 'assigns the event and renders the template' do
-      get :show, id: event.id
+      get :show, params: { id: event.id }
       expect(controller.event).to eql(event)
       expect(response).to render_template(:show)
     end
@@ -45,7 +45,7 @@ describe EventsController do
     context 'json' do
       it 'renders json' do
         allow(controller).to receive_messages(event: event)
-        get :show, id: event, format: :json
+        get :show, params: { id: event, format: :json }
         expect(response.headers['Content-Type']).to eql('application/json; charset=utf-8')
         json = JSON.parse(response.body)
 
@@ -113,7 +113,7 @@ describe EventsController do
     context 'ics' do
       it 'renders ical' do
         allow(controller).to receive_messages(event: event)
-        get :show, id: event, format: :ics
+        get :show, params: { id: event, format: :ics }
         expect(response.headers['Content-Type']).to eql('text/calendar; charset=utf-8')
         expect(response.body).to match('VCALENDAR')
       end

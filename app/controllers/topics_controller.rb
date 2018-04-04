@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_action :authenticate!, only: [:edit, :update, :create]
   before_action :validate_topic_ownership!, only: [:edit, :update]
 
-  expose(:topic, attributes: :topic_params, finder: :find_by_slug)
+  expose(:topic, find: ->(id, scope) { scope.find_by_slug(id) })
   expose(:events)           { Event.with_topics.ordered.page(params[:page]).per(10) }
   expose(:undone_topics)    { Topic.ordered.undone }
   expose(:done_topics)      { Topic.ordered.done }
@@ -19,7 +19,7 @@ class TopicsController < ApplicationController
   def create
     topic.label = Whitelabel[:label_id]
     topic.user  = current_user
-    if topic.save
+    if topic.update(topic_params)
       if current_user.email.blank?
         redirect_to(edit_user_path(current_user), notice: t('flash.add_email'))
       else
@@ -31,7 +31,7 @@ class TopicsController < ApplicationController
   end
 
   def update
-    if topic.save
+    if topic.update(topic_params)
       redirect_to(topic_path(topic), notice: t('flash.topic_updated'))
     else
       redirect_to(edit_topic_path, alert: topic.errors.full_messages.join(', '))

@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
   scope :with_topics, -> { joins(:topics).uniq }
   scope :current,     -> { where(date: Date.today.to_time..(Time.now + 9.weeks)).limit(1).order('date ASC') }
   scope :latest,      -> { where('date < ?', Date.today.to_time).order('date DESC') }
-  scope :unpublished, -> { where('published = ? OR published = ?', nil, false) }
+  scope :unpublished, -> { where('published IS NULL') }
   scope :ordered,     -> { order('date DESC') }
 
   def end_date

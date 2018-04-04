@@ -4,7 +4,9 @@ class UsersController < ApplicationController
 
   respond_to :xml, only: :calendar
 
-  expose(:user, finder: :find_by_slug)
+  # find_by: :slug, id: :slug
+  # expose(:user, find_by: :slug)
+  expose(:user, find: ->(id, scope) { scope.find_by_slug(id) })
 
   def show; end
 
@@ -13,16 +15,16 @@ class UsersController < ApplicationController
   def calendar
     respond_to do |format|
       format.ics do
-        render text: icalendar(*user.participations)
+        render plain: icalendar(*user.participations)
       end
     end
   end
 
   def update
-    if current_user.update_attributes user_params
-      redirect_to :back, notice: t('user.saved_successful')
+    if current_user.update user_params
+      redirect_back(notice: t('user.saved_successful'), fallback_location: root_url)
     else
-      redirect_to :back, alert: current_user.errors.full_messages.join(' ')
+      redirect_back(alert: current_user.errors.full_messages.join(' '), fallback_location: root_url)
     end
   end
 

@@ -4,6 +4,4 @@ Highlight:
     form: url, description, start_at, end_at
   order_by: -created_at
   search: description
-  actions:
-    edit: disable
   application: CRUD

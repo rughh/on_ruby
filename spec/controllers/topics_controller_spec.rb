@@ -5,7 +5,7 @@ describe TopicsController do
     let(:topic) { create(:topic) }
 
     it 'renders the action' do
-      get :show, id: topic.id
+      get :show, params: { id: topic.id }
       expect(controller.topic).to eql(topic)
       expect(response).to render_template(:show)
     end
@@ -30,7 +30,7 @@ describe TopicsController do
     it 'renders the action' do
       allow(controller).to receive_messages(current_user: user)
 
-      get :edit, id: topic.id
+      get :edit, params: { id: topic.id }
       expect(controller.topic).to be_persisted
       expect(response).to render_template(:edit)
     end
@@ -45,7 +45,7 @@ describe TopicsController do
       allow(controller).to receive_messages(current_user: user)
 
       expect {
-        post(:create, topic: topic_data)
+        post(:create, params: { topic: topic_data })
       }.to change(Topic, :count).by(1)
       expect(controller.topic.user).to eql(user)
       expect(flash[:notice]).to_not be_nil
@@ -55,14 +55,14 @@ describe TopicsController do
       allow(controller).to receive_messages(current_user: user_without_email)
 
       expect {
-        post(:create, topic: topic_data)
+        post(:create, params: { topic: topic_data })
       }.to change(Topic, :count).by(1)
       expect(response).to redirect_to(edit_user_path(user_without_email))
     end
 
     it 'should not create a topic if not signed in' do
       expect {
-        post(:create, topic: topic_data)
+        post(:create, params: { topic: topic_data })
       }.to change(Topic, :count).by(0)
       expect(response).to redirect_to(root_path)
     end
@@ -70,7 +70,7 @@ describe TopicsController do
 
   context 'POST :update' do
     it 'authenticates the action' do
-      put(:update, id: 123, topic: attributes_for(:topic))
+      put(:update, params: { id: 123, topic: attributes_for(:topic) })
       expect(response).to redirect_to(root_path)
       expect(flash[:alert]).to_not be_nil
     end
@@ -86,7 +86,7 @@ describe TopicsController do
       end
 
       it 'updates a topic' do
-        put(:update, id: topic, topic: { name: 'blupp' })
+        put(:update, params: { id: topic, topic: { name: 'blupp' } })
         expect(controller.topic.reload.name).to eql('blupp')
         expect(flash[:notice]).to_not be_nil
       end
@@ -94,14 +94,14 @@ describe TopicsController do
       it 'updates a topic for admin' do
         allow(controller).to receive_messages(current_user: admin_user)
 
-        put(:update, id: topic, topic: { name: 'zapp' })
+        put(:update, params: { id: topic, topic: { name: 'zapp' } })
         expect(controller.topic.reload.name).to eql('zapp')
       end
 
       it 'does not update a topic for a different user' do
         allow(controller).to receive_messages(current_user: other_user)
 
-        put(:update, id: topic, topic: { name: 'blupp' })
+        put(:update, params: { id: topic, topic: { name: 'blupp' } })
         expect(response).to redirect_to(root_path)
         expect(flash[:alert]).to_not be_nil
       end

@@ -20,10 +20,12 @@ describe Admin::UsersController do
     end
 
     context 'POST :create' do
-      it 'hides this page' do
-        post :create, {user: {}}
+      let(:data) { { user: attributes_for(:user) } }
 
-        expect(response).to have_http_status(422)
+      it 'hides this page' do
+        expect {
+          post :create, params: data
+        }.not_to change(User, :count)
       end
     end
   end
