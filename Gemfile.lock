@@ -64,7 +64,7 @@ GEM
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
-    byebug (10.0.1)
+    byebug (10.0.2)
     callsite (0.0.11)
     chunky_png (1.3.10)
     coderay (1.1.2)
@@ -172,7 +172,7 @@ GEM
       nokogiri (>= 1.6)
       rake (>= 0.9)
       video_info (>= 2.6)
-    lograge (0.9.0)
+    lograge (0.10.0)
       actionpack (>= 4)
       activesupport (>= 4)
       railties (>= 4)
@@ -374,7 +374,7 @@ DEPENDENCIES
   kgio (~> 2.11.1)
   letter_opener
   link_thumbnailer (~> 3.3.2)
-  lograge (~> 0.9.0)
+  lograge (~> 0.10.0)
   meta_request
   omniauth (~> 1.8.1)
   omniauth-github (~> 1.3.0)
