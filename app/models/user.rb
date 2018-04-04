@@ -1,7 +1,7 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   include Slug
-  slugged_by(:nickname)
   extend ApiHandling
+  slugged_by(:nickname)
   expose_api :id, :nickname, :name, :image, :url, :github, :twitter, :freelancer, :available
 
   validates :nickname, :name, :image, presence: true

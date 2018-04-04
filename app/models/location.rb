@@ -1,4 +1,4 @@
-class Location < ActiveRecord::Base
+class Location < ApplicationRecord
   include Slug
   extend ApiHandling
   expose_api :id, :name, :url, :city, :street, :house_number, :zip, :wheelmap_id

@@ -1,4 +1,4 @@
-class Job < ActiveRecord::Base
+class Job < ApplicationRecord
   validates :name, :url, :location, presence: true
 
   default_scope -> { where(label: Whitelabel[:label_id]) }

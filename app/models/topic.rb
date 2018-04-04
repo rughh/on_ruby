@@ -1,4 +1,4 @@
-class Topic < ActiveRecord::Base
+class Topic < ApplicationRecord
   include Slug
   extend ApiHandling
   expose_api :id, :event_id, :user_id, :name, :description, :user

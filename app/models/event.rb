@@ -1,4 +1,4 @@
-class Event < ActiveRecord::Base
+class Event < ApplicationRecord
   include Slug
   extend ApiHandling
   expose_api :id, :name, :description, :date, :location_id, :user_id, :participants, :topics, :materials, :location
