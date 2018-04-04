@@ -13,6 +13,8 @@ describe LocationsController do
 
     it 'should render the :show template' do
       get :show, params: { id: location }
+
+      expect(controller.location).to eql(location)
       expect(response).to render_template(:show)
     end
   end
