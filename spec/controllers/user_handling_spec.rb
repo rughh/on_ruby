@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'UserHandling', type: :controller do
+describe 'UserHandling' do
   context 'authenticate_admin_user!' do
     controller(HomeController) do
       before_action :authenticate_admin_user!
