@@ -27,13 +27,11 @@
 
   Ben Zimmer
 
-  Benny
+  Benny Klotz
 
   Bodo Tasche
 
   Christian Vervoorts
-
-  Christoph
 
   Christoph Geschwind
 
@@ -50,6 +48,8 @@
   Enrique García
 
   Florian Gilcher
+
+  Irina Lindt
 
   Jakob Hilden
 
@@ -85,6 +85,8 @@
 
   Nikolay Sturm
 
+  Olle Jonsson
+
   Parker Moore
 
   Peter Schröder
@@ -100,6 +102,8 @@
   Sebastian Schulze
 
   Simon Zöllner
+
+  Stefan Bauckmeier
 
   Stefan Botzenhart
 
