@@ -94,9 +94,5 @@ class User < ActiveRecord::Base
       user = find_by_id(id)
       user && user.salt == stored_salt ? user : nil
     end
-
-    def find_by_session_or_cookies(session, cookies)
-      find_by_id(session[:user_id]) || authenticated_with_token(*(cookies.signed[:remember_me] || ['', '']))
-    end
   end
 end
