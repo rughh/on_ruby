@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 ruby '~> 2.4.2'
 
 gem 'puma',                   '~> 3.6'
+gem 'dotenv-rails',           '~> 2.2.1', require: 'dotenv/rails-now'
 gem 'rails',                  '~> 5.0.6'
 gem 'responders',             '~> 2.0'
 gem 'rails-observers',        '~> 0.1.2' # 0.1.4 is broken https://github.com/rails/rails-observers/issues/60
