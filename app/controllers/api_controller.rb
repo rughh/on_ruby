@@ -6,8 +6,6 @@ class ApiController < ApplicationController
   expose(:events)     { Event.ordered }
   expose(:users)      { User.ordered }
 
-  respond_to :json
-
   def index
     hash = {
       topics:     topics.as_api_response(:ios_v1),
@@ -15,13 +13,14 @@ class ApiController < ApplicationController
       events:     events.as_api_response(:ios_v1),
       users:      users.as_api_response(:ios_v1),
     }
-    respond_with(hash)
+
+    render json: hash
   end
 
   def flush
     Rails.cache.clear
 
-    respond_with(result: :ok)
+    render json: {result: :ok}
   end
 
   private

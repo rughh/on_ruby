@@ -2,8 +2,6 @@ class UsersController < ApplicationController
   include IcalHelper
   before_action :authenticate_current_user!, only: [:edit, :update]
 
-  respond_to :xml, only: :calendar
-
   expose(:user, find: ->(id, scope) { scope.find_by_slug(id) })
 
   def show; end
