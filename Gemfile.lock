@@ -237,7 +237,7 @@ GEM
       railties (>= 4.1)
     pg (0.21.0)
     public_suffix (3.0.2)
-    puma (3.11.3)
+    puma (3.11.4)
     rack (2.0.4)
     rack-cache (1.7.1)
       rack (>= 0.4)
