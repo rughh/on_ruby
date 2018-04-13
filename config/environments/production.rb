@@ -96,7 +96,7 @@ Rails.application.configure do
   config.middleware.use 'CookieDomain', '.onruby.de'
   config.middleware.use ExceptionNotification::Rack, email: {
     email_prefix: '[ERROR] ',
-    sender_address: %("error-notifier" <onruby@googlemail.com>),
-    exception_recipients: %w(onruby@googlemail.com)
+    sender_address: %("error-notifier" <phoetmail@googlemail.com>),
+    exception_recipients: %w(phoetmail@googlemail.com)
   }
 end
