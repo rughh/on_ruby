@@ -133,7 +133,7 @@ GEM
       railties (>= 3.2, < 6.0)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
-    geocoder (1.4.7)
+    geocoder (1.4.8)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashie (3.5.7)
