@@ -10,16 +10,6 @@ h3 Event Actions
         = " / "
         = button_to("send ios push notification", url_for(controller: "/admin/events", action: :send_ios_push_notification, id: event.id), method: :post)
 
-- unless (unpublished = Event.unpublished).empty?
-  h4 Unpublished
-  ul
-    - unpublished.each do |event|
-      li
-        = "#{event.name}: "
-        = link_to("tweet", twitter_update_url(event))
-        = " / "
-        = button_to("publish", url_for(controller: "/admin/events", action: :publish, id: event.id), method: :post)
-
 p= button_to 'Duplicate latest Event', '/admin/events/duplicate', method: :post
 
 h3 Topic Actions
