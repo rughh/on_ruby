@@ -91,7 +91,6 @@
   custom_recurring: true
   domains:
   - colognerb.de
-  - koelschrb.de
   google_group: colognerb
   slackin_url: http://colognerb.herokuapp.com/slackin.js
 - !ruby/object:Usergroup
