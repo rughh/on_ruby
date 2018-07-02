@@ -18,6 +18,7 @@ module ApplicationHelper
   def canonical_url
     subdomain = Whitelabel.label ? Whitelabel[:label_id] : 'www'
     options = {
+      domain: 'onruby.de',
       subdomain: subdomain,
       only_path: false
     }
