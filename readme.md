@@ -1,6 +1,7 @@
 # OnRuby
 
 [![Build Status](https://img.shields.io/travis/phoet/on_ruby/master.svg)](https://travis-ci.org/phoet/on_ruby)
+[![security](https://hakiri.io/github/phoet/on_ruby/master.svg)](https://hakiri.io/github/phoet/on_ruby/master)
 
 [Status & Uptime](http://status.onruby.eu/)
 
