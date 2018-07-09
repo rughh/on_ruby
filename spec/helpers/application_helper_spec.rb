@@ -25,5 +25,10 @@ describe ApplicationHelper do
     it 'autolinks' do
       expect(helper.markdown('auto http://href.org')).to match('auto <a href="http://href.org">http://href.org</a>')
     end
+
+    it 'escapes html tags' do
+      expect(helper.markdown('<script>alert("xss");</script>'))
+        .to include('&lt;script&gt;alert(&quot;xss&quot;);&lt;/script&gt;')
+    end
   end
 end

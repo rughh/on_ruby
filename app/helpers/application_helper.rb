@@ -73,6 +73,6 @@ module ApplicationHelper
   private
 
   def markdown_parser
-    @markdown_parser ||= Redcarpet::Markdown.new Redcarpet::Render::HTML, autolink: true, space_after_headers: true
+    @markdown_parser ||= Redcarpet::Markdown.new Redcarpet::Render::Safe, autolink: true, space_after_headers: true
   end
 end
