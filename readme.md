@@ -26,8 +26,7 @@ Install [Docker and Docker Compose](https://docs.docker.com/compose/install/)
 if you haven't already. Then:
 
 ```sh
-docker-compose build
-docker-compose up
+docker-compose up --build
 ```
 
 > `sudo` might be required for `docker-compose` if you run Docker locally on Linux.
