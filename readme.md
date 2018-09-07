@@ -65,7 +65,7 @@ Add all supported subdomains to your `/etc/hosts` file:
 #### Visit the site
 
 Navigate to the start page for the OnRuby platform at
-[http://www.onruby.test:5000](http://www.onruby.test:5000).
+[http://www.onruby.test:3000](http://www.onruby.test:3000).
 
 This will list links and logos to all the usergroups.
 
@@ -104,7 +104,7 @@ subdomains to your `/etc/hosts`:
 127.0.0.1    www.onruby.test hamburg.onruby.test cologne.onruby.test berlin.onruby.test madridrb.onruby.test
 ```
 
-Access via [http://www.onruby.test:5000](http://www.onruby.test:5000)
+Access via [http://www.onruby.test:3000](http://www.onruby.test:3000)
 
 ### Test Data
 
