@@ -30,6 +30,17 @@ module ExternalLinkHelper
     end
   end
 
+  def link_to_linkedin(user, &block)
+    return unless user.linkedin
+    url = "http://www.linkedin.com/in/#{user.github}"
+    title = user.linkedin
+    if block_given?
+      link_to url, title: title, &block
+    else
+      link_to(user.linkedin, url, title: title)
+    end
+  end
+
   def mailing_list_url
     group = Whitelabel[:google_group] || 'rubyonrails-ug-germany'
     "https://groups.google.com/group/#{group}"
