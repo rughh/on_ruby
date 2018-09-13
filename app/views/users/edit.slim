@@ -8,6 +8,7 @@ section
         = f.input :twitter, input_html: { placeholder: 'Twitter handle' }
     - unless user.with_provider? :github
         = f.input :github, input_html: { placeholder: 'GitHub handle' }
+    = f.input :linkedin, input_html: { placeholder: 'Linkedin handle' }
     = f.input :email
     = f.input :url
     = f.input :description, type: :text_area
