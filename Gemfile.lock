@@ -204,7 +204,7 @@ GEM
       connection_pool (~> 2.2)
     net_http_timeout_errors (0.3.0)
     nio4r (2.3.1)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     oauth (0.5.4)
     oauth2 (1.4.0)
