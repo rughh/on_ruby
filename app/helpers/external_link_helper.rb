@@ -32,7 +32,7 @@ module ExternalLinkHelper
 
   def link_to_linkedin(user, &block)
     return unless user.linkedin
-    url = "http://www.linkedin.com/in/#{user.github}"
+    url = "http://www.linkedin.com/in/#{user.linkedin}"
     title = user.linkedin
     if block_given?
       link_to url, title: title, &block

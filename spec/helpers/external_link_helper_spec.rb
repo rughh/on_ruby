@@ -20,6 +20,23 @@ describe ExternalLinkHelper do
     end
   end
 
+  context '#link_to_linkedin' do
+    it 'should generate the link' do
+      user = build(:user, linkedin: 'testyin')
+      expect(helper.link_to_linkedin(user)).to eql('<a title="testyin" href="http://www.linkedin.com/in/testyin">testyin</a>')
+    end
+
+    it 'should generate the link with a block' do
+      user = build(:user, linkedin: 'testyin')
+      expect(helper.link_to_linkedin(user) { 'testyin' }).to eql('<a title="testyin" href="http://www.linkedin.com/in/testyin">testyin</a>')
+    end
+
+    it 'should render nothing for no linkedin' do
+      user.linkedin = nil
+      expect(helper.link_to_linkedin(user)).to be_nil
+    end
+  end
+
   context '#mailing_list_entries' do
     it 'fetches and parses a feed' do
       expect(mailing_list_entries).to have(15).items
