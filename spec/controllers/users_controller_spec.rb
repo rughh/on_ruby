@@ -4,7 +4,7 @@ describe UsersController do
   let(:user) { create(:user) }
   let(:user_with_events) { create(:organizer_user) }
   let(:user_with_participations) { create(:participant_user) }
-  let(:data) { { id: user.to_param, user: { github: 'testo', freelancer: true, available: true } } }
+  let(:data) { { id: user.to_param, user: { github: 'testo', linkedin: 'testyin', freelancer: true, available: true } } }
   let(:unallowed_data) { data.merge(user: { nickname: 'not_allowed_property' }) }
 
   context 'GET :show' do
@@ -82,6 +82,7 @@ describe UsersController do
       expect(response).to be_a_redirect
 
       expect(user.github).to eql('testo')
+      expect(user.linkedin).to eql('testyin')
       expect(user.freelancer).to be_truthy
       expect(user.available).to be_truthy
     end

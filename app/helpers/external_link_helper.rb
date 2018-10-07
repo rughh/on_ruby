@@ -2,7 +2,7 @@ module ExternalLinkHelper
   def wheelmap_badge(location, klass: 'wheelmap-status')
     return unless location.wheelmap_id.present?
 
-    url   =  "http://wheelmap.org/nodes/#{location.wheelmap_id}"
+    url   =  "https://wheelmap.org/nodes/#{location.wheelmap_id}"
     image = image_tag "https://img.shields.io/wheelmap/a/#{location.wheelmap_id}.svg", class: klass
 
     link_to image, url
@@ -10,7 +10,7 @@ module ExternalLinkHelper
 
   def link_to_twitter(thing, params = { clung: false }, &block)
     nick = thing.respond_to?(:twitter) ? thing.twitter : thing
-    url = "http://twitter.com/#{nick}"
+    url = "https://twitter.com/#{nick}"
     if block_given?
       link_to url, title: nick, &block
     else
@@ -21,12 +21,23 @@ module ExternalLinkHelper
 
   def link_to_github(user, &block)
     return unless user.github
-    url = "http://github.com/#{user.github}"
+    url = "https://github.com/#{user.github}"
     title = user.github
     if block_given?
       link_to url, title: title, &block
     else
       link_to(user.github, url, title: title)
+    end
+  end
+
+  def link_to_linkedin(user, &block)
+    return unless user.linkedin
+    url = "https://www.linkedin.com/in/#{user.linkedin}"
+    title = user.linkedin
+    if block_given?
+      link_to url, title: title, &block
+    else
+      link_to(user.linkedin, url, title: title)
     end
   end
 
@@ -75,7 +86,7 @@ module ExternalLinkHelper
       options = { username: model.user.name, name: model.name.truncate(50), url: topic_url(model) }
     end
     text = t("#{model.class.to_s.downcase}.twitter_message", options)
-    "http://twitter.com/home?status=#{URI.encode(text)}"
+    "https://twitter.com/home?status=#{URI.encode(text)}"
   end
 
   def likes
@@ -96,8 +107,8 @@ module ExternalLinkHelper
   def ribbon(type)
     types = {
       github:                 ['Fork me on GitHub!',  'https://github.com/phoet/on_ruby'],
-      senor_developer:        ['Señor Developer!',    'http://senordevelopershop.spreadshirt.de'],
-      rgsoc:                  ['SUMMER OF CODE',      'http://railsgirlssummerofcode.org/campaign/'],
+      senor_developer:        ['Señor Developer!',    'https://senordevelopershop.spreadshirt.de'],
+      rgsoc:                  ['SUMMER OF CODE',      'https://railsgirlssummerofcode.org/campaign/'],
     }
     text, url = types[type]
     content_tag :div, id: "#{type}_ribbon", class: 'ribbon_wrap' do

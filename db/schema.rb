@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170918091427) do
+ActiveRecord::Schema.define(version: 20180913110659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +21,8 @@ ActiveRecord::Schema.define(version: 20170918091427) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["user_id"], name: "index_authorizations_on_user_id", using: :btree
   end
-
-  add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -37,10 +35,9 @@ ActiveRecord::Schema.define(version: 20170918091427) do
     t.boolean  "published"
     t.string   "label",       default: "hamburg"
     t.integer  "limit"
+    t.index ["location_id"], name: "index_events_on_location_id", using: :btree
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
-
-  add_index "events", ["location_id"], name: "index_events_on_location_id", using: :btree
-  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "highlights", force: :cascade do |t|
     t.string   "description"
@@ -59,9 +56,8 @@ ActiveRecord::Schema.define(version: 20170918091427) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "label",       default: "hamburg"
+    t.index ["location_id"], name: "index_jobs_on_location_id", using: :btree
   end
-
-  add_index "jobs", ["location_id"], name: "index_jobs_on_location_id", using: :btree
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
@@ -84,9 +80,8 @@ ActiveRecord::Schema.define(version: 20170918091427) do
     t.boolean  "company"
     t.string   "label",        default: "hamburg"
     t.string   "wheelmap_id"
+    t.index ["id"], name: "index_locations_on_id", using: :btree
   end
-
-  add_index "locations", ["id"], name: "index_locations_on_id", using: :btree
 
   create_table "materials", force: :cascade do |t|
     t.string   "name"
@@ -99,10 +94,9 @@ ActiveRecord::Schema.define(version: 20170918091427) do
     t.string   "preview_type"
     t.string   "preview_code"
     t.integer  "topic_id"
+    t.index ["event_id"], name: "index_materials_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_materials_on_user_id", using: :btree
   end
-
-  add_index "materials", ["event_id"], name: "index_materials_on_event_id", using: :btree
-  add_index "materials", ["user_id"], name: "index_materials_on_user_id", using: :btree
 
   create_table "participants", force: :cascade do |t|
     t.integer  "user_id"
@@ -111,10 +105,9 @@ ActiveRecord::Schema.define(version: 20170918091427) do
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["event_id"], name: "index_participants_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_participants_on_user_id", using: :btree
   end
-
-  add_index "participants", ["event_id"], name: "index_participants_on_event_id", using: :btree
-  add_index "participants", ["user_id"], name: "index_participants_on_user_id", using: :btree
 
   create_table "topics", force: :cascade do |t|
     t.string   "name"
@@ -125,10 +118,9 @@ ActiveRecord::Schema.define(version: 20170918091427) do
     t.datetime "updated_at"
     t.string   "label",         default: "hamburg"
     t.string   "proposal_type", default: "proposal"
+    t.index ["event_id"], name: "index_topics_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_topics_on_user_id", using: :btree
   end
-
-  add_index "topics", ["event_id"], name: "index_topics_on_event_id", using: :btree
-  add_index "topics", ["user_id"], name: "index_topics_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname"
@@ -147,8 +139,8 @@ ActiveRecord::Schema.define(version: 20170918091427) do
     t.string   "twitter"
     t.string   "email"
     t.boolean  "super_admin", default: false
+    t.string   "linkedin"
+    t.index ["nickname"], name: "index_users_on_nickname", unique: true, using: :btree
   end
-
-  add_index "users", ["nickname"], name: "index_users_on_nickname", unique: true, using: :btree
 
 end

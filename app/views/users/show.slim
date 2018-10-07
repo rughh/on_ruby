@@ -15,6 +15,10 @@ section
         span
           = fa_icon 'github', class: 'pull-left'
           = link_to_github user
+      - if user.linkedin?
+        span
+            = fa_icon 'linkedin', class: 'bg-danger pull-left'
+            = link_to_linkedin user
       - if user.url?
         span
           = fa_icon 'bookmark', class: 'pull-left'
