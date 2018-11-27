@@ -3,7 +3,7 @@ ruby '~> 2.5.0'
 
 gem 'puma'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
-gem 'rails', '5.0.7'
+gem 'rails', '5.0.7.1'
 gem 'pg', '1.1.3'
 gem 'rack-cache'
 gem 'slim-rails'
