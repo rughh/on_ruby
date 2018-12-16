@@ -47,7 +47,10 @@ es:
     attend: "Apuntarse"
     not_attend: "Cancelar"
     login_before_attend: "Por favor inicia sesión antes"
-    attendees: "Participantes (%{participant_count})"
+    attendees:
+        zero: "Participantes: (%{participant_count})"
+        one: "Participantes: (%{participant_count} de %{count})"
+        other: "Participantes: (%{participant_count} de %{count})"
     route: "Mapa"
     material: "Material"
     no_location: "¡Estamos bustando sitio!"

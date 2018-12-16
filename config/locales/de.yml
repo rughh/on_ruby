@@ -11,6 +11,9 @@ de:
       time: "%H:%M"
       date: "%d.%m. %H:%M"
       month: "%B %Y"
+  countries:
+    DE: "Deutschland"
+    ES: "Spanien"
   switch_languages: "Umschalten auf %{language}"
   languages:
     de: "Deutsch"
@@ -29,6 +32,7 @@ de:
     job_description: "Ruby / Rails Jobs in %{city}: %{job_link} bei %{company_link}"
     click_to_refresh: "Anklicken zum aktualisieren!"
   footer:
+    to_mobile: mobile Version
     imprint: "Impressum"
     contact: "Kontakt"
     links: "Links"
@@ -44,6 +48,7 @@ de:
     login_before_attend: "Bitte logge dich zuerst ein!"
     attendees:
       zero: "Teilnehmerinnen und Teilnehmer (%{participant_count})"
+      one: "Teilnehmerinnen und Teilnehmer (%{participant_count} von %{count})"
       other: "Teilnehmerinnen und Teilnehmer (%{participant_count} von %{count})"
     route: "Anfahrt"
     material: "Material"
@@ -144,6 +149,11 @@ de:
     topic_added: "Dein Thema wurde gespeichert."
     topic_updated: "Dein Thema wurde aktualisiert."
     add_email: "Bitte trage eine E-Mail Adresse ein, damit wir dich erreichen können!"
+  mobile:
+    settings: die Einstellungen
+    back: zurück
+    home: Startseite
+    disable: Mobile View deaktivieren
   views:
     pagination:
       first: "<<"
