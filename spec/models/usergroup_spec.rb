@@ -87,14 +87,23 @@ describe Usergroup do
 
       specify 'en' do
         I18n.with_locale(:en) do
-          expect(colognerb.localized_custom_recurrence).to eql 'every 3rd Wednesday in every second month (January, March, May, July, September, November)'
+          expect(colognerb.localized_custom_recurrence).to eql 'every 3rd Wednesday in every second month (January, March, May, July, September, November) at 7:00 p.m.'
+        end
+      end
+
+      specify 'es' do
+        I18n.with_locale(:es) do
+          expect(colognerb.localized_custom_recurrence).to eql '3er Miércoles de Enero, Marzo, Mayo, Julio, Septiembre y Noviembre, a las 19.00'
         end
       end
 
       context 'translation for locale is missing (> es)' do
         it 'should fall back to default_locale of Whitelabel (> de)' do
           I18n.with_locale(:es) do
-            expect(colognerb.localized_custom_recurrence).to eql 'jeweils am 3. Mittwoch in jedem 2. Monat (Januar, März, Mai, Juli, September, November) um 19:00 Uhr'
+            default_translation = 'jeweils am 3. Mittwoch in jedem 2. Monat (Januar, März, Mai, Juli, September, November) um 19:00 Uhr'
+            allow(I18n).to receive(:tw).with('custom_recurrence').and_return('n/a')
+            allow(I18n).to receive(:tw).with('custom_recurrence', locale: colognerb.default_locale).and_return(default_translation)
+            expect(colognerb.localized_custom_recurrence).to eql default_translation
           end
         end
       end
