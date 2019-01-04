@@ -21,7 +21,6 @@ gem 'feedjira'
 gem 'formtastic'
 gem 'kaminari'
 gem 'typus', git: 'https://github.com/typus/typus.git', branch: '5-0-unstable'
-gem 'one_signal'
 gem 'link_thumbnailer'
 gem 'validate_url'
 # assets

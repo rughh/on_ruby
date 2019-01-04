@@ -25,7 +25,6 @@ OnRuby::Application.routes.draw do
     post '/topics/add_to_next_event', to: 'topics#add_to_next_event'
     post '/events/duplicate', to: 'events#duplicate'
     post '/events/publish', to: 'events#publish'
-    post '/events/send_ios_push_notification', to: 'events#send_ios_push_notification'
   end
 
   scope '/auth' do
