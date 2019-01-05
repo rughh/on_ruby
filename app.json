@@ -1,5 +1,8 @@
 {
   "name": "on_ruby",
+  "scripts": {
+    "postdeploy": "bin/rails db:schema:load db:migrate db:seed"
+  },
   "env": {
     "BUNDLE_WITHOUT": {
       "required": true
@@ -92,12 +95,6 @@
       "required": true
     },
     "OMNIAUTH_GITHUB_RUGB_DE_SECRET": {
-      "required": true
-    },
-    "ONE_SIGNAL_APP_ID": {
-      "required": true
-    },
-    "ONE_SIGNAL_KEY": {
       "required": true
     },
     "PATH": {
