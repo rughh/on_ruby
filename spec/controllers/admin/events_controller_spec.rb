@@ -35,24 +35,5 @@ describe Admin::EventsController do
         }.by(1)
       end
     end
-
-    context 'GET :send_ios_push_notification' do
-      it 'send notification with zeropush' do
-        event = create(:event)
-
-        expect(OneSignal::Notification).to receive(:create).with(
-          params: {
-            app_id: nil,
-            included_segments: [Whitelabel[:label_id]],
-            contents: {
-              en: "#{I18n.tw('name')}: new event at #{I18n.l(event.date)}"
-            },
-            content_available: true
-          }
-        ).and_return(OpenStruct.new(code: '200'))
-
-        get :send_ios_push_notification, params: { id: event.id }
-      end
-    end
   end
 end
