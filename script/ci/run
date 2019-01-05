@@ -2,3 +2,4 @@
 set -e
 
 bundle exec rake
+bundle exec localer

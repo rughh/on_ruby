@@ -9,7 +9,7 @@ de:
     - Fr
     - Sa
     abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mär
@@ -35,7 +35,7 @@ de:
       long: ! '%e. %B %Y'
       short: ! '%e. %b'
     month_names:
-    - 
+    -
     - Januar
     - Februar
     - März
@@ -115,10 +115,24 @@ de:
       not_an_integer: muss ganzzahlig sein
       odd: muss ungerade sein
       record_invalid: ! 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'
+      model_invalid: ! 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'
+      present: muss leer sein
+      other_than: 'muss anders als %{count} sein'
+      required: muss existieren
+      restrict_dependent_destroy:
+        has_one: 'Datensatz kann nicht gelöscht werden, da eine abhängige %{record} vorhanden ist'
+        has_many: 'Datensatz kann nicht gelöscht werden, da abhängige %{record} vorhanden sind'
       taken: ist bereits vergeben
-      too_long: ist zu lang (nicht mehr als %{count} Zeichen)
-      too_short: ist zu kurz (nicht weniger als %{count} Zeichen)
-      wrong_length: hat die falsche Länge (muss genau %{count} Zeichen haben)
+      url: ist keine gültige URL
+      too_long:
+        one: ist zu lang (nicht mehr als 1 Zeichen)
+        other: ist zu lang (nicht mehr als %{count} Zeichen)
+      too_short:
+        one: ist zu kurz (nicht weniger als 1 Zeichen)
+        other: ist zu kurz (nicht weniger als %{count} Zeichen)
+      wrong_length:
+        one: hat die falsche Länge (muss genau 1 Zeichen haben)
+        other: hat die falsche Länge (muss genau %{count} Zeichen haben)
     template:
       body: ! 'Bitte überprüfen Sie die folgenden Felder:'
       header:
@@ -176,8 +190,11 @@ de:
           kb: KB
           mb: MB
           tb: TB
+          pb: PB
+          eb: EB
     percentage:
       format:
+        format: "%n%"
         delimiter: ''
     precision:
       format:

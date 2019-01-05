@@ -7,8 +7,6 @@ h3 Event Actions
       li
         = "#{event.name}: "
         = link_to("tweet", twitter_update_url(event))
-        = " / "
-        = button_to("send ios push notification", url_for(controller: "/admin/events", action: :send_ios_push_notification, id: event.id), method: :post)
 
 p= button_to 'Duplicate latest Event', '/admin/events/duplicate', method: :post
 

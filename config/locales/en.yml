@@ -46,7 +46,10 @@ en:
     attend: "Attend"
     not_attend: "Cancel"
     login_before_attend: "Please login first!"
-    attendees: "Attendees (%{participant_count})"
+    attendees:
+      zero: "Attendees: (%{participant_count})"
+      one: "Attendees: (%{participant_count} of %{count})"
+      other: "Attendees: (%{participant_count} of %{count})"
     route: "Route"
     material: "Material"
     no_location: "Still looking for a location!"
@@ -129,6 +132,7 @@ en:
     webcal: 'Webcal'
     rss: 'RSS'
   flash:
+    duplicate_nick: "'%{name}' is already registered. It's possible that you have already logged in with another provider."
     only_admins: "Oops, only admins allowed!"
     not_authenticated: "Oops, you are not allowed to visit this page!"
     already_participating: "You're already in."
