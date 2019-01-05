@@ -1,0 +1,17 @@
+Exclude:
+  # disable gems
+  - /typus/ # TODO: fork typus-i18n gem to upgrade typus version and add spanish and geman translation and install it
+  - /admin/ # depends of typus??
+  - /faker/ # TODO: fork gem to add missing keys
+
+  # disable default translations
+  - /helpers.page_entries_info/
+  - /multibyte/
+
+  # disable special cases
+  - /i18n.transliterate.rule/ # transliteration language rules
+  - /time.formats.us/ # american time format only present in en-US locale
+
+  # disable false positives
+  - /number.human.decimal_units.units.billion/
+  - /number.human.decimal_units.units.quadrillion/

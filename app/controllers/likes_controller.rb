@@ -8,7 +8,7 @@ class LikesController < ApplicationController
     like.topic = topic
     like.user = current_user
     if topic.already_liked?(current_user)
-      flash[:alert] = t('flash.double_like')
+      flash[:alert] = t('flash.double_liked')
     elsif like.save
       flash[:notice] = t('flash.liked')
     else

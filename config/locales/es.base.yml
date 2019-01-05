@@ -95,7 +95,7 @@ es:
       month: Mes
       second: Segundos
       year: Año
-  errors:
+  errors: &errors
     format: ! '%{attribute} %{message}'
     messages:
       accepted: debe ser aceptado
@@ -115,10 +115,24 @@ es:
       not_an_integer: debe ser un entero
       odd: debe ser impar
       record_invalid: ! 'La validación falló: %{errors}'
+      model_invalid: ! 'La validación falló: %{errors}'
+      present: debe estar en blanco
+      other_than: 'debe ser distinto de %{count}'
+      required: debe existir
+      restrict_dependent_destroy:
+        has_one: 'No se puede eliminar el registro porque existe %{record} dependiente'
+        has_many: 'No se puede eliminar el registro porque existen %{record} dependientes'
       taken: ya está en uso
-      too_long: es demasiado largo (%{count} caracteres máximo)
-      too_short: es demasiado corto (%{count} caracteres mínimo)
-      wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
+      url: no es una URL válida
+      too_long:
+        one: es demasiado largo (1 caracter máximo)
+        other: es demasiado largo (%{count} caracteres máximo)
+      too_short:
+        one: es demasiado corto (1 caracter mínimo)
+        other: es demasiado corto (%{count} caracteres mínimo)
+      wrong_length:
+        one: no tiene la longitud correcta (1 caracter exacto)
+        other: no tiene la longitud correcta (%{count} caracteres exactos)
     template:
       body: ! 'Se encontraron problemas con los siguientes campos:'
       header:
@@ -172,8 +186,11 @@ es:
           kb: KB
           mb: MB
           tb: TB
+          pb: PB
+          eb: EB
     percentage:
       format:
+        format: "%n%"
         delimiter: ''
     precision:
       format:
@@ -190,3 +207,10 @@ es:
       long: ! '%d de %B de %Y %H:%M'
       short: ! '%d de %b %H:%M'
     pm: pm
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors

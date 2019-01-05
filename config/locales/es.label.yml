@@ -25,6 +25,7 @@ es:
       title: Cologne.rb
       subtitle: Ruby User Group Cologne
       meta_desc: Ruby / Rails User Group Cologne
+      custom_recurrence: 3er Miércoles de Enero, Marzo, Mayo, Julio, Septiembre y Noviembre, a las 19.00
     saar:
       city: Saarland
       name: RUGSaar
@@ -99,3 +100,4 @@ es:
       title: Madrid.rb
       subtitle: Grupo de usuarios de Ruby de Madrid
       meta_desc: Grupo de usuarios de Ruby de Madrid
+      custom_recurrence: Último jueves de cada mes a las 19.30
