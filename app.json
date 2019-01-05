@@ -94,12 +94,6 @@
     "OMNIAUTH_GITHUB_RUGB_DE_SECRET": {
       "required": true
     },
-    "ONE_SIGNAL_APP_ID": {
-      "required": true
-    },
-    "ONE_SIGNAL_KEY": {
-      "required": true
-    },
     "PATH": {
       "required": true
     },
