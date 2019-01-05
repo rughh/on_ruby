@@ -1,5 +1,8 @@
 {
   "name": "on_ruby",
+  "scripts": {
+    "postdeploy": "bin/rails db:schema:load db:migrate db:seed"
+  },
   "env": {
     "BUNDLE_WITHOUT": {
       "required": true
