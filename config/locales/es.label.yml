@@ -101,3 +101,10 @@ es:
       subtitle: Grupo de usuarios de Ruby de Madrid
       meta_desc: Grupo de usuarios de Ruby de Madrid
       custom_recurrence: Último jueves de cada mes a las 19.30
+    andalucia:
+      :city: Sevilla, Málaga
+      :name: Andalucia.rb
+      :title: Andalucia.rb
+      :subtitle: Grupo de usuarios de Ruby en Andalucía
+      :meta_desc: Grupo de usuarios de Ruby en Andalucía
+      custom_recurrence: Último martes de cada mes a las 19.30

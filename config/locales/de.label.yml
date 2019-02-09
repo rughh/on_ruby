@@ -104,3 +104,9 @@ de:
       :subtitle: Madrid Ruby User Group
       :meta_desc: Madrid Ruby User Group
       :custom_recurrence: letzter Donnerstag im Monat um 19:30 Uhr
+    andalucia:
+      :city: Sevilla, Málaga
+      :name: Andalucia.rb
+      :title: Andaluca.rb
+      :subtitle: Andalucia Ruby User Group
+      :meta_desc: letzter Dienstag des Monats um 19:30 Uhr

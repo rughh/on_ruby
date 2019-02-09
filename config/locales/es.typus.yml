@@ -1,0 +1,118 @@
+de:
+  typus:
+
+    # this is a catch-all for stuff I didn't know where else to put.
+    shared:
+      no_entries_found: "No entries found."
+      help: "Help"
+      settings: "Settings"
+      confirm_question: "Are you sure?"
+      restore_question: 'Restore?'
+
+    buttons:
+      add: "Add"
+      save: 'Save'
+      save_addanother: 'Save and add another'
+      save_continue: 'Save and continue editing'
+      filter: "Filter"
+      list: "List"
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      sign_out: "Sign out"
+      show: "Show"
+      edit: "Edit"
+      remove: "Remove"
+      preview: "Preview"
+      apply: "Apply"
+      send: "Send"
+      restore: "Restore"
+      destroy: "Destroy"
+      destroy_permanently: "Destroy permanently"
+      position: "Position"
+      move_to_trash: "Move to Trash"
+      mark_published: "Mark as published"
+      mark_unpublished: "Mark as unpublished"
+
+    flash:
+      update_success: "%{model} successfully updated."
+      create_success: "%{model} successfully created."
+      delete_success: "%{model} successfully deleted."
+      wipe_success: "%{resource} has been successfully removed from trash."
+      bulk_delete_success:
+        one: "Successfully deleted entry."
+        other: "Successfully deleted %{count} entries."
+      settings_update_success: "Settings successfully updated." # this can probably be removed later
+      image_removed: "Featured image removed."
+      image_set: "Featured image set."
+      set_new_password: "Please set a new password."
+      password_reset_email_success: "Password recovery link sent to your email."
+      bulk_no_action: "No bulk action selected."
+      bulk_no_items: "Items must be selected in order to perform actions on them. No items have been changed."
+      trash_recover_success: "%{resource} recovered from trash."
+      trash_recover_failed: "%{resource} cannot be recovered from trash."
+
+    errors:
+      intro:
+        one: "An error prohibited this page from being saved:"
+        other: "%{count} errors prohibited this page from being saved:"
+
+    dashboard:
+      title: "Dashboard"
+      model: "Model"
+      model_name: "Model Name"
+      items: "Items"
+      actions: "Actions"
+      no_applications: "No applications detected."
+      user: "User"
+      user: "Users"
+      status: "Status"
+      last_logged_in: "Last logged in"
+      resources: "Resources"
+      name: "Name"
+
+    resources:
+      add:
+        title: "Add %{resource}"
+      edit:
+        title: "Edit %{label}"
+      edited_recently:
+        title: "Edited recently"
+      destroy:
+        title: "Destroy %{label}"
+
+    accounts:
+      new:
+        title: "Sign up"
+      forgot_password:
+        title: "Forgot password"
+      remember_password: "I remember my password"
+
+    sessions:
+      initial_user_registration_message: "Enter your email below to create the first user."
+      recover_password: "Recover password"
+      new:
+        title: "Sign in"
+
+    pagination:
+      previous: "&larr; Previous"
+      next: "Next &rarr;"
+
+    sidebar:
+      filters: "Filters"
+      scopes: "Scopes"
+      export: "Export"
+      entry: "Entry"
+      actions: "Actions"
+      view_site: "View site"
+      search: "Search"
+      search_placeholder: "Search ..."
+
+    labels:
+      read_only: "Read only"
+
+    emails:
+      password_reset:
+        title: "[%{admin_title}] Reset password"
+
+    filters:
+      trash: "Trash"

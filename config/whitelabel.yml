@@ -441,3 +441,35 @@
       :email: Munich-Rubyshift-Ruby-User-Group-list@meetup.com
   sponsors: []
   tld: de
+- !ruby/object:Usergroup
+  label_id: andalucia
+  status: enabled
+  default_locale: es
+  country: espania
+  recurring: last tuesday 19:30
+  email: andaluciarb+noreply@googlegroups.com
+  twitter: malagarb
+  organizers:
+  - Nando
+  - Ian Moss
+  location:
+    :zoom: 7.1
+    :lat: 36.7182857
+    :long: -4.4842863
+  imprint:
+    :address: |-
+      I-CampusCoworking Calle Medellin 3
+      29002 Málaga
+    :contributors:
+    - :name: Nando
+      :email:
+    - :name: Ian Moss
+      :email:
+    - :name: stbnrivas
+      :email:
+  sponsors: []
+  other_usergroups:
+  tld: eu
+  coc: http://example.com
+  domains:
+  google_group: andaluciarb
