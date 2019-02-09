@@ -13,6 +13,7 @@ Source for the Sites of the Ruby Communities:
 * [Cologne](http://cologne.onruby.de)
 * [Berlin](http://www.rug-b.de)
 * [Madrid](http://madridrb.onruby.eu)
+* [Andalucia](http://andalucia.onruby.eu)
 
 ## Installation
 
@@ -59,7 +60,7 @@ script/in_docker bundle exec rspec spec/requests/labels_spec.rb
 Add all supported subdomains to your `/etc/hosts` file:
 
 ```
-127.0.0.1    www.onruby.test hamburg.onruby.test cologne.onruby.test berlin.onruby.test madridrb.onruby.test
+127.0.0.1    www.onruby.test hamburg.onruby.test cologne.onruby.test berlin.onruby.test madridrb.onruby.test andalucia.onruby.test
 ```
 
 #### Visit the site
@@ -101,7 +102,7 @@ For working with the whitelabel functionality, you need to add all supported
 subdomains to your `/etc/hosts`:
 
 ```
-127.0.0.1    www.onruby.test hamburg.onruby.test cologne.onruby.test berlin.onruby.test madridrb.onruby.test
+127.0.0.1    www.onruby.test hamburg.onruby.test cologne.onruby.test berlin.onruby.test madridrb.onruby.test andalucia.onruby.test 
 ```
 
 Access via [http://www.onruby.test:3000](http://www.onruby.test:3000)
