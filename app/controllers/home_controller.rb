@@ -7,6 +7,7 @@ class HomeController < ApplicationController
   expose(:done_topics)      { Topic.ordered.done.limit(10) }
   expose(:organizers)       { User.organizers }
   expose(:locations)        { Location.all }
+  expose(:zoom)             { Whitelabel[:location][:zoom] }
 
   def index; end
 end
