@@ -52,7 +52,7 @@ GEM
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       rack (>= 1.1.0)
-    addressable (2.5.2)
+    addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     ansi (1.5.0)
     arel (7.1.4)
@@ -138,7 +138,7 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashie (3.6.0)
-    i18n (1.5.3)
+    i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     image_info (1.1.2)
       image_size
@@ -342,9 +342,8 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.19)
       execjs (>= 0.3.0, < 3)
-    validate_url (1.0.2)
+    validate_url (1.0.4)
       activemodel (>= 3.0.0)
-      addressable
     video_info (2.7)
       iso8601 (~> 0.9.1)
       net_http_timeout_errors (~> 0.3.0)
