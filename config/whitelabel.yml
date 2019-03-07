@@ -13,7 +13,7 @@
   - phoet
   - halfbyte
   location:
-    :zoom: 14
+    :zoom: 12
     :lat: 53.56544
     :long: 9.95947
   default_time_zone: Europe/Berlin
@@ -58,7 +58,7 @@
   organizers:
   - jkwebs
   location:
-    :zoom: 13
+    :zoom: 12
     :lat: 50.941231
     :long: 6.957092
   default_time_zone: Europe/Berlin
@@ -104,7 +104,7 @@
   - markusschwed
   - gogolok
   location:
-    :zoom: 13
+    :zoom: 12
     :lat: 49.2429927
     :long: 6.9897586
   default_time_zone: Europe/Berlin
@@ -134,7 +134,7 @@
   organizers:
   - basiszwo
   location:
-    :zoom: 14
+    :zoom: 12
     :lat: 49.006292
     :long: 8.398361
   default_time_zone: Europe/Berlin
@@ -169,7 +169,7 @@
   - Hagenburger
   - PragTob
   location:
-    :zoom: 14
+    :zoom: 12
     :lat: 52.52
     :long: 13.4
   default_time_zone: Europe/Berlin
@@ -199,7 +199,7 @@
   - knugie
   - tmetzmac
   location:
-    :zoom: 14
+    :zoom: 12
     :lat: 51.3417825
     :long: 12.3936349
   default_time_zone: Europe/Berlin
@@ -225,7 +225,7 @@
   - _sonnendeck
   - sgemkow
   location:
-    :zoom: 14
+    :zoom: 12
     :lat: 51.049013
     :long: 13.798582
   default_time_zone: Europe/Berlin
@@ -265,7 +265,7 @@
   - dianaknodel
   - AndreCedik
   location:
-    :zoom: 14
+    :zoom: 12
     :lat: 53.56544
     :long: 9.95947
   default_time_zone: Europe/Berlin
@@ -314,7 +314,7 @@
   - 1st8
   - m20io
   location:
-    :zoom: 14
+    :zoom: 12
     :lat: 50.724
     :long: 7.112488
   default_time_zone: Europe/Berlin
@@ -343,7 +343,7 @@
   organizers:
   - BennyKlotz
   location:
-    :zoom: 14
+    :zoom: 12
     :lat: 47.2578229
     :long: 11.3961853
   default_time_zone: Europe/Vienna
@@ -370,7 +370,7 @@
   organizers:
   - otikik
   location:
-    :zoom: 10
+    :zoom: 12
     :lat: 40.42
     :long: -3.68
   default_time_zone: Europe/Madrid
@@ -429,7 +429,7 @@
   - pschrammel
   - bascht
   location:
-    :zoom: 13.5
+    :zoom: 12
     :lat: 48.136694
     :long: 11.5701035
   imprint:
@@ -453,7 +453,7 @@
   - Nando
   - Ian Moss
   location:
-    :zoom: 7.1
+    :zoom: 7
     :lat: 36.7182857
     :long: -4.4842863
   imprint:
