@@ -15,6 +15,14 @@ Source for the Sites of the Ruby Communities:
 * [Madrid](http://madridrb.onruby.eu)
 * [Andalucia](http://andalucia.onruby.eu)
 
+## Support OnRuby
+
+The operation, development and maintenance of OnRuby can be supported via Patreon ot [patreon.com/on_ruby](https://www.patreon.com/on_ruby).
+
+### Supporters
+
+TODO
+
 ## Installation
 
 You can install OnRuby using Docker or a local installation.
