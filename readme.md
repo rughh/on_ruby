@@ -1,9 +1,10 @@
 # OnRuby
 
-[![Build Status](https://img.shields.io/travis/phoet/on_ruby/master.svg)](https://travis-ci.org/phoet/on_ruby)
-[![security](https://hakiri.io/github/phoet/on_ruby/master.svg)](https://hakiri.io/github/phoet/on_ruby/master)
+[![donate at patreon](https://img.shields.io/badge/patreon-donate-green.svg)](https://www.patreon.com/on_ruby)
+[![ci status](https://img.shields.io/travis/phoet/on_ruby/master.svg)](https://travis-ci.org/phoet/on_ruby)
+[![vulnerability status](https://hakiri.io/github/phoet/on_ruby/master.svg)](https://hakiri.io/github/phoet/on_ruby/master)
 
-[Status & Uptime](http://status.onruby.eu/)
+[site status & uptime](http://status.onruby.eu/)
 
 [Get in touch in our Slack Channel - join #on_ruby](https://ruby-berlin.herokuapp.com/)
 
