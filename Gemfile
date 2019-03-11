@@ -30,6 +30,8 @@ gem 'compass-rails'
 gem 'coffee-rails'
 gem 'font-awesome-rails'
 gem 'uglifier'
+gem 'addressable'
+gem 'public_suffix'
 
 group :production do
   gem 'dalli',            '~> 2.7.0'
