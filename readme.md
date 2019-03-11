@@ -22,7 +22,7 @@ The operation, development and maintenance of OnRuby can be supported via Patreo
 
 ### Supporters
 
-TODO
+* [BooVeMan](https://github.com/booveman)
 
 ## Installation
 
