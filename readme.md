@@ -18,7 +18,7 @@ Source for the Sites of the Ruby Communities:
 
 ## Support OnRuby
 
-The operation, development and maintenance of OnRuby can be supported via Patreon ot [patreon.com/on_ruby](https://www.patreon.com/on_ruby).
+The operation, development and maintenance of OnRuby can be supported via Patreon at [patreon.com/on_ruby](https://www.patreon.com/on_ruby).
 
 ### Supporters
 
