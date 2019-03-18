@@ -34,7 +34,7 @@ gem 'addressable'
 gem 'public_suffix'
 
 group :production do
-  gem 'dalli',            '~> 2.7.0'
+  gem 'dalli',            '~> 2.7.10'
   gem 'kgio',             '~> 2.11.1'
   gem 'lograge',          '~> 0.10.0'
   gem 'rails_12factor',   '~> 0.0.2'
