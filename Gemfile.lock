@@ -95,7 +95,7 @@ GEM
     concurrent-ruby (1.1.5)
     connection_pool (2.2.1)
     crass (1.0.4)
-    dalli (2.7.9)
+    dalli (2.7.10)
     debug_inspector (0.0.3)
     decent_exposure (3.0.2)
       activesupport (>= 4.0)
@@ -365,7 +365,7 @@ DEPENDENCIES
   byebug
   coffee-rails
   compass-rails
-  dalli (~> 2.7.0)
+  dalli (~> 2.7.10)
   decent_exposure
   dotenv-rails
   exception_notification
