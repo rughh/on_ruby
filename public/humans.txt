@@ -17,6 +17,10 @@
 
   Adam Niedzielski
 
+  Adsidera
+
+  Alteris Ian
+
   Andreas Haller
 
   Andreas Reischuck
@@ -31,17 +35,23 @@
 
   Bodo Tasche
 
+  Burkhard Vogel-Kreykenbohm
+
   Christian Vervoorts
 
   Christoph Geschwind
 
   Christoph Olszowka
 
+  Christoph Sassenberg
+
   Daniel Carral
 
   Daniel Harrington
 
   Dennis Reimann
+
+  ERRECabrera
 
   Eckhard Rotte
 
@@ -62,6 +72,8 @@
   Klaus Zanders
 
   Lucas Dohmen
+
+  Luka Dornhecker
 
   Marco Schaden
 
@@ -95,6 +107,10 @@
 
   Ralph von der Heyden
 
+  Raúl Cabrera
+
+  Robert Schulze
+
   Rocky Jaiswal
 
   Sean Linsley
@@ -120,3 +136,5 @@
   Thorsten Böttger
 
   Tobias Pfeiffer
+
+  stbnrivas
