@@ -6,7 +6,7 @@
   country: Deutschland
   recurring: second wednesday
   email: hamburg@onruby.de
-  twitter: hamburgsync
+  twitter: HamburgOnRuby
   organizers:
   - lindtdev
   - janz93
@@ -24,27 +24,13 @@
     :contributors:
     - :name: Peter Schröder
       :email: phoetmail@googlemail.com
-  sponsors:
-  - :name: Heroku
-    :url: https://www.heroku.com/
-    :banner: heroku.svg
-  - :name: GitHub
-    :url: https://www.github.com/
-    :banner: github.png
-  - :name: JetBrains
-    :url: https://www.jetbrains.com/
-    :banner: jetbrains.png
   other_usergroups:
   - :name: HH.js
     :url: http://www.meetup.com/hamburg-js/
     :twitter: hhjs
   - :name: Cocoaheads
-    :url: http://groups.google.com/group/cocoaheads-hh/
+    :url: https://www.meetup.com/de-DE/CocoaHeads-Hamburg/
     :twitter: hh_cocoaheads
-  - :name: Android Usergroup
-    :url: https://groups.google.com/group/android-user-group-hamburg
-  - :name: DJANGO Usergroup
-    :url: http://www.dughh.de/
   tld: de
   coc: http://rubyberlin.github.io/code-of-conduct
 - !ruby/object:Usergroup
