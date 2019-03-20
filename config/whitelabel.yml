@@ -367,6 +367,18 @@
     :contributors:
     - :name: Enrique García Cota
       :email: kikito@gmail.com
+  other_usergroups:
+  - :name: Betabeers
+    :url: https://betabeers.com/
+    :twitter: betabeers
+  - :name: MadridJS
+    :url: http://www.meetup.com/madridjs/
+    :twitter: madridjs
+  tld: eu
+  coc: http://madridrb.com
+  domains:
+  - madridrb.com
+  google_group: madrid-rb
   sponsors:
   - :name: Bebanjo
     :url: http://bebanjo.com/
@@ -392,18 +404,6 @@
   - :name: Trive
     :url: http://gotrive.com/
     :banner: trive.png
-  other_usergroups:
-  - :name: Betabeers
-    :url: https://betabeers.com/
-    :twitter: betabeers
-  - :name: MadridJS
-    :url: http://www.meetup.com/madridjs/
-    :twitter: madridjs
-  tld: eu
-  coc: http://madridrb.com
-  domains:
-  - madridrb.com
-  google_group: madrid-rb
 - !ruby/object:Usergroup
   label_id: munich
   default_locale: de
@@ -425,8 +425,8 @@
     :contributors:
     - :name: Peter Schrammel
       :email: Munich-Rubyshift-Ruby-User-Group-list@meetup.com
-  sponsors: []
   tld: de
+  sponsors: []
 - !ruby/object:Usergroup
   label_id: andalucia
   status: enabled
@@ -448,14 +448,44 @@
       29002 Málaga
     :contributors:
     - :name: Nando
-      :email:
+      :email: 
     - :name: Ian Moss
-      :email:
+      :email: 
     - :name: stbnrivas
-      :email:
-  sponsors: []
-  other_usergroups:
+      :email: 
+  other_usergroups: 
   tld: eu
   coc: http://example.com
-  domains:
+  domains: 
   google_group: andaluciarb
+  sponsors: []
+- !ruby/object:Usergroup
+  label_id: frankfurt
+  default_locale: de
+  country: Deutschland
+  recurring: second wednesday
+  email: info@frankfurt.de
+  twitter: frankfurt
+  organizers:
+  - your_twitter_handle
+  location:
+    :zoom: 14
+    :lat: 53.079296
+    :long: 8.801694
+  imprint:
+    :address: |-
+      YourStreet 1
+      0815 YourTown
+    :contributors:
+    - :name: Your Name
+      :email: your@mail.de
+  other_usergroups:
+  - :name: OtherUsergroupName
+    :url: http://some-domain.de/
+    :twitter: some_handle
+  tld: de
+  coc: http://example.com
+  domains:
+  - frankfurt.de
+  google_group: frankfurt
+  sponsors: []
