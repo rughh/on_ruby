@@ -342,8 +342,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.19)
       execjs (>= 0.3.0, < 3)
-    validate_url (1.0.4)
+    validate_url (1.0.8)
       activemodel (>= 3.0.0)
+      public_suffix
     video_info (2.7)
       iso8601 (~> 0.9.1)
       net_http_timeout_errors (~> 0.3.0)
