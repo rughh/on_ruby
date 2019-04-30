@@ -1,0 +1,11 @@
+{
+  "name": "on_ruby",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:phoet/on_ruby.git",
+  "author": "phoet <phoetmail@googlemail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jquery-ujs": "^1.2.2"
+  }
+}
