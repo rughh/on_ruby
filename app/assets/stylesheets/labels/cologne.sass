@@ -1,7 +1,3 @@
-@import "compass"
-@import "compass/css3"
-@import "compass/utilities/text/replacement"
-
 @import "_lib/responsive"
 
 @import "cologne/colors"
@@ -11,7 +7,7 @@ header
   #title
     &:hover
       color: $red !important
-      +single-text-shadow($dark-text-color, 1px, 1px, 2px)
+      single-text-shadow: $dark-text-color, 1px, 1px, 2px
 
 a:hover
   color: $red
@@ -23,7 +19,7 @@ a:hover
   background: $white
   border: none
   color: $dark-text-color
-  +single-box-shadow($light-grey, 1px, 1px, 3px, false, true)
+  single-box-shadow: $light-grey, 1px, 1px, 3px, false, true
 
 #gem
   width: 149px
@@ -60,5 +56,5 @@ a:hover
     bottom: 0
     zoom: 0.8
   a:hover
-    @include text-shadow(0px 0px 1px $dark-grey)
+    text-shadow: 0px 0px 1px $dark-grey
     color: $red

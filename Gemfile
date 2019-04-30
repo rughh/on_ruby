@@ -29,7 +29,6 @@ gem 'administrate'
 # assets
 gem 'jquery-rails'
 gem 'sass-rails'
-gem 'compass-rails'
 gem 'font-awesome-rails'
 gem 'uglifier'
 

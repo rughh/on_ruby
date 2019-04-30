@@ -1,14 +1,12 @@
-@import '_lib/flexbox'
-
 @mixin nav-box
   padding: 0.4em 1em
   background: $background
   border: $border
-  +border-bottom-left-radius(0.5em)
-  +border-bottom-right-radius(0.5em)
-  +box-shadow($border-color 0px 1px 10px)
+  border-bottom-left-radius: 0.5em
+  border-bottom-right-radius: 0.5em
+  box-shadow: $border-color 0px 1px 10px
   +phone
-    +border-radius(0)
+    border-radius: 0
 
 
 .navbar
@@ -32,13 +30,11 @@
     font: bold 1.4em/1.5  $font
     display: inline-block
     +phone
-      +flex-box
       margin-right: 60px
     > li
       margin: 0 0.8em
       +phone
         margin: 0 0.5em
-        +flex-item
       padding-top: 2px
       float: left
       a, a:hover, a:active, a:visited
@@ -57,11 +53,9 @@
       .nav-text
         margin-left: 0.4em
   .sub-nav-box
-    //display: none
     ul.nav-sub
       display: inline-block
       margin: 1em 0 0.5em 0
-      +clearfix
 
 .menu-button
   +phone
@@ -73,8 +67,7 @@
   $size: 8px
   float: right
   border: 1px solid $border-color
-  +border-radius(2px)
+  border-radius: 2px
   i
     margin-right: 10px
     margin-left: 10px
-
