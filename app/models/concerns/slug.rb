@@ -32,4 +32,10 @@ module Slug
   def to_param
     "#{slug}-#{id}"
   end
+
+  def as_json(options = {})
+    h = super(options)
+    h[:slug] = slug
+    h
+  end
 end
