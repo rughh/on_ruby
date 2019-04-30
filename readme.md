@@ -156,8 +156,6 @@ On the admin site we need to:
 
 ## Admin Interface
 
-TODO
-
 The app comes with a [Administrate](https://github.com/thoughtbot/administrate) interface to
 manage the model data.
 

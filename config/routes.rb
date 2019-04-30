@@ -1,7 +1,9 @@
 OnRuby::Application.routes.draw do
   namespace :admin do
+    resources :events do
+      post :duplicate, on: :collection
+    end
     resources :authorizations
-    resources :events
     resources :highlights
     resources :jobs
     resources :likes
