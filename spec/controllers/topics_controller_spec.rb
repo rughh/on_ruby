@@ -1,6 +1,15 @@
 require 'spec_helper'
 
 describe TopicsController do
+  context 'GET :index' do
+    let(:topic) { create(:topic) }
+
+    it 'renders the action' do
+      get :index
+      expect(response).to render_template(:index)
+    end
+  end
+
   context 'GET :show' do
     let(:topic) { create(:topic) }
 
