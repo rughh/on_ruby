@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/typus/typus.git
-  revision: acec082be8ab67b310d8faf4c241ebbc6d3b951e
-  branch: 5-0-unstable
-  specs:
-    typus (5.0.0)
-      bcrypt (~> 3.1.11)
-      rails (~> 5.0.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -57,7 +48,6 @@ GEM
     ansi (1.5.0)
     arel (7.1.4)
     ast (2.4.0)
-    bcrypt (3.1.11)
     better_errors (2.5.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -402,7 +392,6 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   slim-rails
-  typus!
   uglifier
   validate_url
   whitelabel

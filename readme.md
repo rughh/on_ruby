@@ -111,7 +111,7 @@ For working with the whitelabel functionality, you need to add all supported
 subdomains to your `/etc/hosts`:
 
 ```
-127.0.0.1    www.onruby.test hamburg.onruby.test cologne.onruby.test berlin.onruby.test madridrb.onruby.test andalucia.onruby.test 
+127.0.0.1    www.onruby.test hamburg.onruby.test cologne.onruby.test berlin.onruby.test madridrb.onruby.test andalucia.onruby.test
 ```
 
 Access via [http://www.onruby.test:3000](http://www.onruby.test:3000)
@@ -156,7 +156,9 @@ On the admin site we need to:
 
 ## Admin Interface
 
-The app comes with a [Typus](https://github.com/fesplugas/typus) interface to
+TODO
+
+The app comes with a [Administrate](https://github.com/thoughtbot/administrate) interface to
 manage the model data.
 
 In order to access the admin stuff, you need to be a registered user with the

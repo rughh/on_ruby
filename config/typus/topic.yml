@@ -1,7 +1,0 @@
-Topic:
-  fields:
-    default: id, name, user, event
-    form: name, description, user, event
-  order_by: -created_at
-  search: name
-  application: CRUD

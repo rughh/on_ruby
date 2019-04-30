@@ -19,14 +19,6 @@ OnRuby::Application.routes.draw do
     resources :likes
   end
 
-  # add typus custom actions because it's broken for rails 5
-  scope 'admin', {module: :admin, as: 'admin'} do
-    post '/highlights/disable', to: 'highlights#disable'
-    post '/topics/add_to_next_event', to: 'topics#add_to_next_event'
-    post '/events/duplicate', to: 'events#duplicate'
-    post '/events/publish', to: 'events#publish'
-  end
-
   scope '/auth' do
     get '/:provider/callback',       to: 'sessions#create'
     get '/failure',                  to: 'sessions#failure'
