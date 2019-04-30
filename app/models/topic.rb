@@ -8,7 +8,7 @@ class Topic < ApplicationRecord
   validates :proposal_type, inclusion: { in: PROPOSAL_TYPES }
 
   belongs_to :user
-  belongs_to :event
+  belongs_to :event, optional: true
 
   has_many :likes, dependent: :destroy
   has_many :materials

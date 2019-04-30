@@ -6,6 +6,6 @@ describe Job do
   it 'should validate presence' do
     should have(1).errors_on(:name)
     should have(1).errors_on(:url)
-    should have(1).errors_on(:location)
+    should have(2).errors_on(:location)
   end
 end

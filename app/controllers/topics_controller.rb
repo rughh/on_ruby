@@ -19,7 +19,7 @@ class TopicsController < ApplicationController
   def create
     topic.label = Whitelabel[:label_id]
     topic.user  = current_user
-    if topic.update(topic_params)
+    if topic.save(topic_params)
       if current_user.email.blank?
         redirect_to(edit_user_path(current_user), notice: t('flash.add_email'))
       else
