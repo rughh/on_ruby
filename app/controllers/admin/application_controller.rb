@@ -18,5 +18,10 @@ module Admin
     # def records_per_page
     #   params[:per_page] || 20
     # end
+
+    def find_resource(param)
+      klazz = resource_name.to_s.classify.constantize
+      klazz.respond_to?(:from_param) ? klazz.from_param(param) : klazz.find(param)
+    end
   end
 end
