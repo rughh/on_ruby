@@ -67,13 +67,6 @@ GEM
     builder (3.2.3)
     byebug (11.0.1)
     chunky_png (1.3.10)
-    coffee-rails (4.2.2)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     compass (1.0.3)
       chunky_png (~> 1.2)
       compass-core (~> 1.0.2)
@@ -361,7 +354,6 @@ DEPENDENCIES
   addressable
   administrate
   byebug
-  coffee-rails
   compass-rails
   dalli (~> 2.7.10)
   decent_exposure

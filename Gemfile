@@ -30,7 +30,6 @@ gem 'administrate'
 gem 'jquery-rails'
 gem 'sass-rails'
 gem 'compass-rails'
-gem 'coffee-rails'
 gem 'font-awesome-rails'
 gem 'uglifier'
 
