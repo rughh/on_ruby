@@ -1,5 +1,5 @@
-.imagelist.clearfix
-  ul.more-list data-preview-size="33"
+.imagelist
+  ul.more-list.clearfix data-preview-size="33"
     - users.each do |user|
       li
         = link_to user, title: user.name do
