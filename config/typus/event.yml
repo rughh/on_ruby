@@ -1,7 +1,0 @@
-Event:
-  fields:
-    default: id, name, date, user, limit
-    form: user, location, name, date, limit, description
-  order_by: -created_at
-  search: name, description
-  application: CRUD

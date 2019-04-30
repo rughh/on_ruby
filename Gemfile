@@ -20,9 +20,12 @@ gem 'exception_notification'
 gem 'feedjira'
 gem 'formtastic'
 gem 'kaminari'
-gem 'typus', git: 'https://github.com/typus/typus.git', branch: '5-0-unstable'
 gem 'link_thumbnailer'
 gem 'validate_url'
+gem 'addressable'
+gem 'public_suffix'
+gem 'administrate'
+
 # assets
 gem 'jquery-rails'
 gem 'sass-rails'
@@ -30,8 +33,6 @@ gem 'compass-rails'
 gem 'coffee-rails'
 gem 'font-awesome-rails'
 gem 'uglifier'
-gem 'addressable'
-gem 'public_suffix'
 
 group :production do
   gem 'dalli',            '~> 2.7.10'

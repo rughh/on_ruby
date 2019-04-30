@@ -1,4 +1,21 @@
 OnRuby::Application.routes.draw do
+  namespace :admin do
+    resources :events do
+      post :duplicate, on: :collection
+    end
+    resources :authorizations
+    resources :highlights
+    resources :jobs
+    resources :likes
+    resources :locations
+    resources :materials
+    resources :participants
+    resources :topics
+    resources :users
+
+    root to: "events#index"
+  end
+
   resource :sitemap, only: :show
 
   resources :users do
@@ -17,14 +34,6 @@ OnRuby::Application.routes.draw do
 
   resources :topics do
     resources :likes
-  end
-
-  # add typus custom actions because it's broken for rails 5
-  scope 'admin', {module: :admin, as: 'admin'} do
-    post '/highlights/disable', to: 'highlights#disable'
-    post '/topics/add_to_next_event', to: 'topics#add_to_next_event'
-    post '/events/duplicate', to: 'events#duplicate'
-    post '/events/publish', to: 'events#publish'
   end
 
   scope '/auth' do

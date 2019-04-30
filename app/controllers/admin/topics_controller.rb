@@ -1,15 +1,21 @@
-class Admin::TopicsController < Admin::ApplicationController
-  def add_to_next_event
-    @topic = Topic.find_by_slug(params[:id])
-    @user  = @topic.user
+module Admin
+  class TopicsController < Admin::ApplicationController
+    # To customize the behavior of this controller,
+    # you can overwrite any of the RESTful actions. For example:
+    #
+    # def index
+    #   super
+    #   @resources = Topic.
+    #     page(params[:page]).
+    #     per(10)
+    # end
 
-    if @event = Event.current.first
-      @topic.event = @event
-      @event.particpate(@user)
-      @topic.save!
-      redirect_to url_for(controller: '/admin/topics', action: :edit, id: @topic.id), notice: 'Added to latest Event!'
-    else
-      redirect_to(url_for(controller: '/admin/topics', action: :index), alert: 'no next event found')
-    end
+    # Define a custom finder by overriding the `find_resource` method:
+    # def find_resource(param)
+    #   Topic.find_by!(slug: param)
+    # end
+
+    # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
+    # for more information
   end
 end

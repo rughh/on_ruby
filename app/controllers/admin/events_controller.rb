@@ -1,14 +1,27 @@
-class Admin::EventsController < Admin::ApplicationController
-  def duplicate
-    event = Event.duplicate!
-    redirect_to url_for(controller: '/admin/events', action: :edit, id: event.id)
-  end
+module Admin
+  class EventsController < Admin::ApplicationController
+    def duplicate
+      event = Event.duplicate!
 
-  def publish
-    event = Event.find_by_slug(params[:id])
-    UsergroupMailer.invitation_mail(event).deliver_now!
-    event.update! published: true
+      redirect_to [:edit, :admin, event]
+    end
 
-    redirect_to url_for(controller: '/admin/events', action: :edit, id: event.id), notice: 'Published!'
+    # To customize the behavior of this controller,
+    # you can overwrite any of the RESTful actions. For example:
+    #
+    # def index
+    #   super
+    #   @resources = Event.
+    #     page(params[:page]).
+    #     per(10)
+    # end
+
+    # Define a custom finder by overriding the `find_resource` method:
+    # def find_resource(param)
+    #   Event.find_by!(slug: param)
+    # end
+
+    # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
+    # for more information
   end
 end

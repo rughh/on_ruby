@@ -1,7 +1,5 @@
 Exclude:
   # disable gems
-  - /typus/ # TODO: fork typus-i18n gem to upgrade typus version and add spanish and geman translation and install it
-  - /admin/ # depends of typus??
   - /faker/ # TODO: fork gem to add missing keys
 
   # disable default translations
