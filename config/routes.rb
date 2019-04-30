@@ -1,4 +1,19 @@
 OnRuby::Application.routes.draw do
+  namespace :admin do
+    resources :authorizations
+    resources :events
+    resources :highlights
+    resources :jobs
+    resources :likes
+    resources :locations
+    resources :materials
+    resources :participants
+    resources :topics
+    resources :users
+
+    root to: "events#index"
+  end
+
   resource :sitemap, only: :show
 
   resources :users do

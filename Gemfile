@@ -24,6 +24,8 @@ gem 'link_thumbnailer'
 gem 'validate_url'
 gem 'addressable'
 gem 'public_suffix'
+gem 'administrate'
+
 # assets
 gem 'jquery-rails'
 gem 'sass-rails'
