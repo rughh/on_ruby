@@ -3,7 +3,7 @@ ruby '~> 2.5.0'
 
 gem 'puma'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
-gem 'rails', '5.0.7.2'
+gem 'rails', '5.2.3'
 gem 'pg', '1.1.4'
 gem 'rack-cache'
 gem 'slim-rails'
@@ -47,16 +47,12 @@ group :development do
 end
 
 group :development, :test do
-  gem 'active_record_query_trace'
   gem 'letter_opener'
   gem 'faker'
   gem 'byebug'
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
   gem 'factory_bot_rails'
-  gem 'meta_request'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'rails-controller-testing'
   gem 'localer'
 end
