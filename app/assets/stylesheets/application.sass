@@ -23,11 +23,6 @@ $ruby-red: #C81B47
 @mixin clearfix
   clear: both
 
-@mixin button
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#D7D7D7), color-stop(30%, #F2F2F2), color-stop(90%, #C5C5C5), color-stop(90%, #BDBDBD))
-  background: -moz-linear-gradient(left top, left bottom, from(white), to(#D7D7D7), color-stop(30%, #F2F2F2), color-stop(90%, #C5C5C5), color-stop(90%, #BDBDBD))
-  border-color: $border-color
-
 @mixin ribbon
   border: $border
   background: $background
@@ -183,7 +178,7 @@ header
     width: 56em
     background: $background
     border: $border
-    border-radius: 0.5em, 0.5em
+    border-radius: 0.5em
     +phone
       width: auto
       padding: 1em
@@ -223,7 +218,7 @@ header
     margin: 0 auto
     height: 30em
     border: $border
-    border-radius: 0.5em, 0.5em
+    border-radius: 0.5em
   .meta
     font-size: smaller
     font-style: italic
@@ -246,7 +241,7 @@ header
     .page a, .next a, .last a, .first a, .prev a
       background-color: white
       border: $border
-      border-radius: 0.5em, 0.5em
+      border-radius: 0.5em
 
   .enumeration
     reset-counter: enumeration
@@ -312,14 +307,11 @@ header
     border-style: solid
     font-weight: bold
     border-radius: 6px
-    -moz-border-radius: 6px
-    -webkit-border-radius: 6px
     font-size: 1em
     padding: 10px 30px
     border-width: 1px
     text-shadow: white 0px 1px 1px
     color: #222
-    @include button
 
   input.warn
     color: red
