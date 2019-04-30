@@ -5,7 +5,7 @@ describe 'Whitelabel' do
     it 'does not do an endless redirect but halts' do
       host! 'www.onruby.test'
       get labels_path
-      expect(response).to be_a_success
+      expect(response).to be_a_successful
     end
   end
 
@@ -19,7 +19,7 @@ describe 'Whitelabel' do
   context 'GET page with existing subdomain' do
     it 'shows the label' do
       get root_url(subdomain: 'hamburg')
-      expect(response).to be_a_success
+      expect(response).to be_a_successful
     end
   end
 
@@ -28,7 +28,7 @@ describe 'Whitelabel' do
       host! 'www.colognerb.de'
 
       get root_url
-      expect(response).to be_a_success
+      expect(response).to be_a_successful
       expect(Whitelabel[:label_id]).to eql('cologne')
     end
   end

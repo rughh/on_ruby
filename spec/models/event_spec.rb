@@ -66,7 +66,7 @@ describe Event do
         participants: 1,
         topics: 0,
       }
-      expect(Event.stats).to eql(stats)
+      expect(Event.stats(size: 4)).to eql(stats)
     end
   end
 

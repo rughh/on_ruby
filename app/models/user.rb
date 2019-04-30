@@ -10,12 +10,12 @@ class User < ApplicationRecord
   validates :twitter, :github, format: { with: /\A(\w|-)+\z/, allow_nil: true, allow_blank: true }
 
   has_many :authorizations, dependent: :destroy
-  has_many :participants,   { dependent: :destroy }, -> { order('created_at DESC') }
-  has_many :materials,      { dependent: :destroy }, -> { order('created_at DESC') }
-  has_many :topics,         { dependent: :destroy }, -> { order('created_at DESC') }
-  has_many :likes,          { dependent: :destroy }, -> { order('created_at DESC') }
+  has_many :participants, -> { order('created_at DESC') }, dependent: :destroy
+  has_many :materials, -> { order('created_at DESC') }, dependent: :destroy
+  has_many :topics, -> { order('created_at DESC') }, dependent: :destroy
+  has_many :likes, -> { order('created_at DESC') }, dependent: :destroy
   has_many :participations, through: :participants, source: :event
-  has_many :liked_topics,   through: :likes, source: :topic
+  has_many :liked_topics, through: :likes, source: :topic
   has_many :events, -> { order('created_at DESC') }
 
   scope :organizers, -> { where(nickname: Whitelabel[:organizers]) }

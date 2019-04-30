@@ -22,6 +22,6 @@ FactoryBot.define do
   end
 
   factory :closed_event, parent: :event do
-    limit 0
+    limit { 0 }
   end
 end

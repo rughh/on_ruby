@@ -16,7 +16,7 @@ describe 'UserHandling' do
       allow(controller).to receive_messages(current_user: build(:admin_user))
 
       get :index
-      expect(response).to be_a_success
+      expect(response).to be_a_successful
     end
   end
 
@@ -54,7 +54,7 @@ describe 'UserHandling' do
       allow(controller).to receive_messages(signed_in?: true, current_user?: true)
 
       get :index
-      expect(response).to be_a_success
+      expect(response).to be_a_successful
     end
   end
 end

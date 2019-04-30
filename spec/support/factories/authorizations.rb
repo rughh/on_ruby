@@ -55,8 +55,8 @@ GITHUB_AUTH_HASH = {
 
 FactoryBot.define do
   factory :authorization do
-    provider  'provider'
-    uid       'uid'
-    association :user, factory: :user
+    user
+    provider { 'provider' }
+    uid { Faker::Name.unique.name }
   end
 end

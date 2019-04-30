@@ -27,7 +27,7 @@ namespace :fork do
     FileUtils.touch(Rails.root.join("app/assets/stylesheets/labels/#{usergroup.label_id}.sass"))
     FileUtils.mkdir_p(Rails.root.join("app/assets/stylesheets/labels/#{usergroup.label_id}"))
     FileUtils.touch(Rails.root.join("app/assets/stylesheets/labels/#{usergroup.label_id}/.gitkeep"))
-    FileUtils.touch(Rails.root.join("app/assets/javascripts/labels/#{usergroup.label_id}.coffee"))
+    FileUtils.touch(Rails.root.join("app/assets/javascripts/labels/#{usergroup.label_id}.js"))
     FileUtils.mkdir_p(Rails.root.join("app/assets/javascripts/labels/#{usergroup.label_id}"))
     FileUtils.touch(Rails.root.join("app/assets/javascripts/labels/#{usergroup.label_id}/.gitkeep"))
 

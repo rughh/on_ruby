@@ -1,8 +1,8 @@
 class Authorization < ApplicationRecord
   belongs_to :user
 
-  validates :user_id, :uid, :provider, presence: true
-  validates :uid, uniqueness: { scope: :provider }
+  validates :provider, presence: true
+  validates :uid, presence: true, uniqueness: { scope: :provider }
 
   def self.handle_authorization(auth)
     provider = auth['provider']
