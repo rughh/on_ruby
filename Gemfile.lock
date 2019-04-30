@@ -347,7 +347,6 @@ DEPENDENCIES
   font-awesome-rails
   formtastic
   geocoder
-  jquery-rails
   kaminari
   kgio (~> 2.11.1)
   letter_opener
