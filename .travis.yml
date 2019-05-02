@@ -4,6 +4,8 @@ notifications:
 language: ruby
 rvm:
   - 2.5.0
+addons:
+  postgresql: "9.4"
 cache: bundler
 bundler_args: "--without development production"
 before_script: "script/ci/setup"
