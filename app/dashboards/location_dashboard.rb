@@ -24,6 +24,7 @@ class LocationDashboard < Administrate::BaseDashboard
     company: Field::Boolean,
     label: Field::String,
     wheelmap_id: Field::String,
+    address: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -35,11 +36,13 @@ class LocationDashboard < Administrate::BaseDashboard
     :id,
     :created_at,
     :name,
+    :address,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :company,
     :events,
     :jobs,
     :id,
@@ -53,8 +56,6 @@ class LocationDashboard < Administrate::BaseDashboard
     :long,
     :created_at,
     :updated_at,
-    :company,
-    :label,
     :wheelmap_id,
   ].freeze
 
@@ -62,22 +63,17 @@ class LocationDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :events,
-    :jobs,
     :name,
+    :company,
     :url,
     :street,
     :house_number,
     :city,
     :zip,
-    :lat,
-    :long,
-    :company,
-    :label,
     :wheelmap_id,
   ].freeze
 
-  def display_resource(resource)
-    resource.name
+  def display_resource(location)
+    location.name
   end
 end

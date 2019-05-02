@@ -73,7 +73,7 @@ class EventDashboard < Administrate::BaseDashboard
     :participants,
   ].freeze
 
-  def display_resource(resource)
-    resource.name
+  def display_resource(event)
+    "#{event.name} (#{event.date.to_date.to_s :short})"
   end
 end

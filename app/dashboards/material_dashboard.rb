@@ -64,7 +64,10 @@ class MaterialDashboard < Administrate::BaseDashboard
     :preview_code,
   ].freeze
 
-  def display_resource(resource)
-    resource.name
+  # Overwrite this method to customize how materials are displayed
+  # across all pages of the admin dashboard.
+  #
+  def display_resource(material)
+    "#{material.name} (#{material.topic.name})"
   end
 end

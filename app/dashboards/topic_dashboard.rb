@@ -18,7 +18,7 @@ class TopicDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     label: Field::String,
-    proposal_type: Field::String,
+    proposal_type: Field::Select.with_options(collection: Topic::PROPOSAL_TYPES),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -56,16 +56,13 @@ class TopicDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :description,
+    :proposal_type,
     :user,
     :event,
     :materials,
-    :proposal_type,
   ].freeze
 
-  # Overwrite this method to customize how topics are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(topic)
-  #   "Topic ##{topic.id}"
-  # end
+  def display_resource(topic)
+    topic.name
+  end
 end

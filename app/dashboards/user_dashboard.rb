@@ -93,7 +93,7 @@ class UserDashboard < Administrate::BaseDashboard
     :hide_jobs,
   ].freeze
 
-  def display_resource(resource)
-    resource.name
+  def display_resource(user)
+    "#{user.nickname} (#{user.name})"
   end
 end
