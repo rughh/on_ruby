@@ -33,6 +33,8 @@ class LocationDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :id,
+    :created_at,
     :name,
     :address,
   ].freeze
@@ -71,10 +73,7 @@ class LocationDashboard < Administrate::BaseDashboard
     :wheelmap_id,
   ].freeze
 
-  # Overwrite this method to customize how locations are displayed
-  # across all pages of the admin dashboard.
-  #
   def display_resource(location)
-    "#{location.name}"
+    location.name
   end
 end
