@@ -2,6 +2,15 @@ class Usergroup
   DELIMITER_TIME    = ':'
   DELIMITER_DATE    = ' '
   NUMBERS           = %w(first second third fourth)
+  DAYS_INTO_WEEK    = {
+    monday: 0,
+    tuesday: 1,
+    wednesday: 2,
+    thursday: 3,
+    friday: 4,
+    saturday: 5,
+    sunday: 6,
+  }
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :custom_recurring, :email, :google_group, :coc
   attr_accessor :default_time_zone, :twitter, :organizers, :location, :imprint, :other_usergroups, :tld
@@ -9,17 +18,17 @@ class Usergroup
 
   def parse_recurring_date(date)
     number, day, = recurring.split(DELIMITER_DATE)
-    day = Date::DAYS_INTO_WEEK[day.to_sym] + 1
+    day = DAYS_INTO_WEEK[day.to_sym]
     if number == 'last'
       d = date.at_end_of_month.change(hour: 0, minute: 0, second: 0)
-      d - ((d.wday - day) % 7).days
+      d - ((d.wday - day - 1) % 7).days
     else
       d = date.at_beginning_of_month
       num = NUMBERS.index(number)
       if d.wday > day
-        d + ((num + 1) * 7 + day - d.wday).days
+        d + ((num + 1) * 7 + day - d.wday + 1).days
       else
-        d + (num * 7 + day - d.wday)
+        d + (num * 7 + day - d.wday + 1)
       end
     end
   end
@@ -47,7 +56,7 @@ class Usergroup
     number, day, = recurring.split(DELIMITER_DATE)
 
     ordinal = I18n.t("event.#{number}")
-    day     = I18n.t('date.day_names')[Date::DAYS_INTO_WEEK[day.to_sym] + 1]
+    day     = I18n.t('date.day_names')[DAYS_INTO_WEEK[day.to_sym] + 1]
 
     I18n.t('event.recurring', ordinal: ordinal, day: day)
   end
