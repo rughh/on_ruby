@@ -18,7 +18,7 @@ class TopicDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     label: Field::String,
-    proposal_type: Field::String,
+    proposal_type: Field::Select.with_options(collection: Topic::PROPOSAL_TYPES),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -27,10 +27,10 @@ class TopicDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :name,
     :user,
     :event,
-    :likes,
-    :materials,
+    :proposal_type
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -53,20 +53,17 @@ class TopicDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :user,
-    :event,
-    :likes,
-    :materials,
     :name,
     :description,
-    :label,
-    :proposal_type,
+    :user,
+    :event,
+    :proposal_type
   ].freeze
 
   # Overwrite this method to customize how topics are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(topic)
-  #   "Topic ##{topic.id}"
-  # end
+  def display_resource(topic)
+    "#{topic.name}"
+  end
 end

@@ -24,6 +24,7 @@ class LocationDashboard < Administrate::BaseDashboard
     company: Field::Boolean,
     label: Field::String,
     wheelmap_id: Field::String,
+    address: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -32,15 +33,14 @@ class LocationDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :events,
-    :jobs,
-    :id,
     :name,
+    :address,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :company,
     :events,
     :jobs,
     :id,
@@ -54,8 +54,6 @@ class LocationDashboard < Administrate::BaseDashboard
     :long,
     :created_at,
     :updated_at,
-    :company,
-    :label,
     :wheelmap_id,
   ].freeze
 
@@ -63,25 +61,20 @@ class LocationDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :events,
-    :jobs,
     :name,
+    :company,
     :url,
     :street,
     :house_number,
     :city,
     :zip,
-    :lat,
-    :long,
-    :company,
-    :label,
     :wheelmap_id,
   ].freeze
 
   # Overwrite this method to customize how locations are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(location)
-  #   "Location ##{location.id}"
-  # end
+  def display_resource(location)
+    "#{location.name}"
+  end
 end

@@ -1,4 +1,4 @@
-module Slug
+  module Slug
   def self.included(clazz)
     def clazz.from_param(token)
       id = if match = token.match(/.+-(\d+)/)
@@ -6,8 +6,7 @@ module Slug
       else
         token
       end
-
-      found = where("id = ? OR #{slugger} ILIKE ?", id.to_i, token.tr('-', '%')).first
+      found = where(id: id.to_i).or(where("#{table_name}.#{slugger} ILIKE ?", token.tr('-', '%'))).first
       raise ActiveRecord::RecordNotFound.new("Could not find by slug #{token}") unless found
       found
     end
