@@ -42,23 +42,17 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :authorizations,
-    :participants,
-    :materials,
-    :topics,
+    :id,
+    :created_at,
+    :nickname,
+    :github,
+    :twitter,
+    :email,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :authorizations,
-    :participants,
-    :materials,
-    :topics,
-    :likes,
-    :participations,
-    :liked_topics,
-    :events,
     :id,
     :nickname,
     :name,
@@ -69,6 +63,7 @@ class UserDashboard < Administrate::BaseDashboard
     :created_at,
     :updated_at,
     :github,
+    :linkedin,
     :admin,
     :freelancer,
     :available,
@@ -76,42 +71,29 @@ class UserDashboard < Administrate::BaseDashboard
     :twitter,
     :email,
     :super_admin,
-    :linkedin,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :authorizations,
-    :participants,
-    :materials,
-    :topics,
-    :likes,
-    :participations,
-    :liked_topics,
-    :events,
     :nickname,
     :name,
     :image,
-    :url,
     :location,
     :description,
+    :email,
     :github,
+    :twitter,
+    :linkedin,
+    :url,
     :admin,
     :freelancer,
     :available,
     :hide_jobs,
-    :twitter,
-    :email,
-    :super_admin,
-    :linkedin,
   ].freeze
 
-  # Overwrite this method to customize how users are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(user)
-  #   "User ##{user.id}"
-  # end
+  def display_resource(resource)
+    resource.name
+  end
 end

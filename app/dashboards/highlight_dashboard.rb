@@ -25,6 +25,7 @@ class HighlightDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
+    :created_at,
     :description,
     :url,
     :start_at,
@@ -40,7 +41,6 @@ class HighlightDashboard < Administrate::BaseDashboard
     :end_at,
     :created_at,
     :updated_at,
-    :label,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -51,13 +51,9 @@ class HighlightDashboard < Administrate::BaseDashboard
     :url,
     :start_at,
     :end_at,
-    :label,
   ].freeze
 
-  # Overwrite this method to customize how highlights are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(highlight)
-  #   "Highlight ##{highlight.id}"
-  # end
+  def display_resource(resource)
+    resource.description
+  end
 end

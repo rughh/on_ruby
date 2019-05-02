@@ -23,38 +23,33 @@ class JobDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :location,
     :id,
+    :created_at,
     :name,
-    :url,
+    :location,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :location,
     :id,
     :name,
+    :location,
     :url,
     :created_at,
     :updated_at,
-    :label,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :location,
     :name,
+    :location,
     :url,
-    :label,
   ].freeze
 
-  # Overwrite this method to customize how jobs are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(job)
-  #   "Job ##{job.id}"
-  # end
+  def display_resource(resource)
+    resource.name
+  end
 end

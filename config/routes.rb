@@ -3,13 +3,11 @@ OnRuby::Application.routes.draw do
     resources :events do
       post :duplicate, on: :collection
     end
-    resources :authorizations
     resources :highlights
     resources :jobs
     resources :likes
     resources :locations
     resources :materials
-    resources :participants
     resources :topics
     resources :users
 
