@@ -27,10 +27,10 @@ class MaterialDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :topic,
+    :name,
     :user,
     :event,
-    :topic,
-    :id,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -59,14 +59,12 @@ class MaterialDashboard < Administrate::BaseDashboard
     :name,
     :description,
     :url,
-    :preview_type,
-    :preview_code,
   ].freeze
 
   # Overwrite this method to customize how materials are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(material)
-  #   "Material ##{material.id}"
-  # end
+  def display_resource(material)
+    "#{material.name} (#{material.topic.name})"
+  end
 end
