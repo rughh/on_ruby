@@ -68,6 +68,6 @@ class MaterialDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(material)
-    "#{material.name} (#{material.topic.name})"
+    material.name
   end
 end
