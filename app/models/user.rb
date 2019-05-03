@@ -19,9 +19,9 @@ class User < ApplicationRecord
   has_many :events, -> { order('created_at DESC') }
 
   scope :organizers, -> { where(nickname: Whitelabel[:organizers]) }
-  scope :ordered,    -> { order('updated_at DESC') }
-  scope :peers,      -> { ordered.joins(participants: :event).where('events.label' => Whitelabel[:label_id]).distinct }
-  scope :main,       -> { where(nickname: Whitelabel[:twitter]) }
+  scope :ordered, -> { order('updated_at DESC') }
+  scope :peers, -> { ordered.joins(participants: :event).where('events.label' => Whitelabel[:label_id]).distinct }
+  scope :main, -> { where(nickname: Whitelabel[:twitter]) }
 
   def participates?(event)
     participants.any? { |participant| participant.event_id == event.id }
@@ -32,7 +32,9 @@ class User < ApplicationRecord
   end
 
   def url
-    return unless url = read_attribute(:url)
+    unless url = read_attribute(:url)
+      return
+    end
     url =~ %r{\Ahttps?://.+} ? url : "http://#{url}"
   end
 
@@ -42,29 +44,45 @@ class User < ApplicationRecord
 
   def update_from_auth!(hash)
     send :"handle_#{hash['provider']}_attributes", hash
-    save! if changed?
+    if changed?
+      save!
+    end
     self
   end
 
   def handle_twitter_attributes(hash)
-    self.nickname     = hash['info']['nickname'] unless nickname
-    self.twitter      = hash['info']['nickname']
-    self.name         = hash['info']['name']
-    self.image        = hash['info']['image']
-    self.url          = hash['info']['urls']['Website'] unless url
-    self.description  = hash['info']['description'] unless description
-    self.location     = hash['info']['location']
+    unless nickname
+      self.nickname = hash['info']['nickname']
+    end
+    self.twitter = hash['info']['nickname']
+    self.name = hash['info']['name']
+    self.image = hash['info']['image']
+    unless url
+      self.url = hash['info']['urls']['Website']
+    end
+    unless description
+      self.description = hash['info']['description']
+    end
+    self.location = hash['info']['location']
   end
 
   def handle_github_attributes(hash)
-    self.nickname     = hash['info']['nickname'] unless nickname
-    self.github       = hash['info']['nickname']
-    self.email        = hash['info']['email'] unless email
-    self.name         = hash['info']['name'].blank? ? hash['info']['nickname'] : hash['info']['name']
-    self.image        = hash['info']['image']
-    self.url          = hash['info']['urls']['Blog'] || hash['info']['urls']['GitHub'] unless url
-    self.description  = hash['extra']['raw_info']['bio'] unless description
-    self.location     = hash['extra']['raw_info']['location']
+    unless nickname
+      self.nickname = hash['info']['nickname']
+    end
+    self.github = hash['info']['nickname']
+    unless email
+      self.email = hash['info']['email']
+    end
+    self.name = hash['info']['name'].blank? ? hash['info']['nickname'] : hash['info']['name']
+    self.image = hash['info']['image']
+    unless url
+      self.url = hash['info']['urls']['Blog'] || hash['info']['urls']['GitHub']
+    end
+    unless description
+      self.description = hash['extra']['raw_info']['bio']
+    end
+    self.location = hash['extra']['raw_info']['location']
   end
 
   def with_provider?(provider)

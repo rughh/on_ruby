@@ -6,7 +6,7 @@ class Authorization < ApplicationRecord
 
   def self.handle_authorization(auth)
     provider = auth['provider']
-    uid      = auth['uid']
+    uid = auth['uid']
 
     authorization = find_by_provider_and_uid provider, uid
     if authorization.present?

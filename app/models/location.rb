@@ -13,7 +13,7 @@ class Location < ApplicationRecord
   validates :url, length: { maximum: 255 }
 
   scope :ordered, -> { order('name ASC') }
-  default_scope   -> { where(label: Whitelabel[:label_id]) }
+  default_scope -> { where(label: Whitelabel[:label_id]) }
 
   def geo_coder_address
     "#{street} #{house_number}, #{zip} #{city}, #{country}"

@@ -1,0 +1,4 @@
+addTrailingCommas: true
+inlineConditionals: false
+printWidth: 200
+# rbprettier --write 'app/models/**/*.rb'

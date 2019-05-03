@@ -1,13 +1,11 @@
-  module Slug
+module Slug
   def self.included(clazz)
     def clazz.from_param(token)
-      id = if match = token.match(/.+-(\d+)/)
-        match[1]
-      else
-        token
-      end
+      id = match = token.match(/.+-(\d+)/) ? match[1] : token
       found = where(id: id.to_i).or(where("#{table_name}.#{slugger} ILIKE ?", token.tr('-', '%'))).first
-      raise ActiveRecord::RecordNotFound.new("Could not find by slug #{token}") unless found
+      unless found
+        raise ActiveRecord::RecordNotFound.new("Could not find by slug #{token}")
+      end
       found
     end
 

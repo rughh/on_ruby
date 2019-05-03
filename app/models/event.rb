@@ -17,13 +17,13 @@ class Event < ApplicationRecord
   accepts_nested_attributes_for :materials
   accepts_nested_attributes_for :topics
 
-  default_scope       -> { where(label: Whitelabel[:label_id]) }
+  default_scope -> { where(label: Whitelabel[:label_id]) }
 
   scope :with_topics, -> { joins(:topics).distinct }
-  scope :current,     -> { where(date: Date.today.to_time..(Time.now + 9.weeks)).limit(1).order('date ASC') }
-  scope :latest,      -> { where('date < ?', Date.today.to_time).order('date DESC') }
+  scope :current, -> { where(date: Date.today.to_time..(Time.now + 9.weeks)).limit(1).order('date ASC') }
+  scope :latest, -> { where('date < ?', Date.today.to_time).order('date DESC') }
   scope :unpublished, -> { where('published IS NULL') }
-  scope :ordered,     -> { order('date DESC') }
+  scope :ordered, -> { order('date DESC') }
 
   def end_date
     date + 2.hours
@@ -34,30 +34,30 @@ class Event < ApplicationRecord
   end
 
   def particpate(user)
-    return false if users.include? user
+    if users.include? user
+      return false
+    end
     !!participants.create!(user: user)
   end
 
   class << self
     def duplicate!
-      latest  = Event.last
-      date    = Whitelabel[:next_event_date]
+      latest = Event.last
+      date = Whitelabel[:next_event_date]
       Event.new.tap do |it|
-        it.name         = "#{I18n.tw('name')} - #{I18n.l date, locale: :de, format: :month}"
-        it.date         = date
-        it.user         = latest.user
-        it.location     = latest.location
-        it.description  = latest.description
+        it.name = "#{I18n.tw('name')} - #{I18n.l date, locale: :de, format: :month}"
+        it.date = date
+        it.user = latest.user
+        it.location = latest.location
+        it.description = latest.description
         it.save!
       end
     end
 
     def stats(size: 10)
       stats = Event.limit(size).map { |event| [event.participants.count, event.topics.count] }
-      {
-        participants: stats.empty? ? 0 : stats.map(&:first).sum / stats.size,
-        topics: stats.empty? ? 0 : stats.map(&:last).sum / stats.size,
-      }
+
+      { participants: stats.empty? ? 0 : stats.map(&:first).sum / stats.size, topics: stats.empty? ? 0 : stats.map(&:last).sum / stats.size }
     end
   end
 end

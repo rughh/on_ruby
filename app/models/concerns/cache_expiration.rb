@@ -1,13 +1,11 @@
 module CacheExpiration
   extend ActiveSupport::Concern
 
-  included do
-    after_commit :expire_view_cache
-  end
+  included { after_commit :expire_view_cache }
 
   def expire_view_cache
     I18n.available_locales.each do |locale|
-      [[:home, :index], [:highlights], [:jobs]].each do |segment|
+      [%i[home index], %i[highlights], %i[jobs]].each do |segment|
         key = [:views, Whitelabel[:label_id], locale]
         key = key.concat(segment).join('/')
         Rails.logger.info "expire fragment '#{key}'"
