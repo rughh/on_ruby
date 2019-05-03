@@ -3,7 +3,7 @@ ruby '~> 2.5.0'
 
 gem 'puma'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
-gem 'rails', '5.2.3'
+gem 'rails', '6.0.0.rc1'
 gem 'pg', '1.1.4'
 gem 'rack-cache'
 gem 'slim-rails'
@@ -39,15 +39,16 @@ group :production do
 end
 
 group :development do
-  gem 'partially_useful'
+  gem 'partially_useful', github: 'phoet/partially_useful', branch: 'prepare_rails6'
   gem 'listen'
+  gem 'web-console'
 end
 
 group :development, :test do
   gem 'letter_opener'
   gem 'faker'
   gem 'byebug'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 3.9.0.pre'
   gem 'rspec-collection_matchers'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
