@@ -20,9 +20,11 @@ Source for the Sites of the Ruby Communities:
 
 The operation, development and maintenance of OnRuby can be supported via Patreon at [patreon.com/on_ruby](https://www.patreon.com/on_ruby).
 
-### Supporters
+### Patrons
 
+* [fnordfish](https://github.com/fnordfish)
 * [BooVeMan](https://github.com/booveman)
+* [rickenharp](https://github.com/rickenharp)
 
 ## Installation
 
