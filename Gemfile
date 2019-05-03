@@ -39,15 +39,15 @@ group :production do
 end
 
 group :development do
-  gem 'partially_useful'
+  gem 'partially_useful', github: 'phoet/partially_useful', branch: 'prepare_rails6'
   gem 'listen'
+  gem 'web-console'
 end
 
 group :development, :test do
   gem 'letter_opener'
   gem 'faker'
   gem 'byebug'
-  # gem 'rspec-rails', '>= 3.9.0.pre'
   gem 'rspec-rails', '>= 3.9.0.pre'
   gem 'rspec-collection_matchers'
   gem 'factory_bot_rails'
