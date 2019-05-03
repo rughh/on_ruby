@@ -11,5 +11,8 @@ Exclude:
   - /time.formats.us/ # american time format only present in en-US locale
 
   # disable false positives
-  - /number.human.decimal_units.units.billion/
-  - /number.human.decimal_units.units.quadrillion/
+  - /number.nth/
+  - /number.human.decimal_units/
+  - /errors.unavailable_session/
+  - /errors.unacceptable_request/
+  - /errors.connection_refused/
