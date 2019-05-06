@@ -2,6 +2,7 @@ OnRuby::Application.routes.draw do
   namespace :admin do
     resources :events do
       post :duplicate, on: :collection
+      post :connect, on: :member
     end
     resources :authorizations
     resources :highlights

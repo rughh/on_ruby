@@ -3,7 +3,16 @@ module Admin
     def duplicate
       event = Event.duplicate!
 
-      redirect_to [:edit, :admin, event]
+      redirect_to [:edit, :admin, event], notice: 'Event duplicated!'
+    end
+
+    def connect
+      event = find_resource(params[:id])
+      topic = Topic.undone.find(params[:topic_id])
+      topic.update! event: event
+      event.particpate(topic.user)
+
+      redirect_to [:admin, event], notice: 'Connected to Event!'
     end
 
     # To customize the behavior of this controller,
