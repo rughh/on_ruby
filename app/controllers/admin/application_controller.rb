@@ -8,16 +8,25 @@ module Admin
   class ApplicationController < Administrate::ApplicationController
     include WhitelabelDetection
     include UserHandling
+    include LocaleDetection
+    include TimeZoneDetection
 
-    # prepend_before_action :switch_label
-    before_action :switch_label
     before_action :authenticate_admin_user!
+    before_action :setup
 
     # Override this value to specify the number of elements to display at a time
     # on index pages. Defaults to 20.
     # def records_per_page
     #   params[:per_page] || 20
     # end
+
+    private
+
+    def setup
+      switch_label
+      switch_locale
+      switch_time_zone
+    end
 
     def order
       @order ||= Administrate::Order.new(
