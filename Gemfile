@@ -25,6 +25,7 @@ gem 'validate_url'
 gem 'addressable'
 gem 'public_suffix'
 gem 'administrate'
+gem 'chronic'
 
 # assets
 gem 'sass-rails'
