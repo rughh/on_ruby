@@ -18,17 +18,18 @@ class Usergroup
 
   def parse_recurring_date(date)
     number, day, = recurring.split(DELIMITER_DATE)
-    day = DAYS_INTO_WEEK[day.to_sym]
+    day = DAYS_INTO_WEEK[day.to_sym] + 1
     if number == 'last'
       d = date.at_end_of_month.change(hour: 0, minute: 0, second: 0)
-      d - ((d.wday - day - 1) % 7).days
+      d - ((d.wday - day) % 7).days
     else
       d = date.at_beginning_of_month
       num = NUMBERS.index(number)
+
       if d.wday > day
-        d + ((num + 1) * 7 + day - d.wday + 1).days
+        d + ((num + 1) * 7 + day - d.wday).days
       else
-        d + (num * 7 + day - d.wday + 1)
+        d + (num * 7 + day - d.wday).days
       end
     end
   end

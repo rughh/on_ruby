@@ -45,6 +45,20 @@ describe Usergroup do
           expect(colognerb.parse_recurring_date(some_date)).to eql(third_wednesday)
           expect(parisrb.parse_recurring_date(some_date)).to eql(fourth_wednesday)
         end
+
+        context 'with the 1. of month being a wednesday' do
+          let(:some_date) { Time.new(2019, 5, 9, 0, 0, 0) }
+          let(:first_wednesday) { Time.new(2019, 5, 1, 0, 0, 0) }
+          let(:second_wednesday) { Time.new(2019, 5, 8, 0, 0, 0) }
+          let(:third_wednesday) { Time.new(2019, 5, 15, 0, 0, 0) }
+          let(:last_wednesday) { Time.new(2019, 5, 29, 0, 0, 0) }
+
+          it 'should find the right wednesday' do
+            expect(rughh.parse_recurring_date(some_date)).to eql(second_wednesday)
+            expect(colognerb.parse_recurring_date(some_date)).to eql(third_wednesday)
+            expect(parisrb.parse_recurring_date(some_date)).to eql(last_wednesday)
+          end
+        end
       end
 
       context '#parse_recurring_time' do
