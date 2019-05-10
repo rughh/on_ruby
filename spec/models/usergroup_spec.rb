@@ -20,10 +20,10 @@ describe Usergroup do
       let(:parisrb) { Usergroup.new.tap { |it| it.recurring = 'last wednesday 20:00' } }
 
       let(:some_date) { Time.new(2011, 9, 1, 0, 0, 0) }
-      let(:first_wednesday) { Time.new(2011, 9, 7, 12, 0, 0) }
-      let(:second_wednesday) { Time.new(2011, 9, 14, 12, 0, 0) }
-      let(:third_wednesday) { Time.new(2011, 9, 21, 12, 0, 0) }
-      let(:fourth_wednesday) { Time.new(2011, 9, 28, 12, 0, 0) }
+      let(:first_wednesday) { Time.new(2011, 9, 7, 0, 0, 0) }
+      let(:second_wednesday) { Time.new(2011, 9, 14, 0, 0, 0) }
+      let(:third_wednesday) { Time.new(2011, 9, 21, 0, 0, 0) }
+      let(:fourth_wednesday) { Time.new(2011, 9, 28, 0, 0, 0) }
 
       context '#next_event_date' do
         it 'should always be in the future on wednesday' do
@@ -47,11 +47,11 @@ describe Usergroup do
         end
 
         context 'with the 1. of month being a wednesday' do
-          let(:some_date) { Time.new(2019, 5, 9, 12, 0, 0) }
-          let(:first_wednesday) { Time.new(2019, 5, 1, 12, 0, 0) }
-          let(:second_wednesday) { Time.new(2019, 5, 8, 12, 0, 0) }
-          let(:third_wednesday) { Time.new(2019, 5, 15, 12, 0, 0) }
-          let(:last_wednesday) { Time.new(2019, 5, 29, 12, 0, 0) }
+          let(:some_date) { Time.new(2019, 5, 9, 0, 0, 0) }
+          let(:first_wednesday) { Time.new(2019, 5, 1, 0, 0, 0) }
+          let(:second_wednesday) { Time.new(2019, 5, 8, 0, 0, 0) }
+          let(:third_wednesday) { Time.new(2019, 5, 15, 0, 0, 0) }
+          let(:last_wednesday) { Time.new(2019, 5, 29, 0, 0, 0) }
 
           it 'should find the right wednesday' do
             expect(rughh.parse_recurring_date(some_date)).to eql(second_wednesday)

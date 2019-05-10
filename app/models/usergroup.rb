@@ -1,6 +1,7 @@
 class Usergroup
   DELIMITER_TIME    = ':'
   DELIMITER_DATE    = ' '
+  NUMBERS           = %w(first second third fourth)
   DAYS_INTO_WEEK    = {
     monday: 0,
     tuesday: 1,
@@ -17,11 +18,20 @@ class Usergroup
 
   def parse_recurring_date(date)
     number, day, = recurring.split(DELIMITER_DATE)
-    month = Date::MONTHNAMES[date.month]
-    return Chronic.parse("#{number} #{day} in #{month}", now: date) unless number == 'last'
-    # last of a month might be the fifth or fourth occurence of a weekday
-    Chronic.parse("fifth #{day} in #{month}", now: date) ||
-      Chronic.parse("fourth #{day} in #{month}", now: date)
+    day = DAYS_INTO_WEEK[day.to_sym] + 1
+    if number == 'last'
+      d = date.at_end_of_month.change(hour: 0, minute: 0, second: 0)
+      d - ((d.wday - day) % 7).days
+    else
+      d = date.at_beginning_of_month
+      num = NUMBERS.index(number)
+
+      if d.wday > day
+        d + ((num + 1) * 7 + day - d.wday).days
+      else
+        d + (num * 7 + day - d.wday).days
+      end
+    end
   end
 
   def parse_recurring_time
