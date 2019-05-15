@@ -15,6 +15,7 @@ class EventDashboard < Administrate::BaseDashboard
     topics: Field::HasMany,
     materials: Field::HasMany,
     id: Field::Number,
+    github_issue: Field::Number,
     name: Field::String,
     date: Field::DateTime,
     description: Field::Text,
@@ -56,6 +57,7 @@ class EventDashboard < Administrate::BaseDashboard
     :published,
     :label,
     :limit,
+    :github_issue,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -68,6 +70,7 @@ class EventDashboard < Administrate::BaseDashboard
     :user,
     :location,
     :limit,
+    :github_issue,
     :topics,
     :materials,
     :participants,

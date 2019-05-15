@@ -7,6 +7,9 @@
   recurring: second wednesday
   email: hamburg@onruby.de
   twitter: HamburgOnRuby
+  github_org: rughh
+  github_repo: planning
+  github_issue_template: 'meetup.md'
   organizers:
   - lindtdev
   - janz93

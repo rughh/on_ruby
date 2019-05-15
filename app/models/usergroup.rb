@@ -14,7 +14,7 @@ class Usergroup
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :custom_recurring, :email, :google_group, :coc
   attr_accessor :default_time_zone, :twitter, :organizers, :location, :imprint, :other_usergroups, :tld
-  attr_accessor :sponsors, :slackin_url, :country, :status
+  attr_accessor :sponsors, :slackin_url, :country, :status, :github_org, :github_repo, :github_issue_template
 
   def parse_recurring_date(date)
     number, day, = recurring.split(DELIMITER_DATE)
@@ -104,6 +104,9 @@ class Usergroup
       it.domains          = ["#{name.parameterize}.de"]
       it.recurring        = 'second wednesday'
       it.email            = "info@#{name.parameterize}.de"
+      it.twitter          = name.parameterize
+      it.github_org       = name.parameterize
+      it.github_repo      = 'planning'
       it.organizers       = ['your_twitter_handle']
       it.location         = { zoom: 14, lat: 53.079296, long: 8.801694 }
       it.imprint          = { address: "YourStreet 1\n0815 YourTown", contributors: [{ name: 'Your Name', email: 'your@mail.de' }] }
