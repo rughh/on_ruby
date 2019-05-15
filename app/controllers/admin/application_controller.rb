@@ -11,6 +11,8 @@ module Admin
     include LocaleDetection
     include TimeZoneDetection
 
+    helper all_helpers_from_path 'app/helpers'
+
     before_action :authenticate_admin_user!
     before_action :setup
 
@@ -19,6 +21,7 @@ module Admin
     # def records_per_page
     #   params[:per_page] || 20
     # end
+
 
     private
 

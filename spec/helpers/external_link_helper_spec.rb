@@ -18,6 +18,10 @@ describe ExternalLinkHelper do
       user.github = nil
       expect(helper.link_to_github(user)).to be_nil
     end
+
+    it 'generates proper github urls' do
+      expect(helper.github_issue_url(123)).to eql('https://github.com/rughh/planning/issues/123')
+    end
   end
 
   context '#link_to_linkedin' do

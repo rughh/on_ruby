@@ -47,6 +47,25 @@ as well as a link to its edit page.
     </div>
   </header>
 <% end %>
+<header class="main-content__header" role="banner">
+  <div>
+    <% if page.resource.github_issue? %>
+      <%= link_to(
+        "See Github-Issue...",
+        github_issue_url(page.resource.github_issue),
+        class: "button",
+        target: '_blank',
+      ) %>
+    <% else %>
+      <%= link_to(
+      "Create Github-Issue...",
+      github_new_issue_url,
+      class: "button",
+      target: '_blank',
+      ) %>
+    <% end %>
+  </div>
+</header>
 
 <section class="main-content__body">
   <dl>

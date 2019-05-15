@@ -1,5 +1,5 @@
 section
-  = likes
+  = github(event)
   h2#event= event.name
   .participation= participation_link(event)
   p.meta
@@ -30,5 +30,3 @@ section
     = render 'shared/route', location: event.location
 
   p= link_to t('home.all_events'), events_path
-
-
