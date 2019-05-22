@@ -16,7 +16,7 @@ nav#nav.navbar
             span.dropdown-caret
         - else
           = link_to '#', class: 'dropdown-toggle' do
-            i.icon.icon-bars
+            i.fa.fa-user
             span.dropdown-caret
 
         ul.dropdown-menu
@@ -37,9 +37,15 @@ nav#nav.navbar
                   = fa_icon provider, class: 'fa-fw dropdown-list-icon'
                   => title
 
-          - (I18n.available_locales - [I18n.locale]).each do |locale|
+      li.dropdown
+        = link_to '#', class: 'dropdown-toggle', title: t('language_chooser') do
+          i.fa.fa-globe
+          span.dropdown-caret
+
+        ul.dropdown-menu
+          - I18n.available_locales.each do |locale|
             - title = t("languages.#{locale}")
             li.locale
-              = link_to url_for(locale: locale), title: t("switch_languages", language: title) do
-                = fa_icon 'comment', class: 'fa-fw dropdown-list-icon'
+              = link_to url_for(locale: locale), title: t("switch_languages", language: title), lang: locale do
+                = fa_icon 'angle-right', class: 'fa-fw dropdown-list-icon'
                 => title
