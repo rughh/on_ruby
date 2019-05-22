@@ -19,3 +19,18 @@ section
     = f.input :hide_jobs
     = f.action :submit
   p= button_to t("profile.remove_account"), current_user, method: :delete, class: :warn, data: { confirm: t("profile.remove_confirm") }
+
+section
+  h3= t('profile.authorizations')
+  ul
+    - existing_providers = user.authorizations.map(&:provider)
+    - login_providers.each do |provider|
+      li
+        - if existing_providers.include? provider
+          = fa_icon provider, class: 'fa-fw dropdown-list-icon'
+          => t("login.#{provider}_login")
+          = fa_icon 'check', class: 'fa-fw dropdown-list-icon'
+        - else
+          = link_to auth_path(provider: provider) do
+            = fa_icon provider, class: 'fa-fw dropdown-list-icon'
+            => t("login.#{provider}_login")

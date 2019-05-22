@@ -80,14 +80,11 @@ class User < ApplicationRecord
   end
 
   class << self
-    def find_or_create_from_hash!(hash)
-      provider = hash['provider']
+    def create_from_hash!(hash)
       nickname = hash['info']['nickname']
-      user = find_or_initialize_by(provider => nickname)
-      if !user.persisted? && find_by_nickname(nickname)
-        raise DuplicateNickname, nickname
-      end
-      user.update_from_auth! hash
+      raise DuplicateNickname, nickname if find_by_nickname(nickname)
+
+      User.new.update_from_auth! hash
     end
 
     def authenticated_with_token(id, stored_salt)

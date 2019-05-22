@@ -39,7 +39,7 @@ group :production do
 end
 
 group :development do
-  gem 'partially_useful', github: 'phoet/partially_useful', branch: 'prepare_rails6'
+  gem 'partially_useful'
   gem 'listen'
   gem 'web-console'
 end

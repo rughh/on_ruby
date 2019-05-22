@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def login_providers
+    %w[twitter github]
+  end
+
   def whitelabel_stylesheet_link_tag
     link = "labels/#{Whitelabel[:label_id]}"
     stylesheet_link_tag link if File.exist? Rails.root.join("app/assets/stylesheets/#{link}.sass")

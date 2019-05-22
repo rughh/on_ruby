@@ -1,8 +1,5 @@
 = section_box :topics do
-  - if signed_in?
-    p.info== t("topic.markdown")
-    p= render 'form', topic: topic
-  - else
-    p
-      strong= t("topic.please_login")
+  p.info== t("topic.markdown")
+  p= render 'form', topic: topic
+
   = render 'undone', topics: undone_topics

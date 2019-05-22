@@ -4,12 +4,6 @@ describe TopicsHelper do
   let(:topic) { build(:topic, id: 123) }
 
   context '#like_link' do
-    it 'disables the button if not signed-in' do
-      allow(helper).to receive_messages(signed_in?: false)
-
-      expect(helper.like_link(topic)).to match('disable')
-    end
-
     context 'with logged-in user' do
       let(:user) { build(:user) }
 

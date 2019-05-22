@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :authenticate!, only: [:edit, :update, :create]
+  before_action :authenticate!, only: [:new, :edit, :update, :create]
   before_action :validate_topic_ownership!, only: [:edit, :update]
 
   expose(:topic, find: ->(id, scope) { scope.find_by_slug(id) })

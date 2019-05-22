@@ -15,6 +15,7 @@ es:
   countries:
     DE: "Alemania"
     ES: "España"
+  language_chooser: "Cambiar idioma"
   switch_languages: "Cambiar idioma a %{language}"
   languages:
     de: "Alemán"
@@ -137,6 +138,7 @@ es:
     duplicate_nick: "'%{name}' ya está registrado. Es posible que ya hayas iniciado sesión con otro proveedor."
     only_admins: "Solamente los administradores pueden entrar ahí"
     not_authenticated: "Por favor autentifícate antes de entrar"
+    not_logged_in: "Por favor autentifícate antes de entrar"
     already_participating: "Ya estás apuntado"
     already_closed: "El cupo de plazas disponibles se ha llenado"
     now_participating: "Estás apuntado."

@@ -14,6 +14,7 @@ en:
   countries:
     DE: "Germany"
     ES: "Spain"
+  language_chooser: "Choose language"
   switch_languages: "Switch to %{language}"
   languages:
     de: "German"
@@ -135,6 +136,7 @@ en:
     duplicate_nick: "'%{name}' is already registered. It's possible that you have already logged in with another provider."
     only_admins: "Oops, only admins allowed!"
     not_authenticated: "Oops, you are not allowed to visit this page!"
+    not_logged_in: "Oops, you are not logged in!"
     already_participating: "You're already in."
     already_closed: "The event is already maxed out."
     now_participating: "You're in."

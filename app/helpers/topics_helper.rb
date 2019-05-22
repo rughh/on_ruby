@@ -9,7 +9,7 @@ module TopicsHelper
         button_to t('topic.like'), topic_likes_path(topic), method: :post
       end
     else
-      button_to t('topic.like'), '', data: { disable: t('show.login_before_attend') }
+      button_to t('topic.like'), login_path, method: :get, params: {referrer: request.url}
     end
   end
 

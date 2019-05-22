@@ -4,7 +4,7 @@ class Authorization < ApplicationRecord
   validates :provider, presence: true
   validates :uid, presence: true, uniqueness: { scope: :provider }
 
-  def self.handle_authorization(auth)
+  def self.handle_authorization(existing_user, auth)
     provider = auth['provider']
     uid      = auth['uid']
 
@@ -12,8 +12,8 @@ class Authorization < ApplicationRecord
     if authorization.present?
       authorization.user.update_from_auth! auth
     else
-      user = User.find_or_create_from_hash! auth
-      authorization = Authorization.create! user: user, provider: provider, uid: uid
+      user = existing_user || User.create_from_hash!(auth)
+      authorization = user.authorizations.create! provider: provider, uid: uid
     end
     authorization
   end
