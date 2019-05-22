@@ -30,7 +30,7 @@ nav#nav.navbar
                 = fa_icon 'times', class: 'fa-fw dropdown-list-icon'
                 => t("login.logout")
           - else
-            - [:twitter, :github].each do |provider|
+            - login_providers.each do |provider|
               - title = t("login.#{provider}_login")
               li.provider
                 = link_to auth_path(provider: provider) do

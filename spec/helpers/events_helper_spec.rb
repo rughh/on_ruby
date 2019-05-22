@@ -5,18 +5,6 @@ describe EventsHelper do
   let(:participant) { create(:participant, user: event.user) }
   let(:participation_event) { create(:event, participants: [participant]) }
 
-  context 'signed_out user' do
-    before(:each) do
-      allow(helper).to receive_messages(signed_in?: false, current_user: nil)
-    end
-
-    context '#participation_link' do
-      it 'should have a login message attached' do
-        expect(helper.participation_link(event)).to match('Bitte logge dich zuerst ein')
-      end
-    end
-  end
-
   context 'signed_in user' do
     before(:each) do
       allow(helper).to receive_messages(signed_in?: true, current_user: event.user)

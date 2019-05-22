@@ -136,6 +136,7 @@ de:
     duplicate_nick: "Der Nickname '%{name}' ist bereits vergeben! Wenn Du Dich schon über einen anderen Provider angemeldet hast, dann trage bitte in Deinem Profil die entsprechenden Handles ein!"
     only_admins: "Hoppala, da dürfen nur Admins hin!"
     not_authenticated: "Hoppala, diese Seite ist nicht für dich bestimmt!"
+    not_logged_in: "Hoppala, du bist nicht eingeloggt!"
     already_participating: "Du bist schon angemeldet."
     already_closed: "Die maximale Anzahl an Teilnehmern ist schon erreicht."
     now_participating: "Du bist am Event angemeldet."

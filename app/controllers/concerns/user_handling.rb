@@ -8,7 +8,10 @@ module UserHandling
   end
 
   def authenticate!
-    redirect_to root_path, alert: t('flash.not_authenticated') unless signed_in?
+    return if signed_in?
+
+    session[:return_to_back] = request.url
+    redirect_to login_path, alert: t('flash.not_logged_in')
   end
 
   def authenticate_current_user!

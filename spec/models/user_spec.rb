@@ -41,33 +41,26 @@ describe User do
 
       it 'should handle missing params' do
         expect {
-          User.find_or_create_from_hash!(github_auth_missing_params)
+          User.create_from_hash!(github_auth_missing_params)
         }.to change(User, :count).by(1)
       end
     end
 
     it 'should create a user from an outh-hash' do
       expect {
-        User.find_or_create_from_hash!(TWITTER_AUTH_HASH)
+        User.create_from_hash!(TWITTER_AUTH_HASH)
       }.to change(User, :count).by(1)
     end
 
-    it 'should create not create a new user for same nickname' do
-      tu = User.find_or_create_from_hash!(TWITTER_AUTH_HASH)
-      tu.update! github: 'phoet'
-      gu = User.find_or_create_from_hash!(GITHUB_AUTH_HASH)
-      expect(tu.id).to eql(gu.id)
-    end
-
     it 'adds email addresses for github users' do
-      user = User.find_or_create_from_hash!(GITHUB_AUTH_HASH)
+      user = User.create_from_hash!(GITHUB_AUTH_HASH)
       expect(user.email).to eql('phoetmail@googlemail.com')
     end
 
     it 'should raise an error for same nickname but different auths' do
-      User.find_or_create_from_hash!(TWITTER_AUTH_HASH)
+      User.create_from_hash!(TWITTER_AUTH_HASH)
       expect {
-        User.find_or_create_from_hash!(GITHUB_AUTH_HASH)
+        User.create_from_hash!(GITHUB_AUTH_HASH)
       }.to raise_error(User::DuplicateNickname)
     end
 

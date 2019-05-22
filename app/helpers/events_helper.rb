@@ -9,7 +9,7 @@ module EventsHelper
         button_to t('show.attend'), [event, Participant.new]
       end
     else
-      button_to t('show.attend'), '#', data: { disable: t('show.login_before_attend') }
+      button_to t('show.attend'), login_path, method: :get, params: {referrer: request.url}
     end
   end
 

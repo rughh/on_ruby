@@ -27,8 +27,8 @@ describe 'UserHandling' do
 
     it 'authenticates an action' do
       get :index
-      expect(response).to redirect_to(root_path)
-      expect(flash[:alert]).to match('diese Seite')
+      expect(response).to redirect_to(login_path)
+      expect(flash[:alert]).to match('Hoppala')
     end
   end
 

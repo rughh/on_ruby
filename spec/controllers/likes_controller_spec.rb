@@ -9,7 +9,7 @@ describe LikesController do
 
     it 'authenticates the action' do
       post(:create, params: data)
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(login_path)
     end
 
     context 'with logged-in user' do
@@ -47,7 +47,7 @@ describe LikesController do
 
     it 'authenticates the action' do
       delete(:destroy, params: { topic_id: topic.id, id: like.id })
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(login_path)
     end
 
     context 'with logged-in user' do

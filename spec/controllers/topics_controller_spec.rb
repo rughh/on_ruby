@@ -73,14 +73,14 @@ describe TopicsController do
       expect {
         post(:create, params: { topic: topic_data })
       }.to change(Topic, :count).by(0)
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(login_path)
     end
   end
 
   context 'POST :update' do
     it 'authenticates the action' do
       put(:update, params: { id: 123, topic: attributes_for(:topic) })
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(login_path)
       expect(flash[:alert]).to_not be_nil
     end
 
