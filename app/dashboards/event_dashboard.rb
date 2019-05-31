@@ -71,9 +71,6 @@ class EventDashboard < Administrate::BaseDashboard
     :location,
     :limit,
     :github_issue,
-    :topics,
-    :materials,
-    :participants,
   ].freeze
 
   def display_resource(event)
