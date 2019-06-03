@@ -7,7 +7,6 @@ html
     = touch_icon
     = rss_feed
     = csrf_meta_tag
-    = stylesheet_link_tag :application, "//fonts.googleapis.com/css?family=Alef"
     = whitelabel_stylesheet_link_tag
     = render 'shared/i18njs'
   body
@@ -26,5 +25,6 @@ html
                 sponsors: Whitelabel[:sponsors],
                 other_usergroups: Whitelabel[:other_usergroups] )
   = render 'shared/info'
+  = stylesheet_link_tag :application, "//fonts.googleapis.com/css?family=Alef"
   = javascript_include_tag :application, "//maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDvgVnoO2zQ_K_dDhAFiz2nENTQSH4TivY"
   = whitelabel_javascript_include_tag
