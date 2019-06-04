@@ -33,7 +33,7 @@ nav#nav.navbar
             - login_providers.each do |provider|
               - title = t("login.#{provider}_login")
               li.provider
-                = link_to auth_path(provider: provider) do
+                = link_to label_auth_url(provider) do
                   = fa_icon provider, class: 'fa-fw dropdown-list-icon'
                   => title
 

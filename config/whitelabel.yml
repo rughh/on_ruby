@@ -1,6 +1,7 @@
 ---
 - !ruby/object:Usergroup
   label_id: hamburg
+  canonical_url: https://hamburg.onruby.de
   status: enabled
   default_locale: de
   country: Deutschland
@@ -38,6 +39,7 @@
   coc: http://rubyberlin.github.io/code-of-conduct
 - !ruby/object:Usergroup
   label_id: cologne
+  canonical_url: https://www.colognerb.de/
   status: enabled
   default_locale: de
   country: Deutschland
@@ -147,6 +149,7 @@
   google_group: karlsruherb
 - !ruby/object:Usergroup
   label_id: berlin
+  canonical_url: https://www.rug-b.de/
   status: enabled
   default_locale: en
   country: Deutschland
@@ -177,6 +180,7 @@
   slackin_url: http://slack.rubyberlin.org/slackin.js
 - !ruby/object:Usergroup
   label_id: leipzig
+  canonical_url: https://leipzig.onruby.de/
   status: enabled
   default_locale: de
   country: Deutschland
@@ -350,6 +354,7 @@
   google_group: innsbruck-rb
 - !ruby/object:Usergroup
   label_id: madridrb
+  canonical_url: http://www.madridrb.com/
   status: enabled
   default_locale: es
   country: Espania
@@ -432,6 +437,7 @@
   tld: de
 - !ruby/object:Usergroup
   label_id: andalucia
+  canonical_url: https://andalucia.onruby.eu
   status: enabled
   default_locale: es
   country: espania

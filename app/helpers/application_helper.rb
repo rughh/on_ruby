@@ -14,19 +14,20 @@ module ApplicationHelper
     javascript_include_tag link if labels.any? { |path| path.to_s =~ /#{Whitelabel[:label_id]}/ }
   end
 
+  def label_auth_url(provider)
+    host = Rails.env.development? ? "#{Whitelabel[:label_id]}.onruby.test" : Whitelabel[:canonical_url]
+
+    auth_url(provider: provider, host: host)
+  end
+
   def label_url(label)
-    host = Rails.env.development? ? 'onruby.test' : "onruby.#{label.tld}"
-    root_url(subdomain: label.label_id, domain: host)
+    host = Rails.env.development? ? "#{label.label_id}.onruby.test" : label.canonical_url
+    root_url(host: host)
   end
 
   def canonical_url
-    subdomain = Whitelabel.label ? Whitelabel[:label_id] : 'www'
-    options = {
-      domain: 'onruby.de',
-      subdomain: subdomain,
-      only_path: false
-    }
-    tag :link, rel: :canonical, href: url_for(options)
+    host = Whitelabel.label ? Whitelabel[:canonical_url] : 'https://www.onruby.eu'
+    tag :link, rel: :canonical, href: url_for(host: host, only_path: false)
   end
 
   def browser_icon
