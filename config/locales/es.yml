@@ -27,6 +27,7 @@ es:
     logout: "Salir"
     twitter_login: "Login con Twitter"
     github_login: "Login con Github"
+    google_oauth2_login: "Login con Google"
   hint:
     close: "Cerrar"
     attention: "Atención:"
