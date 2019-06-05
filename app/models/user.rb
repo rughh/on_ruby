@@ -67,6 +67,15 @@ class User < ApplicationRecord
     self.location     = hash['extra']['raw_info']['location']
   end
 
+  def handle_google_oauth2_attributes(hash)
+    Rails.logger.info(hash)
+    Rails.logger.info(hash['info'])
+    self.nickname = hash['info']['name'] unless nickname
+    self.email    = hash['info']['email'] unless email
+    self.name     = hash['info']['name']
+    self.image    = hash['info']['image']
+  end
+
   def with_provider?(provider)
     authorizations.map(&:provider).include?(provider)
   end
