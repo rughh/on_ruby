@@ -2,6 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.hosts << "hamburg.onruby.test"
   config.hosts << "berlin.onruby.test"
+  config.hosts << "cologne.onruby.test"
   config.hosts << "www.onruby.test"
 
   # In the development environment your application's code is reloaded on

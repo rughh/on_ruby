@@ -54,7 +54,7 @@
     :long: 6.957092
   default_time_zone: Europe/Berlin
   imprint:
-    :address: "An der Bottmühle 5 \n50678 Köln "
+    :address: "An der Bottmühle 5\n50678 Köln"
     :contributors:
     - :name: Jakob Hilden
       :email: jakob@railslove.com
