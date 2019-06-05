@@ -8,7 +8,7 @@ html
     = rss_feed
     = csrf_meta_tag
     = whitelabel_stylesheet_link_tag
-    = render 'shared/i18njs'
+    = stylesheet_link_tag :application, "//fonts.googleapis.com/css?family=Alef"
   body
     = ribbon(:github)
     = ribbon(:patreon)
@@ -25,6 +25,6 @@ html
                 sponsors: Whitelabel[:sponsors],
                 other_usergroups: Whitelabel[:other_usergroups] )
   = render 'shared/info'
-  = stylesheet_link_tag :application, "//fonts.googleapis.com/css?family=Alef"
+  = render 'shared/i18njs'
   = javascript_include_tag :application, "//maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDvgVnoO2zQ_K_dDhAFiz2nENTQSH4TivY"
   = whitelabel_javascript_include_tag
