@@ -16,9 +16,8 @@ module ApplicationHelper
 
   def label_auth_url(provider)
     host = Rails.env.development? ? "#{Whitelabel[:label_id]}.onruby.test" : Whitelabel[:canonical_url]
-    protocol = Rails.env.development? ? 'http' : 'https'
 
-    auth_url(provider: provider, host: host, protocol: protocol)
+    auth_url(provider: provider, host: host)
   end
 
   def label_url(label)
