@@ -4,6 +4,7 @@ Rails.application.configure do
   config.hosts << "berlin.onruby.test"
   config.hosts << "cologne.onruby.test"
   config.hosts << "www.onruby.test"
+  config.hosts << "madridrb.onruby.test"
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
