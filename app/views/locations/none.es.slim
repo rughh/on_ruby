@@ -1,0 +1,35 @@
+section
+  h2 ¡Todavía buscamos un sitio!
+
+  h3 ¿Cómo puedes ayudar?
+  p
+    ' Siempre estamos buscando nuevos sitios para nuestros Meetups.
+    ' Si deseas albergar alguno de nuestros eventos en tu compañía
+    => mail_to Whitelabel[:email], "escríbenos", title: "#{Whitelabel[:twitter]} E-Mail"
+    ' o mencionanos en twitter #{link_to_twitter Whitelabel[:twitter]}
+    ' o contacta con alguno de los organizadores:
+  = render 'users/list', users: organizers
+
+  h3 ¿Cuánto espacio necesitamos?
+  p
+    ' De promedio, alrededor de
+    em> #{stats[:participants]} Rubystas
+    ' acuden a nuestros eventos y solemos contar entre
+    em> #{stats[:topics]} y #{stats[:topics] + 1} presentaciones
+    ' por sesión.
+    ' Estos números son sólo una guía. Te invitamos a hablar con alguno
+    ' de nuestros organizadores para preparar el evento.
+  p
+    | Si no tienes espacio suficiente, también es posible limitar el número de participantes.
+
+  h3 ¿Qué necesita nuestro Grupo?
+  p
+    ' Un local, por supuesto, pero hay más:
+    ul.enumeration
+      li Bebidas sin alcohol
+      li Proyector y adaptadores varios
+      li Cervezas (opcional)
+      li Algo de picoteo y/o pizzas (opcional)
+    ' ¡Pero no te preocupes, podemos apañárnoslas con casi cualquier cosa!
+
+  h2 ¡Gracias por la ayuda!

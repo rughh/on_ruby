@@ -2,7 +2,7 @@ es:
   main:
     events: "Eventos"
     locations: "Lugares"
-    mailing_list: "Mailing list"
+    mailing_list: "Lista de correo"
     people: "Gente"
     topics: "Temas"
     materials: "Materiales complementarios"
@@ -67,7 +67,7 @@ es:
     old_topics: "Temas recientes"
     company_workers: "En ocasiones serán lugares de trabajo de los miembros del Grupo de Usuarios; esto es normal, y les encanta ver caras nuevas."
     company_missing: "Si crees que falta una compañía, envíanos un %{email_link} o un tweet a %{twitter_link}"
-    next_possible_meetup_recurring: "De momento no hay ningún evento planeado, el grupo normalmente se reúne %{recurring} y ¡pero <a href='%{none_url}'>todavía no tenemos sitio</a>."
+    next_possible_meetup_recurring: "De momento no hay ningún evento planeado, el grupo normalmente se reúne %{recurring} y ¡pero <a href='%{none_url}'>todavía no tenemos sitio!</a>."
     next_possible_meetup: "La siguiente reunión debería tener lugar el %{event_date}."
     next_meetup: "La siguiente reunión"
     takes_place: "será el %{event_date} en %{location_link}!"
