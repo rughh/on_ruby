@@ -6,6 +6,7 @@ describe 'events/show' do
 
   it 'should render successfully' do
     allow(view).to receive_messages(signed_in?: true, current_user: user, event: event, likes: '</>')
+    view.lookup_context.prefixes = %w[events application]
 
     render
   end
