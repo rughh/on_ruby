@@ -1,51 +1,45 @@
-nav#nav.navbar
-  .nav-box
-    ul.nav-inner
-      - nav_entries = [:events, :topics, :people, :locations]
-      li.label
-        = link_to image_tag("labels/#{Whitelabel[:label_id]}.png", class: 'label-img', alt: title), '#on_ruby', class: 'label-link'
-      - nav_entries.each do |it|
-        li
-          = link_to root_path(anchor: it), title: t("main.#{it}") do
-            i class="icon icon-#{it}"
-            span.nav-text.hide-phone= t("main.#{it}")
-      li.dropdown
-        - if signed_in?
-          = link_to user_path(current_user), {class: 'dropdown-toggle', title: current_user.name} do
-            = image_tag(current_user.image, class: 'dropdown-userimage', title: current_user.name, size: '20x20')
-            span.dropdown-caret
-        - else
-          = link_to '#', class: 'dropdown-toggle' do
-            i.fa.fa-user
-            span.dropdown-caret
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  = link_to(image_tag("labels/#{Whitelabel[:label_id]}.png", title: title, style: 'height: 30px'), '#on_ruby', class: 'navbar-brand pl-4')
 
-        ul.dropdown-menu
+  button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+    span.navbar-toggler-icon
+
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      - [:events, :topics, :people, :locations].each do |section|
+        li.nav-item.pl-2
+          = link_to(root_path(anchor: section), class: 'nav-link') do
+            = fa_icon(section, class: 'fa-fw', text: t("main.#{section}"))
+
+    ul.navbar-nav.ml-auto
+      li.nav-item.dropdown.pr-2
+        a(class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
           - if signed_in?
-            li
-              = link_to edit_user_path(current_user) do
-                = fa_icon 'edit', class: 'fa-fw dropdown-list-icon'
-                => t("login.edit_profile")
-            li
-              = link_to destroy_session_path(current_user) do
-                = fa_icon 'times', class: 'fa-fw dropdown-list-icon'
-                => t("login.logout")
+            = image_tag(current_user.image, title: current_user.name, style: 'height: 25px')
+
+          - else
+            = fa_icon('user', class: 'fa-fw', text: t('login.login'))
+
+        .dropdown-menu(aria-labelledby="loginDropdown")
+          - if signed_in?
+            = link_to(user_path(current_user), class: 'dropdown-item') do
+              = fa_icon('eye', class: 'fa-fw', text: t("login.profile"))
+
+            = link_to(edit_user_path(current_user), class: 'dropdown-item') do
+              = fa_icon('edit', class: 'fa-fw', text: t("login.edit_profile"))
+
+            = link_to(destroy_session_path(current_user), class: 'dropdown-item') do
+              = fa_icon('times', class: 'fa-fw', text: t("login.logout"))
+
           - else
             - login_providers.each do |provider|
-              - title = t("login.#{provider}_login")
-              li.provider
-                = link_to label_auth_url(provider) do
-                  = fa_icon provider, class: 'fa-fw dropdown-list-icon'
-                  => title
+              = link_to(label_auth_url(provider), class: 'dropdown-item') do
+                = fa_icon(provider, class: 'fa-fw', text: t("login.#{provider}_login"))
 
-      li.dropdown
-        = link_to '#', class: 'dropdown-toggle', title: t('language_chooser') do
-          i.fa.fa-globe
-          span.dropdown-caret
-
-        ul.dropdown-menu
+      li.nav-item.dropdown.pr-2
+        a(class="nav-link dropdown-toggle" href="#" id="localeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+          = fa_icon('globe', class: 'fa-fw', text: t('language_chooser'))
+        .dropdown-menu(aria-labelledby="localeDropdown")
           - I18n.available_locales.each do |locale|
             - title = t("languages.#{locale}")
-            li.locale
-              = link_to url_for(locale: locale), title: t("switch_languages", language: title), lang: locale do
-                = fa_icon 'angle-right', class: 'fa-fw dropdown-list-icon'
-                => title
+            = link_to(title, url_for(locale: locale), title: t("switch_languages", language: title), lang: locale, class: 'dropdown-item')

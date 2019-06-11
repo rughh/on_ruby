@@ -1,7 +1,7 @@
 doctype 5
 html
   head
-    = render 'meta'
+    = render 'application/meta'
     = browser_icon
     = touch_icon
     = stylesheet_link_tag :application, "//fonts.googleapis.com/css?family=Alef"
@@ -9,4 +9,4 @@ html
     .container
       .main
         = yield
-  = render 'info'
+  = render 'application/info'

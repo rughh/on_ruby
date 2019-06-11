@@ -14,7 +14,7 @@ en:
   countries:
     DE: "Germany"
     ES: "Spain"
-  language_chooser: "Choose language"
+  language_chooser: "language"
   switch_languages: "Switch to %{language}"
   languages:
     de: "German"

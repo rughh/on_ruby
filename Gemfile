@@ -18,8 +18,7 @@ gem 'geocoder'
 gem 'acts_as_api'
 gem 'whitelabel'
 gem 'exception_notification'
-gem 'feedjira'
-gem 'formtastic'
+gem 'simple_form'
 gem 'kaminari'
 gem 'link_thumbnailer'
 gem 'validate_url'
@@ -29,6 +28,7 @@ gem 'administrate'
 
 # assets
 gem 'sass-rails'
+gem 'bootstrap'
 gem 'font-awesome-rails'
 gem 'uglifier'
 

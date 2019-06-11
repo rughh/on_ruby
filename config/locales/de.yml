@@ -14,7 +14,7 @@ de:
   countries:
     DE: "Deutschland"
     ES: "Spanien"
-  language_chooser: "Sprache auswählen"
+  language_chooser: "Sprache"
   switch_languages: "Umschalten auf %{language}"
   languages:
     de: "Deutsch"
@@ -23,6 +23,7 @@ de:
   login:
     profile: "Profil ansehen"
     edit_profile: "Profil bearbeiten"
+    login: "Login"
     logout: "Ausloggen"
     twitter_login: "Twitter Login"
     github_login: "GitHub Login"

@@ -15,7 +15,7 @@ es:
   countries:
     DE: "Alemania"
     ES: "España"
-  language_chooser: "Cambiar idioma"
+  language_chooser: "idioma"
   switch_languages: "Cambiar idioma a %{language}"
   languages:
     de: "Alemán"
