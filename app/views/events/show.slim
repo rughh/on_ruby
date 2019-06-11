@@ -28,6 +28,6 @@ section
   = render "topics", topics: event.topics
   = render "materials", materials: event.materials
   - if event.location.present?
-    = render 'shared/route', location: event.location
+    = render 'route', location: event.location
 
   p= link_to t('home.all_events'), events_path
