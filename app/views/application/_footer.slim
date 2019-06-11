@@ -1,10 +1,10 @@
 section.clearfix
-  - if sponsors.present?
+  - if Whitelabel[:sponsors].present?
     .info.clearfix.hr
       .sponsors.block
         h2= I18n.tw("footer.sponsored_by")
         ol
-          - sponsors.each do |sp|
+          - Whitelabel[:sponsors].each do |sp|
             li(class="sponsor-#{sp[:name].downcase}")
               => link_to sp[:url], title: sp[:name] do
                 => image_tag("labels/#{Whitelabel[:label_id]}/sponsors/#{sp[:banner]}", alt: sp[:name])
@@ -34,15 +34,15 @@ section.clearfix
     .imprint.block
       h2= t("footer.imprint")
       ul
-        li== imprint[:contributors].map { |c| mail_to c[:email], c[:name], title: c[:name] }.join(' ')
-        - if imprint[:address]
-          li== simple_format imprint[:address]
+        li== Whitelabel[:imprint][:contributors].map { |c| mail_to c[:email], c[:name], title: c[:name] }.join(' ')
+        - if Whitelabel[:imprint][:address].present?
+          li== simple_format Whitelabel[:imprint][:address]
 
-  - if other_usergroups.present?
+  - if Whitelabel[:other_usergroups].present?
     .usergroups.block.hr
       h2= I18n.tw("footer.other_usergroups")
       ol.clearfix
-        - other_usergroups.each do |ug|
+        - Whitelabel[:other_usergroups].each do |ug|
           li
             => link_to ug[:name], ug[:url], title: ug[:name]
             = link_to_twitter(ug[:twitter], clung: true) if ug[:twitter]

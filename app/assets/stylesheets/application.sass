@@ -4,7 +4,8 @@ $container-background: image-url('whitey.png') left top repeat
 $title-color: black
 $ribbon-color: $title-color
 $font: Alef, sans-serif
-$base-font-size: 14px
+$base-font-size: 0.8em
+$nav-font-size: 1em
 $title-font-size: 3em
 $sub-title-font-size: $title-font-size / 2
 $border-color: lightgray
@@ -46,13 +47,14 @@ $ruby-red: #C81B47
     repeat: no-repeat
     position: $x $y
 
+
 $primary: #555
-$body-bg: none !important
+$link-decoration: underline
 
 @import "bootstrap"
 @import "font-awesome"
 
-html
+body
   background: image-url('whitey.png') left top repeat
 
 .fa-events
@@ -66,23 +68,28 @@ html
 .fa-google_oauth2
   @extend .fa-google
 
-
+.hidden
+  display: none
 
 nav
   .user-image
     @include userimage(20px)
+  .label
+    opacity: 0
 
+  font: bold $nav-font-size $font
+  @include title-box
+  border: $border
+  a
+    text-decoration: none
 
-
-
-
+.navbar-rounded
+  background-color: $white
+  border-bottom-right-radius: 0.5em
+  border-bottom-left-radius: 0.5em
 
 header
-  display: block
-  margin: 0 auto
-  margin-bottom: 3em
-  width: 60em
-  padding: 6em 1em 0em 2em
+  padding: 2em 2em 4em 2em
   color: $title-color
 
   #title, &:hover, &:active, &:visited
@@ -98,14 +105,11 @@ header
       font-size: $sub-title-font-size
       letter-spacing: 0.1em
       @include title-box
-  #logo
-    float: left
+
+  .logo-image
     margin-left: 20px
     margin-right: 20px
     width: 80px
-
-.pull-right
-  float: right
 
 .main
   li.topic, li.event
@@ -200,10 +204,10 @@ header
     h3
       font: bold 1.2em $font
     ul
-      margin: 0em
+      margin: 0.5em
     li
-      margin: 0em
-      margin-bottom: 1em
+      margin: 1em
+
   .user
     .image
       float: left
@@ -270,8 +274,10 @@ header
 
 footer
   padding: 0
-  margin: 0
+  margin: 0 0 -1em 0
   border-top: $border
+  background: $white
+  height: 100%
 
   p
     margin: 0
@@ -327,6 +333,7 @@ footer
   width: 150px
   height: 150px
   overflow: hidden
+  font-size: $base-font-size
   a
     height: 30px
     text-decoration: none
@@ -353,25 +360,6 @@ footer
       right: -65px
   &#github_ribbon
     right: 0px
-
-#labels
-  .main
-    padding-top: 3em
-    section
-      a
-        text-decoration: none
-      li
-        font: bold 3em $font
-      img
-        vertical-align: middle
-      span.host
-        margin-left: 0.5em
-      span.image
-        display: inline-block
-        width: 140px
-        text-align: center
-        img
-          max-width: 120px
 
 .preview
   margin-top: 1em

@@ -1,9 +1,9 @@
+header
+  .row
+    .col-lg-2
+      = link_to image_tag("labels/#{Whitelabel[:label_id]}.png", title: title, class: 'logo-image'), root_path, title: title
 
-#logo
-  = link_to image_tag("labels/#{Whitelabel[:label_id]}.png", alt: title), root_path, title: title
-
-hgroup.headline
-  = link_to root_path, id: :title, title: title do
-    h1= title
-    h2= subtitle
-
+    .col-lg-10
+      = link_to root_path, id: :title, title: title do
+        h1= title
+        h2= subtitle

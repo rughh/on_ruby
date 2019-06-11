@@ -26,7 +26,6 @@
         li.event
           = link_to_event event, title: "#{l(event.date, format: :date)} - #{event.name}"
       li.all
-        = fa_icon 'mail-forward', class: 'pull-left'
-        = link_to t('home.all_events'), events_path
+        = fa_icon 'mail-forward', text: link_to(t('home.all_events'), events_path)
   - else
     = link_to t('home.all_events'), events_path

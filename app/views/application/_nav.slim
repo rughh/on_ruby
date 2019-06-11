@@ -1,5 +1,5 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  = link_to(image_tag("labels/#{Whitelabel[:label_id]}.png", title: title, style: 'height: 30px'), '#on_ruby', class: 'navbar-brand pl-4')
+nav.navbar.sticky-top.navbar-expand-lg.navbar-rounded
+  .label= link_to(image_tag("labels/#{Whitelabel[:label_id]}.png", title: title, style: 'height: 30px'), '#on_ruby', class: 'navbar-brand pl-4')
 
   button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
     span.navbar-toggler-icon
@@ -7,7 +7,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
   #navbarSupportedContent.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
       - [:events, :topics, :people, :locations].each do |section|
-        li.nav-item.pl-2
+        li.nav-item.ml-2
           = link_to(root_path(anchor: section), class: 'nav-link') do
             = fa_icon(section, class: 'fa-fw', text: t("main.#{section}"))
 
@@ -36,7 +36,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
               = link_to(label_auth_url(provider), class: 'dropdown-item') do
                 = fa_icon(provider, class: 'fa-fw', text: t("login.#{provider}_login"))
 
-      li.nav-item.dropdown.pr-2
+      li.nav-item.dropdown.pr-4
         a(class="nav-link dropdown-toggle" href="#" id="localeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
           = fa_icon('globe', class: 'fa-fw', text: t('language_chooser'))
         .dropdown-menu(aria-labelledby="localeDropdown")

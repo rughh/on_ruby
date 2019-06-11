@@ -16,11 +16,13 @@
       - render_cached(:jobs) do
         = hint(false) do
           #job-teaser
-            span.job-toggle= link_to fa_icon("chevron-down"), '#', title: t("hint.click_to_refresh")
-            .job== job_description(jobs.first)
+            ul
+              li
+                span.job-toggle= link_to fa_icon("chevron-down"), '#', title: t("hint.click_to_refresh")
+                .job.ml-4== job_description(jobs.first)
           #job-list.hidden
             ul
               - jobs.each_with_index do |job, index|
                 li
                   span.job-toggle= link_to fa_icon("chevron-up"), '#', title: t("hint.click_to_refresh") if index == 0
-                  .job== job_description(job)
+                  .job.ml-4== job_description(job)

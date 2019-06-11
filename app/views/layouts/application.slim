@@ -15,16 +15,12 @@ html
 
     .container
       = render 'nav'
-      header#on_ruby.clearfix
+      .main.m-4
         = render 'headline'
-      .main
         = render 'hint'
         = yield
     footer
-      = render( 'footer',
-                imprint: Whitelabel[:imprint],
-                sponsors: Whitelabel[:sponsors],
-                other_usergroups: Whitelabel[:other_usergroups] )
+      = render 'footer'
   = render 'info'
   = render 'i18njs'
   = javascript_include_tag :application, "//maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDvgVnoO2zQ_K_dDhAFiz2nENTQSH4TivY"

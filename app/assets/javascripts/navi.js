@@ -49,7 +49,7 @@ var Scroll = (function() {
         let opacity = (Math.pow(t, 3) / 1e7);
         if (opacity < 0) { opacity = 0; }
         if (opacity > 1) { opacity = 1; }
-        return $('#nav .label').css('opacity', opacity);
+        return $('nav .label').css('opacity', opacity);
       }
     }
   };
@@ -60,6 +60,5 @@ var Scroll = (function() {
 $(function() {
   Scroll.animatePage();
   Scroll.animateLabel();
-  return $(window).scroll(Scroll.animateLabel);
+  $(window).scroll(Scroll.animateLabel);
 });
-
