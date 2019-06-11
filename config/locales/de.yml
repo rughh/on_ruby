@@ -54,6 +54,7 @@ de:
       other: "Teilnehmerinnen und Teilnehmer (%{participant_count} von %{count})"
     route: "Anfahrt"
     material: "Material"
+    description: "Infos"
     no_location: "Es wird noch nach einer Location gesucht!"
   home:
     the_usergroup: "Die <strong>%{usergroup}</strong> ist eine Benutzergruppe, Anwendergruppe, Interessengemeinschaft oder auch einfach nur ein Haufen Leute, die Spaß an der Programmiersprache Ruby haben. Tausch dich mit uns aus und komm zu unserem nächsten Treffen! Neue Gesichter sind immer gerne gesehen."
@@ -133,6 +134,8 @@ de:
     im_attending_html: "Meine Events abonieren: %{events_im_attending_link}"
     webcal: 'Webcal'
     rss: 'RSS'
+    coc:
+      html: 'Die Events unserer Usergroup unterstützten folgenden <a href="%{coc_link}" target="_blank">Code of Conduct</a>.'
   flash:
     duplicate_nick: "Der Nickname '%{name}' ist bereits vergeben! Wenn Du Dich schon über einen anderen Provider angemeldet hast, dann trage bitte in Deinem Profil die entsprechenden Handles ein!"
     only_admins: "Hoppala, da dürfen nur Admins hin!"

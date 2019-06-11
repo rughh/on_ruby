@@ -1,24 +1,25 @@
 section
-  = github(event)
   h2#event= event.name
-  .participation= participation_link(event)
-  p.meta
-    span
-      = fa_icon('calendar', class: 'fa-fw')
-      => link_to l(event.date, format: :long), event_path(event, format: :ics), title: event.name, class: 'ical'
 
-    => t("show.hosted_by")
-    = link_to_user event.user
+  .meta
+    .pull-right
+      - if Whitelabel[:coc]
+        p= fa_icon('file-text-o', class: 'fa-lg fa-fw', text: link_to('Code of Conduct', Whitelabel[:coc], target: '_blank'))
 
-  p.meta
-    = fa_icon('map-marker', class: 'fa-fw')
-    - if event.location.present?
-      == link_to_route event.location
-      = wheelmap_badge event.location, klass: 'inline-wheelmap-status'
-    - else
-      = link_to t('show.no_location'), none_locations_path
+      - if event.github_issue?
+        p= fa_icon('github', class: 'fa-lg fa-fw', text: link_to('Github Planning Issue', github_issue_url(event.github_issue), target: '_blank'))
+
+    p
+      => fa_icon('calendar', class: 'fa-fw', text: link_to(l(event.date, format: :long), event_path(event, format: :ics), title: event.name, class: 'ical'))
+      => t("show.hosted_by")
+      = link_to_user event.user
+
+    p= fa_icon('map-marker', class: 'fa-fw', text: link_to_route(event.location))
 
   == markdown event.description
+
+  .participation
+    = participation_link(event)
 
   - if event.participants.present?
     h3= t("show.attendees", count: event.limit || 0, participant_count: event.participants.count)

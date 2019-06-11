@@ -16,6 +16,9 @@
     - unless Whitelabel[:custom_recurring]
       p== I18n.tw("home.next_possible_meetup", event_date: content_tag(:em, next_event_date))
 
+  - if Whitelabel[:coc]
+    p= t("events.coc.html", coc_link: Whitelabel[:coc])
+
   - if events.any?
     h3= t("home.past_events")
     ul.more-list.clearfix

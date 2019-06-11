@@ -89,15 +89,6 @@ module ExternalLinkHelper
     "https://twitter.com/home?status=#{URI.encode(text)}"
   end
 
-  def github(event)
-    return unless event.github_issue?
-
-    content_tag :span, class: 'likes' do
-      fa_icon('github', class: 'fa-lg fa-fw dropdown-list-icon') +
-      link_to('Github Planning Issue', github_issue_url(event.github_issue), target: '_blank')
-    end
-  end
-
   def ribbon(type)
     types = {
       github:                 ['Fork me on GitHub!',  'https://github.com/phoet/on_ruby'],
