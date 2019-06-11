@@ -2,7 +2,7 @@ section
   h3= t "profile.edit"
   ul= render 'users/list', users: [user]
 
-  = semantic_form_for user do |f|
+  = simple_form_for user do |f|
     = f.input :name
     - unless user.with_provider? :twitter
         = f.input :twitter, input_html: { placeholder: 'Twitter handle' }
@@ -17,8 +17,8 @@ section
     = f.input :freelancer
     = f.input :available
     = f.input :hide_jobs
-    = f.action :submit
-  p= button_to t("profile.remove_account"), current_user, method: :delete, class: :warn, data: { confirm: t("profile.remove_confirm") }
+    = f.button :submit, class: 'btn-primary'
+  p= button_to t("profile.remove_account"), current_user, method: :delete, class: 'btn btn-danger', data: { confirm: t("profile.remove_confirm") }
 
 section
   h3= t('profile.authorizations')
@@ -31,6 +31,6 @@ section
           => t("login.#{provider}_login")
           = fa_icon 'check', class: 'fa-fw dropdown-list-icon'
         - else
-          = link_to label_auth_url(provider), title: t("login.#{provider}_login") do
+          = link_to label_auth_url(provider), title: t("login.#{provider}_login"), class: 'btn btn-secondary' do
             = fa_icon provider, class: 'fa-fw dropdown-list-icon'
             => t("login.#{provider}_login")
