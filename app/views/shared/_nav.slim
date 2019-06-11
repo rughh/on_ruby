@@ -1,7 +1,7 @@
 nav#nav.navbar
   .nav-box
     ul.nav-inner
-      - nav_entries = [:events, :topics, :people, :mailing_list, :locations]
+      - nav_entries = [:events, :topics, :people, :locations]
       li.label
         = link_to image_tag("labels/#{Whitelabel[:label_id]}.png", class: 'label-img', alt: title), '#on_ruby', class: 'label-link'
       - nav_entries.each do |it|
