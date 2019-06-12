@@ -15,9 +15,9 @@ module ApplicationHelper
   end
 
   def label_auth_url(provider)
-    host = Rails.env.development? ? "#{Whitelabel[:label_id]}.onruby.test" : Whitelabel[:canonical_url]
+    host = Rails.env.development? ? "http://#{Whitelabel[:label_id]}.onruby.test:3000" : Whitelabel[:canonical_url]
 
-    auth_url(provider: provider, host: host)
+    "#{host}/auth/#{provider}?origin=#{CGI.escape(params[:origin]) if params[:origin]}"
   end
 
   def label_url(label)

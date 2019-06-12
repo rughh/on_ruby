@@ -20,35 +20,11 @@ describe SessionsController do
     end
   end
 
-  context 'GET :auth' do
-    let(:key)     { 'kkk' }
-    let(:secret)  { 'sss' }
-
-    before do
-      ENV['OMNIAUTH_TWITTER_ONRUBY_TEST_KEY']    = key
-      ENV['OMNIAUTH_TWITTER_ONRUBY_TEST_SECRET'] = secret
-    end
-
-    it 'sets omniauth session options in the :auth action' do
-      get :auth, params: { provider: :twitter }
-      expect(controller.session[:omniauth_keys]).to eql([key, secret])
-      expect(response).to redirect_to('/auth/twitter')
-    end
-  end
-
   context 'GET :failure' do
     it 'handles failure modes' do
       get :failure
       expect(response).to redirect_to(root_path)
       expect(flash[:alert]).to_not be_nil
-    end
-  end
-
-  context 'GET :auth' do
-    it 'handles different providers' do
-      get :auth, params: { provider: :twitter }
-      expect(response).to redirect_to('/auth/twitter')
-      expect(controller.session[:omniauth_keys]).to_not be_nil
     end
   end
 

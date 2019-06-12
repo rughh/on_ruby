@@ -9,7 +9,7 @@ module EventsHelper
         button_to t('show.attend'), [event, Participant.new], class: 'btn btn-primary'
       end
     else
-      button_to t('show.attend'), login_path, method: :get, params: {referrer: request.url}, class: 'btn btn-primary'
+      button_to t('show.attend'), login_path, method: :get, params: {origin: request.path}, class: 'btn btn-primary'
     end
   end
 

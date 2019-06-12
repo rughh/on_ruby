@@ -78,12 +78,6 @@ class Usergroup
     label_id
   end
 
-  def self.omniauth_keys(provider, request)
-    tokens = ['omniauth', provider] + request.domain.delete('-').split('.')
-    name   = tokens.join('_').upcase
-    [ENV["#{name}_KEY"], ENV["#{name}_SECRET"]]
-  end
-
   def self.switch_by_request(request)
     return true if Whitelabel.label_for(request.subdomains.first)
 

@@ -6,9 +6,7 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: 'Offline Login!'
   end
 
-  def index
-    session[:return_to_back] = params[:referrer] if params[:referrer].present?
-  end
+  def index; end
 
   def create
     begin
@@ -19,7 +17,7 @@ class SessionsController < ApplicationController
       options = { alert: t('flash.duplicate_nick', name: error.nickname) }
     end
 
-    redirect_to session.delete(:return_to_back) || request.env['omniauth.origin'] || root_path, options
+    redirect_to request.env['omniauth.origin'] || root_path, options
   end
 
   def destroy
@@ -30,11 +28,5 @@ class SessionsController < ApplicationController
 
   def failure
     redirect_to root_path, alert: t('flash.login_error')
-  end
-
-  def auth
-    session[:omniauth_keys] = Usergroup.omniauth_keys(params[:provider], request)
-
-    redirect_to "/auth/#{params[:provider]}"
   end
 end
