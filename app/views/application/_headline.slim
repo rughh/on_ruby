@@ -1,9 +1,10 @@
-header
+header.d-none.d-xl-block
   .row
     .col-lg-2
-      = link_to image_tag("labels/#{Whitelabel[:label_id]}.png", title: title, class: 'logo-image'), root_path, title: title
+      = link_to('#on_ruby', title: title) do
+        =image_tag("labels/#{Whitelabel[:label_id]}.png", title: title, id: :logo)
 
     .col-lg-10
-      = link_to root_path, id: :title, title: title do
+      = link_to('#on_ruby', id: :title, title: title) do
         h1= title
         h2= subtitle

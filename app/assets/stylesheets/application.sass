@@ -7,7 +7,6 @@ $link-decoration: underline
 @import "bootstrap"
 @import "font-awesome"
 
-$top-position: 0px
 $background: white
 $container-background: image-url('whitey.png') left top repeat
 $title-color: black
@@ -20,9 +19,6 @@ $sub-title-font-size: $title-font-size / 2
 $border-color: lightgray
 $border: 1px solid $border-color
 $ruby-red: #C81B47
-
-@mixin title-box
-  text-shadow: $background 1px 2px 3px
 
 @mixin userimage($size)
   width: $size
@@ -78,13 +74,13 @@ body
   display: none
 
 nav
+  .label
+    img
+      max-height: 30px
   .user-image
     @include userimage(1.5em)
-  .label
-    opacity: 0
 
   font: bold $nav-font-size $font
-  @include title-box
   border: $border
   a
     text-decoration: none
@@ -98,24 +94,22 @@ header
   padding: 2em 2em 4em 2em
   color: $title-color
 
+  #logo
+    margin-top: 15px
+    margin-left: 0
+    width: 100px
+
   #title, &:hover, &:active, &:visited
     color: $title-color
     text-decoration: none
     h1, h2
       font: bold $title-font-size $font
-      @include title-box
     h1
       line-height: 1.5em
       letter-spacing: 0.3em
     h2
       font-size: $sub-title-font-size
       letter-spacing: 0.1em
-      @include title-box
-
-  .logo-image
-    margin-left: 20px
-    margin-right: 20px
-    width: 80px
 
 .main
   li.topic, li.event
@@ -198,9 +192,6 @@ header
 
   section
     padding: 2em
-    display: block
-    margin: 0 auto
-    margin-top: 0em
     margin-bottom: 3em
     background: $background
     border: $border
@@ -284,64 +275,51 @@ header
 
 footer
   padding: 0
-  margin: 0 0 -1em 0
+  margin: 0 0 -1.5em 0
   border-top: $border
   background: $white
   height: 100%
 
-  p
-    margin: 0
-
   .hr
     border-bottom: 1px dashed $border-color
-  section
-    margin: 0 auto
-    margin-bottom: 1em
-    display: block
-    width: 60em
-    h2
-      font: bold 1.4em $font
-      padding-bottom: 1em
-    .block
-      float: left
-      padding: 3em 0em 1em 8em
 
-      ul
-        padding: 0
-        margin: 0
-        list-style: none
-      li
-        padding-bottom: 1em
-    .usergroups, .railsgroups, .railssupporters
-      ol
-        list-style: lower-greek
-      li
-        float: left
-        padding-right: 1em
-        margin-right: 1em
-        padding-bottom: 1em
-    .railsgroups
-      ol
-        list-style: armenian
-    .railssupporters
-      ol
-        list-style: katakana
-    .sponsors
-      ol
-        list-style: none
-        margin-left: -3em
-      li
-        display: inline-block
-        margin-right: 1em
-        padding-bottom: 1em
-        img
-          height: 60px
+  h2
+    font: bold 1.4em $font
+    padding-bottom: 1em
+  ul
+    padding: 0
+    margin: 0
+    list-style: none
+  li
+    padding-bottom: 1em
+  .usergroups, .railsgroups, .railssupporters
+    ol
+      list-style: lower-greek
+    li
+      float: left
+      padding-right: 1em
+      margin-right: 1em
+      padding-bottom: 1em
+  .railsgroups
+    ol
+      list-style: armenian
+  .railssupporters
+    ol
+      list-style: katakana
+  .sponsors
+    ol
+      list-style: none
+      margin-left: -3em
+    li
+      display: inline-block
+      margin-right: 1em
+      padding-bottom: 1em
+      img
+        height: 60px
 
 .ribbon_wrap
-  position: absolute
-  top: $top-position
-  width: 150px
-  height: 150px
+  width: 70px
+  height: 70px
   overflow: hidden
   font-size: $base-font-size
   a
@@ -357,16 +335,16 @@ footer
       width: 250px
       @include ribbon
     &#senor_developer
-      transform: rotate(-45deg)
+      transform: rotate(45deg)
       left: -65px
     &#patreon
-      transform: rotate(-45deg)
+      transform: rotate(45deg)
       left: -65px
     &#rgsoc
-      transform: rotate(-45deg)
+      transform: rotate(45deg)
       left: -65px
     &#github
-      transform: rotate(45deg)
+      transform: rotate(-45deg)
       right: -65px
   &#github_ribbon
     right: 0px

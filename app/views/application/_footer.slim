@@ -1,16 +1,15 @@
-section.clearfix
+.container
   - if Whitelabel[:sponsors].present?
-    .info.clearfix.hr
-      .sponsors.block
+    .row.m-4.hr
+      .col-sm-12
         h2= I18n.tw("footer.sponsored_by")
-        ol
-          - Whitelabel[:sponsors].each do |sp|
-            li(class="sponsor-#{sp[:name].downcase}")
-              => link_to sp[:url], title: sp[:name] do
-                => image_tag("labels/#{Whitelabel[:label_id]}/sponsors/#{sp[:banner]}", alt: sp[:name])
+      - Whitelabel[:sponsors].each do |sp|
+        .col-sm.pb-4.sponsors(class="sponsor-#{sp[:name].downcase}")
+          => link_to sp[:url], title: sp[:name] do
+            => image_tag("labels/#{Whitelabel[:label_id]}/sponsors/#{sp[:banner]}", alt: sp[:name])
 
-  .info.clearfix.hr
-    .contact.block
+  .row.m-4.hr
+    .col-sm.mb-2
       h2= t("footer.contact")
       ul
         li
@@ -19,7 +18,7 @@ section.clearfix
         li= mail_to Whitelabel[:email], 'E-Mail', title: "#{Whitelabel[:twitter]} E-Mail"
         li= link_to 'Status', 'http://status.onruby.eu/'
 
-    .links.block
+    .col-sm.mb-2
       h2= t("footer.links")
       ul
         li
@@ -31,7 +30,7 @@ section.clearfix
         - if Whitelabel[:coc].present?
           li= link_to 'Code of Conduct', Whitelabel[:coc], title: 'Code of Conduct'
 
-    .imprint.block
+    .col-sm.mb-2
       h2= t("footer.imprint")
       ul
         li== Whitelabel[:imprint][:contributors].map { |c| mail_to c[:email], c[:name], title: c[:name] }.join(' ')
@@ -39,25 +38,28 @@ section.clearfix
           li== simple_format Whitelabel[:imprint][:address]
 
   - if Whitelabel[:other_usergroups].present?
-    .usergroups.block.hr
-      h2= I18n.tw("footer.other_usergroups")
+    .row.m-4.usergroups.hr
+      .col-sm.mb-2
+        h2= I18n.tw("footer.other_usergroups")
+        ol
+          - Whitelabel[:other_usergroups].each do |ug|
+            li
+              => link_to ug[:name], ug[:url], title: ug[:name]
+              = link_to_twitter(ug[:twitter], clung: true) if ug[:twitter]
+
+  .row.m-4.railsgroups.hr
+    .col-sm.mb-2
+      h2= t("footer.ruby_usergroups")
       ol.clearfix
-        - Whitelabel[:other_usergroups].each do |ug|
-          li
-            => link_to ug[:name], ug[:url], title: ug[:name]
-            = link_to_twitter(ug[:twitter], clung: true) if ug[:twitter]
+        - Whitelabel.labels.each do |label|
+          -if label.enabled?
+            li
+              - name = t("label.#{label.label_id}.name")
+              => link_to name, label_url(label), title: name
+              = link_to_twitter(label.twitter, clung: true)
 
-  .railsgroups.block.hr
-    h2= t("footer.ruby_usergroups")
-    ol.clearfix
-      - Whitelabel.labels.each do |label|
-        -if label.enabled?
-          li
-            - name = t("label.#{label.label_id}.name")
-            => link_to name, label_url(label), title: name
-            = link_to_twitter(label.twitter, clung: true)
-
-  .railssupporters.block
-    h2= t("footer.ruby_supporters")
-    ol.clearfix
-      li= link_to "Ruby Berlin e.V.", "http://rubyberlin.org/"
+  .row.m-4.railssupporters
+    .col-sm.mb-2
+      h2= t("footer.ruby_supporters")
+      ol.clearfix
+        li= link_to "Ruby Berlin e.V.", "http://rubyberlin.org/"

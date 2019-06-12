@@ -7,13 +7,10 @@ html
     = touch_icon
     = rss_feed
     = csrf_meta_tag
-    = whitelabel_stylesheet_link_tag
     = stylesheet_link_tag :application, "//fonts.googleapis.com/css?family=Alef"
+    = whitelabel_stylesheet_link_tag
   body
-    = ribbon(:github)
-    = ribbon(:patreon)
-
-    .container
+    .container#on_ruby
       = render 'nav'
       .main.m-4
         = render 'headline'
@@ -21,6 +18,11 @@ html
         = yield
     footer
       = render 'footer'
+
+    .fixed-bottom.d-none.d-lg-block
+      = ribbon(:github)
+      = ribbon(:patreon)
+
   = render 'info'
   = render 'i18njs'
   = javascript_include_tag :application, "//maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDvgVnoO2zQ_K_dDhAFiz2nENTQSH4TivY"
