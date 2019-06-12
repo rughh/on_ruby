@@ -23,6 +23,6 @@
           #job-list.hidden
             ul
               - jobs.each_with_index do |job, index|
-                li
+                li.mb-4
                   span.job-toggle= link_to fa_icon("chevron-up"), '#', title: t("hint.click_to_refresh") if index == 0
                   .job.ml-4== job_description(job)

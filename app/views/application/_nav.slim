@@ -2,7 +2,7 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-rounded
   .label= link_to(image_tag("labels/#{Whitelabel[:label_id]}.png", title: title, style: 'height: 30px'), '#on_ruby', class: 'navbar-brand pl-4')
 
   button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
-    span.navbar-toggler-icon
+    = fa_icon('bars', class: 'fa-fw')
 
   #navbarSupportedContent.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
@@ -12,18 +12,22 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-rounded
             = fa_icon(section, class: 'fa-fw', text: t("main.#{section}"))
 
     ul.navbar-nav.ml-auto
+      - if signed_in?
+        li.nav-item
+          = link_to(edit_user_path(current_user), class: 'nav-link') do
+            = image_tag(current_user.image, title: current_user.name, class: 'user-image')
+
       li.nav-item.dropdown.pr-2
         a(class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
           - if signed_in?
-            = image_tag(current_user.image, title: current_user.name, style: 'height: 25px')
-
+            = fa_icon('user', class: 'fa-fw', text: t('login.profile'))
           - else
             = fa_icon('user', class: 'fa-fw', text: t('login.login'))
 
         .dropdown-menu(aria-labelledby="loginDropdown")
           - if signed_in?
             = link_to(user_path(current_user), class: 'dropdown-item') do
-              = fa_icon('eye', class: 'fa-fw', text: t("login.profile"))
+              = fa_icon('eye', class: 'fa-fw', text: t("login.show_profile"))
 
             = link_to(edit_user_path(current_user), class: 'dropdown-item') do
               = fa_icon('edit', class: 'fa-fw', text: t("login.edit_profile"))

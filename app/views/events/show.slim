@@ -1,7 +1,7 @@
 section
   h2#event= event.name
 
-  .meta
+  well.meta
     .pull-right
       - if Whitelabel[:coc]
         p= fa_icon('file-text-o', class: 'fa-lg fa-fw', text: link_to('Code of Conduct', Whitelabel[:coc], target: '_blank'))

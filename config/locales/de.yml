@@ -21,7 +21,8 @@ de:
     en: "Englisch"
     es: "Spanisch"
   login:
-    profile: "Profil ansehen"
+    profile: "Profil"
+    show_profile: "Profil ansehen"
     edit_profile: "Profil bearbeiten"
     login: "Login"
     logout: "Ausloggen"

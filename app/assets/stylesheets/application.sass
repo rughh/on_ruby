@@ -1,3 +1,12 @@
+
+$primary: #555
+$default: #555
+$link-decoration: underline
+
+
+@import "bootstrap"
+@import "font-awesome"
+
 $top-position: 0px
 $background: white
 $container-background: image-url('whitey.png') left top repeat
@@ -48,15 +57,8 @@ $ruby-red: #C81B47
     position: $x $y
 
 
-$primary: #555
-$default: #555
-$link-decoration: underline
-
 a.btn
   text-decoration: none
-
-@import "bootstrap"
-@import "font-awesome"
 
 body
   background: image-url('whitey.png') left top repeat
@@ -77,7 +79,7 @@ body
 
 nav
   .user-image
-    @include userimage(20px)
+    @include userimage(1.5em)
   .label
     opacity: 0
 
@@ -134,6 +136,9 @@ header
     padding-bottom: 1em
     margin-top: 0em
     margin-bottom: 3em
+    ul, li
+      padding: 0px
+      margin: 0px
 
   em
     font-style: italic
