@@ -3,8 +3,14 @@ module WhitelabelDetection
 
   def switch_label
     Whitelabel.reset!
-    unless Usergroup.switch_by_request(request)
-      redirect_to labels_url(subdomain: 'www')
+
+    return if Whitelabel.label_for(request.subdomains.first)
+
+    Whitelabel.label = Whitelabel.labels.find do |label|
+      label.domains && label.domains.any? do |custom_domain|
+        request.host =~ /#{custom_domain}/
+      end
     end
+    Whitelabel.label ||= Whitelabel.labels.first
   end
 end

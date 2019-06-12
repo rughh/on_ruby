@@ -9,13 +9,6 @@ describe 'Whitelabel' do
     end
   end
 
-  context 'GET page with non existing subdomain' do
-    it 'redirects to main url' do
-      get root_url(subdomain: 'rostock')
-      expect(response).to redirect_to(labels_url(subdomain: 'www'))
-    end
-  end
-
   context 'GET page with existing subdomain' do
     it 'shows the label' do
       get root_url(subdomain: 'hamburg')

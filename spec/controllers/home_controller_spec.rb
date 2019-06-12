@@ -12,17 +12,6 @@ describe HomeController do
     end
   end
 
-  context 'main domain' do
-    before { set_subdomain('www') }
-
-    context 'GET :index' do
-      it 'should render the :index template' do
-        get :index
-        expect(response).to redirect_to('http://www.onruby.test/')
-      end
-    end
-  end
-
   context 'custom domains' do
     before { set_custom_domain }
 

@@ -78,16 +78,6 @@ class Usergroup
     label_id
   end
 
-  def self.switch_by_request(request)
-    return true if Whitelabel.label_for(request.subdomains.first)
-
-    Whitelabel.label = Whitelabel.labels.find do |label|
-      label.domains && label.domains.any? do |custom_domain|
-        request.host =~ /#{custom_domain}/
-      end
-    end
-  end
-
   def self.from_name(name)
     raise 'you need to provide a name that contains only word characters' unless name =~ /\A\w+\z/
 
