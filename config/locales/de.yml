@@ -1,8 +1,8 @@
 de:
   main:
     events: "Treffen"
-    mailing_list: "Mailinglist"
     locations: "Orte"
+    mailing_list: "Mailinglist"
     people: "Leute"
     topics: "Themen"
     materials: "Zusätzliches Material"
@@ -10,10 +10,8 @@ de:
     formats:
       time: "%H:%M"
       date: "%d.%m. %H:%M"
+      long: "%d.%m.%Y um %H:%M"
       month: "%B %Y"
-  countries:
-    DE: "Deutschland"
-    ES: "Spanien"
   language_chooser: "Sprache"
   switch_languages: "Umschalten auf %{language}"
   languages:
