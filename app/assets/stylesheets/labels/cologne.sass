@@ -1,5 +1,3 @@
-@import "_lib/responsive"
-
 @import "cologne/colors"
 @import "cologne/dimensions"
 
@@ -37,11 +35,7 @@ a:hover
     height: 449px
     background: image-url("labels/cologne/gem-glas-full.png") left bottom no-repeat
     z-index: 96
-  +phone
-    left: initial
-    right: 50px
-    bottom: 80px
-    zoom: 0.3
+
 #refill
   position: fixed !important
   bottom: 10px
@@ -50,11 +44,6 @@ a:hover
   font-size: 2em
   z-index: 90
   opacity: 0
-  +phone
-    left: initial
-    right: 10px
-    bottom: 0
-    zoom: 0.8
   a:hover
     text-shadow: 0px 0px 1px $dark-grey
     color: $red
