@@ -1,6 +1,6 @@
 section
   .user
-    .image= image_tag user.image, size: '48x48', alt: user.name
+    .image= image_tag cache_image_path(user), size: '48x48', alt: user.name
     h3
       = user.name
       = user.freelancer? ? " / #{I18n.tw("profile.freelancer")}" : ''

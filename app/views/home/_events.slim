@@ -16,6 +16,9 @@
     - unless Whitelabel[:custom_recurring]
       p== I18n.tw("home.next_possible_meetup", event_date: content_tag(:em, next_event_date))
 
+  - if Whitelabel[:coc]
+    p= t("events.coc.html", coc_link: Whitelabel[:coc])
+
   - if events.any?
     h3= t("home.past_events")
     ul.more-list.clearfix
@@ -23,7 +26,6 @@
         li.event
           = link_to_event event, title: "#{l(event.date, format: :date)} - #{event.name}"
       li.all
-        = fa_icon 'mail-forward', class: 'pull-left'
-        = link_to t('home.all_events'), events_path
+        = fa_icon 'mail-forward', text: link_to(t('home.all_events'), events_path)
   - else
     = link_to t('home.all_events'), events_path

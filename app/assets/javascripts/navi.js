@@ -21,7 +21,7 @@ var Scroll = (function() {
       return $('a[href*="#"]').click(event => {
         const { hash } = event.currentTarget;
         const $target = $(hash);
-        const topOffset = $('#nav').height()*0.9;
+        const topOffset = $('#nav').height() + 50;
         if ($target.length) {
           const top = $target.offset().top - topOffset;
           event.preventDefault();
@@ -36,21 +36,9 @@ var Scroll = (function() {
         }
         if (window.history && window.history.pushState) {
           const url = /\#/.test(location.href) ? location.href.replace(/\#.+/, hash) : `${location.href}${hash}`;
-          return window.history.pushState(
-            {count: this.historyCounter},
-            `page-${this.historyCounter}`, url);
+          window.history.pushState({count: this.historyCounter}, `page-${this.historyCounter}`, url);
         }
       });
-    }
-
-    static animateLabel() {
-      if (!Scroll.possibleTouchDevice()) {
-        const t = $(document).scrollTop();
-        let opacity = (Math.pow(t, 3) / 1e7);
-        if (opacity < 0) { opacity = 0; }
-        if (opacity > 1) { opacity = 1; }
-        return $('#nav .label').css('opacity', opacity);
-      }
     }
   };
   Scroll.initClass();
@@ -59,7 +47,5 @@ var Scroll = (function() {
 
 $(function() {
   Scroll.animatePage();
-  Scroll.animateLabel();
-  return $(window).scroll(Scroll.animateLabel);
+  $(window).scroll(Scroll.animateLabel);
 });
-

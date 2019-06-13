@@ -1,30 +1,29 @@
 doctype 5
 html
   head
-    = render 'shared/meta'
+    = render 'meta'
     = canonical_url
     = browser_icon
     = touch_icon
     = rss_feed
     = csrf_meta_tag
-    = whitelabel_stylesheet_link_tag
     = stylesheet_link_tag :application, "//fonts.googleapis.com/css?family=Alef"
+    = whitelabel_stylesheet_link_tag
   body
-    = ribbon(:github)
-    = ribbon(:patreon)
-    .container
-      = render 'shared/nav'
-      header#on_ruby.clearfix
-        = render 'shared/headline'
-      .main
-        = render 'shared/hint'
+    .container#on_ruby
+      = render 'nav'
+      .main.m-4
+        = render 'headline'
+        = render 'hint'
         = yield
     footer
-      = render( 'shared/footer',
-                imprint: Whitelabel[:imprint],
-                sponsors: Whitelabel[:sponsors],
-                other_usergroups: Whitelabel[:other_usergroups] )
-  = render 'shared/info'
-  = render 'shared/i18njs'
+      = render 'footer'
+
+    .fixed-bottom.d-none.d-lg-block
+      = ribbon(:github)
+      = ribbon(:patreon)
+
+  = render 'info'
+  = render 'i18njs'
   = javascript_include_tag :application, "//maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDvgVnoO2zQ_K_dDhAFiz2nENTQSH4TivY"
   = whitelabel_javascript_include_tag

@@ -41,7 +41,7 @@ const OnRuby = {
       $('.job-toggle a').on('click', function(event) {
         event.preventDefault();
         $("#job-teaser").toggle();
-        return $("#job-list").toggle();
+        $("#job-list").toggle();
       });
 
       const func = () =>
@@ -58,7 +58,7 @@ const OnRuby = {
         const elements = $(list).find("li");
         if (elements.size() > preview_size) {
           elements.slice(preview_size).hide();
-          const link = $(`<i class='fa fa-chevron-down pull-left'></i><a class='more' href='#'>${I18n.showMore}</a>`);
+          const link = $(`<i class='fa fa-chevron-down'></i> <a class='more' href='#'>${I18n.showMore}</a>`);
           const container = $("<p></p>").append(link);
           container.insertAfter(list);
           return link.click(function(event) {

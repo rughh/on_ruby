@@ -1,6 +1,7 @@
 Exclude:
   # disable gems
   - /faker/ # TODO: fork gem to add missing keys
+  - /simple_form/
 
   # disable default translations
   - /helpers.page_entries_info/

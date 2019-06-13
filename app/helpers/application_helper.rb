@@ -1,4 +1,15 @@
 module ApplicationHelper
+  def cache_image_path(model)
+    options = {
+      timestamp: model.updated_at.to_i,
+      model_name: model.class,
+      model_id: model.id,
+      filename: "#{model.slug}.png"
+    }
+
+    image_dispatch_path(options)
+  end
+
   def login_providers
     %w[twitter github google_oauth2]
   end
@@ -15,9 +26,9 @@ module ApplicationHelper
   end
 
   def label_auth_url(provider)
-    host = Rails.env.development? ? "#{Whitelabel[:label_id]}.onruby.test" : Whitelabel[:canonical_url]
+    host = Rails.env.development? ? "http://#{Whitelabel[:label_id]}.onruby.test:3000" : Whitelabel[:canonical_url]
 
-    auth_url(provider: provider, host: host)
+    "#{host}/auth/#{provider}?origin=#{CGI.escape(params[:origin]) if params[:origin]}"
   end
 
   def label_url(label)
@@ -55,7 +66,7 @@ module ApplicationHelper
 
   def section_box(name)
     content_tag :section, class: "#{name} clearfix", id: name do
-      concat content_tag(:h2, content_tag(:i, '', class: "icon icon-#{name}") + t("main.#{name}"))
+      concat content_tag(:h2, fa_icon(name, text: t("main.#{name}")))
       yield
     end
   end

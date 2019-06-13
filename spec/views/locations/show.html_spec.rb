@@ -5,6 +5,7 @@ describe 'locations/show' do
 
   it 'should render successfully' do
     allow(view).to receive_messages(location: location)
+    view.lookup_context.prefixes = %w[locations application]
 
     render
   end

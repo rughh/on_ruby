@@ -1,9 +1,9 @@
 section
-  h3= t "show.login_before_attend"
+  h3= t("show.login_before_attend")
 
-  ul
-    - login_providers.each do |provider|
-      li
-        = link_to label_auth_url(provider) do
-          = fa_icon provider, class: 'fa-fw dropdown-list-icon'
-          => t("login.#{provider}_login")
+  .d-flex.justify-content-center
+    ul.list-group.list-group-horizontal
+      - login_providers.each do |provider|
+        li.list-group-item
+          = link_to(label_auth_url(provider)) do
+            = fa_icon(provider, class: 'fa-fw dropdown-list-icon', text: t("login.#{provider}_login"))

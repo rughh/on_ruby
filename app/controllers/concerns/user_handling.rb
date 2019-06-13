@@ -10,7 +10,6 @@ module UserHandling
   def authenticate!
     return if signed_in?
 
-    session[:return_to_back] = request.url
     redirect_to login_path, alert: t('flash.not_logged_in')
   end
 

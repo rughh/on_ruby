@@ -5,4 +5,4 @@
       - topics.each do |topic|
         li.topic
           = link_to_topic topic
-      li.all= link_to(t('topic.all_topics'), topics_path)
+      li.all= fa_icon 'mail-forward', text: link_to(t('topic.all_topics'), topics_path)

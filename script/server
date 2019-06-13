@@ -12,4 +12,4 @@ export OMNIAUTH_GITHUB_ONRUBY_TEST_SECRET=631246927040210ff8d21f7d734c291f7b8b8d
 
 bundle check || bundle install
 
-bundle exec puma --config config/puma.rb
+bin/rails server

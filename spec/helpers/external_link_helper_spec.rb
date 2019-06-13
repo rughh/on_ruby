@@ -41,12 +41,6 @@ describe ExternalLinkHelper do
     end
   end
 
-  context '#mailing_list_entries' do
-    it 'fetches and parses a feed' do
-      expect(mailing_list_entries).to have(15).items
-    end
-  end
-
   context '#mailing_list_url' do
     it 'creates an url' do
       expect(helper.mailing_list_url).to eql('https://groups.google.com/group/rubyonrails-ug-germany')
