@@ -1,4 +1,15 @@
 module ApplicationHelper
+  def cache_image_path(model)
+    options = {
+      timestamp: model.updated_at.to_i,
+      model_name: model.class,
+      model_id: model.id,
+      filename: "#{model.slug}.png"
+    }
+
+    image_dispatch_path(options)
+  end
+
   def login_providers
     %w[twitter github google_oauth2]
   end

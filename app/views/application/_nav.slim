@@ -18,7 +18,7 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-rounded#nav
       - if signed_in?
         li.nav-item
           = link_to(edit_user_path(current_user), class: 'nav-link') do
-            = image_tag(current_user.image, title: current_user.name, class: 'user-image')
+            = image_tag(cache_image_path(current_user), title: current_user.name, class: 'user-image')
 
       li.nav-item.dropdown.pr-2
         a(class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")

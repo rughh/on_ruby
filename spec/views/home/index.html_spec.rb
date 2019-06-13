@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'home/index' do
   let(:event)     { build(:event, id: 123) }
-  let(:user)      { build(:user) }
+  let(:user)      { build(:user, id: 123) }
   let(:location)  { build(:location) }
   let(:topic)     { build(:topic) }
   let(:company)   { build(:location, company: true) }

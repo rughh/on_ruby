@@ -17,6 +17,8 @@ OnRuby::Application.routes.draw do
     root to: "events#index"
   end
 
+  get 'image/:timestamp/:model_name/:model_id/*filename' => 'images#show', as: :image_dispatch
+
   resource :sitemap, only: :show
 
   resources :users do
