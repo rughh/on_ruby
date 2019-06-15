@@ -34,6 +34,8 @@ module LinkHelper
   end
 
   def link_to_route(location)
+    return '-' if location.blank?
+
     content_tag(:span, link_to(location.address, '#route', title: "#{location.name}, #{location.address}")) +
       " #{t('show.at')} " +
       content_tag(:span, link_to_location(location), class: 'open-icon')
