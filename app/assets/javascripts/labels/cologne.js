@@ -21,7 +21,7 @@ $(document).ready(function() {
   // assign header animation listeners
   $("#title").mouseover(CGN.showKoelsch).mouseout(CGN.showCologne);
   // append custom markup for gem beer glas
-  $(".main").append("<div id='gem'><img src='images/labels/cologne/gem-glas.png'><div id='beer'></div></div><span><a href='#on_ruby' id='refill'>refill?</a></span>");
+  $(".main").append("<div id='gem'><img src='/images/labels/cologne/gem-glas.png'><div id='beer'></div></div><span><a href='#on_ruby' id='refill'>refill?</a></span>");
   // animate gem beer glas
   CGN.beer_height = $("#gem").height();
   return $(window).scroll(function() {
