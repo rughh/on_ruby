@@ -72,6 +72,7 @@ de:
     next_meetup: "Das nächste Treffen"
     takes_place: "findet am %{event_date} bei %{location_link} statt!"
     takes_place_no_location: "findet am %{event_date} statt, es wird <a href='%{none_url}'>noch eine Location gesucht!</a>"
+    no_location: "Location wird gesucht"
     past_events: "Vergangene Treffen"
     usergroup_locations: "Dies sind die %{location_link} an denen unsere Ruby Usergroups in der Regel stattfinden."
     show_more: "mehr anzeigen"
