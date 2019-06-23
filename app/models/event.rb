@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   extend ApiHandling
   expose_api :id, :name, :description, :date, :location_id, :user_id, :participants, :topics, :materials, :location
 
-  belongs_to :location
+  belongs_to :location, optional: true
   belongs_to :user
 
   has_many :participants
