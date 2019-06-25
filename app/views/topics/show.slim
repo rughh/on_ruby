@@ -1,19 +1,33 @@
 section
-  h2= topic.name
-  .participation= like_link(topic)
-  - if event = topic.event
-    p.meta
-      == t 'topic.created_by_user', user: link_to_user(topic.user)
-    p.meta
-      == t "topic.hosted_by", host: link_to_user(event.user), event: link_to_event(event, icon: false)
-  - else
-    p.meta
-      == t "topic.proposal_type_descriptions.#{topic.proposal_type}", user: link_to_user(topic.user)
-    p.meta
-      = t 'topic.no_event'
+  .card
+    .card-header
+      == t("topic.proposal_type_descriptions.#{topic.proposal_type}", user: link_to_user(topic.user, image: true))
 
+    .card-body
+      h2.card-title= topic.name
+      pcard-text== markdown(topic.description)
 
-  == markdown topic.description
-  = render "materials", materials: topic.materials
+    .card-body
+      = like_link(topic)
 
-  = render 'likes', likes: topic.likes
+    .card-body.row
+      - if topic.materials.present?
+        .col-sm
+          h3.card-title= t("main.materials")
+          ul.list-group.list-group-flush
+            - topic.materials.each do |material|
+              li.list-group-item
+                = link_to_material(material)
+                == " (#{link_to_user(material.user)})" if material.user
+                = material_preview(material)
+
+      - if topic.likes.present?
+        .col-sm
+          h3.card-title= t('topic.likes', count: topic.likes.size)
+          ul.list-group.list-group-flush
+            - topic.likes.each do |like|
+              li.list-group-item
+                = fa_icon('thumbs-o-up', class: 'pull-left', text: link_to_user(like.user))
+
+    - if topic.event.present?
+      .card-footer== t("topic.hosted_by", host: link_to_user(topic.event.user), event: link_to_event(topic.event, icon: false))
