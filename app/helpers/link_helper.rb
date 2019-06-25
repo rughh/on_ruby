@@ -1,6 +1,8 @@
 module LinkHelper
-  def link_to_user(user)
-    link_to user.name, user, title: user.name
+  def link_to_user(user, image: false, image_class: 'small-user-image')
+    link_to(user, title: user.name) do
+      image ? image_tag(cache_image_path(topic.user), title: topic.user.name, class: image_class) + user.name : user.name
+    end
   end
 
   def link_to_job(job)
