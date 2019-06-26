@@ -32,48 +32,40 @@ section
         p.card-text== markdown user.description
 
     .card-body
-      .container
-        .row
-          - if user.materials.present?
-            .col
-              h3.card-title= t("profile.provided_material")
-              ul.list-group.list-group-flush
-                - user.materials.each do |material|
-                  li.list-group-item
-                    = link_to_material(material)
-                    = material_preview(material)
+      - if user.topics.present?
+        h3.card-title= t("profile.talks_done")
+        ul.list-group
+          - user.topics.each do |topic|
+            li.list-group-item
+              = link_to_topic(topic)
 
-          - if user.topics.present?
-            .col
-              h3.card-title= t("profile.talks_done")
-              ul.list-group.list-group-flush
-                - user.topics.each do |topic|
-                  li.list-group-item
-                    = link_to_topic(topic)
+      - if user.materials.present?
+        h3.card-title= t("profile.provided_material")
+        ul.list-group
+          - user.materials.each do |material|
+            li.list-group-item
+              = link_to_material(material)
 
-          - if user.liked_topics.present?
-            .col
-              h3.card-title= t("profile.likes_given")
-              ul.list-group.list-group-flush
-                - user.liked_topics.each do |topic|
-                  li.list-group-item
-                    = link_to_topic(topic)
+      - if user.participations.present?
+        h3.card-title= t("profile.events_participated")
+        ul.list-group
+          - user.participations.each do |event|
+            li.list-group-item
+              = link_to_event(event)
 
-          - if user.participations.present?
-            .col
-              h3.card-title= t("profile.events_participated")
-              ul.list-group.list-group-flush
-                - user.participations.each do |event|
-                  li.list-group-item
-                    = link_to_event(event)
+      - if user.events.present?
+        h3.card-title= t("profile.organized_events")
+        ul.list-group
+          - user.events.each do |event|
+            li.list-group-item
+              = link_to_event(event)
 
-          - if user.events.present?
-            .col
-              h3.card-title= t("profile.organized_events")
-              ul.list-group.list-group-flush
-                - user.events.each do |event|
-                  li.list-group-item
-                    = link_to_event(event)
+      - if user.liked_topics.present?
+        h3.card-title= t("profile.likes_given")
+        ul.list-group
+          - (user.liked_topics.to_a * 10).each do |topic|
+            li.list-group-item
+              = link_to_topic(topic)
 
     - if user.organizer?
       .card-footer
