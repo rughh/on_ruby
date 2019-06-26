@@ -1,6 +1,5 @@
 .imagelist
-  ul.more-list.clearfix data-preview-size="33"
+  ul
     - users.each do |user|
       li
-        = link_to user, title: user.name do
-          = image_tag 'logo.gif', alt: user.name, data: {src: cache_image_path(user)}
+        = user_image(user, image_class: 'large-user-image')

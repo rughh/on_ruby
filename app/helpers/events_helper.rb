@@ -1,15 +1,15 @@
 module EventsHelper
-  def participation_link(event)
+  def participation_link(event, link_class: 'btn btn-primary')
     if signed_in?
       if current_user.participates?(event)
-        button_to t('show.not_attend'), [event, current_user.participation(event)], method: :delete, class: 'btn btn-primary'
+        link_to t('show.not_attend'), [event, current_user.participation(event)], method: :delete, class: link_class
       elsif event.closed?
-        button_to t('show.attend'), '#', data: { disable: t('flash.already_closed') }, class: 'btn btn-primary'
+        link_to t('show.attend'), '#', data: { disable: t('flash.already_closed') }, class: link_class
       else
-        button_to t('show.attend'), [event, Participant.new], class: 'btn btn-primary'
+        link_to t('show.attend'), [event, Participant.new], method: :post, class: link_class
       end
     else
-      button_to t('show.attend'), login_path, method: :get, params: {origin: request.path}, class: 'btn btn-primary'
+      link_to t('show.attend'), login_path, params: {origin: request.path}, class: link_class
     end
   end
 

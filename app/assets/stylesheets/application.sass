@@ -23,7 +23,7 @@ $ruby-red: #C81B47
   width: $size
   height: $size
   border: $border
-  border-radius: 10%
+  border-radius: 999%
 
 @mixin clearfix
   clear: both
@@ -62,6 +62,10 @@ body
   background-color: $white
   border: 1px solid $border-color
 
+.card-img-topic
+  margin: 1em
+  @include userimage(150px)
+
 // https://fontawesome.com/v3.2.1/icons/
 .fa-events
   @extend .fa-calendar
@@ -80,6 +84,10 @@ body
 .small-user-image
   margin-right: 0.5em
   @include userimage(1.5em)
+
+.large-user-image
+  margin-right: 1em
+  @include userimage(6em)
 
 #nav
   img.label
@@ -226,14 +234,12 @@ header
       margin: 0.2em
     @include clearfix
   .imagelist
-    img
-      @include userimage(48px)
     ul
       list-style: none
+      display: inline-block
       li
         float: left
-        margin: 0 1em 1em 0
-      @include clearfix
+        margin: 0 2em 2em 0
   .map_canvas
     margin: 0 auto
     height: 30em
