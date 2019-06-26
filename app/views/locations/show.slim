@@ -27,7 +27,7 @@ section
             li.list-group-item
               = link_to_job(job)
 
-      - if location.jobs.present?
+      - if location.events.present?
         h3.card-title= t("profile.organized_events")
         ul.list-group
           - location.events.each do |event|
