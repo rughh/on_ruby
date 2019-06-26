@@ -22,7 +22,7 @@ section
 
     .card-body
       h2.card-title
-        = user_image(current_user)
+        = user_image(user)
         = user.name
       small.text-muted
         span>= I18n.tw("profile.freelancer") if user.freelancer?
