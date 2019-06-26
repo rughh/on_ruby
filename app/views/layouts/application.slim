@@ -19,8 +19,9 @@ html
     footer
       = render 'footer'
 
-    = ribbon(:patreon)
-    = ribbon(:github)
+    .d-none.d-lg-block
+      = ribbon(:patreon)
+      = ribbon(:github)
 
   = render 'info'
   = render 'i18njs'
