@@ -31,7 +31,6 @@ section
       - if user.description.present?
         p.card-text== markdown user.description
 
-    .card-body
       - if user.topics.present?
         h3.card-title= t("profile.talks_done")
         ul.list-group
