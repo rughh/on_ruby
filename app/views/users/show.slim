@@ -1,66 +1,83 @@
 section
-  .user
-    .image= image_tag cache_image_path(user), size: '48x48', alt: user.name
-    h3
-      = user.name
-      = user.freelancer? ? " / #{I18n.tw("profile.freelancer")}" : ''
-      = user.available? ? " / #{t("profile.available")}" : ''
-
-    div.badges.small
-      - if user.twitter?
-        span
-          = fa_icon 'twitter', class: 'pull-left'
-          = link_to_twitter user
-      - if user.github?
-        span
-          = fa_icon 'github', class: 'pull-left'
-          = link_to_github user
-      - if user.linkedin?
-        span
-            = fa_icon 'linkedin', class: 'bg-danger pull-left'
-            = link_to_linkedin user
-      - if user.url?
-        span
-          = fa_icon 'bookmark', class: 'pull-left'
-          = link_to user.url, user.url
+  .card
+    .card-header
+      - if user.organizer?
+        span.badge.badge-card-header.mr-2
+          = fa_icon('star', text: 'Organizer')
       - if user.location?
-        span
-          = fa_icon 'map-marker', class: 'pull-left'
-          = user.location
+        span.badge.badge-card-header.mr-2
+          = fa_icon('map-marker', text:(user.location))
+      - if user.twitter?
+        span.badge.badge-card-header.mr-2
+          = fa_icon('twitter', text: link_to_twitter(user))
+      - if user.github?
+        span.badge.badge-card-header.mr-2
+          = fa_icon('github', text: link_to_github(user))
+      - if user.linkedin?
+        span.badge.badge-card-header.mr-2
+          = fa_icon('linkedin', text: link_to_linkedin(user))
+      - if user.url?
+        span.badge.badge-card-header.mr-2
+          = fa_icon('bookmark', text: link_to(user.url, user.url))
 
-  = markdown user.description if user.description
+    .card-body
+      h2.card-title
+        = user_image(current_user)
+        = user.name
+      small.text-muted
+        span>= I18n.tw("profile.freelancer") if user.freelancer?
+        span>= "(#{t("profile.available")})" if user.available?
 
-  - if user.topics.present?
-    #talks_done
-      h3= t("profile.talks_done")
-      ul.more-list
-        - user.topics.each do |topic|
-          li= link_to_topic topic
+      - if user.description.present?
+        p.card-text== markdown user.description
 
-  - if user.materials.present?
-    #provided_material
-      h3= t("profile.provided_material")
-      ul.more-list
-        - user.materials.each do |material|
-          li= link_to_material material
+    .card-body
+      .container
+        .row
+          - if user.materials.present?
+            .col
+              h3.card-title= t("profile.provided_material")
+              ul.list-group.list-group-flush
+                - user.materials.each do |material|
+                  li.list-group-item
+                    = link_to_material(material)
+                    = material_preview(material)
 
-  - if user.liked_topics.present?
-    #likes_given
-      h3= t("profile.likes_given")
-      ul.more-list
-        - user.liked_topics.each do |topic|
-          li= link_to_topic topic
+          - if user.topics.present?
+            .col
+              h3.card-title= t("profile.talks_done")
+              ul.list-group.list-group-flush
+                - user.topics.each do |topic|
+                  li.list-group-item
+                    = link_to_topic(topic)
 
-  - if user.participations.present?
-    #events_participated
-      h3= t("profile.events_participated")
-      ul.more-list
-        - user.participations.each do |event|
-          li= link_to_event event
+          - if user.liked_topics.present?
+            .col
+              h3.card-title= t("profile.likes_given")
+              ul.list-group.list-group-flush
+                - user.liked_topics.each do |topic|
+                  li.list-group-item
+                    = link_to_topic(topic)
 
-  - if user.events.present?
-    #organized_events
-      h3= t("profile.organized_events")
-      ul.more-list
-        - user.events.each do |event|
-          li= link_to_event event
+          - if user.participations.present?
+            .col
+              h3.card-title= t("profile.events_participated")
+              ul.list-group.list-group-flush
+                - user.participations.each do |event|
+                  li.list-group-item
+                    = link_to_event(event)
+
+          - if user.events.present?
+            .col
+              h3.card-title= t("profile.organized_events")
+              ul.list-group.list-group-flush
+                - user.events.each do |event|
+                  li.list-group-item
+                    = link_to_event(event)
+
+    - if user.organizer?
+      .card-footer
+        small
+          = I18n.tw("home.like_to_talk")
+          br
+          == t("home.send_us_an_email", mail_to: mail_to(Whitelabel[:email], "E-Mail", title: "E-Mail"), twitter_link: link_to_twitter(Whitelabel[:twitter]))

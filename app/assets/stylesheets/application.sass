@@ -58,6 +58,11 @@ a.btn
 body
   background: image-url('whitey.png') left top repeat
 
+.badge-card-header
+  background-color: $white
+  border: 1px solid $border-color
+
+// https://fontawesome.com/v3.2.1/icons/
 .fa-events
   @extend .fa-calendar
 .fa-topics
@@ -82,7 +87,7 @@ body
   .user-image
     @include userimage(1.5em)
 
-  font: bold $nav-font-size $font
+  font: bold 1.2em $font
   border: $border
   a
     text-decoration: none
@@ -205,11 +210,7 @@ header
         margin-right: 5px
     h3
       font: bold 1.2em $font
-    ul
-      padding: 0px
-      margin: 0.5em
-    li
-      margin: 1em
+
     .pagination
       li
         margin: 0em 0em 1em 0em
@@ -323,10 +324,11 @@ footer
         height: 60px
 
 .ribbon_wrap
+  position: fixed
+  bottom: 0px
   opacity: 0.7
-  width: 65px
-  height: 65px
-  overflow: hidden
+  width: 130px
+  height: 130px
   font-size: $base-font-size
   a
     height: 30px
