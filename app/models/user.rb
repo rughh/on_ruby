@@ -40,6 +40,10 @@ class User < ApplicationRecord
     authorizations.first.uid
   end
 
+  def organizer?
+    self.class.organizers.include? self
+  end
+
   def update_from_auth!(hash)
     send :"handle_#{hash['provider']}_attributes", hash
     save! if changed?

@@ -2,7 +2,7 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-rounded#nav
   .label
     = link_to('#on_ruby', class: 'navbar-brand pl-4') do
       = image_tag("labels/#{Whitelabel[:label_id]}.png", title: title, class: "d-inline-block align-bottom label")
-      .d-none.d-sm-inline.d-md-inline.d-xl-none= I18n.tw('name')
+      .d-none.d-sm-inline.d-md-inline.d-lg-none= I18n.tw('name')
 
   button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
     = fa_icon('bars', class: 'fa-fw')
@@ -17,8 +17,7 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-rounded#nav
     ul.navbar-nav.ml-auto
       - if signed_in?
         li.nav-item
-          = link_to(edit_user_path(current_user), class: 'nav-link') do
-            = image_tag(cache_image_path(current_user), title: current_user.name, class: 'user-image')
+          = link_to(user_image(current_user), edit_user_path(current_user), class: 'nav-link')
 
       li.nav-item.dropdown.pr-2
         a(class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
