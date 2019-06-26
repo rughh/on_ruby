@@ -1,21 +1,35 @@
 section
-  h2== "#{location.name} (#{link_to location.nice_url, location.url, title: location.name})"
-  p
-    == link_to_route location
-    = wheelmap_badge location, klass: 'inline-wheelmap-status'
+  .card
+    .card-header
+      span.badge.badge-card-header.mr-2
+        = fa_icon('map-marker', text: link_to(location.address, '#route', title: location.address))
+      span.badge.badge-card-header.mr-2
+        = fa_icon('bookmark', text: link_to(location.nice_url, location.url, title: location.name))
+      span.badge.badge-card-header.mr-2
+        = fa_icon('external-link', text: link_to_external_route(location))
 
-  - if location.jobs.present?
-    #jobs_present
-      h3= t("location.job_offers")
-      ul.enumeration.more-list
-        - location.jobs.each do |job|
-          li= link_to_job job
+    .card-body
+      h2.card-title
+        = location.name
 
-  - if location.events.present?
-    #organized_events
-      h3= t("profile.organized_events")
-      ul.more-list
-        - location.events.each do |e|
-          li= link_to_event e
+      h3
+        = t("show.route")
+        - if location.wheelmap_id?
+          .pull-right
+            = wheelmap_badge location
 
-  = render 'route', location: location
+      #route= single_map(location)
+
+      - if location.jobs.present?
+        h3.card-title= t("location.job_offers")
+        ul.list-group
+          - location.jobs.each do |job|
+            li.list-group-item
+              = link_to_job(job)
+
+      - if location.jobs.present?
+        h3.card-title= t("profile.organized_events")
+        ul.list-group
+          - location.events.each do |event|
+            li.list-group-item
+              = link_to_event(event)

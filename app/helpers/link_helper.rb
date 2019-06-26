@@ -49,10 +49,7 @@ module LinkHelper
   end
 
   def link_to_external_route(location)
-    content_tag :p, class: 'external-maps' do
-      html = ''.html_safe
-      html << "#{t('location.open_in')}: "
-      html << link_to(t('location.google_maps'), "https://maps.google.com/?q=#{location.address}", target: '_blank')
-    end
+    text = "#{t('location.open_in')} #{t('location.google_maps')}"
+    link_to(text, "https://maps.google.com/?q=#{location.address}", target: '_blank')
   end
 end

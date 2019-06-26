@@ -24,7 +24,6 @@ class LocationDashboard < Administrate::BaseDashboard
     company: Field::Boolean,
     label: Field::String,
     wheelmap_id: Field::String,
-    address: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -36,7 +35,7 @@ class LocationDashboard < Administrate::BaseDashboard
     :id,
     :created_at,
     :name,
-    :address,
+    :street,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
