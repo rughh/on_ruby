@@ -62,7 +62,7 @@ section
       - if user.liked_topics.present?
         h3.card-title= t("profile.likes_given")
         ul.list-group
-          - (user.liked_topics.to_a * 10).each do |topic|
+          - user.liked_topics.each do |topic|
             li.list-group-item
               = link_to_topic(topic)
 
