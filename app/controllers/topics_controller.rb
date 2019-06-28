@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   before_action :validate_topic_ownership!, only: [:edit, :update]
 
   expose(:topic, find: ->(id, scope) { scope.find_by_slug(id) })
-  expose(:events)           { Event.with_topics.ordered.page(params[:page]).per(10) }
+  expose(:events)           { Event.with_topics.ordered.page(params[:page]) }
   expose(:undone_topics)    { Topic.ordered.undone }
   expose(:done_topics)      { Topic.ordered.done }
   expose(:upcoming_topics)  { Topic.ordered.upcoming }
