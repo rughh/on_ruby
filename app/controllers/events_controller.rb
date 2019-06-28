@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   include IcalHelper
 
-  expose(:events) { Event.ordered.page(params[:page]).per(10) }
+  expose(:events) { Event.ordered.page(params[:page]) }
   expose(:event)  { Event.includes(materials: :user, topics: :user, participants: :user).from_param(params[:id]) }
 
   def index
