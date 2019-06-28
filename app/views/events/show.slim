@@ -1,6 +1,8 @@
 section
   .card
     .card-header
+      span.badge.badge-card-header.mr-2
+        = fa_icon('calendar', text: link_to(l(event.date, format: :long), event_path(event, format: :ics)))
       - if event.location.present?
         span.badge.badge-card-header.mr-2
           = fa_icon('map-marker', text: link_to(event.location.address, '#route', title: event.location.address))
@@ -21,6 +23,7 @@ section
         => link_to_user(event.user)
         => t('show.at')
         = link_to_location(event.location)
+        = ", #{l(event.date, format: :long)}"
 
       p.card-text== markdown event.description
 
@@ -67,38 +70,3 @@ section
         = I18n.tw("home.like_to_talk")
         br
         == t("home.send_us_an_email", mail_to: mail_to(Whitelabel[:email], "E-Mail", title: "E-Mail"), twitter_link: link_to_twitter(Whitelabel[:twitter]))
-
-
-section
-  h2#event= event.name
-
-  well.meta
-    .pull-right
-      - if Whitelabel[:coc]
-        p= fa_icon('file-text-o', class: 'fa-lg fa-fw', text: link_to('Code of Conduct', Whitelabel[:coc], target: '_blank'))
-
-      - if event.github_issue?
-        p= fa_icon('github', class: 'fa-lg fa-fw', text: link_to('Github Planning Issue', github_issue_url(event.github_issue), target: '_blank'))
-
-    p
-      => fa_icon('calendar', class: 'fa-fw', text: link_to(l(event.date, format: :long), event_path(event, format: :ics), title: event.name, class: 'ical'))
-      => t("show.hosted_by")
-      = link_to_user event.user
-
-    p= fa_icon('map-marker', class: 'fa-fw', text: link_to_route(event.location))
-
-  == markdown event.description
-
-  .participation
-    = participation_link(event)
-
-  - if event.participants.present?
-    h3= t("show.attendees", count: event.limit || 0, participant_count: event.participants.count)
-    p= render 'users/list', users: event.users
-
-  = render "topics", topics: event.topics
-  = render "materials", materials: event.materials
-  - if event.location.present?
-    = render 'route', location: event.location
-
-  p= link_to t('home.all_events'), events_path
