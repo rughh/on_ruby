@@ -26,7 +26,7 @@ section
           =< link_to_location(event.location)
         = ", #{l(event.date, format: :long)}"
 
-      p.card-text== markdown event.description
+      p.card-text== markdown(event.description)
 
       = participation_link(event, link_class: 'btn btn-primary card-link')
       = link_to(t("home.add_topic"), new_topic_path, class: 'btn btn-primary card-link')
@@ -42,7 +42,7 @@ section
                 = user_image(topic.user, image_class: 'card-img-top card-img-topic')
               .card-body
                 h5.card-title= link_to_topic(topic)
-                p.card-text== markdown event.description
+                p.card-text== markdown(topic.description)
               - if topic.materials.present?
                 ul.list-group.list-group-flush
                   - topic.materials.each do |material|
