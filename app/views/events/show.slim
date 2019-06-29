@@ -42,7 +42,7 @@ section
                 = user_image(topic.user, image_class: 'card-img-top card-img-topic')
               .card-body
                 h5.card-title= link_to_topic(topic)
-                p.card-text= truncate(topic.description)
+                p.card-text== markdown event.description
               - if topic.materials.present?
                 ul.list-group.list-group-flush
                   - topic.materials.each do |material|

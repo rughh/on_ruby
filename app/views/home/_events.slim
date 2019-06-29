@@ -7,10 +7,11 @@
       - else
         == t("home.takes_place_no_location", event_date: content_tag(:em, l(current_event.date)), none_url: none_locations_path)
       - if current_event.topics.present?
-        ul.undone
-          - current_event.topics.each do |topic|
-            li.topic
-              = link_to_topic topic
+        #current_undone
+          ul.undone
+            - current_event.topics.each do |topic|
+              li.topic
+                = link_to_topic(topic)
   - else
     p== I18n.tw("home.next_possible_meetup_recurring", recurring: content_tag(:em, localized_recurring_event_date), none_url: none_locations_path)
     - unless Whitelabel[:custom_recurring]

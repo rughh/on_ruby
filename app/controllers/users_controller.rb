@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   expose(:user, find: ->(id, scope) { scope.find_by_slug(id) })
 
-  expose(:users) { User.peers.page(params[:page]) }
+  expose(:users) { User.peers.page(params[:page]).per(12) }
 
   def index; end
 
