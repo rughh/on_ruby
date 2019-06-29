@@ -60,11 +60,9 @@ section
             = t("show.route")
             - if event.location.wheelmap_id?
               .pull-right
-                = wheelmap_badge location
+                = wheelmap_badge(event.location)
 
           #route= single_map(event.location)
-      - else
-        todo hier was wenn keine location
 
     .card-footer
       small
