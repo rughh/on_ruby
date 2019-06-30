@@ -22,6 +22,7 @@ class User < ApplicationRecord
   scope :ordered,    -> { order('updated_at DESC') }
   scope :peers,      -> { ordered.joins(participants: :event).where('events.label' => Whitelabel[:label_id]).distinct }
   scope :main,       -> { where(nickname: Whitelabel[:twitter]) }
+  scope :random,     -> { self }
 
   def participates?(event)
     participants.any? { |participant| participant.event_id == event.id }

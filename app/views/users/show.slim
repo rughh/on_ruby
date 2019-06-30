@@ -23,7 +23,7 @@ section
     .card-body
       h2.card-title
         = user_image(user)
-        = user.name
+        = "#{user.name} (#{user.nickname})"
       small.text-muted
         span>= I18n.tw("profile.freelancer") if user.freelancer?
         span>= "(#{t("profile.available")})" if user.available?

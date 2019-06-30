@@ -1,5 +1,5 @@
 = section_box :people do
   = slackin_js
   p== I18n.tw("home.the_usergroup", usergroup: I18n.tw("name"))
-  = render 'users/list', users: people
+  = render 'users/list', users: people, show_stats: true
   = fa_icon 'mail-forward', text: link_to(t('home.all_people'), users_path)

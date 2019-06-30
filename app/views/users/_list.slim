@@ -1,5 +1,4 @@
-.imagelist
-  ul
-    - users.each do |user|
-      li
-        = user_image(user, image_class: 'large-user-image')
+- show_stats ||= false
+.card-columns
+  - users.each do |user|
+      = render(user, show_stats: show_stats)
