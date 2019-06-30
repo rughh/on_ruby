@@ -21,12 +21,18 @@ class ImagesController < ActionController::Base
       else
         Rails.logger.warn("there is no uploaded file for params #{params}")
 
-        head :not_found
+        send_default_image
       end
     end
   rescue
     Rails.logger.warn("an error coccured dispatching image with params #{params}: #{$!}")
 
-    head :not_found
+    send_default_image
+  end
+
+  private
+
+  def send_default_image
+    send_file(Rails.root.join('app/assets/images/logo.gif').to_s, filename: 'default-image.gif', disposition: :inline, content_type: 'image/gif')
   end
 end
