@@ -1,0 +1,13 @@
+span.badge.badge-card-header.mr-2
+  = fa_icon('calendar', text: link_to(l(event.date, format: :long), event_path(event, format: :ics)))
+- if event.location.present?
+  span.badge.badge-card-header.mr-2
+    = fa_icon('map-marker', text: link_to(event.location.address, '#route', title: event.location.address))
+  span.badge.badge-card-header.mr-2
+    = fa_icon('external-link', text: link_to_external_route(event.location))
+- if Whitelabel[:coc].present?
+  span.badge.badge-card-header.mr-2
+    = fa_icon('file-text-o', text: link_to('Code of Conduct', Whitelabel[:coc], target: '_blank'))
+- if event.github_issue?
+  span.badge.badge-card-header.mr-2
+    = fa_icon('github', text: link_to('Github Planning Issue', github_issue_url(event.github_issue), target: '_blank'))

@@ -6,19 +6,18 @@
         == t("home.takes_place", event_date: content_tag(:em, l(current_event.date)), location_link: link_to(current_event.location.name, current_event.location, title: current_event.location.name))
       - else
         == t("home.takes_place_no_location", event_date: content_tag(:em, l(current_event.date)), none_url: none_locations_path)
-      - if current_event.topics.present?
-        #current_undone
-          ul.undone
-            - current_event.topics.each do |topic|
-              li.topic
-                = link_to_topic(topic)
+
+    .card
+      .card-header
+        = render('events/badges', event: current_event)
+
+      .card-body
+        = render('events/info', event: current_event)
+
   - else
     p== I18n.tw("home.next_possible_meetup_recurring", recurring: content_tag(:em, localized_recurring_event_date), none_url: none_locations_path)
     - unless Whitelabel[:custom_recurring]
       p== I18n.tw("home.next_possible_meetup", event_date: content_tag(:em, next_event_date))
-
-  - if Whitelabel[:coc]
-    p= t("events.coc.html", coc_link: Whitelabel[:coc])
 
   - if events.any?
     #events
