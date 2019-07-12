@@ -78,14 +78,6 @@ module ApplicationHelper
     end
   end
 
-  def render_cached(*keys)
-    defaults  = [Whitelabel[:label_id], I18n.locale]
-    key       = defaults.concat(keys.present? ? keys : [controller_name, action_name]).join('/')
-
-    Rails.logger.info "cache fragment '#{key}'"
-    cache(key, expires_in: 4.hours, skip_digest: true) { yield }
-  end
-
   private
 
   def markdown_parser

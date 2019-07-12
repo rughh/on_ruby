@@ -4,25 +4,23 @@
       strong(class=key)= value
 - else
   - if highlights.present?
-    - render_cached(:highlights) do
-      #highlights
-        = hint(false) do
-          - highlights.each do |highlight|
-            .highlights
-              strong=> t("hint.attention")
-              = link_to highlight.description, highlight.url, title: highlight.description
+    #highlights
+      = hint(false) do
+        - highlights.each do |highlight|
+          .highlights
+            strong=> t("hint.attention")
+            = link_to highlight.description, highlight.url, title: highlight.description
   - elsif jobs.present?
     - unless current_user && current_user.hide_jobs?
-      - render_cached(:jobs) do
-        = hint(false) do
-          #job-teaser
-            ul
-              li
-                span.job-toggle= link_to fa_icon("chevron-down"), '#', title: t("hint.click_to_refresh")
-                .job.ml-4== job_description(jobs.first)
-          #job-list.hidden
-            ul
-              - jobs.each_with_index do |job, index|
-                li.mb-4
-                  span.job-toggle= link_to fa_icon("chevron-up"), '#', title: t("hint.click_to_refresh") if index == 0
-                  .job.ml-4== job_description(job)
+      = hint(false) do
+        #job-teaser
+          ul
+            li
+              span.job-toggle= link_to fa_icon("chevron-down"), '#', title: t("hint.click_to_refresh")
+              .job.ml-4== job_description(jobs.first)
+        #job-list.hidden
+          ul
+            - jobs.each_with_index do |job, index|
+              li.mb-4
+                span.job-toggle= link_to fa_icon("chevron-up"), '#', title: t("hint.click_to_refresh") if index == 0
+                .job.ml-4== job_description(job)
