@@ -64,7 +64,12 @@ body
 
 .card-img-topic
   margin: 1em
-  @include userimage(125px)
+  @include userimage(100px)
+
+.card-columns
+  @include media-breakpoint-only(xl)
+    column-count: 4
+
 
 // https://fontawesome.com/v3.2.1/icons/
 .fa-events

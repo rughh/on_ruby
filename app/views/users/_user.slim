@@ -10,6 +10,5 @@
   - if show_stats
     .card-footer
       small.text-muted
-        = "#{user.topics.count} Themen, "
-        = "#{user.topics.count} Likes, "
-        = "#{user.participations.count} Events"
+        = "#{t('main.topics')}: #{user.topics.count} | "
+        = "#{t('main.events')}: #{user.participations.count}"
