@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby '~> 2.5.0'
+ruby '~> 2.5.3'
 
 gem 'puma'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
