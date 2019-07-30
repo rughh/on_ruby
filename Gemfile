@@ -32,6 +32,11 @@ gem 'bootstrap'
 gem 'font-awesome-rails'
 gem 'uglifier'
 
+
+gem 'sorbet', :group => :development
+gem 'sorbet-runtime'
+gem 'sorbet-rails'
+
 group :production do
   gem 'dalli',            '~> 2.7.10'
   gem 'kgio',             '~> 2.11.1'

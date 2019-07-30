@@ -1,3 +1,4 @@
+# typed: false
 class Highlight < ApplicationRecord
   validates :description, :url, :start_at, :end_at, presence: true
 

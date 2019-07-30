@@ -1,3 +1,4 @@
+# typed: false
 module MapHelper
   def static_map(*locations)
     options = {

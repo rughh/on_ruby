@@ -1,3 +1,4 @@
+# typed: false
 TWITTER_AUTH_HASH = {
   'provider' => 'twitter',
   'uid' => '14339524',

@@ -1,3 +1,4 @@
+# typed: false
 class AddPublishedToEvents < ActiveRecord::Migration
   def self.up
     add_column :events, :published, :boolean

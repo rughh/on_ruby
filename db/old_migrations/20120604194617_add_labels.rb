@@ -1,3 +1,4 @@
+# typed: false
 class AddLabels < ActiveRecord::Migration
   def change
     [:events, :highlights, :jobs, :locations].each do |table|

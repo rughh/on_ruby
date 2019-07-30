@@ -1,3 +1,4 @@
+# typed: true
 class PreviewGenerator
   attr_accessor :uri, :type, :code
 

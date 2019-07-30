@@ -1,3 +1,4 @@
+# typed: false
 class AddDoneToWishes < ActiveRecord::Migration
   def self.up
     add_column :wishes, :done, :boolean, default: false

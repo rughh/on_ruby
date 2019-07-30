@@ -1,3 +1,4 @@
+# typed: strong
 class Like < ApplicationRecord
   validates :user, :topic, presence: true
 

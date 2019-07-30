@@ -1,3 +1,4 @@
+# typed: false
 class AddSlugs < ActiveRecord::Migration
   def up
     [:users, :events].each do |table|

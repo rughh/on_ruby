@@ -1,3 +1,4 @@
+# typed: true
 class Topic < ApplicationRecord
   include Slug
   extend ApiHandling

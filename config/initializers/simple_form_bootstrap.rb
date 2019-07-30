@@ -1,3 +1,4 @@
+# typed: strict
 # frozen_string_literal: true
 
 # Please do not make direct changes to this file!

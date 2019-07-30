@@ -1,3 +1,4 @@
+# typed: true
 class LabelsController < ActionController::Base
   include LocaleDetection
   protect_from_forgery with: :exception

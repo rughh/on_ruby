@@ -1,3 +1,4 @@
+# typed: false
 class UsersController < ApplicationController
   include IcalHelper
   before_action :authenticate_current_user!, only: [:edit, :update]

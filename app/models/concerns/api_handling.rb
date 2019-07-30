@@ -1,3 +1,4 @@
+# typed: false
 module ApiHandling
   def expose_api(*fields)
     acts_as_api

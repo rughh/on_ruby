@@ -1,3 +1,4 @@
+# typed: false
 class Usergroup
   DELIMITER_TIME    = ':'
   DELIMITER_DATE    = ' '

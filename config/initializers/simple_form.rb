@@ -1,3 +1,4 @@
+# typed: strict
 # frozen_string_literal: true
 #
 # Uncomment this and change the path if necessary to include your own

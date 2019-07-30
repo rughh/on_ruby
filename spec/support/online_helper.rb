@@ -1,3 +1,4 @@
+# typed: true
 module OnlineHelper
   def online?
     @_online = ping if @_online.nil?

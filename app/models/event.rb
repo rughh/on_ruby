@@ -1,3 +1,4 @@
+# typed: false
 class Event < ApplicationRecord
   include Slug
   extend ApiHandling

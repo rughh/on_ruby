@@ -1,3 +1,4 @@
+# typed: false
 class RemoveWishesAndLikes < ActiveRecord::Migration
   def change
     drop_table :wishes

@@ -1,3 +1,4 @@
+# typed: true
 class ApplicationController < ActionController::Base
   include WhitelabelDetection
   include LocaleDetection

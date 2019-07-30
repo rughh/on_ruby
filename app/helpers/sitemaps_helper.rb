@@ -1,3 +1,4 @@
+# typed: false
 module SitemapsHelper
   def urls
     subdomain = Whitelabel[:label_id]

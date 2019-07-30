@@ -1,3 +1,4 @@
+# typed: false
 require 'spec_helper'
 
 describe 'users/edit' do

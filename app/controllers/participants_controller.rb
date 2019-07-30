@@ -1,3 +1,4 @@
+# typed: false
 class ParticipantsController < ApplicationController
   before_action :authenticate!
 

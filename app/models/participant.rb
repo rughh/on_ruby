@@ -1,3 +1,4 @@
+# typed: false
 class Participant < ApplicationRecord
   extend ApiHandling
   expose_api :id, :user_id, :event_id

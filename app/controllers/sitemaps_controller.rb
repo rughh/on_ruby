@@ -1,3 +1,4 @@
+# typed: true
 class SitemapsController < ApplicationController
   def show
     render layout: false

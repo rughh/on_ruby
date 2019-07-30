@@ -1,3 +1,4 @@
+# typed: true
 module RequestHelper
   def set_referer(referer = root_url)
     @request.env['HTTP_REFERER'] = referer

@@ -1,3 +1,4 @@
+# typed: false
 class UsergroupMailer < ActionMailer::Base
   def invitation_mail(event)
     @event = event

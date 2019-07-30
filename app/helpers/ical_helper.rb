@@ -1,3 +1,4 @@
+# typed: false
 module IcalHelper
   def icalendar(*events)
     RiCal.Calendar do |cal|

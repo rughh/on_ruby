@@ -1,3 +1,4 @@
+# typed: false
 FactoryBot.define do
   factory :location do
     label           { 'hamburg' }

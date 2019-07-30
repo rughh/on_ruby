@@ -1,3 +1,4 @@
+# typed: true
 class Material < ApplicationRecord
   include Slug
   extend ApiHandling

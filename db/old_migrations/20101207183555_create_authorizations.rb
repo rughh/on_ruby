@@ -1,3 +1,4 @@
+# typed: false
 class CreateAuthorizations < ActiveRecord::Migration
   def self.up
     create_table :authorizations do |t|

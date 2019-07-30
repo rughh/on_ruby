@@ -1,3 +1,4 @@
+# typed: false
 module Admin
   class EventsController < Admin::ApplicationController
     def duplicate

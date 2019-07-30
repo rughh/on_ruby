@@ -1,3 +1,4 @@
+# typed: strong
 module Admin
   class MaterialsController < Admin::ApplicationController
     # To customize the behavior of this controller,

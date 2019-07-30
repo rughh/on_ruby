@@ -1,3 +1,4 @@
+# typed: true
 module GeocoderHelper
   def stub_geocoder
     Geocoder.configure(lookup: :test)

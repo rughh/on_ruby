@@ -1,3 +1,4 @@
+# typed: false
 class AddIndices < ActiveRecord::Migration
   def up
     add_index(:authorizations, [:user_id])

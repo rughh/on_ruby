@@ -1,3 +1,4 @@
+# typed: strong
 module Admin
   class HighlightsController < Admin::ApplicationController
     # To customize the behavior of this controller,

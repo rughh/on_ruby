@@ -1,3 +1,4 @@
+# typed: true
 require "administrate/base_dashboard"
 
 class MaterialDashboard < Administrate::BaseDashboard

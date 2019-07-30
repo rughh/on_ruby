@@ -1,3 +1,4 @@
+# typed: false
 class EventsController < ApplicationController
   include IcalHelper
 

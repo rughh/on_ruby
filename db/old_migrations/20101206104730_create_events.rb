@@ -1,3 +1,4 @@
+# typed: false
 class CreateEvents < ActiveRecord::Migration
   def self.up
     create_table :events do |t|

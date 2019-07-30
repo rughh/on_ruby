@@ -1,3 +1,4 @@
+# typed: false
 OnRuby::Application.routes.draw do
   namespace :admin do
     resources :events do

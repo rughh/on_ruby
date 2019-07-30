@@ -1,3 +1,4 @@
+# typed: false
 module WhitelabelTranslation
   def translate_whitelabel(token, options = {})
     sub = Whitelabel.label ? Whitelabel[:label_id] : 'default'

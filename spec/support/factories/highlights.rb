@@ -1,3 +1,4 @@
+# typed: false
 FactoryBot.define do
   factory :highlight do
     description { Faker::Lorem.words(6).join }

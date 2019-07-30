@@ -1,3 +1,4 @@
+# typed: true
 class ImagesController < ActionController::Base
   PUBLIC_MOUNTS = {
     'User' => :image,

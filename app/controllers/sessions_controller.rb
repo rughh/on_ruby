@@ -1,3 +1,4 @@
+# typed: false
 class SessionsController < ApplicationController
   def offline_login
     user = User.find_by_nickname(params[:nickname])

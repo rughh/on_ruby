@@ -1,3 +1,4 @@
+# typed: false
 class Authorization < ApplicationRecord
   belongs_to :user
 

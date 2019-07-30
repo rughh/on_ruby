@@ -1,3 +1,4 @@
+# typed: true
 class Job < ApplicationRecord
   validates :name, :url, :location, presence: true
 

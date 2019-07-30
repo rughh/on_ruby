@@ -1,3 +1,4 @@
+# typed: false
 FactoryBot.define do
   factory :event do
     name        { Faker::Lorem.words(6).join }

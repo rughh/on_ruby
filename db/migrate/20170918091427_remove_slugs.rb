@@ -1,3 +1,4 @@
+# typed: false
 class RemoveSlugs < ActiveRecord::Migration
   def change
     remove_column Topic, :slug

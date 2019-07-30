@@ -1,3 +1,4 @@
+# typed: false
 class Location < ApplicationRecord
   include Slug
   extend ApiHandling

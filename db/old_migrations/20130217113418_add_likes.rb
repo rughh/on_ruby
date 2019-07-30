@@ -1,3 +1,4 @@
+# typed: false
 class AddLikes < ActiveRecord::Migration
   def change
     create_table :likes do |t|

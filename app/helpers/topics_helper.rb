@@ -1,3 +1,4 @@
+# typed: false
 module TopicsHelper
   def like_link(topic)
     if signed_in?

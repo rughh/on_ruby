@@ -1,3 +1,4 @@
+# typed: false
 FactoryBot.define do
   factory :participant do
     association :user, strategy: :build

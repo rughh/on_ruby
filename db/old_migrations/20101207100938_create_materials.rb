@@ -1,3 +1,4 @@
+# typed: false
 class CreateMaterials < ActiveRecord::Migration
   def self.up
     create_table :materials do |t|
