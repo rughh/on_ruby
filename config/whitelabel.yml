@@ -21,6 +21,10 @@
     :lat: 53.56544
     :long: 9.95947
   default_time_zone: Europe/Berlin
+  sponsors:
+  - :name: AppSignal
+    :url: https://appsignal.com/
+    :banner: appsignal.svg
   imprint:
     :address: |-
       Tigerstr. 32
