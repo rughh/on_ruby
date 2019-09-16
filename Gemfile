@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby '~> 2.5.3'
+ruby '~> 2.6.4'
 
 gem 'puma'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
@@ -25,6 +25,7 @@ gem 'validate_url'
 gem 'addressable'
 gem 'public_suffix'
 gem 'administrate'
+gem 'appsignal'
 
 # assets
 gem 'sass-rails'
