@@ -2,12 +2,6 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   # Set the default host for production
   config.default_host = 'onruby.de'
-  config.middleware.use ExceptionNotification::Rack, email: {
-    ignore_exceptions: ['OAuth::Unauthorized'] + ExceptionNotifier.ignored_exceptions,
-    email_prefix: '[ERROR] ',
-    sender_address: %("error-notifier" <phoetmail@googlemail.com>),
-    exception_recipients: %w(phoetmail@googlemail.com)
-  }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
