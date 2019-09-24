@@ -74,7 +74,7 @@ GEM
       sass-rails (~> 5.0)
       selectize-rails (~> 0.6)
     ansi (1.5.0)
-    appsignal (2.9.13)
+    appsignal (2.9.15)
       rack
     ast (2.4.0)
     autoprefixer-rails (9.5.1)
