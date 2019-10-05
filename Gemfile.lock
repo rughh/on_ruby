@@ -181,7 +181,7 @@ GEM
     mimemagic (0.3.3)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.12.1)
+    minitest (5.12.2)
     momentjs-rails (2.20.1)
       railties (>= 3.1)
     multi_json (1.13.1)
@@ -312,7 +312,7 @@ GEM
       sprockets-rails
       tilt
     selectize-rails (0.12.6)
-    simple_form (5.0.0)
+    simple_form (5.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     slim (4.0.1)
