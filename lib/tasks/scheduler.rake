@@ -31,11 +31,9 @@ namespace :scheduler do
   private
 
   def with_tracking
-    begin
-      yield
-    rescue => e
-      ExceptionNotifier.notify_exception(e) if Rails.env.production?
-      Rails.logger.error("exception during task invocation: #{e}\n#{e.backtrace.join("\n")}")
-    end
+    yield
+  rescue => e
+    ExceptionNotifier.notify_exception(e) if Rails.env.production?
+    Rails.logger.error("exception during task invocation: #{e}\n#{e.backtrace.join("\n")}")
   end
 end
