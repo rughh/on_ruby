@@ -73,15 +73,6 @@ Style/AsciiComments:
   Exclude:
     - 'db/old_migrations/20110720194144_add_company_to_location.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SingleLineConditionsOnly, IncludeTernaryExpressions.
-# SupportedStyles: assign_to_condition, assign_inside_condition
-Style/ConditionalAssignment:
-  Exclude:
-    - 'app/controllers/concerns/locale_detection.rb'
-    - 'app/controllers/concerns/time_zone_detection.rb'
-
 # Offense count: 103
 Style/Documentation:
   Enabled: false
