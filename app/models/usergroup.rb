@@ -3,7 +3,7 @@
 class Usergroup
   DELIMITER_TIME    = ':'
   DELIMITER_DATE    = ' '
-  NUMBERS           = %w(first second third fourth).freeze
+  NUMBERS           = %w[first second third fourth].freeze
   DAYS_INTO_WEEK    = {
     monday: 0,
     tuesday: 1,

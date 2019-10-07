@@ -19,7 +19,7 @@ describe 'Api' do
       get api_path(format: :json), headers: { 'x-api-key' => ENV['HOR_API_KEY'] }
 
       expect(response).to be_ok
-      expect(JSON.parse(response.body).keys).to eql(%w(topics locations events users))
+      expect(JSON.parse(response.body).keys).to eql(%w[topics locations events users])
     end
   end
 

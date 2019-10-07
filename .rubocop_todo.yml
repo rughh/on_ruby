@@ -103,19 +103,6 @@ Style/MixinUsage:
   Exclude:
     - 'spec/spec_helper.rb'
 
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: PreferredDelimiters.
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'app/models/topic.rb'
-    - 'app/models/usergroup.rb'
-    - 'config/initializers/assets.rb'
-    - 'config/routes.rb'
-    - 'spec/requests/api_spec.rb'
-    - 'spec/views/locations/none.html_spec.rb'
-    - 'spec/views/sitemaps/show.xml_spec.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/Proc:
