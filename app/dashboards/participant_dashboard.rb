@@ -16,7 +16,7 @@ class ParticipantDashboard < Administrate::BaseDashboard
     maybe: Field::Boolean,
     comment: Field::Text,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

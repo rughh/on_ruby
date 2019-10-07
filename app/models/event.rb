@@ -59,7 +59,7 @@ class Event < ApplicationRecord
       stats = Event.limit(size).map { |event| [event.participants.count, event.topics.count] }
       {
         participants: stats.empty? ? 0 : stats.map(&:first).sum / stats.size,
-        topics: stats.empty? ? 0 : stats.map(&:last).sum / stats.size,
+        topics: stats.empty? ? 0 : stats.map(&:last).sum / stats.size
       }
     end
   end

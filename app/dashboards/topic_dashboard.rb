@@ -20,7 +20,7 @@ class TopicDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     label: Field::String,
-    proposal_type: Field::Select.with_options(collection: Topic::PROPOSAL_TYPES),
+    proposal_type: Field::Select.with_options(collection: Topic::PROPOSAL_TYPES)
   }.freeze
 
   # COLLECTION_ATTRIBUTES

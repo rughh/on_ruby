@@ -2,7 +2,7 @@
 
 class ImagesController < ActionController::Base
   PUBLIC_MOUNTS = {
-    'User' => :image,
+    'User' => :image
   }.freeze
 
   def show

@@ -17,7 +17,7 @@ namespace :fork do
         name: 'Name',
         title: 'Title',
         subtitle: 'SubTitle',
-        meta_desc: 'MetaDesc',
+        meta_desc: 'MetaDesc'
       }
       File.open(file_name, 'w') { |file| file.write(translation.to_yaml) }
     end

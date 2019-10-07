@@ -36,7 +36,7 @@ FALLBACKS = {
   'Maxim' => 'Maxim Küpper',
   'Bascht' => 'Sebastian Schulze',
   'rocky-jaiswal' => 'Rocky Jaiswal',
-  'kikito' => 'Enrique García',
+  'kikito' => 'Enrique García'
 }.freeze
 IGNORES = [
   /depfu/,

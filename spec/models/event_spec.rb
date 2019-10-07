@@ -57,7 +57,7 @@ describe Event do
     it 'has empty stats' do
       stats = {
         participants: 0,
-        topics: 0,
+        topics: 0
       }
       expect(Event.stats).to eql(stats)
     end
@@ -66,7 +66,7 @@ describe Event do
       create(:full_event)
       stats = {
         participants: 1,
-        topics: 0,
+        topics: 0
       }
       expect(Event.stats(size: 4)).to eql(stats)
     end

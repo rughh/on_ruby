@@ -17,7 +17,7 @@ class HighlightDashboard < Administrate::BaseDashboard
     end_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    label: Field::String,
+    label: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES

@@ -25,7 +25,7 @@ module TitleHelper
       'topics/show' => -> { topic.name },
       'locations/show' => -> { location.name },
       'locations/none' => -> { I18n.t('show.no_location') },
-      'events/show' => -> { event.name },
+      'events/show' => -> { event.name }
     }["#{controller_name}/#{action_name}"]
   end
 end

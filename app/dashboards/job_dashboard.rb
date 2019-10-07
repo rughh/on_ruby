@@ -16,7 +16,7 @@ class JobDashboard < Administrate::BaseDashboard
     url: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    label: Field::String,
+    label: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
