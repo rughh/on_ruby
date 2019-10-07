@@ -43,6 +43,7 @@ group :development do
   gem 'partially_useful'
   gem 'listen'
   gem 'web-console'
+  gem 'rubocop', '~> 0.75.0', require: false
 end
 
 group :development, :test do
