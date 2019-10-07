@@ -105,12 +105,6 @@ Style/MixinUsage:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Style/Proc:
-  Exclude:
-    - 'config/initializers/omniauth.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: compact, exploded
 Style/RaiseArgs:
