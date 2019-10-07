@@ -13,8 +13,8 @@ module OnlineHelper
       s = TCPSocket.new('www.google.com', 80)
       s.close
     end
-    return true
+    true
   rescue
-    return false
+    false
   end
 end
