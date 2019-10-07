@@ -26,7 +26,7 @@ describe 'Api' do
       get flush_path(format: :json), headers: { 'x-api-key' => ENV['HOR_API_KEY'] }
 
       expect(response).to be_ok
-      expect(JSON.parse(response.body)).to eql({"result"=>"ok"})
+      expect(JSON.parse(response.body)).to eql({"result" => "ok"})
     end
   end
 end
