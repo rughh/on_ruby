@@ -1,24 +1,24 @@
 #!/usr/bin/env ruby
 
-FORMAT = <<-OUTPUT
- ________
-< ONRUBY >
- --------
-        \\   ^__^
-         \\  (oo)\_______
-            (__)\       )\\/\\
-                ||----w |
-                ||     ||
+FORMAT = <<~OUTPUT
+   ________
+  < ONRUBY >
+   --------
+          \\   ^__^
+           \\  (oo)\_______
+              (__)\       )\\/\\
+                  ||----w |
+                  ||     ||
 
-/* MAINTAINER */
+  /* MAINTAINER */
 
-  Peter Schröder (Señor Developer)
-  Site: https://github.com/phoet
-  Location: Hamburg, Germany
+    Peter Schröder (Señor Developer)
+    Site: https://github.com/phoet
+    Location: Hamburg, Germany
 
-/* COMMITTERS */
+  /* COMMITTERS */
 
-%{commiters}
+  %{commiters}
 OUTPUT
 
 FALLBACKS = {

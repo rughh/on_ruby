@@ -14,14 +14,6 @@ Layout/EndAlignment:
   Exclude:
     - 'app/models/concerns/slug.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: squiggly, active_support, powerpack, unindent
-Layout/IndentHeredoc:
-  Exclude:
-    - 'script/generate-humans'
-
 # Offense count: 7
 # Cop supports --auto-correct.
 # Configuration parameters: Width, IgnoredPatterns.
