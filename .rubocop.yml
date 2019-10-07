@@ -4,3 +4,6 @@ AllCops:
   Exclude:
     - "bin/*"
     - "db/**/schema.rb"
+
+Style/Documentation:
+  Enabled: false
