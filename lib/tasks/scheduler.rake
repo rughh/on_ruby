@@ -32,7 +32,7 @@ namespace :scheduler do
 
   def with_tracking
     yield
-  rescue => e
+  rescue StandardError => e
     ExceptionNotifier.notify_exception(e) if Rails.env.production?
     Rails.logger.error("exception during task invocation: #{e}\n#{e.backtrace.join("\n")}")
   end

@@ -14,7 +14,7 @@ module OnlineHelper
       s.close
     end
     true
-  rescue
+  rescue StandardError
     false
   end
 end

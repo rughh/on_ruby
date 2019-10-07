@@ -46,7 +46,7 @@ module UserHandling
 
   def remember_me
     cookies.permanent.signed[:remember_me] || ['', '']
-  rescue
+  rescue StandardError
     ['', '']
   end
 end
