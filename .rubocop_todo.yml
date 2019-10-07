@@ -14,14 +14,6 @@ Layout/EndAlignment:
   Exclude:
     - 'app/models/concerns/slug.rb'
 
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: Width, IgnoredPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'app/models/concerns/slug.rb'
-    - 'app/views/events/index.xml.builder'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Layout/InitialIndentation:
