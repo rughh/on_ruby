@@ -7,7 +7,7 @@ class ImagesController < ActionController::Base
     http_cache_forever(public: true) do
       model_name = params[:model_name]
       attribute_name = PUBLIC_MOUNTS[model_name]
-      head :not_authorized and return unless attribute_name
+      head(:not_authorized) && return unless attribute_name
 
       filename = params[:filename]
       model_class = model_name.constantize

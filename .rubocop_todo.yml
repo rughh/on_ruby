@@ -73,14 +73,6 @@ Security/YAMLLoad:
   Exclude:
     - 'lib/tasks/fork.rake'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, conditionals
-Style/AndOr:
-  Exclude:
-    - 'app/controllers/images_controller.rb'
-
 # Offense count: 5
 # Configuration parameters: AllowedChars.
 Style/AsciiComments:
