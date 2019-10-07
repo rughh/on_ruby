@@ -37,6 +37,7 @@ module ExternalLinkHelper
 
   def link_to_github(user, &block)
     return unless user.github
+
     url = "https://github.com/#{user.github}"
     title = user.github
     if block_given?
@@ -48,6 +49,7 @@ module ExternalLinkHelper
 
   def link_to_linkedin(user, &block)
     return unless user.linkedin
+
     url = "https://www.linkedin.com/in/#{user.linkedin}"
     title = user.linkedin
     if block_given?

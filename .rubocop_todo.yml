@@ -5,17 +5,6 @@
 # one by one as the offenses are removed from the code base.
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
-
-# Offense count: 6
-# Cop supports --auto-correct.
-Layout/EmptyLineAfterGuardClause:
-  Exclude:
-    - 'app/helpers/application_helper.rb'
-    - 'app/helpers/external_link_helper.rb'
-    - 'app/models/concerns/slug.rb'
-    - 'app/models/event.rb'
-    - 'app/models/user.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Layout/EmptyLineAfterMagicComment:

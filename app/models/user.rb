@@ -34,6 +34,7 @@ class User < ApplicationRecord
 
   def url
     return unless url = read_attribute(:url)
+
     url =~ %r{\Ahttps?://.+} ? url : "http://#{url}"
   end
 

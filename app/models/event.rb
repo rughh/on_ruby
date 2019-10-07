@@ -35,6 +35,7 @@ class Event < ApplicationRecord
 
   def particpate(user)
     return false if users.include? user
+
     !!participants.create!(user: user)
   end
 
