@@ -23,32 +23,32 @@ class AuthorizationDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = [
-    :id,
-    :created_at,
-    :user,
-    :provider,
-    :uid,
+  COLLECTION_ATTRIBUTES = %i[
+    id
+    created_at
+    user
+    provider
+    uid
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :user,
-    :id,
-    :provider,
-    :uid,
-    :created_at,
-    :updated_at,
+  SHOW_PAGE_ATTRIBUTES = %i[
+    user
+    id
+    provider
+    uid
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [
-    :user,
-    :provider,
-    :uid,
+  FORM_ATTRIBUTES = %i[
+    user
+    provider
+    uid
   ].freeze
 
   # Overwrite this method to customize how authorizations are displayed

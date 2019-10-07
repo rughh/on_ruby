@@ -43,56 +43,56 @@ class UserDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = [
-    :id,
-    :created_at,
-    :nickname,
-    :github,
-    :twitter,
-    :email,
+  COLLECTION_ATTRIBUTES = %i[
+    id
+    created_at
+    nickname
+    github
+    twitter
+    email
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :id,
-    :nickname,
-    :name,
-    :image,
-    :url,
-    :location,
-    :description,
-    :created_at,
-    :updated_at,
-    :github,
-    :linkedin,
-    :admin,
-    :freelancer,
-    :available,
-    :hide_jobs,
-    :twitter,
-    :email,
-    :super_admin,
+  SHOW_PAGE_ATTRIBUTES = %i[
+    id
+    nickname
+    name
+    image
+    url
+    location
+    description
+    created_at
+    updated_at
+    github
+    linkedin
+    admin
+    freelancer
+    available
+    hide_jobs
+    twitter
+    email
+    super_admin
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [
-    :nickname,
-    :name,
-    :image,
-    :location,
-    :description,
-    :email,
-    :github,
-    :twitter,
-    :linkedin,
-    :url,
-    :admin,
-    :freelancer,
-    :available,
-    :hide_jobs,
+  FORM_ATTRIBUTES = %i[
+    nickname
+    name
+    image
+    location
+    description
+    email
+    github
+    twitter
+    linkedin
+    url
+    admin
+    freelancer
+    available
+    hide_jobs
   ].freeze
 
   def display_resource(user)

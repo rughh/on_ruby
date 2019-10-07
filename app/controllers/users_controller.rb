@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   include IcalHelper
-  before_action :authenticate_current_user!, only: [:edit, :update]
+  before_action :authenticate_current_user!, only: %i[edit update]
 
   expose(:user, find: ->(id, scope) { scope.find_by_slug(id) })
 

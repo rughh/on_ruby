@@ -11,7 +11,7 @@ class CreateHistoriesTable < ActiveRecord::Migration
       t.integer :year, limit: 5
       t.timestamps
     end
-    add_index(:histories, [:item, :table, :month, :year], name: 'index_histories_on_item_and_date')
+    add_index(:histories, %i[item table month year], name: 'index_histories_on_item_and_date')
   end
 
   def self.down
