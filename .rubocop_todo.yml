@@ -14,12 +14,6 @@ Layout/EndAlignment:
   Exclude:
     - 'app/models/concerns/slug.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Layout/InitialIndentation:
-  Exclude:
-    - 'app/models/concerns/slug.rb'
-
 # Offense count: 6
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment.
