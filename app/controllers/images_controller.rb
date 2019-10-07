@@ -3,7 +3,7 @@
 class ImagesController < ActionController::Base
   PUBLIC_MOUNTS = {
     'User' => :image,
-  }
+  }.freeze
 
   def show
     http_cache_forever(public: true) do

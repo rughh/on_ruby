@@ -3,7 +3,7 @@
 class Usergroup
   DELIMITER_TIME    = ':'
   DELIMITER_DATE    = ' '
-  NUMBERS           = %w(first second third fourth)
+  NUMBERS           = %w(first second third fourth).freeze
   DAYS_INTO_WEEK    = {
     monday: 0,
     tuesday: 1,
@@ -12,7 +12,7 @@ class Usergroup
     friday: 4,
     saturday: 5,
     sunday: 6,
-  }
+  }.freeze
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :custom_recurring, :email, :google_group, :coc
   attr_accessor :default_time_zone, :twitter, :organizers, :location, :imprint, :other_usergroups, :tld # TODO: get rid of tld

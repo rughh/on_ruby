@@ -11,7 +11,7 @@ TWITTER_AUTH_HASH = {
     'description' => 'I am a freelance Ruby and Java developer from Hamburg, Germany. ☠ nofail',
     'urls' => { 'Website' => 'http://nofail.de' }
   }
-}
+}.freeze
 GITHUB_AUTH_HASH = {
   'provider' => 'github',
   'uid' => '48745',
@@ -53,7 +53,7 @@ GITHUB_AUTH_HASH = {
       'login' => 'phoet'
     }
   }
-}
+}.freeze
 
 FactoryBot.define do
   factory :authorization do
