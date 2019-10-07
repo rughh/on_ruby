@@ -103,24 +103,6 @@ Style/MixinUsage:
   Exclude:
     - 'spec/spec_helper.rb'
 
-# Offense count: 31
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForMultiline.
-# SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInArrayLiteral:
-  Exclude:
-    - 'app/dashboards/authorization_dashboard.rb'
-    - 'app/dashboards/event_dashboard.rb'
-    - 'app/dashboards/highlight_dashboard.rb'
-    - 'app/dashboards/job_dashboard.rb'
-    - 'app/dashboards/like_dashboard.rb'
-    - 'app/dashboards/location_dashboard.rb'
-    - 'app/dashboards/material_dashboard.rb'
-    - 'app/dashboards/participant_dashboard.rb'
-    - 'app/dashboards/topic_dashboard.rb'
-    - 'app/dashboards/user_dashboard.rb'
-    - 'script/generate-humans'
-
 # Offense count: 26
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleForMultiline.

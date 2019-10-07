@@ -40,7 +40,7 @@ FALLBACKS = {
 }.freeze
 IGNORES = [
   /depfu/,
-  /dependabot/,
+  /dependabot/
 ].freeze
 commiters = `git log --format='%aN' | sort -u`
 commiters = commiters.split("\n")
