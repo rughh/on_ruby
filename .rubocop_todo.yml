@@ -14,18 +14,6 @@ Layout/EndAlignment:
   Exclude:
     - 'app/models/concerns/slug.rb'
 
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: final_newline, final_blank_line
-Layout/TrailingBlankLines:
-  Exclude:
-    - '.pryrc'
-    - 'db/old_migrations/20101211133306_rename_type_to_material_type.rb'
-    - 'db/old_migrations/20110107171220_add_published_to_events.rb'
-    - 'db/old_migrations/20110120094315_add_admin_to_users.rb'
-    - 'lib/tasks/api.rake'
-
 # Offense count: 3
 # Configuration parameters: AllowSafeAssignment.
 Lint/AssignmentInCondition:
