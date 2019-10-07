@@ -67,12 +67,6 @@ Security/Open:
   Exclude:
     - 'app/controllers/images_controller.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Security/YAMLLoad:
-  Exclude:
-    - 'lib/tasks/fork.rake'
-
 # Offense count: 5
 # Configuration parameters: AllowedChars.
 Style/AsciiComments:
