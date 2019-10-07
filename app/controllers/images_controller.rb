@@ -27,7 +27,7 @@ class ImagesController < ActionController::Base
       end
     end
   rescue StandardError
-    Rails.logger.warn("an error coccured dispatching image with params #{params}: #{$!}")
+    Rails.logger.warn("an error coccured dispatching image with params #{params}: #{$ERROR_INFO}")
 
     send_default_image
   end
