@@ -1,6 +1,6 @@
 namespace :fork do
   desc "create a new usergroup"
-  task(:usergroup, [:name] => [:environment]) do |t, args|
+  task(:usergroup, [:name] => [:environment]) do |_t, args|
     name = args[:name]
     usergroup = Usergroup.from_name(name)
 

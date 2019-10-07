@@ -27,16 +27,6 @@ Lint/ParenthesesAsGroupedExpression:
   Exclude:
     - 'spec/models/material_spec.rb'
 
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: IgnoreEmptyBlocks, AllowUnusedKeywordArguments.
-Lint/UnusedBlockArgument:
-  Exclude:
-    - 'config/initializers/simple_form_bootstrap.rb'
-    - 'config/routes.rb'
-    - 'lib/tasks/api.rake'
-    - 'lib/tasks/fork.rake'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods.
