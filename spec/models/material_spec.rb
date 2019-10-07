@@ -8,7 +8,7 @@ describe Material do
       let (:url) { nil }
 
       it 'raises validataion error' do
-        expect{ create_material }.to raise_error ActiveRecord::RecordInvalid
+        expect { create_material }.to raise_error ActiveRecord::RecordInvalid
       end
     end
 
@@ -16,7 +16,7 @@ describe Material do
       let (:url) { 'https://google.com' }
 
       it 'creates the record' do
-        expect{ create_material }.to change(Material, :count).by(1)
+        expect { create_material }.to change(Material, :count).by(1)
       end
     end
 
@@ -24,7 +24,7 @@ describe Material do
       let (:url) { 'https/google.invalid' }
 
       it 'raises validataion error' do
-        expect{ create_material }.to raise_error ActiveRecord::RecordInvalid
+        expect { create_material }.to raise_error ActiveRecord::RecordInvalid
       end
     end
   end
