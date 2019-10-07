@@ -83,14 +83,6 @@ Style/DoubleNegation:
     - 'app/controllers/concerns/user_handling.rb'
     - 'app/models/event.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: format, sprintf, percent
-Style/FormatString:
-  Exclude:
-    - 'script/generate-humans'
-
 # Offense count: 8
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: annotated, template, unannotated
