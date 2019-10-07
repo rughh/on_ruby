@@ -22,6 +22,7 @@ The operation, development and maintenance of OnRuby can be supported via Patreo
 
 ### Patrons
 
+* [floriank](https://github.com/floriank)
 * [fnordfish](https://github.com/fnordfish)
 * [BooVeMan](https://github.com/booveman)
 * [rickenharp](https://github.com/rickenharp)
