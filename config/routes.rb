@@ -40,10 +40,10 @@ OnRuby::Application.routes.draw do
   end
 
   scope '/auth' do
-    get '/',                         to: 'sessions#index',   as: :login
+    get '/',                         to: 'sessions#index', as: :login
     get '/:provider/callback',       to: 'sessions#create'
     get '/failure',                  to: 'sessions#failure'
-    get '/destroy_session',          to: 'sessions#destroy',  as: :destroy_session
+    get '/destroy_session',          to: 'sessions#destroy', as: :destroy_session
     get '/offline_login/:nickname',  to: 'sessions#offline_login' if Rails.env.development?
   end
 
