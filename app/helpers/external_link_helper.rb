@@ -67,7 +67,7 @@ module ExternalLinkHelper
   def load_feed(url, loader: Faraday)
     unless Rails.env.production?
       loader = Struct.new(:body) do
-        def self.get(args)
+        def self.get(_args)
           new(File.read("./spec/support/data/mailinglist_rss_feed.xml"))
         end
       end

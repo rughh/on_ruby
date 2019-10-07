@@ -27,13 +27,6 @@ Lint/ParenthesesAsGroupedExpression:
   Exclude:
     - 'spec/models/material_spec.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods.
-Lint/UnusedMethodArgument:
-  Exclude:
-    - 'app/helpers/external_link_helper.rb'
-
 # Offense count: 2
 Lint/UriEscapeUnescape:
   Exclude:
