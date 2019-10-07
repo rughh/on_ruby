@@ -62,7 +62,7 @@ Rails.application.configure do
   config.cache_store = :dalli_store, ENV['MEMCACHIER_SERVERS'], { username: ENV['MEMCACHIER_USERNAME'], password: ENV['MEMCACHIER_PASSWORD'] }
 
   config.action_dispatch.rack_cache = {
-    metastore:   Dalli::Client.new(ENV['MEMCACHIER_SERVERS'], username: ENV['MEMCACHIER_USERNAME'], password: ENV['MEMCACHIER_PASSWORD'], expires_in: 1.day),
+    metastore: Dalli::Client.new(ENV['MEMCACHIER_SERVERS'], username: ENV['MEMCACHIER_USERNAME'], password: ENV['MEMCACHIER_PASSWORD'], expires_in: 1.day),
     entitystore: Dalli::Client.new(ENV['MEMCACHIER_SERVERS'], username: ENV['MEMCACHIER_USERNAME'], password: ENV['MEMCACHIER_PASSWORD'], expires_in: 1.day),
   }
 

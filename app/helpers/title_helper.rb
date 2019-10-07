@@ -19,11 +19,11 @@ module TitleHelper
 
   def title_mapping(controller_name = self.controller_name, action_name = self.action_name)
     {
-      'users/show'      => -> { user.name },
-      'topics/show'     => -> { topic.name },
-      'locations/show'  => -> { location.name },
-      'locations/none'  => -> { I18n.t('show.no_location') },
-      'events/show'     => -> { event.name },
+      'users/show' => -> { user.name },
+      'topics/show' => -> { topic.name },
+      'locations/show' => -> { location.name },
+      'locations/none' => -> { I18n.t('show.no_location') },
+      'events/show' => -> { event.name },
     }["#{controller_name}/#{action_name}"]
   end
 end

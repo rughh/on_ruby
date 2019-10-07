@@ -91,10 +91,10 @@ module ExternalLinkHelper
 
   def ribbon(type)
     types = {
-      github:                 ['Fork me on GitHub!',  'https://github.com/phoet/on_ruby'],
-      senor_developer:        ['Señor Developer!',    'https://senordevelopershop.spreadshirt.de'],
-      rgsoc:                  ['SUMMER OF CODE',      'https://railsgirlssummerofcode.org/campaign/'],
-      patreon:                ['Become a patron',     'https://www.patreon.com/on_ruby'],
+      github: ['Fork me on GitHub!',  'https://github.com/phoet/on_ruby'],
+      senor_developer: ['Señor Developer!',    'https://senordevelopershop.spreadshirt.de'],
+      rgsoc: ['SUMMER OF CODE',      'https://railsgirlssummerofcode.org/campaign/'],
+      patreon: ['Become a patron',     'https://www.patreon.com/on_ruby'],
     }
     text, url = types[type]
     content_tag :div, id: "#{type}_ribbon", class: 'ribbon_wrap' do
