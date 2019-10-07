@@ -8,14 +8,6 @@
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleAlignWith, AutoCorrect, Severity.
-# SupportedStylesAlignWith: start_of_line, def
-Layout/DefEndAlignment:
-  Exclude:
-    - 'db/old_migrations/20101217142810_create_histories_table.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 Layout/ElseAlignment:
   Exclude:
     - 'app/models/concerns/slug.rb'
