@@ -75,14 +75,6 @@ Style/AsciiComments:
 
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: braces, no_braces, context_dependent
-Style/BracesAroundHashParameters:
-  Exclude:
-    - 'spec/requests/api_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 # Configuration parameters: Keywords.
 # Keywords: TODO, FIXME, OPTIMIZE, HACK, REVIEW
 Style/CommentAnnotation:
