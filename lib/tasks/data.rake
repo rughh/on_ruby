@@ -12,6 +12,6 @@ namespace :data do
 
   task setup: ["environment", "db:migrate"] do
     require "factory_bot"
-    Dir[Rails.root.join("spec/support/factories/*.rb")].each {|f| require f}
+    Dir[Rails.root.join("spec/support/factories/*.rb")].each { |f| require f }
   end
 end
