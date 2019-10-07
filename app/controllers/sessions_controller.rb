@@ -13,8 +13,8 @@ class SessionsController < ApplicationController
       authorization = Authorization.handle_authorization(current_user, request.env['omniauth.auth'])
       sign_in(authorization.user)
       options = { notice: t('flash.logged_in', name: current_user.name) }
-    rescue User::DuplicateNickname => error
-      options = { alert: t('flash.duplicate_nick', name: error.nickname) }
+    rescue User::DuplicateNickname => e
+      options = { alert: t('flash.duplicate_nick', name: e.nickname) }
     end
 
     redirect_to request.env['omniauth.origin'] || root_path, options

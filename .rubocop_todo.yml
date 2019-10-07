@@ -63,13 +63,6 @@ Naming/AccessorMethodName:
     - 'spec/support/request_helper.rb'
 
 # Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: PreferredName.
-Naming/RescuedExceptionsVariableName:
-  Exclude:
-    - 'app/controllers/sessions_controller.rb'
-
-# Offense count: 1
 Security/Open:
   Exclude:
     - 'app/controllers/images_controller.rb'
