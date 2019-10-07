@@ -1,5 +1,6 @@
 #! /bin/sh
 set -e
 
+bundle exec rubocop
 bundle exec rake
 bundle exec localer
