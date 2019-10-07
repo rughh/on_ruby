@@ -27,12 +27,6 @@ Lint/ParenthesesAsGroupedExpression:
   Exclude:
     - 'spec/models/material_spec.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Lint/SendWithMixinArgument:
-  Exclude:
-    - 'config/initializers/whitelabel.rb'
-
 # Offense count: 5
 # Cop supports --auto-correct.
 # Configuration parameters: IgnoreEmptyBlocks, AllowUnusedKeywordArguments.
