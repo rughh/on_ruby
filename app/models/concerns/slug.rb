@@ -28,7 +28,7 @@ module Slug
   end
 
   def slug
-    self.send(self.class.slugger).parameterize
+    send(self.class.slugger).parameterize
   end
 
   def to_param

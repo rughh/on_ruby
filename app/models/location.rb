@@ -22,7 +22,7 @@ class Location < ApplicationRecord
   end
 
   def country
-    Whitelabel.find_label(self.label).country
+    Whitelabel.find_label(label).country
   end
 
   def address
