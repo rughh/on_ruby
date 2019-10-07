@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module IcalHelper
   def icalendar(*events)
     RiCal.Calendar do |cal|

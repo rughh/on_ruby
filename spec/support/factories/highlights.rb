@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :highlight do
     description { Faker::Lorem.words(number: 6).join }

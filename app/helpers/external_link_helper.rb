@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ExternalLinkHelper
   def wheelmap_badge(location, klass: 'wheelmap-status')
     return unless location.wheelmap_id.present?

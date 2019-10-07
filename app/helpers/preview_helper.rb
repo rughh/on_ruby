@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PreviewHelper
   def material_preview(material)
     return '' if material.preview_type.nil? || (material.preview_type == 'none')

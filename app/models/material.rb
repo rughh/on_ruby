@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Material < ApplicationRecord
   include Slug
   extend ApiHandling

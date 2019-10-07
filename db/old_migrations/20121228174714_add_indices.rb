@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddIndices < ActiveRecord::Migration
   def up
     add_index(:authorizations, [:user_id])

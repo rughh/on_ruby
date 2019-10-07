@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApiHandling
   def expose_api(*fields)
     acts_as_api

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddLabels < ActiveRecord::Migration
   def change
     [:events, :highlights, :jobs, :locations].each do |table|

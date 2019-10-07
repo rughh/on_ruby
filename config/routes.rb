@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 OnRuby::Application.routes.draw do
   namespace :admin do
     resources :events do

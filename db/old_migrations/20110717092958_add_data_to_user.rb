@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddDataToUser < ActiveRecord::Migration
   def self.up
     add_column :users, :freelancer, :boolean
