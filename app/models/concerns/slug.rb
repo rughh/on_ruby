@@ -3,7 +3,7 @@
     def clazz.from_param(token)
       id = if match = token.match(/.+-(\d+)/)
         match[1]
-      else
+           else
         token
       end
       found = where(id: id.to_i).or(where("#{table_name}.#{slugger} ILIKE ?", token.tr('-', '%'))).first
