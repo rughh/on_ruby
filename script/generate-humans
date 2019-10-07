@@ -23,20 +23,20 @@ FORMAT = <<~OUTPUT
 OUTPUT
 
 FALLBACKS = {
-  "phoet" => "Peter Schröder",
-  "Peter Schröder" => "Peter Schröder",
-  "ralph" => "Ralph von der Heyden",
-  "rubiii" => "Daniel Harrington",
-  "titanoboa" => "Kerstin Puschke",
-  "weidenfreak" => "Meike Wiemann",
-  "Marco" => "Marco Schaden",
-  "Enrique García Cota" => "Enrique García",
-  "Benny" => "Benny Klotz",
-  "Christoph" => "Christoph Geschwind",
-  "Maxim" => "Maxim Küpper",
-  "Bascht" => "Sebastian Schulze",
-  "rocky-jaiswal" => "Rocky Jaiswal",
-  "kikito" => "Enrique García",
+  'phoet' => 'Peter Schröder',
+  'Peter Schröder' => 'Peter Schröder',
+  'ralph' => 'Ralph von der Heyden',
+  'rubiii' => 'Daniel Harrington',
+  'titanoboa' => 'Kerstin Puschke',
+  'weidenfreak' => 'Meike Wiemann',
+  'Marco' => 'Marco Schaden',
+  'Enrique García Cota' => 'Enrique García',
+  'Benny' => 'Benny Klotz',
+  'Christoph' => 'Christoph Geschwind',
+  'Maxim' => 'Maxim Küpper',
+  'Bascht' => 'Sebastian Schulze',
+  'rocky-jaiswal' => 'Rocky Jaiswal',
+  'kikito' => 'Enrique García',
 }.freeze
 IGNORES = [
   /depfu/,
@@ -48,5 +48,5 @@ commiters = commiters.reject { |c| IGNORES.any? { |pattern| c =~ pattern } }
 commiters = commiters.map { |c| "  #{FALLBACKS[c] || c}" }.uniq.sort.join("\n\n")
 
 output = format(FORMAT, commiters: commiters)
-path = File.expand_path("../public/humans.txt", File.dirname(__FILE__))
-File.open(path, "w") { |file| file.write(output) }
+path = File.expand_path('../public/humans.txt', File.dirname(__FILE__))
+File.open(path, 'w') { |file| file.write(output) }

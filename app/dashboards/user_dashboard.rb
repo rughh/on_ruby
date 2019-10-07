@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class UserDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -15,8 +15,8 @@ class UserDashboard < Administrate::BaseDashboard
     materials: Field::HasMany,
     topics: Field::HasMany,
     likes: Field::HasMany,
-    participations: Field::HasMany.with_options(class_name: "Event"),
-    liked_topics: Field::HasMany.with_options(class_name: "Topic"),
+    participations: Field::HasMany.with_options(class_name: 'Event'),
+    liked_topics: Field::HasMany.with_options(class_name: 'Topic'),
     events: Field::HasMany,
     id: Field::Number,
     nickname: Field::String,

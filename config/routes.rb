@@ -16,7 +16,7 @@ OnRuby::Application.routes.draw do
     resources :topics
     resources :users
 
-    root to: "events#index"
+    root to: 'events#index'
   end
 
   get 'image/:timestamp/:model_name/:model_id/*filename' => 'images#show', as: :image_dispatch
@@ -58,8 +58,8 @@ OnRuby::Application.routes.draw do
     get '/flush', to: 'api#flush', as: :flush
   end
 
-  root to: "home#index"
+  root to: 'home#index'
 
-  match '*path.php', via: :all, to: ->(_env) { [302, { "Location" => "http://www.youporn.com/" }, ["fuck yourself!"]] }
-  match '*path', via: :all, constraints: ->(request) { request.path !~ %r{\A/admin} }, to: ->(_env) { [404, { "Content-Type" => "text/html" }, ["not found"]] }
+  match '*path.php', via: :all, to: ->(_env) { [302, { 'Location' => 'http://www.youporn.com/' }, ['fuck yourself!']] }
+  match '*path', via: :all, constraints: ->(request) { request.path !~ %r{\A/admin} }, to: ->(_env) { [404, { 'Content-Type' => 'text/html' }, ['not found']] }
 end

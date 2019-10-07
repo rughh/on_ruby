@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class LikeDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 namespace :scheduler do
-  desc "update geocoding"
+  desc 'update geocoding'
   task update_geocoding: :environment do
     with_tracking do
-      puts "updating all geocoding"
+      puts 'updating all geocoding'
       Whitelabel.each_label do
         Location.all.each do |location|
           location.geocode
@@ -15,10 +15,10 @@ namespace :scheduler do
     end
   end
 
-  desc "update previews"
+  desc 'update previews'
   task update_preview: :environment do
     with_tracking do
-      puts "updating previews"
+      puts 'updating previews'
       Whitelabel.each_label do
         Material.naked.each do |material|
           material.generate_preview

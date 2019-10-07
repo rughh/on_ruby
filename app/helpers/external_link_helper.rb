@@ -70,7 +70,7 @@ module ExternalLinkHelper
     unless Rails.env.production?
       loader = Struct.new(:body) do
         def self.get(_args)
-          new(File.read("./spec/support/data/mailinglist_rss_feed.xml"))
+          new(File.read('./spec/support/data/mailinglist_rss_feed.xml'))
         end
       end
     end

@@ -9,7 +9,7 @@ class AddLikes < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_column Topic, :label, :string, default: "hamburg"
+    add_column Topic, :label, :string, default: 'hamburg'
     add_column Topic, :slug, :string
   end
 end

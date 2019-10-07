@@ -12,7 +12,7 @@ FORMAT = <<-FORMAT
          time_total:  %{time_total}
 FORMAT
 
-url = ARGV[0] || "http://hamburg.onruby.de"
+url = ARGV[0] || 'http://hamburg.onruby.de'
 
 puts "request-time of '#{url}'"
 puts `curl -w "#{FORMAT}" -s -o /dev/null "#{url}"`

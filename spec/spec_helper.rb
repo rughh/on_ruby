@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-ENV["RAILS_ENV"]    ||= 'test'
-ENV["SECRET_TOKEN"] ||= 'SECRET_TOKEN_TEST_b7c7374eb0285b87c0c1c61c2c5401b9f92dd59209713801743202c'
+ENV['RAILS_ENV']    ||= 'test'
+ENV['SECRET_TOKEN'] ||= 'SECRET_TOKEN_TEST_b7c7374eb0285b87c0c1c61c2c5401b9f92dd59209713801743202c'
 
 require File.expand_path('../config/environment', __dir__)
 require 'rspec/rails'
 
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 
 RSpec.configure do |config|
   config.include RequestHelper, type: :controller
@@ -29,7 +29,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :request) do
-    host! "hamburg.onruby.test"
+    host! 'hamburg.onruby.test'
   end
 
   config.before(:each, type: :controller) do

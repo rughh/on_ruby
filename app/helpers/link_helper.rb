@@ -43,7 +43,7 @@ module LinkHelper
   end
 
   def link_to_route(location)
-    return link_to(t("home.no_location"), none_locations_path) if location.blank?
+    return link_to(t('home.no_location'), none_locations_path) if location.blank?
 
     content_tag(:span, link_to(location.address, '#route', title: "#{location.name}, #{location.address}")) +
       " #{t('show.at')} " +

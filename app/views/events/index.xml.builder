@@ -2,7 +2,7 @@
 
 xml.instruct!
 
-xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
+xml.rss 'version' => '2.0', 'xmlns:dc' => 'http://purl.org/dc/elements/1.1/' do
   xml.channel do
     xml.title       I18n.tw('title')
     xml.link        url_for only_path: false, controller: 'events'
