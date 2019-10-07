@@ -14,11 +14,11 @@ FactoryBot.define do
   end
 
   factory :full_event, parent: :event_with_participants do
-    after(:create) { |event|
+    after(:create) do |event|
       event.participants  << create(:participant)
       event.materials     << create(:material)
       event.topics        << create(:topic)
-    }
+    end
   end
 
   factory :closed_event, parent: :event do

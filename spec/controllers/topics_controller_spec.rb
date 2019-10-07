@@ -53,9 +53,9 @@ describe TopicsController do
     it 'should create a topic for logged-in user' do
       allow(controller).to receive_messages(current_user: user)
 
-      expect {
+      expect do
         post(:create, params: { topic: topic_data })
-      }.to change(Topic, :count).by(1)
+      end.to change(Topic, :count).by(1)
       expect(controller.topic.user).to eql(user)
       expect(flash[:notice]).to_not be_nil
     end
@@ -63,16 +63,16 @@ describe TopicsController do
     it 'creates a topic and sends user add an email if not present' do
       allow(controller).to receive_messages(current_user: user_without_email)
 
-      expect {
+      expect do
         post(:create, params: { topic: topic_data })
-      }.to change(Topic, :count).by(1)
+      end.to change(Topic, :count).by(1)
       expect(response).to redirect_to(edit_user_path(user_without_email))
     end
 
     it 'should not create a topic if not signed in' do
-      expect {
+      expect do
         post(:create, params: { topic: topic_data })
-      }.to change(Topic, :count).by(0)
+      end.to change(Topic, :count).by(0)
       expect(response).to redirect_to(login_path)
     end
   end

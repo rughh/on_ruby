@@ -10,9 +10,9 @@ describe ParticipantsController do
     end
 
     it 'should add a prticipant for current user' do
-      expect {
+      expect do
         post :create, params: { event_id: event.to_param }
-      }.to change(Participant, :count).by(1)
+      end.to change(Participant, :count).by(1)
       expect(flash[:notice]).to_not be_nil
       expect(response).to redirect_to(event)
     end
@@ -23,9 +23,9 @@ describe ParticipantsController do
       end
 
       it 'should should alert a duplicate flash' do
-        expect {
+        expect do
           post :create, params: { event_id: event.to_param }
-        }.to change(Participant, :count).by(0)
+        end.to change(Participant, :count).by(0)
         expect(flash[:alert]).to_not be_nil
         expect(response).to redirect_to(event)
       end
@@ -35,9 +35,9 @@ describe ParticipantsController do
       let(:event) { create(:closed_event) }
 
       it 'should should alert a closed flash' do
-        expect {
+        expect do
           post :create, params: { event_id: event.to_param }
-        }.to change(Participant, :count).by(0)
+        end.to change(Participant, :count).by(0)
         expect(flash[:alert]).to_not be_nil
         expect(response).to redirect_to(event)
       end
@@ -54,18 +54,18 @@ describe ParticipantsController do
     it 'should delete a participant for current user' do
       allow(@controller).to receive_messages(current_user: @user)
 
-      expect {
+      expect do
         delete(:destroy, params: { id: @participant.to_param, event_id: @event.to_param })
-      }.to change(Participant, :count).by(-1)
+      end.to change(Participant, :count).by(-1)
       expect(response).to redirect_to(@event)
     end
 
     it 'should delete a participant for another user' do
       allow(@controller).to receive_messages(current_user: create(:user))
 
-      expect {
+      expect do
         delete(:destroy, params: { id: @participant.to_param, event_id: @event.to_param })
-      }.to change(Participant, :count).by(0)
+      end.to change(Participant, :count).by(0)
       expect(response).to redirect_to(@event)
     end
   end

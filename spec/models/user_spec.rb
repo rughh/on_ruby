@@ -7,9 +7,9 @@ describe User do
 
     it 'allows empty and nil github and twitter keys for all' do
       create(:user, github: '', twitter: '')
-      expect {
+      expect do
         create(:user, github: '', twitter: '')
-      }.not_to raise_error
+      end.not_to raise_error
     end
 
     it 'allows names and nothing on github' do
@@ -40,16 +40,16 @@ describe User do
       end
 
       it 'should handle missing params' do
-        expect {
+        expect do
           User.create_from_hash!(github_auth_missing_params)
-        }.to change(User, :count).by(1)
+        end.to change(User, :count).by(1)
       end
     end
 
     it 'should create a user from an outh-hash' do
-      expect {
+      expect do
         User.create_from_hash!(TWITTER_AUTH_HASH)
-      }.to change(User, :count).by(1)
+      end.to change(User, :count).by(1)
     end
 
     it 'adds email addresses for github users' do
@@ -59,9 +59,9 @@ describe User do
 
     it 'should raise an error for same nickname but different auths' do
       User.create_from_hash!(TWITTER_AUTH_HASH)
-      expect {
+      expect do
         User.create_from_hash!(GITHUB_AUTH_HASH)
-      }.to raise_error(User::DuplicateNickname)
+      end.to raise_error(User::DuplicateNickname)
     end
 
     it 'should update a user from twitter-auth-hash' do
@@ -106,9 +106,9 @@ describe User do
     end
 
     it 'should participate?' do
-      expect {
+      expect do
         admin_user.participants.create!(event: event, user: admin_user)
-      }.to change {
+      end.to change {
         admin_user.participates?(event)
       }.from(false).to(true)
     end

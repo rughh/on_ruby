@@ -33,9 +33,9 @@ describe Event do
     end
 
     it 'should duplicate the event' do
-      expect {
+      expect do
         Event.duplicate!
-      }.to change(Event, :count).by(1)
+      end.to change(Event, :count).by(1)
     end
   end
 

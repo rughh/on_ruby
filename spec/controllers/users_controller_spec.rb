@@ -52,11 +52,11 @@ describe UsersController do
       it 'should delete a user and logout' do
         allow(@controller).to receive_messages(current_user: user)
 
-        expect {
-          expect {
+        expect do
+          expect do
             delete :destroy, params: { id: user.id }
-          }.to change(User, :count).by(-1)
-        }.to change(Authorization, :count).by(-1)
+          end.to change(User, :count).by(-1)
+        end.to change(Authorization, :count).by(-1)
         expect(flash[:notice]).to_not be_nil
         expect(response).to redirect_to(destroy_session_path)
       end

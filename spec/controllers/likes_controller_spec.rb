@@ -18,18 +18,18 @@ describe LikesController do
       end
 
       it 'creates a like for logged-in user' do
-        expect {
+        expect do
           post(:create, params: data)
-        }.to change(Like, :count).by(1)
+        end.to change(Like, :count).by(1)
         expect(controller.like.user).to eql(user)
       end
 
       it 'does not create a like twice' do
         allow_any_instance_of(Topic).to receive_messages(already_liked?: true)
 
-        expect {
+        expect do
           post(:create, params: data)
-        }.to change(Like, :count).by(0)
+        end.to change(Like, :count).by(0)
       end
 
       it 'validetes likes' do
@@ -58,18 +58,18 @@ describe LikesController do
       it 'deletes a like for logged-in user' do
         topic.likes << like
 
-        expect {
+        expect do
           delete(:destroy, params: { topic_id: topic.id, id: like.id })
-        }.to change(Like, :count).by(-1)
+        end.to change(Like, :count).by(-1)
         expect(response).to redirect_to(topic_path(topic))
       end
 
       it 'does not delete likes for other users' do
         allow_any_instance_of(Topic).to receive_messages(already_liked?: false)
 
-        expect {
+        expect do
           delete(:destroy, params: { topic_id: topic.id, id: like.id })
-        }.to change(Like, :count).by(0)
+        end.to change(Like, :count).by(0)
         expect(flash[:alert]).to be_blank
       end
     end
