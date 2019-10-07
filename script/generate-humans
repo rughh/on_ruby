@@ -46,6 +46,6 @@ commiters = commiters.split("\n")
 commiters = commiters.reject { |c| IGNORES.any? { |pattern| c =~ pattern } }
 commiters = commiters.map { |c| "  #{FALLBACKS[c] || c}" }.uniq.sort.join("\n\n")
 
-output = FORMAT % {commiters: commiters}
+output = FORMAT % { commiters: commiters }
 path = File.expand_path("../public/humans.txt", File.dirname(__FILE__))
 File.open(path, "w") { |file| file.write(output) }

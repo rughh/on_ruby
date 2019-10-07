@@ -20,7 +20,7 @@ class ApiController < ApplicationController
   def flush
     Rails.cache.clear
 
-    render json: {result: :ok}
+    render json: { result: :ok }
   end
 
   private

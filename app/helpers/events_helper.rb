@@ -9,7 +9,7 @@ module EventsHelper
         link_to t('show.attend'), [event, Participant.new], method: :post, class: link_class
       end
     else
-      link_to t('show.attend'), login_path, params: {origin: request.path}, class: link_class
+      link_to t('show.attend'), login_path, params: { origin: request.path }, class: link_class
     end
   end
 

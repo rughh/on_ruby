@@ -9,7 +9,7 @@ module TopicsHelper
         button_to t('topic.like'), topic_likes_path(topic), method: :post, class: 'btn btn-primary'
       end
     else
-      button_to t('topic.like'), login_path, method: :get, params: {origin: request.path}, class: 'btn btn-primary'
+      button_to t('topic.like'), login_path, method: :get, params: { origin: request.path }, class: 'btn btn-primary'
     end
   end
 
