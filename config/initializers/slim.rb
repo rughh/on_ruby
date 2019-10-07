@@ -1,5 +1,3 @@
 # frozen_string_literal: true
 
-if Rails.env.development?
-  Slim::Engine.set_options pretty: true
-end
+Slim::Engine.set_options pretty: true if Rails.env.development?

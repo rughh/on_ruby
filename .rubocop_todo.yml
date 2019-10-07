@@ -98,14 +98,6 @@ Style/GuardClause:
     - 'app/controllers/concerns/user_handling.rb'
     - 'app/controllers/topics_controller.rb'
 
-# Offense count: 4
-# Cop supports --auto-correct.
-Style/IfUnlessModifier:
-  Exclude:
-    - 'app/controllers/concerns/user_handling.rb'
-    - 'app/controllers/topics_controller.rb'
-    - 'config/initializers/slim.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
