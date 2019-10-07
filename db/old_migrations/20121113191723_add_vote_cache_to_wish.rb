@@ -2,7 +2,7 @@
 
 class AddVoteCacheToWish < ActiveRecord::Migration
   def self.up
-    add_column :wishes, :stars, :integer, :default => 0
+    add_column :wishes, :stars, :integer, default: 0
   end
 
   def self.down

@@ -4,7 +4,7 @@ class AddSlugs < ActiveRecord::Migration
   def up
     [:users, :events].each do |table|
       add_column table, :slug, :string
-      add_index  table, :slug, :unique => true
+      add_index  table, :slug, unique: true
     end
   end
 
