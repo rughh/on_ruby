@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       options = { alert: t('flash.duplicate_nick', name: error.nickname) }
     end
 
-    redirect_to request.env['omniauth.origin'] || root_path, options
+    redirect_to request.env['omniauth.origin'].presence || root_path, options
   end
 
   def destroy
