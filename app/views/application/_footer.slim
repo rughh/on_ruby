@@ -5,7 +5,7 @@
         h2= I18n.tw("footer.sponsored_by")
       - Whitelabel[:sponsors].each do |sp|
         .col-sm.pb-4.sponsors(class="sponsor-#{sp[:name].downcase}")
-          => link_to sp[:url], title: sp[:name] do
+          => link_to sp[:url], title: sp[:name], target: '_blank' do
             => image_tag("labels/#{Whitelabel[:label_id]}/sponsors/#{sp[:banner]}", alt: sp[:name])
 
   .row.m-4.hr
