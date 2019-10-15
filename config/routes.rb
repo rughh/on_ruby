@@ -4,14 +4,14 @@ OnRuby::Application.routes.draw do
       post :duplicate, on: :collection
       post :connect, on: :member
     end
-    resources :authorizations
+    resources :locations
+    resources :topics
+    resources :materials
     resources :highlights
     resources :jobs
+    resources :authorizations
     resources :likes
-    resources :locations
-    resources :materials
     resources :participants
-    resources :topics
     resources :users
 
     root to: "events#index"
