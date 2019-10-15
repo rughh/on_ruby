@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :event do
-    name        { Faker::Lorem.words(6).join }
+    name        { Faker::Lorem.words(number: 6).join }
     date        { rand(3).days.from_now }
-    description { Faker::Lorem.sentences(3).join }
+    description { Faker::Lorem.sentences(number: 3).join }
     association :location, strategy: :build
     association :user, strategy: :build
     created_at  { Time.now }
