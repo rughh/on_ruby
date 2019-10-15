@@ -9,6 +9,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       tld = host[/(.+\.)?(.+\..+)/, 2]
       token = tld.delete('-').split('.').join('_').upcase
       name = "OMNIAUTH_GITHUB_#{token}"
+      Rails.logger.info("OmniAuth with token #{name}")
 
       env['omniauth.strategy'].options[:client_id]     = ENV["#{name}_KEY"]
       env['omniauth.strategy'].options[:client_secret] = ENV["#{name}_SECRET"]
