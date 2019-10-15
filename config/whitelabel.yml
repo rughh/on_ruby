@@ -472,3 +472,36 @@
   coc: http://example.com
   domains:
   google_group: andaluciarb
+- !ruby/object:Usergroup
+  twitter: bcnrails
+  google_group: barcelonaonrails
+  label_id: barcelona
+  canonical_url: https://barcelona.onruby.eu
+  default_locale: es
+  tld: eu
+  country: España
+  domains:
+  - ruby.barcelona
+  recurring: third thursday
+  email: webmaster@mediafinger.com
+  github_org: RubyAndFriends
+  github_repo: TalkSuggestions
+  organizers:
+  - mediafinger
+  location:
+    :zoom: 12
+    :lat: 41.3933987
+    :long: 2.1679484
+  imprint:
+    :address: |-
+      Carrer Ferlandina 45, 4-2
+      08001 Barcelona
+    :contributors:
+    - :name: Andreas Finger
+      :email: webmaster@mediafinger.com
+  other_usergroups:
+  - :name: BarcelonaJS
+    :url: http://barcelonajs.org/
+    :twitter: barcelonajs
+  coc: https://github.com/RubyAndFriends/Code_of_Conduct
+  sponsors: []
