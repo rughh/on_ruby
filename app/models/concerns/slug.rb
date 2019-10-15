@@ -1,7 +1,7 @@
   module Slug
   def self.included(clazz)
     def clazz.from_param(token)
-      id = if match = token.match(/.+-(\d+)/)
+      id = if match = token.match(/.*-(\d+)/)
         match[1]
       else
         token
