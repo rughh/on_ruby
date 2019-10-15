@@ -3,7 +3,7 @@ FactoryBot.define do
     event
     user
     topic
-    name { Faker::Lorem.words(5).join }
+    name { Faker::Lorem.words(number: 5).join }
     url { Faker::Internet.url }
   end
 end

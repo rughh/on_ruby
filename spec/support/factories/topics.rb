@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :proposal, class: :topic do
     user
-    name            { Faker::Lorem.words(5).join }
-    description     { Faker::Lorem.sentences(3).join }
+    name            { Faker::Lorem.words(number: 5).join }
+    description     { Faker::Lorem.sentences(number: 3).join }
     proposal_type   { 'proposal' }
   end
 
