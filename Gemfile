@@ -25,6 +25,7 @@ gem 'addressable'
 gem 'public_suffix'
 gem 'administrate'
 gem 'appsignal'
+gem 'webpacker'
 
 # assets
 gem 'sass-rails'

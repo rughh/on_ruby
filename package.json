@@ -6,6 +6,10 @@
   "author": "phoet <phoetmail@googlemail.com>",
   "license": "MIT",
   "dependencies": {
+    "@rails/webpacker": "^4.0.7",
     "jquery-ujs": "^1.2.2"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.8.2"
   }
 }
