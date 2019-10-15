@@ -477,6 +477,7 @@
   google_group: barcelonaonrails
   label_id: barcelona
   canonical_url: https://barcelona.onruby.eu
+  status: enabled
   default_locale: es
   tld: eu
   country: España
