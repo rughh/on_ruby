@@ -13,24 +13,6 @@
     "GEM_PATH": {
       "required": true
     },
-    "GITHUB_COLOGNERB_CONSUMER_KEY": {
-      "required": true
-    },
-    "GITHUB_COLOGNERB_CONSUMER_SECRET": {
-      "required": true
-    },
-    "GITHUB_CONSUMER_KEY": {
-      "required": true
-    },
-    "GITHUB_CONSUMER_SECRET": {
-      "required": true
-    },
-    "GITHUB_RUGB_CONSUMER_KEY": {
-      "required": true
-    },
-    "GITHUB_RUGB_CONSUMER_SECRET": {
-      "required": true
-    },
     "HOR_API_KEY": {
       "required": true
     },
