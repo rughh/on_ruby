@@ -85,6 +85,7 @@ class Usergroup
       it.label_id = it.google_group = it.twitter = name.underscore
       it.default_locale   = 'de'
       it.tld              = 'de'
+      it.canonical_url    = "https://#{name.parameterize}.onruby.de"
       it.country          = 'Deutschland'
       it.domains          = ["#{name.parameterize}.de"]
       it.recurring        = 'second wednesday'
