@@ -13,3 +13,17 @@ Style/Documentation:
 
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - "bin/**/*"
+    - "config/**/*"
+    - "db/**/*"
+    - "lib/**/*"
+    - "script/**/*"
+    - "spec/**/*"
+    - "config.ru"
+    - "Gemfile"
+    - "Rakefile"
+    - ".*"
+

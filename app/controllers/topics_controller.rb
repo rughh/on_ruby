@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TopicsController < ApplicationController
   before_action :authenticate!, only: %i[new edit update create]
   before_action :validate_topic_ownership!, only: %i[edit update]

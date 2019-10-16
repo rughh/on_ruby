@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TopicsHelper
   def like_link(topic)
     if signed_in?

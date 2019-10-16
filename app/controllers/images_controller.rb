@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ImagesController < ActionController::Base
   PUBLIC_MOUNTS = {
     'User' => :image,

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Usergroup
   DELIMITER_TIME    = ':'
   DELIMITER_DATE    = ' '

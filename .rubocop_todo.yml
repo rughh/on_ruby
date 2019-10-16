@@ -95,13 +95,6 @@ Style/FormatStringToken:
     - 'script/generate-humans'
     - 'script/request-time'
 
-# Offense count: 205
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, never
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 # Offense count: 1
 Style/MixinUsage:
   Exclude:

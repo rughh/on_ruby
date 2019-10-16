@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HomeController < ApplicationController
   expose(:current_event)    { Event.current.first }
   expose(:events)           { Event.latest.limit(10) }

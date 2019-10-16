@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SitemapsHelper
   def urls
     subdomain = Whitelabel[:label_id]
