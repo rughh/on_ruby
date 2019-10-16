@@ -44,7 +44,6 @@ end
 group :development do
   gem 'listen'
   gem 'partially_useful'
-  gem 'rubocop', '~> 0.75.0', require: false
   gem 'web-console'
 end
 
@@ -57,4 +56,5 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-collection_matchers'
   gem 'rspec-rails', '>= 3.9.0.pre'
+  gem 'rubocop', '~> 0.75.0', require: false
 end
