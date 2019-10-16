@@ -4,6 +4,7 @@ AllCops:
   Exclude:
     - "bin/*"
     - "db/**/schema.rb"
+    - "app/controllers/admin/*"
 
 Style/Documentation:
   Enabled: false

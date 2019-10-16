@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Admin
   class ParticipantsController < Admin::ApplicationController
     # To customize the behavior of this controller,

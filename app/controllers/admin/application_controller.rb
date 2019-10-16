@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # All Administrate controllers inherit from this `Admin::ApplicationController`,
 # making it the ideal place to put authentication logic or other
 # before_actions.
@@ -24,6 +22,7 @@ module Admin
     #   params[:per_page] || 20
     # end
 
+
     private
 
     def setup
@@ -35,7 +34,7 @@ module Admin
     def order
       @order ||= Administrate::Order.new(
         params.fetch(resource_name, {}).fetch(:order, 'created_at'),
-        params.fetch(resource_name, {}).fetch(:direction, 'desc')
+        params.fetch(resource_name, {}).fetch(:direction, 'desc'),
       )
     end
 
