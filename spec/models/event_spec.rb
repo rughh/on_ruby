@@ -77,6 +77,7 @@ describe Event do
       event = create(:event, id: 999)
 
       expect(Event.find_by_slug('999')).to eql(event)
+      expect(Event.find_by_slug('-999')).to eql(event)
     end
 
     it 'finds by slug' do

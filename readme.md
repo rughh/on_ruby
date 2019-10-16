@@ -10,11 +10,11 @@
 
 Source for the Sites of the Ruby Communities:
 
-* [Hamburg](http://hamburg.onruby.de)
-* [Cologne](http://cologne.onruby.de)
-* [Berlin](http://www.rug-b.de)
-* [Madrid](http://madridrb.onruby.eu)
-* [Andalucia](http://andalucia.onruby.eu)
+* [Hamburg](https://hamburg.onruby.de)
+* [Cologne](https://cologne.onruby.de)
+* [Berlin](https://www.rug-b.de)
+* [Madrid](https://madridrb.onruby.eu)
+* [Andalucia](https://andalucia.onruby.eu)
 
 ## Support OnRuby
 
@@ -80,7 +80,7 @@ Add all supported subdomains to your `/etc/hosts` file:
 #### Visit the site
 
 Navigate to the start page for the OnRuby platform at
-[http://www.onruby.test:3000](http://www.onruby.test:3000).
+[https://www.onruby.test:3000](https://www.onruby.test:3000).
 
 This will list links and logos to all the usergroups.
 
@@ -119,7 +119,7 @@ subdomains to your `/etc/hosts`:
 127.0.0.1    www.onruby.test hamburg.onruby.test cologne.onruby.test berlin.onruby.test madridrb.onruby.test andalucia.onruby.test
 ```
 
-Access via [http://www.onruby.test:3000](http://www.onruby.test:3000)
+Access via [https://www.onruby.test:3000](https://www.onruby.test:3000)
 
 ### Test Data
 
@@ -144,12 +144,12 @@ These are the steps to get your Ruby Usergroup Site:
 - Create a GitHub Pull Request
 - *Lean back and wait :)*
 
-If you have a custom domain, you need to set up the [CNAME of your domain to
-point to Heroku](https://devcenter.heroku.com/articles/custom-domains#dns_setup).
+If you have a custom domain, you need to [configure the DNS](https://github.com/phoet/on_ruby/issues/360#issuecomment-459729483).
 
 On the admin site we need to:
 
 - `heroku domains:add xyz.onruby.de [custom.de]`
+- pull the custom domain into cloudflare
 - create a new GitHub app for that domain and add keys via `heroku config:add`
 - merge the Pull Request
 - deploy to Heroku
@@ -157,7 +157,7 @@ On the admin site we need to:
 
 ## Website
 
-![OnRuby Website](http://cl.ly/image/3U0S3b0T0F0x/Screen%20Shot%202014-01-07%20at%2014.16.44.png)
+![OnRuby Website](https://cl.ly/image/3U0S3b0T0F0x/Screen%20Shot%202014-01-07%20at%2014.16.44.png)
 
 ## Admin Interface
 
@@ -168,7 +168,7 @@ In order to access the admin stuff, you need to be a registered user with the
 "admin role".
 
 Typus is mounted under `/admin` of your label, so it's
-`http://hamburg.onruby.de/admin` for Hamburg.
+`https://hamburg.onruby.de/admin` for Hamburg.
 
 ### Stuff to manage (CRUD)
 

@@ -161,8 +161,8 @@
   email: rug-b@googlegroups.com
   twitter: rug_b
   organizers:
-  - freaklikeme
-  - Hagenburger
+  - amrAbdelwahab
+  - PWengerter
   - PragTob
   location:
     :zoom: 12
@@ -395,9 +395,9 @@
   - :name: Cabify
     :url: http://cabify.com
     :banner: cabify.png
-  - :name: Lextrend
-    :url: http://www.lextrend.com
-    :banner: lextrend.png
+  - :name: Digital55
+    :url: http://digital55.com
+    :banner: digital55.png
   - :name: The Cocktail
     :url: http://www.the-cocktail.com
     :banner: tck.png
@@ -472,3 +472,43 @@
   coc: http://example.com
   domains:
   google_group: andaluciarb
+- !ruby/object:Usergroup
+  twitter: bcnrails
+  google_group: barcelonaonrails
+  label_id: barcelona
+  canonical_url: https://ruby.barcelona
+  status: enabled
+  default_locale: es
+  tld: eu
+  country: España
+  domains:
+  - ruby.barcelona
+  recurring: third thursday
+  email: webmaster@mediafinger.com
+  github_org: RubyAndFriends
+  github_repo: TalkSuggestions
+  organizers:
+  - mediafinger
+  location:
+    :zoom: 12
+    :lat: 41.3933987
+    :long: 2.1679484
+  imprint:
+    :address: |-
+      Carrer Ferlandina 45, 4-2
+      08001 Barcelona
+    :contributors:
+    - :name: Andreas Finger
+      :email: webmaster@mediafinger.com
+  other_usergroups:
+  - :name: BarcelonaJS
+    :url: http://barcelonajs.org/
+    :twitter: barcelonajs
+  coc: https://github.com/RubyAndFriends/Code_of_Conduct
+  sponsors:
+  - :name: Sequra
+    :url: https://sequra.es/
+    :banner: sequra.png
+  - :name: XING Spain
+    :url: https://xing.com/
+    :banner: xing.png
