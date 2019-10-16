@@ -5,6 +5,7 @@ AllCops:
     - "bin/*"
     - "db/**/schema.rb"
     - "app/controllers/admin/*"
+    - "app/dashboards/*"
 
 Style/Documentation:
   Enabled: false

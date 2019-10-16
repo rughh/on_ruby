@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-require 'administrate/base_dashboard'
+require "administrate/base_dashboard"
 
 class LocationDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -33,45 +31,45 @@ class LocationDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = %i[
-    id
-    created_at
-    name
-    street
+  COLLECTION_ATTRIBUTES = [
+    :id,
+    :created_at,
+    :name,
+    :street,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = %i[
-    company
-    events
-    jobs
-    id
-    name
-    url
-    street
-    house_number
-    city
-    zip
-    lat
-    long
-    created_at
-    updated_at
-    wheelmap_id
+  SHOW_PAGE_ATTRIBUTES = [
+    :company,
+    :events,
+    :jobs,
+    :id,
+    :name,
+    :url,
+    :street,
+    :house_number,
+    :city,
+    :zip,
+    :lat,
+    :long,
+    :created_at,
+    :updated_at,
+    :wheelmap_id,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = %i[
-    name
-    company
-    url
-    street
-    house_number
-    city
-    zip
-    wheelmap_id
+  FORM_ATTRIBUTES = [
+    :name,
+    :company,
+    :url,
+    :street,
+    :house_number,
+    :city,
+    :zip,
+    :wheelmap_id,
   ].freeze
 
   def display_resource(location)
