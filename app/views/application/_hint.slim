@@ -9,14 +9,15 @@
         - highlights.each do |highlight|
           .highlights
             strong=> t("hint.attention")
-            = link_to highlight.description, highlight.url, title: highlight.description
-  - elsif jobs.present?
+            = link_to highlight.description, highlight.url, title: highlight.description, target:  "_blank"
+  - if jobs.present?
     - unless current_user && current_user.hide_jobs?
       = hint(false) do
         #job-teaser
           ul
             li
-              span.job-toggle= link_to fa_icon("chevron-down"), '#', title: t("hint.click_to_refresh")
+              - if jobs.count > 1
+                span.job-toggle= link_to fa_icon("chevron-down"), '#', title: t("hint.click_to_refresh")
               .job.ml-4== job_description(jobs.first)
         #job-list.hidden
           ul

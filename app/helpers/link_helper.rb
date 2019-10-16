@@ -33,11 +33,11 @@ module LinkHelper
   end
 
   def job_description(job)
-    t('hint.job_description', city: I18n.tw('city'), job_link: content_tag(:strong, link_to(job.name, job.url, title: job.name)), company_link: link_to_location(job.location))
+    t('hint.job_description', city: I18n.tw('city'), job_link: content_tag(:strong, link_to(job.name, job.url, title: job.name, target: '_blank')), company_link: link_to_location(job.location))
   end
 
   def link_to_location(location)
-    "#{link_to location.name, location, title: location.name} (#{link_to location.nice_url, location.url, title: location.name})".html_safe
+    "#{link_to location.name, location, title: location.name} (#{link_to location.nice_url, location.url, title: location.name, target: '_blank'})".html_safe
   end
 
   def link_to_route(location)
