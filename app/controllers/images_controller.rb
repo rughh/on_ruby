@@ -1,15 +1,13 @@
-# frozen_string_literal: true
-
 class ImagesController < ActionController::Base
   PUBLIC_MOUNTS = {
     'User' => :image,
-  }.freeze
+  }
 
   def show
     http_cache_forever(public: true) do
       model_name = params[:model_name]
       attribute_name = PUBLIC_MOUNTS[model_name]
-      head(:not_authorized) && return unless attribute_name
+      head(:not_authorized) and return unless attribute_name
 
       filename = params[:filename]
       model_class = model_name.constantize
@@ -26,7 +24,7 @@ class ImagesController < ActionController::Base
         send_default_image
       end
     end
-  rescue StandardError
+  rescue
     Rails.logger.warn("an error coccured dispatching image with params #{params}: #{$ERROR_INFO}")
 
     send_default_image
