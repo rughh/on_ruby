@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class LocationsController < ApplicationController
   expose(:location, find: ->(id, scope) { scope.find_by_slug(id) })
   expose(:locations)  { Location.ordered }

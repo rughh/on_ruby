@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 namespace :scheduler do
   desc 'update geocoding'
   task update_geocoding: :environment do

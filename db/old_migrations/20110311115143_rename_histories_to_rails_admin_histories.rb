@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class RenameHistoriesToRailsAdminHistories < ActiveRecord::Migration
   def self.up
     rename_table :histories, :rails_admin_histories

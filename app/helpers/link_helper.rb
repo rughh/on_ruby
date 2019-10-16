@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module LinkHelper
   def link_to_user(user, image: false, image_class: nil)
     link_to(user, title: user.name) do

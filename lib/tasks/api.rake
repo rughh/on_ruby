@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 namespace :api do
   desc 'calls the api with given api-key'
   task :call, [:key] do |_task, args|

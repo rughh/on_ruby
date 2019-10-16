@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module EventsHelper
   def participation_link(event, link_class: 'btn btn-primary')
     if signed_in?

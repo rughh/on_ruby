@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class DeleteMaterialTypeFromMaterial < ActiveRecord::Migration
   def up
     remove_column :materials, :material_type

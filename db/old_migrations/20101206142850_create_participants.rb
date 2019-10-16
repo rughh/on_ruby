@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class CreateParticipants < ActiveRecord::Migration
   def self.up
     create_table :participants do |t|

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module MapHelper
   def static_map(*locations)
     options = {

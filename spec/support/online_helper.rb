@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module OnlineHelper
   def online?
     @_online = ping if @_online.nil?

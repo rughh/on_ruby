@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class RenameTypeToMaterialType < ActiveRecord::Migration
   def self.up
     rename_column :materials, :type, :material_type

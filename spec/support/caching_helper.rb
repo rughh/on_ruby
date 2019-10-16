@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module CachingHelper
   def with_caching(on = true)
     caching = ActionController::Base.perform_caching

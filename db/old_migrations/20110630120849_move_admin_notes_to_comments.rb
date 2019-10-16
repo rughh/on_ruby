@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class MoveAdminNotesToComments < ActiveRecord::Migration
   def self.up
     remove_index  :admin_notes, %i[admin_user_type admin_user_id]

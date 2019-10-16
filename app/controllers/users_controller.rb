@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class UsersController < ApplicationController
   include IcalHelper
   before_action :authenticate_current_user!, only: %i[edit update]

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 TWITTER_AUTH_HASH = {
   'provider' => 'twitter',
   'uid' => '14339524',

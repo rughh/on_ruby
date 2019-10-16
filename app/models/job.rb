@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Job < ApplicationRecord
   validates :name, :url, :location, presence: true
 

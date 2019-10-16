@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class AddSlugs < ActiveRecord::Migration
   def up
     %i[users events].each do |table|

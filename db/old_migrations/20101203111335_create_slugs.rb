@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class CreateSlugs < ActiveRecord::Migration
   def self.up
     create_table :slugs do |t|

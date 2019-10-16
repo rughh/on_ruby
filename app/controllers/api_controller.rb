@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ApiController < ApplicationController
   before_action :api_sign_in
 

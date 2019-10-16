@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 xml.instruct!
 
 xml.rss 'version' => '2.0', 'xmlns:dc' => 'http://purl.org/dc/elements/1.1/' do

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module HomeHelper
   def next_event_date
     l(Whitelabel[:next_event_date], format: :long)

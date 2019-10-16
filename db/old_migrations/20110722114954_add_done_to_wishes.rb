@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class AddDoneToWishes < ActiveRecord::Migration
   def self.up
     add_column :wishes, :done, :boolean, default: false

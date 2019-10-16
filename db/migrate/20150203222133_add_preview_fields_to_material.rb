@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class AddPreviewFieldsToMaterial < ActiveRecord::Migration
   def change
     add_column :materials, :preview_type, :string

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class CreateAuthorizations < ActiveRecord::Migration
   def self.up
     create_table :authorizations do |t|

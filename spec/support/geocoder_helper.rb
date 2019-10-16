@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module GeocoderHelper
   def stub_geocoder
     Geocoder.configure(lookup: :test)

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module TitleHelper
   def page_title
     "#{title} - #{title_mapping ? title_mapping.call : subtitle}"

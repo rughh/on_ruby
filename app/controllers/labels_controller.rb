@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class LabelsController < ActionController::Base
   include LocaleDetection
   protect_from_forgery with: :exception

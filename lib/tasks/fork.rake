@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 namespace :fork do
   desc 'create a new usergroup'
   task(:usergroup, [:name] => [:environment]) do |_t, args|

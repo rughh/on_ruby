@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Slug
   def self.included(clazz)
     def clazz.from_param(token)

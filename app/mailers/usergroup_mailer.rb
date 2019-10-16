@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class UsergroupMailer < ActionMailer::Base
   def invitation_mail(event)
     @event = event
