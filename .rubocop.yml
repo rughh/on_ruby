@@ -6,6 +6,7 @@ AllCops:
     - "db/**/schema.rb"
     - "app/controllers/admin/*"
     - "app/dashboards/*"
+    - "vendor/**/*"
 
 Style/Documentation:
   Enabled: false
