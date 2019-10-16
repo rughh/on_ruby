@@ -505,4 +505,7 @@
     :url: http://barcelonajs.org/
     :twitter: barcelonajs
   coc: https://github.com/RubyAndFriends/Code_of_Conduct
-  sponsors: []
+  sponsors:
+  - :name: XING Spain
+    :url: https://xing.com/
+    :banner: xing.png
