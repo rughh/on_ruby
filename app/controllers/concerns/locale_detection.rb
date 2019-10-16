@@ -5,11 +5,8 @@ module LocaleDetection
 
   def switch_locale
     locale = params[:locale] || cookies[:locale]
-    I18n.locale = if allowed_locale?(locale)
-                    locale
-                  else
-                    default_locale
-                  end
+    I18n.locale = allowed_locale?(locale) ? locale : default_locale
+
     cookies[:locale] = {
       value: locale,
       expires: 1.year.from_now,
