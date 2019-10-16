@@ -12,6 +12,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 
       env['omniauth.strategy'].options[:client_id]     = ENV["#{name}_KEY"]
       env['omniauth.strategy'].options[:client_secret] = ENV["#{name}_SECRET"]
-    end
+    end,
   }
 end

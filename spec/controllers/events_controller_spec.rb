@@ -55,7 +55,7 @@ describe EventsController do
           {
             'id' => p.id,
             'user_id' => p.user_id,
-            'event_id' => p.event_id
+            'event_id' => p.event_id,
           }
         end
         materials_hash = event.materials.map do |m|
@@ -64,7 +64,7 @@ describe EventsController do
             'name' => m.name,
             'url' => m.url,
             'event_id' => m.event_id,
-            'user_id' => m.user_id
+            'user_id' => m.user_id,
           }
         end
         topics_hash = event.topics.map do |t|
@@ -83,8 +83,8 @@ describe EventsController do
               'github' => t.user.github,
               'twitter' => t.user.twitter,
               'freelancer' => t.user.freelancer,
-              'available' => t.user.available
-            }
+              'available' => t.user.available,
+            },
           }
         end
 

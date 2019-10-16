@@ -11,7 +11,7 @@ module GeocoderHelper
           'state' => 'Rhone-Alpes',
           'state_code' => 'RA',
           'country' => 'France',
-          'country_code' => 'FR'
+          'country_code' => 'FR',
         }
       ]
     )

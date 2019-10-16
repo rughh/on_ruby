@@ -6,7 +6,7 @@ module ApplicationHelper
       timestamp: model.updated_at.to_i,
       model_name: model.class,
       model_id: model.id,
-      filename: "#{model.slug}.png"
+      filename: "#{model.slug}.png",
     }
 
     image_dispatch_path(options)

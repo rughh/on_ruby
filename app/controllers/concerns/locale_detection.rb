@@ -13,7 +13,7 @@ module LocaleDetection
     cookies[:locale] = {
       value: locale,
       expires: 1.year.from_now,
-      domain: request.domain
+      domain: request.domain,
     }
   end
 

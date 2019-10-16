@@ -9,8 +9,8 @@ TWITTER_AUTH_HASH = {
     'location' => 'Sternschanze, Hamburg',
     'image' => 'http://a3.twimg.com/profile_images/1100439667/P1040913_normal.JPG',
     'description' => 'I am a freelance Ruby and Java developer from Hamburg, Germany. ☠ nofail',
-    'urls' => { 'Website' => 'http://nofail.de' }
-  }
+    'urls' => { 'Website' => 'http://nofail.de' },
+  },
 }.freeze
 GITHUB_AUTH_HASH = {
   'provider' => 'github',
@@ -22,11 +22,11 @@ GITHUB_AUTH_HASH = {
     'image' =>
     'https://secure.gravatar.com/avatar/056c32203f8017f075ac060069823b66?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png',
     'urls' => {
-      'GitHub' => 'https://github.com/phoet', 'Blog' => 'http://blog.nofail.de'
-    }
+      'GitHub' => 'https://github.com/phoet', 'Blog' => 'http://blog.nofail.de',
+    },
   },
   'credentials' => {
-    'token' => 'b87a73dfb7aaca39b138abae74d0439fc5677a4f', 'expires' => false
+    'token' => 'b87a73dfb7aaca39b138abae74d0439fc5677a4f', 'expires' => false,
   },
   'extra' => {
     'raw_info' => {
@@ -50,9 +50,9 @@ GITHUB_AUTH_HASH = {
       'gravatar_id' => '056c32203f8017f075ac060069823b66',
       'id' => 48_745,
       'public_gists' => 29,
-      'login' => 'phoet'
-    }
-  }
+      'login' => 'phoet',
+    },
+  },
 }.freeze
 
 FactoryBot.define do
