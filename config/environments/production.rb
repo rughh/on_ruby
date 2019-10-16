@@ -65,7 +65,7 @@ Rails.application.configure do
 
   config.action_dispatch.rack_cache = {
     metastore: Dalli::Client.new(ENV['MEMCACHIER_SERVERS'], username: ENV['MEMCACHIER_USERNAME'], password: ENV['MEMCACHIER_PASSWORD'], expires_in: 1.day),
-    entitystore: Dalli::Client.new(ENV['MEMCACHIER_SERVERS'], username: ENV['MEMCACHIER_USERNAME'], password: ENV['MEMCACHIER_PASSWORD'], expires_in: 1.day)
+    entitystore: Dalli::Client.new(ENV['MEMCACHIER_SERVERS'], username: ENV['MEMCACHIER_USERNAME'], password: ENV['MEMCACHIER_PASSWORD'], expires_in: 1.day),
   }
 
   # Use a real queuing backend for Active Job (and separate queues per environment).

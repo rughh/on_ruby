@@ -25,7 +25,7 @@ class LocationDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime,
     company: Field::Boolean,
     label: Field::String,
-    wheelmap_id: Field::String
+    wheelmap_id: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES

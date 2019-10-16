@@ -25,7 +25,7 @@ class EventDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime,
     published: Field::Boolean,
     label: Field::String,
-    limit: Field::Number
+    limit: Field::Number,
   }.freeze
 
   # COLLECTION_ATTRIBUTES

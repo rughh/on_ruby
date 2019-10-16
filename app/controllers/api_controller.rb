@@ -13,7 +13,7 @@ class ApiController < ApplicationController
       topics: topics.as_api_response(:ios_v1),
       locations: locations.as_api_response(:ios_v1),
       events: events.as_api_response(:ios_v1),
-      users: users.as_api_response(:ios_v1)
+      users: users.as_api_response(:ios_v1),
     }
 
     render json: hash

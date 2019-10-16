@@ -35,7 +35,7 @@ class UserDashboard < Administrate::BaseDashboard
     twitter: Field::String,
     email: Field::String,
     super_admin: Field::Boolean,
-    linkedin: Field::String
+    linkedin: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES

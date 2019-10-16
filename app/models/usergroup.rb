@@ -11,7 +11,7 @@ class Usergroup
     thursday: 3,
     friday: 4,
     saturday: 5,
-    sunday: 6
+    sunday: 6,
   }.freeze
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :custom_recurring, :email, :google_group, :coc

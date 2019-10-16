@@ -20,7 +20,7 @@ class MaterialDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     preview_type: Field::String,
-    preview_code: Field::String
+    preview_code: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
