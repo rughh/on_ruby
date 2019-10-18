@@ -1,0 +1,180 @@
+pl:
+  main:
+    events: "Wydarzenia"
+    locations: "Miejsca"
+    mailing_list: "Lista mailingowa"
+    people: "Ludzie"
+    topics: "Tematy"
+    materials: "Materiały dodatkowe"
+  time:
+    formats:
+      time: "%H:%M"
+      date: "%d.%m. %H:%M"
+      long: "%d.%m.%Y o %H:%M"
+      month: "%B %Y"
+  language_chooser: "Język"
+  switch_languages: "przełącz na %{language}"
+  languages:
+    de: "niemiecki"
+    en: "angielski"
+    es: "hiszpański"
+    pl: "polski"
+  login:
+    profile: "Profil"
+    show_profile: "Pokaż profil"
+    edit_profile: "Edytuj profil"
+    login: "Zaloguj się"
+    logout: "Wyloguj się"
+    twitter_login: "Zaloguj przez Twittera"
+    github_login: "Zaloguj przez Github"
+    google_oauth2_login: "Zaloguj przez Google"
+  hint:
+    close: "Zamknij"
+    attention: "Uwaga:"
+    other_job: "Other Job"
+    job_description: "Oferty pracy w Ruby / Ruby n Rails w mieście %{city}: %{job_link} w firmie %{company_link}"
+    click_to_refresh: "kliknij by odświeżyć!"
+  footer:
+    to_mobile: "Wersja mobilna"
+    imprint: "Imprint"
+    contact: "Kontakt"
+    links: "Linki"
+    sponsored_by: "Sponsorowane przez"
+    other_usergroups: "Inne grupy"
+    ruby_usergroups: "Inne gruby związane z Ruby"
+    ruby_supporters: "Supporterzy Ruby"
+  show:
+    hosted_by: "organizowane przez"
+    at: "w"
+    attend: "Weź udział"
+    not_attend: "Anuluj"
+    login_before_attend: "Najpierw musisz się zalogować"
+    attendees:
+      zero: "Uczestników: (%{participant_count})"
+      one: "Uczestników: (%{participant_count} na %{count})"
+      other: "Uczestników: (%{participant_count} na %{count})"
+    route: "Trasa"
+    material: "Materiał"
+    description: "Informacje"
+    no_location: "Nadal poszukujemy miejsca!"
+  home:
+    the_usergroup: "<strong>%{usergroup}</strong> jest grupą ludzi, którzy kochają Ruby. Spotkaj się z nami na najbliższym meetupie! Początkujący są zawsze mile widziani."
+    like_to_talk: "Chcesz zgłosić prezentację na najbliższe spotkanie albo masz propozycję tematu?"
+    send_us_an_email: "Wyślij nam %{mail_to} lub skontaktuj się na Twitterze: %{twitter_link}"
+    engage: "Grupy potrzebują zaangażoanych uczestników. Jeśli uważasz że brakuje jakiegoś tematu lub poszukujesz dodatkowych informacji, <strong>zachęcamy Cię do dodania tych rzeczy do naszej Listy życzeń</strong>. Jeśli masz pomysł na prezentację, <strong>dodaj go tutaj</strong> i otrzymaj natychmiastowy feedback od środowiska Ruby / Rails."
+    add_topic: "Dodaj temat"
+    new_topics: "Propozycje"
+    upcoming_topics: "Najbliższe tematy"
+    old_topics: "OStatnie tematy"
+    company_workers: "Pracuje tu wielu członków grupy. Lubimy widzieć nowe twarze."
+    company_missing: "Jeśli uważasz że brakuje tu jakiejś firmy, wyślij nam %{email_link} lub wiadomość prywatną na Twitterze (%{twitter_link})"
+    next_possible_meetup_recurring: "Obecnie nie ma zaplanowanych żadnych spotkań. Grupa zazwyczaj spotyka się %{recurring} i wciąż <a href='%{none_url}'>poszukuje miejsca</a>, gdzie mogłaby się spotkać."
+    next_possible_meetup: "Najbliższe spotkanie Ruby / Rails powinno odbyć się %{event_date}"
+    next_meetup: "Najbliższy meetup"
+    takes_place: "odbędzie się %{event_date} w %{location_link}!"
+    takes_place_no_location: "odbędzie się %{event_date}, ale wciąż <a href='%{none_url}'>szuka miejsca</a>, w którym się odbędzie!"
+    no_location: "poszukuje miejsca"
+    past_events: "Spotkania które już się odbyły"
+    usergroup_locations: "To są %{location_link} w których zwykle się spotykamy."
+    show_more: "pokaż więcej"
+    no_new_topics: "Obecnie brak propozycji, dodaj swój %{new_topic_link}!"
+    all_events: "Wszystkie wydarzenia"
+    all_people: "Wszystkie osoby"
+    to_mailinglist: "Do listy mailingowej"
+    top_maling_entries: "Najgorętsze dyskusje"
+    goto_maling_list: "Do listy mailingowej"
+    mailing_list: "Lista mailingowa jest narzędziem do pozostawania na bieżąco oraz do brania udziału w dyskusjach. Wykorzystywana jest do informowania za pomocą e-maila wszystkich którzy wyrazili na to ochotę. Służy do tematów organizacyjnych i technicznych - bez reklam!"
+  profile:
+    edit: "Edytuj profil"
+    freelancer: "Freelancer"
+    available: "Dostępny/a"
+    events_participated: "Wydarzenia w których wziąłeś/wziąłeś udział"
+    organized_events: Twoje wydarzenia"
+    talks_done: "Twoje tematy"
+    likes_given: "Ulubione tematy"
+    provided_material: "Dodatkowe materiały"
+    proposed_topics: "Zgłoszone tematy"
+    remove_account: "Usuń konto"
+    remove_confirm: "niech się stanie"
+  user:
+    saved_successful: "Zaktualizowano dane."
+    removed: "Twoje konto zostało usunięte!"
+    not_removed_organizer: "Organizator nie może zostać usunięty!"
+  location:
+    job_offers: "Oferty pracy"
+    open_in: "Otwiera się za"
+    google_maps: "Google Maps"
+  topic:
+    topic: "temat"
+    all_topics: "Wszystkie tematy"
+    likes: "%{count} osób lubi to"
+    like: "polub"
+    unlike: "odlub"
+    edit: "edytuj temat"
+    hosted_by: "na %{event}, organizowanym przed %{host}"
+    created_by_user: "ten temat będzie prezentować %{user}"
+    no_event: "Jeszcze nie ma daty"
+    markdown: "W tym polu możesz użyć <a href='http://daringfireball.net/projects/markdown/syntax'>markdowna</a>, adresy internetowe automatycznie staną się linkami."
+    please_login: "Zanim dodasz temat, musisz się zalogować."
+    twitter_message: "Nowy temat zgłoszony przez @%{username} '%{name}' %{url}"
+    proposal_types:
+      proposal: "Chcę zrobić o tym prezentację"
+      enquiry: "Chciałbym żeby ktoś zrobił o tym prezentację"
+    proposal_type_descriptions:
+      proposal: "%{user} chce zrobić o tym prezentację"
+      enquiry: "%{user} chciałby zobaczyć na ten temat prezentację"
+  event:
+    twitter_message: "%{name} %{date} %{url}"
+    recurring: "w %{ordinal} %{day} miesiąca"
+    first: "1."
+    second: "2."
+    third: "3."
+    fourth: "4."
+    last: "5."
+  events:
+    calendar_html: "Kalendarz: %{webcal_link} - %{rss_link}"
+    im_attending_html: "Wydarzenia w których biorę udział: %{events_im_attending_link}"
+    webcal: 'Webcal'
+    rss: 'RSS'
+    coc:
+      html: 'Spotkania w tej Grupie honoruję ten <a href="%{coc_link}" target="_blank">Code of Conduct</a>.'
+  flash:
+    duplicate_nick: "Konto '%{name}' jest już zarejestrowane. Być może logowałaś/eś się już za pomocą któregoś usługodawcy."
+    only_admins: "Dostępne tylko dla adminów."
+    not_authenticated: "Nie masz uprawnieć by oglądać tę stronę"
+    not_logged_in: "Ups, musisz się najpierw zalogować."
+    already_participating: "Już jesteś na liście."
+    already_closed: "List uczestników jest już pełna."
+    now_participating: "Jesteś na liście."
+    dont_participate: "Nie jesteś na liście."
+    forbidden: "Ups, nie możesz tego zrobić."
+    logged_in: "Hej %{name}, Twoje logowanie zakończyło się powodzeniem!"
+    logged_out: "Wylogowano!"
+    login_error: "Logowanie nie powiodło się, czy jesteś zalogowana/y do swojego konta OAuth?"
+    double_liked: "Prosimy bez podwójnych polubień!"
+    liked: "Polubiłaś/eś ten temat."
+    unliked: "Odlubiłaś/eś ten temat."
+    topic_added: "Nowy temat został dodany."
+    topic_updated: "Temat został zakktualizowany."
+    add_email: "Dodaj adres e-mail, byśmy mogli się z Tobą skontaktować!"
+  mobile:
+    settings: "Ustawienia"
+    back: "Wstecz"
+    home: "Start"
+    disable: "Wyłącz tryb mobilny"
+  views:
+    pagination:
+      first: "<<"
+      last: ">>"
+      previous: "<"
+      next: ">"
+      truncate: "..."
+  date:
+    day_names_accusative:
+    - niedzielę
+    - poniedziałek
+    - wtorek
+    - środę
+    - czwartek
+    - piątek
+    - sobotę

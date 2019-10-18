@@ -1,0 +1,117 @@
+---
+pl:
+  label:
+    default:
+      name: onruby
+      title: OnRuby - The Ruby and Rails usergroup platform
+      subtitle: Ruby / Rails Communities Germany
+      meta_desc: Ruby / Rails Communities Germany
+      custom_recurrence: n/a
+    hamburg:
+      city: Hamburg
+      name: Ruby Usergroup Hamburg
+      title: Hamburg on Ruby
+      subtitle: Harbor of Hamburg's Ruby Community
+      meta_desc: Ruby / Rails Usergroup Hamburg
+    berlin:
+      city: Berlin
+      name: Ruby Usergroup Berlin
+      title: RUG::B
+      subtitle: Ruby User Group Berlin
+      meta_desc: RUG::B—Ruby User Group Berlin
+    cologne:
+      city: Köln
+      name: Kölsch.rb
+      title: Cologne.rb
+      subtitle: Ruby User Group Cologne
+      meta_desc: Ruby / Rails User Group Cologne
+      custom_recurrence: "w trzecią środę nieparzystych miesięcy (styczeń, marzec, maj, lipiec, wrzesień, listopad) o 19:00"
+    saar:
+      city: Saarland
+      name: RUGSaar
+      title: RUGSaar
+      subtitle: Ruby User Group Saar
+      meta_desc: Ruby User Group Saarland
+    munich:
+      city: Munich
+      name: Munich Rubyshift
+      title: Munich Rubyshift
+      subtitle: Ruby User Group Munich
+      meta_desc: Ruby & Rails Usergroup Munich
+    karlsruhe:
+      city: Karlsruhe
+      name: Ruby Usergroup Karlsruhe
+      title: Karlsruhe.rb
+      subtitle: Ruby User Group Karlsruhe
+      meta_desc: Ruby / Rails User Group Karlsruhe
+    leipzig:
+      city: Leipzig
+      name: LoR
+      title: Leipzig on Rails
+      subtitle: Ruby / Rails User Group Leipzig
+      meta_desc: Ruby / Rails User Group Leipzig
+    dresden:
+      city: Dresden
+      name: Ruby Usergroup Dresden
+      title: Dresden on Ruby
+      subtitle: Ruby User Group Dresden
+      meta_desc: Ruby / Rails User Group Dresden
+    railsgirlshh:
+      :city: Hamburg
+      :name: Railsgirls Hamburg
+      :title: Railsgirls Hamburg
+      :subtitle: Meetup
+      :meta_desc: Railsgirls Hamburg Meetup
+      :footer:
+        :other_usergroups: Railsgirls in Germany
+      :home:
+        :the_usergroup: Join us for our monthly meetup open to former and future participants,
+          coaches and everyone interested in <strong>Railsgirls Hamburg</strong>. You
+          can learn more about our events on our <a href='http://railsgirls.com/hamburg'>Railsgirls
+          Hamburg website</a>.
+        :like_to_talk: Do you want to give a talk at the meetup, or would you like
+          to suggest a topic?
+        :engage: If you would like to suggest a topic for our meetup, <strong>add
+          it to our wishlist</strong>.
+        :company_workers: ''
+        :company_missing: ''
+        :next_possible_meetup_recurring: There is no meetup scheduleed right now,
+          but we usually meet on %{recurring}.
+        :next_possible_meetup: The next meetup is supposed to be on %{event_date}.
+        :usergroup_locations: The %{location_link} where our meetup usually takes
+          place.
+        :mailing_list: Stay up to date about upcoming events and learning groups or
+          join a discussion about programming and Ruby on Rails
+    bonn:
+      :city: Bonn
+      :name: bonn.rb
+      :title: bonn.rb
+      :subtitle: Ruby User Group Bonn
+      :meta_desc: Ruby User Group Bonn
+    innsbruck:
+      :city: Innsbruck
+      :name: Innsbruck.rb
+      :title: Innsbruck.rb
+      :subtitle: Ruby User Group Innsbruck
+      :meta_desc: Ruby User Group Innsbruck
+    madridrb:
+      :city: Madrid
+      :name: Madrid.rb
+      :title: Madrid.rb
+      :subtitle: Madrid Ruby User Group
+      :meta_desc: Madrid Ruby User Group
+      :custom_recurrence: ostatni czwartek każdego miesiąca o 19:30
+    andalucia:
+      :city: Sevilla, Málaga
+      :name: Andalucia.rb
+      :title: Andalucia.rb
+      :subtitle: Andalucia Ruby User Group
+      :meta_desc: Andalucia Ruby User Group
+      :custom_recurrence: ostatni czwartek każdego miesiąca o 19:30
+    barcelona:
+      city: Barcelona
+      name: 'Ruby & Friends'
+      title: 'Ruby & Friends'
+      subtitle: 'dawniej: Barcelona on Rails'
+      meta_desc: 'Grupa użytkowników Ruby w Barcelonie'
+      custom_recurrence: w każdy trzeci czwartek miesiąca spotykamy się o 19:00
