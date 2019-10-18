@@ -1,0 +1,18 @@
+pl:
+  formtastic:
+    labels:
+      topic:
+        name: 'Twój temat'
+        proposal_type: 'Typ zgłoszenia'
+        description: 'Opis'
+      user:
+        hide_jobs: 'ukryj oferty pracy'
+        available: 'poszukuję pracy/projektu'
+        description: 'Opis'
+    placeholders:
+      github: 'GitHub-Nazwa użytkownika'
+    actions:
+      topic:
+        create: 'dodaj'
+      user:
+        update: 'zaktualizuj'

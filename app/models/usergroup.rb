@@ -60,7 +60,8 @@ class Usergroup
     number, day, = recurring.split(DELIMITER_DATE)
 
     ordinal = I18n.t("event.#{number}")
-    day     = I18n.t('date.day_names')[DAYS_INTO_WEEK[day.to_sym] + 1]
+    recurring_key = I18n.exists?('date.day_names_accusative') ? 'date.day_names_accusative' : 'date.day_names'
+    day = I18n.t(recurring_key)[DAYS_INTO_WEEK[day.to_sym] + 1]
 
     I18n.t('event.recurring', ordinal: ordinal, day: day)
   end

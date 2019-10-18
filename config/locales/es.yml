@@ -18,6 +18,7 @@ es:
     de: "Alemán"
     en: "Inglés"
     es: "Español"
+    pl: "Polaco"
   login:
     profile: "Perfil"
     show_profile: "Ver perfil"
