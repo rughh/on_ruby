@@ -11,9 +11,8 @@ Exclude:
   - /i18n.transliterate.rule/ # transliteration language rules
   - /time.formats.us/ # american time format only present in en-US locale
 
-  # disable false positives
-  - /number.nth/
-  - /number.human.decimal_units/
-  - /errors.unavailable_session/
-  - /errors.unacceptable_request/
-  - /errors.connection_refused/
+  # TODO: update the locale files de, en, es
+  - /errors/
+  - /datetime/
+  - /date/
+  - /number/
