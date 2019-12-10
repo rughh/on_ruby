@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 ruby '~> 2.6.4'
 
+gem 'rails', '6.0.1'
+
 gem 'acts_as_api'
 gem 'addressable'
 gem 'administrate'
@@ -18,11 +20,11 @@ gem 'pg', '1.1.4'
 gem 'public_suffix'
 gem 'puma'
 gem 'rack-cache'
-gem 'rails', '6.0.0.rc1'
 gem 'redcarpet'
 gem 'ri_cal'
 gem 'simple_form'
 gem 'slim-rails'
+gem 'sprockets', '~> 3.7'
 gem 'validate_url'
 gem 'whitelabel'
 
