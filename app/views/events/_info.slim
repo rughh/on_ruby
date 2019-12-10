@@ -11,11 +11,10 @@ small.text-muted
 
 p.card-text== markdown(event.description)
 
-= participation_link(event, link_class: 'btn btn-primary card-link')
-= link_to(t("home.add_topic"), new_topic_path, class: 'btn btn-primary card-link')
+= participation_link(event, link_class: 'btn btn-primary')
 
+h3= t("main.topics")
 - if event.topics.present?
-  h3= t("main.topics")
   .card-deck
     - event.topics.each do |topic|
       .card.text-center
