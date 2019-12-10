@@ -17,11 +17,12 @@ h3= t("main.topics")
 - if event.topics.present?
   .card-deck
     - event.topics.each do |topic|
-      .card.text-center
+      .card
         .card-header
-          small.text-muted= link_to_user(topic.user)
-        = link_to(topic.user) do
-          = user_image(topic.user, image_class: 'card-img-top card-img-topic')
+          .pull-left
+            = link_to(topic.user) do
+              = user_image(topic.user, image_class: 'card-img-topic-header')
+          = link_to_user(topic.user)
         .card-body
           h5.card-title= link_to_topic(topic)
           p.card-text== markdown(topic.description)

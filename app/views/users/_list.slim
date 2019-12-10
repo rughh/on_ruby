@@ -1,4 +1,3 @@
-- show_stats ||= false
-.card-columns.user-card-columns
+.card-columns
   - users.each do |user|
-      = render(user, show_stats: show_stats)
+    = render(user)
