@@ -66,11 +66,6 @@ body
   margin: 1em
   @include userimage(100px)
 
-.card-columns
-  @include media-breakpoint-only(xl)
-    column-count: 4
-
-
 // https://fontawesome.com/v3.2.1/icons/
 .fa-events
   @extend .fa-calendar
@@ -100,15 +95,12 @@ body
   .user-image
     @include userimage(1.5em)
 
+  background-color: $white
   font: bold 1.2em $font
   border: $border
   a
     text-decoration: none
 
-.navbar-rounded
-  background-color: $white
-  border-bottom-right-radius: 0.5em
-  border-bottom-left-radius: 0.5em
 
 header
   padding: 2em 2em 4em 2em
@@ -132,6 +124,9 @@ header
       letter-spacing: 0.1em
 
 .main
+  @include media-breakpoint-up(xl)
+    margin: 2em 4em
+
   li.topic, li.event
     margin-left: 5px
 
@@ -210,12 +205,17 @@ header
     li
       padding-bottom: 1em
 
+  @include media-breakpoint-up(xl)
+    section
+      margin-bottom: 2em
+      border-radius: 0.5em
+
   section
     padding: 2em
-    margin-bottom: 3em
+    margin: 3em 0
+    width: 100%
     background: $background
     border: $border
-    border-radius: 0.5em
 
     h2
       font: bold 1.4em $font

@@ -16,7 +16,7 @@ p.card-text== markdown(event.description)
 
 - if event.topics.present?
   h3= t("main.topics")
-  .card-columns.topic-card-columns
+  .card-deck
     - event.topics.each do |topic|
       .card.text-center
         .card-header
