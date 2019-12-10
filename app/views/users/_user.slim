@@ -1,13 +1,14 @@
 .card
   .card-body
     .pull-left
+      - if user.organizer?
+        span.badge.badge-card-header.badge-organizer
+          = fa_icon('star', text: 'Organizer')
       = link_to(user) do
         = user_image(user, image_class: 'card-img-topic')
+
     p
       small.text-muted= link_to_user(user)
-      - if user.organizer?
-        span.badge.badge-card-header.ml-2
-          = fa_icon('star', text: 'Organizer')
 
     p
       small.text-muted
