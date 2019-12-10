@@ -1,12 +1,5 @@
 = section_box :events do
   - if current_event
-    p
-      => link_to t("home.next_meetup"), current_event, title: current_event.name
-      - if current_event.location.present?
-        == t("home.takes_place", event_date: content_tag(:em, l(current_event.date)), location_link: link_to(current_event.location.name, current_event.location, title: current_event.location.name))
-      - else
-        == t("home.takes_place_no_location", event_date: content_tag(:em, l(current_event.date)), none_url: none_locations_path)
-
     .card
       .card-header
         = render('events/badges', event: current_event)

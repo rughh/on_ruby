@@ -9,7 +9,6 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 RSpec.configure do |config|
   config.include RequestHelper, type: :controller
   config.include RequestHelper, type: :request
-  config.include CachingHelper, type: :request
   config.include KaminariHelper
   config.include GeocoderHelper
   config.include FactoryBot::Syntax::Methods
