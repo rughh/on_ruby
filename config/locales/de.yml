@@ -16,9 +16,9 @@ de:
   switch_languages: "Umschalten auf %{language}"
   languages:
     de: "Deutsch"
-    en: "Englisch"
-    es: "Spanisch"
-    pl: "Polnisch"
+    en: "English"
+    es: "Español"
+    pl: "Polski"
   login:
     profile: "Profil"
     show_profile: "Profil ansehen"

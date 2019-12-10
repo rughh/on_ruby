@@ -15,10 +15,10 @@ en:
   language_chooser: "Language"
   switch_languages: "Switch to %{language}"
   languages:
-    de: "German"
+    de: "Deutsch"
     en: "English"
-    es: "Spanish"
-    pl: "Polish"
+    es: "Español"
+    pl: "Polski"
   login:
     profile: "Profile"
     show_profile: "View Profil"
