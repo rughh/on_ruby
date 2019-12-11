@@ -69,12 +69,11 @@ body
   margin-left: -5px
 
 .card-img-topic
-  margin-bottom: 1em
-  margin-right: 1em
+  margin-right: 0.5em
   @include userimage(75px)
 
 .card-img-topic-header
-  margin-right: 1em
+  margin-right: 0.5em
   @include userimage(50px)
 
 // https://fontawesome.com/v3.2.1/icons/
@@ -114,7 +113,7 @@ body
 
 
 header
-  padding: 2em 2em 4em 2em
+  padding: 0em 2em 0em 2em
   color: $title-color
 
   #logo
@@ -133,6 +132,9 @@ header
     h2
       font-size: $sub-title-font-size
       letter-spacing: 0.1em
+
+.with-icon
+  text-decoration: none
 
 .main
   @include media-breakpoint-up(xl)
@@ -154,7 +156,7 @@ header
   .hint
     padding-top: 1em
     padding-bottom: 1em
-    margin-top: 0em
+    margin-top: 2em
     margin-bottom: 3em
     ul, li
       padding: 0px

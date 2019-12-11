@@ -16,22 +16,20 @@ module LinkHelper
     link_to job.name, job.url, title: job.name
   end
 
-  def link_to_event(event, options = {})
-    options = { title: event.name, icon: true }.merge(options)
-    link = link_to(options[:title], event, title: options[:title])
-    options[:icon] ? fa_icon('calendar-o', text: link) : link
+  def link_to_event(event)
+    fa_icon('calendar-o', text: link_to(event.name, event, title: event.name, class: 'with-icon'))
   end
 
   def link_to_topic(topic)
-    fa_icon('comment-o', text: link_to(topic.name, topic, title: topic.name))
+    fa_icon('comment-o', text: link_to(topic.name, topic, title: topic.name, class: 'with-icon'))
   end
 
   def link_to_material(material)
-    fa_icon('list-ul', text: link_to(material.name, material.url, title: material.name))
+    fa_icon('list-ul', text: link_to(material.name, material.url, title: material.name, class: 'with-icon'))
   end
 
   def link_to_mailing_list(entry)
-    fa_icon('envelope-o', text: link_to(entry.title, entry.url, title: entry.title))
+    fa_icon('envelope-o', text: link_to(entry.title, entry.url, title: entry.title, class: 'with-icon'))
   end
 
   def job_description(job)

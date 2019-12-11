@@ -11,6 +11,6 @@
       small.text-muted= link_to_user(user)
 
     p
-      small.text-muted
+      small.text-muted.text-nowrap
         = "#{t('main.topics')}: #{user.topics.count} | "
         = "#{t('main.events')}: #{user.participations.count}"

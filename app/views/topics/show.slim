@@ -30,4 +30,4 @@ section
                 = fa_icon('thumbs-o-up', class: 'pull-left', text: link_to_user(like.user))
 
     - if topic.event.present?
-      .card-footer== t("topic.hosted_by", host: link_to_user(topic.event.user), event: link_to_event(topic.event, icon: false))
+      .card-footer== t("topic.hosted_by", host: link_to_user(topic.event.user), event: link_to(topic.event.name, topic.event))

@@ -1,6 +1,6 @@
 
 h2.card-title
-  = event.name
+  = link_to_event(event)
 small.text-muted
   = t("show.hosted_by")
   =< link_to_user(event.user)
@@ -32,4 +32,4 @@ h3= t("main.topics")
               li.list-group-item= link_to_material(material)
         .card-footer
           small.text-muted
-            = t('topic.likes', count: topic.likes.count)
+            = link_to t('topic.likes', count: topic.likes.count), topic

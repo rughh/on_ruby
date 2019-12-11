@@ -1,6 +1,6 @@
 nav.navbar.sticky-top.navbar-expand-lg#nav
   .label
-    = link_to('#on_ruby', class: 'navbar-brand pl-4') do
+    = link_to(root_path(anchor: :on_ruby), class: 'navbar-brand pl-4') do
       = image_tag("labels/#{Whitelabel[:label_id]}.png", title: title, class: "d-inline-block align-bottom label")
       .d-none.d-sm-inline.d-md-inline.d-lg-none= I18n.tw('name')
 
