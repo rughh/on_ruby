@@ -23,7 +23,7 @@ de:
     profile: "Profil"
     show_profile: "Profil ansehen"
     edit_profile: "Profil bearbeiten"
-    login: "Login"
+    login: "Anmelden"
     logout: "Ausloggen"
     twitter_login: "Twitter Login"
     github_login: "GitHub Login"

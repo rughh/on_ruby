@@ -7,7 +7,7 @@ html
     = touch_icon
     = rss_feed
     = csrf_meta_tag
-    = stylesheet_link_tag :application, "//fonts.googleapis.com/css?family=Alef"
+    = stylesheet_link_tag :application, "//fonts.googleapis.com/css?family=Raleway"
     = whitelabel_stylesheet_link_tag
   body
     .container-xl#on_ruby
@@ -18,10 +18,6 @@ html
         = yield
     footer
       = render 'footer'
-
-    .d-none.d-lg-block
-      = ribbon(:patreon)
-      = ribbon(:github)
 
   = render 'app_info'
   = render 'i18njs'

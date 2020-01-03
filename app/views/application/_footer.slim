@@ -37,6 +37,14 @@
         - if Whitelabel[:imprint][:address].present?
           li== simple_format Whitelabel[:imprint][:address]
 
+  .row.m-4.hr
+    .col-sm.mb-4
+      = link_to 'become a Patron', 'https://www.patreon.com/on_ruby', target: '_blank', class: 'btn btn-light'
+    .col-sm.mb-4
+      = link_to 'fork on GitHub', 'https://github.com/phoet/on_ruby', target: '_blank', class: 'btn btn-light'
+    .col-sm.mb-4
+      = link_to 'Señor Developer', 'https://senordevelopershop.spreadshirt.de', target: '_blank', class: 'btn btn-light'
+
   - if Whitelabel[:other_usergroups].present?
     .row.m-4.usergroups.hr
       .col-sm.mb-2

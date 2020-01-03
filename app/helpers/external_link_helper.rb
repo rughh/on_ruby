@@ -93,21 +93,6 @@ module ExternalLinkHelper
     "https://twitter.com/home?status=#{URI.encode(text)}"
   end
 
-  def ribbon(type)
-    types = {
-      github: ['Fork me on GitHub!', 'https://github.com/phoet/on_ruby'],
-      senor_developer: ['Señor Developer!', 'https://senordevelopershop.spreadshirt.de'],
-      rgsoc: ['SUMMER OF CODE', 'https://railsgirlssummerofcode.org/campaign/'],
-      patreon: ['Become a patron', 'https://www.patreon.com/on_ruby'],
-    }
-    text, url = types[type]
-    content_tag :div, id: "#{type}_ribbon", class: 'ribbon_wrap' do
-      link_to url, id: type, title: text do
-        content_tag :span, text
-      end
-    end
-  end
-
   def slackin_js
     return if Whitelabel[:slackin_url].blank?
 

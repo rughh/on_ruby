@@ -9,12 +9,11 @@ $link-decoration: underline
 $background: white
 $container-background: image-url('whitey.png') left top repeat
 $title-color: black
-$ribbon-color: $title-color
-$font: Alef, sans-serif
+$font: Raleway, sans-serif
 $base-font-size: 0.8em
-$nav-font-size: 1em
-$title-font-size: 3em
-$sub-title-font-size: $title-font-size / 2
+$nav-font-size: 1.2em
+$title-font-size: 1.1em
+$sub-title-font-size: 1em
 $border-color: lightgray
 $border: 1px solid $border-color
 $ruby-red: #C81B47
@@ -28,11 +27,10 @@ $ruby-red: #C81B47
 @mixin clearfix
   clear: both
 
-@mixin ribbon
-  border: $border
-  background: $background
-  color: $ribbon-color
-  font: 1.1em $font
+@mixin title($size)
+  font: $size $font
+  text-transform: uppercase
+  letter-spacing: 1px
 
 @mixin hide-text
   $approximate-em-value: 12px / 1em
@@ -106,13 +104,14 @@ body
     @include userimage(1.5em)
 
   background-color: $white
-  font: bold 1.2em $font
+  @include title($nav-font-size)
   border: $border
   a
     text-decoration: none
 
 
 header
+  margin: 3em 1em
   padding: 0em 2em 0em 2em
   color: $title-color
 
@@ -124,14 +123,12 @@ header
   #title, &:hover, &:active, &:visited
     color: $title-color
     text-decoration: none
-    h1, h2
-      font: bold $title-font-size $font
     h1
-      line-height: 1.5em
-      letter-spacing: 0.3em
+      font: 3em $font
+      letter-spacing: 1px
     h2
-      font-size: $sub-title-font-size
-      letter-spacing: 0.1em
+      font: 1.5em $font
+      letter-spacing: 1px
 
 .with-icon
   text-decoration: none
@@ -231,11 +228,13 @@ header
     border: $border
 
     h2
-      font: bold 1.4em $font
+      @include title($title-font-size)
+      margin-bottom: 1em
       i
         margin-right: 5px
     h3
-      font: bold 1.2em $font
+      @include title($sub-title-font-size)
+      margin-bottom: 0.75em
 
     #undone, #done, #upcoming, #events, #current_undone
       li
@@ -314,7 +313,7 @@ footer
     border-bottom: 1px dashed $border-color
 
   h2
-    font: bold 1.4em $font
+    @include title($title-font-size)
     padding-bottom: 1em
   ul
     padding: 0
@@ -346,40 +345,6 @@ footer
       padding-bottom: 1em
       img
         height: 60px
-
-.ribbon_wrap
-  position: fixed
-  bottom: 0px
-  opacity: 0.7
-  width: 130px
-  height: 130px
-  font-size: $base-font-size
-  a
-    height: 30px
-    text-decoration: none
-    width: 250px
-    position: absolute
-    top: 52px
-    span
-      padding: 5px 0
-      display: block
-      text-align: center
-      width: 250px
-      @include ribbon
-    &#senor_developer
-      transform: rotate(45deg)
-      left: -65px
-    &#patreon
-      transform: rotate(45deg)
-      left: -65px
-    &#rgsoc
-      transform: rotate(45deg)
-      left: -65px
-    &#github
-      transform: rotate(-45deg)
-      right: -65px
-  &#github_ribbon
-    right: 0px
 
 .preview
   margin-top: 1em
