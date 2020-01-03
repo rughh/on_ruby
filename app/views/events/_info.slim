@@ -13,8 +13,8 @@ p.card-text== markdown(event.description)
 
 = participation_link(event, link_class: 'btn btn-primary')
 
-h3= t("main.topics")
 - if event.topics.present?
+  h3= t("main.topics")
   .card-deck
     - event.topics.each do |topic|
       .card
