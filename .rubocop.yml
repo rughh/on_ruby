@@ -4,6 +4,8 @@ AllCops:
   Exclude:
     - "bin/*"
     - "db/**/schema.rb"
+    - "config/puma.rb"
+    - "config/environments/*"
     - "app/controllers/admin/*"
     - "app/dashboards/*"
     - "vendor/**/*"
@@ -26,4 +28,3 @@ Style/FrozenStringLiteralComment:
     - "Gemfile"
     - "Rakefile"
     - ".*"
-
