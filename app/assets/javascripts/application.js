@@ -6,6 +6,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require vendor/jquery.collapser
 //= require navi
 //= require utility
 //= require custom
