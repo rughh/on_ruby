@@ -227,7 +227,7 @@ GEM
       ast (~> 2.4.0)
     partially_useful (6.0.0)
       railties (>= 4.1)
-    pg (1.1.4)
+    pg (1.2.1)
     popper_js (1.14.5)
     public_suffix (4.0.1)
     puma (4.3.1)
@@ -398,7 +398,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-twitter
   partially_useful
-  pg (= 1.1.4)
+  pg (= 1.2.1)
   public_suffix
   puma
   rack-cache
