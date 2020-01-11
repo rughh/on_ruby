@@ -74,7 +74,7 @@ GEM
       sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
     ansi (1.5.0)
-    appsignal (2.10.0)
+    appsignal (2.10.1)
       rack
     ast (2.4.0)
     autoprefixer-rails (9.6.1.1)
@@ -232,7 +232,7 @@ GEM
     public_suffix (4.0.3)
     puma (4.3.1)
       nio4r (~> 2.0)
-    rack (2.0.8)
+    rack (2.1.0)
     rack-cache (1.11.0)
       rack (>= 0.4)
     rack-test (1.1.0)
