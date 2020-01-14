@@ -223,7 +223,7 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     parallel (1.19.1)
-    parser (2.7.0.1)
+    parser (2.7.0.2)
       ast (~> 2.4.0)
     partially_useful (6.0.0)
       railties (>= 4.1)
