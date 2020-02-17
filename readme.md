@@ -29,6 +29,7 @@ The operation, development and maintenance of OnRuby can be supported via Patreo
 * [ddfreyne](https://github.com/ddfreyne) (Alumni)
 * [asaaki](https://github.com/asaaki)
 * [5minpause](https://github.com/5minpause)
+* [thilo](https://github.com/thilo)
 
 ## Installation
 
