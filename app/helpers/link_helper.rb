@@ -37,7 +37,7 @@ module LinkHelper
   end
 
   def link_to_location(location)
-    "#{link_to location.name, location, title: location.name} (#{link_to location.nice_url, location.url, title: location.name, target: '_blank'})".html_safe
+    "#{link_to(location.name, location, title: location.name)} #{fa_icon('external-link', text: link_to(location.nice_url, location.url, title: location.name, target: '_blank'))}".html_safe
   end
 
   def link_to_route(location)
