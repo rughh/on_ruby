@@ -7,6 +7,7 @@ AllCops:
     - "config/puma.rb"
     - "config/environments/*"
     - "app/controllers/admin/*"
+    - "app/controllers/super_admin/*"
     - "app/dashboards/*"
     - "vendor/**/*"
 

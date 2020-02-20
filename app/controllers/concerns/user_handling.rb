@@ -7,6 +7,10 @@ module UserHandling
     redirect_to root_path, alert: t('flash.only_admins') unless signed_in? && current_user.admin?
   end
 
+  def authenticate_super_admin_user!
+    redirect_to root_path, alert: t('flash.only_admins') unless signed_in? && current_user.super_admin?
+  end
+
   def authenticate!
     return if signed_in?
 
