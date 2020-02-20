@@ -1,16 +1,4 @@
-/*
- * decaffeinate suggestions:
- * DS102: Remove unnecessary code created because of implicit returns
- * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
- */
 class GMap {
-  static init() {
-    const canvas = $(".map_canvas");
-    if (canvas.length > 0) {
-      return new GMap(canvas).show();
-    }
-  }
-
   constructor(canvas) {
     this.canvas = canvas;
     this.init = this.canvas.data("init");
@@ -28,7 +16,8 @@ class GMap {
     const map = new google.maps.Map(this.canvas[0], this.mapOptions);
     let recentWindow = null;
     const contents = {};
-    return jQuery.each(this.data, function() {
+
+    jQuery.each(this.data, function() {
       const position = new google.maps.LatLng(this.lat, this.long);
       const marker = new google.maps.Marker({position, map, title: this.name});
       let content = `<div class='info-window'><p><strong><a href='/locations/${this.slug}'>${this.name}</a></strong></br>`;
@@ -43,14 +32,16 @@ class GMap {
       } else {
         contents[position] = content;
       }
-      return google.maps.event.addListener(marker, 'click', function() {
+      google.maps.event.addListener(marker, 'click', function() {
         let infoWindow;
         if (recentWindow) { recentWindow.close(); }
         recentWindow = (infoWindow = new google.maps.InfoWindow({content: contents[marker.position]}));
-        return infoWindow.open(map, marker);
+        infoWindow.open(map, marker);
       });
     });
   }
 }
 
-window.GMap = GMap;
+$(function() {
+  $(".map_canvas").each(function() { new GMap($(this)).show() });
+});

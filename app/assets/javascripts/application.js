@@ -15,7 +15,6 @@
 
 $(function() {
   Utility.disable();
-  return GMap.init();
 });
 
 $.fn.random = function() {
