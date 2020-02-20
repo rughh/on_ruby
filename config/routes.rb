@@ -9,6 +9,20 @@ OnRuby::Application.routes.draw do
     resources :materials
     resources :highlights
     resources :jobs
+    resources :users
+
+    root to: 'events#index'
+  end
+  namespace :super_admin do
+    resources :events do
+      post :duplicate, on: :collection
+      post :connect, on: :member
+    end
+    resources :locations
+    resources :topics
+    resources :materials
+    resources :highlights
+    resources :jobs
     resources :authorizations
     resources :likes
     resources :participants

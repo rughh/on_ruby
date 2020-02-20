@@ -32,7 +32,6 @@ class UserDashboard < Administrate::BaseDashboard
     hide_jobs: Field::Boolean,
     twitter: Field::String,
     email: Field::String,
-    super_admin: Field::Boolean,
     linkedin: Field::String,
   }.freeze
 
@@ -70,7 +69,6 @@ class UserDashboard < Administrate::BaseDashboard
     :hide_jobs,
     :twitter,
     :email,
-    :super_admin,
   ].freeze
 
   # FORM_ATTRIBUTES

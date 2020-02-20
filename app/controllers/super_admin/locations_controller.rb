@@ -1,18 +1,18 @@
-module Admin
-  class LikesController < Admin::ApplicationController
+module SuperAdmin
+  class LocationsController < SuperAdmin::ApplicationController
     # To customize the behavior of this controller,
     # you can overwrite any of the RESTful actions. For example:
     #
     # def index
     #   super
-    #   @resources = Like.
+    #   @resources = Location.
     #     page(params[:page]).
     #     per(10)
     # end
 
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)
-    #   Like.find_by!(slug: param)
+    #   Location.find_by!(slug: param)
     # end
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
