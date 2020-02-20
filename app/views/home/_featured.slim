@@ -1,0 +1,10 @@
+- if current_event.present?
+  .card
+    .card-header
+      = render('events/badges', event: current_event)
+
+    .card-body
+      = render('events/info', event: current_event)
+      = render('events/topics', event: current_event)
+      = render('events/participants', event: current_event)
+      = render('events/location', event: current_event)

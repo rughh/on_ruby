@@ -1,0 +1,8 @@
+- if event.location.present?
+    h3.card-title
+      = t("show.route")
+      - if event.location.wheelmap_id?
+        .pull-right
+          = wheelmap_badge(event.location)
+
+    #route= single_map(event.location)

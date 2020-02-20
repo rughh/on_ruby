@@ -1,0 +1,3 @@
+- if event.participants.present?
+  h3.card-title= t("show.attendees", count: event.limit || 0, participant_count: event.participants.count)
+  p= render 'users/list', users: event.users

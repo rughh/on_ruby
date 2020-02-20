@@ -30,6 +30,13 @@ nav.navbar.sticky-top.navbar-expand-lg#nav
             = link_to(destroy_session_path(current_user), class: 'dropdown-item') do
               = fa_icon('times', class: 'fa-fw', text: t("login.logout"))
 
+            - if current_user.admin?
+              = link_to('/admin', class: 'dropdown-item') do
+                = fa_icon('lock', class: 'fa-fw', text: 'Community-Admin')
+            - if current_user.super_admin?
+              = link_to('/super_admin', class: 'dropdown-item') do
+                = fa_icon('lock', class: 'fa-fw', text: 'Super-Admin')
+
         - else
           a(class="nav-link btn btn-primary dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
             =  t('login.login')
