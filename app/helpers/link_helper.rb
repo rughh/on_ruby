@@ -25,7 +25,7 @@ module LinkHelper
   end
 
   def link_to_material(material)
-    fa_icon('list-ul', text: link_to(material.name, material.url, title: material.name, class: 'with-icon'))
+    fa_icon('list-ul', text: link_to(material.name, material.url, title: material.name, target: '_blank', class: 'with-icon'))
   end
 
   def link_to_mailing_list(entry)

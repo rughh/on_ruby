@@ -8,9 +8,9 @@
         = user_image(user, image_class: 'card-img-topic')
 
     p
-      small.text-muted= link_to_user(user)
-
-    p
-      small.text-muted.text-nowrap
-        = "#{t('main.topics')}: #{user.topics.count} | "
+      small.text-muted
+        = link_to_user(user)
+        br
         = "#{t('main.events')}: #{user.participations.count}"
+        br
+        = "#{t('main.topics')}: #{user.topics.count}"

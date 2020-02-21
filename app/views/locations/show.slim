@@ -1,35 +1,34 @@
-section
-  .card
-    .card-header
-      span.badge.badge-card-header.mr-2
-        = fa_icon('map-marker', text: link_to(location.address, '#route', title: location.address))
-      span.badge.badge-card-header.mr-2
-        = fa_icon('bookmark', text: link_to(location.nice_url, location.url, title: location.name))
-      span.badge.badge-card-header.mr-2
-        = fa_icon('external-link', text: link_to_external_route(location))
+.card
+  .card-header
+    span.badge.badge-card-header.mr-2
+      = fa_icon('map-marker', text: link_to(location.address, '#route', title: location.address))
+    span.badge.badge-card-header.mr-2
+      = fa_icon('bookmark', text: link_to(location.nice_url, location.url, title: location.name))
+    span.badge.badge-card-header.mr-2
+      = fa_icon('external-link', text: link_to_external_route(location))
 
-    .card-body
-      h2.card-title
-        = location.name
+  .card-body
+    h2.card-title
+      = location.name
 
-      h3
-        = t("show.route")
-        - if location.wheelmap_id?
-          .pull-right
-            = wheelmap_badge location
+    h3
+      = t("show.route")
+      - if location.wheelmap_id?
+        .pull-right
+          = wheelmap_badge location
 
-      #route= single_map(location)
+    #route= single_map(location)
 
-      - if location.jobs.present?
-        h3.card-title= t("location.job_offers")
-        ul.list-group
-          - location.jobs.each do |job|
-            li.list-group-item
-              = link_to_job(job)
+    - if location.jobs.present?
+      h3.card-title= t("location.job_offers")
+      ul.list-group
+        - location.jobs.each do |job|
+          li.list-group-item
+            = link_to_job(job)
 
-      - if location.events.present?
-        h3.card-title= t("profile.organized_events")
-        ul.list-group
-          - location.events.each do |event|
-            li.list-group-item
-              = link_to_event(event)
+    - if location.events.present?
+      h3.card-title= t("profile.organized_events")
+      ul.list-group
+        - location.events.each do |event|
+          li.list-group-item
+            = link_to_event(event)

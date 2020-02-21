@@ -1,33 +1,32 @@
-section
-  .card
-    .card-header
-      == t("topic.proposal_type_descriptions.#{topic.proposal_type}", user: link_to_user(topic.user, image: true))
+.card
+  .card-header
+    == t("topic.proposal_type_descriptions.#{topic.proposal_type}", user: link_to_user(topic.user, image: true))
 
-    .card-body
-      h2.card-title= topic.name
-      p.card-text== markdown(topic.description)
+  .card-body
+    h2.card-title= topic.name
+    p.card-text== markdown(topic.description)
 
-    .card-body
-      = like_link(topic)
+  .card-body
+    = like_link(topic)
 
-    .card-body.row
-      - if topic.materials.present?
-        .col-sm
-          h3.card-title= t("main.materials")
-          ul.list-group.list-group-flush
-            - topic.materials.each do |material|
-              li.list-group-item
-                = link_to_material(material)
-                == " (#{link_to_user(material.user)})" if material.user
-                = material_preview(material)
+  .card-body.row
+    - if topic.materials.present?
+      .col-sm
+        h3.card-title= t("main.materials")
+        ul.list-group.list-group-flush
+          - topic.materials.each do |material|
+            li.list-group-item
+              = link_to_material(material)
+              == " (#{link_to_user(material.user)})" if material.user
+              = material_preview(material)
 
-      - if topic.likes.present?
-        .col-sm
-          h3.card-title= t('topic.likes', count: topic.likes.size)
-          ul.list-group.list-group-flush
-            - topic.likes.each do |like|
-              li.list-group-item
-                = fa_icon('thumbs-o-up', class: 'pull-left', text: link_to_user(like.user))
+    - if topic.likes.present?
+      .col-sm
+        h3.card-title= t('topic.likes', count: topic.likes.size)
+        ul.list-group.list-group-flush
+          - topic.likes.each do |like|
+            li.list-group-item
+              = fa_icon('thumbs-o-up', class: 'pull-left', text: link_to_user(like.user))
 
-    - if topic.event.present?
-      .card-footer== t("topic.hosted_by", host: link_to_user(topic.event.user), event: link_to(topic.event.name, topic.event))
+  - if topic.event.present?
+    .card-footer== t("topic.hosted_by", host: link_to_user(topic.event.user), event: link_to(topic.event.name, topic.event))
