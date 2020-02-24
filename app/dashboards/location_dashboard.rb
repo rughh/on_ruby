@@ -70,6 +70,8 @@ class LocationDashboard < Administrate::BaseDashboard
     :city,
     :zip,
     :wheelmap_id,
+    :lat,
+    :long,
   ].freeze
 
   def display_resource(location)
