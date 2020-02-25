@@ -44,7 +44,6 @@ class EventDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :location,
     :user,
-    :participants,
     :users,
     :topics,
     :materials,

@@ -40,7 +40,6 @@ class TopicDashboard < Administrate::BaseDashboard
     :id,
     :user,
     :event,
-    :likes,
     :materials,
     :name,
     :description,
