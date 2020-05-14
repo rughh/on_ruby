@@ -8,7 +8,7 @@ describe 'events/show' do
     allow(view).to receive_messages(signed_in?: true, current_user: user, event: event, likes: '</>')
     view.lookup_context.prefixes = %w[events application]
 
-    render
+    expect(rendered).not_to be_nil
   end
 
   context 'materials' do
@@ -16,6 +16,8 @@ describe 'events/show' do
 
     it 'renders without an error' do
       render partial: 'materials', locals: { materials: materials }
+
+      expect(rendered).not_to be_nil
     end
   end
 end
