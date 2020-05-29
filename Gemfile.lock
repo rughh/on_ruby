@@ -86,6 +86,7 @@ GEM
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.3)
+    coderay (1.1.2)
     concurrent-ruby (1.1.6)
     connection_pool (2.2.1)
     crass (1.0.6)
@@ -229,6 +230,11 @@ GEM
       railties (>= 4.1)
     pg (1.2.3)
     popper_js (1.14.5)
+    pry (0.13.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (4.0.5)
     puma (4.3.5)
       nio4r (~> 2.0)
@@ -398,6 +404,7 @@ DEPENDENCIES
   omniauth-twitter
   partially_useful
   pg (= 1.2.3)
+  pry-rails
   public_suffix
   puma
   rack-cache
@@ -420,6 +427,3 @@ DEPENDENCIES
 
 RUBY VERSION
    ruby 2.6.4p104
-
-BUNDLED WITH
-   2.0.2
