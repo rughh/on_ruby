@@ -44,6 +44,7 @@ end
 group :development do
   gem 'listen'
   gem 'partially_useful'
+  gem 'pry-rails', group: :development
   gem 'web-console'
 end
 
