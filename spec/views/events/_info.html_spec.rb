@@ -75,4 +75,28 @@ RSpec.describe 'events/show' do
       end
     end
   end
+
+  fdescribe 'attendee_information' do
+    let(:event) { build(:event, attendee_information: 'secrect message') }
+
+    context 'when a attendee is present' do
+      let(:user) { build(:user) }
+
+      it 'should display the addition attendee informations for the event' do
+        render partial: 'info', locals: { event: event }
+
+        expect(rendered).to match('secrect message')
+      end
+    end
+
+    context 'when no attendee is present' do
+      let(:user) { nil }
+
+      it 'should display a hint that additional information are present for attendees' do
+        render partial: 'info', locals: { event: event }
+
+        expect(rendered).to match(I18n.t('show.attend_to_view_attendees_information'))
+      end
+    end
+  end
 end

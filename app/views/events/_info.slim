@@ -16,3 +16,10 @@
 
 .card-text
   == markdown(event.description)
+
+- if signed_in?
+  .card-text
+    == markdown(event.attendee_information)
+- else
+  .card-text
+    mark= t('show.attend_to_view_attendees_information')

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_15_101441) do
+ActiveRecord::Schema.define(version: 2020_05_29_213652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_05_15_101441) do
     t.string "label", default: "hamburg"
     t.integer "limit"
     t.integer "github_issue"
+    t.text "attendee_information"
     t.index ["location_id"], name: "index_events_on_location_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end

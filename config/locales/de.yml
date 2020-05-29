@@ -49,6 +49,7 @@ de:
     attend: "Teilnehmen"
     not_attend: "Absagen"
     login_before_attend: "Bitte logge dich zuerst ein!"
+    attend_to_view_attendees_information: "Information nur für Teilnehmerinnen und Teilnehmer sichtbar"
     attendees:
       zero: "Teilnehmerinnen und Teilnehmer (%{participant_count})"
       one: "Teilnehmerinnen und Teilnehmer (%{participant_count} von %{count})"

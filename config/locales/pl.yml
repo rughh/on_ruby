@@ -49,6 +49,7 @@ pl:
     attend: "Weź udział"
     not_attend: "Anuluj"
     login_before_attend: "Najpierw musisz się zalogować"
+    attend_to_view_attendees_information: "Informacje widoczne tylko dla uczestników"
     attendees:
       zero: "Uczestników: (%{participant_count})"
       one: "Uczestników: (%{participant_count} na %{count})"
