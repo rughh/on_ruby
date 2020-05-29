@@ -49,6 +49,7 @@ en:
     attend: "Attend"
     not_attend: "Cancel"
     login_before_attend: "Please login first!"
+    attend_to_view_attendees_information: Information is visible only for attendees
     attendees:
       zero: "Attendees: (%{participant_count})"
       one: "Attendees: (%{participant_count} of %{count})"

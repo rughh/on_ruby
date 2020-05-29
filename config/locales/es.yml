@@ -49,6 +49,7 @@ es:
     attend: "Apuntarse"
     not_attend: "Cancelar"
     login_before_attend: "Por favor inicia sesión antes"
+    attend_to_view_attendees_information: "Información solo visible para los participantes"
     attendees:
       zero: "Participantes: (%{participant_count})"
       one: "Participantes: (%{participant_count} de %{count})"
