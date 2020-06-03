@@ -19,12 +19,6 @@ class ApiController < ApplicationController
     render json: hash
   end
 
-  def flush
-    Rails.cache.clear
-
-    render json: { result: :ok }
-  end
-
   private
 
   def api_sign_in

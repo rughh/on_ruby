@@ -4,7 +4,6 @@ tmp/*
 db/*.sqlite3*
 coverage
 public/assets
-public/cache
 public/system
 public/javascripts/*_packaged.js
 public/stylesheets/admin
@@ -16,7 +15,6 @@ tags
 rerun.txt
 .bundle
 specifications
-cache
 spec/reports/
 .vagrant
 Vagrantfile

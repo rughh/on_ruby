@@ -20,13 +20,4 @@ describe 'Api' do
       expect(JSON.parse(response.body).keys).to eql(%w[topics locations events users])
     end
   end
-
-  context 'flush' do
-    it 'should render json with valid api-key' do
-      get flush_path(format: :json), headers: { 'x-api-key' => ENV['HOR_API_KEY'] }
-
-      expect(response).to be_ok
-      expect(JSON.parse(response.body)).to eql('result' => 'ok')
-    end
-  end
 end
