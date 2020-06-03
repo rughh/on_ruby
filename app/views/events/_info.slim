@@ -12,14 +12,13 @@
   .col-lg-3
     = participation_link(event, link_class: 'btn btn-primary btn-block')
 
-
-
 .card-text
   == markdown(event.description)
 
-- if signed_in?
-  .card-text
-    == markdown(event.attendee_information)
-- else
-  .card-text
-    mark= t('show.attend_to_view_attendees_information')
+- if event.attendee_information?
+  - if signed_in?
+    .card-text
+      == markdown(event.attendee_information)
+  - else
+    .card-text
+      mark= t('show.attend_to_view_attendees_information')
