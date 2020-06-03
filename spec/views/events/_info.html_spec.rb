@@ -59,7 +59,7 @@ RSpec.describe 'events/show' do
 
         render partial: 'info', locals: { event: event }
 
-        expect(rendered).to have_tag('a')
+        expect(rendered).to match('example location')
       end
     end
 
@@ -76,7 +76,7 @@ RSpec.describe 'events/show' do
     end
   end
 
-  fdescribe 'attendee_information' do
+  describe 'attendee_information' do
     let(:event) { build(:event, attendee_information: 'secrect message') }
 
     context 'when a attendee is present' do
