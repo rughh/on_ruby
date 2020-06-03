@@ -237,8 +237,15 @@ header
       margin-bottom: 0.75em
 
     #undone, #done, #upcoming, #events, #current_undone
+      .more-list
+        word-break: break-all
       li
         margin: 0em 0em 1em 0em
+
+    #events
+      .more-list
+        li:last-of-type
+          padding-bottom: 1.5em
 
   .user
     .image

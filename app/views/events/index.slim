@@ -4,8 +4,8 @@
       strong= link_to_event event
       = " (#{l(event.date, format: :date)})"
     ul.more-list.undone.clearfix
-    - event.topics.each do |topic|
-      li.topic= link_to_topic topic
+      - event.topics.each do |topic|
+        li.topic= link_to_topic topic
   = paginate events
 
   p.meta
