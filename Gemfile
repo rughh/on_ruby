@@ -24,7 +24,7 @@ gem 'redcarpet'
 gem 'ri_cal'
 gem 'simple_form'
 gem 'slim-rails'
-gem 'sprockets', '~> 3.7'
+gem 'sprockets', '~> 4.0'
 gem 'validate_url'
 gem 'whitelabel'
 
