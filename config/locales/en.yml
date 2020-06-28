@@ -21,7 +21,7 @@ en:
     pl: "Polski"
   login:
     profile: "Profile"
-    show_profile: "View Profil"
+    show_profile: "View Profile"
     edit_profile: "Edit Profile"
     login: "Login"
     logout: "Logout"
