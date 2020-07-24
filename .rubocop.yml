@@ -2,6 +2,7 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   Exclude:
+    - "*.ru"
     - "bin/*"
     - "db/**/schema.rb"
     - "config/puma.rb"
@@ -19,6 +20,9 @@ Style/MethodCallWithoutArgsParentheses:
 
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
+
+Lint/NonDeterministicRequireOrder:
+  Enabled: false
 
 Style/FrozenStringLiteralComment:
   Exclude:

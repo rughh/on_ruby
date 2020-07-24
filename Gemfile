@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 ruby '2.6.6'
 
-gem 'rails', '6.0.3.2'
+gem 'rails', '~> 6.0.3'
 
 gem 'acts_as_api'
 gem 'addressable'
@@ -35,10 +35,10 @@ gem 'sass-rails'
 gem 'uglifier'
 
 group :production do
-  gem 'dalli',            '~> 2.7.10'
-  gem 'kgio',             '~> 2.11.1'
-  gem 'lograge',          '~> 0.11.0'
-  gem 'rails_12factor',   '~> 0.0.2'
+  gem 'dalli'
+  gem 'kgio'
+  gem 'lograge'
+  gem 'rails_12factor'
 end
 
 group :development do
@@ -56,6 +56,6 @@ group :development, :test do
   gem 'localer'
   gem 'rails-controller-testing'
   gem 'rspec-collection_matchers'
-  gem 'rspec-rails', '>= 3.9.0.pre'
-  gem 'rubocop', '~> 0.75.0', require: false
+  gem 'rspec-rails'
+  gem 'rubocop', require: false
 end
