@@ -3,7 +3,7 @@ notifications:
   email: false
 language: ruby
 rvm:
-  - 2.6.4
+  - 2.6.6
 addons:
   postgresql: "9.4"
 cache: bundler
