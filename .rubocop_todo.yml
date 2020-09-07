@@ -33,6 +33,9 @@ Lint/UselessAssignment:
 # Offense count: 18
 Metrics/AbcSize:
   Max: 33
+  Exclude:
+    - 'app/models/user.rb'
+    - 'app/models/usergroup.rb'
 
 # Offense count: 34
 # Configuration parameters: CountComments, ExcludedMethods.
