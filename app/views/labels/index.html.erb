@@ -1,0 +1,21 @@
+<% content_for(:page_title, title) %>
+
+<div class="grid grid-cols-1 gap-y-8 sm:grid-cols-2 sm:gap-x-5 sm:gap-y-6 md:grid-cols-3 lg:col-span-3">
+<% Whitelabel.labels.select(&:enabled?).each do |label|
+    name = t("label.#{label.label_id}.name")
+    title = t("label.#{label.label_id}.title")
+    subtitle = t("label.#{label.label_id}.subtitle")
+%>
+  <%= link_to(label_url(label), title: name, class: "block group border rounded border-gray-200 bg-gray-100 p-3", target: '_blank') do %>
+    <figure class="grid grid-cols-1 gap-y-8 grid-cols-2">
+      <div class="relative p-3">
+        <%= image_tag("labels/#{label.label_id}.png", alt: name, class: "h-24") %>
+      </div>
+      <figcaption class="mt-3">
+        <p class="text-sm font-medium text-gray-900"><%= title %></p>
+        <p class="text-sm text-gray-500"><%= subtitle %></p>
+      </figcaption>
+    </figure>
+  <% end %>
+<% end %>
+</div>

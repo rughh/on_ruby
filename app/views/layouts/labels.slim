@@ -4,17 +4,6 @@ html
     = render 'application/meta'
     = browser_icon
     = touch_icon
-    = stylesheet_link_tag :application, "//fonts.googleapis.com/css?family=Raleway"
+    = stylesheet_link_tag :application_tailwind, "//fonts.googleapis.com/css?family=Raleway"
   body
-    .container
-      .main
-        = yield
-
-      #sponsors.row.m-4.hr
-        .col-sm-12
-          h2= t("footer.sponsored_by")
-          .col-sm.pb-4.sponsors(class="sponsor-appsignal")
-            => link_to 'https://appsignal.com', title: 'AppSignal', target: '_blank' do
-              => image_tag("labels/hamburg/sponsors/appsignal.png", alt: 'AppSignal', width: 250)
-
-  = render 'application/app_info'
+    = render('layouts/shell')
