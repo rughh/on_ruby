@@ -9,5 +9,13 @@ FactoryBot.define do
     zip             { Faker::Address.zip_code }
     lat             { "53.5#{rand(1000)}".to_f }
     long            { "9.9#{rand(1000)}".to_f }
+    virtual         { false }
+  end
+
+  factory :virtual_location, class: Location do
+    label           { 'hamburg' }
+    name            { Faker::Name.name }
+    url             { Faker::Internet.url }
+    virtual         { true }
   end
 end

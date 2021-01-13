@@ -105,6 +105,7 @@ en:
     job_offers: "Job offers"
     open_in: "Open in"
     google_maps: "Google Maps"
+    virtual_location: "Virtual Location"
   topic:
     topic: "Topic"
     all_topics: "All Topics"
@@ -137,6 +138,7 @@ en:
     im_attending_html: "Events I'm attending: %{events_im_attending_link}"
     webcal: 'Webcal'
     rss: 'RSS'
+    connect_remotely: 'Connect Remotely'
     coc:
       html: 'The Events of this Usergroup support this <a href="%{coc_link}" target="_blank">Code of Conduct</a>.'
   flash:

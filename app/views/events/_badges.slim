@@ -1,6 +1,6 @@
 span.badge.badge-card-header.mr-2
   = fa_icon('calendar', text: link_to(l(event.date, format: :long), event_path(event, format: :ics)))
-- if event.location.present?
+- if event.location.present? && !event.location.virtual?
   span.badge.badge-card-header.mr-2
     = fa_icon('map-marker', text: link_to(event.location.address, '#route', title: event.location.address))
   span.badge.badge-card-header.mr-2

@@ -106,6 +106,7 @@ es:
     job_offers: "Ofertas de empleo"
     open_in: "Abrir con"
     google_maps: "Google Maps"
+    virtual_location: "Sede Virtual"
   topic:
     topic: "Tema"
     all_topics: "Todos los temas"
@@ -138,6 +139,7 @@ es:
     im_attending_html: "Eventos a los que me apunté: %{events_im_attending_link}"
     webcal: 'Webcal'
     rss: 'RSS'
+    connect_remotely: 'Conectar en Remoto'
     coc:
       html: 'Eventos utilizar se <a href="%{coc_link}" target="_blank">Code of Conduct</a>.'
   flash:
