@@ -29,6 +29,7 @@ module EventsHelper
 
   def remote_url_link(event, link_class: 'btn btn-primary')
     return unless signed_in? && current_user.participates?(event) && event.remote_url.present?
+
     link_to t('events.connect_remotely'), event.remote_url, class: link_class
   end
 end
