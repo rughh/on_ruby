@@ -66,12 +66,24 @@ RSpec.describe 'events/show' do
     context 'when location is not present' do
       let(:location) { nil }
 
-      it 'should display the event location name' do
+      it 'should not display the event location name' do
         event = build(:event, location: location)
 
         render partial: 'info', locals: { event: event }
 
         expect(rendered).not_to match('example location')
+      end
+    end
+
+    context 'when location is virtual' do
+      let(:location) { build(:virtual_location, name: 'example virtual location') }
+
+      it 'should display the event location name' do
+        event = build(:event, location: location)
+
+        render partial: 'info', locals: { event: event }
+
+        expect(rendered).to match('example virtual location')
       end
     end
   end

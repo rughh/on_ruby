@@ -2,9 +2,10 @@ require 'spec_helper'
 
 describe Location do
   before(:each) do
-    @location       = create(:location, name: 'Test-Location', street: 'Schanzenstr.', house_number: '85', zip: '20357', city: 'Hamburg')
-    @other_location = create(:location, label: 'cologne')
-    @es_location    = create(:location, label: 'madridrb')
+    @location         = create(:location, name: 'Test-Location', street: 'Schanzenstr.', house_number: '85', zip: '20357', city: 'Hamburg')
+    @other_location   = create(:location, label: 'cologne')
+    @es_location      = create(:location, label: 'madridrb')
+    @virtual_location = create(:virtual_location, label: 'madridrb')
   end
 
   context 'validation' do
@@ -17,6 +18,10 @@ describe Location do
     it 'validates length of url' do
       expect(build(:location, url: very_long_url)).to have(1).errors_on(:url)
     end
+
+    it 'accepts virtual locations without geo info' do
+      expect(build(:virtual_location)).to be_valid
+    end
   end
 
   context 'finder' do
@@ -24,7 +29,7 @@ describe Location do
       hamburg_locations = Location.all
       expect(hamburg_locations).to have(1).elements
       expect(hamburg_locations.first).to eql(@location)
-      expect(Location.unscoped.size).to be(3)
+      expect(Location.unscoped.size).to be(4)
     end
   end
 
@@ -44,6 +49,11 @@ describe Location do
         expect(locn.lat).to_not be_nil
         expect(locn.long).to_not be_nil
       end
+    end
+
+    it 'should not geocode virtual locations' do
+      expect(@virtual_location.lat).to be_nil
+      expect(@virtual_location.long).to be_nil
     end
 
     it 'should geocode with expected data once a location is saved' do

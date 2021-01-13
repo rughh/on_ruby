@@ -105,6 +105,7 @@ pl:
     job_offers: "Oferty pracy"
     open_in: "Otwiera się za"
     google_maps: "Google Maps"
+    virtual_location: "Wirtualna Lokacja"
   topic:
     topic: "temat"
     all_topics: "Wszystkie tematy"
@@ -137,6 +138,7 @@ pl:
     im_attending_html: "Wydarzenia w których biorę udział: %{events_im_attending_link}"
     webcal: 'Webcal'
     rss: 'RSS'
+    connect_remotely: 'Połącz zdalnie'
     coc:
       html: 'Spotkania w tej Grupie honoruję ten <a href="%{coc_link}" target="_blank">Code of Conduct</a>.'
   flash:

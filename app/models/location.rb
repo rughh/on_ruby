@@ -3,15 +3,16 @@
 class Location < ApplicationRecord
   include Slug
   extend ApiHandling
-  expose_api :id, :name, :url, :city, :street, :house_number, :zip, :wheelmap_id
+  expose_api :id, :name, :url, :virtual, :city, :street, :house_number, :zip, :wheelmap_id
 
   geocoded_by :geo_coder_address, latitude: :lat, longitude: :long
-  after_validation :geocode
+  after_validation :geocode, unless: :virtual?
 
   has_many :events
   has_many :jobs
 
-  validates :name, :url, :city, :street, :house_number, :zip, presence: true
+  validates :name, :url, presence: true
+  validates :city, :street, :house_number, :zip, presence: true, unless: :virtual?
   validates :url, length: { maximum: 255 }
 
   scope :ordered, -> { order('name ASC') }

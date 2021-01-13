@@ -25,6 +25,7 @@ class EventDashboard < Administrate::BaseDashboard
     published: Field::Boolean,
     label: Field::String,
     limit: Field::Number,
+    remote_url: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -53,6 +54,7 @@ class EventDashboard < Administrate::BaseDashboard
     :date,
     :description,
     :attendee_information,
+    :remote_url,
     :created_at,
     :updated_at,
     :published,
@@ -69,6 +71,7 @@ class EventDashboard < Administrate::BaseDashboard
     :name,
     :description,
     :attendee_information,
+    :remote_url,
     :user,
     :location,
     :limit,

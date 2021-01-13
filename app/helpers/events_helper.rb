@@ -26,4 +26,9 @@ module EventsHelper
   def events_im_attending_link
     fa_icon('calendar', text: link_to(t('events.webcal'), calendar_user_url(id: current_user, format: :ics, protocol: 'webcal')))
   end
+
+  def remote_url_link(event, link_class: 'btn btn-primary')
+    return unless signed_in? && current_user.participates?(event) && event.remote_url.present?
+    link_to t('events.connect_remotely'), event.remote_url, class: link_class
+  end
 end

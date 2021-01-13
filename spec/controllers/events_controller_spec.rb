@@ -105,6 +105,7 @@ describe EventsController do
             'house_number' => event.location.house_number,
             'zip' => event.location.zip,
             'wheelmap_id' => event.location.wheelmap_id,
+            'virtual' => event.location.virtual,
           }
         )
       end

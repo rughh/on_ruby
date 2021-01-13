@@ -1,4 +1,4 @@
-- if event.location.present?
+- if event.location.present? && !event.location.virtual?
     h3.card-title
       = t("show.route")
       - if event.location.wheelmap_id?

@@ -4,6 +4,7 @@ FactoryBot.define do
     date        { rand(3).days.from_now }
     description { Faker::Lorem.sentences(number: 3).join }
     attendee_information { Faker::Lorem.sentences(number: 3).join }
+    remote_url { Faker::Internet.url }
     association :location, strategy: :build
     association :user, strategy: :build
     created_at  { Time.now }
