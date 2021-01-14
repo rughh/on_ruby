@@ -391,18 +391,21 @@
   - :name: B4Motion
     :url: http://www.b4Motion.com/
     :banner: b4motion.png
-  - :name: Cabify
-    :url: http://cabify.com
-    :banner: cabify.png
   - :name: Digital55
     :url: http://digital55.com
     :banner: digital55.png
   - :name: The Cocktail
     :url: http://www.the-cocktail.com
     :banner: tck.png
+  - :name: Sngular
+    :url: https://www.sngular.com/
+    :banner: sngular.png
   - :name: Trive
     :url: http://gotrive.com/
     :banner: trive.png
+  - :name: Cabify
+    :url: http://cabify.com
+    :banner: cabify.png
   other_usergroups:
   - :name: Betabeers
     :url: https://betabeers.com/
