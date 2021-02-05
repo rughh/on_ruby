@@ -26,11 +26,8 @@ section
     - existing_providers = user.authorizations.map(&:provider)
     - login_providers.each do |provider|
       li
-        - if existing_providers.include? provider
+        = button_to label_auth_url(provider), title: t("login.#{provider}_login"), class: "btn btn-#{existing_providers.include?(provider) ? 'disabled' : 'secondary'}", disabled: existing_providers.include?(provider) do
           = fa_icon provider, class: 'fa-fw dropdown-list-icon'
           => t("login.#{provider}_login")
-          = fa_icon 'check', class: 'fa-fw dropdown-list-icon'
-        - else
-          = link_to label_auth_url(provider), title: t("login.#{provider}_login"), class: 'btn btn-secondary' do
-            = fa_icon provider, class: 'fa-fw dropdown-list-icon'
-            => t("login.#{provider}_login")
+          - if existing_providers.include? provider
+            = fa_icon 'check', class: 'fa-fw dropdown-list-icon'
