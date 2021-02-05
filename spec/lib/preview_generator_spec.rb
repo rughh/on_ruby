@@ -15,7 +15,7 @@ describe 'PreviewGenerator' do
     end
 
     it 'handles bad URIs' do
-      expect(LinkThumbnailer).to receive(:generate).and_raise(Net::HTTPServerException.new('', ''))
+      expect(LinkThumbnailer).to receive(:generate).and_raise(Net::HTTPClientException.new('', ''))
 
       expect { PreviewGenerator.new('http://hey.com').generate_preview }.not_to raise_error
     end
