@@ -6,7 +6,7 @@ describe 'PreviewGenerator' do
     expect(g.uri).to eq('http://google.com')
   end
 
-  context '#generate_preview' do
+  describe '#generate_preview' do
     it 'invokes LinkThumbnailer' do
       website = double(videos: [], images: [])
       expect(LinkThumbnailer).to receive(:generate).with('http://hey.com').and_return(website)

@@ -29,15 +29,15 @@ describe UsersController do
   end
 
   context 'GET :edit' do
-    it 'should show alert for wrong user' do
+    it 'shows alert for wrong user' do
       get :edit, params: { id: user }
-      expect(flash[:alert]).to_not be_nil
+      expect(flash[:alert]).not_to be_nil
       expect(response).to redirect_to(root_path)
     end
   end
 
   context 'GET :calendar' do
-    it 'should show alert for wrong user' do
+    it 'shows alert for wrong user' do
       get :calendar, params: { id: user_with_participations, format: :ics }
       expect(response.body).to match(/BEGIN:VCALENDAR/)
     end
@@ -49,7 +49,7 @@ describe UsersController do
       let(:user) { authorization.user }
       let(:event) { create(:event) }
 
-      it 'should delete a user and logout' do
+      it 'deletes a user and logout' do
         allow(@controller).to receive_messages(current_user: user)
 
         expect do
@@ -57,17 +57,17 @@ describe UsersController do
             delete :destroy, params: { id: user.id }
           end.to change(User, :count).by(-1)
         end.to change(Authorization, :count).by(-1)
-        expect(flash[:notice]).to_not be_nil
+        expect(flash[:notice]).not_to be_nil
         expect(response).to redirect_to(destroy_session_path)
       end
 
-      it 'should not delete an organizer' do
+      it 'does not delete an organizer' do
         allow(@controller).to receive_messages(current_user: event.user)
         expect do
           delete :destroy, params: { id: event.user.id }
         end.to change(User, :count).by(0)
 
-        expect(flash[:alert]).to_not be_nil
+        expect(flash[:alert]).not_to be_nil
         expect(response).to redirect_to(edit_user_path(event.user))
       end
     end
@@ -76,7 +76,7 @@ describe UsersController do
   context 'PUT :update' do
     before { set_referer }
 
-    it 'should update the github attribute of a user' do
+    it 'updates the github attribute of a user' do
       allow(controller).to receive_messages(current_user: user)
 
       put :update, params: data
@@ -88,16 +88,16 @@ describe UsersController do
       expect(user.available).to be_truthy
     end
 
-    it 'should not update injected properties' do
+    it 'does not update injected properties' do
       allow(controller).to receive_messages(current_user: user)
 
       put :update, params: data
       expect(user.nickname).to eql(user.nickname)
     end
 
-    it 'should update nothing for wrong user' do
+    it 'updates nothing for wrong user' do
       put :update, params: data
-      expect(flash[:alert]).to_not be_nil
+      expect(flash[:alert]).not_to be_nil
       expect(response).to redirect_to(root_path)
     end
   end

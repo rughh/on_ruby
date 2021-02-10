@@ -2,7 +2,7 @@
 
 module ExternalLinkHelper
   def wheelmap_badge(location, klass: 'wheelmap-status')
-    return unless location.wheelmap_id.present?
+    return if location.wheelmap_id.blank?
 
     url   = "https://wheelmap.org/nodes/#{location.wheelmap_id}"
     image = image_tag "https://img.shields.io/wheelmap/a/#{location.wheelmap_id}.svg", class: klass

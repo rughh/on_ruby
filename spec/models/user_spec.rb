@@ -19,14 +19,14 @@ describe User do
       end
     end
 
-    it 'should not allow urls on github' do
+    it 'does not allow urls on github' do
       ['http://', 'www.bla'].each do |val|
         user.github = val
         expect(user).to have(1).errors_on(:github)
       end
     end
 
-    it 'should authorize phoet as admin' do
+    it 'authorizes phoet as admin' do
       expect(admin_user.admin?).to be(true)
     end
   end
@@ -39,14 +39,14 @@ describe User do
         { 'provider' => 'github', 'uid' => '213249', 'info' => { 'nickname' => 'lukas2', 'email' => nil, 'name' => '', 'image' => 'image', 'urls' => { 'GitHub' => 'https://github.com/lukas2', 'Blog' => nil } }, 'extra' => { 'raw_info' => { 'type' => 'User', 'html_url' => 'https://github.com/lukas2', 'email' => nil, 'public_gists' => 6, 'location' => 'Munich', 'company' => nil, 'public_repos' => 18, 'following' => 11, 'blog' => nil, 'hireable' => false, 'login' => 'lukas2', 'name' => '', 'created_at' => '2010-03-01T16:39:16Z', 'bio' => nil, 'id' => 213_249, 'followers' => 6 } } }
       end
 
-      it 'should handle missing params' do
+      it 'handles missing params' do
         expect do
           User.create_from_hash!(github_auth_missing_params)
         end.to change(User, :count).by(1)
       end
     end
 
-    it 'should create a user from an outh-hash' do
+    it 'creates a user from an outh-hash' do
       expect do
         User.create_from_hash!(TWITTER_AUTH_HASH)
       end.to change(User, :count).by(1)
@@ -57,14 +57,14 @@ describe User do
       expect(user.email).to eql('phoetmail@googlemail.com')
     end
 
-    it 'should raise an error for same nickname but different auths' do
+    it 'raises an error for same nickname but different auths' do
       User.create_from_hash!(TWITTER_AUTH_HASH)
       expect do
         User.create_from_hash!(GITHUB_AUTH_HASH)
       end.to raise_error(User::DuplicateNickname)
     end
 
-    it 'should update a user from twitter-auth-hash' do
+    it 'updates a user from twitter-auth-hash' do
       user.update_from_auth!(TWITTER_AUTH_HASH).tap do |it|
         expect(it.name).to eql('Peter Schröder')
         expect(it.twitter).to eql('phoet')
@@ -75,7 +75,7 @@ describe User do
       end
     end
 
-    it 'should update a user from github-auth-hash' do
+    it 'updates a user from github-auth-hash' do
       user.update_from_auth!(GITHUB_AUTH_HASH).tap do |it|
         expect(it.name).to eql('Peter Schröder')
         expect(it.github).to eql('phoet')
@@ -92,12 +92,12 @@ describe User do
     let(:user) { create(:user) }
     let(:admin_user) { create(:admin_user) }
 
-    it 'should find peers' do
-      3.times { create(:event_with_participants) }
+    it 'finds peers' do
+      create_list(:event_with_participants, 3)
       expect(User).to have(9).peers
     end
 
-    it 'should not find peers from different labels' do
+    it 'does not find peers from different labels' do
       create(:event_with_participants)
       Whitelabel.with_label(Whitelabel.labels.last) do
         create(:event_with_participants)
@@ -105,7 +105,7 @@ describe User do
       expect(User).to have(3).peers
     end
 
-    it 'should participate?' do
+    it 'participate?s' do
       expect do
         admin_user.participants.create!(event: event, user: admin_user)
       end.to change {
@@ -113,9 +113,9 @@ describe User do
       }.from(false).to(true)
     end
 
-    it 'should find the participation' do
+    it 'finds the participation' do
       admin_user.participants.create!(event: event, user: admin_user)
-      expect(admin_user.participation(event)).to_not be_nil
+      expect(admin_user.participation(event)).not_to be_nil
     end
   end
 end

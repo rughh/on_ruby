@@ -8,7 +8,7 @@ describe 'home/index' do
   let(:company)   { build(:location, company: true) }
   let(:zoom)      { rand(1..20) }
 
-  it 'should render successfully' do
+  it 'renders successfully' do
     allow(view).to receive_messages(events: [event], current_event: event, people: [user])
     allow(view).to receive_messages(locations: [location], done_topics: [topic])
     allow(view).to receive_messages(undone_topics: [topic], organizers: [user], upcoming_topics: [topic])

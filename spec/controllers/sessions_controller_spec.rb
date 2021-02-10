@@ -24,7 +24,7 @@ describe SessionsController do
     it 'handles failure modes' do
       get :failure
       expect(response).to redirect_to(root_path)
-      expect(flash[:alert]).to_not be_nil
+      expect(flash[:alert]).not_to be_nil
     end
   end
 
@@ -32,7 +32,7 @@ describe SessionsController do
     it 'destroys a user session' do
       get :destroy
       expect(response).to redirect_to(root_path)
-      expect(flash[:notice]).to_not be_nil
+      expect(flash[:notice]).not_to be_nil
     end
   end
 end

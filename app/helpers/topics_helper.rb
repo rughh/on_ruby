@@ -16,6 +16,6 @@ module TopicsHelper
   end
 
   def proposal_type_selection
-    Hash[Topic::PROPOSAL_TYPES.map { |type| [I18n.t("topic.proposal_types.#{type}"), type] }]
+    Topic::PROPOSAL_TYPES.index_by { |type| I18n.t("topic.proposal_types.#{type}") }
   end
 end

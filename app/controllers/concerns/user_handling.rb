@@ -45,7 +45,7 @@ module UserHandling
   end
 
   def find_by_session_or_cookies
-    User.find_by_id(session[:user_id]) || User.authenticated_with_token(*remember_me)
+    User.find_by(id: session[:user_id]) || User.authenticated_with_token(*remember_me)
   end
 
   def remember_me

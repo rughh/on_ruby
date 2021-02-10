@@ -2,7 +2,7 @@
 
 class SessionsController < ApplicationController
   def offline_login
-    user = User.find_by_nickname(params[:nickname])
+    user = User.find_by(nickname: params[:nickname])
     sign_in(user)
 
     redirect_to root_path, notice: 'Offline Login!'

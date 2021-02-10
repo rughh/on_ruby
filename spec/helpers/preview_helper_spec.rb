@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe PreviewHelper do
-  context '#material_preview' do
+  describe '#material_preview' do
     it 'generates nothing if the material has no preview' do
       material = build(:material)
       expect(helper.material_preview(material)).to eql('')

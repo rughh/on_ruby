@@ -4,7 +4,7 @@ describe 'events/show' do
   let(:user)  { build(:user, id: 456) }
   let(:event) { build(:event, id: 123) }
 
-  it 'should render successfully' do
+  it 'renders successfully' do
     allow(view).to receive_messages(signed_in?: true, current_user: user, event: event, likes: '</>')
     view.lookup_context.prefixes = %w[events application]
 

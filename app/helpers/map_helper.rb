@@ -18,7 +18,7 @@ module MapHelper
       map: Array(location).to_json,
       init: location.attributes.merge(init).to_json,
     }
-    content_tag :div, '', class: 'map_canvas', data: data
+    tag.div('', class: 'map_canvas', data: data)
   end
 
   def map(locations, init = { zoom: 12 })
@@ -27,6 +27,6 @@ module MapHelper
       map: locations.to_json,
       init: init.to_json,
     }
-    content_tag :div, '', class: 'map_canvas', data: data
+    tag.div('', class: 'map_canvas', data: data)
   end
 end

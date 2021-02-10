@@ -7,12 +7,12 @@ FactoryBot.define do
     remote_url { Faker::Internet.url }
     association :location, strategy: :build
     association :user, strategy: :build
-    created_at  { Time.now }
-    updated_at  { Time.now }
+    created_at  { Time.now.utc }
+    updated_at  { Time.now.utc }
   end
 
   factory :event_with_participants, parent: :event do
-    after(:create) { |event| 3.times { create(:participant, event: event) } }
+    after(:create) { |event| create_list(:participant, 3, event: event) }
   end
 
   factory :full_event, parent: :event_with_participants do

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe TitleHelper do
-  context '#page_title' do
+  describe '#page_title' do
     it 'generates a page_title' do
       expect(helper.page_title).to eql('Hamburg on Ruby - Heimathafen der Hamburger Ruby Community')
     end

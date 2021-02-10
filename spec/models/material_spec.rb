@@ -29,7 +29,7 @@ describe Material do
     end
   end
 
-  context '#generate_preview' do
+  describe '#generate_preview' do
     it 'uses the PreviewGenerator' do
       material = create(:material, url: 'http://hey.com')
 

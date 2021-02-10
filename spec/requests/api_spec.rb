@@ -6,14 +6,14 @@ describe 'Api' do
   end
 
   context 'authorization' do
-    it 'should redirect and have status not_authorized' do
+    it 'redirects and have status not_authorized' do
       get api_path(format: :json), headers: { 'x-api-key' => '' }
 
-      expect(response.status).to eql(401)
+      expect(response.status).to be(401)
       expect(response.body).to be_empty
     end
 
-    it 'should render json with valid api-key' do
+    it 'renders json with valid api-key' do
       get api_path(format: :json), headers: { 'x-api-key' => ENV['HOR_API_KEY'] }
 
       expect(response).to be_ok

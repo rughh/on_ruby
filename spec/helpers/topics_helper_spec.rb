@@ -3,7 +3,7 @@ require 'spec_helper'
 describe TopicsHelper do
   let(:topic) { build(:topic, id: 123) }
 
-  context '#like_link' do
+  describe '#like_link' do
     context 'with logged-in user' do
       let(:user) { build(:user) }
 
