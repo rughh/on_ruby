@@ -4,6 +4,12 @@
     "postdeploy": "bin/rails db:schema:load db:migrate db:seed"
   },
   "env": {
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
     "HOR_API_KEY": {
       "required": true
     },
@@ -12,7 +18,6 @@
     }
   },
   "addons": [
-    "sendgrid",
     "heroku-postgresql",
     "papertrail"
   ],
