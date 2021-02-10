@@ -15,7 +15,7 @@ module Slug
       found
     end
 
-    def clazz.find_by_slug(token)
+    def clazz.from_slug(token)
       from_param(token)
     end
 

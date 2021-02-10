@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   before_action :authenticate!, only: %i[new edit update create]
   before_action :validate_topic_ownership!, only: %i[edit update]
 
-  expose(:topic, find: ->(id, scope) { scope.find_by_slug(id) })
+  expose(:topic, find: ->(id, scope) { scope.from_slug(id) })
   expose(:events)           { Event.with_topics.ordered.page(params[:page]) }
   expose(:undone_topics)    { Topic.ordered.undone }
   expose(:done_topics)      { Topic.ordered.done }

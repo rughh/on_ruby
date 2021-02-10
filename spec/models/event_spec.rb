@@ -74,24 +74,24 @@ describe Event do
     it 'finds by id' do
       event = create(:event, id: 999)
 
-      expect(Event.find_by_slug('999')).to eql(event)
-      expect(Event.find_by_slug('-999')).to eql(event)
+      expect(Event.from_slug('999')).to eql(event)
+      expect(Event.from_slug('-999')).to eql(event)
     end
 
     it 'finds by slug' do
       event = create(:event, id: 999)
 
-      expect(Event.find_by_slug('bla-999')).to eql(event)
+      expect(Event.from_slug('bla-999')).to eql(event)
     end
 
     it 'finds by name' do
       event = create(:event, name: 'Hamburg Meetup Soandso')
 
-      expect(Event.find_by_slug('hamburg-meetup-soandso')).to eql(event)
+      expect(Event.from_slug('hamburg-meetup-soandso')).to eql(event)
     end
 
     it 'raises an error like find' do
-      expect { Event.find_by_slug('murks') }.to raise_error(ActiveRecord::RecordNotFound)
+      expect { Event.from_slug('murks') }.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 
