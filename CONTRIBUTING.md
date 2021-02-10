@@ -3,7 +3,7 @@
 1. Fork the project to your own GitHub account
 2. Clone your fork
 3. Make sure that you have Ruby installed (you can check the supported Ruby
-versions in `.travis.yml`)
+versions in `.ruby-version`)
 4. Run `bundle install`. If you see failures related to compiling native
 extensions you need to follow a
 [tutorial for setting up Ruby on Rails](https://gorails.com/setup)
