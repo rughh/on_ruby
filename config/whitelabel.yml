@@ -357,7 +357,7 @@
   google_group: innsbruck-rb
 - !ruby/object:Usergroup
   label_id: madridrb
-  canonical_url: http://www.madridrb.com
+  canonical_url: https://www.madridrb.com
   status: enabled
   default_locale: es
   country: Espania
@@ -380,31 +380,31 @@
       :email: hello@madridrb.com
   sponsors:
   - :name: Bebanjo
-    :url: http://bebanjo.com/
+    :url: https://bebanjo.com/
     :banner: bebanjo.png
   - :name: Platform 161
     :url: https://www.platform161.com/
     :banner: platform161.png
   - :name: ASP Gems
-    :url: http://www.aspgems.com/?utm_source=Madrid%20RB&utm_medium=banner&utm_term=patrocinio%20Madrid%20RB&utm_campaign=Patrocinio%20Madrid%20RB
+    :url: https://www.aspgems.com/?utm_source=Madrid%20RB&utm_medium=banner&utm_term=patrocinio%20Madrid%20RB&utm_campaign=Patrocinio%20Madrid%20RB
     :banner: aspgems.png
   - :name: B4Motion
-    :url: http://www.b4Motion.com/
+    :url: https://www.b4Motion.com/
     :banner: b4motion.png
   - :name: Digital55
-    :url: http://digital55.com
+    :url: https://digital55.com
     :banner: digital55.png
   - :name: The Cocktail
-    :url: http://www.the-cocktail.com
+    :url: https://www.the-cocktail.com
     :banner: tck.png
   - :name: Sngular
     :url: https://www.sngular.com/
     :banner: sngular.png
   - :name: Trive
-    :url: http://gotrive.com/
+    :url: https://gotrive.com/
     :banner: trive.png
   - :name: Cabify
-    :url: http://cabify.com
+    :url: https://cabify.com
     :banner: cabify.png
   other_usergroups:
   - :name: Betabeers
