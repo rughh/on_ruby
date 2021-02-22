@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/phoet/ri_cal.git
+  revision: 8d8d495a89218b98b01a1e8c752ac6cd6cc627f1
+  branch: master
+  specs:
+    ri_cal (0.8.8)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -303,7 +310,6 @@ GEM
     request_store (1.5.0)
       rack (>= 1.4)
     rexml (3.2.4)
-    ri_cal (0.8.8)
     rspec-collection_matchers (1.2.0)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.10.1)
@@ -441,7 +447,7 @@ DEPENDENCIES
   rails-controller-testing
   rails_12factor
   redcarpet
-  ri_cal
+  ri_cal!
   rspec-collection_matchers
   rspec-rails
   rubocop
