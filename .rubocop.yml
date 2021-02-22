@@ -3,14 +3,13 @@ inherit_from: .rubocop_todo.yml
 require:
   - rubocop-rspec
   - rubocop-rails
- 
+
 AllCops:
   Exclude:
     - "*.ru"
     - "bin/*"
-    - "db/**/schema.rb"
-    - "config/puma.rb"
-    - "config/environments/*"
+    - "db/**/*.rb"
+    - "config/**/*.rb"
     - "app/controllers/admin/*"
     - "app/controllers/super_admin/*"
     - "app/dashboards/*"
