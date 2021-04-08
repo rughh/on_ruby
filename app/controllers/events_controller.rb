@@ -26,4 +26,19 @@ class EventsController < ApplicationController
       end
     end
   end
+
+  def rsvp
+    if signed_in?
+      if event.closed?
+        flash[:alert] = t('flash.already_closed')
+      elsif event.particpate(current_user)
+        flash[:notice] = t('flash.now_participating')
+      else
+        flash[:alert] = t('flash.already_participating')
+      end
+      redirect_to event_path(event)
+    else
+      redirect_to '/auth/linkedin'
+    end
+  end
 end

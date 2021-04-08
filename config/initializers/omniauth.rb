@@ -1,4 +1,5 @@
 OmniAuth.config.logger = Rails.logger
+OmniAuth.config.allowed_request_methods = %i[post get]
 
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :google_oauth2, ENV['GOOGLE_CONSUMER_KEY'], ENV['GOOGLE_CONSUMER_SECRET'], verify_iss: false
