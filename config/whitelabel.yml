@@ -1,5 +1,520 @@
 ---
 - !ruby/object:Usergroup
+  label_id: hamburg
+  canonical_url: https://hamburg.onruby.de
+  status: enabled
+  default_locale: de
+  country: Deutschland
+  recurring: second wednesday
+  email: hamburg@onruby.de
+  twitter: HamburgOnRuby
+  github_org: rughh
+  github_repo: planning
+  github_issue_template: 'meetup.md'
+  organizers:
+  - lindtdev
+  - janz93
+  - phoet
+  location:
+    :zoom: 12
+    :lat: 53.56544
+    :long: 9.95947
+  default_time_zone: Europe/Berlin
+  sponsors:
+  - :name: AppSignal
+    :url: https://appsignal.com/
+    :banner: appsignal.png
+  imprint:
+    :address: |-
+      Tigerstr. 32
+      22525 Hamburg
+    :contributors:
+    - :name: Peter Schröder
+      :email: phoetmail@googlemail.com
+  other_usergroups:
+  - :name: HH.js
+    :url: http://www.meetup.com/hamburg-js/
+    :twitter: hhjs
+  - :name: Cocoaheads
+    :url: https://www.meetup.com/de-DE/CocoaHeads-Hamburg/
+    :twitter: cocoaheads_hh
+  tld: de
+  coc: http://rubyberlin.github.io/code-of-conduct
+- !ruby/object:Usergroup
+  label_id: cologne
+  canonical_url: https://www.colognerb.de
+  status: enabled
+  default_locale: de
+  country: Deutschland
+  recurring: third wednesday
+  email: colognerb@googlegroups.com
+  twitter: colognerb
+  organizers:
+  - jkwebs
+  location:
+    :zoom: 12
+    :lat: 50.941231
+    :long: 6.957092
+  default_time_zone: Europe/Berlin
+  imprint:
+    :address: "An der Bottmühle 5\n50678 Köln"
+    :contributors:
+    - :name: Jakob Hilden
+      :email: jakob@railslove.com
+    - :name: Marco Schaden
+      :email: hello@donschado.de
+    - :name: Railslove GmbH
+      :email: http://railslove.com
+  other_usergroups:
+  - :name: Cologne.js
+    :url: http://colognejs.de/
+    :twitter: cgnjs
+  - :name: DevHouse Friday
+    :url: http://devhousefriday.org/
+    :twitter: devhousefriday
+  - :name: NoSQL User Group Cologne
+    :url: http://www.nosql-cologne.org/
+    :twitter: nosqlcgn
+  - :name: pyCologne
+    :url: http://wiki.python.de/pycologne/
+    :twitter: pycologne
+  - :name: hacken.in
+    :url: http://hacken.in/
+  tld: de
+  coc: http://rubyberlin.github.io/code-of-conduct
+  custom_recurring: true
+  domains:
+  - colognerb.de
+  google_group: colognerb
+  slackin_url: http://colognerb.herokuapp.com/slackin.js
+- !ruby/object:Usergroup
+  label_id: saar
+  default_locale: de
+  country: Deutschland
+  recurring: second friday 18:30
+  email: rug.saar@gmail.com
+  twitter: RUGSaar
+  organizers:
+  - markusschwed
+  - gogolok
+  location:
+    :zoom: 12
+    :lat: 49.2429927
+    :long: 6.9897586
+  default_time_zone: Europe/Berlin
+  imprint:
+    :address: |-
+      Europaallee 27
+      66113 Saarbrücken
+    :contributors:
+    - :name: Markus Schwed
+      :email: ma.schwed@googlemail.com
+    - :name: Robert Gogolok
+      :email: gogolok@gmail.com
+    - :name: CompanyMood
+      :email: hello@company-mood.de
+    - :name: Avarteq GmbH
+      :email: info@avarteq.de
+  tld: de
+  domains:
+  - rugsaar.de
+- !ruby/object:Usergroup
+  label_id: karlsruhe
+  default_locale: de
+  country: Deutschland
+  recurring: third wednesday
+  email: karlsruherb@googlegroups.com
+  twitter: rug_ka
+  organizers:
+  - basiszwo
+  location:
+    :zoom: 12
+    :lat: 49.006292
+    :long: 8.398361
+  default_time_zone: Europe/Berlin
+  imprint:
+    :address: |-
+      Haid-und-Neu-Str. 18
+      76131 Karlsruhe
+    :contributors:
+    - :name: Marco Sehrer
+      :email: ms@ninjaconcept.com
+    - :name: NinjaConcept GmbH
+      :email: http://www.ninjaconcept.com/
+  other_usergroups:
+  - :name: KarlsruheJS
+    :url: http://www.karlsruhejs.org/
+    :twitter: kajs
+  - :name: Google Technology User Group
+    :url: https://plus.google.com/109775289623271731783/posts
+    :twitter: karlsruhegtug
+  tld: de
+  google_group: karlsruherb
+- !ruby/object:Usergroup
+  label_id: berlin
+  canonical_url: https://www.rug-b.de
+  status: enabled
+  default_locale: en
+  country: Deutschland
+  recurring: first thursday 19:30
+  email: rug-b@googlegroups.com
+  twitter: rug_b
+  organizers:
+  - amrAbdelwahab
+  - PWengerter
+  - PragTob
+  location:
+    :zoom: 12
+    :lat: 52.52
+    :long: 13.4
+  default_time_zone: Europe/Berlin
+  imprint:
+    :address: |-
+      Adalbertstraße 8
+      10999 Berlin
+    :contributors:
+    - :name: Ruby Berlin e.V.
+      :email: rug-b@rubyberlin.org
+  tld: de
+  coc: http://rubyberlin.github.io/code-of-conduct/
+  domains:
+  - rug-b.de
+  google_group: rug-b
+  slackin_url: http://slack.rubyberlin.org/slackin.js
+- !ruby/object:Usergroup
+  label_id: leipzig
+  canonical_url: https://leipzig.onruby.de
+  status: enabled
+  default_locale: de
+  country: Deutschland
+  recurring: third thursday 19:00
+  email: leipzigonrails@googlegroups.com
+  twitter: LeipzigOnRails
+  organizers:
+  - cpetschnig
+  - knugie
+  - tmetzmac
+  location:
+    :zoom: 12
+    :lat: 51.3417825
+    :long: 12.3936349
+  default_time_zone: Europe/Berlin
+  imprint:
+    :contributors:
+    - :name: Christoph Petschnig
+      :email: leipzigonrails@googlegroups.com
+    - :name: Wolfgang Teuber
+      :email: leipzigonrails@googlegroups.com
+    - :name: Thomas Metzmacher
+      :email: leipzigonrails@googlegroups.com
+  tld: de
+  google_group: leipzigonrails
+  slackin_url: http://slack-onruby.herokuapp.com/slackin.js
+- !ruby/object:Usergroup
+  label_id: dresden
+  default_locale: de
+  country: Deutschland
+  recurring: first thursday 19:00
+  email: admin@ruby-dresden.de
+  twitter: ruby_dresden
+  organizers:
+  - _sonnendeck
+  - sgemkow
+  location:
+    :zoom: 12
+    :lat: 51.049013
+    :long: 13.798582
+  default_time_zone: Europe/Berlin
+  imprint:
+    :address: |-
+      ObjectFab GmbH
+      Pohlandstraße 19
+      01309 Dresden
+    :contributors:
+    - :name: Martin Schrader
+      :email: sonnendeck2000@gmail.com
+    - :name: Steffen Gemkow
+      :email: info@objectfab.de
+  other_usergroups:
+  - :name: Dresden Perl Mongers
+    :url: http://renormalist.net/PM/WebHome
+  - :name: WDCM Dresden - Web Developer Conference Meeting
+    :url: http://wdcmdresden.com/
+    :twitter: wdcmdresden
+  tld: de
+- !ruby/object:Usergroup
+  label_id: railsgirlshh
+  default_locale: de
+  country: Deutschland
+  recurring: fourth wednesday 19:30
+  email: railsgirlshh@gmail.com
+  twitter: railsgirlshh
+  organizers:
+  - titanoboa42
+  - weidenfreak
+  - halfbyte
+  - birtona
+  - catrinmsj
+  - uygar_soenmez
+  - sssggr
+  - huldala
+  - dianaknodel
+  - AndreCedik
+  location:
+    :zoom: 12
+    :lat: 53.56544
+    :long: 9.95947
+  default_time_zone: Europe/Berlin
+  imprint:
+    :address: |-
+      Adalbertstr. 7
+      10999 Berlin
+    :contributors:
+    - :name: Ruby Berlin e.V. (Railsgirls Hamburg)
+      :email: railsgirlshh@gmail.com
+  other_usergroups:
+  - :name: Rails Girls Berlin
+    :url: http://railsgirlsberlin.de/
+    :twitter: railsgirls_bln
+  - :name: Rails Girls Cologne
+    :url: http://railsgirls.com/cologne
+    :twitter: railsgirls_cgn
+  - :name: Rails Girls Rheinland
+    :url: http://railsgirls.com/rheinland
+    :twitter: railsgirls_rhl
+  - :name: Rails Girls Frankfurt a.M.
+    :url: http://railsgirls.com/frankfurt
+    :twitter: RailsGirls_FFM
+  - :name: Rails Girls Dresden
+    :url: http://railsgirlsdresden.de
+    :twitter: RailsGirls_DD
+  - :name: Rails Girls Munich
+    :url: http://railsgirls.com/munich
+    :twitter: RailsGirls_MUC
+  - :name: Rails Girls Osnabrück
+    :url: http://railsgirls-os.de
+    :twitter: railsgirls_os
+  - :name: Rails Girls Leipzig
+    :url: http://railsgirls.com/leipzig
+  tld: de
+  coc: http://rubyberlin.github.io/code-of-conduct/
+  google_group: rails-girls-hamburg
+- !ruby/object:Usergroup
+  label_id: bonn
+  default_locale: de
+  country: Deutschland
+  recurring: second monday
+  email: bonnrb@googlegroups.com
+  twitter: bonnrb
+  organizers:
+  - 1st8
+  - m20io
+  location:
+    :zoom: 12
+    :lat: 50.724
+    :long: 7.112488
+  default_time_zone: Europe/Berlin
+  imprint:
+    :address: |-
+      mixxt GmbH
+      Adenauerallee 134
+      53175 Bonn
+    :contributors:
+    - :name: Christoph Geschwind
+      :email: christophgeschwind@gmail.com
+    - :name: Martin Frank
+      :email: martin.frank.ts@gmail.com
+  tld: de
+  coc: http://rubyberlin.github.io/code-of-conduct/
+  domains:
+  - bonnrb.de
+  google_group: bonnrb
+- !ruby/object:Usergroup
+  label_id: innsbruck
+  default_locale: en
+  country: Österreich
+  recurring: second saturday
+  email: innsbruck.rb@gmail.com
+  twitter: innsbruckrb
+  organizers:
+  - BennyKlotz
+  location:
+    :zoom: 12
+    :lat: 47.2578229
+    :long: 11.3961853
+  default_time_zone: Europe/Vienna
+  imprint:
+    :address: |-
+      Tschamlerstraße 3
+      6020 Innsbruck
+    :contributors:
+    - :name: Benny Klotz
+      :email: r3qnbenni@gmail.com
+  tld: at
+  domains:
+  - innsbruck-rb.at
+  - innsbruck-ruby.at
+  google_group: innsbruck-rb
+- !ruby/object:Usergroup
+  label_id: madridrb
+  canonical_url: https://www.madridrb.com
+  status: enabled
+  default_locale: es
+  country: Espania
+  recurring: last thursday 19:30
+  email: hello@madridrb.com
+  twitter: madridrb
+  organizers:
+  - josep_egea
+  location:
+    :zoom: 12
+    :lat: 40.42
+    :long: -3.68
+  default_time_zone: Europe/Madrid
+  imprint:
+    :address: |-
+      Av del Brasil, 7 (The Irish Rover)
+      28020 Madrid, Spain 1
+    :contributors:
+    - :name: Josep Egea Sánchez
+      :email: hello@madridrb.com
+  sponsors:
+  - :name: Bebanjo
+    :url: https://bebanjo.com/
+    :banner: bebanjo.png
+  - :name: Platform 161
+    :url: https://www.platform161.com/
+    :banner: platform161.png
+  - :name: ASP Gems
+    :url: https://www.aspgems.com/?utm_source=Madrid%20RB&utm_medium=banner&utm_term=patrocinio%20Madrid%20RB&utm_campaign=Patrocinio%20Madrid%20RB
+    :banner: aspgems.png
+  - :name: B4Motion
+    :url: https://www.b4Motion.com/
+    :banner: b4motion.png
+  - :name: Digital55
+    :url: https://digital55.com
+    :banner: digital55.png
+  - :name: The Cocktail
+    :url: https://www.the-cocktail.com
+    :banner: tck.png
+  - :name: Sngular
+    :url: https://www.sngular.com/
+    :banner: sngular.png
+  - :name: Trive
+    :url: https://gotrive.com/
+    :banner: trive.png
+  - :name: Cabify
+    :url: https://cabify.com
+    :banner: cabify.png
+  other_usergroups:
+  - :name: Betabeers
+    :url: https://betabeers.com/
+    :twitter: betabeers
+  - :name: MadridJS
+    :url: http://www.meetup.com/madridjs/
+    :twitter: madridjs
+  tld: eu
+  coc: http://madridrb.com
+  domains:
+  - madridrb.com
+  google_group: madrid-rb
+- !ruby/object:Usergroup
+  label_id: munich
+  default_locale: de
+  country: Deutschland
+  recurring: second wednesday
+  email: Munich-Rubyshift-Ruby-User-Group-list@meetup.com
+  twitter: muc_rubyshift
+  organizers:
+  - pschrammel
+  - bascht
+  location:
+    :zoom: 12
+    :lat: 48.136694
+    :long: 11.5701035
+  imprint:
+    :address: |-
+      Bayerstraße 69
+      80335 München
+    :contributors:
+    - :name: Peter Schrammel
+      :email: Munich-Rubyshift-Ruby-User-Group-list@meetup.com
+  sponsors: []
+  tld: de
+- !ruby/object:Usergroup
+  label_id: andalucia
+  canonical_url: https://andalucia.onruby.eu
+  status: enabled
+  default_locale: es
+  country: espania
+  recurring: last tuesday 19:30
+  email: andaluciarb+noreply@googlegroups.com
+  twitter: malagarb
+  organizers:
+  - Nando
+  - Ian Moss
+  location:
+    :zoom: 7
+    :lat: 36.7182857
+    :long: -4.4842863
+  imprint:
+    :address: |-
+      I-CampusCoworking Calle Medellin 3
+      29002 Málaga
+    :contributors:
+    - :name: Nando
+      :email:
+    - :name: Ian Moss
+      :email:
+    - :name: stbnrivas
+      :email:
+  sponsors: []
+  other_usergroups:
+  tld: eu
+  coc: http://example.com
+  domains:
+  google_group: andaluciarb
+- !ruby/object:Usergroup
+  twitter: bcnrails
+  google_group: barcelonaonrails
+  label_id: barcelona
+  canonical_url: https://ruby.barcelona
+  status: enabled
+  default_locale: es
+  tld: eu
+  country: España
+  domains:
+  - ruby.barcelona
+  recurring: third thursday
+  email: webmaster@mediafinger.com
+  github_org: RubyAndFriends
+  github_repo: TalkSuggestions
+  organizers:
+  - mediafinger
+  location:
+    :zoom: 12
+    :lat: 41.3933987
+    :long: 2.1679484
+  imprint:
+    :address: |-
+      Carrer Ferlandina 45, 4-2
+      08001 Barcelona
+    :contributors:
+    - :name: Andreas Finger
+      :email: webmaster@mediafinger.com
+  other_usergroups:
+  - :name: BarcelonaJS
+    :url: http://barcelonajs.org/
+    :twitter: barcelonajs
+  coc: https://github.com/RubyAndFriends/Code_of_Conduct
+  sponsors:
+  - :name: Sequra
+    :url: https://sequra.es/
+    :banner: sequra.png
+  - :name: XING Spain
+    :url: https://xing.com/
+    :banner: xing.png
+- !ruby/object:Usergroup
   label_id: hatchup
   canonical_url: https://hatchup.herokuapp.com
   status: enabled
