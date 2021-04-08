@@ -13,7 +13,8 @@ module ApplicationHelper
   end
 
   def login_providers
-    %w[twitter github google_oauth2]
+    #%w[twitter github google_oauth2]
+    %w[github linkedin]
   end
 
   def whitelabel_stylesheet_link_tag

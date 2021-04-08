@@ -227,6 +227,8 @@ GEM
       oauth2 (~> 1.1)
       omniauth (>= 1.1.1)
       omniauth-oauth2 (>= 1.6)
+    omniauth-linkedin-oauth2 (1.0.0)
+      omniauth-oauth2
     omniauth-oauth (1.2.0)
       oauth
       omniauth (>= 1.0, < 3)
@@ -432,6 +434,7 @@ DEPENDENCIES
   omniauth
   omniauth-github
   omniauth-google-oauth2
+  omniauth-linkedin-oauth2 (~> 1.0)
   omniauth-rails_csrf_protection
   omniauth-twitter
   partially_useful

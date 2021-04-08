@@ -62,3 +62,5 @@ group :development, :test do
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
 end
+
+gem "omniauth-linkedin-oauth2", "~> 1.0"
