@@ -44,7 +44,6 @@ OnRuby::Application.routes.draw do
   end
 
   resources :events do
-    get :rsvp, on: :member
     resources :materials
     resources :topics
     resources :participants
