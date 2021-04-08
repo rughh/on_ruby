@@ -54,6 +54,10 @@ class User < ApplicationRecord
     self
   end
 
+  def handle_linkedin_attributes(hash)
+    Rails.logger.info("#{hash}")
+  end
+
   def handle_twitter_attributes(hash)
     self.nickname     = hash['info']['nickname'] unless nickname
     self.twitter      = hash['info']['nickname']
