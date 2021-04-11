@@ -1,0 +1,19 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="1200" height="630" fill="white"/>
+<rect x="39" y="38" width="1117" height="550" rx="20" fill="#E0E1E3"/>
+<text fill="#191919" xml:space="preserve" style="white-space: pre" font-family="Helvetica" font-size="24" letter-spacing="-0.02em"><tspan x="204" y="395.279">{{ location }}</tspan></text>
+<text fill="#191919" xml:space="preserve" style="white-space: pre" font-family="Helvetica" font-size="24" letter-spacing="-0.02em"><tspan x="248" y="252.279">{{ subtitle }}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Helvetica" font-size="32" font-weight="bold" letter-spacing="-0.02em"><tspan x="248" y="202.539">{{ title }}</tspan></text>
+<rect x="114" y="165" width="104" height="104" fill="url(#pattern0)"/>
+<circle cx="710.308" cy="488.308" r="25.3077" fill="white"/>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="DM Sans" font-size="20" font-weight="bold" letter-spacing="-0.02em"><tspan x="697.846" y="494.577">{{participants}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="DM Sans" font-size="20" font-weight="bold" letter-spacing="-0.02em"><tspan x="753" y="494.32">Participants</tspan></text>
+<rect x="186" y="459" width="435" height="57" rx="20" fill="white"/>
+<text fill="#191919" xml:space="preserve" style="white-space: pre" font-family="Helvetica" font-size="24" letter-spacing="-0.02em"><tspan x="204.07" y="496.279">{{ date }}</tspan></text>
+<defs>
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0" transform="scale(0.00961538)"/>
+</pattern>
+<image id="image0" width="104" height="104" xlink:href="{{{ logo }}}"/>
+</defs>
+</svg>
