@@ -9,7 +9,7 @@ module ShareHelper
       :title => page_title,
       :subtitle => "#{I18n.t("show.hosted_by")} #{event.user.name}",
       :date => "#{I18n.l(event.date, format: :long)}",
-      :location => event.location ? "#{I18n.t('show.at')} #{event.location}" : "",
+      :location => event.location ? "#{I18n.t('show.at')} #{event.location.name}, #{event.location.address}" : "",
       :participants => event.participants.count > 1 ? event.participants.count : " ",
       :logo => image_url("labels/#{event.label}.png")
     }
