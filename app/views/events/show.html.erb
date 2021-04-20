@@ -1,0 +1,92 @@
+<% content_for(:page_title, 'Geiles event') %>
+
+<%
+    label = Whitelabel.label
+    name = 'hi'
+    title = 'ho'
+    subtitle = 'yp'
+%>
+<div class="block group border border-b-0 rounded rounded-b-none border-gray-200 bg-gray-100 p-0">
+  <div class="grid grid-cols-1 gap-y-8 grid-cols-2 bg-no-repeat bg-cover h-60" style="background-image: url(<%= asset_url("labels/#{label.label_id}.png") %>">
+    <div class="p-3">
+      <div class="float-left rounded-full border-secondary bg-primary p-2 text-white text-xs flex">
+        <span class="rounded-full bg-white h-4 w-4 mr-1 flex items-center justify-center">
+          <span class="rounded-full bg-primary h-3 w-3 flex items-center justify-center">
+            <span class="rounded-full bg-white h-1 w-1 flex items-center justify-center"></span>
+          </span>
+        </span>
+        Live Now
+      </div>
+    </div>
+    <div class="p-3">
+      <div class="float-right rounded-full border-secondary bg-primary p-2 text-white text-xs">
+        12.minutes me
+      </div>
+    </div>
+  </div>
+</div>
+<div class="block group border border-t-0 rounded rounded-t-none border-gray-200 bg-white p-3">
+  <div class="flex">
+    <div class="m-3 rounded-full border-primary bg-gray-100 p-2 text-secondary text-xs">
+      👩‍💻 Online
+    </div>
+    <div class="m-3 rounded-full border-primary bg-gray-100 p-2 text-secondary text-xs">
+      👾 Wonder
+    </div>
+  </div>
+  <div class="grid grid-cols-1 gap-y-8 grid-cols-2 bg-white w-100">
+    <div class="p-3">
+      <h3><%= event.name %></h3>
+      <div class="">
+        <%= t("show.hosted_by") %>
+        <%= link_to_user(event.user) %>
+        <% if event.location.present? %>
+          <%= t('show.at') %>
+          <%= link_to_location(event.location) %>
+          <%= l(event.date, format: :long) %>
+        <% end %>
+      </div>
+      <div class="">
+        <%= participation_link(event, link_class: 'btn btn-primary btn-block') %>
+        <%= remote_url_link(event, link_class: 'btn btn-primary btn-block') %>
+      </div>
+      <div class="">
+        <%= markdown(event.description) %>
+      </div>
+      <% if event.participants.present? %>
+      <div class="">
+        <h3><%= t("show.attendees", count: event.limit || 0, participant_count: event.participants.count) %></h3>
+        <p><%= render 'users/list', users: event.users %></p>
+      </div>
+      <% end %>
+      <!-- .row.card-title
+        .col-lg-9
+          h2= link_to_event(event)
+          small.text-muted
+            =
+            =< link_to_user(event.user)
+            - if event.location.present?
+              =< t('show.at')
+              =< link_to_location(event.location)
+            = ", #{l(event.date, format: :long)}"
+
+        .col-lg-3
+          =
+          =
+
+      .card-text
+        == markdown(event.description)
+
+      - if event.attendee_information?
+        - if signed_in?
+          .card-text
+            == markdown(event.attendee_information)
+        - else
+          .card-text
+            mark= t('show.attend_to_view_attendees_information') -->
+
+    </div>
+    <div class="p-3">
+    </div>
+  </div>
+</div>

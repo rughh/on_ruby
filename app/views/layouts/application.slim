@@ -7,12 +7,12 @@ html
     = touch_icon
     = rss_feed
     = csrf_meta_tag
-    = stylesheet_link_tag :application_tailwind, "//fonts.googleapis.com/css?family=Raleway"
+    = stylesheet_link_tag :application_tailwind
     = whitelabel_stylesheet_link_tag
   body
     = render('layouts/shell')
 
   = render 'app_info'
   = render 'i18njs'
-  = javascript_include_tag :application, "//maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDvgVnoO2zQ_K_dDhAFiz2nENTQSH4TivY"
+  = javascript_include_tag :application
   = whitelabel_javascript_include_tag
