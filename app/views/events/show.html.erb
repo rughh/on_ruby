@@ -53,13 +53,47 @@
       <div class="">
         <%= markdown(event.description) %>
       </div>
-      <% if event.participants.present? %>
-      <div class="">
-        <h3><%= t("show.attendees", count: event.limit || 0, participant_count: event.participants.count) %></h3>
-        <p><%= render 'users/list', users: event.users %></p>
+    </div>
+    <div class="p-3">
+    </div>
+    <% if event.participants.present? %>
+    <h3><%= t("show.attendees", count: event.limit || 0, participant_count: event.participants.count) %></h3>
+    <div class="grid grid-cols-1 gap-y-8 sm:grid-cols-2 sm:gap-x-5 sm:gap-y-6 md:grid-cols-3 lg:col-span-3">
+      <% event.users.each do |user| %>
+      <div class="block group border rounded border-gray-200 bg-gray-100 p-3">
+        <figure class="grid grid-cols-1 gap-y-8 grid-cols-2">
+          <div class="relative p-3">
+            <%= link_to(user_image(user, image_class: 'rounded-full border-primary bg-gray-100 h-20'), user) %>
+          </div>
+          <figcaption class="mt-3">
+            <p class="text-sm font-medium text-gray-900"><%= user.name %></p>
+            <p class="text-sm text-gray-500"><%= user.nickname %></p>
+          </figcaption>
+        </figure>
       </div>
       <% end %>
+
+    </div>
+    <% end %>
       <!-- .row.card-title
+      .card
+        .card-body
+          .pull-left
+            - if user.organizer?
+              span.badge.badge-card-header.badge-organizer
+                = fa_icon('star', text: 'Organizer')
+            = link_to(user) do
+              = user_image(user, image_class: 'card-img-topic')
+
+          p
+            small.text-muted
+              = link_to_user(user)
+              br
+              = "#{t('main.events')}: #{user.participations.count}"
+              br
+              = "#{t('main.topics')}: #{user.topics.count}"
+
+
         .col-lg-9
           h2= link_to_event(event)
           small.text-muted
@@ -85,8 +119,5 @@
           .card-text
             mark= t('show.attend_to_view_attendees_information') -->
 
-    </div>
-    <div class="p-3">
-    </div>
   </div>
 </div>
