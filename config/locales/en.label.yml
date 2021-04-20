@@ -115,3 +115,10 @@ en:
       subtitle: 'used to be: Barcelona on Rails'
       meta_desc: 'The Ruby User Group in Barcelona'
       custom_recurrence: every 3. Thursday of every month we meet at 19:00
+    hatchup:
+      city: HatchUp
+      name: 'HatchUp & Friends'
+      title: 'HatchUp & Friends'
+      subtitle: 'We are building a platform for organizers, that takes the pain out of organizing events and communities'
+      meta_desc: 'HatchUp! From Organizers for Organizers'
+      custom_recurrence: 'Organizers are invisible and invaluable and we want to change that.'
