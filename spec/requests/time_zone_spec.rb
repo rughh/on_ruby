@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'TimeZone' do
   context 'GET page without a time zone' do
-    it 'should have the default time zone' do
+    it 'has the default time zone' do
       get root_url(subdomain: 'hamburg')
       expect(Time.zone.name).to eq('Europe/Berlin')
     end
@@ -11,7 +11,7 @@ describe 'TimeZone' do
   context 'GET page with a different default time zone' do
     before { allow(Whitelabel.labels.first).to receive_messages(default_time_zone: 'Europe/Paris') }
 
-    it 'should have a different time zone' do
+    it 'has a different time zone' do
       get root_url(subdomain: 'hamburg')
       expect(Time.zone.name).to eq('Europe/Paris')
     end

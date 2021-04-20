@@ -105,6 +105,7 @@ de:
     job_offers: "Jobangebote"
     open_in: "Öffnen in"
     google_maps: "Google Maps"
+    virtual_location: "Virtueller Ort"
   topic:
     topic: "Thema"
     all_topics: "Alle Themen"
@@ -137,6 +138,7 @@ de:
     im_attending_html: "Meine Events abonieren: %{events_im_attending_link}"
     webcal: 'Webcal'
     rss: 'RSS'
+    connect_remotely: 'Remote-Verbindung'
     coc:
       html: 'Die Events unserer Usergroup unterstützten folgenden <a href="%{coc_link}" target="_blank">Code of Conduct</a>.'
   flash:

@@ -13,7 +13,8 @@ module ApplicationHelper
   end
 
   def login_providers
-    %w[twitter github google_oauth2]
+    #%w[twitter github google_oauth2]
+    %w[github linkedin]
   end
 
   def whitelabel_stylesheet_link_tag
@@ -64,19 +65,19 @@ module ApplicationHelper
     return nil unless content
 
     content = markdown_parser.render(content).html_safe
-    content_tag :div, content, class: :markdown
+    tag.div(content, class: :markdown)
   end
 
   def section_box(name)
-    content_tag :section, class: "#{name} clearfix", id: name do
-      concat content_tag(:h2, fa_icon(name, text: t("main.#{name}")))
+    tag.section(class: "#{name} clearfix", id: name) do
+      concat tag.h2(fa_icon(name, text: t("main.#{name}")))
       yield
     end
   end
 
   def hint(close = true)
-    content_tag(:section, class: :hint) do
-      concat content_tag(:div, link_to(t('hint.close'), '#'), class: :close) if close
+    tag.section(class: :hint) do
+      concat tag.div(link_to(t('hint.close'), '#'), class: :close) if close
       yield
     end
   end

@@ -6,12 +6,12 @@ describe EventsHelper do
   let(:participation_event) { create(:event, participants: [participant]) }
 
   context 'signed_in user' do
-    before(:each) do
+    before do
       allow(helper).to receive_messages(signed_in?: true, current_user: event.user)
     end
 
-    context '#participation_link' do
-      it 'should render a paritcipate button' do
+    describe '#participation_link' do
+      it 'renders a paritcipate button' do
         expect(helper.participation_link(event)).to match('Teilnehmen')
       end
 
@@ -20,7 +20,7 @@ describe EventsHelper do
         expect(helper.participation_link(event)).to match('data-disable')
       end
 
-      it 'should render a cancel button' do
+      it 'renders a cancel button' do
         expect(helper.participation_link(participation_event)).to match('Absagen')
       end
     end

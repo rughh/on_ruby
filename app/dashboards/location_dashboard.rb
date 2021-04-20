@@ -22,6 +22,7 @@ class LocationDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     company: Field::Boolean,
+    virtual: Field::Boolean,
     label: Field::String,
     wheelmap_id: Field::String,
   }.freeze
@@ -42,6 +43,7 @@ class LocationDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :company,
+    :virtual,
     :events,
     :jobs,
     :id,
@@ -64,6 +66,7 @@ class LocationDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :company,
+    :virtual,
     :url,
     :street,
     :house_number,

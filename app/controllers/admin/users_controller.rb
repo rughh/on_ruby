@@ -6,7 +6,7 @@ module Admin
     end
 
     def find_resource(param)
-      User.peers.find_by_slug(param)
+      User.peers.from_slug(param)
     end
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions

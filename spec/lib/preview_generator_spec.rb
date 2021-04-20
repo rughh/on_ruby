@@ -6,7 +6,7 @@ describe 'PreviewGenerator' do
     expect(g.uri).to eq('http://google.com')
   end
 
-  context '#generate_preview' do
+  describe '#generate_preview' do
     it 'invokes LinkThumbnailer' do
       website = double(videos: [], images: [])
       expect(LinkThumbnailer).to receive(:generate).with('http://hey.com').and_return(website)
@@ -15,7 +15,7 @@ describe 'PreviewGenerator' do
     end
 
     it 'handles bad URIs' do
-      expect(LinkThumbnailer).to receive(:generate).and_raise(Net::HTTPServerException.new('', ''))
+      expect(LinkThumbnailer).to receive(:generate).and_raise(Net::HTTPClientException.new('', ''))
 
       expect { PreviewGenerator.new('http://hey.com').generate_preview }.not_to raise_error
     end

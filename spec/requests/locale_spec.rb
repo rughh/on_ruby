@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Locale' do
   context 'GET page without a locale' do
-    it 'should have the default locale' do
+    it 'has the default locale' do
       get root_url(subdomain: 'hamburg')
       expect(I18n.locale).to be(:de)
     end
@@ -11,7 +11,7 @@ describe 'Locale' do
   context 'GET page with a different default locale' do
     before { allow(Whitelabel.labels.first).to receive_messages(default_locale: :en) }
 
-    it 'should have a different default locale' do
+    it 'has a different default locale' do
       get root_url(subdomain: 'hamburg')
       expect(I18n.locale).to be(:en)
     end

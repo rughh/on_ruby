@@ -9,11 +9,11 @@ describe ParticipantsController do
       allow(controller).to receive_messages(current_user: user)
     end
 
-    it 'should add a prticipant for current user' do
+    it 'adds a prticipant for current user' do
       expect do
         post :create, params: { event_id: event.to_param }
       end.to change(Participant, :count).by(1)
-      expect(flash[:notice]).to_not be_nil
+      expect(flash[:notice]).not_to be_nil
       expect(response).to redirect_to(event)
     end
 
@@ -22,11 +22,11 @@ describe ParticipantsController do
         event.particpate(user)
       end
 
-      it 'should should alert a duplicate flash' do
+      it 'shoulds alert a duplicate flash' do
         expect do
           post :create, params: { event_id: event.to_param }
         end.to change(Participant, :count).by(0)
-        expect(flash[:alert]).to_not be_nil
+        expect(flash[:alert]).not_to be_nil
         expect(response).to redirect_to(event)
       end
     end
@@ -34,11 +34,11 @@ describe ParticipantsController do
     context 'with a closed event' do
       let(:event) { create(:closed_event) }
 
-      it 'should should alert a closed flash' do
+      it 'shoulds alert a closed flash' do
         expect do
           post :create, params: { event_id: event.to_param }
         end.to change(Participant, :count).by(0)
-        expect(flash[:alert]).to_not be_nil
+        expect(flash[:alert]).not_to be_nil
         expect(response).to redirect_to(event)
       end
     end
@@ -51,7 +51,7 @@ describe ParticipantsController do
       @user         = @participant.user
     end
 
-    it 'should delete a participant for current user' do
+    it 'deletes a participant for current user' do
       allow(@controller).to receive_messages(current_user: @user)
 
       expect do
@@ -60,7 +60,7 @@ describe ParticipantsController do
       expect(response).to redirect_to(@event)
     end
 
-    it 'should delete a participant for another user' do
+    it 'deletes a participant for another user' do
       allow(@controller).to receive_messages(current_user: create(:user))
 
       expect do

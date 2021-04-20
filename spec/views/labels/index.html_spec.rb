@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'labels/index' do
-  it 'should render successfully' do
+  it 'renders successfully' do
     Whitelabel.reset!
 
     render

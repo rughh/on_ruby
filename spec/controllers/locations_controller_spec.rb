@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe LocationsController do
   context 'GET :index' do
-    it 'should render the :index template' do
+    it 'renders the :index template' do
       get :index
       expect(response).to render_template(:index)
     end
@@ -11,7 +11,7 @@ describe LocationsController do
   context 'GET :show' do
     let(:location) { create(:location) }
 
-    it 'should render the :show template' do
+    it 'renders the :show template' do
       get :show, params: { id: location }
 
       expect(controller.location).to eql(location)

@@ -23,7 +23,7 @@ class PreviewGenerator
         self.type = :none
       end
     end
-  rescue Net::HTTPServerException => e
+  rescue Net::HTTPClientException => e
     Rails.logger.warn("Could not generate preview for url #{uri}: #{e}")
   end
 

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'topics/show' do
   let(:topic) { build(:topic, user: build(:user, id: 123)) }
 
-  it 'should render successfully' do
+  it 'renders successfully' do
     allow(view).to receive_messages(topic: topic, signed_in?: false)
 
     render

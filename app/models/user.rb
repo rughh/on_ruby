@@ -8,8 +8,8 @@ class User < ApplicationRecord
 
   validates :nickname, :name, :image, presence: true
   validates :nickname, uniqueness: true
-  validates :twitter, :github, uniqueness: true, allow_nil: true, allow_blank: true
-  validates :twitter, :github, format: { with: /\A(\w|-)+\z/, allow_nil: true, allow_blank: true }
+  validates :twitter, :github, uniqueness: true, allow_blank: true
+  validates :twitter, :github, format: { with: /\A(\w|-)+\z/, allow_blank: true }
 
   has_many :authorizations, dependent: :destroy
   has_many :participants, -> { order('created_at DESC') }, dependent: :destroy
@@ -35,7 +35,7 @@ class User < ApplicationRecord
   end
 
   def url
-    return unless url = read_attribute(:url)
+    return unless url = self[:url]
 
     url =~ %r{\Ahttps?://.+} ? url : "http://#{url}"
   end
@@ -54,6 +54,13 @@ class User < ApplicationRecord
     self
   end
 
+  def handle_linkedin_attributes(hash)
+    self.nickname     = "#{hash['info']['first_name']} #{hash['info']['last_name']}" unless nickname
+    self.name         = "#{hash['info']['first_name']} #{hash['info']['last_name']}" unless name
+    self.email        = hash['info']['email'] unless email
+    self.image        = hash['info']['picture_url']
+  end
+
   def handle_twitter_attributes(hash)
     self.nickname     = hash['info']['nickname'] unless nickname
     self.twitter      = hash['info']['nickname']
@@ -68,7 +75,7 @@ class User < ApplicationRecord
     self.nickname     = hash['info']['nickname'] unless nickname
     self.github       = hash['info']['nickname']
     self.email        = hash['info']['email'] unless email
-    self.name         = hash['info']['name'].blank? ? hash['info']['nickname'] : hash['info']['name']
+    self.name         = hash['info']['name'].presence || hash['info']['nickname']
     self.image        = hash['info']['image']
     self.url          = hash['info']['urls']['Blog'] || hash['info']['urls']['GitHub'] unless url
     self.description  = hash['extra']['raw_info']['bio'] unless description
@@ -99,13 +106,13 @@ class User < ApplicationRecord
   class << self
     def create_from_hash!(hash)
       nickname = hash['info']['nickname']
-      raise DuplicateNickname, nickname if find_by_nickname(nickname)
+      raise DuplicateNickname, nickname if find_by(nickname: nickname)
 
       User.new.update_from_auth! hash
     end
 
     def authenticated_with_token(id, stored_salt)
-      user = find_by_id(id)
+      user = find_by(id: id)
       user && user.salt == stored_salt ? user : nil
     end
   end

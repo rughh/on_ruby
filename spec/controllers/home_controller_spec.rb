@@ -5,7 +5,7 @@ describe HomeController do
     before { set_subdomain }
 
     context 'GET :index' do
-      it 'should render the :index template' do
+      it 'renders the :index template' do
         get :index
         expect(response).to render_template(:index)
       end
@@ -16,7 +16,7 @@ describe HomeController do
     before { set_custom_domain }
 
     context 'GET :index' do
-      it 'should render the :index template' do
+      it 'renders the :index template' do
         get :index
         expect(response).to render_template(:index)
       end

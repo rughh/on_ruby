@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_29_213652) do
+ActiveRecord::Schema.define(version: 2021_01_13_033955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_05_29_213652) do
     t.integer "limit"
     t.integer "github_issue"
     t.text "attendee_information"
+    t.string "remote_url"
     t.index ["location_id"], name: "index_events_on_location_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
@@ -82,6 +83,7 @@ ActiveRecord::Schema.define(version: 2020_05_29_213652) do
     t.boolean "company"
     t.string "label", default: "hamburg"
     t.string "wheelmap_id"
+    t.boolean "virtual", default: false
     t.index ["id"], name: "index_locations_on_id"
   end
 

@@ -1,7 +1,7 @@
 # OnRuby
 
 [![donate at patreon](https://img.shields.io/badge/patreon-donate-green.svg)](https://www.patreon.com/on_ruby)
-[![ci status](https://img.shields.io/travis/phoet/on_ruby/master.svg)](https://travis-ci.org/phoet/on_ruby)
+[![build Status](https://github.com/phoet/on_ruby/workflows/build/badge.svg)](https://github.com/phoet/on_ruby/workflows/build/)
 [![vulnerability status](https://hakiri.io/github/phoet/on_ruby/master.svg)](https://hakiri.io/github/phoet/on_ruby/master)
 
 [site status & uptime](http://status.onruby.eu/)

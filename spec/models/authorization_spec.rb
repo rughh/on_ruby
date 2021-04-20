@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Authorization do
-  it 'should create an auth and a user from an auth-hash' do
+  it 'creates an auth and a user from an auth-hash' do
     expect do
       expect do
         Authorization.handle_authorization(nil, TWITTER_AUTH_HASH)

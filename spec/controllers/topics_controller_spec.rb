@@ -27,7 +27,7 @@ describe TopicsController do
       allow(controller).to receive_messages(current_user: user)
 
       get :new
-      expect(controller.topic).to_not be_persisted
+      expect(controller.topic).not_to be_persisted
       expect(response).to render_template(:new)
     end
   end
@@ -50,14 +50,14 @@ describe TopicsController do
     let(:user_without_email) { create(:user, email: '') }
     let(:topic_data) { attributes_for(:topic) }
 
-    it 'should create a topic for logged-in user' do
+    it 'creates a topic for logged-in user' do
       allow(controller).to receive_messages(current_user: user)
 
       expect do
         post(:create, params: { topic: topic_data })
       end.to change(Topic, :count).by(1)
       expect(controller.topic.user).to eql(user)
-      expect(flash[:notice]).to_not be_nil
+      expect(flash[:notice]).not_to be_nil
     end
 
     it 'creates a topic and sends user add an email if not present' do
@@ -69,7 +69,7 @@ describe TopicsController do
       expect(response).to redirect_to(edit_user_path(user_without_email))
     end
 
-    it 'should not create a topic if not signed in' do
+    it 'does not create a topic if not signed in' do
       expect do
         post(:create, params: { topic: topic_data })
       end.to change(Topic, :count).by(0)
@@ -81,7 +81,7 @@ describe TopicsController do
     it 'authenticates the action' do
       put(:update, params: { id: 123, topic: attributes_for(:topic) })
       expect(response).to redirect_to(login_path)
-      expect(flash[:alert]).to_not be_nil
+      expect(flash[:alert]).not_to be_nil
     end
 
     context 'with logged-in user' do
@@ -97,7 +97,7 @@ describe TopicsController do
       it 'updates a topic' do
         put(:update, params: { id: topic, topic: { name: 'blupp' } })
         expect(controller.topic.reload.name).to eql('blupp')
-        expect(flash[:notice]).to_not be_nil
+        expect(flash[:notice]).not_to be_nil
       end
 
       it 'updates a topic for admin' do
@@ -112,7 +112,7 @@ describe TopicsController do
 
         put(:update, params: { id: topic, topic: { name: 'blupp' } })
         expect(response).to redirect_to(root_path)
-        expect(flash[:alert]).to_not be_nil
+        expect(flash[:alert]).not_to be_nil
       end
     end
   end

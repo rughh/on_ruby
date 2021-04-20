@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
-ruby '2.6.6'
+ruby '2.7.3'
 
-gem 'rails', '~> 6.0.3'
+gem 'rails', '~> 6.1.3'
 
 gem 'acts_as_api'
 gem 'addressable'
@@ -13,6 +13,7 @@ gem 'geocoder'
 gem 'kaminari'
 gem 'link_thumbnailer'
 gem 'omniauth'
+gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
@@ -21,7 +22,7 @@ gem 'public_suffix'
 gem 'puma'
 gem 'rack-cache'
 gem 'redcarpet'
-gem 'ri_cal'
+gem 'ri_cal', github: 'phoet/ri_cal', branch: 'master'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'sprockets', '~> 3.7'
@@ -58,4 +59,8 @@ group :development, :test do
   gem 'rspec-collection_matchers'
   gem 'rspec-rails'
   gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 end
+
+gem "omniauth-linkedin-oauth2", "~> 1.0"
