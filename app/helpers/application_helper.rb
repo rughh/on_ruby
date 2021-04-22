@@ -1,8 +1,4 @@
 module ApplicationHelper
-  def element(name, &block)
-    render(name.to_s, &block)
-  end
-
   def cache_image_path(model)
     options = {
       timestamp: model.updated_at.to_i,

@@ -8,7 +8,7 @@
               <%= render('events/live') %>
             </div>
             <div class="float-right m-2">
-              <%= render('events/badge') %>
+              <%= render('events/badge') { event.name } %>
             </div>
           </div>
           <%= image_tag(event.image_url, alt: event.name, class: 'h-48 w-full') %>
