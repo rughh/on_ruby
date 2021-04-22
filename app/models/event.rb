@@ -33,7 +33,12 @@ class Event < ApplicationRecord
   end
 
   def image_url
-    'https://cdn.sanity.io/images/dw2vc3vx/production/ba5a5efefcf1694e9b3a8601e01903f6f87dd2c6-1920x1080.jpg?w=1600&h=900&fit=crop&fm=webp'
+    [
+      'https://cdn.sanity.io/images/dw2vc3vx/production/2f82ce2de3b4b16548b4bb2af2598874af009039-1920x1080.jpg?w=1600&h=900&fit=crop&fm=webp',
+      'https://cdn.sanity.io/images/dw2vc3vx/production/ba5a5efefcf1694e9b3a8601e01903f6f87dd2c6-1920x1080.jpg?w=1600&h=900&fit=crop&fm=webp',
+      'https://cdn.sanity.io/images/dw2vc3vx/production/a58d5ed199a0b790a9215569780409d7fe2e1cb4-2040x1020.jpg?w=1600&h=800&fit=crop&fm=webp',
+      'https://cdn.sanity.io/images/dw2vc3vx/production/72e784322a78ec9006e546bcc1a36c02252e10f0-1920x1080.jpg?w=1600&h=900&fit=crop&fm=webp',
+    ].shuffle.first
   end
 
   def closed?
