@@ -2,6 +2,7 @@ namespace :data do
   desc 'creates test-data'
   task create: :setup do
     Whitelabel.each_label do
+      puts "generating data for #{Whitelabel.label}"
       5.times { FactoryBot.create(:location) }
       5.times { FactoryBot.create(:topic) }
       5.times { FactoryBot.create(:event, date: rand(100).days.ago) }

@@ -11,6 +11,7 @@ class Event < ApplicationRecord
   has_many :participants
   has_many :users, through: :participants
   has_many :topics
+  has_many :speakers, through: :topics
   has_many :materials
 
   validates :user, :name, :description, :date, presence: true
@@ -29,6 +30,10 @@ class Event < ApplicationRecord
 
   def end_date
     date + 2.hours
+  end
+
+  def image_url
+    'https://cdn.sanity.io/images/dw2vc3vx/production/ba5a5efefcf1694e9b3a8601e01903f6f87dd2c6-1920x1080.jpg?w=1600&h=900&fit=crop&fm=webp'
   end
 
   def closed?
