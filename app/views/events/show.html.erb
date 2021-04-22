@@ -1,22 +1,11 @@
 <% content_for(:page_title, event.name) %>
 
 <div class="block group border border-b-0 rounded rounded-b-none border-gray-200 bg-gray-100 p-0 h-60" style="background: url(<%= event.image_url %>)  no-repeat center center fixed">
-  <div class="grid grid-cols-1 gap-y-8 grid-cols-2">
-    <div class="p-3">
-      <div class="float-left rounded-full border-secondary bg-primary p-2 text-white text-xs flex">
-        <span class="rounded-full bg-white h-4 w-4 mr-1 flex items-center justify-center">
-          <span class="rounded-full bg-primary h-3 w-3 flex items-center justify-center">
-            <span class="rounded-full bg-white h-1 w-1 flex items-center justify-center"></span>
-          </span>
-        </span>
-        Live Now
-      </div>
-    </div>
-    <div class="p-3">
-      <div class="float-right rounded-full border-secondary bg-primary p-2 text-white text-xs">
-        12.minutes me
-      </div>
-    </div>
+  <div class="float-left m-2">
+    <%= render('events/live') %>
+  </div>
+  <div class="float-right m-2">
+    <%= render('events/badge') %>
   </div>
 </div>
 <div class="block group border border-t-0 rounded rounded-t-none border-gray-200 bg-white p-3">
