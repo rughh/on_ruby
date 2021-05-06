@@ -11,9 +11,9 @@ describe Admin::EventsController do
     end
 
     context 'GET :index' do
-      let!(:event) { create(:event) }
-
       it 'assign the events and renders the template' do
+        create(:event)
+
         get :index
 
         expect(response).to render_template(:index)
