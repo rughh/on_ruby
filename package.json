@@ -6,6 +6,6 @@
   "author": "phoet <phoetmail@googlemail.com>",
   "license": "MIT",
   "dependencies": {
-    "jquery-ujs": "^1.2.2"
+    "jquery-ujs": "^1.2.3"
   }
 }
