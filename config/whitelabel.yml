@@ -388,9 +388,6 @@
   - :name: ASP Gems
     :url: https://www.aspgems.com/?utm_source=Madrid%20RB&utm_medium=banner&utm_term=patrocinio%20Madrid%20RB&utm_campaign=Patrocinio%20Madrid%20RB
     :banner: aspgems.png
-  - :name: B4Motion
-    :url: https://www.b4Motion.com/
-    :banner: b4motion.png
   - :name: Digital55
     :url: https://digital55.com
     :banner: digital55.png
@@ -400,12 +397,9 @@
   - :name: Sngular
     :url: https://www.sngular.com/
     :banner: sngular.png
-  - :name: Trive
-    :url: https://gotrive.com/
-    :banner: trive.png
-  - :name: Cabify
-    :url: https://cabify.com
-    :banner: cabify.png
+  - :name: JobFluent
+    :url: https://www.jobfluent.com
+    :banner: jobfluent.png
   other_usergroups:
   - :name: Betabeers
     :url: https://betabeers.com/
