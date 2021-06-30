@@ -400,6 +400,9 @@
   - :name: JobFluent
     :url: https://www.jobfluent.com
     :banner: jobfluent.png
+  - :name: Getro
+    :url: https://www.getro.com
+    :banner: getro.png
   other_usergroups:
   - :name: Betabeers
     :url: https://betabeers.com/
