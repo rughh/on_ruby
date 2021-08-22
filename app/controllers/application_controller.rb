@@ -31,6 +31,7 @@ class ApplicationController < ActionController::Base
   def _404(exception)
     Rails.logger.warn exception
     Rails.logger.warn "head 404 with params #{params}"
-    head 404
+
+    head(:not_found)
   end
 end
