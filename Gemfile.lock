@@ -100,7 +100,7 @@ GEM
     concurrent-ruby (1.1.9)
     connection_pool (2.2.3)
     crass (1.0.6)
-    dalli (3.0.3)
+    dalli (3.0.4)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     decent_exposure (3.0.4)
