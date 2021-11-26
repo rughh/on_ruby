@@ -460,7 +460,7 @@ DEPENDENCIES
   whitelabel
 
 RUBY VERSION
-   ruby 2.7.3
+   ruby 2.7.5
 
 BUNDLED WITH
    2.1.4
