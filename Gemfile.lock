@@ -128,8 +128,8 @@ GEM
       ruby2_keywords
     faraday-net_http (1.0.1)
     ffi (1.15.0)
-    font-awesome-rails (4.7.0.7)
-      railties (>= 3.2, < 7)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     geocoder (1.7.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
