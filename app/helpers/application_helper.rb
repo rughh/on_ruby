@@ -40,7 +40,7 @@ module ApplicationHelper
 
   def canonical_url
     host = Whitelabel.label ? Whitelabel[:canonical_url] : 'https://www.onruby.eu'
-    tag :link, rel: :canonical, href: url_for(host: host, only_path: false)
+    tag.link rel: :canonical, href: url_for(host: host, only_path: false)
   end
 
   def browser_icon
@@ -57,7 +57,7 @@ module ApplicationHelper
 
   def icon(type)
     path = image_path Whitelabel.label ? "labels/#{Whitelabel[:label_id]}.ico" : 'favicon.ico'
-    tag :link, rel: type, href: path
+    tag.link rel: type, href: path
   end
 
   def markdown(content)
