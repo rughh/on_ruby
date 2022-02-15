@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_many :likes, -> { order('created_at DESC') }, dependent: :destroy
   has_many :participations, through: :participants, source: :event
   has_many :liked_topics, through: :likes, source: :topic
-  has_many :events, -> { order('created_at DESC') }
+  has_many :events, -> { order('created_at DESC') }, dependent: :nullify
 
   scope :organizers, -> { where(nickname: Whitelabel[:organizers]) }
   scope :ordered,    -> { order('updated_at DESC') }
