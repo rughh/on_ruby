@@ -237,7 +237,7 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
-    parallel (1.22.0)
+    parallel (1.22.1)
     parser (3.1.1.0)
       ast (~> 2.4.1)
     partially_useful (6.0.0)
@@ -324,7 +324,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.11.0)
-    rubocop (1.26.0)
+    rubocop (1.26.1)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
       rainbow (>= 2.2.2, < 4.0)
