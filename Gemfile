@@ -25,7 +25,7 @@ gem 'redcarpet'
 gem 'ri_cal', github: 'phoet/ri_cal', branch: 'master'
 gem 'simple_form'
 gem 'slim-rails'
-gem 'sprockets', '~> 3.7'
+gem 'sprockets', '~> 4.1'
 gem 'validate_url'
 gem 'whitelabel'
 
