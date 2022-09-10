@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 ruby '2.7.6'
 
-gem 'rails', '~> 6.1.3'
+gem 'rails', '~> 7.0.4'
 
 gem 'acts_as_api'
 gem 'addressable'
