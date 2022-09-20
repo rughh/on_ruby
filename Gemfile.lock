@@ -336,12 +336,12 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.21.0)
       parser (>= 3.1.1.0)
-    rubocop-rails (2.15.2)
+    rubocop-rails (2.16.1)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
-      rubocop (>= 1.7.0, < 2.0)
-    rubocop-rspec (2.12.1)
-      rubocop (~> 1.31)
+      rubocop (>= 1.33.0, < 2.0)
+    rubocop-rspec (2.13.1)
+      rubocop (~> 1.33)
     ruby-ll (2.1.2)
       ansi
       ast
@@ -384,7 +384,7 @@ GEM
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
-    unicode-display_width (2.2.0)
+    unicode-display_width (2.3.0)
     validate_url (1.0.15)
       activemodel (>= 3.0.0)
       public_suffix
