@@ -85,7 +85,7 @@
   domains:
   - colognerb.de
   google_group: colognerb
-  slackin_url: http://colognerb.herokuapp.com/slackin.js
+  slackin_url: https://colognerb.fly.dev/slackin.js
 - !ruby/object:Usergroup
   label_id: saar
   default_locale: de
