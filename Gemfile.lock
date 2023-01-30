@@ -374,7 +374,7 @@ GEM
       sprockets-rails
       tilt
     selectize-rails (0.12.6)
-    simple_form (5.1.0)
+    simple_form (5.2.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
     slim (4.1.0)
@@ -400,7 +400,7 @@ GEM
     timeout (0.3.1)
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
-    tzinfo (2.0.5)
+    tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
