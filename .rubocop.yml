@@ -13,6 +13,7 @@ AllCops:
     - "app/controllers/admin/*"
     - "app/controllers/super_admin/*"
     - "app/dashboards/*"
+    - "lib/tasks/*"
     - "vendor/**/*"
 
 Bundler/OrderedGems:
