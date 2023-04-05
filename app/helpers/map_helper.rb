@@ -10,7 +10,7 @@ module MapHelper
     params =  options.collect { |k, v| "#{k}=#{v}" }
     params += locations.map { |l| "markers=#{l.lat},#{l.long}" }
     url = 'http://maps.googleapis.com/maps/api/staticmap'
-    "#{url}?#{URI.escape(params.join('&'))}"
+    Addressable::URI.encode("#{url}?#{params.join('&')}")
   end
 
   def single_map(location, init = { zoom: 14 })

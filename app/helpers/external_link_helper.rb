@@ -89,8 +89,8 @@ module ExternalLinkHelper
     when Topic
       options = { username: model.user.name, name: model.name.truncate(50), url: topic_url(model) }
     end
-    text = t("#{model.class.to_s.downcase}.twitter_message", options)
-    "https://twitter.com/home?status=#{URI.encode(text)}"
+    text = t("#{model.class.to_s.downcase}.twitter_message", **options)
+    Addressable::URI.encode("https://twitter.com/home?status=#{text}")
   end
 
   def slackin_js
