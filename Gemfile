@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby '2.7.8'
+ruby File.read('.ruby-version').strip
 
 gem 'rails', '~> 6.1.3'
 
