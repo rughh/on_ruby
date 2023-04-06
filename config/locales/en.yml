@@ -151,7 +151,7 @@ en:
     now_participating: "You're in."
     dont_participate: "You're out."
     forbidden: "Oops, not allowed to do this!"
-    logged_in: "Hi %{name}, you logged in succesfully!"
+    logged_in: "Hi %{name}, you logged in successfully!"
     logged_out: "Logout complete!"
     login_error: "Login failed, are you logged into your OAuth Account?"
     double_liked: "Don't like twice, please!"
