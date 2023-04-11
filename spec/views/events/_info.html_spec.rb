@@ -11,7 +11,7 @@ RSpec.describe 'events/show' do
   it 'displays the title' do
     event = build(:event, name: 'example title')
 
-    render partial: 'info', locals: { event: event }
+    render partial: 'info', locals: { event: }
 
     expect(rendered).to match('example title')
   end
@@ -19,7 +19,7 @@ RSpec.describe 'events/show' do
   it 'displays the description' do
     event = build(:event, description: 'example desciption')
 
-    render partial: 'info', locals: { event: event }
+    render partial: 'info', locals: { event: }
 
     expect(rendered).to match('example desciption')
   end
@@ -28,7 +28,7 @@ RSpec.describe 'events/show' do
     organisator = build(:user, name: 'John doe')
     event = build(:event, user: organisator)
 
-    render partial: 'info', locals: { event: event }
+    render partial: 'info', locals: { event: }
 
     expect(rendered).to match(organisator.name)
   end
@@ -37,7 +37,7 @@ RSpec.describe 'events/show' do
     time = Time.zone.parse('2020-05-14 20:00:00')
     event = build(:event, date: time)
 
-    render partial: 'info', locals: { event: event }
+    render partial: 'info', locals: { event: }
 
     expect(rendered).to match(I18n.l(time, format: :long))
   end
@@ -47,17 +47,17 @@ RSpec.describe 'events/show' do
       let(:location) { build(:location, name: 'example location') }
 
       it 'displays the event location name' do
-        event = build(:event, location: location)
+        event = build(:event, location:)
 
-        render partial: 'info', locals: { event: event }
+        render partial: 'info', locals: { event: }
 
         expect(rendered).to match('example location')
       end
 
       it 'displays the event location link' do
-        event = build(:event, location: location)
+        event = build(:event, location:)
 
-        render partial: 'info', locals: { event: event }
+        render partial: 'info', locals: { event: }
 
         expect(rendered).to match('example location')
       end
@@ -67,9 +67,9 @@ RSpec.describe 'events/show' do
       let(:location) { nil }
 
       it 'does not display the event location name' do
-        event = build(:event, location: location)
+        event = build(:event, location:)
 
-        render partial: 'info', locals: { event: event }
+        render partial: 'info', locals: { event: }
 
         expect(rendered).not_to match('example location')
       end
@@ -79,9 +79,9 @@ RSpec.describe 'events/show' do
       let(:location) { build(:virtual_location, name: 'example virtual location') }
 
       it 'displays the event location name' do
-        event = build(:event, location: location)
+        event = build(:event, location:)
 
-        render partial: 'info', locals: { event: event }
+        render partial: 'info', locals: { event: }
 
         expect(rendered).to match('example virtual location')
       end
@@ -95,7 +95,7 @@ RSpec.describe 'events/show' do
       let(:user) { build(:user) }
 
       it 'displays the addition attendee informations for the event' do
-        render partial: 'info', locals: { event: event }
+        render partial: 'info', locals: { event: }
 
         expect(rendered).to match('secrect message')
       end
@@ -105,7 +105,7 @@ RSpec.describe 'events/show' do
       let(:user) { nil }
 
       it 'displays a hint that additional information are present for attendees' do
-        render partial: 'info', locals: { event: event }
+        render partial: 'info', locals: { event: }
 
         expect(rendered).to match(I18n.t('show.attend_to_view_attendees_information'))
       end

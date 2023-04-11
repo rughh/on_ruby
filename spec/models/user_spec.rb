@@ -107,14 +107,14 @@ describe User do
 
     it 'participate?s' do
       expect do
-        admin_user.participants.create!(event: event, user: admin_user)
+        admin_user.participants.create!(event:, user: admin_user)
       end.to change {
         admin_user.participates?(event)
       }.from(false).to(true)
     end
 
     it 'finds the participation' do
-      admin_user.participants.create!(event: event, user: admin_user)
+      admin_user.participants.create!(event:, user: admin_user)
       expect(admin_user.participation(event)).not_to be_nil
     end
   end

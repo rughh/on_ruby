@@ -34,7 +34,7 @@ describe TopicsController do
 
   context 'GET :edit' do
     let(:user) { create(:user) }
-    let(:topic) { create(:topic, user: user) }
+    let(:topic) { create(:topic, user:) }
 
     it 'renders the action' do
       allow(controller).to receive_messages(current_user: user)
@@ -88,7 +88,7 @@ describe TopicsController do
       let(:user) { create(:user) }
       let(:other_user) { create(:user) }
       let(:admin_user) { create(:admin_user) }
-      let(:topic) { create(:topic, user: user) }
+      let(:topic) { create(:topic, user:) }
 
       before do
         allow(controller).to receive_messages(current_user: user)

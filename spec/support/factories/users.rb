@@ -14,10 +14,10 @@ FactoryBot.define do
   end
 
   factory :organizer_user, parent: :user do
-    after(:create) { |user| create(:event, user: user) }
+    after(:create) { |user| create(:event, user:) }
   end
 
   factory :participant_user, parent: :user do
-    after(:create) { |user| create_list(:participant, 1, user: user) }
+    after(:create) { |user| create_list(:participant, 1, user:) }
   end
 end

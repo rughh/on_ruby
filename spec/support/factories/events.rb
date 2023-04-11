@@ -12,7 +12,7 @@ FactoryBot.define do
   end
 
   factory :event_with_participants, parent: :event do
-    after(:create) { |event| create_list(:participant, 3, event: event) }
+    after(:create) { |event| create_list(:participant, 3, event:) }
   end
 
   factory :full_event, parent: :event_with_participants do

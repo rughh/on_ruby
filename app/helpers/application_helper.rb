@@ -35,12 +35,12 @@ module ApplicationHelper
 
   def label_url(label)
     host = Rails.env.development? ? "#{label.label_id}.onruby.test" : label.canonical_url
-    root_url(host: host)
+    root_url(host:)
   end
 
   def canonical_url
     host = Whitelabel.label ? Whitelabel[:canonical_url] : 'https://www.onruby.eu'
-    tag.link rel: :canonical, href: url_for(host: host, only_path: false)
+    tag.link rel: :canonical, href: url_for(host:, only_path: false)
   end
 
   def browser_icon

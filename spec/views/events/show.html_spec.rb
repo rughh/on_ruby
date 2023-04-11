@@ -5,7 +5,7 @@ describe 'events/show' do
   let(:event) { build(:event, id: 123) }
 
   it 'renders successfully' do
-    allow(view).to receive_messages(signed_in?: true, current_user: user, event: event, likes: '</>')
+    allow(view).to receive_messages(signed_in?: true, current_user: user, event:, likes: '</>')
     view.lookup_context.prefixes = %w[events application]
 
     expect(rendered).not_to be_nil
@@ -15,7 +15,7 @@ describe 'events/show' do
     let(:materials) { [build(:material)] }
 
     it 'renders without an error' do
-      render partial: 'materials', locals: { materials: materials }
+      render partial: 'materials', locals: { materials: }
 
       expect(rendered).not_to be_nil
     end

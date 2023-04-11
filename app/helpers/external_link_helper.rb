@@ -43,9 +43,9 @@ module ExternalLinkHelper
     url = "https://github.com/#{user.github}"
     title = user.github
     if block_given?
-      link_to url, title: title, &block
+      link_to url, title:, &block
     else
-      link_to(user.github, url, title: title)
+      link_to(user.github, url, title:)
     end
   end
 
@@ -55,9 +55,9 @@ module ExternalLinkHelper
     url = "https://www.linkedin.com/in/#{user.linkedin}"
     title = user.linkedin
     if block_given?
-      link_to url, title: title, &block
+      link_to url, title:, &block
     else
-      link_to(user.linkedin, url, title: title)
+      link_to(user.linkedin, url, title:)
     end
   end
 

@@ -99,13 +99,13 @@ class User < ApplicationRecord
   class << self
     def create_from_hash!(hash)
       nickname = hash['info']['nickname']
-      raise DuplicateNickname, nickname if find_by(nickname: nickname)
+      raise DuplicateNickname, nickname if find_by(nickname:)
 
       User.new.update_from_auth! hash
     end
 
     def authenticated_with_token(id, stored_salt)
-      user = find_by(id: id)
+      user = find_by(id:)
       user && user.salt == stored_salt ? user : nil
     end
   end

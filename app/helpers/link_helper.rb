@@ -3,7 +3,7 @@
 module LinkHelper
   def link_to_user(user, image: false, image_class: nil)
     link_to(user, title: user.name) do
-      image ? user_image(user, image_class: image_class) + user.name : user.name
+      image ? user_image(user, image_class:) + user.name : user.name
     end
   end
 

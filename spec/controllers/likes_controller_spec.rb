@@ -42,7 +42,7 @@ describe LikesController do
   end
 
   context 'POST :destroy' do
-    let!(:like) { create(:like, user: user) }
+    let!(:like) { create(:like, user:) }
     let!(:topic) { create(:topic) }
 
     it 'authenticates the action' do

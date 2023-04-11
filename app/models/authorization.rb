@@ -10,12 +10,12 @@ class Authorization < ApplicationRecord
     provider = auth['provider']
     uid      = auth['uid']
 
-    authorization = find_by provider: provider, uid: uid
+    authorization = find_by(provider:, uid:)
     if authorization.present?
       authorization.user.update_from_auth! auth
     else
       user = existing_user || User.create_from_hash!(auth)
-      authorization = user.authorizations.create! provider: provider, uid: uid
+      authorization = user.authorizations.create! provider:, uid:
     end
     authorization
   end

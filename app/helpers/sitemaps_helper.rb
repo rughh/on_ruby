@@ -10,8 +10,8 @@ module SitemapsHelper
     locations = Location.all
 
     urls = (topics + people + events + locations).map do |model|
-      send :"#{model.class.to_s.downcase}_url", model, subdomain: subdomain
+      send(:"#{model.class.to_s.downcase}_url", model, subdomain:)
     end
-    (urls + [root_url(subdomain: subdomain)]).flatten
+    (urls + [root_url(subdomain:)]).flatten
   end
 end

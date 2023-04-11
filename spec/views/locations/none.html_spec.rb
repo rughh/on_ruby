@@ -7,7 +7,7 @@ describe 'locations/none' do
   it 'renders successfully' do
     %w[en de].each do |locale|
       I18n.with_locale(locale) do
-        allow(view).to receive_messages(organizers: organizers, stats: stats)
+        allow(view).to receive_messages(organizers:, stats:)
         render
       end
     end

@@ -63,7 +63,7 @@ class Usergroup
     recurring_key = I18n.exists?('date.day_names_accusative') ? 'date.day_names_accusative' : 'date.day_names'
     day = I18n.t(recurring_key)[DAYS_INTO_WEEK[day.to_sym] + 1]
 
-    I18n.t('event.recurring', ordinal: ordinal, day: day)
+    I18n.t('event.recurring', ordinal:, day:)
   end
 
   def localized_custom_recurrence

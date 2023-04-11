@@ -18,7 +18,7 @@ class ImagesController < ActionController::Base
 
       if url.present?
         open(url) do |f|
-          send_data(f.read, filename: filename, disposition: :inline, content_type: f.content_type)
+          send_data(f.read, filename:, disposition: :inline, content_type: f.content_type)
         end
       else
         Rails.logger.warn("there is no uploaded file for params #{params}")

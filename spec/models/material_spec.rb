@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Material do
   context 'validate url' do
-    subject (:create_material) { create(:material, url: url) }
+    subject (:create_material) { create(:material, url:) }
 
     context 'with a blank url' do
       let (:url) { nil }

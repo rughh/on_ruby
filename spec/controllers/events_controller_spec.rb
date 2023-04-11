@@ -44,7 +44,7 @@ describe EventsController do
 
     context 'json' do
       it 'renders json' do
-        allow(controller).to receive_messages(event: event)
+        allow(controller).to receive_messages(event:)
         get :show, params: { id: event, format: :json }
         expect(response.headers['Content-Type']).to eql('application/json; charset=utf-8')
         json = JSON.parse(response.body)
@@ -113,7 +113,7 @@ describe EventsController do
 
     context 'ics' do
       it 'renders ical' do
-        allow(controller).to receive_messages(event: event)
+        allow(controller).to receive_messages(event:)
         get :show, params: { id: event, format: :ics }
         expect(response.headers['Content-Type']).to eql('text/calendar; charset=utf-8')
         expect(response.body).to match('VCALENDAR')
