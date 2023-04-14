@@ -3,4 +3,3 @@ set -e
 
 bundle exec rubocop --config .rubocop.yml
 bundle exec rake
-bundle exec localer

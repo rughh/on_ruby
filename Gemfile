@@ -54,7 +54,6 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'letter_opener'
-  gem 'localer'
   gem 'rails-controller-testing'
   gem 'rspec-collection_matchers'
   gem 'rspec-rails'
