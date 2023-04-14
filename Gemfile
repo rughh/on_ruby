@@ -30,7 +30,7 @@ gem 'validate_url'
 gem 'whitelabel'
 
 # assets
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.5'
 gem 'font-awesome-rails'
 gem 'sass-rails'
 gem 'uglifier'
