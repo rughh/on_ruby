@@ -25,7 +25,8 @@ en:
       title: Cologne.rb
       subtitle: Ruby User Group Cologne
       meta_desc: Ruby / Rails User Group Cologne
-      custom_recurrence: "every 3rd Wednesday in every second month (January, March, May, July, September, November) at 7:00 p.m."
+      custom_recurrence: every 3rd Wednesday in every second month (January, March,
+        May, July, September, November) at 7:00 p.m.
     saar:
       city: Saarland
       name: RUGSaar
@@ -66,8 +67,8 @@ en:
         :other_usergroups: Railsgirls in Germany
       :home:
         :the_usergroup: Join us for our monthly meetup open to former and future participants,
-          coaches and everyone interested in <strong>Railsgirls Hamburg</strong>. You
-          can learn more about our events on our <a href='http://railsgirls.com/hamburg'>Railsgirls
+          coaches and everyone interested in <strong>Railsgirls Hamburg</strong>.
+          You can learn more about our events on our <a href='http://railsgirls.com/hamburg'>Railsgirls
           Hamburg website</a>.
         :like_to_talk: Do you want to give a talk at the meetup, or would you like
           to suggest a topic?
@@ -110,8 +111,19 @@ en:
       :custom_recurrence: last tuesday of each month at 7:30 p.m.
     barcelona:
       city: Barcelona
-      name: 'Ruby & Friends'
-      title: 'Ruby & Friends'
+      name: Ruby & Friends
+      title: Ruby & Friends
       subtitle: 'used to be: Barcelona on Rails'
-      meta_desc: 'The Ruby User Group in Barcelona'
+      meta_desc: The Ruby User Group in Barcelona
       custom_recurrence: every 3. Thursday of every month we meet at 19:00
+    charlotte:
+      city: Charlotte, NC
+      name: Charlotte Ruby
+      title: charlotte-ruby
+      subtitle: Charlotte Ruby User Group
+      meta_desc: Charlotte Ruby User Group
+      custom_recurrence: first Tuesday of each month at 7:00pm ET
+      home:
+        next_possible_meetup_recurring: We usually meet on %{recurring}.
+          Until we have a location, meetups are held virtually via Zoom.
+        next_possible_meetup: The next meetup is supposed to be on %{event_date}.

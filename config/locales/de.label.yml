@@ -25,7 +25,8 @@ de:
       title: Cologne.rb
       subtitle: Ruby User Group Cologne
       meta_desc: Ruby / Rails User Group Cologne
-      custom_recurrence: "jeweils am 3. Mittwoch in jedem 2. Monat (Januar, März, Mai, Juli, September, November) um 19:00 Uhr"
+      custom_recurrence: jeweils am 3. Mittwoch in jedem 2. Monat (Januar, März, Mai,
+        Juli, September, November) um 19:00 Uhr
     saar:
       city: Saarland
       name: RUGSaar
@@ -83,8 +84,8 @@ de:
           statt.
         :usergroup_locations: Dies sind die %{location_link} an denen unsere Treffen
           in der Regel stattfinden.
-        :mailing_list: "Über die Mailingliste werden Termine angekündigt, Lerngruppen
-          gebildet oder Fragen rund ums Programmieren mit Ruby on Rails besprochen."
+        :mailing_list: Über die Mailingliste werden Termine angekündigt, Lerngruppen
+          gebildet oder Fragen rund ums Programmieren mit Ruby on Rails besprochen.
     bonn:
       :city: Bonn
       :name: bonn.rb
@@ -113,8 +114,9 @@ de:
       :custom_recurrence: letzter Dienstag des Monats um 19:30 Uhr
     barcelona:
       city: Barcelona
-      name: 'Ruby & Friends'
-      title: 'Ruby & Friends'
+      name: Ruby & Friends
+      title: Ruby & Friends
       subtitle: 'vormals: Barcelona on Rails'
-      meta_desc: 'Die Ruby User Group in Barcelona'
-      custom_recurrence: jeden 3. Donnerstag in jedem Monat treffen wir uns um 19:00 Uhr
+      meta_desc: Die Ruby User Group in Barcelona
+      custom_recurrence: jeden 3. Donnerstag in jedem Monat treffen wir uns um 19:00
+        Uhr

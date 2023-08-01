@@ -10,7 +10,7 @@
   twitter: HamburgOnRuby
   github_org: rughh
   github_repo: planning
-  github_issue_template: 'meetup.md'
+  github_issue_template: meetup.md
   organizers:
   - lindtdev
   - janz93
@@ -56,7 +56,9 @@
     :long: 6.957092
   default_time_zone: Europe/Berlin
   imprint:
-    :address: "An der Bottmühle 5\n50678 Köln"
+    :address: |-
+      An der Bottmühle 5
+      50678 Köln
     :contributors:
     - :name: Jakob Hilden
       :email: jakob@railslove.com
@@ -369,13 +371,6 @@
     :lat: 40.42
     :long: -3.68
   default_time_zone: Europe/Madrid
-  imprint:
-    :address: |-
-      Av del Brasil, 7 (The Irish Rover)
-      28020 Madrid, Spain 1
-    :contributors:
-    - :name: Josep Egea Sánchez
-      :email: hello@madridrb.com
   sponsors:
   - :name: Bebanjo
     :url: https://bebanjo.com/
@@ -398,6 +393,13 @@
   - :name: Getro
     :url: https://www.getro.com
     :banner: getro.png
+  imprint:
+    :address: |-
+      Av del Brasil, 7 (The Irish Rover)
+      28020 Madrid, Spain 1
+    :contributors:
+    - :name: Josep Egea Sánchez
+      :email: hello@madridrb.com
   other_usergroups:
   - :name: Betabeers
     :url: https://betabeers.com/
@@ -424,6 +426,7 @@
     :zoom: 12
     :lat: 48.136694
     :long: 11.5701035
+  sponsors: []
   imprint:
     :address: |-
       Bayerstraße 69
@@ -431,7 +434,6 @@
     :contributors:
     - :name: Peter Schrammel
       :email: Munich-Rubyshift-Ruby-User-Group-list@meetup.com
-  sponsors: []
   tld: de
 - !ruby/object:Usergroup
   label_id: andalucia
@@ -449,6 +451,7 @@
     :zoom: 7
     :lat: 36.7182857
     :long: -4.4842863
+  sponsors: []
   imprint:
     :address: |-
       I-CampusCoworking Calle Medellin 3
@@ -460,25 +463,20 @@
       :email:
     - :name: stbnrivas
       :email:
-  sponsors: []
   other_usergroups:
   tld: eu
   coc: http://example.com
   domains:
   google_group: andaluciarb
 - !ruby/object:Usergroup
-  twitter: bcnrails
-  google_group: barcelonaonrails
   label_id: barcelona
   canonical_url: https://ruby.barcelona
   status: enabled
   default_locale: es
-  tld: eu
   country: España
-  domains:
-  - ruby.barcelona
   recurring: third thursday
   email: webmaster@mediafinger.com
+  twitter: bcnrails
   github_org: RubyAndFriends
   github_repo: TalkSuggestions
   organizers:
@@ -487,6 +485,13 @@
     :zoom: 12
     :lat: 41.3933987
     :long: 2.1679484
+  sponsors:
+  - :name: Sequra
+    :url: https://sequra.es/
+    :banner: sequra.png
+  - :name: XING Spain
+    :url: https://xing.com/
+    :banner: xing.png
   imprint:
     :address: |-
       Carrer Ferlandina 45, 4-2
@@ -498,11 +503,40 @@
   - :name: BarcelonaJS
     :url: http://barcelonajs.org/
     :twitter: barcelonajs
+  tld: eu
   coc: https://github.com/RubyAndFriends/Code_of_Conduct
-  sponsors:
-  - :name: Sequra
-    :url: https://sequra.es/
-    :banner: sequra.png
-  - :name: XING Spain
-    :url: https://xing.com/
-    :banner: xing.png
+  domains:
+  - ruby.barcelona
+- !ruby/object:Usergroup
+  label_id: charlotte
+  canonical_url: https://charlotte-ruby.github.io
+  status: enabled
+  default_locale: en
+  default_time_zone: America/New_York
+  country: United States of America
+  custom_recurring: true
+  recurring: first tuesday at 7pm
+  #recurring: first tuesday!
+  email: info@charlotte-ruby.com
+  twitter: cltrb
+  github_org: charlotte-ruby
+  github_repo: planning
+  organizers:
+  - invalidusrname
+  location:
+    :zoom: 14
+    :lat: 53.079296
+    :long: 8.801694
+  sponsors: []
+  imprint:
+    :address: |-
+      123 Test Streeet
+      Charlotte, NC 28202
+    :contributors:
+    - :name: Matt McMahand
+      :email: mmcmahand@gmail.com
+  tld: com
+  coc: http://charlotte-ruby.github.io/code-of-conduct
+  domains:
+  - charlotte-ruby.github.io
+  google_group: charlotte-ruby

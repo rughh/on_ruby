@@ -455,6 +455,7 @@ DEPENDENCIES
   omniauth-twitter
   partially_useful
   pg (= 1.4.6)
+  pry
   pry-rails
   public_suffix
   puma

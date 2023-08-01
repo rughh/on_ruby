@@ -9,7 +9,7 @@ namespace :fork do
 
     I18n.available_locales.each do |locale|
       file_name   = Rails.root.join("config/locales/#{locale}.label.yml")
-      translation = File.open(file_name) { |file| YAML.safe_load(file) }
+      translation = File.open(file_name) { |file| YAML.safe_load(file, permitted_classes: [Symbol]) }
       translation[locale.to_s]['label'][usergroup.label_id] = {
         city: 'City',
         name: 'Name',
