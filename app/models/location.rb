@@ -30,6 +30,14 @@ class Location < ApplicationRecord
     "#{street} #{house_number}, #{zip} #{city}"
   end
 
+  def calendar_event_address
+    if [street, house_number, zip, city].all?(&:present?)
+      address
+    else
+      name
+    end
+  end
+
   def nice_url
     URI.parse(url).host
   end

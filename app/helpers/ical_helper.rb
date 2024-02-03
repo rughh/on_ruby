@@ -10,7 +10,7 @@ module IcalHelper
           item.dtstart     = event.date
           item.dtend       = event.end_date
           item.url         = event_url(event)
-          item.location    = event.location.name if event.location
+          item.location    = event.location.calendar_event_address if event.location
         end
       end
     end.to_s
