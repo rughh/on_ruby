@@ -45,7 +45,7 @@ describe Location do
 
   describe '#geocoding' do
     it 'geocodes once a location is saved' do
-      Location.all.each do |locn|
+      Location.all.find_each do |locn|
         expect(locn.lat).not_to be_nil
         expect(locn.long).not_to be_nil
       end
