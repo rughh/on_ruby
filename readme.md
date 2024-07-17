@@ -10,11 +10,12 @@
 
 Source for the Sites of the Ruby Communities:
 
-* [Hamburg](https://hamburg.onruby.de)
-* [Cologne](https://cologne.onruby.de)
-* [Berlin](https://www.rug-b.de)
-* [Madrid](https://madridrb.onruby.eu)
-* [Andalucia](https://andalucia.onruby.eu)
+- [Hamburg](https://hamburg.onruby.de)
+- [Cologne](https://cologne.onruby.de)
+- [Berlin](https://www.rug-b.de)
+- [Madrid](https://madridrb.onruby.eu)
+- [Andalucia](https://andalucia.onruby.eu)
+- [Charlotte](https://charlotte-ruby.github.io)
 
 ## Support OnRuby
 
@@ -22,15 +23,15 @@ The operation, development and maintenance of OnRuby can be supported via Patreo
 
 ### Patrons
 
-* [floriank](https://github.com/floriank)
-* [fnordfish](https://github.com/fnordfish)
-* [BooVeMan](https://github.com/booveman)
-* [rickenharp](https://github.com/rickenharp)
-* [ddfreyne](https://github.com/ddfreyne) (Alumni)
-* [asaaki](https://github.com/asaaki)
-* [5minpause](https://github.com/5minpause)
-* [thilo](https://github.com/thilo)
-* [rkh](https://github.com/rkh)
+- [floriank](https://github.com/floriank)
+- [fnordfish](https://github.com/fnordfish)
+- [BooVeMan](https://github.com/booveman)
+- [rickenharp](https://github.com/rickenharp)
+- [ddfreyne](https://github.com/ddfreyne) (Alumni)
+- [asaaki](https://github.com/asaaki)
+- [5minpause](https://github.com/5minpause)
+- [thilo](https://github.com/thilo)
+- [rkh](https://github.com/rkh)
 
 ## Installation
 
@@ -66,7 +67,7 @@ script/in_docker bundle exec rake db:setup
 The `script/in_docker` allows you to run commands inside the Docker
 container.
 
-*Example*: Running a spec inside the Docker container
+_Example_: Running a spec inside the Docker container
 
 ```sh
 script/in_docker bundle exec rspec spec/requests/labels_spec.rb
@@ -145,7 +146,7 @@ These are the steps to get your Ruby Usergroup Site:
 - Fork this repo
 - Run `bundle && bundle exec rake fork:usergroup[MyUsergroup]`
 - Create a GitHub Pull Request
-- *Lean back and wait :)*
+- _Lean back and wait :)_
 
 If you have a custom domain, you need to [configure the DNS](https://github.com/phoet/on_ruby/issues/360#issuecomment-459729483).
 
@@ -177,7 +178,7 @@ Typus is mounted under `/admin` of your label, so it's
 
 - **Users**
 - **Events**
-    - **Materials**
+  - **Materials**
 - **Locations** and **Companies** (Companies are just special Locations)
 - **Topics** (Subjects for activities that users can request or propose)
 - **Jobs** (These are displayed at top of the page)

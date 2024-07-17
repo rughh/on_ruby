@@ -1,6 +1,8 @@
 #!/bin/bash
 
-if [ "$DOCKER_HOST" ]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  docker-compose run web $@
+elif [ "$DOCKER_HOST" ]; then
   docker-compose run web $@
 else
   sudo docker-compose run web $@

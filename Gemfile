@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 ruby File.read('.ruby-version').strip
 
 gem 'rails', '~> 6.1.3'
+gem 'pry'
 
 gem 'acts_as_api'
 gem 'addressable'

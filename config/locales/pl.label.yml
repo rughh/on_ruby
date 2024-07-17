@@ -25,7 +25,8 @@ pl:
       title: Cologne.rb
       subtitle: Ruby User Group Cologne
       meta_desc: Ruby / Rails User Group Cologne
-      custom_recurrence: "w trzecią środę nieparzystych miesięcy (styczeń, marzec, maj, lipiec, wrzesień, listopad) o 19:00"
+      custom_recurrence: w trzecią środę nieparzystych miesięcy (styczeń, marzec,
+        maj, lipiec, wrzesień, listopad) o 19:00
     saar:
       city: Saarland
       name: RUGSaar
@@ -66,8 +67,8 @@ pl:
         :other_usergroups: Railsgirls in Germany
       :home:
         :the_usergroup: Join us for our monthly meetup open to former and future participants,
-          coaches and everyone interested in <strong>Railsgirls Hamburg</strong>. You
-          can learn more about our events on our <a href='http://railsgirls.com/hamburg'>Railsgirls
+          coaches and everyone interested in <strong>Railsgirls Hamburg</strong>.
+          You can learn more about our events on our <a href='http://railsgirls.com/hamburg'>Railsgirls
           Hamburg website</a>.
         :like_to_talk: Do you want to give a talk at the meetup, or would you like
           to suggest a topic?
@@ -110,8 +111,8 @@ pl:
       :custom_recurrence: ostatni czwartek każdego miesiąca o 19:30
     barcelona:
       city: Barcelona
-      name: 'Ruby & Friends'
-      title: 'Ruby & Friends'
+      name: Ruby & Friends
+      title: Ruby & Friends
       subtitle: 'dawniej: Barcelona on Rails'
-      meta_desc: 'Grupa użytkowników Ruby w Barcelonie'
+      meta_desc: Grupa użytkowników Ruby w Barcelonie
       custom_recurrence: w każdy trzeci czwartek miesiąca spotykamy się o 19:00
