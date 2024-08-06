@@ -31,6 +31,6 @@ namespace :fork do
     FileUtils.mkdir_p(Rails.root.join("app/assets/javascripts/labels/#{usergroup.label_id}"))
     FileUtils.touch(Rails.root.join("app/assets/javascripts/labels/#{usergroup.label_id}/.gitkeep"))
 
-    puts "now add '127.0.0.1 #{name}.onruby.test' to your /etc/hosts, run 'script/server' and run 'open #{name}.onruby.test:3000'"
+    puts "now add '127.0.0.1 #{name}.onruby.localhost' to your /etc/hosts, run 'script/server' and run 'open #{name}.onruby.localhost:3000'"
   end
 end
