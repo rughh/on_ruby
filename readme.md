@@ -74,10 +74,12 @@ script/in_docker bundle exec rspec spec/requests/labels_spec.rb
 
 #### Add usergroup hostnames to `/etc/hosts`
 
+Note: This step is currently only necessary for Safari, all other browsers thread localhost as wildcard domain.
+
 Add all supported subdomains to your `/etc/hosts` file:
 
 ```
-127.0.0.1    www.onruby.test hamburg.onruby.test cologne.onruby.test berlin.onruby.test madridrb.onruby.test andalucia.onruby.test
+127.0.0.1    www.onruby.test hamburg.onruby.localhost cologne.onruby.localhost berlin.onruby.localhost madridrb.onruby.localhost andalucia.onruby.localhost
 ```
 
 #### Visit the site
