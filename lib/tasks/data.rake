@@ -7,7 +7,7 @@ namespace :data do
       5.times { FactoryBot.create(:event, date: rand(100).days.ago) }
       5.times { FactoryBot.create(:participant) }
     end
-    puts 'now open your browser at http://hamburg.onruby.test:3000/'
+    puts 'now open your browser at http://hamburg.onruby.localhost:3000/'
   end
 
   task setup: ['environment', 'db:migrate'] do
