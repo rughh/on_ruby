@@ -375,3 +375,7 @@ footer
         max-width: 100%
         display: block
         margin: auto
+
+// boostrap sadly overrides it's own card(display:flex) with .card-columns .card(display:inline-block), which breaks the badge layout in safari
+.card-columns .card
+  display: flex
