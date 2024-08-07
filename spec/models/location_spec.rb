@@ -43,6 +43,16 @@ describe Location do
     end
   end
 
+  describe "#calendar_event_address" do
+    it "returns the full address if all fields are present" do
+      expect(@location.calendar_event_address).to eq(@location.address)
+    end
+
+    it "returns the location name if not all fields are present" do
+      expect(@virtual_location.calendar_event_address).to eq(@virtual_location.name)
+    end
+  end
+
   describe '#geocoding' do
     it 'geocodes once a location is saved' do
       Location.all.find_each do |locn|
