@@ -2,18 +2,18 @@
 
 module IcalHelper
   def icalendar(*events)
-    RiCal.Calendar do |cal|
-      events.each do |event|
-        cal.event do |item|
-          item.summary     = event.name
-          item.description = "#{event.description} #{event_url(event)}"
-          item.dtstart     = event.date
-          item.dtend       = event.end_date
-          item.url         = event_url(event)
-          item.location    = event.location.name if event.location
-        end
+    cal = Icalendar::Calendar.new
+    events.map do |event|
+      cal.event do |item|
+        item.summary     = event.name
+        item.description = "#{event.description} #{event_url(event)}"
+        item.dtstart     = event.date
+        item.dtend       = event.end_date
+        item.url         = event_url(event)
+        item.location    = event.location.name if event.location
       end
-    end.to_s
+    end
+    cal.to_ical
   end
 
   def calendar_link
