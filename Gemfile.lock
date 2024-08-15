@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/phoet/ri_cal.git
-  revision: 0c607408f931ebbbed1c5e4dd6e4eb22572f268f
-  branch: master
-  specs:
-    ri_cal (0.8.8)
-      activesupport (> 2.2)
-      tzinfo (> 2.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -135,6 +126,9 @@ GEM
     hashie (5.0.0)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
+    icalendar (2.10.2)
+      ice_cube (~> 0.16)
+    ice_cube (0.17.0)
     image_info (1.2.2)
       addressable (~> 2.0)
       image_size (~> 2.0)
@@ -459,6 +453,7 @@ DEPENDENCIES
   faker
   font-awesome-rails
   geocoder
+  icalendar
   kaminari
   kgio
   letter_opener
@@ -480,7 +475,6 @@ DEPENDENCIES
   rails-controller-testing
   rails_12factor
   redcarpet
-  ri_cal!
   rspec-collection_matchers
   rspec-rails
   rubocop
