@@ -8,6 +8,7 @@ class Topic < ApplicationRecord
   PROPOSAL_TYPES = %w[proposal enquiry].freeze
   validates :user, :name, :description, :label, presence: true
   validates :proposal_type, inclusion: { in: PROPOSAL_TYPES }
+  validates :name, length: { maximum: 255 }
 
   belongs_to :user
   belongs_to :event, optional: true
