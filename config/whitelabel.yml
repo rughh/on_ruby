@@ -507,3 +507,31 @@
   - :name: XING Spain
     :url: https://xing.com/
     :banner: xing.png
+- !ruby/object:Usergroup
+  label_id: dresdenrb
+  status: enabled
+  default_locale: de
+  tld: de
+  canonical_url: https://dresdenrb.onruby.de
+  country: Deutschland
+  domains:
+  - dresdenrb.de
+  custom_recurring: true
+  email: rug-dd@mailbox.org
+  organizers:
+  - Maik Arnold
+  - Richard Böhme
+  - Sarah Franke
+  location:
+    :zoom: 14
+    :lat: 51.035070
+    :long: 13.800970
+  imprint:
+    :address: |-
+      Bärensteinerstraße 30
+      01309 Dresden
+    :contributors:
+    - :name: sarah-ki
+      :email:
+  coc: http://example.com
+  sponsors: []
