@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'uri'
+
 class ImagesController < ActionController::Base
   PUBLIC_MOUNTS = {
     'User' => :image,
@@ -17,7 +19,7 @@ class ImagesController < ActionController::Base
       url = model.send(attribute_name)
 
       if url.present?
-        open(url) do |f|
+        URI.open(url) do |f|
           send_data(f.read, filename:, disposition: :inline, content_type: f.content_type)
         end
       else
