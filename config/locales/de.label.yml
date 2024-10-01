@@ -118,3 +118,10 @@ de:
       subtitle: 'vormals: Barcelona on Rails'
       meta_desc: 'Die Ruby User Group in Barcelona'
       custom_recurrence: jeden 3. Donnerstag in jedem Monat treffen wir uns um 19:00 Uhr
+    dresdenrb:
+      :city: Dresden
+      :name: Dresden.rb
+      :title: Dresden.rb
+      :subtitle: Ruby User Group Dresden
+      :meta_desc: Die neue Ruby User Group in Dresden
+      :custom_recurrence: Erster Termin am 28.11.2024 
