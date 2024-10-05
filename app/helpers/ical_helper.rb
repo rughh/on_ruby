@@ -7,8 +7,8 @@ module IcalHelper
       cal.event do |item|
         item.summary     = event.name
         item.description = "#{event.description} #{event_url(event)}"
-        item.dtstart     = event.date
-        item.dtend       = event.end_date
+        item.dtstart     = event.date.utc
+        item.dtend       = event.end_date.utc
         item.url         = event_url(event)
         item.location    = event.location.name if event.location
       end
