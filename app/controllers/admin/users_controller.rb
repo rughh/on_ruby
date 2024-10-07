@@ -1,12 +1,11 @@
 module Admin
   class UsersController < Admin::ApplicationController
-    def index
-      super
-      @resources = User.peers.page(params[:page]).per(10)
-    end
-
     def find_resource(param)
       User.peers.from_slug(param)
+    end
+
+    def scoped_resource
+      User.peers
     end
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
