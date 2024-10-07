@@ -5,23 +5,3 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_PASSWORD: INSECURE_LOCAL_DEVELOPMENT_PASSWORD
-
-  box:
-    image: busybox
-    volumes:
-      - /box
-
-  web:
-    build: .
-    ports:
-      - "3000:3000"
-    links:
-      - postgres
-    volumes:
-      - .:/app
-    volumes_from:
-      - box
-    environment:
-      POSTGRES_PORT_5432_TCP_ADDR: postgres
-      POSTGRES_PORT_5432_TCP_PORT: 5432
-      POSTGRES_PASSWORD: INSECURE_LOCAL_DEVELOPMENT_PASSWORD
