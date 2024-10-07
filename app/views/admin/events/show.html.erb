@@ -68,17 +68,19 @@ as well as a link to its edit page.
 </header>
 
 <section class="main-content__body">
-  <dl>
-    <% page.attributes.each do |attribute| %>
-      <dt class="attribute-label" id="<%= attribute.name %>">
-      <%= t(
-        "helpers.label.#{resource_name}.#{attribute.name}",
-        default: attribute.name.titleize,
-      ) %>
-      </dt>
+  <dl>    
+    <% page.attributes.each do |_title, attributes| %>
+      <% attributes.each do |attribute| %>
+        <dt class="attribute-label" id="<%= attribute&.name %>">
+        <%= t(
+          "helpers.label.#{resource_name}.#{attribute&.name}",
+          default: attribute.name.titleize,
+        ) %>
+        </dt>
 
-      <dd class="attribute-data attribute-data--<%=attribute.html_class%>"
-          ><%= render_field attribute, page: page %></dd>
+        <dd class="attribute-data attribute-data--<%=attribute.html_class%>"
+            ><%= render_field attribute, page: page %></dd>
+      <% end %>
     <% end %>
   </dl>
 </section>
