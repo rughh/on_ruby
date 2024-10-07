@@ -4,7 +4,8 @@ development: &default
   min_messages: WARNING
   pool: 5
   username: postgres
-  host: <%= ENV["POSTGRES_PORT_5432_TCP_ADDR"] || 'localhost' %>
+  password: <%= ENV["POSTGRES_PASSWORD"] || "INSECURE_LOCAL_DEVELOPMENT_PASSWORD" %>
+  host: <%= ENV["POSTGRES_PORT_5432_TCP_ADDR"] || '127.0.0.1' %>
   port: <%= ENV["POSTGRES_PORT_5432_TCP_PORT"] || 5432 %>
 
 test:
@@ -12,6 +13,6 @@ test:
   database: onruby_test
 
 production:
-  url:  <%= ENV["DATABASE_URL"] %>
+  url: <%= ENV["DATABASE_URL"] %>
   pool: <%= ENV["DB_POOL"] || ENV["MAX_THREADS"] || 5 %>
   encoding: utf8

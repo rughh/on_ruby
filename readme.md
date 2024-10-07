@@ -91,6 +91,15 @@ This will list links and logos to all the usergroups.
 
 ### Install locally
 
+### On a Docker Container
+
+```sh
+docker-compose up postgres -d
+
+./bin/setup
+./bin/rails server
+```
+
 ### On your machine
 
 #### Install PostgreSQL
