@@ -91,8 +91,7 @@ describe UsersController do
     it 'does not update injected properties' do
       allow(controller).to receive_messages(current_user: user)
 
-      put :update, params: data
-      expect(user.nickname).to eql(user.nickname)
+      expect { put :update, params: unallowed_data }.not_to change(user, :nickname)
     end
 
     it 'updates nothing for wrong user' do
