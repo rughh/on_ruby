@@ -7,6 +7,8 @@ describe 'topics/show' do
     allow(view).to receive_messages(topic:, signed_in?: false)
 
     render
+
+    expect(rendered).to include(topic.name)
   end
 
   context 'materials' do
@@ -14,6 +16,8 @@ describe 'topics/show' do
 
     it 'renders without an error' do
       render partial: 'materials', locals: { materials: }
+
+      expect(rendered).to include(materials.first.name)
     end
   end
 end

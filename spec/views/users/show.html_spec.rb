@@ -7,5 +7,7 @@ describe 'users/show' do
     allow(view).to receive_messages(current_user: user, user:)
 
     render
+
+    expect(rendered).to include(user.nickname)
   end
 end

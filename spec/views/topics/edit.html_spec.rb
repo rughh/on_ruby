@@ -8,5 +8,7 @@ describe 'topics/edit' do
     allow(view).to receive_messages(current_user: user, topic:, undone_topics: [topic])
 
     render
+
+    expect(rendered).to include(topic.name)
   end
 end

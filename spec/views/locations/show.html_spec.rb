@@ -8,5 +8,7 @@ describe 'locations/show' do
     view.lookup_context.prefixes = %w[locations application]
 
     render
+
+    expect(rendered).to include(location.name)
   end
 end

@@ -7,5 +7,7 @@ describe 'locations/index' do
     allow(view).to receive_messages(locations:)
 
     render
+
+    expect(rendered).to include(locations.first.name)
   end
 end

@@ -7,5 +7,7 @@ describe 'sitemaps/show' do
     allow(view).to receive_messages(urls: example_urls)
 
     render
+
+    expect(rendered).to include(example_urls.first)
   end
 end
