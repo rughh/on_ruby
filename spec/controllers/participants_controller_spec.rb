@@ -25,7 +25,7 @@ describe ParticipantsController do
       it 'shoulds alert a duplicate flash' do
         expect do
           post :create, params: { event_id: event.to_param }
-        end.to change(Participant, :count).by(0)
+        end.not_to change(Participant, :count)
         expect(flash[:alert]).not_to be_nil
         expect(response).to redirect_to(event)
       end
@@ -37,7 +37,7 @@ describe ParticipantsController do
       it 'shoulds alert a closed flash' do
         expect do
           post :create, params: { event_id: event.to_param }
-        end.to change(Participant, :count).by(0)
+        end.not_to change(Participant, :count)
         expect(flash[:alert]).not_to be_nil
         expect(response).to redirect_to(event)
       end
@@ -65,7 +65,7 @@ describe ParticipantsController do
 
       expect do
         delete(:destroy, params: { id: @participant.to_param, event_id: @event.to_param })
-      end.to change(Participant, :count).by(0)
+      end.not_to change(Participant, :count)
       expect(response).to redirect_to(@event)
     end
   end

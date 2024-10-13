@@ -81,14 +81,14 @@ describe Usergroup do
   describe '#custom_recurring' do
     specify do
       expect(colognerb.custom_recurring).to be true
-      expect(rughh.custom_recurring).to be nil
+      expect(rughh.custom_recurring).to be_nil
     end
   end
 
   describe '#localized_custom_recurrence' do
     context 'no custom recurring' do
       it 'returns nil' do
-        expect(rughh.localized_custom_recurrence).to be nil
+        expect(rughh.localized_custom_recurrence).to be_nil
       end
     end
 

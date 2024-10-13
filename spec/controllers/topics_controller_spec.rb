@@ -72,7 +72,7 @@ describe TopicsController do
     it 'does not create a topic if not signed in' do
       expect do
         post(:create, params: { topic: topic_data })
-      end.to change(Topic, :count).by(0)
+      end.not_to change(Topic, :count)
       expect(response).to redirect_to(login_path)
     end
   end

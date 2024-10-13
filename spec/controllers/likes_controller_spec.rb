@@ -29,7 +29,7 @@ describe LikesController do
 
         expect do
           post(:create, params: data)
-        end.to change(Like, :count).by(0)
+        end.not_to change(Like, :count)
       end
 
       it 'validetes likes' do
@@ -69,7 +69,7 @@ describe LikesController do
 
         expect do
           delete(:destroy, params: { topic_id: topic.id, id: like.id })
-        end.to change(Like, :count).by(0)
+        end.not_to change(Like, :count)
         expect(flash[:alert]).to be_blank
       end
     end

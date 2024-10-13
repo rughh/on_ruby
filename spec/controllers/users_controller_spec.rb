@@ -65,7 +65,7 @@ describe UsersController do
         allow(@controller).to receive_messages(current_user: event.user)
         expect do
           delete :destroy, params: { id: event.user.id }
-        end.to change(User, :count).by(0)
+        end.not_to change(User, :count)
 
         expect(flash[:alert]).not_to be_nil
         expect(response).to redirect_to(edit_user_path(event.user))
