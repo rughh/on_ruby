@@ -31,8 +31,8 @@ describe 'PreviewGenerator' do
 
       pg.generate_preview
 
-      expect(pg.video?).to eq(true)
-      expect(pg.image?).to eq(false)
+      expect(pg.video?).to be(true)
+      expect(pg.image?).to be(false)
       expect(pg.type).to eq(:video)
       expect(pg.code).to eq('code')
     end
@@ -46,8 +46,8 @@ describe 'PreviewGenerator' do
 
       pg.generate_preview
 
-      expect(pg.video?).to eq(false)
-      expect(pg.image?).to eq(true)
+      expect(pg.video?).to be(false)
+      expect(pg.image?).to be(true)
 
       expect(pg.type).to eq(:image)
       expect(pg.code).to eq('src')
@@ -61,9 +61,9 @@ describe 'PreviewGenerator' do
 
       pg.generate_preview
 
-      expect(pg.video?).to eq(false)
-      expect(pg.image?).to eq(false)
-      expect(pg.none?).to eq(true)
+      expect(pg.video?).to be(false)
+      expect(pg.image?).to be(false)
+      expect(pg.none?).to be(true)
     end
   end
 end

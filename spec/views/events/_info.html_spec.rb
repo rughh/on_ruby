@@ -4,8 +4,7 @@ RSpec.describe 'events/show' do
   let(:user) { nil }
 
   before do
-    allow(view).to receive(:signed_in?).and_return(user.present?)
-    allow(view).to receive(:current_user).and_return(user)
+    allow(view).to receive_messages(signed_in?: user.present?, current_user: user)
   end
 
   it 'displays the title' do

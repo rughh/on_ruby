@@ -6,5 +6,7 @@ describe 'events/index' do
   it 'renders successfully' do
     allow(view).to receive_messages(events:)
     render
+
+    expect(rendered).to include(events.first.name)
   end
 end

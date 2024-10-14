@@ -16,5 +16,7 @@ describe 'home/index' do
     allow(view).to receive_messages(zoom:)
 
     render
+
+    expect(rendered).to include(event.name)
   end
 end
