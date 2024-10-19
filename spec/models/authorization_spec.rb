@@ -12,14 +12,18 @@ describe Authorization do
   describe 'special treatment for stale Twitter users' do
     let(:existing_twitter_auth) { Authorization.handle_authorization(nil, TWITTER_AUTH_HASH) }
     let(:existing_twitter_user) { existing_twitter_auth.user }
+    let(:new_auth_hash) { GITHUB_AUTH_HASH }
 
-    before { existing_twitter_user }
+    before do
+      existing_twitter_user
+      create(:authorization, provider: 'twitter', user: create(:user, email: nil))
+    end
 
     context 'when emails do not match', :aggregate_failures do
       context 'when nicknames are the same' do
         it 'raises duplication error' do
           expect do
-            Authorization.handle_authorization(nil, GITHUB_AUTH_HASH)
+            Authorization.handle_authorization(nil, new_auth_hash)
           end.to raise_error(User::DuplicateNickname)
         end
       end
@@ -28,7 +32,7 @@ describe Authorization do
         before { existing_twitter_user.update!(nickname: existing_twitter_user.nickname * 2) }
 
         it 'creates a new user' do
-          gh_user = Authorization.handle_authorization(nil, GITHUB_AUTH_HASH).user
+          gh_user = Authorization.handle_authorization(nil, new_auth_hash).user
           expect(gh_user).to be_persisted
           expect(gh_user).not_to eq(existing_twitter_user)
         end
@@ -36,13 +40,13 @@ describe Authorization do
     end
 
     context 'when emails match' do
-      before { existing_twitter_user.update!(email: GITHUB_AUTH_HASH.dig('info', 'email')) }
+      before { existing_twitter_user.update!(email: new_auth_hash.dig('info', 'email')) }
 
       context 'when email is unique and user has only Twiter auth' do
         it 'adds the auth to the existing Twitter account', :aggregate_failures do
-          gh_auth = Authorization.handle_authorization(nil, GITHUB_AUTH_HASH)
+          gh_auth = Authorization.handle_authorization(nil, new_auth_hash)
           expect(gh_auth.user).to eq(existing_twitter_user)
-          expect(existing_twitter_user.reload.github).to eq(GITHUB_AUTH_HASH.dig('info', 'nickname'))
+          expect(existing_twitter_user.reload.github).to eq(new_auth_hash.dig('info', 'nickname'))
         end
       end
 
@@ -51,7 +55,7 @@ describe Authorization do
 
         it 'raises duplication error' do
           expect do
-            Authorization.handle_authorization(nil, GITHUB_AUTH_HASH)
+            Authorization.handle_authorization(nil, new_auth_hash)
           end.to raise_error(User::DuplicateNickname)
         end
       end
@@ -61,7 +65,7 @@ describe Authorization do
 
         it 'raises duplication error' do
           expect do
-            Authorization.handle_authorization(nil, GITHUB_AUTH_HASH)
+            Authorization.handle_authorization(nil, new_auth_hash)
           end.to raise_error(User::DuplicateNickname)
         end
       end
@@ -71,9 +75,19 @@ describe Authorization do
 
         it 'raises duplication error' do
           expect do
-            Authorization.handle_authorization(nil, GITHUB_AUTH_HASH)
+            Authorization.handle_authorization(nil, new_auth_hash)
           end.to raise_error(User::DuplicateNickname)
         end
+      end
+    end
+
+    context 'when new auth has no email' do
+      let(:new_auth_hash) { GITHUB_AUTH_HASH.deep_merge('info' => { 'email' => nil }) }
+
+      it 'raises duplication error' do
+        expect do
+          Authorization.handle_authorization(nil, new_auth_hash)
+        end.to raise_error(User::DuplicateNickname)
       end
     end
   end

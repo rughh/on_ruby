@@ -22,6 +22,8 @@ class Authorization < ApplicationRecord
 
   def self.user_for_new_authorization(auth)
     email = auth.dig('info', 'email')
+    return if email.blank?
+
     users_with_email = User.where(email:)
     return unless users_with_email.count == 1
 
