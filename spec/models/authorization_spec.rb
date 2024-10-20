@@ -42,7 +42,7 @@ describe Authorization do
       create(:authorization, provider: 'twitter', user: create(:user, email: nil))
     end
 
-    context 'when emails do not match', :aggregate_failures do
+    context 'when emails do not match' do
       context 'when nicknames are the same' do
         it_behaves_like 'failing with duplicate nickname'
       end
@@ -50,7 +50,7 @@ describe Authorization do
       context 'when nicknames are different' do
         before { existing_twitter_user.update!(nickname: existing_twitter_user.nickname * 2) }
 
-        it 'creates a new user' do
+        it 'creates a new user', :aggregate_failures do
           gh_user = Authorization.handle_authorization(nil, new_auth_hash).user
           expect(gh_user).to be_persisted
           expect(gh_user).not_to eq(existing_twitter_user)
@@ -117,7 +117,7 @@ describe Authorization do
         it_behaves_like 'failing with duplicate nickname'
       end
 
-      context 'when the user had a single auth but it was not Twitter' do
+      context 'when the user has a single auth but it is not Twitter' do
         before { existing_twitter_user.authorizations = [create(:authorization)] }
 
         it_behaves_like 'failing with duplicate nickname'
