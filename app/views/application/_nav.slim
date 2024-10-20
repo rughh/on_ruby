@@ -43,7 +43,7 @@ nav.navbar.sticky-top.navbar-expand-lg#nav
           .dropdown-menu.dropdown-menu-right(aria-labelledby="loginDropdown")
             - login_providers.each do |provider|
               = button_to(label_auth_url(provider), class: 'dropdown-item') do
-                = fa_icon(provider, class: 'fa-fw', text: t("login.#{provider}_login"))
+                = fa_icon(icon_for_provider(provider), class: 'fa-fw', text: t("login.#{provider}_login"))
 
 
       li.nav-item.dropdown.pr-4

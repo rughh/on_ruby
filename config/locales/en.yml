@@ -172,3 +172,17 @@ en:
       previous: "<"
       next: ">"
       truncate: "..."
+  email_auth:
+    header: "Login with email"
+    enter_email: "Please, enter your email"
+    submit: "Authorize"
+    email_sent: "An email has been sent to %{email} with details for logging in"
+    invalid_email: "Please enter a valid email address"
+    subject: "Login to %{label}"
+    body:
+      salute: "Hi"
+      intro: "Use this link to log into %{label}"
+      good_bye: "Best"
+      final_details: >-
+        This link will be valid just for 15 minutes.
+        If you cannot click on the link, just copy and paste it into your browser address bar.

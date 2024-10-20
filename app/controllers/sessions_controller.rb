@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+  include WithEmailAuth
+
   def offline_login
     user = User.find_by(nickname: params[:nickname])
     sign_in(user)
