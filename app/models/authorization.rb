@@ -43,6 +43,6 @@ class Authorization < ApplicationRecord
     rescue Date::Error, TypeError
       DEFAULT_TWITTER_USER_FALLBACK_DEADLINE
     end
-    Time.zone.today <= deadline
+    deadline.future?
   end
 end
