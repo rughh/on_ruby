@@ -12,6 +12,7 @@ RSpec.configure do |config|
   config.include KaminariHelper
   config.include GeocoderHelper
   config.include FactoryBot::Syntax::Methods
+  config.include ActiveSupport::Testing::TimeHelpers
 
   # config.raise_errors_for_deprecations!
   config.infer_spec_type_from_file_location!

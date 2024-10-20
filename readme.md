@@ -169,6 +169,36 @@ On the admin site we need to:
 - deploy to Heroku
 - add admin privileges to someone for the new RUG
 
+## Users Login
+
+In order to register for events, users need to log in first.
+
+The app uses OAuth for that. At this point, it accepts Twitter [^1], GitHub and Google as valid OAuth providers.
+
+When a user is not currently logged in, selecting one of the login providers creates an account for him/her, attaching this provider as a valid auth mechanism.
+
+When a user is already logged in, selecting another provider will add that auth mechanism to the existing user.
+
+[^1]: As of 2024 Twitter/X has deprecated API v1.1 and Twitter login is not working anymore
+
+### Recovering login for existing users who only had Twitter auth
+
+As a consequence of X deprecating API v1.1, Twitter authentication is not working anymore and registered users that only had defined Twitter as their auth method are left out in the cold.
+
+In order to provide an easy way for these users to access their existing account using another auth provider, the app includes additional logic:
+
+1. If a new session successfully authenticates using a provider that includes email as part of their info.
+2. If a user (and only one user) already exists with that same email
+3. If that user was using Twitter (and only Twitter) as OAuth provider
+
+If all of these conditions are met, then the new provider is added to the existing user and the login proceeds with that.
+
+If the existing user had other providers already registered, then this logic doesn't kick in, as they can still use one of the others to log in.
+
+As this behaviour could lead to potential account takeovers (if another user had access to an OAuth account with the same email of the original user) there's a deadline after which it will stop working.
+
+The default deadline is the end of year 2024. If needed it can be ajusted by setting the environment variable `TWITTER_USER_FALLBACK_DEADLINE` to a valid date address string (like '2025-06-30').
+
 ## Website
 
 ![OnRuby Website](https://cl.ly/image/3U0S3b0T0F0x/Screen%20Shot%202014-01-07%20at%2014.16.44.png)
