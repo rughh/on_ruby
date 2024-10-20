@@ -13,7 +13,13 @@ module ApplicationHelper
   end
 
   def login_providers
-    %w[twitter github google_oauth2]
+    %w[twitter github google_oauth2 email]
+  end
+
+  def icon_for_provider(provider)
+    return 'envelope' if provider == 'email'
+
+    provider
   end
 
   def whitelabel_stylesheet_link_tag

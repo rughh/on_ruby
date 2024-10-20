@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class User < ApplicationRecord
+class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
   include Slug
   extend ApiHandling
   slugged_by(:nickname)
@@ -82,6 +82,31 @@ class User < ApplicationRecord
     self.email    = hash['info']['email'] unless email
     self.name     = hash['info']['name']
     self.image    = hash['info']['image']
+  end
+
+  def handle_email_attributes(hash)
+    received_email = hash['info']['email']
+
+    self.nickname = nickname_from_email(received_email) unless nickname
+    self.name     = name_from_email(received_email) unless name
+    self.image    = image_from_email(received_email) unless image
+    self.email    = received_email
+  end
+
+  def hash_for_email(email)
+    Digest::SHA256.new.hexdigest(email)
+  end
+
+  def nickname_from_email(email)
+    "email_#{hash_for_email(email)}"
+  end
+
+  def name_from_email(email)
+    "Email User (#{hash_for_email(email)})"
+  end
+
+  def image_from_email(email)
+    "https://www.gravatar.com/avatar/#{hash_for_email(email)}"
   end
 
   def with_provider?(provider)
