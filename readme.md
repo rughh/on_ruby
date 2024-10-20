@@ -191,9 +191,13 @@ In order to provide an easy way for these users to access their existing account
 2. If a user (and only one user) already exists with that same email
 3. If that user was using Twitter (and only Twitter) as OAuth provider
 
-If all of these conditions are met, then the new provider is added to the existing user and the log in proceeds with that.
+If all of these conditions are met, then the new provider is added to the existing user and the login proceeds with that.
 
 If the existing user had other providers already registered, then this logic doesn't kick in, as they can still use one of the others to log in.
+
+As this behaviour could lead to potential account takeovers (if another user had access to an OAuth account with the same email of the original user) there's a deadline after which it will stop working.
+
+The default deadline is the end of year 2024. If needed it can be ajusted by setting the environment variable `TWITTER_USER_FALLBACK_DEADLINE` to a valid date address string (like '2025-06-30').
 
 ## Website
 
