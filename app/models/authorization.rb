@@ -30,7 +30,7 @@ class Authorization < ApplicationRecord
     return unless users_with_email.count == 1
 
     user = users_with_email.first
-    return nil unless user.authorizations.count == 1 && user.authorizations.first.provider == 'twitter'
+    return unless user.authorizations.count == 1 && user.authorizations.first.provider == 'twitter'
 
     user.update_from_auth!(auth)
   end
