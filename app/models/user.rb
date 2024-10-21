@@ -101,6 +101,10 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
     hash_for_email(email)
   end
 
+  def hide_nickname?
+    nickname == nickname_from_email(email)
+  end
+
   EMPTY_NAME = '********'
 
   def name_from_email(_email)
