@@ -98,11 +98,13 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
   end
 
   def nickname_from_email(email)
-    "email_#{hash_for_email(email)}"
+    hash_for_email(email)
   end
 
-  def name_from_email(email)
-    "Email User (#{hash_for_email(email)})"
+  EMPTY_NAME = '********'
+
+  def name_from_email(_email)
+    EMPTY_NAME
   end
 
   def image_from_email(email)
@@ -111,6 +113,10 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
 
   def with_provider?(provider)
     authorizations.map(&:provider).include?(provider)
+  end
+
+  def missing_name?
+    name == EMPTY_NAME
   end
 
   class DuplicateNickname < StandardError

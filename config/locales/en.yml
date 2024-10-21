@@ -160,6 +160,7 @@ en:
     topic_added: "Added new Topic."
     topic_updated: "Updated the Topic."
     add_email: "Please add an email address, so that we can get in contact!"
+    update_profile_details: "Please, fill in your name so that we can refer to you!"
   mobile:
     settings: "Settings"
     back: "Back"
