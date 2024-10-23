@@ -8,9 +8,9 @@ module WithEmailAuth
 
   def email_login
     email = normalize_email(params[:email])
-    if email.present?
+    if email.present? && valid_looking_email?(email)
       token = Token.generate(email)
-      from = "do-not-reply@#{Whitelabel[:domains].first}"
+      from = Whitelabel[:email]
       label_name = t("label.#{Whitelabel[:label_id]}.name")
       label_link = Whitelabel[:canonical_url]
       UserMailer.login_link(email, token, from, I18n.locale,
@@ -20,7 +20,7 @@ module WithEmailAuth
     else
       flash.now[:alert] = t('email_auth.invalid_email')
 
-      render :email
+      render :email, status: :unprocessable_entity
     end
   end
 
@@ -28,5 +28,9 @@ module WithEmailAuth
 
   def normalize_email(email)
     email.to_s.strip.downcase
+  end
+
+  def valid_looking_email?(email)
+    email.match(/\A[\w+\-.]+@[a-z\d-]+(\.[a-z\d-]+)*\.[a-z]+\z/i)
   end
 end
