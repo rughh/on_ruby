@@ -57,7 +57,7 @@ es:
     route: "Mapa"
     material: "Material"
     description: "Infos"
-    no_location: "¡Estamos bustando sitio!"
+    no_location: "¡Estamos buscando sitio!"
   home:
     the_usergroup: "<strong>%{usergroup}</strong> es un grupo de usuarios, grupo de interés o simplemente de personas interesadas en Ruby. Contacta con nosotros en la siguiente reunión! Todo el mundo es bienvenido, incluso si no tienes mucha experiencia con Ruby."
     like_to_talk: "Quieres dar una charla en el grupo, o quieres proponer un tema para una?"
@@ -173,3 +173,17 @@ es:
       previous: "<"
       next: ">"
       truncate: "..."
+  email_auth:
+    header: "Acceder por Email"
+    enter_email: "Por favor, introduce tu email"
+    submit: "Autorizar"
+    email_sent: "Te hemos enviado un email a %{email} con los detalles para acceder"
+    invalid_email: "Por favor, asegúrate de que el email es correcto"
+    subject: "Accede a %{label}"
+    body:
+      salute: "Hola"
+      intro: "Usa este enlace para acceder a %{label}"
+      good_bye: "Saludos"
+      final_details: >-
+        Este enlace es válido sólo durante 15 minutos.
+        Si no puedes pulsar sobre el enlace, puedes copiarlo y pegarlo en la barra de tu navegador.

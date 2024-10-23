@@ -160,6 +160,7 @@ en:
     topic_added: "Added new Topic."
     topic_updated: "Updated the Topic."
     add_email: "Please add an email address, so that we can get in contact!"
+    update_profile_details: "Please, fill in your name so that we can refer to you!"
   mobile:
     settings: "Settings"
     back: "Back"
@@ -172,3 +173,17 @@ en:
       previous: "<"
       next: ">"
       truncate: "..."
+  email_auth:
+    header: "Login with email"
+    enter_email: "Please, enter your email"
+    submit: "Authorize"
+    email_sent: "An email has been sent to %{email} with details for logging in"
+    invalid_email: "Please enter a valid email address"
+    subject: "Login to %{label}"
+    body:
+      salute: "Hi"
+      intro: "Use this link to log into %{label}"
+      good_bye: "Best"
+      final_details: >-
+        This link will be valid just for 15 minutes.
+        If you cannot click on the link, just copy and paste it into your browser address bar.

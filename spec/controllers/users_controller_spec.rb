@@ -34,6 +34,22 @@ describe UsersController do
       expect(flash[:alert]).not_to be_nil
       expect(response).to redirect_to(root_path)
     end
+
+    context 'if the user has an unfilled name' do
+      render_views
+
+      it 'clears the name input and sets it to error' do
+        allow(@controller).to receive_messages(current_user: user)
+        user.update(name: User::EMPTY_NAME)
+
+        get :edit, params: { id: user }
+
+        doc = Nokogiri::HTML(response.body)
+        input = doc.at_css('.form-group.user_name.form-group-invalid input')
+        expect(input).not_to be_nil
+        expect(input[:value].to_s.strip).to eq('')
+      end
+    end
   end
 
   context 'GET :calendar' do

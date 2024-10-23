@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UsergroupMailer < ActionMailer::Base
+class UsergroupMailer < ApplicationMailer
   def invitation_mail(event)
     @event = event
     options = {

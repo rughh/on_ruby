@@ -12,7 +12,12 @@ class UsersController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    return unless current_user.missing_name?
+
+    user.name = nil
+    user.errors.add(:name, :required)
+  end
 
   def calendar
     respond_to do |format|

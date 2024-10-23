@@ -55,10 +55,15 @@ OnRuby::Application.routes.draw do
 
   scope '/auth' do
     get '/',                         to: 'sessions#index', as: :login
-    get '/:provider/callback',       to: 'sessions#create'
+    get '/:provider/callback',       to: 'sessions#create', as: :provider_callback
     get '/failure',                  to: 'sessions#failure'
     get '/destroy_session',          to: 'sessions#destroy', as: :destroy_session
     get '/offline_login/:nickname',  to: 'sessions#offline_login' if Rails.env.development?
+  end
+
+  scope "/sessions" do
+    get "/email", to: "sessions#email"
+    post "/email_login", to: "sessions#email_login"
   end
 
   constraints MainDomainConstraint.new do

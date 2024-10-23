@@ -1,0 +1,9 @@
+section
+  h3= t("email_auth.header")
+
+  .d-flex.justify-content-center
+    = form_tag email_login_path do |form|
+      legend= t('email_auth.enter_email')
+      - email = signed_in? ? current_user.email : params[:email]
+      = email_field_tag :email, email, placeholder: 'me@example.com', required: true
+      = submit_tag t('email_auth.submit'), class: 'btn-primary'
