@@ -17,7 +17,6 @@ class UsersController < ApplicationController
 
     user.name = nil
     user.errors.add(:name, :required)
-    render :edit
   end
 
   def calendar
