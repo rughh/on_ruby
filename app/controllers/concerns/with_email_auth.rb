@@ -9,7 +9,7 @@ module WithEmailAuth
   def email_login
     email = normalize_email(params[:email])
     if email.present? && valid_looking_email?(email)
-      token = Token.generate(email)
+      token = EmailAuthToken.generate(email)
       from = Whitelabel[:email]
       label_name = t("label.#{Whitelabel[:label_id]}.name")
       label_link = Whitelabel[:canonical_url]

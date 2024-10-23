@@ -3,7 +3,7 @@
 # Based on https://github.com/weg-li/weg-li/blob/master/app/lib/token.rb
 # Original author: https://github.com/phoet
 
-class Token
+class EmailAuthToken
   def self.generate(
     email,
     expiration: 15.minutes,

@@ -20,7 +20,7 @@ module OmniAuth
         fail!(:authenticity_error) if token.blank?
 
         begin
-          decoded_token = Token.decode(token)
+          decoded_token = EmailAuthToken.decode(token)
         rescue StandardError
           fail!(:authenticity_error, $ERROR_INFO)
         end
