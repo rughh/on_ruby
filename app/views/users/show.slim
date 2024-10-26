@@ -22,7 +22,7 @@
   .card-body
     h2.card-title
       = user_image(user)
-      = "#{user.name}"
+      = "#{user_name(user)}"
       = " (#{user.nickname})" unless user.hide_nickname?
     small.text-muted
       span>= I18n.tw("profile.freelancer") if user.freelancer?

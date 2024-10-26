@@ -87,6 +87,10 @@ module ApplicationHelper
     end
   end
 
+  def user_name(user)
+    user.missing_name? ? '-' : user.name
+  end
+
   private
 
   def markdown_parser
