@@ -172,3 +172,17 @@ de:
       previous: "<"
       next: ">"
       truncate: "..."
+  email_auth:
+    header: "Mit E-Mail anmelden"
+    enter_email: "Bitte geben Sie Ihre E-Mail-Adresse ein"
+    submit: "Autorisieren"
+    email_sent: "Eine E-Mail wurde an %{email} mit Details zum Einloggen gesendet"
+    invalid_email: "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+    subject: "Anmeldung zu %{label}"
+    body:
+      salute: "Hallo"
+      intro: "Verwenden Sie diesen Link, um sich bei %{label} anzumelden"
+      good_bye: "Mit freundlichen Grüßen"
+      final_details: >-
+        Dieser Link ist nur 15 Minuten gültig.
+        Wenn Sie nicht auf den Link klicken können, kopieren Sie ihn einfach und fügen Sie ihn in die Adresszeile Ihres Browsers ein.
