@@ -59,7 +59,7 @@ describe User do
 
     it 'sets email and empty name for users created by email' do
       user = User.create_from_hash!(EMAIL_AUTH_HASH)
-      expect(user.email).to eql('user@somewhere.org')
+      expect(user.email).to eql('user@example.org')
       expect(user.name).to eql(User::EMPTY_NAME)
     end
 
@@ -95,7 +95,7 @@ describe User do
     it 'updates only the email from email-auth-hash', :aggregate_failures do
       expect { user.update_from_auth!(EMAIL_AUTH_HASH) }
         .not_to(change { user.attributes.slice(:name, :github, :image, :location, :description, :url) })
-      expect(user.email).to eq('user@somewhere.org')
+      expect(user.email).to eq('user@example.org')
     end
   end
 

@@ -44,7 +44,7 @@ describe SessionsController do
 
     context 'POST :email_login' do
       it 'sends the email and redirect to index', :aggregate_failures do
-        expect { post :email_login, params: { email: 'user@somewhere.org' } }
+        expect { post :email_login, params: { email: 'user@example.org' } }
           .to have_enqueued_job(ActionMailer::DeliveryJob)
 
         expect(response).to redirect_to(root_path)

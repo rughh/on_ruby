@@ -4,7 +4,6 @@
 # Original author: https://github.com/phoet
 
 require 'base64'
-require 'English'
 
 module OmniAuth
   module Strategies
@@ -21,8 +20,8 @@ module OmniAuth
 
         begin
           decoded_token = EmailAuthToken.decode(token)
-        rescue StandardError
-          fail!(:authenticity_error, $ERROR_INFO)
+        rescue StandardError => e
+          fail!(:authenticity_error, e)
         end
 
         @email = decoded_token['iss'].to_s.downcase

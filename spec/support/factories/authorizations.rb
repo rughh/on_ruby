@@ -57,7 +57,7 @@ EMAIL_AUTH_HASH = {
   'provider' => 'email',
   'uid' => 'f8a846d3199e68bb5a7d9ba9dab54ddc9c28e382b5c4490b396214808d26aeb9',
   'info' => {
-    'email' => 'user@somewhere.org',
+    'email' => 'user@example.org',
   },
 }.freeze
 
