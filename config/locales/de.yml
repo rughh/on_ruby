@@ -178,7 +178,7 @@ de:
     submit: "Autorisieren"
     email_sent: "Eine E-Mail wurde an %{email} mit Details zum Einloggen gesendet"
     invalid_email: "Bitte geben Sie eine gültige E-Mail-Adresse ein"
-    subject: "Anmeldung zu %{label}"
+    subject: "Anmeldung bei %{label}"
     body:
       salute: "Hallo"
       intro: "Verwenden Sie diesen Link, um sich bei %{label} anzumelden"
