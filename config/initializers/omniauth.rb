@@ -1,4 +1,4 @@
-require_relative File.join(Rails.root, 'lib/omni_auth/strategies/email')
+require_relative '../../lib/omni_auth/strategies/email'
 
 OmniAuth.config.logger = Rails.logger
 
