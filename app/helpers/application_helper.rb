@@ -88,7 +88,7 @@ module ApplicationHelper
   end
 
   def user_name(user)
-    user.missing_name? ? '-' : user.name
+    user.display_name
   end
 
   private

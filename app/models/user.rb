@@ -123,6 +123,10 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
     name == EMPTY_NAME
   end
 
+  def display_name
+    missing_name? ? '-' : name
+  end
+
   class DuplicateNickname < StandardError
     attr_reader :nickname
 

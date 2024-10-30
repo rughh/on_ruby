@@ -16,19 +16,13 @@ class SessionsController < ApplicationController
     begin
       authorization = Authorization.handle_authorization(current_user, request.env['omniauth.auth'])
       sign_in(authorization.user)
-      options = { notice: t('flash.logged_in', name: current_user.name) }
+      user_name = current_user.missing_name? ? '' : current_user.name
+      options = { notice: t('flash.logged_in', name: user_name) }
     rescue User::DuplicateNickname => e
       options = { alert: t('flash.duplicate_nick', name: e.nickname) }
     end
 
-    redirect_path = request.env['omniauth.origin'].presence || root_path
-
-    if current_user&.missing_name?
-      options = { alert: t('flash.update_profile_details') }
-      redirect_path = edit_user_path(current_user)
-    end
-
-    redirect_to redirect_path, options
+    redirect_to request.env['omniauth.origin'].presence || root_path, options
   end
 
   def destroy

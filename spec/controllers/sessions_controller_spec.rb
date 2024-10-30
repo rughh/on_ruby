@@ -62,13 +62,5 @@ describe SessionsController do
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
-
-    context 'GET :create' do
-      it 'creates the user and redirects to edit', :aggregate_failures do
-        get :create, params: { provider: :email }
-        expect(controller.send(:signed_in?)).to be_truthy
-        expect(response).to redirect_to(edit_user_path(User.last))
-      end
-    end
   end
 end
