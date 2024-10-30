@@ -18,11 +18,9 @@ module OmniAuth
         token = request.params['token']
         fail!(:authenticity_error) if token.blank?
 
-        begin
-          decoded_token = EmailAuthToken.decode(token)
-        rescue StandardError => e
-          fail!(:authenticity_error, e)
-        end
+        # Not catching the exception until this is more tested
+        # This way we'll get it reported in AppSignal for diagnosing
+        decoded_token = EmailAuthToken.decode(token)
 
         @email = decoded_token['iss'].to_s.downcase
         fail!(:authenticity_error) if @email.blank?
