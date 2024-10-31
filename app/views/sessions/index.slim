@@ -6,4 +6,4 @@ section
       - login_providers.each do |provider|
         li.list-group-item
           = button_to(label_auth_url(provider)) do
-            = fa_icon(provider, class: 'fa-fw dropdown-list-icon', text: t("login.#{provider}_login"))
+            = fa_icon(icon_for_provider(provider), class: 'fa-fw dropdown-list-icon', text: t("login.#{provider}_login"))

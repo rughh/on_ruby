@@ -1,3 +1,5 @@
+require_relative '../../lib/omni_auth/strategies/email'
+
 OmniAuth.config.logger = Rails.logger
 
 Rails.application.config.middleware.use OmniAuth::Builder do
@@ -14,4 +16,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       env['omniauth.strategy'].options[:client_secret] = ENV["#{name}_SECRET"]
     end,
   }
+  provider :email
 end

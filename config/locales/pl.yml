@@ -181,3 +181,17 @@ pl:
     - czwartek
     - piątek
     - sobotę
+  email_auth:
+    header: "Zaloguj się przez email"
+    enter_email: "Proszę, wprowadź swój email"
+    submit: "Autoryzuj"
+    email_sent: "Email został wysłany na adres %{email} z detalami do logowania"
+    invalid_email: "Proszę wprowadzić prawidłowy adres e-mail"
+    subject: "Logowanie do %{label}"
+    body:
+      salute: "Cześć"
+      intro: "Użyj tego linku, aby zalogować się do %{label}"
+      good_bye: "Najlepsze życzenia"
+      final_details: >-
+        Ten link będzie ważny tylko przez 15 minut.
+        Jeśli nie możesz kliknąć na link, skopiuj go i wklej w pasek adresu przeglądarki.

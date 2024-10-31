@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+  include WithEmailAuth
+
   def offline_login
     user = User.find_by(nickname: params[:nickname])
     sign_in(user)
@@ -14,7 +16,8 @@ class SessionsController < ApplicationController
     begin
       authorization = Authorization.handle_authorization(current_user, request.env['omniauth.auth'])
       sign_in(authorization.user)
-      options = { notice: t('flash.logged_in', name: current_user.name) }
+      user_name = current_user.missing_name? ? '' : current_user.name
+      options = { notice: t('flash.logged_in', name: user_name) }
     rescue User::DuplicateNickname => e
       options = { alert: t('flash.duplicate_nick', name: e.nickname) }
     end

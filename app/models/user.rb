@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class User < ApplicationRecord
+class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
   include Slug
   extend ApiHandling
   slugged_by(:nickname)
@@ -84,8 +84,47 @@ class User < ApplicationRecord
     self.image    = hash['info']['image']
   end
 
+  def handle_email_attributes(hash)
+    received_email = hash['info']['email']
+
+    self.nickname = nickname_from_email(received_email) unless nickname
+    self.name     = name_from_email(received_email) unless name
+    self.image    = image_from_email(received_email) unless image
+    self.email    = received_email
+  end
+
+  def hash_for_email(email)
+    Digest::SHA256.new.hexdigest(email)
+  end
+
+  def nickname_from_email(email)
+    hash_for_email(email)
+  end
+
+  def hide_nickname?
+    nickname == nickname_from_email(email)
+  end
+
+  EMPTY_NAME = '********'
+
+  def name_from_email(_email)
+    EMPTY_NAME
+  end
+
+  def image_from_email(email)
+    "https://www.gravatar.com/avatar/#{hash_for_email(email)}"
+  end
+
   def with_provider?(provider)
     authorizations.map(&:provider).include?(provider)
+  end
+
+  def missing_name?
+    name == EMPTY_NAME
+  end
+
+  def display_name
+    missing_name? ? '-' : name
   end
 
   class DuplicateNickname < StandardError

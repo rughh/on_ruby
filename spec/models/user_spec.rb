@@ -57,6 +57,12 @@ describe User do
       expect(user.email).to eql('phoetmail@googlemail.com')
     end
 
+    it 'sets email and empty name for users created by email' do
+      user = User.create_from_hash!(EMAIL_AUTH_HASH)
+      expect(user.email).to eql('user@example.org')
+      expect(user.name).to eql(User::EMPTY_NAME)
+    end
+
     it 'raises an error for same nickname but different auths' do
       User.create_from_hash!(TWITTER_AUTH_HASH)
       expect do
@@ -84,6 +90,12 @@ describe User do
         expect(it.description).to match('My name is')
         expect(it.url).to eql('http://blog.nofail.de')
       end
+    end
+
+    it 'updates only the email from email-auth-hash', :aggregate_failures do
+      expect { user.update_from_auth!(EMAIL_AUTH_HASH) }
+        .not_to(change { user.attributes.slice(:name, :github, :image, :location, :description, :url) })
+      expect(user.email).to eq('user@example.org')
     end
   end
 

@@ -2,14 +2,14 @@
 
 module LinkHelper
   def link_to_user(user, image: false, image_class: nil)
-    link_to(user, title: user.name) do
-      image ? user_image(user, image_class:) + user.name : user.name
+    link_to(user, title: user_name(user)) do
+      image ? user_image(user, image_class:) + user_name(user) : user_name(user)
     end
   end
 
   def user_image(user, image_class: nil)
     image_class ||= 'small-user-image'
-    image_tag(cache_image_path(user), title: user.name, class: image_class)
+    image_tag(cache_image_path(user), title: user_name(user), class: image_class)
   end
 
   def link_to_job(job)

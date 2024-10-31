@@ -25,3 +25,11 @@
               li.mb-4
                 span.job-toggle= link_to fa_icon("chevron-up"), '#', title: t("hint.click_to_refresh") if index == 0
                 .job.ml-4== job_description(job)
+
+- if current_user&.missing_name?
+  = hint(false) do
+    .highlights
+      => fa_icon("exclamation-triangle")
+      strong=> t("flash.update_profile_details")
+      - unless current_page?(edit_user_path(current_user))
+        = link_to t("login.edit_profile"), edit_user_path(current_user)

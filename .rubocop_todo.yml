@@ -186,12 +186,6 @@ Rails/ApplicationController:
     - 'app/controllers/images_controller.rb'
     - 'app/controllers/labels_controller.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-Rails/ApplicationMailer:
-  Exclude:
-    - 'app/mailers/usergroup_mailer.rb'
-
 # Offense count: 7
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: strict, flexible

@@ -13,7 +13,13 @@ module ApplicationHelper
   end
 
   def login_providers
-    %w[twitter github google_oauth2]
+    %w[twitter github google_oauth2 email]
+  end
+
+  def icon_for_provider(provider)
+    return 'envelope' if provider == 'email'
+
+    provider
   end
 
   def whitelabel_stylesheet_link_tag
@@ -79,6 +85,10 @@ module ApplicationHelper
       concat tag.div(link_to(t('hint.close'), '#'), class: :close) if close
       yield
     end
+  end
+
+  def user_name(user)
+    user.display_name
   end
 
   private
