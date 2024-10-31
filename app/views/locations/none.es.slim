@@ -6,7 +6,8 @@ section
     ' Siempre estamos buscando nuevos sitios para nuestros Meetups.
     ' Si deseas albergar alguno de nuestros eventos en tu compañía
     => mail_to Whitelabel[:email], "escríbenos", title: "#{Whitelabel[:twitter]} E-Mail"
-    ' o mencionanos en twitter #{link_to_twitter Whitelabel[:twitter]}
+    - if Whitelabel[:twitter]
+      ' o mencionanos en twitter #{link_to_twitter Whitelabel[:twitter]}
     ' o contacta con alguno de los organizadores:
   = render 'users/list', users: organizers
 
