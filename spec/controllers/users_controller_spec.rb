@@ -26,6 +26,17 @@ describe UsersController do
       get :show, params: { id: user_with_participations.id }
       expect(response).to be_ok
     end
+
+    context 'when user has no email' do
+      render_views
+
+      before { user.update!(email: nil) }
+
+      it 'does not fail' do
+        get :show, params: { id: user.id }
+        expect(response).to be_ok
+      end
+    end
   end
 
   context 'GET :edit' do
