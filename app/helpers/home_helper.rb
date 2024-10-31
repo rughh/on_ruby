@@ -8,4 +8,12 @@ module HomeHelper
   def localized_recurring_event_date
     Whitelabel[:localized_recurring]
   end
+
+  def contact_text
+    capture do
+      concat t('home.send_us_an_email', mail_to: mail_to(Whitelabel[:email], 'E-Mail', title: 'E-Mail')).html_safe
+      concat " #{t('home.or_message_on_twitter', twitter_link: link_to_twitter(Whitelabel[:twitter]))}".html_safe if Whitelabel[:twitter]
+      concat '.'
+    end
+  end
 end

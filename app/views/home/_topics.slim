@@ -1,7 +1,7 @@
 = section_box :topics do
   p
     strong=> I18n.tw("home.like_to_talk")
-    = render "home/contact_text"
+    = contact_text
   = render 'users/list', users: organizers
   p== I18n.tw("home.engage")
   = link_to t("home.add_topic"), new_topic_path, class: 'btn btn-primary'
