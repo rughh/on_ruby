@@ -479,7 +479,7 @@ DEPENDENCIES
   whitelabel
 
 RUBY VERSION
-   ruby 3.2.4
+   ruby 3.2.6
 
 BUNDLED WITH
    2.4.10
