@@ -45,7 +45,7 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
   end
 
   def organizer?
-    self.class.organizers.include? self
+    Whitelabel[:organizers].include? nickname
   end
 
   def update_from_auth!(hash)
