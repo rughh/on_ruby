@@ -4,14 +4,16 @@
 # Original author: https://github.com/phoet
 
 class UserMailer < ApplicationMailer
-  def login_link(email, token, from, locale, label_name, label_link) # rubocop:disable Metrics/ParameterLists
+  COMMON_SENDER = 'global@onruby.de'
+
+  def login_link(email, token, locale, label_name, label_link)
     @token = token
-    @from = from
     @label_name = label_name
     @label_link = label_link
 
     I18n.with_locale(locale) do
-      mail from: @from, to: email, subject: t('email_auth.subject', label: label_name)
+      mail from: COMMON_SENDER, to: email,
+           subject: t('email_auth.subject', label: label_name)
     end
   end
 end
