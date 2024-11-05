@@ -10,10 +10,9 @@ module WithEmailAuth
     email = normalize_email(params[:email])
     if email.present? && valid_looking_email?(email)
       token = EmailAuthToken.generate(email)
-      from = Whitelabel[:email]
       label_name = t("label.#{Whitelabel[:label_id]}.name")
       label_link = Whitelabel[:canonical_url]
-      UserMailer.login_link(email, token, from, I18n.locale,
+      UserMailer.login_link(email, token, I18n.locale,
                             label_name, label_link).deliver_later
 
       redirect_to root_path, notice: t('email_auth.email_sent', email:)

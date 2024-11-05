@@ -3,12 +3,11 @@ require 'spec_helper'
 describe UserMailer do
   describe '#login_link' do
     subject(:mail) do
-      described_class.login_link(email, token, from, locale, label_name, label_link).deliver_now
+      described_class.login_link(email, token, locale, label_name, label_link).deliver_now
     end
 
     let(:email) { 'user@example.com' }
     let(:token) { '12345678' }
-    let(:from) { 'no-reply@example.com' }
     let(:locale) { :en }
     let(:label_name) { 'My RUG' }
     let(:label_link) { 'http://rug.org' }
@@ -16,7 +15,7 @@ describe UserMailer do
     it 'renders the headers' do
       expect(mail.subject).to eq('Login to My RUG')
       expect(mail.to).to eq([email])
-      expect(mail.from).to eq([from])
+      expect(mail.from).to eq([UserMailer::COMMON_SENDER])
     end
 
     it 'renders the body' do
