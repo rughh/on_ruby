@@ -7,7 +7,7 @@ describe IcalHelper do
     helper.icalendar(event).to_s.tap do |it|
       expect(it).to match('http://test.host/events/awesome-ottawa-123')
       expect(it).to match('SUMMARY:awesome ottawa')
-      expect(it).to match('DTSTART:20111111T170000')
+      expect(it).to match('DTSTART:20111111T170000Z')
     end
   end
 

@@ -7,8 +7,8 @@ module IcalHelper
       cal.event do |item|
         item.summary     = event.name
         item.description = "#{event.description} #{event_url(event)}"
-        item.dtstart     = event.date.utc
-        item.dtend       = event.end_date.utc
+        item.dtstart     = Icalendar::Values::DateTime.new event.date.utc, tzid: 'UTC'
+        item.dtend       = Icalendar::Values::DateTime.new event.end_date.utc, tzid: 'UTC'
         item.url         = event_url(event)
         item.location    = event.location.name if event.location
       end
