@@ -3,5 +3,8 @@
   - options = { location_link: link_to(t("main.locations"), locations_path, title: t("main.locations")) }
   p== I18n.tw("home.usergroup_locations", options)
   p== I18n.tw("home.company_workers")
-  - options = { email_link: mail_to(Whitelabel[:email], "E-Mail", title: "E-Mail"), twitter_link: link_to_twitter(Whitelabel[:twitter]) }
-  p== I18n.tw("home.company_missing", options)
+  p
+    == I18n.tw("home.company_missing", email_link: mail_to(Whitelabel[:email], "E-Mail", title: "E-Mail"))
+    - if Whitelabel[:twitter]
+      ==< I18n.tw("home.company_missing_or_message_twitter", twitter_link: link_to_twitter(Whitelabel[:twitter]))
+    | .

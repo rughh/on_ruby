@@ -71,4 +71,5 @@
       small
         = I18n.tw("home.like_to_talk")
         br
-        == t("home.send_us_an_email", mail_to: mail_to(Whitelabel[:email], "E-Mail", title: "E-Mail"), twitter_link: link_to_twitter(Whitelabel[:twitter]))
+        == contact_text
+

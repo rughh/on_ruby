@@ -12,9 +12,10 @@
     .col-sm.mb-2
       h2= t("footer.contact")
       ul
-        li
-          = link_to_twitter Whitelabel[:twitter] do
-            = "Twitter"
+        - if Whitelabel[:twitter]
+          li
+            = link_to_twitter Whitelabel[:twitter] do
+              = "Twitter"
         li= mail_to Whitelabel[:email], 'E-Mail', title: "#{Whitelabel[:twitter]} E-Mail"
         li= link_to 'Status', 'http://status.onruby.eu/'
 
