@@ -22,10 +22,10 @@ class Event < ApplicationRecord
   default_scope       -> { where(label: Whitelabel[:label_id]) }
 
   scope :with_topics, -> { joins(:topics).distinct }
-  scope :current,     -> { where(date: Date.today.to_time..).limit(1).order('date ASC') }
-  scope :latest,      -> { where('date < ?', Date.today.to_time).order('date DESC') }
+  scope :current,     -> { where(date: Date.today.to_time..).limit(1).order(date: :asc) }
+  scope :latest,      -> { where('date < ?', Date.today.to_time).order(date: :desc) }
   scope :unpublished, -> { where('published IS NULL') }
-  scope :ordered,     -> { order('date DESC') }
+  scope :ordered,     -> { order(date: :desc) }
 
   def end_date
     date + 2.hours
