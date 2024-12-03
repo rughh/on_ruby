@@ -22,7 +22,7 @@ class Event < ApplicationRecord
   default_scope       -> { where(label: Whitelabel[:label_id]) }
 
   scope :with_topics, -> { joins(:topics).distinct }
-  scope :current,     -> { where(date: Date.today.to_time..(Time.now + 9.weeks)).limit(1).order('date ASC') }
+  scope :current,     -> { where(date: Date.today.to_time..).limit(1).order('date ASC') }
   scope :latest,      -> { where('date < ?', Date.today.to_time).order('date DESC') }
   scope :unpublished, -> { where('published IS NULL') }
   scope :ordered,     -> { order('date DESC') }
