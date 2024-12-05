@@ -5,7 +5,7 @@ class Highlight < ApplicationRecord
 
   default_scope -> { where(label: Whitelabel[:label_id]) }
 
-  scope :active, -> { where('end_at > ?', Time.now).order('start_at').limit(1) }
+  scope :active, -> { where('end_at > ?', Time.now).order(start_at: :asc).limit(1) }
 
   def disabled?
     end_at <= Time.now
