@@ -24,6 +24,8 @@ describe Event do
     it 'finds a current event' do
       event_next = create(:event, date: 2.days.from_now)
       expect(Event.current.first).to eql(event_next)
+      event_next.update(date: 5.months.from_now)
+      expect(Event.current.first).to eql(event_next)
     end
   end
 
