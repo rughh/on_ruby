@@ -38,7 +38,6 @@ gem 'uglifier'
 group :production do
   gem 'dalli'
   gem 'lograge'
-  gem 'rails_12factor'
 end
 
 group :development do
