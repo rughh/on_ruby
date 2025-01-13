@@ -162,7 +162,6 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    kgio (2.11.4)
     language_server-protocol (3.17.0.3)
     launchy (3.0.1)
       addressable (~> 2.8)
@@ -459,7 +458,6 @@ DEPENDENCIES
   geocoder
   icalendar
   kaminari
-  kgio
   letter_opener
   link_thumbnailer
   listen
