@@ -17,7 +17,7 @@ class Location < ApplicationRecord
 
   scope :ordered, -> { order('name ASC') }
   scope :ordered_by_last_occurrence, -> { joins(:events).group(primary_key).order(Event.arel_table[:date].maximum.desc) }
-  default_scope   -> { where(label: Whitelabel[:label_id]) }
+  default_scope -> { where(label: Whitelabel[:label_id]) }
 
   def geo_coder_address
     "#{street} #{house_number}, #{zip} #{city}, #{country}"
