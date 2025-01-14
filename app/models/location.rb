@@ -16,6 +16,7 @@ class Location < ApplicationRecord
   validates :url, length: { maximum: 255 }
 
   scope :ordered, -> { order('name ASC') }
+  scope :ordered_by_last_occurrence, -> { joins(:events).group(primary_key).order(Event.arel_table[:date].maximum.desc) }
   default_scope   -> { where(label: Whitelabel[:label_id]) }
 
   def geo_coder_address

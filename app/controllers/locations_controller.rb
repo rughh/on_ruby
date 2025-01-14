@@ -2,7 +2,7 @@
 
 class LocationsController < ApplicationController
   expose(:location, find: ->(id, scope) { scope.from_slug(id) })
-  expose(:locations)  { Location.ordered }
+  expose(:locations)  { Location.ordered_by_lastest_event }
   expose(:organizers) { User.organizers }
   expose(:stats)      { Event.stats }
 
