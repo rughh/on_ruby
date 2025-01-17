@@ -111,13 +111,6 @@ de:
       :subtitle: Andalucia Ruby User Group
       :meta_desc: Andalucia Ruby User Group
       :custom_recurrence: letzter Dienstag des Monats um 19:30 Uhr
-    barcelona:
-      city: Barcelona
-      name: 'Ruby & Friends'
-      title: 'Ruby & Friends'
-      subtitle: 'vormals: Barcelona on Rails'
-      meta_desc: 'Die Ruby User Group in Barcelona'
-      custom_recurrence: jeden 3. Donnerstag in jedem Monat treffen wir uns um 19:00 Uhr
     dresdenrb:
       :city: Dresden
       :name: Dresden.rb
