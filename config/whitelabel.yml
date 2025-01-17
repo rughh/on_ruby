@@ -329,32 +329,6 @@
   - bonnrb.de
   google_group: bonnrb
 - !ruby/object:Usergroup
-  label_id: innsbruck
-  default_locale: en
-  country: Österreich
-  recurring: second saturday
-  email: innsbruck.rb@gmail.com
-  twitter: innsbruckrb
-  organizers:
-  - BennyKlotz
-  location:
-    :zoom: 12
-    :lat: 47.2578229
-    :long: 11.3961853
-  default_time_zone: Europe/Vienna
-  imprint:
-    :address: |-
-      Tschamlerstraße 3
-      6020 Innsbruck
-    :contributors:
-    - :name: Benny Klotz
-      :email: r3qnbenni@gmail.com
-  tld: at
-  domains:
-  - innsbruck-rb.at
-  - innsbruck-ruby.at
-  google_group: innsbruck-rb
-- !ruby/object:Usergroup
   label_id: madridrb
   canonical_url: https://www.madridrb.com
   status: enabled
