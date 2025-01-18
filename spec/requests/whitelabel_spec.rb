@@ -17,12 +17,13 @@ describe 'Whitelabel' do
   end
 
   context 'GET page with custom domain' do
-    it 'shows the label' do
-      host! 'www.colognerb.de'
+    it 'shows the label and canonical' do
+      host! 'cologne.onruby.de'
 
       get root_url
       expect(response).to be_a_successful
       expect(Whitelabel[:label_id]).to eql('cologne')
+      expect(Whitelabel[:canonical_url]).to eql('https://cologne.onruby.de')
     end
   end
 end

@@ -42,7 +42,7 @@
   coc: http://rubyberlin.github.io/code-of-conduct
 - !ruby/object:Usergroup
   label_id: cologne
-  canonical_url: https://www.colognerb.de
+  canonical_url: https://cologne.onruby.de
   status: enabled
   default_locale: de
   country: Deutschland
@@ -471,7 +471,7 @@
   twitter: bcnrails
   google_group: barcelonaonrails
   label_id: barcelona
-  canonical_url: https://ruby.barcelona
+  canonical_url: https://barcelona.onruby.eu
   status: enabled
   default_locale: es
   tld: eu
