@@ -535,3 +535,34 @@
       :email:
   coc: https://berlincodeofconduct.org/
   sponsors: []
+- !ruby/object:Usergroup
+  label_id: tallinn_rug
+  status: enabled
+  default_locale: en
+  tld: ee
+  canonical_url: https://tallinn.ruby.ee
+  country: Eesti
+  domains:
+  - tallinn.ruby.ee
+  custom_recurring: last tuesday of the month from 18:00
+  email: a@whysthatso.net
+  github_org: tallinnrubyusergroup
+  github_repo: planning
+  organizers:
+  - whysthatso
+  location:
+    :zoom: 14
+    :lat: 59.2353
+    :long: 24.3936
+  imprint:
+    :address: |-
+      k-space
+      Akadeemia tee 21/1
+      12618 Tallinn
+    :contributors:
+    - :name: Andreas Wagner
+      :email: a@whysthatso.net
+  coc: https://github.com/RubyAndFriends/Code_of_Conduct
+  sponsors:
+  - :name: RubyCentral
+    :url: https://rubycentral.org/
