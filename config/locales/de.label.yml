@@ -125,3 +125,10 @@ de:
       :subtitle: Ruby User Group Dresden
       :meta_desc: Die neue Ruby User Group in Dresden
       :custom_recurrence: alle drei Monate
+    tallinn_rug:
+      :city: Tallinn
+      :name: Tallinn Ruby Usergroup
+      :title: Tallinn Ruby Usergroup
+      :subtitle: Ruby / Rails Community Estland
+      :meta_desc: Die neue Ruby User Group in Tallinn
+      :custom_recurrence: letzte Dienstag im Monat ab 18:00

@@ -122,3 +122,10 @@ en:
       :subtitle: The Ruby User Group in Dresden!
       :meta_desc: The Ruby User Group in Dresden!
       :custom_recurrence: every three months
+    tallinn_rug:
+      :city: Tallinn
+      :name: Tallinn Ruby Usergroup
+      :title: Tallinn Ruby Usergroup
+      :subtitle: Ruby / Rails Community Estonia
+      :meta_desc: The new Ruby User Group in Tallinn
+      :custom_recurrence: last tuesday of the month from 18:00
