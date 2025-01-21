@@ -3,7 +3,6 @@ require 'spec_helper'
 describe Location do
   before do
     @location         = create(:location, name: 'Test-Location', street: 'Schanzenstr.', house_number: '85', zip: '20357', city: 'Hamburg')
-    @other_location   = create(:location, label: 'cologne')
     @es_location      = create(:location, label: 'madridrb')
     @virtual_location = create(:virtual_location, label: 'madridrb')
   end
@@ -29,7 +28,7 @@ describe Location do
       hamburg_locations = Location.all
       expect(hamburg_locations).to have(1).elements
       expect(hamburg_locations.first).to eql(@location)
-      expect(Location.unscoped.size).to be(4)
+      expect(Location.unscoped.size).to be(3)
     end
   end
 
