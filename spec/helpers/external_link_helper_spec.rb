@@ -42,9 +42,11 @@ describe ExternalLinkHelper do
   end
 
   describe '#mailing_list_url' do
+    let(:colognerb) { Usergroup.from_name('colognerb').tap { _1.recurring = 'thrid wednesday' } }
+
     it 'creates an url' do
       expect(helper.mailing_list_url).to eql('https://groups.google.com/group/rubyonrails-ug-germany')
-      Whitelabel.with_label(Whitelabel.label_for('cologne')) do
+      Whitelabel.with_label(colognerb) do
         expect(helper.mailing_list_url).to eql('https://groups.google.com/group/colognerb')
       end
     end
