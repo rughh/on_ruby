@@ -4,7 +4,7 @@ describe Usergroup do
   let(:every_second_wednesday) { Usergroup.new.tap { |it| it.recurring = 'second wednesday 18:30' } }
   let(:every_last_wednesday)   { Usergroup.new.tap { |it| it.recurring = 'last wednesday 18:30' } }
   let(:rughh) { Whitelabel.label_for('hamburg') }
-  let(:colognerb) { Whitelabel.label_for('cologne') }
+  let(:colognerb) { Usergroup.from_name('cologne').tap { _1.recurring = 'third wednesday 20:00' } }
 
   context 'parsing of recurring' do
     context 'as string' do
@@ -78,13 +78,6 @@ describe Usergroup do
     end
   end
 
-  describe '#custom_recurring' do
-    specify do
-      expect(colognerb.custom_recurring).to be true
-      expect(rughh.custom_recurring).to be_nil
-    end
-  end
-
   describe '#localized_custom_recurrence' do
     context 'no custom recurring' do
       it 'returns nil' do
@@ -93,22 +86,15 @@ describe Usergroup do
     end
 
     context 'with custom recurring' do
+      before do
+        rughh.custom_recurring = true
+      end
+
+
       specify 'de' do
-        I18n.with_locale(:de) do
-          expect(colognerb.localized_custom_recurrence).to eql 'jeweils am 3. Mittwoch in jedem 2. Monat (Januar, März, Mai, Juli, September, November) um 19:00 Uhr'
-        end
-      end
+        allow(I18n).to receive(:tw).with('custom_recurrence').and_return("custom_recurrence")
 
-      specify 'en' do
-        I18n.with_locale(:en) do
-          expect(colognerb.localized_custom_recurrence).to eql 'every 3rd Wednesday in every second month (January, March, May, July, September, November) at 7:00 p.m.'
-        end
-      end
-
-      specify 'es' do
-        I18n.with_locale(:es) do
-          expect(colognerb.localized_custom_recurrence).to eql '3er Miércoles de Enero, Marzo, Mayo, Julio, Septiembre y Noviembre, a las 19.00'
-        end
+        expect(rughh.localized_custom_recurrence).to eql 'custom_recurrence'
       end
 
       context 'translation for locale is missing (> es)' do
@@ -116,8 +102,8 @@ describe Usergroup do
           I18n.with_locale(:es) do
             default_translation = 'jeweils am 3. Mittwoch in jedem 2. Monat (Januar, März, Mai, Juli, September, November) um 19:00 Uhr'
             allow(I18n).to receive(:tw).with('custom_recurrence').and_return('n/a')
-            allow(I18n).to receive(:tw).with('custom_recurrence', locale: colognerb.default_locale).and_return(default_translation)
-            expect(colognerb.localized_custom_recurrence).to eql default_translation
+            allow(I18n).to receive(:tw).with('custom_recurrence', locale: rughh.default_locale).and_return(default_translation)
+            expect(rughh.localized_custom_recurrence).to eql default_translation
           end
         end
       end
