@@ -90,9 +90,8 @@ describe Usergroup do
         rughh.custom_recurring = true
       end
 
-
       specify 'de' do
-        allow(I18n).to receive(:tw).with('custom_recurrence').and_return("custom_recurrence")
+        allow(I18n).to receive(:tw).with('custom_recurrence').and_return('custom_recurrence')
 
         expect(rughh.localized_custom_recurrence).to eql 'custom_recurrence'
       end
