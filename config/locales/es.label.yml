@@ -88,12 +88,6 @@ es:
       :title: bonn.rb
       :subtitle: Ruby User Group Bonn
       :meta_desc: Ruby User Group Bonn
-    innsbruck:
-      :city: Innsbruck
-      :name: Innsbruck.rb
-      :title: Innsbruck.rb
-      :subtitle: Ruby User Group Innsbruck
-      :meta_desc: Ruby User Group Innsbruck
     madridrb:
       city: Madrid
       name: Madrid.rb
