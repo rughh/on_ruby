@@ -19,13 +19,6 @@ de:
       title: RUG::B
       subtitle: Ruby User Group Berlin
       meta_desc: RUG::B—Ruby User Group Berlin
-    cologne:
-      city: Köln
-      name: Kölsch.rb
-      title: Cologne.rb
-      subtitle: Ruby User Group Cologne
-      meta_desc: Ruby / Rails User Group Cologne
-      custom_recurrence: "jeweils am 3. Mittwoch in jedem 2. Monat (Januar, März, Mai, Juli, September, November) um 19:00 Uhr"
     saar:
       city: Saarland
       name: RUGSaar

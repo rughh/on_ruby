@@ -41,53 +41,6 @@
   tld: de
   coc: http://rubyberlin.github.io/code-of-conduct
 - !ruby/object:Usergroup
-  label_id: cologne
-  canonical_url: https://www.colognerb.de
-  status: enabled
-  default_locale: de
-  country: Deutschland
-  recurring: third wednesday
-  email: colognerb@googlegroups.com
-  twitter: colognerb
-  organizers:
-  - jkwebs
-  location:
-    :zoom: 12
-    :lat: 50.941231
-    :long: 6.957092
-  default_time_zone: Europe/Berlin
-  imprint:
-    :address: "An der Bottmühle 5\n50678 Köln"
-    :contributors:
-    - :name: Jakob Hilden
-      :email: jakob@railslove.com
-    - :name: Marco Schaden
-      :email: hello@donschado.de
-    - :name: Railslove GmbH
-      :email: http://railslove.com
-  other_usergroups:
-  - :name: Cologne.js
-    :url: http://colognejs.de/
-    :twitter: cgnjs
-  - :name: DevHouse Friday
-    :url: http://devhousefriday.org/
-    :twitter: devhousefriday
-  - :name: NoSQL User Group Cologne
-    :url: http://www.nosql-cologne.org/
-    :twitter: nosqlcgn
-  - :name: pyCologne
-    :url: http://wiki.python.de/pycologne/
-    :twitter: pycologne
-  - :name: hacken.in
-    :url: http://hacken.in/
-  tld: de
-  coc: http://rubyberlin.github.io/code-of-conduct
-  custom_recurring: true
-  domains:
-  - colognerb.de
-  google_group: colognerb
-  slackin_url: https://colognerb.fly.dev/slackin.js
-- !ruby/object:Usergroup
   label_id: saar
   default_locale: de
   country: Deutschland
