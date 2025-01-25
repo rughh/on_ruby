@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  include WhitelabelDetection
   include LocaleDetection
   include TimeZoneDetection
   include UserHandling
@@ -23,7 +22,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def setup
-    switch_label
     switch_locale
     switch_time_zone
   end
