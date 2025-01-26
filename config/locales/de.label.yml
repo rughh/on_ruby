@@ -78,12 +78,6 @@ de:
           in der Regel stattfinden.
         :mailing_list: "Über die Mailingliste werden Termine angekündigt, Lerngruppen
           gebildet oder Fragen rund ums Programmieren mit Ruby on Rails besprochen."
-    bonn:
-      :city: Bonn
-      :name: bonn.rb
-      :title: bonn.rb
-      :subtitle: Ruby User Group Bonn
-      :meta_desc: Ruby User Group Bonn
     madridrb:
       :city: Madrid
       :name: Madrid.rb
