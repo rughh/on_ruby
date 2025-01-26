@@ -6,7 +6,6 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
-    include WhitelabelDetection
     include UserHandling
     include LocaleDetection
     include TimeZoneDetection
@@ -26,7 +25,6 @@ module Admin
     private
 
     def setup
-      switch_label
       switch_locale
       switch_time_zone
     end
