@@ -417,7 +417,7 @@
   domains:
   - dresdenrb.de
   custom_recurring: true
-  email: rug-dd@mailbox.org
+  email: dresdenrb@mailbox.org
   organizers:
   - joe81
   - richardboehme
@@ -429,12 +429,18 @@
   imprint:
     :address: |-
       Bärensteiner Straße 30
-      01309 Dresden
+      01277 Dresden
     :contributors:
     - :name: sarah-ki
-      :email:
+      :email: dresdenrb@mailbox.org
   coc: https://berlincodeofconduct.org/
-  sponsors: []
+  sponsors:
+  - :name: Ruby Central
+    :url: https://rubycentral.org/
+    :banner: rubycentral.png
+  - :name: Fastly
+    :url: https://fastly.com
+    :banner: fastly.png
 - !ruby/object:Usergroup
   label_id: tallinn_rug
   status: enabled
