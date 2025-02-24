@@ -9,6 +9,7 @@ class WhitelabelDetectionMiddleware
     Whitelabel.reset!
     request = ActionDispatch::Request.new(env)
     Whitelabel.label = detect_label(request)
+    Appsignal.add_tags(label: Whitelabel.label.label_id)
     @app.call(env)
   end
 
