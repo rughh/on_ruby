@@ -44,7 +44,7 @@ jobs:
           PGHOST: localhost
           RAILS_ENV: test
         run: |
-          psql -c 'create database "onruby_test";' -U postgres
+          psql -c 'create database "weg-li_test";' -U postgres
           script/ci/setup
 
       - name: Run Tests
