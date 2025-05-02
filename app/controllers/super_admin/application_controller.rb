@@ -37,8 +37,11 @@ module SuperAdmin
     end
 
     def find_resource(param)
-      klazz = resource_name.to_s.classify.constantize
-      klazz.respond_to?(:from_param) ? klazz.from_param(param) : klazz.find(param)
+      scoped_resource.respond_to?(:from_param) ? scoped_resource.from_param(param) : scoped_resource.find(param)
+    end
+
+    def scoped_resource
+      resource_class.unscoped
     end
   end
 end
