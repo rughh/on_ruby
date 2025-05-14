@@ -10,7 +10,7 @@ module IcalHelper
         item.dtstart     = Icalendar::Values::DateTime.new event.date.utc, tzid: 'UTC'
         item.dtend       = Icalendar::Values::DateTime.new event.end_date.utc, tzid: 'UTC'
         item.url         = event_url(event)
-        item.location    = event.location.name if event.location
+        item.location    = [event.location.name, event.location.address].compact.join(',') if event.location
       end
     end
     cal.to_ical
