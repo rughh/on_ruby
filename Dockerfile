@@ -1,4 +1,4 @@
-FROM ruby:3.2.8
+FROM ruby:3.2.9
 
 RUN apt-get update -qq && apt-get install -y build-essential
 
