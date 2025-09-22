@@ -1,10 +1,10 @@
-nav.navbar.sticky-top.navbar-expand-lg#nav
-  .label
+nav.navbar.sticky-top.navbar-expand-lg.navbar-light.bg-light#nav
+  .label.navbar-brand
     = link_to(root_path(anchor: :on_ruby), class: 'navbar-brand ps-4') do
       = image_tag("labels/#{Whitelabel[:label_id]}.png", title: title, class: "d-inline-block align-bottom label")
       .d-none.d-sm-inline.d-md-inline.d-lg-none= I18n.tw('name')
 
-  button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+  button.navbar-toggler.border-0(type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
     = fa_icon('bars', class: 'fa-fw')
 
   #navbarSupportedContent.collapse.navbar-collapse
@@ -18,7 +18,7 @@ nav.navbar.sticky-top.navbar-expand-lg#nav
       li.nav-item.dropdown.pe-4
         - if signed_in?
           .dropdown
-            a.btn.btn-light.dropdown-toggle.nav-link(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false")
+            a.btn.btn-light.dropdown-toggle(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false")
               = user_image(current_user)
               = t('login.profile')
             ul.dropdown-menu.dropdown-menu-right(aria-labelledby="loginDropdown")
@@ -39,7 +39,7 @@ nav.navbar.sticky-top.navbar-expand-lg#nav
                   = fa_icon('lock', class: 'fa-fw', text: 'Super-Admin')
 
         - else
-          a(class="nav-link btn btn-primary dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+          a(class="btn btn-primary dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
             =  t('login.login')
           .dropdown-menu.dropdown-menu-right(aria-labelledby="loginDropdown")
             - login_providers.each do |provider|
