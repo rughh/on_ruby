@@ -1,5 +1,5 @@
-.row.card-title
-  .col-lg-9
+.d-flex.card-title
+  .flex-fill
     h2= link_to_event(event)
     small.text-muted
       = t("show.hosted_by")
@@ -9,7 +9,7 @@
         =< link_to_location(event.location)
       = ", #{l(event.date, format: :long)}"
 
-  .col-lg-3
+  div
     = participation_link(event, link_class: 'btn btn-primary btn-block')
     = remote_url_link(event, link_class: 'btn btn-primary btn-block')
 
