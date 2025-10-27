@@ -1,6 +1,6 @@
-= section_box :people do
-  .card-columns
+.container= section_box :people do
+  .row.row-cols-1.row-cols-md-3
     - users.each do |user|
-      = render(user)
+      .col= render(user)
 
   = paginate(users)
