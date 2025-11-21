@@ -1,10 +1,15 @@
 header.d-none.d-xl-block
   .row
-    .col-lg-2.text-center
-      = link_to(root_path, title: title) do
-        =image_tag("labels/#{Whitelabel[:label_id]}.png", title: title, id: :logo)
+    - if header_image_available?
+      .col-lg-12
+        = link_to(root_path, title: title) do
+          = image_tag(header_image_path, title: title, id: :header_image)
+    - else
+      .col-lg-2.text-center
+        = link_to(root_path, title: title) do
+          =image_tag("labels/#{Whitelabel[:label_id]}.png", title: title, id: :logo)
 
-    .col-lg-10
-      = link_to(root_path, id: :title, title: title) do
-        h1= title
-        h2.mt-4= subtitle
+      .col-lg-10
+        = link_to(root_path, id: :title, title: title) do
+          h1= title
+          h2.mt-4= subtitle

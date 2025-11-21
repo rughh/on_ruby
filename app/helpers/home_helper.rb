@@ -16,4 +16,12 @@ module HomeHelper
       concat '.'
     end
   end
+
+  def header_image_path
+    File.join('labels', Whitelabel[:label_id], 'header.png')
+  end
+
+  def header_image_available?
+    Rails.root.join('app', 'assets', 'images', header_image_path).exist?
+  end
 end
