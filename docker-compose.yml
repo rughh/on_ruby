@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:14.12
+    image: postgres:17.6
     ports:
       - "5432:5432"
     environment:
