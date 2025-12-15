@@ -6,6 +6,8 @@ FactoryBot.define do
     twitter   { Faker::Name.name.gsub(/\W/, '-') }
     email     { Faker::Internet.email }
     image     { 'http://www.onruby.de/assets/labels/hamburg.png' }
+
+    after(:create) { |user| create(:authorization, user:) }
   end
 
   factory :admin_user, parent: :user do
