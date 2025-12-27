@@ -8,7 +8,7 @@ $link-decoration: underline
 
 $background: white
 $container-background: image-url('whitey.png') left top repeat
-$title-color: black
+$title-color: #555
 $font: Raleway, sans-serif
 $base-font-size: 0.8em
 $nav-font-size: 1.2em
@@ -18,6 +18,9 @@ $border-color: lightgray
 $border: 1px solid $border-color
 $border-radius: calc(0.25rem - 1px)
 $ruby-red: #C81B47
+
+.fa
+  color: $title-color
 
 @mixin userimage($size)
   width: $size
@@ -50,18 +53,13 @@ $ruby-red: #C81B47
     repeat: no-repeat
     position: $x $y
 
-.btn-primary
-  background-color: #666
-
-a.btn
-  text-decoration: none
-
 body
   background: image-url('whitey.png') left top repeat
 
 .badge-card-header
   background-color: $white
   border: 1px solid $border-color
+  color: $title-color
 .badge-organizer
   position: absolute
   margin-top: -30px
@@ -290,7 +288,7 @@ header
       font-weight: bold
     .page, .next, .last, .first, .prev
       margin: 0.2em
-      display: inline block
+      display: inline-block
     .page a, .next a, .last a, .first a, .prev a
       background-color: white
       border: $border

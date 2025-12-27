@@ -1,3 +1,4 @@
-.card-columns
-  - users.each do |user|
-    = render(user)
+.my-4
+  .row.row-cols-1.row-cols-md-3
+    - users.each do |user|
+      .col= render(user)

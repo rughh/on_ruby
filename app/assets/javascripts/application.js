@@ -5,13 +5,12 @@
  */
 //= require jquery
 //= require jquery_ujs
+//= require popper
 //= require bootstrap
 //= require vendor/jquery.collapser
-//= require navi
 //= require utility
 //= require custom
 //= require map
-//= require dropdown
 
 $(function() {
   Utility.disable();

@@ -1,21 +1,22 @@
 - if event.topics.present?
   h3.card-title= t("main.topics")
 
-  .card-deck
+  .row.row-cols-1.row-cols-md-2.g-4
     - event.topics.each do |topic|
-      .card
-        .card-header
-          .pull-left
-            = link_to(topic.user) do
-              = user_image(topic.user, image_class: 'card-img-topic-header')
-          = link_to_user(topic.user)
-        .card-body
-          h5.card-title= link_to_topic(topic)
-          .card-text.collapser== markdown(topic.description)
-        - if topic.materials.present?
-          ul.list-group.list-group-flush
-            - topic.materials.each do |material|
-              li.list-group-item= link_to_material(material)
-        .card-footer
-          small.text-muted
-            = link_to t('topic.likes', count: topic.likes.count), topic
+      .col
+        .card.h-100
+          .card-header
+            .pull-left
+              = link_to(topic.user) do
+                = user_image(topic.user, image_class: 'card-img-topic-header')
+            = link_to_user(topic.user)
+          .card-body
+            h5.card-title= link_to_topic(topic)
+            .card-text.collapser== markdown(topic.description)
+          - if topic.materials.present?
+            ul.list-group.list-group-flush
+              - topic.materials.each do |material|
+                li.list-group-item= link_to_material(material)
+          .card-footer
+            small.text-muted
+              = link_to t('topic.likes', count: topic.likes.count), topic

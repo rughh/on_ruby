@@ -1,55 +1,56 @@
-nav.navbar.sticky-top.navbar-expand-lg#nav
-  .label
-    = link_to(root_path(anchor: :on_ruby), class: 'navbar-brand pl-4') do
+nav.navbar.sticky-top.navbar-expand-lg.navbar-light.bg-light#nav
+  .label.navbar-brand
+    = link_to(root_path(anchor: :on_ruby), class: 'navbar-brand ps-4') do
       = image_tag("labels/#{Whitelabel[:label_id]}.png", title: title, class: "d-inline-block align-bottom label")
       .d-none.d-sm-inline.d-md-inline.d-lg-none= I18n.tw('name')
 
-  button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+  button.navbar-toggler.border-0(type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
     = fa_icon('bars', class: 'fa-fw')
 
   #navbarSupportedContent.collapse.navbar-collapse
-    ul.navbar-nav.mr-auto.justify-content-center.flex-fill
+    ul.navbar-nav.me-auto.justify-content-center.flex-fill
       - [:events, :topics, :people, :locations].each do |section|
-        li.nav-item.ml-4
+        li.nav-item.ms-4
           = link_to(root_path(anchor: section), class: 'nav-link') do
             = fa_icon(section, class: 'fa-fw', text: t("main.#{section}"))
 
-    ul.navbar-nav.ml-auto
-      li.nav-item.dropdown.pr-4
+    ul.navbar-nav.ms-auto
+      li.nav-item.dropdown.pe-4
         - if signed_in?
-          a(class="nav-link btn btn-light dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-            = user_image(current_user)
-            = t('login.profile')
-          .dropdown-menu.dropdown-menu-right(aria-labelledby="loginDropdown")
-            = link_to(user_path(current_user), class: 'dropdown-item') do
-              = fa_icon('eye', class: 'fa-fw', text: t("login.show_profile"))
+          .dropdown
+            a.btn.btn-light.dropdown-toggle(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false")
+              = user_image(current_user)
+              = t('login.profile')
+            ul.dropdown-menu.dropdown-menu-end(aria-labelledby="loginDropdown")
+              li= link_to(user_path(current_user), class: 'dropdown-item') do
+                = fa_icon('eye', class: 'fa-fw', text: t("login.show_profile"))
 
-            = link_to(edit_user_path(current_user), class: 'dropdown-item') do
-              = fa_icon('edit', class: 'fa-fw', text: t("login.edit_profile"))
+              li= link_to(edit_user_path(current_user), class: 'dropdown-item') do
+                = fa_icon('edit', class: 'fa-fw', text: t("login.edit_profile"))
 
-            = link_to(destroy_session_path(current_user), class: 'dropdown-item') do
-              = fa_icon('times', class: 'fa-fw', text: t("login.logout"))
+              li= link_to(destroy_session_path(current_user), class: 'dropdown-item') do
+                = fa_icon('times', class: 'fa-fw', text: t("login.logout"))
 
-            - if current_user.admin?
-              = link_to('/admin', class: 'dropdown-item') do
-                = fa_icon('lock', class: 'fa-fw', text: 'Community-Admin')
-            - if current_user.super_admin?
-              = link_to('/super_admin', class: 'dropdown-item') do
-                = fa_icon('lock', class: 'fa-fw', text: 'Super-Admin')
+              - if current_user.admin?
+                li= link_to('/admin', class: 'dropdown-item') do
+                  = fa_icon('lock', class: 'fa-fw', text: 'Community-Admin')
+              - if current_user.super_admin?
+                li= link_to('/super_admin', class: 'dropdown-item') do
+                  = fa_icon('lock', class: 'fa-fw', text: 'Super-Admin')
 
         - else
-          a(class="nav-link btn btn-primary dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+          a(class="btn btn-primary dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
             =  t('login.login')
-          .dropdown-menu.dropdown-menu-right(aria-labelledby="loginDropdown")
+          .dropdown-menu.dropdown-menu-end(aria-labelledby="loginDropdown")
             - login_providers.each do |provider|
               = button_to(label_auth_url(provider), class: 'dropdown-item') do
                 = fa_icon(icon_for_provider(provider), class: 'fa-fw', text: t("login.#{provider}_login"))
 
 
-      li.nav-item.dropdown.pr-4
-        a(class="nav-link btn btn-light dropdown-toggle" href="#" id="localeDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+      li.nav-item.dropdown.pe-4
+        a(class="nav-link btn btn-light dropdown-toggle" href="#" id="localeDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
           = t("languages.#{I18n.locale}")
-        .dropdown-menu.dropdown-menu-right(aria-labelledby="localeDropdown")
+        .dropdown-menu.dropdown-menu-end(aria-labelledby="localeDropdown")
           - I18n.available_locales.each do |locale|
             - title = t("languages.#{locale}")
             = link_to(title, url_for(locale: locale), title: t("switch_languages", language: title), lang: locale, class: "dropdown-item #{'active' if locale == I18n.locale}")
