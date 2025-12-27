@@ -6,7 +6,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require popper
-//= require bootstrap
+//= require bootstrap.js
 //= require vendor/jquery.collapser
 //= require utility
 //= require custom
