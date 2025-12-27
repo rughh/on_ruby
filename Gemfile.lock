@@ -398,6 +398,8 @@ GEM
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
     temple (0.10.3)
+    terser (1.2.6)
+      execjs (>= 0.3.0, < 3)
     thor (1.4.0)
     tilt (2.6.0)
     timeout (0.4.3)
@@ -405,8 +407,6 @@ GEM
       ethon (>= 0.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uglifier (4.2.1)
-      execjs (>= 0.3.0, < 3)
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
@@ -477,7 +477,7 @@ DEPENDENCIES
   simple_form
   slim-rails
   sprockets (~> 3.7)
-  uglifier
+  terser
   validate_url
   web-console
   whitelabel

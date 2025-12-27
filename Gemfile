@@ -33,7 +33,7 @@ gem 'whitelabel'
 gem 'bootstrap', '~> 5.3'
 gem 'font-awesome-rails'
 gem 'sass-rails'
-gem 'uglifier'
+gem 'terser'
 
 group :production do
   gem 'dalli'
