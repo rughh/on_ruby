@@ -16,6 +16,8 @@
           li
             = link_to_twitter Whitelabel[:twitter] do
               = "Twitter"
+        - if Whitelabel[:bluesky]
+          li= link_to 'Bluesky', "https://bsky.app/profile/#{Whitelabel[:bluesky]}.bsky.social", title: "#{Whitelabel[:bluesky]}", target: '_blank', rel: 'noopener'
         li= mail_to Whitelabel[:email], 'E-Mail', title: "#{Whitelabel[:twitter]} E-Mail"
         li= link_to 'Status', 'http://status.onruby.eu/'
 
