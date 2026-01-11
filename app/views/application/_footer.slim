@@ -12,6 +12,8 @@
     .col-sm.mb-2
       h2= t("footer.contact")
       ul
+        - if Whitelabel[:discord]
+          li= link_to 'Discord', Whitelabel[:discord], target: '_blank', rel: 'noopener'
         - if Whitelabel[:twitter]
           li
             = link_to_twitter Whitelabel[:twitter] do
