@@ -77,6 +77,6 @@ OnRuby::Application.routes.draw do
 
   root to: 'home#index'
 
-  match '*path.php', via: :all, to: ->(_env) { [302, { 'Location' => 'http://www.youporn.com/' }, ['fuck yourself!']] }
+  match '*path.php', via: :all, to: ->(_env) { [301, { 'Location' => 'http://www.youporn.com/' }, ['fuck yourself!']] }
   match '*path', via: :all, constraints: ->(request) { request.path !~ %r{\A/admin} }, to: ->(_env) { [404, { 'Content-Type' => 'text/html' }, ['not found']] }
 end
