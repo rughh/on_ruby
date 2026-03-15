@@ -45,20 +45,20 @@ describe SessionsController do
     context 'POST :email_login' do
       it 'sends the email and redirect to index', :aggregate_failures do
         expect { post :email_login, params: { email: 'user@example.org' } }
-          .to have_enqueued_job(ActionMailer::DeliveryJob)
+          .to have_enqueued_job(ActionMailer::MailDeliveryJob)
 
         expect(response).to redirect_to(root_path)
       end
 
       it 'does not send the email if param missing', :aggregate_failures do
         expect { post :email_login }
-          .not_to have_enqueued_job(ActionMailer::DeliveryJob)
+          .not_to have_enqueued_job(ActionMailer::MailDeliveryJob)
         expect(response).to have_http_status(:unprocessable_entity)
       end
 
       it 'does not send the email looks bad', :aggregate_failures do
         expect { post :email_login, params: { email: 'user@org' } }
-          .not_to have_enqueued_job(ActionMailer::DeliveryJob)
+          .not_to have_enqueued_job(ActionMailer::MailDeliveryJob)
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
