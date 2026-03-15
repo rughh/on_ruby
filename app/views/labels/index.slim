@@ -9,7 +9,7 @@ section.mt-4
       - subtitle = t("label.#{label.label_id}.subtitle")
       .card
         .text-center
-          span.image= image_tag("labels/#{label.label_id}.png", alt: name, style: "max-height:100px;padding-top:10px")
+          span.image= image_tag(label_logo_asset(label.label_id), alt: name, style: "max-height:100px;padding-top:10px")
           .card-body
             h5.card-title= title
 

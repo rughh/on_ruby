@@ -61,8 +61,12 @@ module ApplicationHelper
     auto_discovery_link_tag :rss, events_path(format: :xml), title: 'Event-Feed'
   end
 
+  def label_logo_asset(label_id = Whitelabel[:label_id])
+    asset_with_fallback("labels/#{label_id}.png", fallback: 'logo.png')
+  end
+
   def icon(type)
-    path = image_path Whitelabel.label ? "labels/#{Whitelabel[:label_id]}.ico" : 'favicon.ico'
+    path = image_path favicon_asset
     tag.link rel: type, href: path
   end
 
@@ -92,6 +96,26 @@ module ApplicationHelper
   end
 
   private
+
+  def favicon_asset
+    return 'favicon.ico' unless Whitelabel.label
+
+    asset_with_fallback("labels/#{Whitelabel[:label_id]}.ico", fallback: 'favicon.ico')
+  end
+
+  def asset_with_fallback(logical_path, fallback:)
+    return logical_path if asset_file_exists?(logical_path)
+
+    fallback
+  end
+
+  def asset_file_exists?(logical_path)
+    [
+      Rails.root.join('app/assets/images', logical_path),
+      Rails.root.join('public', logical_path),
+      Rails.root.join('public/images', logical_path)
+    ].any?(&:exist?)
+  end
 
   def markdown_parser
     @markdown_parser ||= Redcarpet::Markdown.new Redcarpet::Render::Safe, autolink: true, space_after_headers: true
