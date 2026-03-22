@@ -44,7 +44,7 @@ class Event < ApplicationRecord
   class << self
     def duplicate!
       latest  = Event.last
-      date    = Whitelabel[:next_event_date]
+      date    = Whitelabel[:next_event_date] || infer_next_date_from(latest.date)
       Event.new.tap do |it|
         it.name         = "#{I18n.tw('name')} - #{I18n.l date, locale: :de, format: :month}"
         it.date         = date
@@ -53,6 +53,12 @@ class Event < ApplicationRecord
         it.description  = latest.description
         it.save!
       end
+    end
+
+    def infer_next_date_from(date)
+      candidate = date.dup
+      candidate = candidate.advance(months: 1).beginning_of_week(:sunday).advance(days: date.wday).change(hour: date.hour, min: date.min) while candidate <= Time.now
+      candidate
     end
 
     def stats(size: 10)

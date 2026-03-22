@@ -39,6 +39,37 @@ describe Event do
         Event.duplicate!
       end.to change(Event, :count).by(1)
     end
+
+    context 'when usergroup has no recurring date configured' do
+      before { allow(Whitelabel.label).to receive(:recurring).and_return(nil) }
+
+      it 'does not raise a NoMethodError' do
+        expect { Event.duplicate! }.not_to raise_error
+      end
+
+      it 'infers the next date from the latest event' do
+        Event.duplicate!
+        expect(Event.last.date).to be_wednesday
+      end
+    end
+  end
+
+  describe '.infer_next_date_from' do
+    it 'returns the same weekday and time one month later' do
+      date   = Time.utc(2025, 3, 12, 19, 0) # second Wednesday of March, 19:00
+      result = Event.infer_next_date_from(date)
+      expect(result).to be_wednesday
+      expect(result.month).to eq(4)
+      expect(result.hour).to eq(19)
+      expect(result.min).to eq(0)
+    end
+
+    it 'returns the next future occurrence even if the date is several months in the past' do
+      date   = 4.months.ago.change(day: 1).next_occurring(:thursday).advance(weeks: 2) # 3rd Thursday, 4 months ago
+      result = Event.infer_next_date_from(date)
+      expect(result).to be_thursday
+      expect(result).to be > Time.now
+    end
   end
 
   describe '#closed?' do

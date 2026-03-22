@@ -48,6 +48,8 @@ class Usergroup
   end
 
   def next_event_date
+    return unless recurring
+
     d = parse_recurring_date(Date.today)
     d = parse_recurring_date(Date.today.next_month) unless d.future?
     t = parse_recurring_time
