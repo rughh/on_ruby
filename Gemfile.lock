@@ -130,8 +130,10 @@ GEM
     hashie (5.0.0)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
-    icalendar (2.10.3)
+    icalendar (2.12.2)
+      base64
       ice_cube (~> 0.16)
+      logger
       ostruct
     ice_cube (0.17.0)
     image_info (1.2.2)
@@ -256,7 +258,7 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
-    ostruct (0.6.1)
+    ostruct (0.6.3)
     parallel (1.26.3)
     parser (3.3.6.0)
       ast (~> 2.4.1)
