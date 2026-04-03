@@ -48,7 +48,7 @@ describe User do
 
     it 'creates a user from an outh-hash' do
       expect do
-        User.create_from_hash!(TWITTER_AUTH_HASH)
+        User.create_from_hash!(GITHUB_AUTH_HASH)
       end.to change(User, :count).by(1)
     end
 
@@ -64,21 +64,10 @@ describe User do
     end
 
     it 'raises an error for same nickname but different auths' do
-      User.create_from_hash!(TWITTER_AUTH_HASH)
+      create(:user, nickname: 'phoet')
       expect do
         User.create_from_hash!(GITHUB_AUTH_HASH)
       end.to raise_error(User::DuplicateNickname)
-    end
-
-    it 'updates a user from twitter-auth-hash' do
-      user.update_from_auth!(TWITTER_AUTH_HASH).tap do |it|
-        expect(it.name).to eql('Peter Schröder')
-        expect(it.twitter).to eql('phoet')
-        expect(it.location).to eql('Sternschanze, Hamburg')
-        expect(it.image).to eql('http://a3.twimg.com/profile_images/1100439667/P1040913_normal.JPG')
-        expect(it.description).to eql('I am a freelance Ruby and Java developer from Hamburg, Germany. ☠ nofail')
-        expect(it.url).to eql('http://nofail.de')
-      end
     end
 
     it 'updates a user from github-auth-hash' do

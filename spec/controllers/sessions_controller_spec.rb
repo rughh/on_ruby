@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe SessionsController do
   context 'GET :create' do
-    before { request.env['omniauth.auth'] = TWITTER_AUTH_HASH }
+    before { request.env['omniauth.auth'] = GITHUB_AUTH_HASH }
 
     it 'renders the :index template' do
-      get :create, params: { provider: :twitter }
+      get :create, params: { provider: :github }
       expect(controller.send(:signed_in?)).to be_truthy
       expect(response).to redirect_to(root_path)
     end
@@ -13,7 +13,7 @@ describe SessionsController do
     it 'rescues from duplicate nicknames' do
       create(:user, nickname: 'phoet')
 
-      get :create, params: { provider: :twitter }
+      get :create, params: { provider: :github }
       expect(controller.send(:signed_in?)).to be_falsy
       expect(response).to redirect_to(root_path)
       expect(flash[:alert]).to match('bereits vergeben')
