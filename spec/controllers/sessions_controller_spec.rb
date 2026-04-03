@@ -10,13 +10,12 @@ describe SessionsController do
       expect(response).to redirect_to(root_path)
     end
 
-    it 'rescues from duplicate nicknames' do
+    it 'signs in a new user with a generated nickname when the nickname is already taken' do
       create(:user, nickname: 'phoet')
 
-      get :create, params: { provider: :github }
-      expect(controller.send(:signed_in?)).to be_falsy
+      expect { get :create, params: { provider: :github } }.to change(User, :count).by(1)
+      expect(controller.send(:signed_in?)).to be_truthy
       expect(response).to redirect_to(root_path)
-      expect(flash[:alert]).to match('bereits vergeben')
     end
   end
 
