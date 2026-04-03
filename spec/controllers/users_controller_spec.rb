@@ -72,7 +72,7 @@ describe UsersController do
 
   context 'DELETE :destroy' do
     context 'removing' do
-      let(:user) { create(:user) }
+      let(:user) { create(:user, :with_authorization) }
       let(:event) { create(:event) }
 
       it 'deletes a user and logout' do

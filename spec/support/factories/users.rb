@@ -7,7 +7,9 @@ FactoryBot.define do
     email     { Faker::Internet.email }
     image     { 'http://www.onruby.de/assets/labels/hamburg.png' }
 
-    after(:create) { |user| create(:authorization, user:) }
+    trait :with_authorization do
+      after(:create) { |user| create(:authorization, user:) }
+    end
   end
 
   factory :admin_user, parent: :user do
