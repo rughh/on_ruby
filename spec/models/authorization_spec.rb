@@ -4,14 +4,14 @@ describe Authorization do
   it 'creates an auth and a user from an auth-hash' do
     expect do
       expect do
-        Authorization.handle_authorization(nil, TWITTER_AUTH_HASH)
+        Authorization.handle_authorization(nil, GITHUB_AUTH_HASH)
       end.to change(User, :count).by(1)
     end.to change(Authorization, :count).by(1)
   end
 
   describe 'special treatment for stale Twitter users' do
-    let(:existing_twitter_auth) { Authorization.handle_authorization(nil, TWITTER_AUTH_HASH) }
-    let(:existing_twitter_user) { existing_twitter_auth.user }
+    let(:existing_twitter_user) { create(:user, nickname: 'phoet', email: nil) }
+    let(:existing_twitter_auth) { create(:authorization, provider: 'twitter', uid: TWITTER_AUTH_HASH['uid'], user: existing_twitter_user) }
     let(:new_auth_hash) { GITHUB_AUTH_HASH }
     let(:date_of_test) { Authorization::DEFAULT_TWITTER_USER_FALLBACK_DEADLINE - 1 }
 
@@ -21,11 +21,10 @@ describe Authorization do
       end
     end
 
-    shared_examples 'failing with duplicate nickname' do
-      it 'raises duplication error' do
-        expect do
-          Authorization.handle_authorization(nil, new_auth_hash)
-        end.to raise_error(User::DuplicateNickname)
+    shared_examples 'creating a new user with a generated nickname' do
+      it 'creates a new user with a generated nickname' do
+        expect { Authorization.handle_authorization(nil, new_auth_hash) }.to change(User, :count).by(1)
+        expect(User.last.nickname).not_to eq(new_auth_hash.dig('info', 'nickname'))
       end
     end
 
@@ -38,13 +37,13 @@ describe Authorization do
     end
 
     before do
-      existing_twitter_user
+      existing_twitter_auth
       create(:authorization, provider: 'twitter', user: create(:user, email: nil))
     end
 
     context 'when emails do not match' do
       context 'when nicknames are the same' do
-        it_behaves_like 'failing with duplicate nickname'
+        it_behaves_like 'creating a new user with a generated nickname'
       end
 
       context 'when nicknames are different' do
@@ -76,10 +75,10 @@ describe Authorization do
             it_behaves_like 'updating the existing user'
           end
 
-          context 'with a valid value and after that deadline' do
+          context 'after the deadline' do
             let(:date_of_test) { effective_deadline + 1 }
 
-            it_behaves_like 'failing with duplicate nickname'
+            it_behaves_like 'creating a new user with a generated nickname'
           end
         end
 
@@ -108,26 +107,26 @@ describe Authorization do
       context 'when several users have the same email' do
         before { create(:user, email: existing_twitter_user.email) }
 
-        it_behaves_like 'failing with duplicate nickname'
+        it_behaves_like 'creating a new user with a generated nickname'
       end
 
       context 'when the user has other authorizations' do
         before { create(:authorization, user: existing_twitter_user) }
 
-        it_behaves_like 'failing with duplicate nickname'
+        it_behaves_like 'creating a new user with a generated nickname'
       end
 
       context 'when the user has a single auth but it is not Twitter' do
         before { existing_twitter_user.authorizations = [create(:authorization)] }
 
-        it_behaves_like 'failing with duplicate nickname'
+        it_behaves_like 'creating a new user with a generated nickname'
       end
     end
 
     context 'when new auth has no email' do
       let(:new_auth_hash) { GITHUB_AUTH_HASH.deep_merge('info' => { 'email' => nil }) }
 
-      it_behaves_like 'failing with duplicate nickname'
+      it_behaves_like 'creating a new user with a generated nickname'
     end
   end
 end

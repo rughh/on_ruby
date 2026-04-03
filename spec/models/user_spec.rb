@@ -63,11 +63,10 @@ describe User do
       expect(user.name).to eql(User::EMPTY_NAME)
     end
 
-    it 'raises an error for same nickname but different auths' do
+    it 'creates a new user with a generated nickname when the nickname is already taken' do
       create(:user, nickname: 'phoet')
-      expect do
-        User.create_from_hash!(GITHUB_AUTH_HASH)
-      end.to raise_error(User::DuplicateNickname)
+      expect { User.create_from_hash!(GITHUB_AUTH_HASH) }.to change(User, :count).by(1)
+      expect(User.last.nickname).not_to eq('phoet')
     end
 
     it 'updates a user from github-auth-hash' do
