@@ -53,6 +53,16 @@ GITHUB_AUTH_HASH = {
   },
 }.freeze
 
+GOOGLE_AUTH_HASH = {
+  'provider' => 'google_oauth2',
+  'uid' => '118202086798292',
+  'info' => {
+    'name' => 'phoet',
+    'email' => 'phoet@google.example.com',
+    'image' => 'https://lh3.googleusercontent.com/a/phoet',
+  },
+}.freeze
+
 EMAIL_AUTH_HASH = {
   'provider' => 'email',
   'uid' => 'f8a846d3199e68bb5a7d9ba9dab54ddc9c28e382b5c4490b396214808d26aeb9',
