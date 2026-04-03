@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'whitelabel_detection_middleware'
 
 describe WhitelabelDetectionMiddleware do
   subject(:middleware) { described_class.new(dummy_app) }
