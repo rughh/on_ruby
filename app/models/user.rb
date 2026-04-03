@@ -55,42 +55,19 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
   end
 
   def handle_twitter_attributes(hash)
-    self.nickname     = hash['info']['nickname'] unless nickname
-    self.twitter      = hash['info']['nickname']
-    self.name         = hash['info']['name']
-    self.image        = hash['info']['image']
-    self.url          = hash['info']['urls']['Website'] unless url
-    self.description  = hash['info']['description'] unless description
-    self.location     = hash['info']['location']
+    assign_attributes(map_twitter_attributes(hash))
   end
 
   def handle_github_attributes(hash)
-    self.nickname     = hash['info']['nickname'] unless nickname
-    self.github       = hash['info']['nickname']
-    self.email        = hash['info']['email'] unless email
-    self.name         = hash['info']['name'].presence || hash['info']['nickname']
-    self.image        = hash['info']['image']
-    self.url          = hash['info']['urls']['Blog'] || hash['info']['urls']['GitHub'] unless url
-    self.description  = hash['extra']['raw_info']['bio'] unless description
-    self.location     = hash['extra']['raw_info']['location']
+    assign_attributes(map_github_attributes(hash))
   end
 
   def handle_google_oauth2_attributes(hash)
-    Rails.logger.info(hash)
-    Rails.logger.info(hash['info'])
-    self.nickname = hash['info']['name'] unless nickname
-    self.email    = hash['info']['email'] unless email
-    self.name     = hash['info']['name']
-    self.image    = hash['info']['image']
+    assign_attributes(map_google_oauth2_attributes(hash))
   end
 
   def handle_email_attributes(hash)
-    received_email = hash['info']['email']
-
-    self.nickname = nickname_from_email(received_email) unless nickname
-    self.name     = name_from_email(received_email) unless name
-    self.image    = image_from_email(received_email) unless image
-    self.email    = received_email
+    assign_attributes(map_email_attributes(hash))
   end
 
   def hash_for_email(email)
@@ -137,15 +114,71 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
 
   class << self
     def create_from_hash!(hash)
-      nickname = hash['info']['nickname']
-      raise DuplicateNickname, nickname if find_by(nickname:)
+      attrs = attributes_from_auth(hash)
+      create!(attrs)
+    rescue ActiveRecord::RecordInvalid => e
+      raise if e.record.errors[:nickname].blank?
 
-      User.new.update_from_auth! hash
+      create!(attrs.merge(nickname: SecureRandom.hex(16)))
+    end
+
+    def attributes_from_auth(hash)
+      user = new
+      case hash['provider']
+      when 'github'        then user.map_github_attributes(hash)
+      when 'google_oauth2' then user.map_google_oauth2_attributes(hash)
+      when 'email'         then user.map_email_attributes(hash)
+      else raise ArgumentError, "Unknown provider: #{hash['provider']}"
+      end
     end
 
     def authenticated_with_token(id, stored_salt)
       user = find_by(id:)
       user && user.salt == stored_salt ? user : nil
     end
+  end
+
+  def map_twitter_attributes(hash)
+    result = {}
+    result[:nickname]     = hash['info']['nickname'] unless nickname
+    result[:twitter]      = hash['info']['nickname']
+    result[:name]         = hash['info']['name']
+    result[:image]        = hash['info']['image']
+    result[:url]          = hash['info']['urls']['Website'] unless url
+    result[:description]  = hash['info']['description'] unless description
+    result[:location]     = hash['info']['location']
+    result
+  end
+
+  def map_github_attributes(hash)
+    result = {}
+    result[:nickname]     = hash['info']['nickname'] unless nickname
+    result[:github]       = hash['info']['nickname']
+    result[:email]        = hash['info']['email'] unless email
+    result[:name]         = hash['info']['name'].presence || hash['info']['nickname']
+    result[:image]        = hash['info']['image']
+    result[:url]          = hash['info']['urls']['Blog'] || hash['info']['urls']['GitHub'] unless url
+    result[:description]  = hash['extra']['raw_info']['bio'] unless description
+    result[:location]     = hash['extra']['raw_info']['location']
+    result
+  end
+
+  def map_google_oauth2_attributes(hash)
+    result = {}
+    result[:nickname] = hash['info']['name'] unless nickname
+    result[:email]    = hash['info']['email'] unless email
+    result[:name]     = hash['info']['name']
+    result[:image]    = hash['info']['image']
+    result
+  end
+
+  def map_email_attributes(hash)
+    received_email = hash['info']['email']
+    result = {}
+    result[:nickname] = nickname_from_email(received_email) unless nickname
+    result[:name]     = name_from_email(received_email) unless name
+    result[:image]    = image_from_email(received_email) unless image
+    result[:email]    = received_email
+    result
   end
 end
