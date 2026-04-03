@@ -29,8 +29,7 @@ module ApplicationHelper
 
   def whitelabel_javascript_include_tag
     link = "labels/#{Whitelabel[:label_id]}"
-    labels = Rails.root.join('app/assets/javascripts/labels').entries.map(&:to_s)
-    javascript_include_tag link if labels.any? { |path| path.to_s =~ /#{Whitelabel[:label_id]}/ }
+    javascript_include_tag link if Rails.root.join("app/assets/javascripts/#{link}.js").exist?
   end
 
   def label_auth_url(provider)
@@ -46,6 +45,8 @@ module ApplicationHelper
 
   def canonical_url
     host = Whitelabel.label ? Whitelabel[:canonical_url] : 'https://www.onruby.eu'
+    return unless host
+
     tag.link rel: :canonical, href: url_for(host:, only_path: false)
   end
 

@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 ruby File.read('.ruby-version').strip
 
-gem 'rails', '~> 6.1.3'
+gem 'rails', '~> 7.0.0'
 
 gem 'acts_as_api'
 gem 'addressable'
@@ -25,7 +25,8 @@ gem 'redcarpet'
 gem 'icalendar'
 gem 'simple_form'
 gem 'slim-rails'
-gem 'sprockets', '~> 3.7'
+gem 'sprockets', '~> 4.0'
+gem 'sprockets-rails'
 gem 'validate_url'
 gem 'whitelabel'
 
