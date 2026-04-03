@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 ruby File.read('.ruby-version').strip
 
-gem 'rails', '~> 7.0.0'
+gem 'rails', '~> 7.1.0'
 
 gem 'acts_as_api'
 gem 'addressable'
