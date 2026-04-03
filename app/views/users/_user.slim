@@ -1,9 +1,12 @@
 .card.my-2
-  .card-body.position-relative
+  .card-body.position-relative.pt-4
     .pull-left
       - if user.organizer?
-        span.position-absolute.ms-5.top-0.translate-middle.badge.p-2.text-bg-light.border.border-light.rounded-border
-          = fa_icon "star", text: "Organizer"
+        span.position-absolute.left-25.top-0.translate-middle-y.badge.p-2.bg-danger.border.border-light.rounded-border
+          = fa_icon "star", text: "Organizer", class: "text-light"
+      - if user.available?
+        span.position-absolute.left-25.top-0.translate-middle-y.badge.p-2.bg-success.border.border-light.rounded-border
+          = fa_icon "vcard", text: "#{t('profile.available')}", class: "text-light"
       = link_to(user) do
         = user_image(user, image_class: 'card-img-topic')
 
