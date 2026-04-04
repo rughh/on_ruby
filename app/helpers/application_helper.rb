@@ -93,7 +93,7 @@ module ApplicationHelper
   end
 
   def user_name(user)
-    user.display_name
+    user&.display_name
   end
 
   private
