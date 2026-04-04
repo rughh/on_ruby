@@ -17,7 +17,7 @@
         = fa_icon('linkedin', text: link_to_linkedin(user))
     - if user.url?
       span.badge.badge-card-header.mr-2
-        = fa_icon('bookmark', text: link_to(user.url, user.url))
+        = fa_icon('bookmark', text: link_to(user.url, user.url, rel: "nofollow noopener noreferrer ugc"))
 
   .card-body
     h2.card-title
@@ -72,4 +72,3 @@
         = I18n.tw("home.like_to_talk")
         br
         == contact_text
-

@@ -7,7 +7,7 @@ describe ApplicationHelper do
     end
 
     it 'autolinks' do
-      expect(helper.markdown('auto http://href.org')).to match('auto <a href="http://href.org">http://href.org</a>')
+      expect(helper.markdown('auto http://href.org')).to match('auto <a href="http://href.org" rel="nofollow noopener noreferrer ugc">http://href.org</a>')
     end
 
     it 'escapes html tags' do
