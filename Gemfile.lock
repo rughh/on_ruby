@@ -539,7 +539,7 @@ DEPENDENCIES
   whitelabel
 
 RUBY VERSION
-   ruby 3.2.10
+   ruby 3.2.11
 
 BUNDLED WITH
    2.4.19
