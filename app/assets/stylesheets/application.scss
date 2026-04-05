@@ -1,34 +1,35 @@
 //= require user_image
+
 $primary: #555;
-$default: #555;
 $link-decoration: underline;
 
 @import "bootstrap";
 @import "font-awesome";
 
-$background: white;
-$container-background: image-url("whitey.png") left top repeat;
-$title-color: #555;
-$font: Raleway, sans-serif;
-$base-font-size: 0.8em;
-$nav-font-size: 1.2em;
-$title-font-size: 1.1em;
-$sub-title-font-size: 1em;
-$border-color: lightgray;
-$border: 1px solid $border-color;
-$border-radius: calc(0.25rem - 1px);
-$ruby-red: #c81b47;
+:root {
+  --color-text: #555;
+  --color-background: white;
+  --color-surface: white;
+  --color-border: lightgray;
+  --color-ruby: #c81b47;
+  --font: Raleway, sans-serif;
+  --border: 1px solid var(--color-border);
+  --radius: calc(0.25rem - 1px);
+  --nav-font-size: 1.2em;
+  --title-font-size: 1.1em;
+  --sub-title-font-size: 1em;
+}
 
 .fa {
-  color: $title-color;
+  color: var(--color-text);
 }
 body {
   background: image-url("whitey.png") left top repeat;
 }
 .badge-card-header {
-  background-color: $white;
-  border: 1px solid $border-color;
-  color: $title-color;
+  background-color: var(--color-surface);
+  border: var(--border);
+  color: var(--color-text);
 }
 .badge-organizer {
   position: absolute;
@@ -42,9 +43,9 @@ body {
   img.label {
     max-height: 30px;
   }
-  background-color: $white;
-  font: $nav-font-size $font;
-  border: $border;
+  background-color: var(--color-surface);
+  font: var(--nav-font-size) var(--font);
+  border: var(--border);
   a {
     text-decoration: none;
   }
@@ -52,7 +53,7 @@ body {
 header {
   margin: 3em 1em;
   padding: 0em 2em 0em 2em;
-  color: $title-color;
+  color: var(--color-text);
 
   #logo {
     margin-top: 15px;
@@ -66,14 +67,14 @@ header {
   &:hover,
   &:active,
   &:visited {
-    color: $title-color;
+    color: var(--color-text);
     text-decoration: none;
     h1 {
-      font: 3em $font;
+      font: 3em var(--font);
       letter-spacing: 1px;
     }
     h2 {
-      font: 1.5em $font;
+      font: 1.5em var(--font);
       letter-spacing: 1px;
     }
   }
@@ -147,12 +148,12 @@ header {
   .badges {
     span {
       font-size: smaller;
-      background-color: white;
+      background-color: var(--color-surface);
       padding: 5px;
       margin-right: 5px;
       margin-bottom: 5px;
-      border-radius: $border-radius;
-      border: $border;
+      border-radius: var(--radius);
+      border: var(--border);
       display: inline-block;
       white-space: nowrap;
     }
@@ -169,24 +170,24 @@ header {
   @include media-breakpoint-up(xl) {
     section {
       margin-bottom: 2em;
-      border-radius: $border-radius;
+      border-radius: var(--radius);
     }
   }
   section {
     padding: 2em;
     margin: 3em 0;
     width: 100%;
-    background: $background;
+    background: var(--color-background);
 
     h2 {
-      font: $title-font-size $font;
+      font: var(--title-font-size) var(--font);
       margin-bottom: 1em;
       i {
         margin-right: 5px;
       }
     }
     h3 {
-      font: $sub-title-font-size $font;
+      font: var(--sub-title-font-size) var(--font);
       margin-bottom: 0.75em;
     }
     #undone,
@@ -222,8 +223,8 @@ header {
   .map_canvas {
     margin: 0 auto;
     height: 30em;
-    border: $border;
-    border-radius: $border-radius;
+    border: var(--border);
+    border-radius: var(--radius);
   }
   .meta {
     font-size: smaller;
@@ -262,9 +263,9 @@ header {
     .last a,
     .first a,
     .prev a {
-      background-color: white;
-      border: $border;
-      border-radius: $border-radius;
+      background-color: var(--color-surface);
+      border: var(--border);
+      border-radius: var(--radius);
     }
   }
   .enumeration {
@@ -293,15 +294,15 @@ header {
 footer {
   padding: 0;
   margin: 0 0 -1.5em 0;
-  border-top: $border;
-  background: $white;
+  border-top: var(--border);
+  background: var(--color-surface);
   height: 100%;
 
   .hr {
-    border-bottom: 1px dashed $border-color;
+    border-bottom: 1px dashed var(--color-border);
   }
   h2 {
-    font: $title-font-size $font;
+    font: var(--title-font-size) var(--font);
     padding-bottom: 1em;
   }
   ul {
