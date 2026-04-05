@@ -22,9 +22,6 @@ $ruby-red: #c81b47;
 .fa {
   color: $title-color;
 }
-@mixin clearfix {
-  clear: both;
-}
 @mixin hide-text {
   $approximate-em-value: 12px / 1em;
   $wider-than-any-screen: -9999em;
