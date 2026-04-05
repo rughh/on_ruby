@@ -8,7 +8,7 @@
           .card-header
             .pull-left
               = link_to(topic.user) do
-                = user_image(topic.user, image_class: 'card-img-topic-header')
+                = user_image(topic.user, variant: 'topic-header')
             = link_to_user(topic.user)
           .card-body
             h5.card-title= link_to_topic(topic)

@@ -1,3 +1,4 @@
+//= require user_image
 $primary: #555;
 $default: #555;
 $link-decoration: underline;
@@ -20,12 +21,6 @@ $ruby-red: #c81b47;
 
 .fa {
   color: $title-color;
-}
-@mixin userimage($size) {
-  width: $size;
-  height: $size;
-  border: $border;
-  border-radius: 999%;
 }
 @mixin clearfix {
   clear: both;
@@ -67,31 +62,12 @@ body {
   margin-top: -30px;
   margin-left: -5px;
 }
-.card-img-topic {
-  margin-right: 0.5em;
-  @include userimage(75px);
-}
-.card-img-topic-header {
-  margin-right: 0.5em;
-  @include userimage(50px);
-}
 .hidden {
   display: none;
-}
-.small-user-image {
-  margin-right: 0.5em;
-  @include userimage(1.5em);
-}
-.large-user-image {
-  margin-right: 1em;
-  @include userimage(6em);
 }
 #nav {
   img.label {
     max-height: 30px;
-  }
-  .user-image {
-    @include userimage(1.5em);
   }
   background-color: $white;
   @include title($nav-font-size);
@@ -269,20 +245,6 @@ header {
         }
       }
     }
-  }
-  .user {
-    .image {
-      float: left;
-      margin-right: 1em;
-      margin-bottom: 1em;
-      img {
-        @include userimage(52px);
-      }
-    }
-    h3 {
-      margin: 0.2em;
-    }
-    @include clearfix;
   }
   .imagelist {
     ul {
