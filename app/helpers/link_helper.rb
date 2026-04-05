@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 module LinkHelper
-  def link_to_user(user, image: false, image_class: nil)
+  def link_to_user(user, image: false)
     link_to(user, title: user_name(user)) do
-      image ? user_image(user, image_class:) + user_name(user) : user_name(user)
+      image ? user_image(user) + user_name(user) : user_name(user)
     end
   end
 
-  def user_image(user, image_class: nil)
-    image_class ||= 'small-user-image'
+  def user_image(user, variant: nil)
+    image_class = ['user-image', "user-image-#{variant || 'small'}"]
     image_tag(cache_image_path(user), title: user_name(user), class: image_class)
   end
 

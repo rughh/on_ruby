@@ -1,0 +1,23 @@
+.user-image {
+  border: 1px solid lightgray;
+  border-radius: 999%;
+  aspect-ratio: 1;
+  margin-right: 0.5em;
+}
+
+.user-image-small {
+  width: 1.5em;
+}
+
+.user-image-large {
+  width: 6em;
+  margin-right: 1em;
+}
+
+.user-image-topic {
+  width: 75px;
+}
+
+.user-image-topic-header {
+  width: 50px;
+}
