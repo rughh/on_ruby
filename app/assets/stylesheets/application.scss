@@ -25,11 +25,6 @@ $ruby-red: #c81b47;
 @mixin clearfix {
   clear: both;
 }
-@mixin title($size) {
-  font: $size $font;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
 @mixin hide-text {
   $approximate-em-value: 12px / 1em;
   $wider-than-any-screen: -9999em;
@@ -70,7 +65,7 @@ body {
     max-height: 30px;
   }
   background-color: $white;
-  @include title($nav-font-size);
+  font: $nav-font-size $font;
   border: $border;
   a {
     text-decoration: none;
@@ -216,14 +211,14 @@ header {
     background: $background;
 
     h2 {
-      @include title($title-font-size);
+      font: $title-font-size $font;
       margin-bottom: 1em;
       i {
         margin-right: 5px;
       }
     }
     h3 {
-      @include title($sub-title-font-size);
+      font: $sub-title-font-size $font;
       margin-bottom: 0.75em;
     }
     #undone,
@@ -338,7 +333,7 @@ footer {
     border-bottom: 1px dashed $border-color;
   }
   h2 {
-    @include title($title-font-size);
+    font: $title-font-size $font;
     padding-bottom: 1em;
   }
   ul {
