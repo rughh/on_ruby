@@ -1,0 +1,29 @@
+body {
+  color: #151515;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #c10000;
+}
+
+header #title h1 a,
+header #title h1 a:link,
+header #title h1 a:visited,
+header #title h1 a:focus,
+header #title h1 a:hover,
+header #title h1 a:active {
+  color: #ce0c14;
+}
+header #title h2 a,
+header #title h2 a:link,
+header #title h2 a:visited,
+header #title h2 a:focus,
+header #title h2 a:hover,
+header #title h2 a:active {
+  color: #fff;
+}

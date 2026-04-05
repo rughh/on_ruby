@@ -1,0 +1,13 @@
+footer section .usergroups ol,
+footer section .railsgroups ol,
+footer section .railssupporters ol {
+  list-style-type: square;
+}
+
+section .sponsors ol {
+  text-align: center;
+}
+section .sponsors ol li img {
+  height: auto;
+  width: 160px;
+}
