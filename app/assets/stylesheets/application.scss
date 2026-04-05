@@ -8,7 +8,7 @@ $link-decoration: underline;
 
 :root {
   --color-text: #555;
-  --color-background: white;
+  --color-background: #f5f4f2;
   --color-surface: white;
   --color-border: lightgray;
   --color-ruby: #c81b47;
@@ -24,7 +24,7 @@ $link-decoration: underline;
   color: var(--color-text);
 }
 body {
-  background: image-url("whitey.png") left top repeat;
+  background: var(--color-background);
 }
 .badge-card-header {
   background-color: var(--color-surface);
@@ -177,7 +177,7 @@ header {
     padding: 2em;
     margin: 3em 0;
     width: 100%;
-    background: var(--color-background);
+    background: var(--color-surface);
 
     h2 {
       font: var(--title-font-size) var(--font);
