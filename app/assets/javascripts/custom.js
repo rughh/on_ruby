@@ -22,13 +22,6 @@ function displayUsers() {
   setInterval(func, 500);
 }
 
-function close() {
-  $(".close").click(function(event) {
-    event.preventDefault();
-    $(this).parent().fadeOut();
-  });
-}
-
 function jobs() {
   if ($('#job-list .job').size() > 1) {
     $('.job-toggle a').on('click', function(event) {
@@ -66,7 +59,6 @@ function moreList() {
 
 $(function() {
   jobs();
-  close();
   showHide();
   moreList();
   displayUsers();

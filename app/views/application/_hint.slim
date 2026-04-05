@@ -5,14 +5,14 @@
 - else
   - if highlights.present?
     #highlights
-      = hint(false) do
+      = hint do
         - highlights.each do |highlight|
           .highlights
             strong=> t("hint.attention")
             = link_to highlight.description, highlight.url, title: highlight.description, target:  "_blank"
   - if jobs.present?
     - unless current_user && current_user.hide_jobs?
-      = hint(false) do
+      = hint do
         #job-teaser
           ul
             li
@@ -27,7 +27,7 @@
                 .job.ml-4== job_description(job)
 
 - if current_user&.missing_name?
-  = hint(false) do
+  = hint do
     .highlights
       => fa_icon("exclamation-triangle")
       strong=> t("flash.update_profile_details")
