@@ -12,7 +12,7 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-light.bg-light#nav
       - [:events, :topics, :people, :locations].each do |section|
         li.nav-item.ms-4
           = link_to(root_path(anchor: section), class: 'nav-link') do
-            = fa_icon(section, class: 'fa-fw', text: t("main.#{section}"))
+            = fa_icon(fa_icon_map[section], class: 'fa-fw', text: t("main.#{section}"))
 
     ul.navbar-nav.ms-auto
       li.nav-item.dropdown.pe-4

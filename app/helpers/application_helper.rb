@@ -17,9 +17,7 @@ module ApplicationHelper
   end
 
   def icon_for_provider(provider)
-    return 'envelope' if provider == 'email'
-
-    provider
+    fa_icon_map[provider]
   end
 
   def whitelabel_stylesheet_link_tag
@@ -79,9 +77,20 @@ module ApplicationHelper
     tag.div(content, class: :markdown)
   end
 
+  def fa_icon_map
+    @fa_icon_map ||= ActiveSupport::HashWithIndifferentAccess.new { |_hash, key| key }.merge(
+      'events' => 'calendar',
+      'topics' => 'comment',
+      'people' => 'group',
+      'locations' => 'map-marker',
+      'google_oauth2' => 'google',
+      'email' => 'envelope'
+    ).freeze
+  end
+
   def section_box(name)
     tag.section(class: "#{name} clearfix", id: name) do
-      concat tag.h2(fa_icon(name, text: t("main.#{name}")))
+      concat tag.h2(fa_icon(fa_icon_map[name], text: t("main.#{name}")))
       yield
     end
   end

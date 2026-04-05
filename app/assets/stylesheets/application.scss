@@ -75,22 +75,6 @@ body {
   margin-right: 0.5em;
   @include userimage(50px);
 }
-// https://fontawesome.com/v3.2.1/icons/
-.fa-events {
-  @extend .fa-calendar;
-}
-.fa-topics {
-  @extend .fa-comment;
-}
-.fa-people {
-  @extend .fa-group;
-}
-.fa-locations {
-  @extend .fa-map-marker;
-}
-.fa-google_oauth2 {
-  @extend .fa-google;
-}
 .hidden {
   display: none;
 }
