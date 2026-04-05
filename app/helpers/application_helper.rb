@@ -95,11 +95,8 @@ module ApplicationHelper
     end
   end
 
-  def hint(close = true)
-    tag.section(class: :hint) do
-      concat tag.div(link_to(t('hint.close'), '#'), class: :close) if close
-      yield
-    end
+  def hint(&block)
+    tag.section(class: :hint, &block)
   end
 
   def user_name(user)
