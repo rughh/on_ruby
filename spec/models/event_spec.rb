@@ -56,8 +56,10 @@ describe Event do
 
   describe '.infer_next_date_from' do
     it 'returns the same weekday and time one month later' do
-      date   = Time.utc(2025, 3, 12, 19, 0) # second Wednesday of March, 19:00
+      date = Time.utc(2025, 3, 12, 19, 0) # second Wednesday of March, 19:00
+      travel_to Time.zone.local(2025, 4, 1, 1, 4, 44)
       result = Event.infer_next_date_from(date)
+      travel_back
       expect(result).to be_wednesday
       expect(result.month).to eq(4)
       expect(result.hour).to eq(19)
