@@ -87,7 +87,7 @@ class Usergroup
     raise 'you need to provide a name that contains only word characters' unless name =~ /\A\w+\z/
 
     new.tap do |it|
-      it.label_id = it.google_group = it.twitter = name.underscore
+      it.label_id = it.google_group = name.underscore
       it.status           = 'enabled'
       it.default_locale   = 'de'
       it.tld              = 'de'
@@ -96,13 +96,12 @@ class Usergroup
       it.domains          = ["#{name.parameterize}.de"]
       it.recurring        = 'second wednesday'
       it.email            = "info@#{name.parameterize}.de"
-      it.twitter          = name.parameterize
       it.github_org       = name.parameterize
       it.github_repo      = 'planning'
-      it.organizers       = ['your_twitter_handle']
+      it.organizers       = ['your_github_handle']
       it.location         = { zoom: 14, lat: 53.079296, long: 8.801694 }
       it.imprint          = { address: "YourStreet 1\n0815 YourTown", contributors: [{ name: 'Your Name', email: 'your@mail.de' }] }
-      it.other_usergroups = [{ name: 'OtherUsergroupName', url: 'http://some-domain.de/', twitter: 'some_handle' }]
+      it.other_usergroups = [{ name: 'OtherUsergroupName', url: 'http://some-domain.de/' }]
       it.coc              = 'http://example.com'
       it.sponsors         = []
     end

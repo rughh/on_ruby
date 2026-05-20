@@ -25,7 +25,6 @@ de:
     edit_profile: "Profil bearbeiten"
     login: "Anmelden"
     logout: "Ausloggen"
-    twitter_login: "Twitter Login"
     github_login: "GitHub Login"
     google_oauth2_login: "Google Login"
   hint:
@@ -62,7 +61,6 @@ de:
     the_usergroup: "Die <strong>%{usergroup}</strong> ist eine Benutzergruppe, Anwendergruppe, Interessengemeinschaft oder auch einfach nur ein Haufen Leute, die Spaß an der Programmiersprache Ruby haben. Tausch dich mit uns aus und komm zu unserem nächsten Treffen! Neue Gesichter sind immer gerne gesehen."
     like_to_talk: "Möchtest du einen Vortrag auf der Ruby Usergroup halten oder hast du zusätzliche Themenvorschläge?"
     send_us_an_email: "Dann schicke uns einfach eine %{mail_to}"
-    or_message_on_twitter: "oder spreche uns persönlich an: %{twitter_link}"
     engage: "Usergroups leben von Vorträgen und dem Engagement der Teilnehmer. Wenn du ein Thema vermisst, oder nähre Informationen zu speziellen Bereichen suchst, dann <strong>kannst du hier gerne etwas in die Wunschliste eintragen</strong>. Solltest du schon eine Idee zu einem Vortrag oder ähnlichem haben, dann <strong>kannst du ihn hier eintragen</strong>, um Feedback von der Ruby / Rails Community zu bekommen."
     add_topic: "Eigenes Thema eintragen"
     new_topics: "Themenvorschläge"
@@ -70,7 +68,6 @@ de:
     old_topics: "Kürzlich vorgestellte Themen"
     company_workers: "Viele der Teilnehmer an der Ruby Usergroup arbeiten auch dort und wir freuen uns immer über neue Gesichter."
     company_missing: "Solltest du eine Firma vermissen, dann schicke uns einfach eine %{email_link}"
-    company_missing_or_message_twitter: "oder Direct-Message an %{twitter_link}"
     next_possible_meetup_recurring: "Derzeit ist noch kein Termin festgelegt, die Usergroup trifft sich aber %{recurring} und es wird <a href='%{none_url}'>noch eine Location gesucht</a>."
     next_possible_meetup: "Das nächste Ruby / Rails Treffen findet voraussichtlich am %{event_date} statt."
     next_meetup: "Das nächste Treffen"
@@ -120,7 +117,6 @@ de:
     no_event: "noch kein Event-Termin, ist aber in der Mache"
     markdown: "Du kannst <a href='http://daringfireball.net/projects/markdown/syntax'>Markdown</a> in deiner Beschreibung verwenden, URLs werden automatisch verlinkt."
     please_login: "Bitte melde dich an, bevor du ein Thema einträgst!"
-    twitter_message: "Neues Thema von @%{username} '%{name}' %{url}"
     proposal_types:
       proposal: "Ich stelle das Thema vor"
       enquiry: "Ich würde gerne mehr zu diesem Thema erfahren"
@@ -128,7 +124,6 @@ de:
       proposal: "%{user} stellt das Thema vor"
       enquiry: "%{user} würde gerne mehr zu diesem Thema erfahren"
   event:
-    twitter_message: "%{name} am %{date} %{url}"
     recurring: "jeden %{ordinal} %{day} im Monat"
     first: "1."
     second: "2."

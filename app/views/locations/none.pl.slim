@@ -5,9 +5,7 @@ section
   p
     ' Zawsze szukamy nowych miejsc na nasze spotkania
     ' Jeśli chesz by takie wydarzenie odbyło się w siedzibie Twojej firmy
-    => mail_to Whitelabel[:email], "napisz nam maila", title: "#{Whitelabel[:twitter]} E-Mail"
-    - if Whitelabel[:twitter]
-      ', skontaktuj się przez Twittera #{link_to_twitter Whitelabel[:twitter]}
+    => mail_to Whitelabel[:email], "napisz nam maila", title: "E-Mail"
     ' lub bezpośrednio do jednego z organizatorów:
   = render 'users/list', users: organizers
 

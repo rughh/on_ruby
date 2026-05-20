@@ -30,7 +30,6 @@ class UserDashboard < Administrate::BaseDashboard
     freelancer: Field::Boolean,
     available: Field::Boolean,
     hide_jobs: Field::Boolean,
-    twitter: Field::String,
     email: Field::String,
     linkedin: Field::String,
   }.freeze
@@ -45,7 +44,6 @@ class UserDashboard < Administrate::BaseDashboard
     :created_at,
     :nickname,
     :github,
-    :twitter,
     :email,
   ].freeze
 
@@ -67,7 +65,6 @@ class UserDashboard < Administrate::BaseDashboard
     :freelancer,
     :available,
     :hide_jobs,
-    :twitter,
     :email,
   ].freeze
 
@@ -82,7 +79,6 @@ class UserDashboard < Administrate::BaseDashboard
     :description,
     :email,
     :github,
-    :twitter,
     :linkedin,
     :url,
     :admin,

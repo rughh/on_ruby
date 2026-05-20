@@ -244,12 +244,6 @@ GEM
     nokogiri (1.19.3)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    oauth (1.1.0)
-      oauth-tty (~> 1.0, >= 1.0.1)
-      snaky_hash (~> 2.0)
-      version_gem (~> 1.1)
-    oauth-tty (1.0.5)
-      version_gem (~> 1.1, >= 1.1.1)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
@@ -272,19 +266,12 @@ GEM
       oauth2 (~> 2.0)
       omniauth (~> 2.0)
       omniauth-oauth2 (~> 1.8)
-    omniauth-oauth (1.2.1)
-      oauth
-      omniauth (>= 1.0, < 3)
-      rack (>= 1.6.2, < 4)
     omniauth-oauth2 (1.8.0)
       oauth2 (>= 1.4, < 3)
       omniauth (~> 2.0)
     omniauth-rails_csrf_protection (1.0.2)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
-    omniauth-twitter (1.4.0)
-      omniauth-oauth (~> 1.1)
-      rack
     ostruct (0.6.3)
     parallel (1.26.3)
     parser (3.3.6.0)
@@ -513,7 +500,6 @@ DEPENDENCIES
   omniauth-github
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
-  omniauth-twitter
   partially_useful
   pg (= 1.4.6)
   pry-rails

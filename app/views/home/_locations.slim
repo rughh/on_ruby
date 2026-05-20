@@ -5,6 +5,4 @@
   p== I18n.tw("home.company_workers")
   p
     == I18n.tw("home.company_missing", email_link: mail_to(Whitelabel[:email], "E-Mail", title: "E-Mail"))
-    - if Whitelabel[:twitter]
-      ==< I18n.tw("home.company_missing_or_message_twitter", twitter_link: link_to_twitter(Whitelabel[:twitter]))
     | .

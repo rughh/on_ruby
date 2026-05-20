@@ -79,7 +79,6 @@ describe EventsController do
               'image' => t.user.image,
               'url' => t.user.url,
               'github' => t.user.github,
-              'twitter' => t.user.twitter,
               'freelancer' => t.user.freelancer,
               'available' => t.user.available,
             },
