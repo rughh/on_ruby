@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def login_providers
-    %w[twitter github google_oauth2 email]
+    %w[github google_oauth2 email]
   end
 
   def icon_for_provider(provider)

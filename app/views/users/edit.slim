@@ -4,8 +4,6 @@ section
 
   = simple_form_for user do |f|
     = f.input :name
-    - unless user.with_provider? :twitter
-        = f.input :twitter, input_html: { placeholder: 'Twitter handle' }
     - unless user.with_provider? :github
         = f.input :github, input_html: { placeholder: 'GitHub handle' }
     = f.input :linkedin, input_html: { placeholder: 'Linkedin handle' }

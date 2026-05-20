@@ -25,7 +25,6 @@ pl:
     edit_profile: "Edytuj profil"
     login: "Zaloguj się"
     logout: "Wyloguj się"
-    twitter_login: "Zaloguj przez Twittera"
     github_login: "Zaloguj przez Github"
     google_oauth2_login: "Zaloguj przez Google"
   hint:
@@ -62,7 +61,6 @@ pl:
     the_usergroup: "<strong>%{usergroup}</strong> jest grupą ludzi, którzy kochają Ruby. Spotkaj się z nami na najbliższym meetupie! Początkujący są zawsze mile widziani."
     like_to_talk: "Chcesz zgłosić prezentację na najbliższe spotkanie albo masz propozycję tematu?"
     send_us_an_email: "Wyślij nam %{mail_to}"
-    or_message_on_twitter: "lub skontaktuj się na Twitterze: %{twitter_link}"
     engage: "Grupy potrzebują zaangażoanych uczestników. Jeśli uważasz że brakuje jakiegoś tematu lub poszukujesz dodatkowych informacji, <strong>zachęcamy Cię do dodania tych rzeczy do naszej Listy życzeń</strong>. Jeśli masz pomysł na prezentację, <strong>dodaj go tutaj</strong> i otrzymaj natychmiastowy feedback od środowiska Ruby / Rails."
     add_topic: "Dodaj temat"
     new_topics: "Propozycje"
@@ -70,7 +68,6 @@ pl:
     old_topics: "OStatnie tematy"
     company_workers: "Pracuje tu wielu członków grupy. Lubimy widzieć nowe twarze."
     company_missing: "Jeśli uważasz że brakuje tu jakiejś firmy, wyślij nam %{email_link}"
-    company_missing_or_message_twitter: "lub wiadomość prywatną na Twitterze (%{twitter_link})"
     next_possible_meetup_recurring: "Obecnie nie ma zaplanowanych żadnych spotkań. Grupa zazwyczaj spotyka się %{recurring} i wciąż <a href='%{none_url}'>poszukuje miejsca</a>, gdzie mogłaby się spotkać."
     next_possible_meetup: "Najbliższe spotkanie Ruby / Rails powinno odbyć się %{event_date}"
     next_meetup: "Najbliższy meetup"
@@ -120,7 +117,6 @@ pl:
     no_event: "Jeszcze nie ma daty"
     markdown: "W tym polu możesz użyć <a href='http://daringfireball.net/projects/markdown/syntax'>markdowna</a>, adresy internetowe automatycznie staną się linkami."
     please_login: "Zanim dodasz temat, musisz się zalogować."
-    twitter_message: "Nowy temat zgłoszony przez @%{username} '%{name}' %{url}"
     proposal_types:
       proposal: "Chcę zrobić o tym prezentację"
       enquiry: "Chciałbym żeby ktoś zrobił o tym prezentację"
@@ -128,7 +124,6 @@ pl:
       proposal: "%{user} chce zrobić o tym prezentację"
       enquiry: "%{user} chciałby zobaczyć na ten temat prezentację"
   event:
-    twitter_message: "%{name} %{date} %{url}"
     recurring: "w %{ordinal} %{day} miesiąca"
     first: "1."
     second: "2."

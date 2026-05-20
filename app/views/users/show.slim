@@ -6,9 +6,6 @@
     - if user.location?
       span.badge.badge-card-header.mr-2
         = fa_icon('map-marker', text:(user.location))
-    - if user.twitter?
-      span.badge.badge-card-header.mr-2
-        = fa_icon('twitter', text: link_to_twitter(user))
     - if user.github?
       span.badge.badge-card-header.mr-2
         = fa_icon('github', text: link_to_github(user))

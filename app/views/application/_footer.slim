@@ -14,13 +14,9 @@
       ul
         - if Whitelabel[:discord]
           li= link_to 'Discord', Whitelabel[:discord], target: '_blank', rel: 'noopener'
-        - if Whitelabel[:twitter]
-          li
-            = link_to_twitter Whitelabel[:twitter] do
-              = "Twitter"
         - if Whitelabel[:bluesky]
           li= link_to 'Bluesky', "https://bsky.app/profile/#{Whitelabel[:bluesky]}.bsky.social", title: "#{Whitelabel[:bluesky]}", target: '_blank', rel: 'noopener'
-        li= mail_to Whitelabel[:email], 'E-Mail', title: "#{Whitelabel[:twitter]} E-Mail"
+        li= mail_to Whitelabel[:email], 'E-Mail', title: 'E-Mail'
         li= link_to 'Status', 'http://status.onruby.eu/'
 
     .col-sm.mb-2
@@ -58,7 +54,6 @@
           - Whitelabel[:other_usergroups].each do |ug|
             li
               => link_to ug[:name], ug[:url], title: ug[:name]
-              = link_to_twitter(ug[:twitter], clung: true) if ug[:twitter]
 
   .row.m-4.railsgroups.hr
     .col-sm.mb-2
@@ -69,7 +64,6 @@
             li
               - name = t("label.#{label.label_id}.name")
               => link_to name, label_url(label), title: name
-              = link_to_twitter(label.twitter, clung: true)
 
   .row.m-4.railssupporters
     .col-sm.mb-2

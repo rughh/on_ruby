@@ -10,19 +10,6 @@ module ExternalLinkHelper
     link_to image, url
   end
 
-  def link_to_twitter(thing, params = { clung: false }, &block)
-    nick = thing.respond_to?(:twitter) ? thing.twitter : thing
-    return unless nick
-
-    url = "https://twitter.com/#{nick}"
-    if block_given?
-      link_to url, title: nick, &block
-    else
-      link = "@#{link_to(nick, url, title: nick)}"
-      raw params[:clung] ? "(#{link})" : link
-    end
-  end
-
   def github_url(path = '')
     "https://github.com/#{Whitelabel[:github_org]}/#{Whitelabel[:github_repo]}/#{path}"
   end
@@ -82,17 +69,6 @@ module ExternalLinkHelper
   def mailing_list_feed_url(count)
     group_name = Whitelabel[:google_group] || 'rubyonrails-ug-germany'
     "https://groups.google.com/forum/feed/#{group_name}/topics/rss.xml?num=#{count}"
-  end
-
-  def twitter_update_url(model)
-    case model
-    when Event
-      options = { name: model.name, date: l(model.date, locale: I18n.locale, format: :short), url: event_url(model) }
-    when Topic
-      options = { username: model.user.name, name: model.name.truncate(50), url: topic_url(model) }
-    end
-    text = t("#{model.class.to_s.downcase}.twitter_message", **options)
-    Addressable::URI.encode("https://twitter.com/home?status=#{text}")
   end
 
   def slackin_js

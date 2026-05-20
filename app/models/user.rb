@@ -4,12 +4,12 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
   include Slug
   extend ApiHandling
   slugged_by(:nickname)
-  expose_api :id, :nickname, :name, :image, :url, :github, :twitter, :freelancer, :available
+  expose_api :id, :nickname, :name, :image, :url, :github, :freelancer, :available
 
   validates :nickname, :name, :image, presence: true
   validates :nickname, uniqueness: true
-  validates :twitter, :github, uniqueness: true, allow_blank: true
-  validates :twitter, :github, format: { with: /\A(\w|-)+\z/, allow_blank: true }
+  validates :github, uniqueness: true, allow_blank: true
+  validates :github, format: { with: /\A(\w|-)+\z/, allow_blank: true }
 
   has_many :authorizations, dependent: :destroy
   has_many :participants, -> { order('created_at DESC') }, dependent: :destroy
@@ -23,7 +23,6 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
   scope :organizers, -> { where(nickname: Whitelabel[:organizers]) }
   scope :ordered,    -> { order('updated_at DESC') }
   scope :peers,      -> { ordered.joins(participants: :event).where('events.label' => Whitelabel[:label_id]).distinct }
-  scope :main,       -> { where(nickname: Whitelabel[:twitter]) }
   scope :random,     -> { self }
 
   def participates?(event)
@@ -52,10 +51,6 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
     send :"handle_#{hash['provider']}_attributes", hash
     save! if changed?
     self
-  end
-
-  def handle_twitter_attributes(hash)
-    assign_attributes(map_twitter_attributes(hash))
   end
 
   def handle_github_attributes(hash)
@@ -136,18 +131,6 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
       user = find_by(id:)
       user && user.salt == stored_salt ? user : nil
     end
-  end
-
-  def map_twitter_attributes(hash)
-    result = {}
-    result[:nickname]     = hash['info']['nickname'] unless nickname
-    result[:twitter]      = hash['info']['nickname']
-    result[:name]         = hash['info']['name']
-    result[:image]        = hash['info']['image']
-    result[:url]          = hash['info']['urls']['Website'] unless url
-    result[:description]  = hash['info']['description'] unless description
-    result[:location]     = hash['info']['location']
-    result
   end
 
   def map_github_attributes(hash)

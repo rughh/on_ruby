@@ -94,18 +94,6 @@
     "SENDGRID_DOMAIN": {
       "required": true
     },
-    "TWITTER_CONSUMER_KEY": {
-      "required": true
-    },
-    "TWITTER_CONSUMER_SECRET": {
-      "required": true
-    },
-    "TWITTER_OAUTH_TOKEN": {
-      "required": true
-    },
-    "TWITTER_OAUTH_TOKEN_SECRET": {
-      "required": true
-    }
   },
   "addons": [
     "sendgrid",

@@ -5,10 +5,10 @@ describe User do
     let(:user) { build(:user) }
     let(:admin_user) { build(:admin_user) }
 
-    it 'allows empty and nil github and twitter keys for all' do
-      create(:user, github: '', twitter: '')
+    it 'allows empty and nil github keys for all' do
+      create(:user, github: '')
       expect do
-        create(:user, github: '', twitter: '')
+        create(:user, github: '')
       end.not_to raise_error
     end
 

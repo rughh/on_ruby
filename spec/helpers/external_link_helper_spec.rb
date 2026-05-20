@@ -51,31 +51,4 @@ describe ExternalLinkHelper do
       end
     end
   end
-
-  describe '#link_to_twitter' do
-    it 'generates the link' do
-      user = build(:user, twitter: 'klaus')
-      expect(helper.link_to_twitter(user)).to eql('@<a title="klaus" href="https://twitter.com/klaus">klaus</a>')
-    end
-  end
-
-  describe '#twitter_update_url' do
-    let(:topic) { create(:topic, id: 999, name: 'bla') }
-    let(:event) { create(:event, name: 'Weihnachtstreffen', date: '2010-12-06 11:47:30') }
-
-    it 'generates a proper url for topics' do
-      topic.user.name = 'Uschi'
-
-      url = helper.twitter_update_url(topic)
-      expect(url).to match(Regexp.escape('https://twitter.com/home?status=Neues%20Thema%20von%20@Uschi'))
-      expect(url).to match(Regexp.escape('http://test.host/topics/bla-999'))
-    end
-
-    it 'generates a proper url for events' do
-      url = helper.twitter_update_url(event)
-      expect(url).to match(Regexp.escape('https://twitter.com/home?status=Weihnachtstreffen'))
-      expect(url).to match(Regexp.escape('am%2006.%20Dezember,%2011:47%20Uhr'))
-      expect(url).to match(Regexp.escape('http://test.host/events/weihnachtstreffen'))
-    end
-  end
 end
