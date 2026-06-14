@@ -10,7 +10,9 @@ class UsersController < ApplicationController
 
   def index; end
 
-  def show; end
+  def show
+    raise ActiveRecord::RecordNotFound if current_user != user && user.events.none? && user.participants.none?
+  end
 
   def edit
     return unless current_user.missing_name?
