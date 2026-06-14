@@ -30,10 +30,31 @@ describe UsersController do
     context 'when user has no email' do
       render_views
 
-      before { user.update!(email: nil) }
+      before do
+        user.update!(email: nil)
+        allow(@controller).to receive_messages(current_user: user)
+      end
 
       it 'does not fail' do
         get :show, params: { id: user.id }
+        expect(response).to be_ok
+      end
+    end
+
+    context 'when player never participated' do
+      it 'renders not found' do
+        get :show, params: { id: user }
+        expect(response).to be_not_found
+      end
+    end
+
+    context 'when player views his own profile, but did not participate yet' do
+      before do
+        allow(@controller).to receive_messages(current_user: user)
+      end
+
+      it 'shows the user profile' do
+        get :show, params: { id: user }
         expect(response).to be_ok
       end
     end
