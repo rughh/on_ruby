@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def index; end
 
   def show
-    raise ActiveRecord::RecordNotFound if current_user != user && user.events.none? && user.participants.none?
+    raise ActiveRecord::RecordNotFound if current_user != user && user.topics.none? && user.events.none? && user.participants.none?
   end
 
   def edit
