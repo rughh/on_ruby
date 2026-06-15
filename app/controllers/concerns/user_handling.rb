@@ -37,11 +37,39 @@ module UserHandling
     @current_user = user
     session[:user_id] = user.id
     cookies.permanent.signed[:remember_me] = [user.id, user.salt]
+    set_user_cookie(user)
   end
 
   def sign_out
     session.clear
     cookies.permanent.signed[:remember_me] = ['', '']
+    clear_user_cookie
+  end
+
+  def set_user_cookie(user)
+    data = {
+      slug: user.to_param,
+      name: user.name.to_s,
+      image_path: helpers.cache_image_path(user),
+      profile_path: user_path(user),
+      edit_path: edit_user_path(user),
+      logout_path: destroy_session_path,
+      hide_jobs: user.hide_jobs?,
+      missing_name: user.missing_name?,
+      is_admin: (true if user.admin?),
+      is_super_admin: (true if user.super_admin?)
+    }.compact
+
+    cookies.permanent['_on_ruby_user'] = {
+      value: data.to_json,
+      domain: request.domain,
+      httponly: false,
+      same_site: :lax
+    }
+  end
+
+  def clear_user_cookie
+    cookies.delete('_on_ruby_user', domain: request.domain)
   end
 
   def find_by_session_or_cookies
