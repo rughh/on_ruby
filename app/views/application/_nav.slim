@@ -15,36 +15,38 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-light.bg-light#nav
             = fa_icon(fa_icon_map[section], class: 'fa-fw', text: t("main.#{section}"))
 
     ul.navbar-nav.ms-auto
-      li.nav-item.dropdown.pe-4
-        - if signed_in?
-          .dropdown
-            a.btn.btn-light.dropdown-toggle(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false")
-              = user_image(current_user)
-              = t('login.profile')
-            ul.dropdown-menu.dropdown-menu-end(aria-labelledby="loginDropdown")
-              li= link_to(user_path(current_user), class: 'dropdown-item') do
-                = fa_icon('eye', class: 'fa-fw', text: t("login.show_profile"))
-
-              li= link_to(edit_user_path(current_user), class: 'dropdown-item') do
-                = fa_icon('edit', class: 'fa-fw', text: t("login.edit_profile"))
-
-              li= link_to(destroy_session_path(current_user), class: 'dropdown-item') do
-                = fa_icon('times', class: 'fa-fw', text: t("login.logout"))
-
-              - if current_user.admin?
-                li= link_to('/admin', class: 'dropdown-item') do
-                  = fa_icon('lock', class: 'fa-fw', text: 'Community-Admin')
-              - if current_user.super_admin?
-                li= link_to('/super_admin', class: 'dropdown-item') do
-                  = fa_icon('lock', class: 'fa-fw', text: 'Super-Admin')
-
-        - else
-          a(class="btn btn-primary dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-            =  t('login.login')
+      li.nav-item.dropdown.pe-4(data-controller="nav")
+        / Anonymous default — nav_controller.js replaces with profile dropdown when cookie present
+        div(data-login="")
+          a.btn.btn-primary.dropdown-toggle(href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+            = t('login.login')
           .dropdown-menu.dropdown-menu-end(aria-labelledby="loginDropdown")
             - login_providers.each do |provider|
               = button_to(label_auth_url(provider), class: 'dropdown-item') do
                 = fa_icon(icon_for_provider(provider), class: 'fa-fw', text: t("login.#{provider}_login"))
+
+        / Template for logged-in state — inert until cloned by nav_controller.js
+        template
+          .dropdown
+            a.btn.btn-light.dropdown-toggle(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false")
+              img.user-image.user-image-small(src="" alt="" data-avatar="")
+              = t('login.profile')
+            ul.dropdown-menu.dropdown-menu-end
+              li
+                a.dropdown-item(href="" data-profile="")
+                  = fa_icon('eye', class: 'fa-fw', text: t("login.show_profile"))
+              li
+                a.dropdown-item(href="" data-edit="")
+                  = fa_icon('edit', class: 'fa-fw', text: t("login.edit_profile"))
+              li
+                a.dropdown-item(href="" data-logout="")
+                  = fa_icon('times', class: 'fa-fw', text: t("login.logout"))
+              li(hidden=true data-admin="")
+                a.dropdown-item(href="/admin")
+                  = fa_icon('lock', class: 'fa-fw', text: 'Community-Admin')
+              li(hidden=true data-super-admin="")
+                a.dropdown-item(href="/super_admin")
+                  = fa_icon('lock', class: 'fa-fw', text: 'Super-Admin')
 
 
       li.nav-item.dropdown.pe-4

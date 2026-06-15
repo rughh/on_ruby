@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update user_params
-      set_user_cookie(current_user)
+      user_cookie(current_user)
       redirect_back(notice: t('user.saved_successful'), fallback_location: root_url)
     else
       redirect_back(alert: current_user.errors.full_messages.join(' '), fallback_location: root_url)

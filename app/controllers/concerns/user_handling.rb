@@ -37,7 +37,7 @@ module UserHandling
     @current_user = user
     session[:user_id] = user.id
     cookies.permanent.signed[:remember_me] = [user.id, user.salt]
-    set_user_cookie(user)
+    user_cookie(user)
   end
 
   def sign_out
@@ -46,7 +46,7 @@ module UserHandling
     clear_user_cookie
   end
 
-  def set_user_cookie(user)
+  def user_cookie(user)
     data = {
       slug: user.to_param,
       name: user.name.to_s,
@@ -57,14 +57,14 @@ module UserHandling
       hide_jobs: user.hide_jobs?,
       missing_name: user.missing_name?,
       is_admin: (true if user.admin?),
-      is_super_admin: (true if user.super_admin?)
+      is_super_admin: (true if user.super_admin?),
     }.compact
 
     cookies.permanent['_on_ruby_user'] = {
       value: data.to_json,
       domain: request.domain,
       httponly: false,
-      same_site: :lax
+      same_site: :lax,
     }
   end
 
