@@ -40,6 +40,10 @@ body {
   display: none;
 }
 #nav {
+  .navbar-nav {
+    align-items: center;
+  }
+
   img.label {
     max-height: 30px;
   }
