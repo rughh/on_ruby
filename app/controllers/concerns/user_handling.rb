@@ -33,10 +33,10 @@ module UserHandling
     !!current_user
   end
 
-  def sign_in(user)
+  def sign_in(user, permanent: true)
     @current_user = user
     session[:user_id] = user.id
-    cookies.permanent.signed[:remember_me] = [user.id, user.salt]
+    cookies.permanent.signed[:remember_me] = [user.id, user.salt] if permanent
     user_cookie(user)
   end
 
@@ -60,12 +60,13 @@ module UserHandling
       is_super_admin: (true if user.super_admin?),
     }.compact
 
-    cookies.permanent['_on_ruby_user'] = {
-      value: data.to_json,
-      domain: request.domain,
-      httponly: false,
-      same_site: :lax,
-    }
+    options = { value: data.to_json, domain: request.domain, httponly: false, same_site: :lax }
+
+    if remember_me_active?
+      cookies.permanent['_on_ruby_user'] = options
+    else
+      cookies['_on_ruby_user'] = options
+    end
   end
 
   def clear_user_cookie
@@ -80,5 +81,9 @@ module UserHandling
     cookies.permanent.signed[:remember_me] || ['', '']
   rescue StandardError
     ['', '']
+  end
+
+  def remember_me_active?
+    remember_me.first.present?
   end
 end
