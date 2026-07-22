@@ -33,6 +33,10 @@ module UserHandling
     !!current_user
   end
 
+  def refresh_user_cookie
+    user_cookie(current_user) if remember_me_active? && cookies['_on_ruby_user'].blank? && current_user
+  end
+
   def sign_in(user, permanent: true)
     @current_user = user
     session[:user_id] = user.id
@@ -74,7 +78,9 @@ module UserHandling
   end
 
   def find_by_session_or_cookies
-    User.find_by(id: session[:user_id]) || User.authenticated_with_token(*remember_me)
+    user = User.find_by(id: session[:user_id]) || User.authenticated_with_token(*remember_me)
+    clear_user_cookie if user.nil? && cookies['_on_ruby_user'].present?
+    user
   end
 
   def remember_me
