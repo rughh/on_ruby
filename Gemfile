@@ -16,6 +16,8 @@ gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
+# omniauth-google-oauth2 1.2.0 still calls the deprecated & removed JWT::Claims.verify! class method
+gem 'jwt', '< 3.0'
 gem 'pg', '1.4.6'
 gem 'public_suffix'
 gem 'puma'
