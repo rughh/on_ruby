@@ -25,6 +25,19 @@ describe SessionsController do
       expect(response).to redirect_to(root_path)
       expect(flash[:alert]).not_to be_nil
     end
+
+    it 'does not report to Appsignal when no omniauth error is present' do
+      expect(Appsignal).not_to receive(:report_error)
+      get :failure
+    end
+
+    it 'reports the underlying exception to Appsignal when present' do
+      error = StandardError.new('boom')
+      request.env['omniauth.error'] = error
+
+      expect(Appsignal).to receive(:report_error).with(error)
+      get :failure
+    end
   end
 
   context 'GET :destroy' do

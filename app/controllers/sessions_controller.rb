@@ -32,6 +32,9 @@ class SessionsController < ApplicationController
   end
 
   def failure
+    error = request.env['omniauth.error']
+    Appsignal.report_error(error) if error
+
     redirect_to root_path, alert: t('flash.login_error')
   end
 end
