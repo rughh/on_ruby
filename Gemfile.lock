@@ -180,7 +180,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.21.2)
-    jwt (2.10.3)
+    jwt (3.2.0)
       base64
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -266,20 +266,21 @@ GEM
     oga (3.4)
       ast
       ruby-ll (~> 2.1)
-    omniauth (2.1.2)
+    omniauth (2.1.4)
       hashie (>= 3.4.6)
+      logger
       rack (>= 2.2.3)
       rack-protection
     omniauth-github (2.0.1)
       omniauth (~> 2.0)
       omniauth-oauth2 (~> 1.8)
-    omniauth-google-oauth2 (1.2.0)
-      jwt (>= 2.9)
+    omniauth-google-oauth2 (1.2.2)
+      jwt (>= 2.9.2)
       oauth2 (~> 2.0)
       omniauth (~> 2.0)
       omniauth-oauth2 (~> 1.8)
-    omniauth-oauth2 (1.8.0)
-      oauth2 (>= 1.4, < 3)
+    omniauth-oauth2 (1.9.0)
+      oauth2 (>= 2.0.2, < 3)
       omniauth (~> 2.0)
     omniauth-rails_csrf_protection (1.0.2)
       actionpack (>= 4.2)
@@ -469,7 +470,7 @@ GEM
     validate_url (1.0.15)
       activemodel (>= 3.0.0)
       public_suffix
-    version_gem (1.1.14)
+    version_gem (1.1.15)
     video_info (4.2.0)
       iso8601 (~> 0.13.0)
       net_http_timeout_errors (~> 1.0.0)
@@ -508,7 +509,6 @@ DEPENDENCIES
   font-awesome-rails
   geocoder
   icalendar
-  jwt (< 3.0)
   kaminari
   letter_opener
   link_thumbnailer
@@ -516,7 +516,7 @@ DEPENDENCIES
   lograge
   omniauth
   omniauth-github
-  omniauth-google-oauth2
+  omniauth-google-oauth2 (>= 1.2.2)
   omniauth-rails_csrf_protection
   partially_useful
   pg (= 1.4.6)
