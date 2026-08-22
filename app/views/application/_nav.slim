@@ -22,7 +22,7 @@ nav.navbar.sticky-top.navbar-expand-lg.navbar-light.bg-light#nav(aria-label="Mai
             = t('login.login')
           .dropdown-menu.dropdown-menu-end(aria-labelledby="loginDropdown")
             - login_providers.each do |provider|
-              = button_to(label_auth_url(provider), class: 'dropdown-item') do
+              = button_to(label_auth_path(provider), class: 'dropdown-item') do
                 = fa_icon(icon_for_provider(provider), class: 'fa-fw', text: t("login.#{provider}_login"))
 
         / Template for logged-in state — inert until cloned by nav_controller.js
