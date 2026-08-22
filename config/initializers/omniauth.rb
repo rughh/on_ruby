@@ -7,7 +7,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :github, {
     setup: proc do |env|
       host = env['SERVER_NAME']
-      tld = host[/(.+\.)?(.+\..+)/, 2]
+      tld = host[/(.+\.)?(.+\..+)/, 2] || host
       token = tld.delete('-').split('.').join('_').upcase
       name = "OMNIAUTH_GITHUB_#{token}"
 
