@@ -34,7 +34,7 @@ module UserHandling
   end
 
   def refresh_user_cookie
-    user_cookie(current_user) if remember_me_active? && cookies['_on_ruby_user'].blank? && current_user
+    user_cookie(current_user) if cookies['_on_ruby_user'].blank? && current_user
   end
 
   def sign_in(user, permanent: true)

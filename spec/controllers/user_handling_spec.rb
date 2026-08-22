@@ -13,7 +13,7 @@ describe 'UserHandling' do
     end
 
     it 'accepts admin users' do
-      allow(controller).to receive_messages(current_user: build(:admin_user))
+      allow(controller).to receive_messages(current_user: create(:admin_user))
 
       get :index
       expect(response).to be_a_successful

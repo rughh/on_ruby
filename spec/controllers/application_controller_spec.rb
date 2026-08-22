@@ -44,6 +44,11 @@ describe ApplicationController do
       post :create
       expect(cookies[:remember_me]).to be_nil
     end
+
+    it 're-sets _on_ruby_user when absent' do
+      get :index
+      expect(cookies['_on_ruby_user']).to be_present
+    end
   end
 
   context 'state 4 — remember_me valid, _on_ruby_user absent (migration)' do
