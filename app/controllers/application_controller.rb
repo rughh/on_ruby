@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
   def setup
     switch_locale
     switch_time_zone
+    refresh_user_cookie
   end
 
   def _400(exception)
