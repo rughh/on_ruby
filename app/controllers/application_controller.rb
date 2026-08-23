@@ -11,9 +11,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :signed_in?, :current_user
 
-  rescue_from ActiveRecord::RecordNotFound,     with: :_404
-  rescue_from ActionView::MissingTemplate,      with: :_404
-  rescue_from ActionController::UnknownFormat,  with: :_404
+  rescue_from ActiveRecord::RecordNotFound,    with: :_404
+  rescue_from ActionView::MissingTemplate,     with: :_404
+  rescue_from ActionController::UnknownFormat, with: :_404
+  rescue_from ActionController::BadRequest,    with: :_400
 
   expose(:jobs)       { Job.shuffled }
   expose(:highlights) { Highlight.active }
@@ -23,6 +24,11 @@ class ApplicationController < ActionController::Base
   def setup
     switch_locale
     switch_time_zone
+  end
+
+  def _400(exception)
+    Rails.logger.warn "400 bad_request: #{exception.message} — #{request.method} #{request.path} (#{request.remote_ip})"
+    head(:bad_request)
   end
 
   def _404(exception)
