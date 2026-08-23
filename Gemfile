@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 ruby File.read('.ruby-version').strip
 
 gem 'rails', '~> 7.2.0'
