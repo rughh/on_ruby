@@ -43,7 +43,7 @@ OnRuby::Application.routes.draw do
     get :none, on: :collection
   end
 
-  resources :events do
+  resources :events, only: %i[index show] do
     resources :materials
     resources :topics
     resources :participants
