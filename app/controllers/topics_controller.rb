@@ -19,8 +19,7 @@ class TopicsController < ApplicationController
   def edit; end
 
   def create
-    topic.label = Whitelabel[:label_id]
-    topic.user  = current_user
+    topic.user = current_user
     topic.assign_attributes(topic_params)
     if topic.save
       if current_user.email.blank?
@@ -48,6 +47,6 @@ class TopicsController < ApplicationController
   end
 
   def topic_params
-    params.require(:topic).permit(:label, :name, :user, :description, :proposal_type)
+    params.require(:topic).permit(:name, :user, :description, :proposal_type)
   end
 end
