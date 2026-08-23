@@ -12,7 +12,7 @@ describe 'home/index' do
     allow(view).to receive_messages(events: [event], current_event: event, people: [user])
     allow(view).to receive_messages(locations: [location], done_topics: [topic])
     allow(view).to receive_messages(undone_topics: [topic], organizers: [user], upcoming_topics: [topic])
-    allow(view).to receive_messages(companies: [company], main_user: user, signed_in?: false)
+    allow(view).to receive_messages(companies: [company], signed_in?: false)
     allow(view).to receive_messages(zoom:)
 
     render
