@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::UnknownFormat,  with: :_404
 
   expose(:jobs)       { Job.shuffled }
-  expose(:main_user)  { User.main }
   expose(:highlights) { Highlight.active }
 
   protected
