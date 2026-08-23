@@ -72,7 +72,6 @@ OnRuby::Application.routes.draw do
 
   scope '/api' do
     get '/', to: 'api#index', as: :api
-    get '/flush', to: 'api#flush', as: :flush
   end
 
   root to: 'home#index'
