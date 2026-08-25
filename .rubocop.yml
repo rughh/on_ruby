@@ -15,6 +15,7 @@ AllCops:
     - "app/dashboards/*"
     - "lib/tasks/*"
     - "vendor/**/*"
+    - "node_modules/**/*"
 
 Bundler/OrderedGems:
   Enabled: false
