@@ -106,13 +106,14 @@ RSpec/ExampleLength:
     - 'spec/requests/locale_spec.rb'
     - 'spec/requests/time_zone_spec.rb'
     - 'spec/routing/main_domain_constraint_spec.rb'
+    - 'spec/system/**/*'
     - 'spec/views/home/index.html_spec.rb'
     - 'spec/views/locations/none.html_spec.rb'
 
 # Offense count: 1
 # Configuration parameters: Include, CustomTransform, IgnoreMethods, SpecSuffixOnly.
 # Include: **/*_spec*rb*, **/spec/**/*
-RSpec/FilePath:
+Rails/FilePath:
   Exclude:
     - 'spec/requests/sitemaps_spec.rb'
 
@@ -133,6 +134,7 @@ RSpec/MessageSpies:
 # Offense count: 77
 RSpec/MultipleExpectations:
   Max: 6
+
 
 # Offense count: 7
 # Configuration parameters: AllowSubject.

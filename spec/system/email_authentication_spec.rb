@@ -32,18 +32,16 @@ RSpec.describe 'Email authentication', type: :system do
     mail = ActionMailer::Base.deliveries.last
     expect(mail.to).to eq([email.downcase])
 
-    callback_url = mail.body.decoded[/https?:\/\/\S+/]
+    callback_url = mail.body.decoded[%r{https?://\S+}]
     expect(callback_url).to be_present
 
     visit URI.parse(callback_url).request_uri
+    user = User.find_by!(email: email.downcase)
 
-    expect(page).to have_current_path('/')
-    expect(page).to have_content(
-      I18n.t('flash.logged_in', name: '')
-    )
+    expect(page).to have_current_path(edit_user_path(user))
+    expect(page).to have_content(I18n.t('flash.logged_in', name: ''))
     expect(page).to have_link(I18n.t('login.profile'))
 
-    user = User.find_by!(email: email.downcase)
     expect(user.authorizations.find_by(provider: 'email')).to be_present
   end
 end

@@ -22,7 +22,8 @@ class SessionsController < ApplicationController
       options = { alert: t('flash.duplicate_nick', name: e.nickname) }
     end
 
-    redirect_to request.env['omniauth.origin'].presence || root_path, options
+    destination = current_user.missing_name? ? edit_user_path(current_user) : request.env['omniauth.origin'].presence || root_path
+    redirect_to destination, options
   end
 
   def destroy
