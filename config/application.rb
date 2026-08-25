@@ -1,7 +1,7 @@
 require_relative "boot"
 
 # remove active-storage so the fucker won't try to load the config
-%w(
+%w[
   active_record/railtie
   action_controller/railtie
   action_view/railtie
@@ -9,7 +9,7 @@ require_relative "boot"
   active_job/railtie
   rails/test_unit/railtie
   sprockets/railtie
-).each do |railtie|
+].each do |railtie|
   require railtie
 end
 
@@ -50,5 +50,8 @@ module OnRuby
       g.fixture_replacement :factory_bot, dir: 'spec/support/factories'
       g.stylesheet_engine = :sass
     end
+
+    config.sass.quiet_deps = true
+    config.sass.silence_deprecations = ['import']
   end
 end

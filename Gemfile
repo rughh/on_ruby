@@ -5,7 +5,7 @@ gem 'rails', '~> 7.2.0'
 
 gem 'acts_as_api'
 gem 'addressable'
-gem 'administrate'
+gem 'administrate', '~> 1.0'
 gem 'appsignal'
 gem 'decent_exposure'
 gem 'dotenv-rails', require: 'dotenv/load'
@@ -31,8 +31,10 @@ gem 'whitelabel'
 
 # assets
 gem 'bootstrap', '~> 5.3'
+gem 'dartsass-sprockets', '~> 3.2'
 gem 'font-awesome-rails'
-gem 'sass-rails'
+gem 'jquery-rails'
+gem 'selectize-rails'
 gem 'terser'
 
 group :production do

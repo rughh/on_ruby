@@ -1,0 +1,23 @@
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 2em;
+
+  .page-item,
+  li {
+    display: inline-block;
+    margin: 0 0.2em;
+  }
+
+  .page-link,
+  a,
+  span {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    text-decoration: none;
+  }
+}
