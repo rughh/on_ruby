@@ -40,7 +40,7 @@ RSpec.describe 'Profile completion', type: :system do
     visit event_path(event)
 
     expect(page).to have_current_path(event_path(event))
-    expect(page).to have_link(I18n.t('show.attend'))
+    expect(page).to have_button(I18n.t('show.attend'))
   end
 
   private
