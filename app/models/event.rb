@@ -22,8 +22,8 @@ class Event < ApplicationRecord
   default_scope       -> { where(label: Whitelabel[:label_id]) }
 
   scope :with_topics, -> { joins(:topics).distinct }
-  scope :current,     -> { where(date: Date.today.to_time..).limit(1).order(date: :asc) }
-  scope :latest,      -> { where('date < ?', Date.today.to_time).order(date: :desc) }
+  scope :current,     -> { where(date: Date.current.beginning_of_day..).limit(1).order(date: :asc) }
+  scope :latest,      -> { where('date < ?', Date.current.beginning_of_day).order(date: :desc) }
   scope :unpublished, -> { where('published IS NULL') }
   scope :ordered,     -> { order(date: :desc) }
 
@@ -57,7 +57,7 @@ class Event < ApplicationRecord
 
     def infer_next_date_from(date)
       candidate = date.dup
-      candidate = candidate.advance(months: 1).beginning_of_week(:sunday).advance(days: date.wday).change(hour: date.hour, min: date.min) while candidate <= Time.now
+      candidate = candidate.advance(months: 1).beginning_of_week(:sunday).advance(days: date.wday).change(hour: date.hour, min: date.min) while candidate <= Time.current
       candidate
     end
 
