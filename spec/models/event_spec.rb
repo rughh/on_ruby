@@ -13,9 +13,9 @@ describe Event do
     end
 
     it 'validates uniqueness' do
-      expect(build(:event, name: event.name)).to have(1).errors_on(:name)
+      expect(errors_on(build(:event, name: event.name), :name).size).to eq(1)
       Whitelabel.with_label(Whitelabel.labels.last) do
-        expect(build(:event, name: event.name)).to have(0).errors_on(:name)
+        expect(errors_on(build(:event, name: event.name), :name).size).to eq(0)
       end
     end
   end
@@ -99,7 +99,7 @@ describe Event do
     let(:event) { create(:event_with_participants) }
 
     it 'calculates closed' do
-      expect(event).to have(3).participants
+      expect(event.participants.size).to eq(3)
       expect(event).not_to be_closed
 
       event.limit = 3

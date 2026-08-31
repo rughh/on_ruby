@@ -4,8 +4,8 @@ describe Job do
   subject { Job.new }
 
   it 'validates presence' do
-    expect(subject).to have(1).errors_on(:name)
-    expect(subject).to have(1).errors_on(:url)
-    expect(subject).to have(2).errors_on(:location)
+    expect(errors_on(subject, :name).size).to eq(1)
+    expect(errors_on(subject, :url).size).to eq(1)
+    expect(errors_on(subject, :location).size).to eq(2)
   end
 end

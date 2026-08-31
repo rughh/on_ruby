@@ -354,10 +354,6 @@ GEM
       activesupport (= 7.2.3)
       bundler (>= 1.15.0)
       railties (= 7.2.3)
-    rails-controller-testing (1.0.5)
-      actionpack (>= 5.0.1.rc1)
-      actionview (>= 5.0.1.rc1)
-      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.3.0)
       activesupport (>= 5.0.0)
       minitest
@@ -391,8 +387,6 @@ GEM
     request_store (1.7.0)
       rack (>= 1.4)
     rexml (3.4.4)
-    rspec-collection_matchers (1.2.1)
-      rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.13.2)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.3)
@@ -541,9 +535,7 @@ DEPENDENCIES
   puma
   rack-cache
   rails (~> 7.2.0)
-  rails-controller-testing
   redcarpet
-  rspec-collection_matchers
   rspec-rails
   rubocop
   rubocop-rails

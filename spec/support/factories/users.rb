@@ -13,6 +13,11 @@ FactoryBot.define do
 
   factory :admin_user, parent: :user do
     admin { true }
+    super_admin { false }
+  end
+
+  factory :super_admin_user, parent: :user do
+    admin { true }
     super_admin { true }
   end
 

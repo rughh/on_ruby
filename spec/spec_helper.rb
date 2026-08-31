@@ -14,6 +14,7 @@ RSpec.configure do |config|
   config.include AuthenticationHelper, type: :system
   config.include KaminariHelper
   config.include GeocoderHelper
+  config.include ValidationHelper, type: :model
   config.include FactoryBot::Syntax::Methods
   config.include ActiveSupport::Testing::TimeHelpers
 
