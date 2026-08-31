@@ -47,6 +47,12 @@ class Usergroup
     end
   end
 
+  # NOTE
+  # Uses Date.today and Time.new which rely on the host system clock and timezone.
+  # If running on a UTC server (e.g. production/Docker), Time.new creates a UTC timestamp,
+  # whereas on a local machine in Berlin it creates CEST (+02:00).
+  # If standardizing in the future, consider using Date.current and Time.zone.local.
+  #
   def next_event_date
     return unless recurring
 
