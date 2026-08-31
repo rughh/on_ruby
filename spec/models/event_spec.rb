@@ -27,6 +27,27 @@ describe Event do
       event_next.update(date: 5.months.from_now)
       expect(Event.current.first).to eql(event_next)
     end
+
+    it 'includes events happening later today within the configured time zone' do
+      travel_to Time.zone.local(2026, 8, 31, 10, 0, 0) do
+        event_today = create(:event, date: Time.zone.local(2026, 8, 31, 19, 0, 0))
+        expect(Event.current.first).to eql(event_today)
+      end
+    end
+
+    it 'includes events happening earlier today within the configured time zone' do
+      travel_to Time.zone.local(2026, 8, 31, 20, 0, 0) do
+        event_earlier_today = create(:event, date: Time.zone.local(2026, 8, 31, 9, 0, 0))
+        expect(Event.current.first).to eql(event_earlier_today)
+      end
+    end
+
+    it 'handles time zone boundary differences between UTC and local time zone' do
+      travel_to Time.zone.local(2026, 8, 31, 1, 30, 0) do
+        event_tonight = create(:event, date: Time.zone.local(2026, 8, 31, 19, 0, 0))
+        expect(Event.current.first).to eql(event_tonight)
+      end
+    end
   end
 
   describe '#duplicate!' do
@@ -130,8 +151,19 @@ describe Event do
     end
   end
 
-  it 'finds latest events' do
-    10.times { |i| create(:event, name: "Event #{i}", date: (Time.now - i.weeks)) }
-    expect(Event.latest.map(&:name)).to eql(['Event 1', 'Event 2', 'Event 3', 'Event 4', 'Event 5', 'Event 6', 'Event 7', 'Event 8', 'Event 9'])
+  describe '.latest' do
+    it 'finds latest events' do
+      10.times { |i| create(:event, name: "Event #{i}", date: (Time.now - i.weeks)) }
+      expect(Event.latest.map(&:name)).to eql(['Event 1', 'Event 2', 'Event 3', 'Event 4', 'Event 5', 'Event 6', 'Event 7', 'Event 8', 'Event 9'])
+    end
+
+    it 'does not include events happening earlier today in the configured time zone' do
+      travel_to Time.zone.local(2026, 8, 31, 20, 0, 0) do
+        create(:event, name: 'Today Event', date: Time.zone.local(2026, 8, 31, 9, 0, 0))
+        past_event = create(:event, name: 'Yesterday Event', date: Time.zone.local(2026, 8, 30, 19, 0, 0))
+
+        expect(Event.latest).to contain_exactly(past_event)
+      end
+    end
   end
 end
