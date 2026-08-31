@@ -10,6 +10,8 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 RSpec.configure do |config|
   config.include RequestHelper, type: :controller
   config.include RequestHelper, type: :request
+  config.include AuthenticationHelper, type: :request
+  config.include AuthenticationHelper, type: :system
   config.include KaminariHelper
   config.include GeocoderHelper
   config.include FactoryBot::Syntax::Methods
@@ -25,6 +27,11 @@ RSpec.configure do |config|
     I18n.locale = :de
     Whitelabel.label = Whitelabel.labels.first
     stub_geocoder
+  end
+
+  config.after do
+    OmniAuth.config.mock_auth.clear
+    OmniAuth.config.test_mode = false
   end
 
   config.before(:each, type: :request) do
