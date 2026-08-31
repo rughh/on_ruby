@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Participant do
   it 'validates presence' do
-    expect(subject).to have(2).errors_on(:event)
-    expect(subject).to have(2).errors_on(:user)
+    expect(errors_on(subject, :event).size).to eq(2)
+    expect(errors_on(subject, :user).size).to eq(2)
   end
 end

@@ -10,8 +10,8 @@ describe Topic do
 
     it 'validates presence' do
       Topic.new.tap do |it|
-        expect(it).to have(1).errors_on(:name)
-        expect(it).to have(1).errors_on(:description)
+        expect(errors_on(it, :name).size).to eq(1)
+        expect(errors_on(it, :description).size).to eq(1)
       end
     end
   end

@@ -23,7 +23,7 @@ describe Highlight do
     end
 
     it 'finds the active highlight' do
-      expect(Highlight.active).to have(1).elements
+      expect(Highlight.active.size).to eq(1)
     end
   end
 end
