@@ -1,5 +1,9 @@
 require 'spec_helper'
 
+# TODO: Partially redundant. Dashboard auth/rendering is now covered by
+# spec/requests/admin/authorization_spec.rb. The whitelabel scoping assertion
+# below (users of the current label are shown, others are not) is still unique --
+# migrate it to a request spec before removing this file.
 describe Admin::UsersController do
   render_views
 

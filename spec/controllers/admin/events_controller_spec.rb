@@ -1,5 +1,9 @@
 require 'spec_helper'
 
+# TODO: Redundant. The full-stack equivalents now live in
+# spec/requests/admin/events_spec.rb and spec/requests/admin/authorization_spec.rb
+# (see RECOMMENDATIONS.md "Migrating to Request and System Tests"). Remove this
+# controller spec once the request specs have proven stable.
 describe Admin::EventsController do
   render_views
 
