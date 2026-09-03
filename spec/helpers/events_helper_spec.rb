@@ -25,4 +25,18 @@ describe EventsHelper do
       end
     end
   end
+
+  context 'anonymous visitor' do
+    before do
+      allow(helper).to receive(:signed_in?).and_return(false)
+      allow(helper.request).to receive(:path).and_return('/events/23')
+    end
+
+    describe '#participation_link' do
+      it 'links to the login page and carries the current path as the origin' do
+        expect(helper.participation_link(event))
+          .to have_link(I18n.t('show.attend'), href: login_path(origin: '/events/23'))
+      end
+    end
+  end
 end

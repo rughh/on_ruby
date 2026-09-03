@@ -106,13 +106,6 @@ RSpec/ExampleLength:
     - 'spec/views/home/index.html_spec.rb'
     - 'spec/views/locations/none.html_spec.rb'
 
-# Offense count: 1
-# Configuration parameters: Include, CustomTransform, IgnoreMethods, SpecSuffixOnly.
-# Include: **/*_spec*rb*, **/spec/**/*
-Rails/FilePath:
-  Exclude:
-    - 'spec/requests/sitemaps_spec.rb'
-
 # Offense count: 22
 # Configuration parameters: AssignmentOnly.
 RSpec/InstanceVariable:

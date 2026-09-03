@@ -14,6 +14,22 @@ describe 'Sessions', type: :request do
       expect(response).to redirect_to(root_path)
       expect(User.order(:created_at).last.nickname).not_to eq(GITHUB_AUTH_HASH['info']['nickname'])
     end
+
+    it 'redirects a signed-in user with a name back to the requested origin' do
+      get '/auth/github/callback', headers: { 'omniauth.origin' => '/topics' }
+
+      expect(response).to redirect_to('/topics')
+    end
+
+    it 'sends a user who still has no name to their profile edit page' do
+      OmniAuth.config.mock_auth[:email] = OmniAuth::AuthHash.new(EMAIL_AUTH_HASH)
+
+      get '/auth/email/callback'
+
+      user = User.find_by!(email: EMAIL_AUTH_HASH['info']['email'])
+      expect(user).to be_missing_name
+      expect(response).to redirect_to(edit_user_path(user))
+    end
   end
 
   describe 'GET /auth/failure' do
