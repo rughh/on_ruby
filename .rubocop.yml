@@ -20,6 +20,10 @@ AllCops:
 Bundler/OrderedGems:
   Enabled: false
 
+RSpec/MultipleExpectations:
+  Exclude:
+    - "spec/system/**/*"
+
 Style/Documentation:
   Enabled: false
 
