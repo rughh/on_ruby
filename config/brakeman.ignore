@@ -1,29 +1,6 @@
 {
   "ignored_warnings": [
     {
-      "warning_type": "SQL Injection",
-      "warning_code": 0,
-      "fingerprint": "37c44f7012994be71d2cf0597985aa51ffdcd68dfdf12851f66f37178bb27d73",
-      "check_name": "SQL",
-      "message": "Possible SQL injection",
-      "file": "app/models/concerns/slug.rb",
-      "line": 12,
-      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
-      "code": "where(\"#{table_name}.#{slugger} ILIKE ?\", token.tr(\"-\", \"%\"))",
-      "render_path": null,
-      "location": {
-        "type": "method",
-        "class": "Slug",
-        "method": "clazz.from_param"
-      },
-      "user_input": "slugger",
-      "confidence": "Medium",
-      "cwe_id": [
-        89
-      ],
-      "note": ""
-    },
-    {
       "warning_type": "Remote Code Execution",
       "warning_code": 24,
       "fingerprint": "b2d892cd6fca1e75bb178283118a67e9a8494ea083721ef233625458e0195753",

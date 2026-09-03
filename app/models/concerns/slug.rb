@@ -9,7 +9,8 @@ module Slug
              token
            end
 
-      found = where(id: id.to_i).or(where("#{table_name}.#{slugger} ILIKE ?", token.tr('-', '%'))).first
+      slug_column = connection.quote_table_name("#{table_name}.#{slugger}")
+      found = where(id: id.to_i).or(where("#{slug_column} ILIKE ?", token.tr('-', '%'))).first
       raise ActiveRecord::RecordNotFound, "Could not find by slug #{token}" unless found
 
       found
