@@ -41,6 +41,13 @@ describe 'Participants', type: :request do
   describe 'DELETE /events/:event_id/participants/:id' do
     let!(:participant) { create(:participant) }
 
+    it 'redirects anonymous visitors to the login' do
+      expect { delete event_participant_path(participant.event, participant) }.not_to change(Participant, :count)
+
+      expect(response).to redirect_to(login_path)
+      expect(flash[:alert]).not_to be_nil
+    end
+
     it 'removes the participant for its owner' do
       login_as(participant.user)
 

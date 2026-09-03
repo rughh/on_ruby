@@ -25,6 +25,21 @@ describe Topic do
     end
   end
 
+  context 'scopes' do
+    let!(:past_topic)   { create(:topic, event: create(:event, date: 1.day.ago)) }
+    let!(:future_topic) { create(:topic, event: create(:event, date: 1.day.from_now)) }
+
+    # NOTE: `done` / `upcoming` split on `Time.now - 2.hours` (see Topic model),
+    # so an event is still "upcoming" until two hours after it started.
+    it '.done returns topics whose event is more than two hours in the past' do
+      expect(Topic.done).to contain_exactly(past_topic)
+    end
+
+    it '.upcoming returns topics whose event has not started (or started < 2h ago)' do
+      expect(Topic.upcoming).to contain_exactly(future_topic)
+    end
+  end
+
   context 'name' do
     it 'allows two topics with the same name' do
       expect(build(:topic, name: topic.name)).to be_valid

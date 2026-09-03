@@ -99,6 +99,17 @@ describe 'Users', type: :request do
       expect(response).to redirect_to(root_path)
       expect(flash[:alert]).to eq(I18n.t('flash.not_authenticated'))
     end
+
+    it 'refuses when a signed-in user targets someone else' do
+      login_as(create(:user))
+      other = create(:user, github: 'untouched')
+
+      patch user_path(other), params: params
+
+      expect(response).to redirect_to(root_path)
+      expect(flash[:alert]).to eq(I18n.t('flash.not_authenticated'))
+      expect(other.reload.github).to eq('untouched')
+    end
   end
 
   describe 'DELETE /users/:id' do

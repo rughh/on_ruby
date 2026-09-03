@@ -25,5 +25,28 @@ describe Highlight do
     it 'finds the active highlight' do
       expect(Highlight.active.size).to eq(1)
     end
+
+    it 'ignores highlights whose end_at is in the past' do
+      create(:highlight, start_at: 3.days.ago, end_at: 1.day.ago)
+
+      expect(Highlight.active).to contain_exactly(active_highlight)
+    end
+
+    it 'returns the one starting soonest when several are active' do
+      later = create(:highlight, start_at: 10.days.from_now, end_at: 20.days.from_now)
+
+      expect(Highlight.active.first).to eq(active_highlight)
+      expect(later).to be_present
+    end
+  end
+
+  context 'disabled?' do
+    it 'is disabled once end_at has passed' do
+      expect(build(:highlight, start_at: 2.days.ago, end_at: 1.day.ago)).to be_disabled
+    end
+
+    it 'is not disabled while end_at is still in the future' do
+      expect(build(:highlight, start_at: 1.day.ago, end_at: 1.day.from_now)).not_to be_disabled
+    end
   end
 end
