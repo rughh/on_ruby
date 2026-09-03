@@ -100,7 +100,12 @@ GEM
     bindex (0.8.1)
     bootstrap (5.3.5)
       popper_js (>= 2.11.8, < 3)
+    brakeman (8.0.6)
+      racc
     builder (3.3.0)
+    bundler-audit (0.9.3)
+      bundler (>= 1.2.0)
+      thor (~> 1.0)
     byebug (11.1.3)
     capybara (3.40.0)
       addressable
@@ -507,6 +512,8 @@ DEPENDENCIES
   administrate (~> 1.0)
   appsignal
   bootstrap (~> 5.3)
+  brakeman
+  bundler-audit
   byebug
   capybara
   dalli

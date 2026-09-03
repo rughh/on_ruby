@@ -50,6 +50,8 @@ group :development do
 end
 
 group :development, :test do
+  gem 'brakeman', require: false
+  gem 'bundler-audit', require: false
   gem 'byebug'
   gem 'factory_bot_rails'
   gem 'faker'

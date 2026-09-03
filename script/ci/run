@@ -1,5 +1,8 @@
 #! /bin/sh
 set -e
 
+bundle exec rails zeitwerk:check
 bundle exec rubocop --config .rubocop.yml
-bundle exec rake
+bundle exec brakeman -q --no-summary --no-exit-on-warn   # gate on new warnings once triaged
+bundle exec bundle-audit check --update
+bundle exec rake # spec + factory lint via a task
