@@ -3,14 +3,18 @@ ENV['SECRET_TOKEN'] ||= 'SECRET_TOKEN_TEST_b7c7374eb0285b87c0c1c61c2c5401b9f92dd
 
 require File.expand_path('../config/environment', __dir__)
 require 'rspec/rails'
+require 'capybara/rspec'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 
 RSpec.configure do |config|
   config.include RequestHelper, type: :controller
   config.include RequestHelper, type: :request
+  config.include AuthenticationHelper, type: :request
+  config.include AuthenticationHelper, type: :system
   config.include KaminariHelper
   config.include GeocoderHelper
+  config.include ValidationHelper, type: :model
   config.include FactoryBot::Syntax::Methods
   config.include ActiveSupport::Testing::TimeHelpers
 
@@ -24,6 +28,11 @@ RSpec.configure do |config|
     I18n.locale = :de
     Whitelabel.label = Whitelabel.labels.first
     stub_geocoder
+  end
+
+  config.after do
+    OmniAuth.config.mock_auth.clear
+    OmniAuth.config.test_mode = false
   end
 
   config.before(:each, type: :request) do

@@ -15,14 +15,14 @@ describe User do
     it 'allows names and nothing on github' do
       ['abc', 'hanno-nym', '111bbb888_', nil, ''].each do |val|
         user.github = val
-        expect(user).to have(0).errors_on(:github)
+        expect(errors_on(user, :github).size).to eq(0)
       end
     end
 
     it 'does not allow urls on github' do
       ['http://', 'www.bla'].each do |val|
         user.github = val
-        expect(user).to have(1).errors_on(:github)
+        expect(errors_on(user, :github).size).to eq(1)
       end
     end
 
@@ -94,7 +94,7 @@ describe User do
 
     it 'finds peers' do
       create_list(:event_with_participants, 3)
-      expect(User).to have(9).peers
+      expect(User.peers.size).to eq(9)
     end
 
     it 'does not find peers from different labels' do
@@ -102,7 +102,7 @@ describe User do
       Whitelabel.with_label(Whitelabel.labels.last) do
         create(:event_with_participants)
       end
-      expect(User).to have(3).peers
+      expect(User.peers.size).to eq(3)
     end
 
     it 'participate?s' do

@@ -15,7 +15,7 @@ describe Location do
     end
 
     it 'validates length of url' do
-      expect(build(:location, url: very_long_url)).to have(1).errors_on(:url)
+      expect(errors_on(build(:location, url: very_long_url), :url).size).to eq(1)
     end
 
     it 'accepts virtual locations without geo info' do
@@ -26,7 +26,7 @@ describe Location do
   context 'finder' do
     it 'finds users within the default scope' do
       hamburg_locations = Location.all
-      expect(hamburg_locations).to have(1).elements
+      expect(hamburg_locations.size).to eq(1)
       expect(hamburg_locations.first).to eql(@location)
       expect(Location.unscoped.size).to be(3)
     end

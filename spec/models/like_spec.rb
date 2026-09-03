@@ -10,8 +10,8 @@ describe Like do
 
     it 'validates presence' do
       Like.new.tap do |it|
-        expect(it).to have(2).errors_on(:user)
-        expect(it).to have(2).errors_on(:topic)
+        expect(errors_on(it, :user).size).to eq(2)
+        expect(errors_on(it, :topic).size).to eq(2)
       end
     end
   end
