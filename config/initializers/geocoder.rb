@@ -11,6 +11,17 @@ Geocoder.configure(
   # cache: nil,                 # cache object (must respond to #[], #[]=, and #del)
   # cache_prefix: 'geocoder:',  # prefix (string) to use for all cache keys
 
+  # Our default lookup is Nominatim (OpenStreetMap).
+  # Its usage policy (https://operations.osmfoundation.org/policies/nominatim/)
+  # requires every client to identify itself via a valid User-Agent (or Referer).
+  # Without this header access is denied, location silently stay `nil`/`nil`.
+  #
+  # We use a custom User-Agent that includes the domain and email address of the
+  # user who is requesting the geocoding.
+  http_headers: {
+    'User-Agent' => 'on_ruby (https://www.onruby.eu/)',
+  },
+
   # Exceptions that should not be rescued by default
   # (if you want to implement custom error handling);
   # supports SocketError and Timeout::Error
