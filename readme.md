@@ -34,7 +34,7 @@ The operation, development and maintenance of OnRuby can be supported via Patreo
 
 ## Installation
 
-You can install OnRuby using Docker or a local installation.
+You can install OnRuby using Docker, using a Dev Container, or with a local installation.
 
 ### Install using Docker
 
@@ -88,6 +88,29 @@ Navigate to the start page for the OnRuby platform at
 [https://www.onruby.test:3000](https://www.onruby.test:3000).
 
 This will list links and logos to all the usergroups.
+
+### Install using Dev Containers
+
+An alternative to the Docker setup above is to use a
+[Dev Container](https://containers.dev/), which sets up a ready-to-use
+development environment without installing
+anything but Docker and an editor with Dev Containers support, such as
+[VS Code with the Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+
+1. Open the project folder in your editor.
+2. When prompted, choose "Reopen in Container".
+3. Wait for the container to build and for `bin/setup` to finish.
+4. Once attached, start the app from the integrated terminal:
+
+```sh
+script/server
+```
+
+5. Visit the app at [http://localhost:3000](http://localhost:3000).
+
+The dev container reuses the same [`Dockerfile`](Dockerfile) and
+[`docker-compose.yml`](docker-compose.yml) as the plain Docker setup above,
+with the config living in [`.devcontainer/`](.devcontainer).
 
 ### Install locally
 
