@@ -18,6 +18,7 @@ class GMap {
     const contents = {};
 
     jQuery.each(this.data, function() {
+      if (this.lat == null || this.long == null) { return; } // skip ungeocoded locations (avoid 0,0 "ocean" pin)
       const position = new google.maps.LatLng(this.lat, this.long);
       const marker = new google.maps.Marker({position, map, title: this.name});
       let content = `<div class='info-window'><p><strong><a href='/locations/${this.slug}'>${this.name}</a></strong></br>`;
