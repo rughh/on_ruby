@@ -24,3 +24,4 @@ passenger.*
 .byebug_history
 .sass-cache
 node_modules
+.env*.local
