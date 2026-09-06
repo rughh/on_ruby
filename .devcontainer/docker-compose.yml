@@ -1,0 +1,25 @@
+services:
+  app:
+    # relative paths here are resolved against the directory of the
+    # *first* file listed in devcontainer.json's `dockerComposeFile` (i.e.
+    # the repo root, since ../docker-compose.yml is listed first) — not
+    # against this file's own directory. So `.` means the repo root here,
+    # not `.devcontainer/`.
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sleep infinity
+    volumes:
+      - .:/app:cached
+      - bundle_box:/box
+    environment:
+      # config/database.yml uses this legacy env var name as its, replicate it here
+      POSTGRES_PORT_5432_TCP_ADDR: postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+
+volumes:
+  bundle_box:
