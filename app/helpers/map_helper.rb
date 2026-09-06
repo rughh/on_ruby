@@ -5,7 +5,7 @@ module MapHelper
     options = {
       zoom: 12,
       sensor: false,
-      key: 'AIzaSyBskJCTxAU9UbH3qijy46oNtZ1-4ad14PM',
+      key: ENV.fetch('GOOGLE_MAPS_API_KEY', 'AIzaSyBskJCTxAU9UbH3qijy46oNtZ1-4ad14PM'),
     }
     params =  options.collect { |k, v| "#{k}=#{v}" }
     params += locations.map { |l| "markers=#{l.lat},#{l.long}" }
