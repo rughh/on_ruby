@@ -2,6 +2,7 @@
 
 module MapHelper
   def static_map(*locations)
+    locations = locations.select(&:geocoded?)
     options = {
       zoom: 12,
       sensor: false,
@@ -14,6 +15,8 @@ module MapHelper
   end
 
   def single_map(location, init = { zoom: 14 })
+    return unless location&.geocoded?
+
     data = {
       map: Array(location).to_json,
       init: location.attributes.merge(init).to_json,
@@ -22,6 +25,7 @@ module MapHelper
   end
 
   def map(locations, init = { zoom: 12 })
+    locations = locations.select(&:geocoded?)
     init = Whitelabel[:location].merge(init)
     data = {
       map: locations.to_json,

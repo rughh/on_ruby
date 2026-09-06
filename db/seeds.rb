@@ -26,7 +26,7 @@ Whitelabel.with_label(label) do
   # real location, so we can geocode it
   location = Location.find_or_create_by!(name: 'Seeded Location', label: label.label_id) do |loc|
     loc.url          = 'http://example.com'
-    loc.street       = 'Platz d. Deutschen Einheit'
+    loc.street       = 'Platz der Deutschen Einheit'
     loc.house_number = '4'
     loc.city         = 'Hamburg'
     loc.zip          = '20457'
