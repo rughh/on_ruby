@@ -11,11 +11,13 @@
 //= require utility
 //= require custom
 //= require map
+//= require controllers
+//= require_tree ./controllers
 
-$(function() {
+$(function () {
   Utility.disable();
 });
 
-$.fn.random = function() {
+$.fn.random = function () {
   return this.eq(Math.floor(Math.random() * this.length));
 };

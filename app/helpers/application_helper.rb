@@ -31,10 +31,9 @@ module ApplicationHelper
     javascript_include_tag link if Rails.root.join("app/assets/javascripts/#{link}.js").exist?
   end
 
-  def label_auth_url(provider)
-    host = Rails.env.development? ? "http://#{Whitelabel[:label_id]}.onruby.localhost:3000" : Whitelabel[:canonical_url]
-
-    "#{host}/auth/#{provider}?origin=#{CGI.escape(params[:origin]) if params[:origin]}"
+  def label_auth_path(provider)
+    path = "/auth/#{provider}"
+    params[:origin].present? ? "#{path}?origin=#{CGI.escape(params[:origin])}" : path
   end
 
   def label_url(label)

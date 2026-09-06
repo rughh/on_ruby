@@ -21,7 +21,7 @@ describe TopicsController do
   end
 
   context 'GET :new' do
-    let(:user) { build(:user) }
+    let(:user) { create(:user) }
 
     it 'renders the action' do
       allow(controller).to receive_messages(current_user: user)

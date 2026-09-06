@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe LikesController do
-  let(:user) { build(:user) }
+  let(:user) { create(:user) }
 
   context 'POST :create' do
     let!(:topic) { create(:topic) }

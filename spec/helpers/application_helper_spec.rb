@@ -32,6 +32,17 @@ describe ApplicationHelper do
     end
   end
 
+  describe '#label_auth_path' do
+    it 'returns a relative path without origin by default' do
+      expect(helper.label_auth_path('github')).to eq('/auth/github')
+    end
+
+    it 'appends origin when present' do
+      allow(controller).to receive(:params).and_return(ActionController::Parameters.new(origin: '/events'))
+      expect(helper.label_auth_path('github')).to eq('/auth/github?origin=%2Fevents')
+    end
+  end
+
   describe '#label_logo_asset' do
     it 'falls back to the default logo when the whitelabel logo is missing' do
       expect(helper.label_logo_asset('tokio')).to eq('logo.png')
