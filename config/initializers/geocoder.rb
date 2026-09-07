@@ -16,8 +16,8 @@ Geocoder.configure(
   # requires every client to identify itself via a valid User-Agent (or Referer).
   # Without this header access is denied, location silently stay `nil`/`nil`.
   #
-  # We use a custom User-Agent that includes the domain and email address of the
-  # user who is requesting the geocoding.
+  # We use a custom User-Agent identifying the platform, which should be fine
+  # given our traffic.
   http_headers: {
     'User-Agent' => 'on_ruby (https://www.onruby.eu/)',
   },
