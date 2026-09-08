@@ -111,12 +111,11 @@
   status: enabled
   default_locale: en
   country: Deutschland
-  recurring: first thursday 19:30
+  recurring: first thursday 19:00
   email: rug-b@googlegroups.com
   twitter: rug_b
   organizers:
   - amrAbdelwahab
-  - PWengerter
   - PragTob
   location:
     :zoom: 12
@@ -131,7 +130,7 @@
     - :name: Ruby Berlin e.V.
       :email: rug-b@rubyberlin.org
   tld: de
-  coc: http://rubyberlin.github.io/code-of-conduct/
+  coc: https://berlincodeofconduct.org
   domains:
   - rug-b.de
   google_group: rug-b
