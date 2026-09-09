@@ -2,10 +2,11 @@
 
 module MapHelper
   def static_map(*locations)
+    locations = locations.select(&:geocoded?)
     options = {
       zoom: 12,
       sensor: false,
-      key: 'AIzaSyBskJCTxAU9UbH3qijy46oNtZ1-4ad14PM',
+      key: ENV.fetch('GOOGLE_MAPS_API_KEY', 'AIzaSyBskJCTxAU9UbH3qijy46oNtZ1-4ad14PM'),
     }
     params =  options.collect { |k, v| "#{k}=#{v}" }
     params += locations.map { |l| "markers=#{l.lat},#{l.long}" }
@@ -14,6 +15,8 @@ module MapHelper
   end
 
   def single_map(location, init = { zoom: 14 })
+    return unless location&.geocoded?
+
     data = {
       map: Array(location).to_json,
       init: location.attributes.merge(init).to_json,
@@ -22,6 +25,7 @@ module MapHelper
   end
 
   def map(locations, init = { zoom: 12 })
+    locations = locations.select(&:geocoded?)
     init = Whitelabel[:location].merge(init)
     data = {
       map: locations.to_json,

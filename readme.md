@@ -135,6 +135,30 @@ subdomains to your `/etc/hosts`:
 
 Access via [https://www.onruby.test:3000](https://www.onruby.test:3000)
 
+### Google Maps
+
+The site embeds Google Maps using an API key that is hard-coded as a
+fallback default. That key is restricted (via [HTTP referrer
+restrictions](https://developers.google.com/maps/api-security-best-practices#restricting-api-keys))
+to the production domains, so it will **not** work when browsing locally.
+
+To fix this locally, create your own [Google Maps JavaScript API
+key](https://developers.google.com/maps/documentation/javascript/get-api-key)
+(no referrer restriction, or one that allows `localhost`/`127.0.0.1`), then
+export it before starting the server:
+
+```sh
+export GOOGLE_MAPS_API_KEY=your-own-key
+script/server
+```
+
+or add it to a `.env.development.local` (or `.env.development` but don't commit it)
+file:
+
+```sh
+echo "GOOGLE_MAPS_API_KEY=your-own-key" >> .env.development.local
+```
+
 ### Test Data
 
 You don't need any test data to set up a new project!
@@ -148,6 +172,15 @@ If you are a Heroku project admin, you can dump Data from Heroku via [Taps
 Gem](https://devcenter.heroku.com/articles/taps):
 
     heroku pg:pull HEROKU_POSTGRESQL_MAROON_URL onruby_development
+
+If you don't have Heroku access, you can instead run the Rake task below to
+seed a minimal dataset for the `hamburg` usergroup: an admin user (`admin`),
+a normal user (`demo`), a location, an event and a topic.
+
+    bin/rails db:seed
+
+See [Users Login](#users-login) below for how to log in as these seeded
+users in development.
 
 ## THE GUIDE TO YOUR RUG
 
@@ -180,6 +213,21 @@ It also accepts email as a method for registering and logging in, using a custom
 When a user is not currently logged in, selecting one of the login providers creates an account for him/her, attaching this provider as a valid auth mechanism.
 
 When a user is already logged in, selecting another provider will add that auth mechanism to the existing user.
+
+### Logging in locally without OAuth (development only)
+
+Setting up real OAuth credentials isn't necessary for local development.
+In the `development` environment only,
+there is an additional route that logs you in as any existing user by
+nickname, without going through OAuth at all:
+
+    GET /auth/offline_login/:nickname
+
+For example, after running `bin/rails db:seed` (see [Test Data](#test-data)),
+you can log in as one of the seeded users by going to:
+
+- `/auth/offline_login/admin` - an admin (and super-admin) user
+- `/auth/offline_login/demo` - a regular user
 
 [^1]: As of 2024 Twitter/X has deprecated API v1.1 and Twitter login is not working anymore
 
