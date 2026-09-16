@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version').strip
 
-gem 'rails', '~> 7.2.0'
+gem 'rails', '~> 7.2.3'
 
 gem 'acts_as_api'
 gem 'addressable'
@@ -50,6 +50,8 @@ group :development do
 end
 
 group :development, :test do
+  gem 'brakeman', require: false
+  gem 'bundler-audit', require: false
   gem 'byebug'
   gem 'factory_bot_rails'
   gem 'faker'
