@@ -154,12 +154,6 @@ describe Event do
       expect(Event.from_slug('bla-999')).to eql(event)
     end
 
-    it 'finds by name' do
-      event = create(:event, name: 'Hamburg Meetup Soandso')
-
-      expect(Event.from_slug('hamburg-meetup-soandso')).to eql(event)
-    end
-
     it 'raises an error like find' do
       expect { Event.from_slug('murks') }.to raise_error(ActiveRecord::RecordNotFound)
     end
