@@ -12,17 +12,17 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
   validates :github, format: { with: /\A(\w|-)+\z/, allow_blank: true }
 
   has_many :authorizations, dependent: :destroy
-  has_many :participants, -> { order('created_at DESC') }, dependent: :destroy
-  has_many :materials, -> { order('created_at DESC') }, dependent: :destroy
-  has_many :topics, -> { order('created_at DESC') }, dependent: :destroy
-  has_many :likes, -> { order('created_at DESC') }, dependent: :destroy
+  has_many :participants, -> { order(created_at: :desc) }, dependent: :destroy
+  has_many :materials, -> { order(created_at: :desc) }, dependent: :destroy
+  has_many :topics, -> { order(created_at: :desc) }, dependent: :destroy
+  has_many :likes, -> { order(created_at: :desc) }, dependent: :destroy
   has_many :participations, through: :participants, source: :event
   has_many :liked_topics, through: :likes, source: :topic
-  has_many :events, -> { order('created_at DESC') }, dependent: :nullify
+  has_many :events, -> { order(created_at: :desc) }, dependent: :nullify
 
   scope :organizers, -> { where(nickname: Whitelabel[:organizers]) }
-  scope :ordered,    -> { order('updated_at DESC') }
-  scope :peers,      -> { ordered.joins(participants: :event).where('events.label' => Whitelabel[:label_id]).distinct }
+  scope :ordered,    -> { order(updated_at: :desc) }
+  scope :peers,      -> { ordered.joins(participants: :event).merge(Event.for_label(Whitelabel[:label_id])).distinct }
 
   def participates?(event)
     participants.any? { |participant| participant.event_id == event.id }

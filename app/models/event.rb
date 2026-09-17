@@ -19,12 +19,13 @@ class Event < ApplicationRecord
   accepts_nested_attributes_for :materials
   accepts_nested_attributes_for :topics
 
-  default_scope       -> { where(label: Whitelabel[:label_id]) }
+  default_scope       -> { for_label(Whitelabel[:label_id]) }
 
+  scope :for_label,   ->(label) { unscoped.where(label:) }
   scope :with_topics, -> { joins(:topics).distinct }
   scope :current,     -> { where(date: Date.current.beginning_of_day..).limit(1).order(date: :asc) }
-  scope :latest,      -> { where('date < ?', Date.current.beginning_of_day).order(date: :desc) }
-  scope :unpublished, -> { where('published IS NULL') }
+  scope :latest,      -> { where(date: ...Date.current.beginning_of_day).order(date: :desc) }
+  scope :unpublished, -> { where(published: nil) }
   scope :ordered,     -> { order(date: :desc) }
 
   def end_date

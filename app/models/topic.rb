@@ -16,10 +16,10 @@ class Topic < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :materials
 
-  scope :ordered,  -> { order('created_at DESC') }
-  scope :undone,   -> { where('event_id IS NULL') }
-  scope :done,     -> { joins(:event).where('date <= ?', Time.now - 2.hours) }
-  scope :upcoming, -> { joins(:event).where('date > ?', Time.now - 2.hours) }
+  scope :ordered,  -> { order(created_at: :desc) }
+  scope :undone,   -> { where(event_id: nil) }
+  scope :done,     -> { joins(:event).merge(Event.where(date: ..2.hours.ago)) }
+  scope :upcoming, -> { joins(:event).merge(Event.where(date: 2.hours.ago...)) }
 
   default_scope -> { where(label: Whitelabel[:label_id]) }
 
