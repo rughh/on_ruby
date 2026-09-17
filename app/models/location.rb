@@ -15,7 +15,7 @@ class Location < ApplicationRecord
   validates :city, :street, :house_number, :zip, presence: true, unless: :virtual?
   validates :url, length: { maximum: 255 }
 
-  scope :ordered, -> { order('name ASC') }
+  scope :ordered, -> { order(name: :asc) }
   default_scope   -> { where(label: Whitelabel[:label_id]) }
 
   def geo_coder_address

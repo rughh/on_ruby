@@ -12,9 +12,9 @@ class Material < ApplicationRecord
   belongs_to :event
   belongs_to :topic
 
-  scope :naked, -> { where('preview_type IS NULL AND preview_code is NULL') }
+  scope :naked, -> { where(preview_type: nil, preview_code: nil) }
 
-  default_scope -> { joins(:event).where('events.label' => Whitelabel[:label_id]).readonly(false) }
+  default_scope -> { joins(:event).merge(Event.for_label(Whitelabel[:label_id])).readonly(false) }
 
   def generate_preview
     generator = PreviewGenerator.new(url)
