@@ -1,18 +1,14 @@
 # frozen_string_literal: true
 
 module Slug
+  PARAM_ENDS_IN_DIGITS = /-(\d+)\z/
+
   def self.included(clazz)
     def clazz.from_param(token)
-      id = if match = token.match(/.*-(\d+)/)
-             match[1]
-           else
-             token
-           end
+      match = token.match(PARAM_ENDS_IN_DIGITS).try(:[], 1) || token.to_i
+      raise ActiveRecord::RecordNotFound, "Could not find by slug #{token}" unless match
 
-      found = where(id: id.to_i).or(where("#{table_name}.#{slugger} ILIKE ?", token.tr('-', '%'))).first
-      raise ActiveRecord::RecordNotFound, "Could not find by slug #{token}" unless found
-
-      found
+      find(match)
     end
 
     def clazz.from_slug(token)
