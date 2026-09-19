@@ -91,7 +91,7 @@ GEM
     appsignal (4.3.2)
       logger
       rack
-    ast (2.4.2)
+    ast (2.4.3)
     auth-sanitizer (0.2.3)
       version_gem (~> 1.1, >= 1.1.14)
     base64 (0.3.0)
@@ -209,7 +209,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    language_server-protocol (3.17.0.3)
+    language_server-protocol (3.17.0.6)
     launchy (3.0.1)
       addressable (~> 2.8)
       childprocess (~> 5.0)
@@ -223,6 +223,7 @@ GEM
       nokogiri (>= 1.6)
       rake (>= 0.9)
       video_info (>= 2.6)
+    lint_roller (1.1.0)
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -302,8 +303,8 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     ostruct (0.6.3)
-    parallel (1.26.3)
-    parser (3.3.6.0)
+    parallel (2.2.0)
+    parser (3.3.12.0)
       ast (~> 2.4.1)
       racc
     partially_useful (6.0.0)
@@ -381,7 +382,7 @@ GEM
       psych (>= 4.0.0)
       tsort
     redcarpet (3.6.0)
-    regexp_parser (2.10.0)
+    regexp_parser (2.12.0)
     reline (0.6.3)
       io-console (~> 0.5)
     request_store (1.7.0)
@@ -404,18 +405,20 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.2)
-    rubocop (1.70.0)
-      json (~> 2.3)
-      language_server-protocol (>= 3.17.0)
-      parallel (~> 1.10)
+    rubocop (1.91.0)
+      json (>= 2.3)
+      language_server-protocol (~> 3.17.0.2)
+      lint_roller (~> 1.1.0)
+      parallel (>= 1.10)
       parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 2.9.3, < 3.0)
-      rubocop-ast (>= 1.36.2, < 2.0)
+      rubocop-ast (>= 1.49.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.37.0)
-      parser (>= 3.3.1.0)
+    rubocop-ast (1.50.0)
+      parser (>= 3.3.7.2)
+      prism (~> 1.7)
     rubocop-rails (2.28.0)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
@@ -467,9 +470,9 @@ GEM
       ethon (>= 0.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (3.1.4)
-      unicode-emoji (~> 4.0, >= 4.0.4)
-    unicode-emoji (4.0.4)
+    unicode-display_width (3.2.0)
+      unicode-emoji (~> 4.1)
+    unicode-emoji (4.2.0)
     uri (1.1.1)
     useragent (0.16.11)
     validate_url (1.0.15)
@@ -519,6 +522,7 @@ DEPENDENCIES
   geocoder
   icalendar
   jquery-rails
+  json (< 3.0)
   kaminari
   letter_opener
   link_thumbnailer
@@ -552,7 +556,7 @@ DEPENDENCIES
   whitelabel
 
 RUBY VERSION
-   ruby 3.2.11
+  ruby 4.0.7
 
 BUNDLED WITH
-   2.4.19
+  4.0.20
