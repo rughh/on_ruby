@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 ruby File.read('.ruby-version').strip
 
 gem 'rails', '~> 7.2.0'
+# Rails < 8.1 still passes `quirks_mode:` to JSON.generate/parse, which json 3.x removed.
+gem 'json', '< 3.0'
 
 gem 'acts_as_api'
 gem 'addressable'

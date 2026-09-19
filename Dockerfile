@@ -1,4 +1,4 @@
-FROM ruby:3.2.11
+FROM ruby:4.0.7
 
 RUN apt-get update -qq && apt-get install -y build-essential
 
