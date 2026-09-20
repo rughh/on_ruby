@@ -1,9 +1,0 @@
-section
-  h3= t("show.login_before_attend")
-
-  .d-flex.justify-content-center
-    ul.list-group.list-group-horizontal
-      - login_providers.each do |provider|
-        li.list-group-item
-          = button_to(label_auth_url(provider)) do
-            = fa_icon(icon_for_provider(provider), class: 'fa-fw dropdown-list-icon', text: t("login.#{provider}_login"))
