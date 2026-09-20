@@ -1,0 +1,8 @@
+<%= simple_form_for topic do |f| %>
+  <%= f.input :name %>
+  <%= f.input :proposal_type, as: :select, include_blank: false, collection: proposal_type_selection %>
+
+  <p class="info"><%== t("topic.markdown") %></p>
+  <%= f.input :description %>
+  <%= f.button :submit, class: 'btn-primary' %>
+<% end %>
