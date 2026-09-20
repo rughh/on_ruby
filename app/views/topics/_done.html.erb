@@ -1,0 +1,17 @@
+<% if topics.present? %>
+  <div id="done">
+    <h3><%= t('home.old_topics') %></h3>
+
+    <ul class="more-list clearfix">
+      <% topics.each do |topic| %>
+        <li class="topic">
+          <%= link_to_topic topic %>
+        </li>
+      <% end %>
+
+      <li class="all">
+        <%= fa_icon 'mail-forward', text: link_to(t('topic.all_topics'), topics_path) %>
+      </li>
+    </ul>
+  </div>
+<% end %>
