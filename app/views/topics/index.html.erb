@@ -1,0 +1,16 @@
+<%= section_box :topics do %>
+  <% events.each do |event| %>
+    <p>
+      <strong><%= link_to_event event %></strong>
+      <%= " (#{l(event.date, format: :date)})" %>
+    </p>
+
+    <ul class="more-list undone clearfix">
+      <% event.topics.each do |topic| %>
+        <li class="topic"><%= link_to_topic topic %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= paginate events %>
+<% end %>
