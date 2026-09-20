@@ -1,0 +1,14 @@
+<% if current_event.present? %>
+  <div class="card">
+    <div class="card-header">
+      <%= render('events/badges', event: current_event) %>
+    </div>
+
+    <div class="card-body">
+      <%= render('events/info', event: current_event) %>
+      <%= render('events/topics', event: current_event) %>
+      <%= render('events/participants', event: current_event) %>
+      <%= render('events/location', event: current_event) %>
+    </div>
+  </div>
+<% end %>
