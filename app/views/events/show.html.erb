@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-header">
+    <%= render('badges', event: event) %>
+  </div>
+
+  <div class="card-body">
+    <%= render('info', event: event) %>
+    <%= render('topics', event: event) %>
+    <%= render('participants', event: event) %>
+    <%= render('location', event: event) %>
+  </div>
+
+  <div class="card-footer">
+    <small>
+      <%= I18n.tw("home.like_to_talk") %>
+      <br>
+      <%= contact_text %>
+    </small>
+  </div>
+</div>
