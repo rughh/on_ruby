@@ -1,0 +1,6 @@
+<% if event.participants.present? %>
+  <h3 class="card-title">
+    <%= t("show.attendees", count: event.limit || 0, participant_count: event.participants.count) %>
+  </h3>
+  <p><%= render 'users/list', users: event.users.with_counts %></p>
+<% end %>
