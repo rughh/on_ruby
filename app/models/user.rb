@@ -22,7 +22,7 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
 
   scope :organizers, -> { where(nickname: Whitelabel[:organizers]) }
   scope :ordered,    -> { order(updated_at: :desc) }
-  scope :peers,      -> { ordered.joins(participants: :event).merge(Event.for_label(Whitelabel[:label_id])).distinct }
+  scope :peers,      -> { ordered.where(id: Participant.joins(:event).select(:user_id)) }
 
   def participates?(event)
     participants.any? { |participant| participant.event_id == event.id }
