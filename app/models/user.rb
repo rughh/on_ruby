@@ -24,6 +24,21 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
   scope :ordered,    -> { order(updated_at: :desc) }
   scope :peers,      -> { ordered.where(id: Participant.joins(:event).select(:user_id)) }
 
+  # append the per-label topic and participation counts as extra columns
+  scope :with_counts, lambda {
+    select(
+      arel_table[Arel.star],
+      Topic.where(Topic.arel_table[:user_id].eq(arel_table[:id]))
+           .select(Arel.star.count).arel.as('topics_count'),
+      Participant.joins(:event).where(Participant.arel_table[:user_id].eq(arel_table[:id]))
+                 .select(Arel.star.count).arel.as('participations_count')
+    )
+  }
+
+  def topics_count = has_attribute?(:topics_count) ? self[:topics_count] : topics.count
+
+  def participations_count = has_attribute?(:participations_count) ? self[:participations_count] : participations.count
+
   def participates?(event)
     participants.any? { |participant| participant.event_id == event.id }
   end
