@@ -1,0 +1,13 @@
+<% if event.location.present? && !event.location.virtual? %>
+  <h3 class="card-title">
+    <%= t("show.route") %>
+
+    <% if event.location.wheelmap_id? %>
+      <div class="pull-right">
+        <%= wheelmap_badge(event.location) %>
+      </div>
+    <% end %>
+  </h3>
+
+  <div id="route"><%= single_map(event.location) %></div>
+<% end %>
