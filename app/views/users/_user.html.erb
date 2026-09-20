@@ -1,0 +1,30 @@
+<div class="card my-2">
+  <div class="card-body position-relative">
+    <div class="pull-left">
+      <% if user.organizer? %>
+        <span
+          class="
+            position-absolute ms-5 top-0 translate-middle badge p-2
+            text-bg-light border border-light rounded-border
+          "
+        >
+          <%= fa_icon "star", text: "Organizer" %>
+        </span>
+      <% end %>
+
+      <%= link_to(user) do %>
+        <%= user_image(user, variant: 'topic') %>
+      <% end %>
+    </div>
+
+    <p>
+      <small class="text-muted">
+        <%= link_to_user(user) %>
+        <br>
+        <%= "#{t('main.events')}: #{user.participations_count}" %>
+        <br>
+        <%= "#{t('main.topics')}: #{user.topics_count}" %>
+      </small>
+    </p>
+  </div>
+</div>
