@@ -1,0 +1,50 @@
+<section>
+  <h3><%= t "profile.edit" %></h3>
+
+  <ul><%= render 'users/list', users: [user] %></ul>
+
+  <%= simple_form_for user do |f| %>
+    <%= f.input :name %>
+
+    <% unless user.with_provider? :github %>
+      <%= f.input :github, input_html: { placeholder: 'GitHub handle' } %>
+    <% end %>
+
+    <%= f.input :linkedin, input_html: { placeholder: 'Linkedin handle' } %>
+    <%= f.input :email %>
+    <%= f.input :url %>
+    <%= f.input :description, type: :text_area %>
+
+    <div class="info"><%== t("topic.markdown") %></div>
+    <br>
+    <%= f.input :freelancer %>
+    <%= f.input :available %>
+    <%= f.input :hide_jobs %>
+    <%= f.button :submit, class: 'btn-primary' %>
+  <% end %>
+
+  <p>
+    <%= button_to t("profile.remove_account"), current_user, method: :delete, class: 'btn btn-danger', data: { confirm: t("profile.remove_confirm") } %>
+  </p>
+</section>
+
+<section>
+  <h3><%= t('profile.authorizations') %></h3>
+
+  <ul>
+    <% existing_providers = user.authorizations.map(&:provider) %>
+
+    <% login_providers.each do |provider| %>
+      <li>
+        <%= button_to label_auth_url(provider), title: t("login.#{provider}_login"), class: "btn btn-#{existing_providers.include?(provider) ? 'disabled' : 'secondary'}", disabled: existing_providers.include?(provider) do %>
+          <%= fa_icon icon_for_provider(provider), class: 'fa-fw dropdown-list-icon' %>
+          <%= t("login.#{provider}_login") %>
+
+          <% if existing_providers.include? provider %>
+            <%= fa_icon 'check', class: 'fa-fw dropdown-list-icon' %>
+          <% end %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</section>
