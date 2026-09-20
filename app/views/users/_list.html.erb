@@ -1,0 +1,7 @@
+<div class="my-4">
+  <div class="row row-cols-1 row-cols-md-3">
+    <% users.each do |user| %>
+      <div class="col"><%= render(user) %></div>
+    <% end %>
+  </div>
+</div>
