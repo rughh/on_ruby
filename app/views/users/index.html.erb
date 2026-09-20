@@ -1,0 +1,11 @@
+<div class="container">
+  <%= section_box :people do %>
+    <div class="row row-cols-1 row-cols-md-3">
+      <% users.each do |user| %>
+        <div class="col"><%= render(user) %></div>
+      <% end %>
+    </div>
+
+    <%= paginate(users) %>
+  <% end %>
+</div>
