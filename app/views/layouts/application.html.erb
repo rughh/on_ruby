@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <%= render 'meta' %>
+    <%= canonical_url %>
+    <%= browser_icon %>
+    <%= touch_icon %>
+    <%= rss_feed %>
+    <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag :application, "//fonts.googleapis.com/css?family=Raleway" %>
+    <%= whitelabel_stylesheet_link_tag %>
+  </head>
+
+  <body>
+    <div class="container-xl" id="on_ruby">
+      <%= render 'nav' %>
+
+      <div class="main">
+        <%= render 'headline' %>
+        <%= render 'hint' %>
+        <%= yield %>
+      </div>
+    </div>
+
+    <footer>
+      <%= render 'footer' %>
+    </footer>
+  </body>
+
+  <%= render 'i18njs' %>
+  <%= javascript_include_tag :application, "//maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDvgVnoO2zQ_K_dDhAFiz2nENTQSH4TivY" %>
+  <%= whitelabel_javascript_include_tag %>
+</html>
