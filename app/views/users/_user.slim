@@ -11,6 +11,6 @@
       small.text-muted
         = link_to_user(user)
         br
-        = "#{t('main.events')}: #{user.participations.count}"
+        = "#{t('main.events')}: #{user.participations_count}"
         br
-        = "#{t('main.topics')}: #{user.topics.count}"
+        = "#{t('main.topics')}: #{user.topics_count}"
