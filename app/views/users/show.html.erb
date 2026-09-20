@@ -1,0 +1,113 @@
+<div class="card">
+  <div class="card-header">
+    <% if user.organizer? %>
+      <span class="badge badge-card-header mr-2">
+        <%= fa_icon('star', text: 'Organizer') %>
+      </span>
+    <% end %>
+
+    <% if user.location? %>
+      <span class="badge badge-card-header mr-2">
+        <%= fa_icon('map-marker', text: (user.location)) %>
+      </span>
+    <% end %>
+
+    <% if user.github? %>
+      <span class="badge badge-card-header mr-2">
+        <%= fa_icon('github', text: link_to_github(user)) %>
+      </span>
+    <% end %>
+
+    <% if user.linkedin? %>
+      <span class="badge badge-card-header mr-2">
+        <%= fa_icon('linkedin', text: link_to_linkedin(user)) %>
+      </span>
+    <% end %>
+
+    <% if user.url? %>
+      <span class="badge badge-card-header mr-2">
+        <%= fa_icon('bookmark', text: link_to(user.url, user.url, rel: "nofollow noopener noreferrer ugc")) %>
+      </span>
+    <% end %>
+  </div>
+
+  <div class="card-body">
+    <h2 class="card-title">
+      <%= user_image(user) %><%= "#{user_name(user)}" %><%= " (#{user.nickname})" unless user.hide_nickname? %>
+    </h2>
+
+    <small class="text-muted">
+      <span><%= I18n.tw("profile.freelancer") if user.freelancer? %></span>
+      <span><%= "(#{t("profile.available")})" if user.available? %></span>
+    </small>
+
+    <% if user.description.present? %>
+      <p class="card-text"><%== markdown user.description %></p>
+    <% end %>
+
+    <% if user.topics.present? %>
+      <h3 class="card-title"><%= t("profile.talks_done") %></h3>
+      <ul class="list-group">
+        <% user.topics.each do |topic| %>
+          <li class="list-group-item">
+            <%= link_to_topic(topic) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if user.materials.present? %>
+      <h3 class="card-title"><%= t("profile.provided_material") %></h3>
+      <ul class="list-group">
+        <% user.materials.each do |material| %>
+          <li class="list-group-item">
+            <%= link_to_material(material) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if user.participations.present? %>
+      <h3 class="card-title"><%= t("profile.events_participated") %></h3>
+      <ul class="list-group">
+        <% user.participations.each do |event| %>
+          <li class="list-group-item">
+            <%= link_to_event(event) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if user.events.present? %>
+      <h3 class="card-title"><%= t("profile.organized_events") %></h3>
+      <ul class="list-group">
+        <% user.events.each do |event| %>
+          <li class="list-group-item">
+            <%= link_to_event(event) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if user.liked_topics.present? %>
+      <h3 class="card-title"><%= t("profile.likes_given") %></h3>
+      <ul class="list-group">
+        <% user.liked_topics.each do |topic| %>
+          <li class="list-group-item">
+            <%= link_to_topic(topic) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <% if user.organizer? %>
+    <div class="card-footer">
+      <small>
+        <%= I18n.tw("home.like_to_talk") %>
+        <br>
+        <%== contact_text %>
+      </small>
+    </div>
+  <% end %>
+</div>
