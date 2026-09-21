@@ -22,8 +22,6 @@ class ApiController < ApplicationController
   private
 
   def api_sign_in
-    return unless request.format.json?
-
     key = request.headers['x-api-key'] || params['x-api-key']
     head :unauthorized if key != ENV['HOR_API_KEY']
   end
