@@ -49,6 +49,7 @@ class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
 
   def url
     return unless url = self[:url]
+    return if url.blank?
 
     url =~ %r{\Ahttps?://.+} ? url : "http://#{url}"
   end
