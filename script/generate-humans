@@ -38,7 +38,7 @@ FALLBACKS = {
   'kikito' => 'Enrique García',
   'JoschkaSchulz' => 'Joschka Schulz',
   'Makisai' => 'Julia Schmaglowski',
-  'whysthatso' => 'Andreas Wagner'
+  'whysthatso' => 'Andreas Wagner',
 }.freeze
 IGNORES = [
   /depfu/,
