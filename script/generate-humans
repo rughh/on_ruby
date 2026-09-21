@@ -12,8 +12,8 @@ FORMAT = <<~OUTPUT
 
   /* MAINTAINER */
 
-    Peter Schröder (Señor Developer)
-    Site: https://github.com/phoet
+    Ben Rexin
+    Site: https://github.com/salzig
     Location: Hamburg, Germany
 
   /* COMMITTERS */
@@ -36,6 +36,9 @@ FALLBACKS = {
   'Bascht' => 'Sebastian Schulze',
   'rocky-jaiswal' => 'Rocky Jaiswal',
   'kikito' => 'Enrique García',
+  'JoschkaSchulz' => 'Joschka Schulz',
+  'Makisai' => 'Julia Schmaglowski',
+  'whysthatso' => 'Andreas Wagner'
 }.freeze
 IGNORES = [
   /depfu/,

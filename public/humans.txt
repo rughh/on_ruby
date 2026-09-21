@@ -21,13 +21,21 @@
 
   Alteris Ian
 
+  Amr Abdelwahab
+
+  Andreas Finger
+
   Andreas Haller
 
   Andreas Reischuck
 
+  Andreas Wagner
+
   André Cedik
 
   Arthur Neves
+
+  Ben Rexin
 
   Ben Zimmer
 
@@ -55,6 +63,8 @@
 
   Eckhard Rotte
 
+  Ender Ahmet Yurt
+
   Enrique García
 
   Florian Gilcher
@@ -63,9 +73,19 @@
 
   Jakob Hilden
 
+  Jan Krutisch
+
   Jan Zaydowicz
 
   Javier Honduvilla Coto
+
+  Joschka Schulz
+
+  Josep Egea
+
+  Julia Schmaglowski
+
+  Karsten Senz
 
   Kerstin Puschke
 
@@ -78,6 +98,8 @@
   Marco Schaden
 
   Markus Schwed
+
+  Martin Eismann
 
   Martin Frank
 
@@ -101,6 +123,10 @@
 
   Parker Moore
 
+  Pascal Wengerter
+
+  Paweł Świątkowski
+
   Peter Schröder
 
   Rafael Jung
@@ -109,9 +135,13 @@
 
   Raúl Cabrera
 
+  Richard Böhme
+
   Robert Schulze
 
   Rocky Jaiswal
+
+  Rojo
 
   Sean Linsley
 
@@ -136,5 +166,7 @@
   Thorsten Böttger
 
   Tobias Pfeiffer
+
+  sarah
 
   stbnrivas
