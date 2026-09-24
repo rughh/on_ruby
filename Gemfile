@@ -54,6 +54,7 @@ group :development, :test do
   gem 'byebug'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'json_schemer'
   gem 'letter_opener'
   gem 'rspec-rails'
   gem 'rubocop', require: false
