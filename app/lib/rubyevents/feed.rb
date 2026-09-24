@@ -6,6 +6,12 @@ module Rubyevents
     LANGUAGES = { 'de' => 'German', 'en' => 'English', 'es' => 'Spanish', 'pl' => 'Polish' }.freeze
     COUNTRIES = { 'DE' => 'Germany', 'ES' => 'Spain', 'EE' => 'Estonia' }.freeze
 
+    # Psych escapes U+2028/U+2029 as \L and \P, but rubyevents' formatter
+    # un-escapes them into a literal block scalar, where they act as real line
+    # breaks and produce unparseable YAML. They are invisible paste artefacts,
+    # so normalise them to a plain newline before they reach the document.
+    LINE_SEPARATORS = /[\u2028\u2029]/
+
     def initialize(whitelabel)
       @whitelabel = whitelabel
     end
@@ -42,7 +48,9 @@ module Rubyevents
       end
     end
 
-    public def videos = []
+    public def videos
+      scoped { events.map { |event| edition(event) } }
+    end
 
     private attr_reader :whitelabel
 
@@ -80,5 +88,49 @@ module Rubyevents
 
       meta_desc
     end
+
+    # Oldest first: rubyevents orders videos.yml chronologically ascending,
+    # unlike our own Event.ordered scope.
+    private def events
+      Event.includes(topics: %i[user materials]).order(date: :asc)
+    end
+
+    private def edition(event)
+      talks = event.topics.sort_by(&:id).map { |topic| talk(topic, event) }
+
+      {
+        'id' => edition_id(event),
+        'video_id' => edition_id(event),
+        'title' => event.name,
+        'event_name' => event.name,
+        'description' => text(event.description),
+        'date' => event.date.to_date.iso8601,
+        'video_provider' => talks.any? ? 'children' : 'not_recorded',
+      }.compact_blank.merge('talks' => talks)
+    end
+
+    private def talk(topic, event)
+      {
+        'id' => talk_id(topic, event),
+        'video_id' => talk_id(topic, event),
+        'title' => topic.name,
+        'description' => text(topic.description),
+        'date' => event.date.to_date.iso8601,
+        'event_name' => event.name,
+        'speakers' => [speaker(topic)],
+        'video_provider' => event.date.future? ? 'scheduled' : 'not_recorded',
+        'slides_url' => topic.materials.first&.url,
+      }.compact_blank
+    end
+
+    # Ids come from primary keys, never names: rubyevents upserts on id, and a
+    # renamed event or topic would otherwise look like a record that vanished.
+    private def edition_id(event) = "#{series_id}-event-#{event.id}"
+
+    private def talk_id(topic, event) = "#{edition_id(event)}-topic-#{topic.id}"
+
+    private def speaker(topic) = topic.user.name
+
+    private def text(value) = value&.gsub(LINE_SEPARATORS, "\n")
   end
 end
