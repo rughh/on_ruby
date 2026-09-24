@@ -24,6 +24,9 @@ RSpec/MultipleExpectations:
   Exclude:
     - "spec/system/**/*"
 
+Style/AccessModifierDeclarations:
+  EnforcedStyle: inline
+
 Style/Documentation:
   Enabled: false
 
