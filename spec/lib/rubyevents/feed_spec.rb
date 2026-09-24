@@ -99,4 +99,116 @@ describe Rubyevents::Feed do
       expect(feed.event.keys).to all(be_a(String))
     end
   end
+
+  describe '#videos' do
+    let(:user) { create(:user, name: 'Ada Lovelace') }
+
+    def create_event(date:, name: 'September Meetup')
+      create(:event, name:, date:, description: 'Talks: and drinks', user:)
+    end
+
+    it 'is empty when the usergroup has no events' do
+      expect(feed.videos).to eq([])
+    end
+
+    it 'lists editions oldest first' do
+      create_event(date: 2.months.ago, name: 'July Meetup')
+      create_event(date: 1.month.ago, name: 'August Meetup')
+
+      expect(feed.videos.map { |edition| edition['title'] }).to eq(['July Meetup', 'August Meetup'])
+    end
+
+    it 'derives the edition id from the primary key, not the name' do
+      event = create_event(date: 1.month.ago)
+
+      expect(feed.videos.first).to include(
+        'id' => "hamburg-event-#{event.id}",
+        'video_id' => "hamburg-event-#{event.id}"
+      )
+    end
+
+    it 'formats the date as YYYY-MM-DD' do
+      create_event(date: Time.zone.local(2026, 9, 9, 19, 0))
+
+      expect(feed.videos.first['date']).to eq('2026-09-09')
+    end
+
+    it 'preserves a description containing colons through a YAML round-trip' do
+      create_event(date: 1.month.ago)
+
+      round_tripped = YAML.safe_load(feed.videos.to_yaml)
+
+      expect(round_tripped.first['description']).to eq('Talks: and drinks')
+    end
+
+    it 'marks an edition without topics as not_recorded' do
+      create_event(date: 1.month.ago)
+
+      expect(feed.videos.first['video_provider']).to eq('not_recorded')
+    end
+
+    # Their SpeakersOrTalks validator requires exactly one of `talks` or
+    # `speakers` on every entry, so an edition without topics still carries an
+    # empty talks list rather than dropping the key.
+    it 'always carries a talks key, even when the edition had no topics' do
+      create_event(date: 1.month.ago)
+
+      expect(feed.videos.first).to include('talks' => [])
+    end
+
+    # Psych escapes U+2028/U+2029 as \L and \P, which rubyevents' formatter
+    # then un-escapes into a literal block scalar where they act as real line
+    # breaks and produce unparseable YAML.
+    it 'normalises unicode line separators out of descriptions' do
+      create(:event, name: 'Separator Meetup', date: 1.month.ago,
+                     description: "before\u2028after", user:)
+
+      description = feed.videos.first['description']
+
+      expect(description).to eq("before\nafter")
+      expect(description).not_to match(/[\u2028\u2029]/)
+    end
+
+    it 'marks an edition with topics as a parent of children' do
+      event = create_event(date: 1.month.ago)
+      create(:topic, event:, user:, name: 'Kafka at scale')
+
+      expect(feed.videos.first['video_provider']).to eq('children')
+    end
+
+    it 'maps topics to talks with speakers and primary-key ids' do
+      event = create_event(date: 1.month.ago)
+      topic = create(:topic, event:, user:, name: 'Kafka at scale')
+
+      expect(feed.videos.first['talks'].first).to include(
+        'id' => "hamburg-event-#{event.id}-topic-#{topic.id}",
+        'title' => 'Kafka at scale',
+        'speakers' => ['Ada Lovelace'],
+        'event_name' => 'September Meetup',
+        'video_provider' => 'not_recorded'
+      )
+    end
+
+    it 'marks talks of a future edition as scheduled' do
+      event = create_event(date: 1.month.from_now)
+      create(:topic, event:, user:)
+
+      expect(feed.videos.first['talks'].first['video_provider']).to eq('scheduled')
+    end
+
+    it 'includes the first material as the slides url' do
+      event = create_event(date: 1.month.ago)
+      topic = create(:topic, event:, user:)
+      create(:material, event:, topic:, user:, url: 'https://slides.example.org/kafka')
+
+      expect(feed.videos.first['talks'].first['slides_url']).to eq('https://slides.example.org/kafka')
+    end
+
+    it 'omits the slides url when the topic has no material' do
+      event = create_event(date: 1.month.ago)
+      create(:topic, event:, user:)
+
+      expect(feed.videos.first['talks'].first.keys).not_to include('slides_url')
+    end
+  end
 end

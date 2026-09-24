@@ -77,6 +77,7 @@ OnRuby::Application.routes.draw do
   scope path: '.well-known/rubyevents', defaults: { format: 'yml' }, constraints: { format: 'yml' } do
     get 'series', to: 'rubyevents#series', as: :rubyevents_series
     get 'event',  to: 'rubyevents#event',  as: :rubyevents_event
+    get 'videos', to: 'rubyevents#videos', as: :rubyevents_videos
   end
 
   root to: 'home#index'
