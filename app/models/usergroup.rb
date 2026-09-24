@@ -16,7 +16,7 @@ class Usergroup
 
   attr_accessor :label_id, :default_locale, :domains, :recurring, :custom_recurring, :email, :google_group, :coc
   attr_accessor :default_time_zone, :twitter, :organizers, :location, :imprint, :other_usergroups, :tld # TODO: get rid of tld
-  attr_accessor :sponsors, :slackin_url, :country, :status, :github_org, :github_repo, :github_issue_template
+  attr_accessor :sponsors, :slackin_url, :country, :country_code, :status, :github_org, :github_repo, :github_issue_template
   attr_accessor :canonical_url, :bluesky, :discord
 
   def parse_recurring_date(date)
@@ -99,6 +99,8 @@ class Usergroup
       it.tld              = 'de'
       it.canonical_url    = "https://#{name.parameterize}.onruby.de"
       it.country          = 'Deutschland'
+      it.country_code     = 'DE'
+      it.default_time_zone = 'Europe/Berlin'
       it.domains          = ["#{name.parameterize}.de"]
       it.recurring        = 'second wednesday'
       it.email            = "info@#{name.parameterize}.de"
