@@ -117,6 +117,7 @@ RSpec/DescribedClass:
 # Offense count: 19
 # Configuration parameters: Max.
 RSpec/ExampleLength:
+  Max: 10
   Exclude:
     - 'spec/lib/preview_generator_spec.rb'
     - 'spec/models/event_spec.rb'

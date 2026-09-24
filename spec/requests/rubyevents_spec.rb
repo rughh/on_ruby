@@ -45,6 +45,30 @@ describe 'RubyEvents feed' do
     expect(response).to have_http_status(:not_modified)
   end
 
+  it 'serves the editions as a yaml list' do
+    create(:event, name: 'September Meetup', date: 1.month.ago)
+
+    get '/.well-known/rubyevents/videos.yml'
+
+    expect(YAML.safe_load(response.body).map { |it| it['title'] }).to eq(['September Meetup'])
+  end
+
+  it 'revalidates when a material changes, since talks carry its slides url' do
+    event = create(:event, date: 1.month.ago)
+    topic = create(:topic, event:)
+    material = create(:material, event:, topic:)
+    get '/.well-known/rubyevents/videos.yml'
+    before = response.headers['Last-Modified']
+
+    travel 1.hour do
+      material.update!(url: 'https://slides.example.org/v2')
+
+      get '/.well-known/rubyevents/videos.yml'
+    end
+
+    expect(response.headers['Last-Modified']).not_to eq(before)
+  end
+
   it 'ignores topic proposals that are not on an event yet' do
     create(:event, date: 1.month.ago)
     get '/.well-known/rubyevents/event.yml'

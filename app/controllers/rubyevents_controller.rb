@@ -20,8 +20,13 @@ class RubyeventsController < ApplicationController
 
   # Topics without an event are proposals: neither held nor scheduled, and so
   # absent from the feed. Counting them would invalidate a fetcher's cache for
-  # content that has not changed.
+  # content that has not changed. Materials do belong, since a talk's
+  # slides_url comes from one.
   private def last_modified
-    [Event.maximum(:updated_at), Topic.where.not(event_id: nil).maximum(:updated_at)].compact.max
+    [
+      Event.maximum(:updated_at),
+      Topic.where.not(event_id: nil).maximum(:updated_at),
+      Material.maximum(:updated_at)
+    ].compact.max
   end
 end
