@@ -319,4 +319,35 @@ describe Rubyevents::Feed do
       expect(feed.speakers.map { |it| it['name'] }).not_to include('Only Proposed')
     end
   end
+
+  describe '#sponsors' do
+    it 'wraps sponsors in a single tier, as their schema expects' do
+      expect(feed.sponsors.first['tiers'].first).to include('name' => 'Sponsors', 'level' => 1)
+    end
+
+    it 'carries name, slug and website for each sponsor' do
+      expect(feed.sponsors.first['tiers'].first['sponsors'].first)
+        .to include('name' => 'AppSignal', 'slug' => 'appsignal', 'website' => 'https://appsignal.com/')
+    end
+
+    it 'gives an absolute logo url so a fetcher can resolve it' do
+      logo = feed.sponsors.first['tiers'].first['sponsors'].first['logo_url']
+
+      expect(logo).to start_with('https://hamburg.onruby.de/assets/labels/hamburg/sponsors/appsignal')
+      expect(logo).to end_with('.png')
+    end
+
+    it 'is an empty list for a usergroup without sponsors' do
+      allow(whitelabel).to receive(:sponsors).and_return([])
+
+      expect(feed.sponsors).to eq([])
+    end
+
+    it 'omits the logo url when the banner asset is missing' do
+      allow(whitelabel).to receive(:sponsors)
+        .and_return([{ name: 'Ghost', url: 'https://ghost.example.org', banner: 'nope.png' }])
+
+      expect(feed.sponsors.first['tiers'].first['sponsors'].first.keys).not_to include('logo_url')
+    end
+  end
 end

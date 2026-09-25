@@ -95,6 +95,16 @@ describe 'RubyEvents feed' do
       .to include('name' => 'Ada Lovelace', 'slug' => 'ada-lovelace', 'github' => 'adalovelace')
   end
 
+  it 'serves the sponsors as yaml with absolute logo urls' do
+    get '/.well-known/rubyevents/sponsors.yml'
+
+    sponsor = YAML.safe_load(response.body).first['tiers'].first['sponsors'].first
+
+    expect(response.media_type).to eq('application/yaml')
+    expect(sponsor).to include('name' => 'AppSignal')
+    expect(sponsor['logo_url']).to start_with('https://hamburg.onruby.de/assets/')
+  end
+
   it 'does not serve other formats' do
     get '/.well-known/rubyevents/series.json'
 

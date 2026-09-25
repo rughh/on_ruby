@@ -22,6 +22,16 @@ describe 'rubyevents schema conformance' do
     end
   end
 
+  describe 'the sponsors document' do
+    Whitelabel.labels.select(&:enabled?).reject { |label| label.sponsors.blank? }.each do |whitelabel|
+      it "validates for #{whitelabel.label_id}" do
+        feed = Rubyevents::Feed.new(whitelabel)
+
+        expect(feed.sponsors.flat_map { |it| schema_for('sponsors').validate(it).to_a }).to eq([])
+      end
+    end
+  end
+
   describe 'the speakers document' do
     subject(:feed) { Rubyevents::Feed.new(Whitelabel.label) }
 
