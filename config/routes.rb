@@ -74,6 +74,14 @@ OnRuby::Application.routes.draw do
     get '/', to: 'api#index', as: :api
   end
 
+  scope path: '.well-known/rubyevents', defaults: { format: 'yml' }, constraints: { format: 'yml' } do
+    get 'series', to: 'rubyevents#series', as: :rubyevents_series
+    get 'event',  to: 'rubyevents#event',  as: :rubyevents_event
+    get 'videos', to: 'rubyevents#videos', as: :rubyevents_videos
+    get 'speakers', to: 'rubyevents#speakers', as: :rubyevents_speakers
+    get 'sponsors', to: 'rubyevents#sponsors', as: :rubyevents_sponsors
+  end
+
   root to: 'home#index'
 
   match '*path.php', via: :all, to: ->(_env) { [301, { 'Location' => 'http://www.youporn.com/' }, ['fuck yourself!']] }

@@ -5,6 +5,7 @@
   status: enabled
   default_locale: de
   country: Deutschland
+  country_code: DE
   recurring: second wednesday
   email: hamburg@onruby.de
   twitter: HamburgOnRuby
@@ -46,6 +47,7 @@
   label_id: saar
   default_locale: de
   country: Deutschland
+  country_code: DE
   recurring: second friday 18:30
   email: rug.saar@gmail.com
   twitter: RUGSaar
@@ -77,6 +79,7 @@
   label_id: karlsruhe
   default_locale: de
   country: Deutschland
+  country_code: DE
   recurring: third wednesday
   email: karlsruherb@googlegroups.com
   twitter: rug_ka
@@ -111,6 +114,7 @@
   status: enabled
   default_locale: en
   country: Deutschland
+  country_code: DE
   recurring: first thursday 19:00
   email: rug-b@googlegroups.com
   twitter: rug_b
@@ -141,6 +145,7 @@
   status: enabled
   default_locale: de
   country: Deutschland
+  country_code: DE
   recurring: third thursday 19:00
   email: leipzigonrails@googlegroups.com
   twitter: LeipzigOnRails
@@ -167,6 +172,7 @@
   label_id: dresden
   default_locale: de
   country: Deutschland
+  country_code: DE
   recurring: first thursday 19:00
   email: admin@ruby-dresden.de
   twitter: ruby_dresden
@@ -199,6 +205,7 @@
   label_id: railsgirlshh
   default_locale: de
   country: Deutschland
+  country_code: DE
   recurring: fourth wednesday 19:30
   email: railsgirlshh@gmail.com
   twitter: railsgirlshh
@@ -258,6 +265,7 @@
   status: enabled
   default_locale: es
   country: Espania
+  country_code: ES
   recurring: last thursday 19:30
   email: hello@madridrb.com
   twitter: madridrb
@@ -316,6 +324,8 @@
   label_id: munich
   default_locale: de
   country: Deutschland
+  country_code: DE
+  default_time_zone: Europe/Berlin
   recurring: second wednesday
   email: Munich-Rubyshift-Ruby-User-Group-list@meetup.com
   twitter: muc_rubyshift
@@ -341,6 +351,8 @@
   status: enabled
   default_locale: es
   country: espania
+  country_code: ES
+  default_time_zone: Europe/Madrid
   recurring: last tuesday 19:30
   email: andaluciarb+noreply@googlegroups.com
   twitter: malagarb
@@ -377,6 +389,8 @@
   default_locale: es
   tld: eu
   country: España
+  country_code: ES
+  default_time_zone: Europe/Madrid
   domains:
   - ruby.barcelona
   recurring: third thursday
@@ -415,6 +429,8 @@
   tld: de
   canonical_url: https://dresdenrb.onruby.de
   country: Deutschland
+  country_code: DE
+  default_time_zone: Europe/Berlin
   domains:
   - dresdenrb.de
   custom_recurring: true
@@ -452,6 +468,8 @@
   tld: ee
   canonical_url: https://tallinn.ruby.ee
   country: Eesti
+  country_code: EE
+  default_time_zone: Europe/Tallinn
   domains:
   - tallinn.ruby.ee
   custom_recurring: last tuesday of the month from 18:00

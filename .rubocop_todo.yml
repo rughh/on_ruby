@@ -47,10 +47,37 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Max: 298
 
+# Configuration parameters: CountComments, CountAsOne.
+Metrics/ClassLength:
+  Max: 150
+
 # Offense count: 14
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
 Metrics/MethodLength:
-  Max: 21
+  Max: 25
+
+# Offense count: 17
+# Configuration parameters: EnforcedStyle, AllowModifiersOnSymbols, AllowModifiersOnAttrs, AllowModifiersOnAliasMethod.
+# Grouped `private`/`protected` predating the switch to EnforcedStyle: inline.
+Style/AccessModifierDeclarations:
+  Exclude:
+    - 'app/controllers/api_controller.rb'
+    - 'app/controllers/application_controller.rb'
+    - 'app/controllers/concerns/locale_detection.rb'
+    - 'app/controllers/concerns/time_zone_detection.rb'
+    - 'app/controllers/concerns/user_handling.rb'
+    - 'app/controllers/concerns/with_email_auth.rb'
+    - 'app/controllers/images_controller.rb'
+    - 'app/controllers/labels_controller.rb'
+    - 'app/controllers/topics_controller.rb'
+    - 'app/controllers/users_controller.rb'
+    - 'app/helpers/application_helper.rb'
+    - 'app/helpers/markdown_helper.rb'
+    - 'app/helpers/title_helper.rb'
+    - 'app/lib/whitelabel_detection_middleware.rb'
+    - 'spec/support/authentication_helper.rb'
+    - 'spec/support/online_helper.rb'
+    - 'spec/system/profile_completion_spec.rb'
 
 # Offense count: 3
 Naming/AccessorMethodName:
@@ -94,6 +121,7 @@ RSpec/DescribedClass:
 # Offense count: 19
 # Configuration parameters: Max.
 RSpec/ExampleLength:
+  Max: 10
   Exclude:
     - 'spec/lib/preview_generator_spec.rb'
     - 'spec/models/event_spec.rb'
