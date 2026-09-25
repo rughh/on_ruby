@@ -18,6 +18,10 @@ class RubyeventsController < ApplicationController
     render yaml: feed.speakers if stale_feed?
   end
 
+  public def sponsors
+    render yaml: feed.sponsors if stale_feed?
+  end
+
   private def feed = @feed ||= Rubyevents::Feed.new(Whitelabel.label)
 
   private def stale_feed? = stale?(last_modified:)

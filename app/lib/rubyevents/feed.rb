@@ -62,6 +62,17 @@ module Rubyevents
       scoped { events.map { |event| edition(event) } }
     end
 
+    # One tier, because a usergroup's sponsors are a flat list. logo_url is
+    # absolute: unlike event assets, rubyevents fetches sponsor logos by URL.
+    public def sponsors
+      scoped do
+        entries = whitelabel.sponsors.to_a.map { |sponsor| sponsor_entry(sponsor) }
+        return [] if entries.empty?
+
+        [{ 'tiers' => [{ 'name' => 'Sponsors', 'level' => 1, 'sponsors' => entries }] }]
+      end
+    end
+
     # rubyevents keeps one global data/speakers.yml, so this is not a drop-in
     # file. It carries the handles their entries need: without them every
     # speaker we introduce arrives anonymous and may collide with an existing
@@ -174,6 +185,24 @@ module Rubyevents
         'linkedin' => linkedin_handle(user),
         'website' => user.url,
       }.compact_blank.merge('github' => user.github.to_s.downcase)
+    end
+
+    private def sponsor_entry(sponsor)
+      {
+        'name' => sponsor[:name],
+        'slug' => sponsor[:name].parameterize,
+        'website' => sponsor[:url],
+        'logo_url' => logo_url(sponsor[:banner]),
+      }.compact_blank
+    end
+
+    private def logo_url(banner)
+      return if banner.blank?
+
+      path = ActionController::Base.helpers.image_path("labels/#{whitelabel.label_id}/sponsors/#{banner}")
+      URI.join(whitelabel.canonical_url, path).to_s
+    rescue StandardError
+      nil
     end
 
     private def linkedin_handle(user) = user.linkedin&.[](LINKEDIN_HANDLE, 1)
