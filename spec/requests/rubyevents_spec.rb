@@ -83,6 +83,18 @@ describe 'RubyEvents feed' do
     expect(response.headers['Last-Modified']).to eq(unchanged)
   end
 
+  it 'serves the speakers as a yaml list with handles' do
+    user = create(:user, name: 'Ada Lovelace', github: 'AdaLovelace')
+    event = create(:event, date: 1.month.ago, user:)
+    create(:topic, event:, user:)
+
+    get '/.well-known/rubyevents/speakers.yml'
+
+    expect(response.media_type).to eq('application/yaml')
+    expect(YAML.safe_load(response.body).first)
+      .to include('name' => 'Ada Lovelace', 'slug' => 'ada-lovelace', 'github' => 'adalovelace')
+  end
+
   it 'does not serve other formats' do
     get '/.well-known/rubyevents/series.json'
 
