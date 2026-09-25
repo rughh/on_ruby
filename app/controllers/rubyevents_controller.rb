@@ -14,6 +14,10 @@ class RubyeventsController < ApplicationController
     render yaml: feed.videos if stale_feed?
   end
 
+  public def speakers
+    render yaml: feed.speakers if stale_feed?
+  end
+
   private def feed = @feed ||= Rubyevents::Feed.new(Whitelabel.label)
 
   private def stale_feed? = stale?(last_modified:)
@@ -26,7 +30,8 @@ class RubyeventsController < ApplicationController
     [
       Event.maximum(:updated_at),
       Topic.where.not(event_id: nil).maximum(:updated_at),
-      Material.maximum(:updated_at)
+      Material.maximum(:updated_at),
+      User.joins(:topics).merge(Topic.where.not(event_id: nil)).maximum('users.updated_at')
     ].compact.max
   end
 end

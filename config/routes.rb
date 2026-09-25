@@ -78,6 +78,7 @@ OnRuby::Application.routes.draw do
     get 'series', to: 'rubyevents#series', as: :rubyevents_series
     get 'event',  to: 'rubyevents#event',  as: :rubyevents_event
     get 'videos', to: 'rubyevents#videos', as: :rubyevents_videos
+    get 'speakers', to: 'rubyevents#speakers', as: :rubyevents_speakers
   end
 
   root to: 'home#index'

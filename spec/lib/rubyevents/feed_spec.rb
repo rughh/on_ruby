@@ -211,4 +211,70 @@ describe Rubyevents::Feed do
       expect(feed.videos.first['talks'].first.keys).not_to include('slides_url')
     end
   end
+
+  describe '#speakers' do
+    let(:user) do
+      create(:user, name: 'Ada Lovelace', github: 'AdaLovelace', twitter: 'ada',
+                    linkedin: 'https://www.linkedin.com/in/ada-lovelace/', url: 'https://ada.example.org')
+    end
+
+    def speak!(speaker = user)
+      event = create(:event, date: 1.month.ago, user: speaker)
+      create(:topic, event:, user: speaker)
+    end
+
+    it 'is empty when nobody has spoken' do
+      expect(feed.speakers).to eq([])
+    end
+
+    it 'names and slugs each speaker' do
+      speak!
+
+      expect(feed.speakers.first).to include('name' => 'Ada Lovelace', 'slug' => 'ada-lovelace')
+    end
+
+    it 'downcases the github handle so it matches existing entries' do
+      speak!
+
+      expect(feed.speakers.first['github']).to eq('adalovelace')
+    end
+
+    it 'always sends a github key, which the schema requires' do
+      speak!(create(:user, name: 'No Handle', github: nil))
+
+      expect(feed.speakers.map { |it| it['name'] }).to include('No Handle')
+      expect(feed.speakers.find { |it| it['name'] == 'No Handle' }).to include('github' => '')
+    end
+
+    it 'reduces a linkedin profile URL to the handle their schema expects' do
+      speak!
+
+      expect(feed.speakers.first['linkedin']).to eq('ada-lovelace')
+    end
+
+    it 'passes a bare linkedin handle through' do
+      speak!(create(:user, name: 'Bare Linked', linkedin: 'barelinked'))
+
+      expect(feed.speakers.find { |it| it['name'] == 'Bare Linked' }['linkedin']).to eq('barelinked')
+    end
+
+    it 'maps the profile url to website and keeps twitter bare' do
+      speak!
+
+      expect(feed.speakers.first).to include('website' => 'https://ada.example.org', 'twitter' => 'ada')
+    end
+
+    it 'lists a speaker once however many talks they gave' do
+      speak!
+      speak!
+
+      expect(feed.speakers.count { |it| it['name'] == 'Ada Lovelace' }).to eq(1)
+    end
+
+    it 'ignores proposals that are not attached to an event' do
+      create(:proposal, user: create(:user, name: 'Only Proposed'))
+
+      expect(feed.speakers.map { |it| it['name'] }).not_to include('Only Proposed')
+    end
+  end
 end
