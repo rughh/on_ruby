@@ -12,6 +12,12 @@ module Rubyevents
     # so normalise them to a plain newline before they reach the document.
     LINE_SEPARATORS = /[\u2028\u2029]/
 
+    # rubyevents re-emits speaker names as plain scalars, and YAML forbids a
+    # plain scalar from opening with an indicator character. Anyone can sign
+    # up with such a display name, so prefer the nickname over the name when
+    # the name would produce a document their own seeder cannot parse.
+    LEADING_INDICATOR = /\A[-?:,\[\]{}#&*!|>'"%@`]+/
+
     # Their SpeakerSchema wants bare handles, but our linkedin column holds a
     # mix of handles and full profile URLs.
     LINKEDIN_HANDLE = %r{(?:^|linkedin\.com/in/)([^/\s]+)/?\z}
@@ -146,16 +152,24 @@ module Rubyevents
 
     private def talk_id(topic, event) = "#{edition_id(event)}-topic-#{topic.id}"
 
-    private def speaker(topic) = topic.user.name
+    private def speaker(topic) = speaker_name(topic.user)
+
+    private def speaker_name(user)
+      [user.name, user.nickname].find { |it| it.present? && !it.match?(LEADING_INDICATOR) } ||
+        user.name.sub(LEADING_INDICATOR, '').presence ||
+        user.nickname.sub(LEADING_INDICATOR, '')
+    end
 
     private def text(value) = value&.gsub(LINE_SEPARATORS, "\n")
 
     private def speaker_profile(user)
       # github is the only required handle, so it survives compaction as an
       # empty string while the optional ones drop out.
+      name = speaker_name(user)
+
       {
-        'name' => user.name,
-        'slug' => user.name.parameterize,
+        'name' => name,
+        'slug' => name.parameterize,
         'twitter' => user.twitter,
         'linkedin' => linkedin_handle(user),
         'website' => user.url,
