@@ -98,7 +98,7 @@ module Rubyevents
 
     private def name = tw('name')
 
-    private def frequency = whitelabel.recurring.present? ? 'monthly' : nil
+    private def frequency = whitelabel.recurring.present? ? 'monthly' : 'irregular'
 
     private def github_url
       return if whitelabel.github_org.blank?
