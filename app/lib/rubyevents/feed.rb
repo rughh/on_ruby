@@ -12,6 +12,10 @@ module Rubyevents
     # so normalise them to a plain newline before they reach the document.
     LINE_SEPARATORS = /[\u2028\u2029]/
 
+    # Their SpeakerSchema wants bare handles, but our linkedin column holds a
+    # mix of handles and full profile URLs.
+    LINKEDIN_HANDLE = %r{(?:^|linkedin\.com/in/)([^/\s]+)/?\z}
+
     def initialize(whitelabel)
       @whitelabel = whitelabel
     end
@@ -50,6 +54,19 @@ module Rubyevents
 
     public def videos
       scoped { events.map { |event| edition(event) } }
+    end
+
+    # rubyevents keeps one global data/speakers.yml, so this is not a drop-in
+    # file. It carries the handles their entries need: without them every
+    # speaker we introduce arrives anonymous and may collide with an existing
+    # profile on slug alone.
+    public def speakers
+      scoped do
+        events.flat_map { |event| event.topics.map(&:user) }
+              .uniq(&:id)
+              .sort_by(&:id)
+              .map { |user| speaker_profile(user) }
+      end
     end
 
     private attr_reader :whitelabel
@@ -132,5 +149,19 @@ module Rubyevents
     private def speaker(topic) = topic.user.name
 
     private def text(value) = value&.gsub(LINE_SEPARATORS, "\n")
+
+    private def speaker_profile(user)
+      # github is the only required handle, so it survives compaction as an
+      # empty string while the optional ones drop out.
+      {
+        'name' => user.name,
+        'slug' => user.name.parameterize,
+        'twitter' => user.twitter,
+        'linkedin' => linkedin_handle(user),
+        'website' => user.url,
+      }.compact_blank.merge('github' => user.github.to_s.downcase)
+    end
+
+    private def linkedin_handle(user) = user.linkedin&.[](LINKEDIN_HANDLE, 1)
   end
 end

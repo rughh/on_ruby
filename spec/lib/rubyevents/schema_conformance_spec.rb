@@ -22,6 +22,28 @@ describe 'rubyevents schema conformance' do
     end
   end
 
+  describe 'the speakers document' do
+    subject(:feed) { Rubyevents::Feed.new(Whitelabel.label) }
+
+    before do
+      user = create(:user, name: 'Ada Lovelace', github: 'AdaLovelace',
+                           linkedin: 'https://www.linkedin.com/in/ada-lovelace/')
+      event = create(:event, date: 1.month.ago, user:)
+      create(:topic, event:, user:)
+      create(:topic, event:, user: create(:user, name: 'No Handle', github: nil, linkedin: nil))
+    end
+
+    it 'has speakers to validate' do
+      expect(feed.speakers.size).to eq(2)
+    end
+
+    it 'validates every speaker against their SpeakerSchema' do
+      schema = schema_for('speaker')
+
+      expect(feed.speakers.flat_map { |it| schema.validate(it).to_a }).to eq([])
+    end
+  end
+
   describe 'the videos document, with editions to serve' do
     subject(:feed) { Rubyevents::Feed.new(Whitelabel.label) }
 

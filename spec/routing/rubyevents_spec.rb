@@ -18,6 +18,11 @@ describe 'rubyevents feed routing' do
       .to route_to(controller: 'rubyevents', action: 'videos', format: 'yml')
   end
 
+  it 'routes speakers.yml' do
+    expect(get: '/.well-known/rubyevents/speakers.yml')
+      .to route_to(controller: 'rubyevents', action: 'speakers', format: 'yml')
+  end
+
   it 'serves yaml for the extensionless path too' do
     expect(get: '/.well-known/rubyevents/series')
       .to route_to(controller: 'rubyevents', action: 'series', format: 'yml')

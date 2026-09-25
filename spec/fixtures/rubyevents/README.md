@@ -8,7 +8,8 @@ Source: https://github.com/rubyevents/rubyevents at commit
 `8312e75e0bad4f3f22f1a04f82ccbadbb3abdc19`.
 
 `videos_schema.json` is a thin array wrapper that `$ref`s `video_schema.json`;
-`video_schema.json` inlines its sub-videos, so these four files are the whole
+`video_schema.json` inlines its sub-videos. `speaker_schema.json` describes a
+single entry of `data/speakers.yml`. Together these five files are the whole
 closure for the documents we serve.
 
 All three set `additionalProperties: false`, so they reject fields we invent
