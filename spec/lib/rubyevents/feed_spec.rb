@@ -189,6 +189,38 @@ describe Rubyevents::Feed do
       )
     end
 
+    # yerba re-emits speaker names as plain scalars, and a plain scalar cannot
+    # begin with a YAML indicator. Anyone can sign up with such a display name,
+    # so the feed has to cope rather than assume clean input.
+    it 'falls back to the nickname when the name opens with a yaml indicator' do
+      speaker = create(:user, name: '@shageman', nickname: 'shageman')
+      event = create_event(date: 1.month.ago)
+      create(:topic, event:, user: speaker)
+
+      expect(feed.videos.first['talks'].first['speakers']).to eq(['shageman'])
+    end
+
+    it 'strips the indicator when the nickname opens with one too' do
+      speaker = create(:user, name: '@odd', nickname: '@odder')
+      event = create_event(date: 1.month.ago)
+      create(:topic, event:, user: speaker)
+
+      expect(feed.videos.first['talks'].first['speakers']).to eq(['odd'])
+    end
+
+    it 'guards every yaml indicator, not only the at sign' do
+      names = ['#hash', '-dash', '[bracket', '&anchor', '*alias', '!bang']
+      names.each_with_index do |name, i|
+        speaker = create(:user, name:, nickname: "nick#{i}")
+        event = create_event(date: (i + 1).months.ago, name: "Meetup #{i}")
+        create(:topic, event:, user: speaker)
+      end
+
+      emitted = feed.videos.flat_map { |e| e['talks'].map { |t| t['speakers'] } }.flatten
+
+      expect(emitted).to match_array(names.each_index.map { |i| "nick#{i}" })
+    end
+
     it 'marks talks of a future edition as scheduled' do
       event = create_event(date: 1.month.from_now)
       create(:topic, event:, user:)
@@ -231,6 +263,16 @@ describe Rubyevents::Feed do
       speak!
 
       expect(feed.speakers.first).to include('name' => 'Ada Lovelace', 'slug' => 'ada-lovelace')
+    end
+
+    it 'uses the same safe name in the profile as in videos, so they link up' do
+      speak!(create(:user, name: '@shageman', nickname: 'shageman', github: 'shageman'))
+
+      profile = feed.speakers.find { |it| it['github'] == 'shageman' }
+
+      expect(profile).to include('name' => 'shageman', 'slug' => 'shageman')
+      expect(feed.videos.flat_map { |e| e['talks'].flat_map { |t| t['speakers'] } })
+        .to include(profile['name'])
     end
 
     it 'downcases the github handle so it matches existing entries' do
