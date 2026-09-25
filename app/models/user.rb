@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class User < ApplicationRecord # rubocop:disable Metrics/ClassLength
+class User < ApplicationRecord
   include Slug
   extend ApiHandling
   slugged_by(:nickname)
