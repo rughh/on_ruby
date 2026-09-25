@@ -16,8 +16,16 @@ describe Rubyevents::Feed do
       expect(feed.series['name']).to eq('Ruby Usergroup Hamburg')
     end
 
-    it 'is always a monthly meetup' do
+    it 'is a monthly meetup when the group has a parseable schedule' do
       expect(feed.series).to include('kind' => 'meetup', 'frequency' => 'monthly')
+    end
+
+    # Their SeriesSchema marks frequency optional, but event_series.frequency is
+    # NOT NULL in their database, so omitting it breaks their seeder.
+    it 'falls back to irregular rather than omitting the frequency' do
+      allow(whitelabel).to receive(:recurring).and_return(nil)
+
+      expect(feed.series['frequency']).to eq('irregular')
     end
 
     it 'maps the locale to an ISO-639 English name' do
