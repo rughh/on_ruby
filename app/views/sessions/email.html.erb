@@ -1,0 +1,12 @@
+<section>
+  <h3><%= t("email_auth.header") %></h3>
+
+  <div class="d-flex justify-content-center">
+    <%= form_tag email_login_path do |form| %>
+      <legend><%= t('email_auth.enter_email') %></legend>
+      <% email = signed_in? ? current_user.email : params[:email] %>
+      <%= email_field_tag :email, email, placeholder: 'me@example.com', required: true %>
+      <%= submit_tag t('email_auth.submit'), class: 'btn-primary' %>
+    <% end %>
+  </div>
+</section>

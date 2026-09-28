@@ -1,0 +1,61 @@
+<% if flash.present? %>
+  <%= hint do %>
+    <% flash.each do |key, value| %>
+      <strong class="<%= key %>"><%= value %></strong>
+    <% end %>
+  <% end %>
+<% else %>
+  <% if highlights.present? %>
+    <div id="highlights">
+      <%= hint do %>
+        <% highlights.each do |highlight| %>
+          <div class="highlights">
+            <strong><%= t("hint.attention") %></strong>
+            <%= link_to highlight.description, highlight.url, title: highlight.description, target: "_blank" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <% if jobs.present? %>
+    <% unless current_user && current_user.hide_jobs? %>
+      <%= hint do %>
+        <div id="job-teaser">
+          <ul>
+            <li>
+              <% if jobs.count > 1 %>
+                <span class="job-toggle"><%= link_to fa_icon("chevron-down"), '#', title: t("hint.click_to_refresh") %></span>
+              <% end %>
+
+              <div class="job ml-4"><%== job_description(jobs.first) %></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hidden" id="job-list">
+          <ul>
+            <% jobs.each_with_index do |job, index| %>
+              <li class="mb-4">
+                <span class="job-toggle"><%= link_to fa_icon("chevron-up"), '#', title: t("hint.click_to_refresh") if index == 0 %></span>
+                <div class="job ml-4"><%== job_description(job) %></div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if current_user&.missing_name? %>
+  <%= hint do %>
+    <div class="highlights">
+      <%= fa_icon("exclamation-triangle") %>
+      <strong><%= t("flash.update_profile_details") %></strong>
+
+      <% unless current_page?(edit_user_path(current_user)) %>
+        <%= link_to t("login.edit_profile"), edit_user_path(current_user) %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,24 @@
+<header class="d-none d-xl-block">
+  <div class="row">
+    <% if header_image_available? %>
+      <div class="col-lg-12">
+        <%= link_to(root_path, title: title) do %>
+          <%= image_tag(header_image_path, title: title, id: :header_image) %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="col-lg-2 text-center">
+        <%= link_to(root_path, title: title) do %>
+          <%= image_tag(label_logo_asset, title: title, id: :logo) %>
+        <% end %>
+      </div>
+
+      <div class="col-lg-10">
+        <%= link_to(root_path, id: :title, title: title) do %>
+          <h1><%= title %></h1>
+          <h2 class="mt-4"><%= subtitle %></h2>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</header>

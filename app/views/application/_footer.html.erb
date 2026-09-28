@@ -1,0 +1,135 @@
+<div class="container">
+  <% if Whitelabel[:sponsors].present? %>
+    <div class="row m-4 hr" id="sponsors">
+      <div class="col-sm-12">
+        <h2><%= I18n.tw("footer.sponsored_by") %></h2>
+      </div>
+
+      <% Whitelabel[:sponsors].each do |sp| %>
+        <div class="col-sm pb-4 sponsors sponsor-<%= sp[:name].downcase %>">
+          <%= link_to sp[:url], title: sp[:name], target: '_blank' do %>
+            <%= image_tag("labels/#{Whitelabel[:label_id]}/sponsors/#{sp[:banner]}", alt: sp[:name]) %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="row m-4 hr">
+    <div class="col-sm mb-2">
+      <h2><%= t("footer.contact") %></h2>
+
+      <ul>
+        <% if Whitelabel[:discord] %>
+          <li>
+            <%= link_to 'Discord', Whitelabel[:discord], target: '_blank', rel: 'noopener' %>
+          </li>
+        <% end %>
+
+        <% if Whitelabel[:bluesky] %>
+          <li>
+            <%= link_to 'Bluesky', "https://bsky.app/profile/#{Whitelabel[:bluesky]}.bsky.social", title: "#{Whitelabel[:bluesky]}", target: '_blank', rel: 'noopener' %>
+          </li>
+        <% end %>
+
+        <li><%= mail_to Whitelabel[:email], 'E-Mail', title: 'E-Mail' %></li>
+        <li><%= link_to 'Status', 'http://status.onruby.eu/' %></li>
+      </ul>
+    </div>
+
+    <div class="col-sm mb-2">
+      <h2><%= t("footer.links") %></h2>
+
+      <ul>
+        <li>
+          <% if Whitelabel[:github_org].present? && Whitelabel[:github_repo].present? %>
+            <%= link_to 'GitHub Organization', github_url, title: 'GitHub Organization' %>
+          <% else %>
+            <%= link_to 'GitHub', 'http://github.com/phoet/on_ruby', title: 'Fork me on GitHub' %>
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to 'Mailinglist', mailing_list_url, title: 'Mailinglist' %>
+        </li>
+
+        <% if Whitelabel[:coc].present? %>
+          <li>
+            <%= link_to 'Code of Conduct', Whitelabel[:coc], title: 'Code of Conduct' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-sm mb-2">
+      <h2><%= t("footer.imprint") %></h2>
+
+      <ul>
+        <li>
+          <%== Whitelabel[:imprint][:contributors].map { |c| mail_to c[:email], c[:name], title: c[:name] }.join(' ') %>
+        </li>
+
+        <% if Whitelabel[:imprint][:address].present? %>
+          <li><%== simple_format Whitelabel[:imprint][:address] %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row m-4 hr">
+    <div class="col-sm mb-4">
+      <%= link_to 'become a Patron', 'https://www.patreon.com/on_ruby', target: '_blank', class: 'btn btn-light' %>
+    </div>
+
+    <div class="col-sm mb-4">
+      <%= link_to 'fork on GitHub', 'https://github.com/phoet/on_ruby', target: '_blank', class: 'btn btn-light' %>
+    </div>
+
+    <div class="col-sm mb-4">
+      <%= link_to 'Señor Developer', 'https://senordevelopershop.spreadshirt.de', target: '_blank', class: 'btn btn-light' %>
+    </div>
+  </div>
+
+  <% if Whitelabel[:other_usergroups].present? %>
+    <div class="row m-4 usergroups hr">
+      <div class="col-sm mb-2">
+        <h2><%= I18n.tw("footer.other_usergroups") %></h2>
+
+        <ol>
+          <% Whitelabel[:other_usergroups].each do |ug| %>
+            <li>
+              <%= link_to ug[:name], ug[:url], title: ug[:name] %>
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row m-4 railsgroups hr">
+    <div class="col-sm mb-2">
+      <h2><%= t("footer.ruby_usergroups") %></h2>
+
+      <ol class="clearfix">
+        <% Whitelabel.labels.each do |label| %>
+          <% if label.enabled? %>
+            <li>
+              <% name = t("label.#{label.label_id}.name") %>
+              <%= link_to name, label_url(label), title: name %>
+            </li>
+          <% end %>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row m-4 railssupporters">
+    <div class="col-sm mb-2">
+      <h2><%= t("footer.ruby_supporters") %></h2>
+
+      <ol class="clearfix">
+        <li><%= link_to "Ruby Berlin e.V.", "http://rubyberlin.org/" %></li>
+      </ol>
+    </div>
+  </div>
+</div>

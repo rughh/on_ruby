@@ -3,7 +3,7 @@
 class LocationsController < ApplicationController
   expose(:location, find: ->(id, scope) { scope.from_slug(id) })
   expose(:locations)  { Location.ordered }
-  expose(:organizers) { User.organizers }
+  expose(:organizers) { User.organizers.with_counts }
   expose(:stats)      { Event.stats }
 
   def index; end

@@ -1,0 +1,11 @@
+<%= section_box :locations do %>
+  <p><%= map(locations, { zoom: zoom }) %></p>
+  <% options = { location_link: link_to(t("main.locations"), locations_path, title: t("main.locations")) } %>
+
+  <p><%== I18n.tw("home.usergroup_locations", options) %></p>
+  <p><%== I18n.tw("home.company_workers") %></p>
+
+  <p>
+    <%== I18n.tw("home.company_missing", email_link: mail_to(Whitelabel[:email], "E-Mail", title: "E-Mail")) %>.
+  </p>
+<% end %>

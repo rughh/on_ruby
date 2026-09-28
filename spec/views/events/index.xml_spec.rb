@@ -5,7 +5,7 @@ describe 'events/index' do
 
   it 'renders successfully' do
     allow(view).to receive_messages(events:)
-    render
+    render template: 'events/index', formats: [:xml]
 
     expect(rendered).to include(events.first.name)
   end

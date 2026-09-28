@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <%= render 'application/meta' %>
+    <%= browser_icon %>
+    <%= touch_icon %>
+    <%= stylesheet_link_tag :application, "//fonts.googleapis.com/css?family=Raleway" %>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="main">
+        <%= yield %>
+      </div>
+
+      <div class="row m-4 hr" id="sponsors">
+        <div class="col-sm-12">
+          <h2><%= t("footer.sponsored_by") %></h2>
+
+          <div class="col-sm pb-4 sponsors sponsor-appsignal">
+            <%= link_to 'https://appsignal.com', title: 'AppSignal', target: '_blank' do %>
+              <%= image_tag("labels/hamburg/sponsors/appsignal.png", alt: 'AppSignal', width: 250) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

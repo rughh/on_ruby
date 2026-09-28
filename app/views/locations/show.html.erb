@@ -1,0 +1,63 @@
+<div class="card">
+  <div class="card-header">
+    <% unless location.virtual? %>
+      <span class="badge badge-card-header mr-2">
+        <%= fa_icon('map-marker', text: link_to(location.address, '#route', title: location.address)) %>
+      </span>
+    <% end %>
+
+    <span class="badge badge-card-header mr-2">
+      <%= fa_icon('bookmark', text: link_to(location.nice_url, location.url, title: location.name)) %>
+    </span>
+
+    <% if location.virtual? %>
+      <small class="text-muted"><%= t("location.virtual_location") %></small>
+    <% else %>
+      <span class="badge badge-card-header mr-2">
+        <%= fa_icon('external-link', text: link_to_external_route(location)) %>
+      </span>
+    <% end %>
+  </div>
+
+  <div class="card-body">
+    <h2 class="card-title">
+      <%= location.name %>
+    </h2>
+
+    <% unless location.virtual? %>
+      <h3>
+        <%= t("show.route") %>
+
+        <% if location.wheelmap_id? %>
+          <div class="pull-right">
+            <%= wheelmap_badge location %>
+          </div>
+        <% end %>
+      </h3>
+
+      <div id="route"><%= single_map(location) %></div>
+    <% end %>
+
+    <% if location.jobs.present? %>
+      <h3 class="card-title"><%= t("location.job_offers") %></h3>
+      <ul class="list-group">
+        <% location.jobs.each do |job| %>
+          <li class="list-group-item">
+            <%= link_to_job(job) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if location.events.present? %>
+      <h3 class="card-title"><%= t("profile.organized_events") %></h3>
+      <ul class="list-group">
+        <% location.events.each do |event| %>
+          <li class="list-group-item">
+            <%= link_to_event(event) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

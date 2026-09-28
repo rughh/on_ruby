@@ -1,0 +1,6 @@
+<%= section_box :topics do %>
+  <p class="info"><%== t("topic.markdown") %></p>
+  <p><%= render 'form', topic: topic %></p>
+
+  <%= render 'undone', topics: undone_topics %>
+<% end %>

@@ -1,19 +1,19 @@
 <%#
-# Show
+  # Show
 
-This view is the template for the show page.
-It renders the attributes of a resource,
-as well as a link to its edit page.
+  This view is the template for the show page.
+  It renders the attributes of a resource,
+  as well as a link to its edit page.
 
-## Local variables:
+  ## Local variables:
 
-- `page`:
+  - `page`:
   An instance of [Administrate::Page::Show][1].
   Contains methods for accessing the resource to be displayed on the page,
   as well as helpers for describing how each attribute of the resource
   should be displayed.
 
-[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Show
+  [1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Show
 %>
 
 <% content_for(:title) { t("administrate.actions.show_resource", name: page.page_title) } %>
@@ -33,6 +33,7 @@ as well as a link to its edit page.
 </header>
 
 <% undone = Topic.ordered.undone %>
+
 <% if undone.present? %>
   <header class="main-content__header" role="banner">
     <div>
@@ -47,6 +48,7 @@ as well as a link to its edit page.
     </div>
   </header>
 <% end %>
+
 <header class="main-content__header" role="banner">
   <div>
     <% if page.resource.github_issue? %>
@@ -68,18 +70,19 @@ as well as a link to its edit page.
 </header>
 
 <section class="main-content__body">
-  <dl>    
+  <dl>
     <% page.attributes.each do |_title, attributes| %>
       <% attributes.each do |attribute| %>
         <dt class="attribute-label" id="<%= attribute&.name %>">
-        <%= t(
+          <%= t(
           "helpers.label.#{resource_name}.#{attribute&.name}",
           default: attribute.name.titleize,
         ) %>
         </dt>
 
-        <dd class="attribute-data attribute-data--<%=attribute.html_class%>"
-            ><%= render_field attribute, page: page %></dd>
+        <dd class="attribute-data attribute-data--<%= attribute.html_class %>">
+          <%= render_field attribute, page: page %>
+        </dd>
       <% end %>
     <% end %>
   </dl>

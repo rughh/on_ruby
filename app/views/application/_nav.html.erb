@@ -1,0 +1,136 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" id="nav">
+  <div class="label navbar-brand">
+    <%= link_to(root_path(anchor: :on_ruby), class: 'navbar-brand ps-4') do %>
+      <%= image_tag(label_logo_asset, title: title, class: "d-inline-block align-bottom label") %>
+
+      <div class="d-none d-sm-inline d-md-inline d-lg-none">
+        <%= I18n.tw('name') %>
+      </div>
+    <% end %>
+  </div>
+
+  <button
+    class="navbar-toggler border-0"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <%= fa_icon('bars', class: 'fa-fw') %>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto justify-content-center flex-fill">
+      <% [:events, :topics, :people, :locations].each do |section| %>
+        <li class="nav-item ms-4">
+          <%= link_to(root_path(anchor: section), class: 'nav-link') do %>
+            <%= fa_icon(fa_icon_map[section], class: 'fa-fw', text: t("main.#{section}")) %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item dropdown pe-4">
+        <% if signed_in? %>
+          <a
+            class="nav-link btn btn-light dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <%= user_image(current_user) %>
+            <%= t('login.profile') %>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="loginDropdown"
+          >
+            <li>
+              <%= link_to(user_path(current_user), class: 'dropdown-item') do %>
+                <%= fa_icon('eye', class: 'fa-fw', text: t("login.show_profile")) %>
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to(edit_user_path(current_user), class: 'dropdown-item') do %>
+                <%= fa_icon('edit', class: 'fa-fw', text: t("login.edit_profile")) %>
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to(destroy_session_path(current_user), class: 'dropdown-item') do %>
+                <%= fa_icon('times', class: 'fa-fw', text: t("login.logout")) %>
+              <% end %>
+            </li>
+
+            <% if current_user.admin? %>
+              <li>
+                <%= link_to('/admin', class: 'dropdown-item') do %>
+                  <%= fa_icon('lock', class: 'fa-fw', text: 'Community-Admin') %>
+                <% end %>
+              </li>
+            <% end %>
+
+            <% if current_user.super_admin? %>
+              <li>
+                <%= link_to('/super_admin', class: 'dropdown-item') do %>
+                  <%= fa_icon('lock', class: 'fa-fw', text: 'Super-Admin') %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        <% else %>
+          <a
+            class="btn btn-primary dropdown-toggle"
+            href="#"
+            id="loginDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <%= t('login.login') %>
+          </a>
+          <div
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="loginDropdown"
+          >
+            <% login_providers.each do |provider| %>
+              <%= button_to(label_auth_url(provider), class: 'dropdown-item') do %>
+                <%= fa_icon(icon_for_provider(provider), class: 'fa-fw', text: t("login.#{provider}_login")) %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </li>
+
+      <li class="nav-item dropdown pe-4">
+        <a
+          class="nav-link btn btn-light dropdown-toggle"
+          href="#"
+          id="localeDropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <%= t("languages.#{I18n.locale}") %>
+        </a>
+
+        <div
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="localeDropdown"
+        >
+          <% I18n.available_locales.each do |locale| %>
+            <% title = t("languages.#{locale}") %>
+            <%= link_to(title, url_for(locale: locale), title: t("switch_languages", language: title), lang: locale, class: "dropdown-item #{'active' if locale == I18n.locale}") %>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

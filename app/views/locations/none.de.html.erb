@@ -1,0 +1,45 @@
+<section>
+  <h2>Es wird noch eine Location gesucht!</h2>
+
+  <h3>Wie kann man helfen?</h3>
+
+  <p>
+    Usergroups suchen immer nach einem zu Hause für ihre Treffen. Wenn du oder
+    deine Firma ein Treffen ausrichten möchtest, dann
+    <%= mail_to Whitelabel[:email], "schicke uns einfach eine E-Mail", title: "E-Mail" %>
+    oder wende dich an unsere Ansprechpartner:
+  </p>
+
+  <%= render 'users/list', users: organizers %>
+
+  <h3>Wie viele Plätze werden gebraucht?</h3>
+
+  <p>
+    Bei den letzten Treffen haben sich im
+    <em>Durchschnitt <%= stats[:participants] %> Teilnehmer</em> angemeldet und
+    es wurden ungefähr
+    <em><%= stats[:topics] %> bis <%= stats[:topics] + 1 %> Themen</em>
+    vorgestellt. Die Tatsächliche Anzahl der Teilnehmer kann allerdings stark
+    abweichen, deshalb am besten immer Rücksprache mit den Organisatoren halten.
+  </p>
+
+  <p>
+    Es ist auch möglich die Anzahl der Teilnehmer zu begrenzen!
+  </p>
+
+  <h3>Was sollte der Gastgeber stellen?</h3>
+
+  <p>
+    Neben den Räumlichkeiten sollten folgende Dinge noch vom Gastgeber gestellt
+    werden:
+    <ul class="enumeration">
+      <li>alkoholfreie Getränke</li>
+      <li>Beamer und Adapter</li>
+      <li>Bier (optional)</li>
+      <li>Snacks/Pizza (optional)</li>
+    </ul>
+    Keine Sorge, bei Problemen einfach die Organisatoren anschreiben.
+  </p>
+
+  <h2>Danke für deine Hilfe!</h2>
+</section>

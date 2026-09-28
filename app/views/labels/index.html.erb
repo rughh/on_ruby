@@ -1,0 +1,31 @@
+<section class="mt-4">
+  <h1><%= title %></h1>
+</section>
+
+<% Whitelabel.labels.select(&:enabled?).in_groups_of(3).each do |labels| %>
+  <div class="card-deck mb-4">
+    <% labels.compact.each do |label| %>
+      <% name = t("label.#{label.label_id}.name") %>
+      <% title = t("label.#{label.label_id}.title") %>
+      <% subtitle = t("label.#{label.label_id}.subtitle") %>
+
+      <div class="card">
+        <div class="text-center">
+          <span class="image"><%= image_tag(label_logo_asset(label.label_id), alt: name, style: "max-height:100px;padding-top:10px") %></span>
+
+          <div class="card-body">
+            <h5 class="card-title"><%= title %></h5>
+
+            <p class="card-text">
+              <small><%= subtitle %></small>
+            </p>
+
+            <%= link_to(label_url(label), title: name, class: "btn btn-primary", target: '_blank') do %>
+              <%= fa_icon('external-link', text: name) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

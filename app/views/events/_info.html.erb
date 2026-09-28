@@ -1,0 +1,38 @@
+<div class="d-flex card-title">
+  <div class="flex-fill">
+    <h2><%= link_to_event(event) %></h2>
+
+    <% event_date = ", #{l(event.date, format: :long)}" %>
+
+    <small class="text-muted">
+      <%= t("show.hosted_by") %>
+
+      <% if event.location.present? %>
+        <%= link_to_user(event.user) %> <%= t('show.at') %> <%= link_to_location(event.location) %><%= event_date %>
+      <% else %>
+        <%= link_to_user(event.user) %><%= event_date %>
+      <% end %>
+    </small>
+  </div>
+
+  <div>
+    <%= participation_link(event, link_class: 'btn btn-primary btn-block') %>
+    <%= remote_url_link(event, link_class: 'btn btn-primary btn-block') %>
+  </div>
+</div>
+
+<div class="card-text">
+  <%== markdown(event.description) %>
+</div>
+
+<% if event.attendee_information? %>
+  <% if signed_in? %>
+    <div class="card-text">
+      <%== markdown(event.attendee_information) %>
+    </div>
+  <% else %>
+    <div class="card-text">
+      <mark><%= t('show.attend_to_view_attendees_information') %></mark>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,8 @@
+<div class="banner"><%= wheelmap_badge location %></div>
+
+<h3 id="route">
+  <%= t("show.route") %>
+</h3>
+
+<%= single_map(location) %>
+<%= link_to_external_route(location) %>

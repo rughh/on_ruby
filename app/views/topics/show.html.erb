@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="card-header">
+    <%== t("topic.proposal_type_descriptions.#{topic.proposal_type}", user: link_to_user(topic.user, image: true)) %>
+  </div>
+
+  <div class="card-body">
+    <h2 class="card-title"><%= topic.name %></h2>
+    <p class="card-text"><%== markdown(topic.description) %></p>
+  </div>
+
+  <div class="card-body">
+    <%= like_link(topic) %>
+  </div>
+
+  <div class="card-body row">
+    <% if topic.materials.present? %>
+      <div class="col-sm">
+        <h3 class="card-title"><%= t("main.materials") %></h3>
+
+        <ul class="list-group list-group-flush">
+          <% topic.materials.each do |material| %>
+            <li class="list-group-item">
+              <%= link_to_material(material) %>
+              <%== " (#{link_to_user(material.user)})" if material.user %>
+              <%= material_preview(material) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <% if topic.likes.present? %>
+      <div class="col-sm">
+        <h3 class="card-title">
+          <%= t('topic.likes', count: topic.likes.size) %>
+        </h3>
+
+        <ul class="list-group list-group-flush">
+          <% topic.likes.each do |like| %>
+            <li class="list-group-item">
+              <%= fa_icon('thumbs-o-up', class: 'pull-left', text: link_to_user(like.user)) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+
+  <% if topic.event.present? %>
+    <div class="card-footer">
+      <%== t("topic.hosted_by", host: link_to_user(topic.event.user), event: link_to(topic.event.name, topic.event)) %>
+    </div>
+  <% end %>
+</div>

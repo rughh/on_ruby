@@ -1,0 +1,28 @@
+<%= section_box :events do %>
+  <% events.each do |event| %>
+    <p>
+      <strong><%= link_to_event event %></strong>
+      <%= " (#{l(event.date, format: :date)})" %>
+    </p>
+
+    <ul class="more-list undone clearfix">
+      <% event.topics.each do |topic| %>
+        <li class="topic"><%= link_to_topic topic %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= paginate events %>
+
+  <p class="meta">
+    <% if signed_in? %>
+      <span class="pull-right">
+        <%= t('events.im_attending_html', events_im_attending_link: events_im_attending_link) %>
+      </span>
+    <% end %>
+
+    <%= t 'events.calendar_html',
+          webcal_link: all_events_webcal_link,
+          rss_link:    all_events_rss_link %>
+  </p>
+<% end %>

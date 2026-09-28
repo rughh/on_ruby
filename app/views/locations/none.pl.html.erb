@@ -1,0 +1,45 @@
+<section>
+  <h2>Wciąż szukamy miejsca, gdzie moglibyśmy zorganizować nasze spotkanie!</h2>
+
+  <h3>Jak możesz pomóc?</h3>
+
+  <p>
+    Zawsze szukamy nowych miejsc na nasze spotkania Jeśli chesz by takie
+    wydarzenie odbyło się w siedzibie Twojej firmy
+    <%= mail_to Whitelabel[:email], "napisz nam maila", title: "E-Mail" %> lub
+    bezpośrednio do jednego z organizatorów:
+  </p>
+
+  <%= render 'users/list', users: organizers %>
+
+  <h3>Ile miejsca potrzebujemy?</h3>
+
+  <p>
+    Średnio na nasze spotkania zapisuje się
+    <em><%= stats[:participants] %> osób</em> i odbywają się
+    <em><%= stats[:topics] %> do <%= stats[:topics] + 1 %> prezentacji</em> Te
+    liczby to oczywiście tylko przybliżenia. Koniecznie skontaktuj się z jednym
+    z organizatorów przed przygotowaniem miejsca.
+  </p>
+
+  <p>
+    Jeśli nie masz wystarczającej ilości miejs, możliwe jest również
+    ograniczenie liczby uczestników.
+  </p>
+
+  <h3>Co potrzebujemy by spotkanie się odbyło?</h3>
+
+  <p>
+    Miejsca, oczywiście. Ale oprócz tego:
+    <ul class="enumeration">
+      <li>napojów bezalkoholowych</li>
+      <li>rzutnika i przejściówek</li>
+      <li>piwa (opcjonalnie)</li>
+      <li>przekąsek/pizzy (opcjonalnie)</li>
+    </ul>
+    Oczywiście nie zniechęcaj się tymi wymaganiami - zadowolimy się również
+    wymaganym minimum!
+  </p>
+
+  <h2>Dziekujemy za chęć pomocy!</h2>
+</section>

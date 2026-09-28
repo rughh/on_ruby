@@ -1,0 +1,13 @@
+<% if topics.present? %>
+  <div id="upcoming">
+    <h3><%= t('home.upcoming_topics') %></h3>
+
+    <ul class="more-list clearfix">
+      <% topics.each do |topic| %>
+        <li class="topic">
+          <%= link_to_topic topic %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
