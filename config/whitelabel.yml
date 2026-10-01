@@ -14,6 +14,8 @@
   github_org: rughh
   github_repo: planning
   github_issue_template: 'meetup.md'
+  rubyevents_series_id: rughh
+  rubyevents_event_id: rughh
   organizers:
   - lindtdev
   - janz93
@@ -261,6 +263,7 @@
   google_group: rails-girls-hamburg
 - !ruby/object:Usergroup
   label_id: madridrb
+  rubyevents_series_id: madrid-rb
   canonical_url: https://www.madridrb.com
   status: enabled
   default_locale: es
@@ -382,6 +385,7 @@
   google_group: andaluciarb
 - !ruby/object:Usergroup
   label_id: dresdenrb
+  rubyevents_series_id: dresden-rb
   status: enabled
   default_locale: de
   tld: de

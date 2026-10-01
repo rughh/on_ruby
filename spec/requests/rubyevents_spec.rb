@@ -10,13 +10,13 @@ describe 'RubyEvents feed' do
 
     expect(response).to be_ok
     expect(response.media_type).to eq('application/yaml')
-    expect(YAML.safe_load(response.body)).to include('id' => 'hamburg', 'kind' => 'meetup')
+    expect(YAML.safe_load(response.body)).to include('id' => 'rughh', 'kind' => 'meetup')
   end
 
   it 'serves the event as yaml' do
     get '/.well-known/rubyevents/event.yml'
 
-    expect(YAML.safe_load(response.body)).to include('id' => 'hamburg-meetup')
+    expect(YAML.safe_load(response.body)).to include('id' => 'rughh')
   end
 
   it 'scopes the feed to the requested usergroup' do

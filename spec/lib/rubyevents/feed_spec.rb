@@ -8,8 +8,8 @@ describe Rubyevents::Feed do
   let(:whitelabel) { Whitelabel.find_label('hamburg') }
 
   describe '#series' do
-    it 'identifies the series by its dasherised label' do
-      expect(feed.series['id']).to eq('hamburg')
+    it 'identifies the series by the id rubyevents already knows it by' do
+      expect(feed.series['id']).to eq('rughh')
     end
 
     it 'names the series in English' do
@@ -60,9 +60,32 @@ describe Rubyevents::Feed do
     end
   end
 
+  # rubyevents already lists these usergroups, and upserts on the id. Publishing
+  # anything else creates a second series rather than updating theirs, so these
+  # ids are theirs to dictate, not ours.
+  describe 'the ids rubyevents already stores' do
+    {
+      'hamburg' => %w[rughh rughh],
+      'dresdenrb' => %w[dresden-rb dresden-rb-meetup],
+      'madridrb' => %w[madrid-rb madrid-rb-meetup],
+    }.each do |label_id, (series, event)|
+      it "publishes #{series} for #{label_id}" do
+        feed = described_class.new(Whitelabel.find_label(label_id))
+
+        expect([feed.series['id'], feed.event['id']]).to eq([series, event])
+      end
+    end
+  end
+
   describe '#event' do
-    it 'derives its id from the series' do
-      expect(feed.event['id']).to eq('hamburg-meetup')
+    it 'identifies the event by the id rubyevents already knows it by' do
+      expect(feed.event['id']).to eq('rughh')
+    end
+
+    it 'derives its id from the series when the group has no rubyevents event id' do
+      tallinn = described_class.new(Whitelabel.find_label('tallinn_rug'))
+
+      expect(tallinn.event['id']).to eq('tallinn-rug-meetup')
     end
 
     it 'is an ongoing meetup with no dates' do
@@ -130,8 +153,8 @@ describe Rubyevents::Feed do
       event = create_event(date: 1.month.ago)
 
       expect(feed.videos.first).to include(
-        'id' => "hamburg-event-#{event.id}",
-        'video_id' => "hamburg-event-#{event.id}"
+        'id' => "rughh-event-#{event.id}",
+        'video_id' => "rughh-event-#{event.id}"
       )
     end
 
@@ -189,7 +212,7 @@ describe Rubyevents::Feed do
       topic = create(:topic, event:, user:, name: 'Kafka at scale')
 
       expect(feed.videos.first['talks'].first).to include(
-        'id' => "hamburg-event-#{event.id}-topic-#{topic.id}",
+        'id' => "rughh-event-#{event.id}-topic-#{topic.id}",
         'title' => 'Kafka at scale',
         'speakers' => ['Ada Lovelace'],
         'event_name' => 'September Meetup',

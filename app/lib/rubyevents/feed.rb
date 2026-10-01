@@ -92,7 +92,10 @@ module Rubyevents
     # current thread, so pin it to ours for the duration of the lookup.
     private def scoped(&) = Whitelabel.with_label(whitelabel, &)
 
-    private def series_id = whitelabel.label_id.dasherize
+    # rubyevents keys its data directory and its upsert on these ids, so a
+    # usergroup they already list has to keep publishing the id they gave it,
+    # whatever our label happens to be called.
+    private def series_id = whitelabel.rubyevents_series_id.presence || whitelabel.label_id.dasherize
 
     private def tw(token) = I18n.tw(token, locale: :en)
 
@@ -106,7 +109,10 @@ module Rubyevents
       "https://github.com/#{whitelabel.github_org}"
     end
 
-    private def event_id = "#{series_id}-meetup"
+    # Their schema defines this as matching the event folder name, and every one
+    # of their event.yml files does. So it is really the folder they keep our
+    # data in -- data/rughh/rughh, not the -meetup most of the others use.
+    private def event_id = whitelabel.rubyevents_event_id.presence || "#{series_id}-meetup"
 
     private def location = "#{tw('city')}, #{COUNTRIES.fetch(whitelabel.country_code)}"
 
