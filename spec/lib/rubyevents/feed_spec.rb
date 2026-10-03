@@ -224,11 +224,11 @@ describe Rubyevents::Feed do
     # begin with a YAML indicator. Anyone can sign up with such a display name,
     # so the feed has to cope rather than assume clean input.
     it 'falls back to the nickname when the name opens with a yaml indicator' do
-      speaker = create(:user, name: '@shageman', nickname: 'shageman')
+      speaker = create(:user, name: '@tinker', nickname: 'tinker')
       event = create_event(date: 1.month.ago)
       create(:topic, event:, user: speaker)
 
-      expect(feed.videos.first['talks'].first['speakers']).to eq(['shageman'])
+      expect(feed.videos.first['talks'].first['speakers']).to eq(['tinker'])
     end
 
     it 'strips the indicator when the nickname opens with one too' do
@@ -275,6 +275,28 @@ describe Rubyevents::Feed do
     end
   end
 
+  # Umlauts expand: "ü" -> "ue", rather than folding to a bare vowel.
+  describe 'speaker slugs' do
+    def speak!(name)
+      speaker = create(:user, name:, github: name.parameterize)
+      event = create(:event, date: 1.month.ago, user: speaker)
+      create(:topic, event:, user: speaker)
+    end
+
+    {
+      'Jörg Müller' => 'joerg-mueller',
+      'Käthe Groß' => 'kaethe-gross',
+      'Ida Weiß' => 'ida-weiss',
+      'Ömer Übel' => 'oemer-uebel',
+    }.each do |name, slug|
+      it "slugs #{name} as #{slug}" do
+        speak!(name)
+
+        expect(feed.speakers.first['slug']).to eq(slug)
+      end
+    end
+  end
+
   describe '#speakers' do
     let(:user) do
       create(:user, name: 'Ada Lovelace', github: 'AdaLovelace', twitter: 'ada',
@@ -297,11 +319,11 @@ describe Rubyevents::Feed do
     end
 
     it 'uses the same safe name in the profile as in videos, so they link up' do
-      speak!(create(:user, name: '@shageman', nickname: 'shageman', github: 'shageman'))
+      speak!(create(:user, name: '@tinker', nickname: 'tinker', github: 'tinker'))
 
-      profile = feed.speakers.find { |it| it['github'] == 'shageman' }
+      profile = feed.speakers.find { |it| it['github'] == 'tinker' }
 
-      expect(profile).to include('name' => 'shageman', 'slug' => 'shageman')
+      expect(profile).to include('name' => 'tinker', 'slug' => 'tinker')
       expect(feed.videos.flat_map { |e| e['talks'].flat_map { |t| t['speakers'] } })
         .to include(profile['name'])
     end

@@ -35,6 +35,8 @@ module OnRuby
     config.i18n.fallbacks = [I18n.default_locale]
     config.i18n.available_locales = %i[de en es pl]
     config.i18n.enforce_available_locales = true
+    # Transliteration only, so slugs expand umlauts: "ü" -> "ue", not "u".
+    config.rails_i18n.enabled_modules = [:transliteration]
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = 'utf-8'
