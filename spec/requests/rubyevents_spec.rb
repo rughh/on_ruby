@@ -24,7 +24,7 @@ describe 'RubyEvents feed' do
 
     get '/.well-known/rubyevents/series.yml'
 
-    expect(YAML.safe_load(response.body)['id']).to eq('berlin')
+    expect(YAML.safe_load(response.body)['id']).to eq('rug-b')
   end
 
   it 'sends Last-Modified so a fetcher can revalidate' do

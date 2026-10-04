@@ -112,6 +112,8 @@
   google_group: karlsruherb
 - !ruby/object:Usergroup
   label_id: berlin
+  rubyevents_series_id: rug-b
+  rubyevents_event_id: rug-b
   canonical_url: https://www.rug-b.de
   status: enabled
   default_locale: en

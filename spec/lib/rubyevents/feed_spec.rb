@@ -68,6 +68,7 @@ describe Rubyevents::Feed do
       'hamburg' => %w[rughh rughh],
       'dresdenrb' => %w[dresden-rb dresden-rb-meetup],
       'madridrb' => %w[madrid-rb madrid-rb-meetup],
+      'berlin' => %w[rug-b rug-b],
     }.each do |label_id, (series, event)|
       it "publishes #{series} for #{label_id}" do
         feed = described_class.new(Whitelabel.find_label(label_id))
