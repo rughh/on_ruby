@@ -98,7 +98,6 @@
   "addons": [
     "sendgrid",
     "heroku-postgresql",
-    "memcachier",
     "papertrail",
     "scheduler"
   ],

@@ -21,7 +21,6 @@ gem 'omniauth-google-oauth2', '>= 1.2.2'
 gem 'pg', '1.4.6'
 gem 'public_suffix'
 gem 'puma'
-gem 'rack-cache'
 gem 'rails-i18n'
 gem 'redcarpet'
 gem 'icalendar'
@@ -40,7 +39,6 @@ gem 'selectize-rails'
 gem 'terser'
 
 group :production do
-  gem 'dalli'
   gem 'lograge'
 end
 
