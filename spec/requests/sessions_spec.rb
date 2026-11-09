@@ -77,14 +77,14 @@ describe 'Sessions', type: :request do
       expect { post '/sessions/email_login' }
         .not_to have_enqueued_job(ActionMailer::MailDeliveryJob)
 
-      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(:unprocessable_content)
     end
 
     it 'does not send an email for a malformed address' do
       expect { post '/sessions/email_login', params: { email: 'user@org' } }
         .not_to have_enqueued_job(ActionMailer::MailDeliveryJob)
 
-      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(:unprocessable_content)
     end
   end
 end
