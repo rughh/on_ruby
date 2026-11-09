@@ -63,6 +63,19 @@ describe 'Admin: event management', type: :request do
     end
   end
 
+  describe 'POST /admin/events/:id/connect' do
+    it 'assigns the proposal to the event and signs its speaker up', :aggregate_failures do
+      event = create(:event)
+      proposal = create(:proposal)
+
+      post connect_admin_event_path(event), params: { topic_id: proposal.id }
+
+      expect(proposal.reload.event).to eq(event)
+      expect(event.users).to include(proposal.user)
+      expect(response).to redirect_to(admin_event_path(event))
+    end
+  end
+
   describe 'DELETE /admin/events/:id' do
     it 'deletes the event' do
       event = create(:event)

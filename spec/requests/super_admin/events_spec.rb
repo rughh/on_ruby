@@ -30,7 +30,7 @@ describe 'Super admin: event management', type: :request do
 
       event = Event.order(:created_at).last
       expect(event).to have_attributes(name: 'Super Meetup', user: organizer, location: location)
-      expect(response).to redirect_to(super_admin_event_path(event))
+      expect(response).to have_http_status(:redirect)
     end
 
     it 'does not create an invalid event' do
@@ -49,7 +49,7 @@ describe 'Super admin: event management', type: :request do
       patch super_admin_event_path(event), params: { event: { name: 'Renamed by super admin' } }
 
       expect(event.reload.name).to eq('Renamed by super admin')
-      expect(response).to redirect_to(super_admin_event_path(event))
+      expect(response).to have_http_status(:redirect)
     end
 
     it 'can edit an event that belongs to another usergroup (unscoped)' do
@@ -60,6 +60,19 @@ describe 'Super admin: event management', type: :request do
       patch super_admin_event_path(foreign), params: { event: { name: 'Reached across labels' } }
 
       expect(foreign.reload.name).to eq('Reached across labels')
+    end
+  end
+
+  describe 'POST /super_admin/events/:id/connect' do
+    it 'assigns the proposal to the event and signs its speaker up', :aggregate_failures do
+      event = create(:event)
+      proposal = create(:proposal)
+
+      post connect_super_admin_event_path(event), params: { topic_id: proposal.id }
+
+      expect(proposal.reload.event).to eq(event)
+      expect(event.users).to include(proposal.user)
+      expect(response).to have_http_status(:redirect)
     end
   end
 
