@@ -59,15 +59,6 @@ Rails.application.configure do
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 
-  # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
-  # config.cache_store = :dalli_store, ENV['MEMCACHIER_SERVERS'], { username: ENV['MEMCACHIER_USERNAME'], password: ENV['MEMCACHIER_PASSWORD'] }
-
-  config.action_dispatch.rack_cache = {
-    metastore: Dalli::Client.new(ENV['MEMCACHIER_SERVERS'], username: ENV['MEMCACHIER_USERNAME'], password: ENV['MEMCACHIER_PASSWORD'], expires_in: 1.day),
-    entitystore: Dalli::Client.new(ENV['MEMCACHIER_SERVERS'], username: ENV['MEMCACHIER_USERNAME'], password: ENV['MEMCACHIER_PASSWORD'], expires_in: 1.day),
-  }
-
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "on_ruby_production"
