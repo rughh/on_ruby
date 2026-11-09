@@ -19,7 +19,7 @@ module WithEmailAuth
     else
       flash.now[:alert] = t('email_auth.invalid_email')
 
-      render :email, status: :unprocessable_entity
+      render :email, status: :unprocessable_content
     end
   end
 

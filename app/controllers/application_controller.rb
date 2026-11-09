@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   end
 
   def _422
-    head(:unprocessable_entity)
+    head(:unprocessable_content)
   end
 
   def _404(exception)
