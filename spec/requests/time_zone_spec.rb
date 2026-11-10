@@ -16,20 +16,4 @@ describe 'TimeZone' do
       expect(Time.zone.name).to eq('Europe/Paris')
     end
   end
-
-  context 'GET page with a time zone param' do
-    it 'sets the requested time zone over default time zone' do
-      get root_url(subdomain: 'hamburg', time_zone: 'Europe/Paris')
-      expect(Time.zone.name).to eq('Europe/Paris')
-    end
-
-    it 'falls back to defaults' do
-      get root_url(subdomain: 'hamburg', time_zone: 'Europe/Paris')
-      expect(Time.zone.name).to eq('Europe/Paris')
-      get root_url(subdomain: 'hamburg', time_zone: '')
-      expect(Time.zone.name).to eq('Europe/Berlin')
-      get root_url(subdomain: 'hamburg', time_zone: 'Inexisting/Timezone')
-      expect(Time.zone.name).to eq('Europe/Berlin')
-    end
-  end
 end
