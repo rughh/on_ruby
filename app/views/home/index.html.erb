@@ -1,5 +1,7 @@
-<%= render 'featured', current_event: current_event %>
-<%= render 'events', events: events, current_event: current_event %>
-<%= render 'topics', undone_topics: undone_topics, done_topics: done_topics, upcoming_topics: upcoming_topics, organizers: organizers %>
-<%= render 'people', people: people %>
-<%= render 'locations', locations: locations %>
+<% cache_if !signed_in?, ['home', Whitelabel[:label_id], I18n.locale], expires_in: 5.minutes do %>
+  <%= render 'featured', current_event: current_event %>
+  <%= render 'events', events: events, current_event: current_event %>
+  <%= render 'topics', undone_topics: undone_topics, done_topics: done_topics, upcoming_topics: upcoming_topics, organizers: organizers %>
+  <%= render 'people', people: people %>
+  <%= render 'locations', locations: locations %>
+<% end %>
