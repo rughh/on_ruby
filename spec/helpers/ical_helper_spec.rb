@@ -11,6 +11,14 @@ describe IcalHelper do
     end
   end
 
+  it 'references the json-ld representation as structured data (RFC 9073)' do
+    ical = helper.icalendar(event).to_s.gsub("\r\n ", '')
+
+    expect(ical).to include(
+      'STRUCTURED-DATA;FMTTYPE=application/ld+json;SCHEMA="https://schema.org/Event";VALUE=URI:http://test.host/events/awesome-ottawa-123.jsonld'
+    )
+  end
+
   it 'handles events with no location' do
     event.location = nil
     helper.icalendar(event).to_s.tap do |it|
