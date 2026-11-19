@@ -7,3 +7,5 @@ ActionController::Renderers.add :yaml do |object, _options|
   self.content_type = 'application/yaml' if media_type.nil?
   object.to_yaml
 end
+
+Mime::Type.register 'application/ld+json', :jsonld

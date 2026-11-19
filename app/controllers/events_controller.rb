@@ -2,6 +2,7 @@
 
 class EventsController < ApplicationController
   include IcalHelper
+  include JsonLdHelper
 
   expose(:events) { Event.ordered.page(params[:page]) }
   expose(:event)  { Event.includes(materials: :user, topics: :user, participants: :user).from_param(params[:id]) }
@@ -12,6 +13,7 @@ class EventsController < ApplicationController
       format.xml  { render layout: false }
       format.json { render json: events.as_api_response(:ios_v1) }
       format.ics  { render plain: icalendar(*events) }
+      format.jsonld { render json: json_ld_event_list(events) }
     end
   end
 
@@ -23,6 +25,9 @@ class EventsController < ApplicationController
       end
       format.ics do
         render plain: icalendar(event)
+      end
+      format.jsonld do
+        render json: json_ld_event(event)
       end
     end
   end

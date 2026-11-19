@@ -72,6 +72,13 @@ describe 'Users', type: :request do
 
       expect(response.body).to match(/BEGIN:VCALENDAR/)
     end
+
+    it 'renders a json-ld feed' do
+      get calendar_user_path(create(:participant_user), format: :jsonld)
+
+      expect(response.media_type).to eql('application/ld+json')
+      expect(JSON.parse(response.body)).to include('@type' => 'ItemList', 'numberOfItems' => 1)
+    end
   end
 
   describe 'PATCH /users/:id' do

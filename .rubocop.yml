@@ -20,6 +20,9 @@ AllCops:
 Bundler/OrderedGems:
   Enabled: false
 
+RSpec/ExampleLength:
+  CountAsOne: ["array", "hash", "heredoc"]
+
 RSpec/MultipleExpectations:
   Exclude:
     - "spec/system/**/*"

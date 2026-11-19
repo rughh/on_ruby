@@ -24,6 +24,19 @@ describe 'Events', type: :request do
       expect(response.headers['Content-Type']).to eql('application/xml; charset=utf-8')
       expect(response.body).to match(/rss/)
     end
+
+    it 'renders json-ld' do
+      get events_path(format: :jsonld)
+
+      expect(response.headers['Content-Type']).to eql('application/ld+json; charset=utf-8')
+      expect(JSON.parse(response.body)).to include('@type' => 'ItemList', 'numberOfItems' => 1)
+    end
+
+    it 'negotiates json-ld via the accept header' do
+      get events_path, headers: { 'Accept' => 'application/ld+json' }
+
+      expect(response.media_type).to eql('application/ld+json')
+    end
   end
 
   describe 'GET /events/:id' do
@@ -41,6 +54,16 @@ describe 'Events', type: :request do
 
       expect(response.headers['Content-Type']).to eql('text/calendar; charset=utf-8')
       expect(response.body).to match('VCALENDAR')
+    end
+
+    it 'renders json-ld' do
+      get event_path(event, format: :jsonld)
+
+      expect(response.headers['Content-Type']).to eql('application/ld+json; charset=utf-8')
+      json = JSON.parse(response.body)
+      expect(json).to include('@context' => 'https://schema.org', '@type' => 'Event', 'name' => event.name)
+      expect(json['subEvent'].size).to eq(1)
+      expect(json['subjectOf'].size).to eq(1)
     end
 
     it 'renders the full json representation' do
