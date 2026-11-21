@@ -40,6 +40,42 @@ describe JsonLdHelper do
       )
     end
 
+    it 'uses the usergroup logo as image' do
+      expect(json['image']).to match(%r{\Ahttp://test\.host/assets/.+\.png\z})
+    end
+
+    it 'offers free entry' do
+      expect(json['offers']).to eq(
+        '@type' => 'Offer',
+        'price' => 0,
+        'priceCurrency' => 'EUR',
+        'availability' => 'https://schema.org/InStock',
+        'url' => 'http://test.host/events/awesome-ottawa-123'
+      )
+    end
+
+    it 'marks a full event as sold out' do
+      allow(event).to receive(:closed?).and_return(true)
+
+      expect(json['offers']['availability']).to eq('https://schema.org/SoldOut')
+    end
+
+    it 'renders the markdown description as plain text' do
+      event.description = "Talks about **Ruby** and [Rails](https://rubyonrails.org) <b>tonight</b>\n\n* one\n* two"
+
+      expect(json['description']).to eq("Talks about Ruby and Rails (https://rubyonrails.org) tonight\none\ntwo")
+    end
+
+    it 'lists each speaker once as performer' do
+      user = build(:user, id: 5, nickname: 'phoet', name: 'Peter')
+      event.topics << build(:topic, id: 9, name: 'Ruby rocks', user:, event:)
+      event.topics << build(:topic, id: 10, name: 'Ruby rolls', user:, event:)
+
+      expect(json['performer']).to eq(
+        [{ '@type' => 'Person', '@id' => 'http://test.host/users/phoet-5', 'name' => 'Peter', 'url' => 'http://test.host/users/phoet-5' }]
+      )
+    end
+
     it 'names the usergroup as organizer' do
       expect(json['organizer']).to eq('@type' => 'Organization', 'name' => I18n.tw('name'), 'url' => 'http://test.host/')
     end
@@ -75,8 +111,10 @@ describe JsonLdHelper do
           '@id' => 'http://test.host/topics/ruby-rocks-9',
           'url' => 'http://test.host/topics/ruby-rocks-9',
           'name' => 'Ruby rocks',
-          'description' => event.topics.first.description,
+          'description' => helper.markdown_to_text(event.topics.first.description),
           'startDate' => '2011-11-11T18:00:00+01:00',
+          'endDate' => '2011-11-11T20:00:00+01:00',
+          'location' => json['location'],
           'performer' => { '@type' => 'Person', '@id' => 'http://test.host/users/phoet-5', 'name' => 'Peter', 'url' => 'http://test.host/users/phoet-5' },
         }]
       )
