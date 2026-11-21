@@ -3,6 +3,8 @@
 # Renders events as schema.org JSON-LD (https://schema.org/Event).
 module JsonLdHelper
   CONTEXT = 'https://schema.org'
+  # Every usergroup so far is in the eurozone (DE, ES, EE).
+  CURRENCY = 'EUR'
 
   def json_ld_event_list(events)
     {
@@ -26,7 +28,8 @@ module JsonLdHelper
       '@id' => event_url(event),
       'url' => event_url(event),
       'name' => event.name,
-      'description' => event.description,
+      'description' => markdown_to_text(event.description),
+      'image' => image_url(label_logo_asset),
       'startDate' => event.date.iso8601,
       'endDate' => event.end_date.iso8601,
       'eventStatus' => "#{CONTEXT}/EventScheduled",
@@ -34,7 +37,9 @@ module JsonLdHelper
       'isAccessibleForFree' => true,
       'maximumAttendeeCapacity' => event.limit,
       'location' => json_ld_locations(event),
+      'offers' => json_ld_offer(event),
       'organizer' => json_ld_organizer,
+      'performer' => event.topics.filter_map(&:user).uniq.map { |user| json_ld_person(user) },
       'subEvent' => event.topics.map { |topic| json_ld_topic(topic, event) },
       'subjectOf' => event.materials.map { |material| json_ld_material(material) },
     }.compact_blank
@@ -83,6 +88,17 @@ module JsonLdHelper
     { '@type' => 'GeoCoordinates', 'latitude' => location.lat, 'longitude' => location.long }
   end
 
+  # Meetups are free; Google still expects an offer to show ticket information.
+  private def json_ld_offer(event)
+    {
+      '@type' => 'Offer',
+      'price' => 0,
+      'priceCurrency' => CURRENCY,
+      'availability' => "#{CONTEXT}/#{event.closed? ? 'SoldOut' : 'InStock'}",
+      'url' => event_url(event),
+    }
+  end
+
   private def json_ld_organizer
     { '@type' => 'Organization', 'name' => I18n.tw('name'), 'url' => root_url }
   end
@@ -93,8 +109,10 @@ module JsonLdHelper
       '@id' => topic_url(topic),
       'url' => topic_url(topic),
       'name' => topic.name,
-      'description' => topic.description,
+      'description' => markdown_to_text(topic.description),
       'startDate' => event.date.iso8601,
+      'endDate' => event.end_date.iso8601,
+      'location' => json_ld_locations(event),
       'performer' => json_ld_person(topic.user),
     }.compact_blank
   end

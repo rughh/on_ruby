@@ -20,6 +20,9 @@ AllCops:
 Bundler/OrderedGems:
   Enabled: false
 
+Metrics/ModuleLength:
+  CountAsOne: ["array", "hash", "heredoc"]
+
 RSpec/ExampleLength:
   CountAsOne: ["array", "hash", "heredoc"]
 
