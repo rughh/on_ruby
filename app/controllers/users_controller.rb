@@ -2,7 +2,6 @@
 
 class UsersController < ApplicationController
   include IcalHelper
-  include JsonLdHelper
   before_action :authenticate_current_user!, only: %i[edit update]
 
   expose(:user, find: ->(id, scope) { scope.from_slug(id) })
@@ -28,7 +27,7 @@ class UsersController < ApplicationController
         render plain: icalendar(*user.participations)
       end
       format.jsonld do
-        render json: json_ld_event_list(user.participations)
+        render json: helpers.json_ld_event_list(user.participations)
       end
     end
   end
