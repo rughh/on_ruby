@@ -121,6 +121,18 @@ describe JsonLdHelper do
     end
   end
 
+  describe '#json_ld_event_script_tag' do
+    it 'embeds the event so that descriptions cannot close the script tag' do
+      event.description = '</script><script>alert(1)</script>'
+
+      html = helper.json_ld_event_script_tag(event)
+
+      expect(html).to start_with('<script type="application/ld+json">')
+      expect(html.scan('</script>').size).to eq(1)
+      expect(JSON.parse(Nokogiri::HTML.fragment(html).at('script').text)).to include('@type' => 'Event', 'name' => 'awesome ottawa')
+    end
+  end
+
   describe '#json_ld_event_list' do
     it 'wraps events in an item list' do
       json = helper.json_ld_event_list([event])
