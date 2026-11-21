@@ -22,6 +22,11 @@ module JsonLdHelper
     { '@context' => CONTEXT }.merge(json_ld_event_node(event))
   end
 
+  # Embeds the event for search engines. to_json escapes <, > and &, so descriptions can't close the script tag.
+  def json_ld_event_script_tag(event)
+    tag.script(json_ld_event(event).to_json.html_safe, type: 'application/ld+json') # rubocop:disable Rails/OutputSafety
+  end
+
   private def json_ld_event_node(event)
     {
       '@type' => 'Event',

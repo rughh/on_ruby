@@ -49,6 +49,13 @@ describe 'Events', type: :request do
       expect(response.body).to include(event.name)
     end
 
+    it 'embeds json-ld in the page head' do
+      get event_path(event)
+
+      script = Nokogiri::HTML(response.body).at('head script[type="application/ld+json"]')
+      expect(JSON.parse(script.text)).to include('@type' => 'Event', 'name' => event.name)
+    end
+
     it 'renders ical' do
       get event_path(event, format: :ics)
 
